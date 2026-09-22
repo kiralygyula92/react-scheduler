@@ -1,25 +1,11 @@
 /**
- * Headless entry (`@react-schedulerkit/react-scheduler/core`): framework-agnostic pure functions and
- * types, with no React and no DOM access (Feature Dossier 04 §8), and the framework-agnostic
- * controller `createScheduler` (docs pack 09 §4.3 level 6).
+ * Core entry (`@react-schedulerkit/react-scheduler/core`): framework-agnostic pure functions and
+ * types, with no React and no DOM access (Feature Dossier 04 §8). The controller `createScheduler`
+ * is in `/headless`.
  *
  * @packageDocumentation
  */
 export { bucketItems } from './core/bucketing';
-export { createScheduler } from './core/controller';
-export type {
-  NavPosition,
-  OverflowSort,
-  ResolvedFlags,
-  SchedulerController,
-  SchedulerEvents,
-  SchedulerFlags,
-  SchedulerModel,
-  SchedulerOptions,
-  SchedulerStoreState,
-  SchedulerViewModel,
-  ScrollFacts,
-} from './core/controller';
 export { createFormatters } from './core/format';
 export type { FormatterOptions, SchedulerFormatters } from './core/format';
 export { computeTimelineLayout } from './core/layout';
