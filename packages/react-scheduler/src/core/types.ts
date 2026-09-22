@@ -183,3 +183,10 @@ export interface TimelineLayoutOptions<TItem> {
   defaultDuration: number;
   compareItems?: (a: TItem, b: TItem) => number;
 }
+
+/** Why the header-expanded value changed (Feature Dossier 04 §5.5). */
+export type HeaderReason = 'scroll' | 'resize' | 'empty' | 'viewEnter' | 'dataChange';
+/** What activated an item (Feature Dossier 04 §5.6). */
+export type ActivationSource = 'listCard' | 'timelineCard' | 'pinnedChip' | 'overflowRow' | 'api';
+/** Why a detail view or the overflow dialog closed (Feature Dossier 04 §5.6). */
+export type CloseReason = 'escape' | 'backdrop' | 'closeButton' | 'itemRemoved' | 'api';
