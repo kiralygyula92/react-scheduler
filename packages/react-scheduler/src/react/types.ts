@@ -149,10 +149,13 @@ export type SlotProps<P extends SchedulerPart, TItem> = BaseSlotProps<TItem> &
 
 export type SchedulerSlots<TItem> = { [P in SchedulerPart]: ComponentType<SlotProps<P, TItem>> };
 
+/** What `slotProps` may set on a part: its attributes, and a ref that is composed with the library's. */
+type PartOverrides<P extends SchedulerPart, TItem> = Partial<
+  Omit<SlotProps<P, TItem>, 'ownerState' | 'Default' | 'ref'> & { ref: Ref<HTMLElement> }
+>;
+
 export type SchedulerSlotProps<TItem> = {
-  [P in SchedulerPart]:
-    | Partial<Omit<SlotProps<P, TItem>, 'ownerState' | 'Default'>>
-    | ((ownerState: OwnerState<TItem>) => Partial<Omit<SlotProps<P, TItem>, 'ownerState' | 'Default'>>);
+  [P in SchedulerPart]: PartOverrides<P, TItem> | ((ownerState: OwnerState<TItem>) => PartOverrides<P, TItem>);
 };
 
 // ---------------------------------------------------------------------------- render props
@@ -305,7 +308,8 @@ export interface SchedulerHandle<TItem> {
 }
 
 export type ElementProps<E extends HTMLElement = HTMLElement> = HTMLAttributes<E> & {
-  ref: Ref<E>;
+  /** A callback ref, so the props spread onto any element. */
+  ref: (node: HTMLElement | null) => void;
   'data-rs-part': string;
 };
 

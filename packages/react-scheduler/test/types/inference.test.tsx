@@ -1,3 +1,4 @@
+import type { ComponentProps, RefObject } from 'react';
 import { describe, expectTypeOf, it } from 'vitest';
 import {
   type ItemOf,
@@ -67,5 +68,14 @@ describe('type inference', () => {
       .toEqualTypeOf<SchedulerProps<Task>>();
     expectTypeOf<SlotProps<'navButton', Task>['navState']['label']>().toEqualTypeOf<string>();
     expectTypeOf<SchedulerProps['items']>().toEqualTypeOf<readonly SchedulerItem[] | undefined>();
+  });
+
+  it('lets prop getters spread onto any element and slotProps take element refs', () => {
+    type Getters = ReturnType<typeof useScheduler<Task>>;
+    expectTypeOf<ReturnType<Getters['getScrollerProps']>>().toExtend<ComponentProps<'div'>>();
+    expectTypeOf<ReturnType<Getters['getSectionProps']>>().toExtend<ComponentProps<'section'>>();
+    expectTypeOf<{ ref: RefObject<HTMLDivElement | null> }>().toExtend<
+      NonNullable<SchedulerProps<Task>['slotProps']>['scroller']
+    >();
   });
 });

@@ -142,10 +142,10 @@ export function usePinOnPass(options: {
   enabled?: boolean;
 }): {
   pinnedKeys: readonly string[];
-  register(key: string, ids: readonly string[]): (node: HTMLElement | null) => void;
-  refresh(options?: { force?: boolean }): void;
-  pause(): void;
-  resume(): void;
+  register: (key: string, ids: readonly string[]) => (node: HTMLElement | null) => void;
+  refresh: (options?: { force?: boolean }) => void;
+  pause: () => void;
+  resume: () => void;
 } {
   const { scrollRef, epsilon, hysteresis, resetKey, enabled = true } = options;
   const getLine = useRef(options.getLine);
@@ -215,10 +215,10 @@ export function useShiftNavigation(options: {
   onSettle?: () => void;
   onDone?: () => void;
 }): {
-  scrollTo(
+  scrollTo: (
     target: number,
     options?: { smooth?: boolean; extraOffset?: number; align?: 'start' | 'nearBottom'; time?: number },
-  ): void;
+  ) => void;
 } {
   const latest = useRef(options);
   useEffect(() => {

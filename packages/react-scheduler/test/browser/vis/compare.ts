@@ -10,7 +10,8 @@
 // - `position: relative` with zero offsets and `static`; offsets of static elements;
 // - `min-width` / `min-height` of `auto` and `0px`; percentage min/max widths (the box is compared);
 // - alignment on elements that are not flex or grid containers;
-// - horizontal geometry (right, translate X) of parts whose width follows their text;
+// - horizontal geometry of parts whose width follows their text: of `left` and `right`, only the
+//   anchored side must match (the other follows the text); translate X is not compared;
 // - pixel sizes within 0.5 px.
 
 export type Measured = Record<string, string | number | boolean>;
@@ -168,7 +169,8 @@ export function compareElement(
     if ((property === 'alignItems' || property === 'justifyContent') && !flexOrGrid) continue;
     if (property === 'position' && value === 'relative' && staticLike) continue;
     if (['top', 'right', 'bottom', 'left'].includes(property) && staticLike) continue;
-    if (property === 'right' && !options.sizes.includes('width')) continue;
+    // A part whose width follows its text: the side offsets are checked together below.
+    if ((property === 'left' || property === 'right') && !options.sizes.includes('width') && !staticLike) continue;
     const want = expected(property, value);
     let actual = normalise(property, computed(style, property));
     if (property === 'transform' && !options.sizes.includes('width')) {
@@ -178,6 +180,26 @@ export function compareElement(
       actual = `${actual} (translate Y ${y(actual)} vs ${y(want)})`;
     }
     if (!equivalent(property, want, actual)) differences.push({ key, property, expected: want, actual });
+  }
+  // Such a part is anchored on one side and the other follows its text width, which the font
+  // rasteriser decides: the side that was measured closest must match.
+  if (!options.sizes.includes('width') && !staticLike) {
+    const offsets = (['left', 'right'] as const)
+      .filter((side) => measured[side] !== undefined && !skip.has(side))
+      .map((side) => {
+        const delta = Math.abs(Number.parseFloat(computed(style, side)) - Number.parseFloat(String(measured[side])));
+        return { side, delta: Number.isFinite(delta) ? delta : Number.POSITIVE_INFINITY };
+      });
+    if (offsets.length > 0 && Math.min(...offsets.map((offset) => offset.delta)) > tolerance) {
+      for (const { side } of offsets) {
+        differences.push({
+          key,
+          property: side,
+          expected: normalise(side, String(measured[side])),
+          actual: normalise(side, computed(style, side)),
+        });
+      }
+    }
   }
   return differences;
 }

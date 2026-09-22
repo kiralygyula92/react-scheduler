@@ -1,9 +1,15 @@
 // @vitest-environment jsdom
 import { act, fireEvent, type RenderResult, screen } from '@testing-library/react';
-import type { ReactElement } from 'react';
+import { createRef, type ReactElement, Suspense } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import {
+  DefaultItemDetail,
+  defaultOverflowColumns,
   ListView,
+  OverflowDialog,
+  OverflowTable,
+  Pagination,
+  type SchedulerHandle,
   type SchedulerPart,
   type SchedulerProps,
   type SchedulerSlots,
@@ -239,5 +245,37 @@ describe('slotProps, classNames and styles (06 §1.1)', () => {
     expect(root.dataset['rsDensity']).toBe('dense');
     expect(root.dataset['rsPreset']).toBe('default');
     expect(root.dataset['rsScheme']).toBe('light');
+  });
+});
+
+describe('composition', () => {
+  it('composes a consumer ref from slotProps with the library ref', () => {
+    const ref = createRef<HTMLElement>();
+    const handle = createRef<SchedulerHandle<ParityItem>>();
+    const { container } = renderUi(<ListView {...base} ref={handle} slotProps={{ scroller: { ref } }} />);
+    settle();
+    expect(ref.current).toBe(part(container, 'scroller'));
+    expect(handle.current?.getScrollElement()).toBe(ref.current);
+  });
+
+  it('renders the lazily loaded parts inside a scheduler (05 F-30)', async () => {
+    renderUi(
+      <ListView
+        {...base}
+        renderItemDetail={({ item }) => (
+          <Suspense fallback={null}>
+            <DefaultItemDetail item={item} />
+            <OverflowTable items={[item]} columns={defaultOverflowColumns} />
+            <Pagination page={0} pages={2} />
+            <OverflowDialog group={{ id: 'custom', anchor: 0, items: [item] }} />
+          </Suspense>
+        )}
+      />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Server room alert' }));
+    await flushLazy();
+    expect(screen.getByRole('dialog', { name: 'Server room alert' })).toBeTruthy();
+    expect(screen.getAllByRole('table')).toHaveLength(2);
+    expect(screen.getAllByRole('navigation').length).toBeGreaterThan(0);
   });
 });
