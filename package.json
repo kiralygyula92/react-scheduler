@@ -1,0 +1,42 @@
+{
+  "name": "react-scheduler-workspace",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./packages/**\" --filter docs --if-present dev",
+    "build": "pnpm --filter @react-schedulerkit/react-scheduler build && pnpm --filter docs --if-present api && pnpm --filter docs --if-present build",
+    "lint": "eslint . && stylelint \"**/*.css\" --allow-empty-input && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "tsc -p tsconfig.json && pnpm -r --if-present typecheck",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "e2e": "playwright test",
+    "e2e:smoke": "playwright test --grep @smoke",
+    "check:zero-reference": "node scripts/check-zero-reference.ts",
+    "check:licenses": "node scripts/check-licenses.ts",
+    "check:keys": "node scripts/check-unresolved-keys.ts",
+    "check:scenarios": "node scripts/check-scenario-coverage.ts",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@changesets/cli": "3.0.3",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.63.0",
+    "@types/node": "^24.13.6",
+    "@vitest/coverage-v8": "5.0.1",
+    "eslint": "10.11.0",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "^17.12.0",
+    "prettier": "3.9.8",
+    "stylelint": "17.15.0",
+    "stylelint-config-standard": "40.0.0",
+    "typescript": "7.0.2",
+    "typescript-eslint": "8.70.1",
+    "vitest": "5.0.1"
+  }
+}

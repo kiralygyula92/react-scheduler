@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.react-router/
+*.tsbuildinfo
+*.tgz
+
+# Generated API data (docs pack 05 §2)
+apps/docs/src/content/api/
+
+# Test output
+coverage/
+test-results/
+playwright-report/
+blob-report/
+
+# Local settings and logs
+.claude/settings.local.json
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
