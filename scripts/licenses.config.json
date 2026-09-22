@@ -1,0 +1,21 @@
+{
+  "$comment": "Licence policy: docs pack 09 §3.2 allowlist; development-only exceptions per package, recorded in docs/adr/0001-toolchain.md. Status: proposed at the M0 checkpoint, pending approval.",
+  "allowed": ["MIT", "ISC", "BSD-2-Clause", "BSD-3-Clause", "0BSD", "Apache-2.0", "CC0-1.0", "Unlicense"],
+  "allowedPeers": ["react", "react-dom"],
+  "devExceptions": [
+    { "package": "@csstools/*", "license": "MIT-0", "via": "stylelint" },
+    { "package": "argparse", "license": "Python-2.0", "via": "stylelint > cosmiconfig > js-yaml" },
+    {
+      "package": "caniuse-lite",
+      "license": "CC-BY-4.0",
+      "via": "eslint-plugin-react-hooks > @babel/core > browserslist"
+    },
+    { "package": "lightningcss*", "license": "MPL-2.0", "via": "vitest > vite" },
+    {
+      "package": "lru-cache",
+      "license": "BlueOak-1.0.0",
+      "via": "tsdown, @arethetypeswrong/cli > @arethetypeswrong/core"
+    },
+    { "package": "minimatch", "license": "BlueOak-1.0.0", "via": "eslint > @eslint/config-array" }
+  ]
+}
