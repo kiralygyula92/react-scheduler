@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import { act, fireEvent, screen, within } from '@testing-library/react';
-import { createRef } from 'react';
+import { createRef, type ReactElement } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { ListView, Scheduler, type SchedulerHandle, TimelineView } from '../../src/index';
+import { ListView, Scheduler, type SchedulerHandle, type SchedulerProps, TimelineView } from '../../src/index';
 import { computeTimelineLayout } from '../../src/core/layout';
 import type { TimelineLayout, TimelineLayoutOptions } from '../../src/core/types';
 import { fixture, type ParityItem, parityLayoutOptions } from '../parity/adapter';
@@ -520,5 +520,145 @@ describe('ordering (F-02)', () => {
     settle();
     const chips = titles(part(container, 'pinnedStrip'), 'pinnedChip');
     expect(chips).toEqual(['Network follow-up', 'Backup verification']);
+  });
+});
+
+describe('middleware cancels every interaction (F-22)', () => {
+  // Each interaction twice: a middleware that does not call next() cancels the default and its
+  // callbacks; one that does lets both run (the control).
+  const cases = [
+    ['cancelled', false],
+    ['passed on', true],
+  ] as const;
+  const middleware =
+    (runs: boolean) =>
+    (_ctx: unknown, next: () => void): void => {
+      if (runs) next();
+    };
+
+  it.each(cases)('onOverflowSort, onOverflowPage and onOverflowClose (%s)', async (_name, runs) => {
+    const onOverflowSortChange = vi.fn();
+    const onOverflowPageChange = vi.fn();
+    const onOpenOverflowIdChange = vi.fn();
+    renderUi(
+      <TimelineView
+        {...base}
+        overflowPageSize={1}
+        handlers={{
+          onOverflowSort: middleware(runs),
+          onOverflowPage: middleware(runs),
+          onOverflowClose: middleware(runs),
+        }}
+        onOverflowSortChange={onOverflowSortChange}
+        onOverflowPageChange={onOverflowPageChange}
+        onOpenOverflowIdChange={onOpenOverflowIdChange}
+      />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /more items from/ }));
+    await flushLazy();
+    onOpenOverflowIdChange.mockClear();
+    const dialog = screen.getByRole('dialog');
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Severity' }));
+    expect(onOverflowSortChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Next' }));
+    expect(onOverflowPageChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    fireEvent.click(within(dialog).getAllByRole('button', { name: 'Close' }).at(-1) as HTMLElement);
+    expect(onOpenOverflowIdChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    expect(screen.queryByRole('dialog') !== null).toBe(!runs);
+  });
+
+  it.each(cases)('onDetailClose (%s)', async (_name, runs) => {
+    const onOpenItemIdChange = vi.fn();
+    renderUi(
+      <ListView {...base} handlers={{ onDetailClose: middleware(runs) }} onOpenItemIdChange={onOpenItemIdChange} />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Delivery delay' }));
+    await flushLazy();
+    onOpenItemIdChange.mockClear();
+    fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Close' }));
+    expect(onOpenItemIdChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    expect(screen.queryByRole('dialog') !== null).toBe(!runs);
+  });
+
+  it.each(cases)('onPin (%s)', (_name, runs) => {
+    const onPinnedChange = vi.fn();
+    const { container } = renderUi(
+      <TimelineView {...base} handlers={{ onPin: middleware(runs) }} onPinnedChange={onPinnedChange} />,
+    );
+    injectTimelineLayout(container, 800);
+    settle();
+    pinTimeline(container, ['Backup verification']);
+    settle();
+    expect(parts(container, 'pinnedChip')).toHaveLength(runs ? 1 : 0);
+    expect(onPinnedChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+  });
+
+  it.each(cases)('onHeaderSignal (%s)', (_name, runs) => {
+    const onHeaderExpandedChange = vi.fn();
+    const { container } = renderUi(
+      <ListView
+        {...base}
+        compact
+        handlers={{ onHeaderSignal: middleware(runs) }}
+        onHeaderExpandedChange={onHeaderExpandedChange}
+      />,
+    );
+    const scroller = injectListLayout(container, listLayout);
+    settle();
+    onHeaderExpandedChange.mockClear();
+    scrollTo(scroller, 2000);
+    expect(onHeaderExpandedChange.mock.calls.length > 0).toBe(runs);
+  });
+});
+
+describe('feature flags remove listeners and computations (F-24)', () => {
+  it('enablePinning false creates no pin observers', () => {
+    for (const view of ['list', 'timeline'] as const) {
+      const props = { ...base, enablePinning: false };
+      const { container, unmount } = renderUi(view === 'list' ? <ListView {...props} /> : <TimelineView {...props} />);
+      if (view === 'list') injectListLayout(container, listLayout);
+      else injectTimelineLayout(container, 800);
+      settle();
+      expect(FakeIntersectionObserver.active(), view).toHaveLength(0);
+      unmount();
+    }
+  });
+
+  it('enableNowIndicator false stops the internal clock', () => {
+    const clocked = renderUi(<ListView items={baseline.items} date={baseline.date} />);
+    act(() => {
+      vi.advanceTimersByTime(2_000);
+    });
+    expect(vi.getTimerCount()).toBe(1);
+    clocked.unmount();
+    renderUi(<ListView items={baseline.items} date={baseline.date} enableNowIndicator={false} />);
+    act(() => {
+      vi.advanceTimersByTime(2_000);
+    });
+    expect(vi.getTimerCount()).toBe(0);
+  });
+});
+
+describe('data modes (F-31)', () => {
+  it('reports the rendered range on mount and whenever it changes, not on other renders', () => {
+    const ranges: string[] = [];
+    const onVisibleRangeChange = ({ start, end }: { start: Date; end: Date }): number =>
+      ranges.push(`${start.toISOString()}…${end.toISOString()}`);
+    const view = (props: Partial<SchedulerProps<ParityItem>>): ReactElement => (
+      <ListView {...base} onVisibleRangeChange={onVisibleRangeChange} {...props} />
+    );
+    const { rerender } = renderUi(view({}));
+    expect(ranges).toHaveLength(1);
+    act(() => rerender(view({ loading: true })));
+    act(() => rerender(view({ now: '2031-03-12T11:00:00' })));
+    expect(ranges).toHaveLength(1);
+    act(() => rerender(view({ date: '2031-03-13T10:30:00' })));
+    expect(ranges).toHaveLength(2);
+    act(() => rerender(view({ date: '2031-03-13T10:30:00', shifts: { before: 2 } })));
+    expect(ranges).toHaveLength(3);
+    // Each range spans the rendered shifts: one earlier, the current and one later by default.
+    const [first] = ranges;
+    const [start, end] = (first ?? '').split('…').map((iso) => Date.parse(iso));
+    expect(((end ?? 0) - (start ?? 0)) / 3_600_000).toBe(36);
   });
 });

@@ -90,6 +90,9 @@ importers:
       axe-core:
         specifier: 4.13.0
         version: 4.13.0
+      dom-accessibility-api:
+        specifier: 0.7.1
+        version: 0.7.1
       fast-check:
         specifier: 4.10.2
         version: 4.10.2
@@ -1476,6 +1479,9 @@ packages:
 
   dom-accessibility-api@0.5.16:
     resolution: {integrity: sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==}
+
+  dom-accessibility-api@0.7.1:
+    resolution: {integrity: sha512-vdnCeZD+3wZ+8h8xXL/ZtBlvvoobOFyPzSiIfO6sGOZDqjFx4aLMAjZhl4rawj5xYz3UwP6Tgvyh0iH4IOCVnQ==}
 
   dts-resolver@3.0.0:
     resolution: {integrity: sha512-1T1f+z+4tl9XD+m+0HBgWoL/nm0bOIffyWaUuUSBlFg/86IWvfx+wjNaO/ybU0AJzG9/Mi5hBUgGV6zCmWEN7Q==}
@@ -4342,6 +4348,8 @@ snapshots:
       esutils: 2.0.3
 
   dom-accessibility-api@0.5.16: {}
+
+  dom-accessibility-api@0.7.1: {}
 
   dts-resolver@3.0.0: {}
 
