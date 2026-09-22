@@ -2,9 +2,12 @@
 // Shift model (Feature Dossier 05 F-01). Boundaries are wall-clock times repeated every day, so a
 // window's duration is the real elapsed time between two boundaries (11 h or 13 h on DST days).
 // The source added 12 h in milliseconds instead, which drifted on DST days (B-07).
-import { isDev } from './env';
+import type { BundlerProcess } from './env';
 import { localWallClock, parseWallClock, toMs } from './time';
 import type { DateInput, ShiftOptions, ShiftPatternEntry, ShiftRole, ShiftWindow } from './types';
+
+// Development-only branches read the bundler-replaced NODE_ENV behind a typeof guard (env.ts).
+declare const process: BundlerProcess;
 
 interface DailyBoundary {
   /** Minutes after local midnight. */
@@ -24,19 +27,25 @@ const DEFAULT_DURATION_HOURS = 12;
 const DEFAULT_ANCHOR_MINUTES = 8 * 60;
 const DEFAULT_KEYS: readonly string[] = ['day', 'night'];
 
-function invalid(message: string): void {
-  if (isDev()) throw new RangeError(`[react-scheduler] ${message}`);
+/**
+ * Invalid shift options throw in development builds. Every call site is guarded inline, so a
+ * production build drops the call with its message and falls back instead (F-01).
+ */
+function invalid(message: string): never {
+  throw new RangeError(`[react-scheduler] ${message}`);
 }
 
 function regularBoundaries(options: ShiftOptions): DailyBoundary[] {
   let durationMinutes = (options.durationHours ?? DEFAULT_DURATION_HOURS) * 60;
   if (!(durationMinutes > 0 && Number.isInteger(durationMinutes) && DAY_MINUTES % durationMinutes === 0)) {
-    invalid(`shifts.durationHours must divide 24; received ${String(options.durationHours)}.`);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production')
+      invalid(`shifts.durationHours must divide 24; received ${String(options.durationHours)}.`);
     durationMinutes = DEFAULT_DURATION_HOURS * 60;
   }
   let anchor = parseWallClock(options.anchor ?? '08:00');
   if (Number.isNaN(anchor)) {
-    invalid(`shifts.anchor must be "HH:mm"; received ${String(options.anchor)}.`);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production')
+      invalid(`shifts.anchor must be "HH:mm"; received ${String(options.anchor)}.`);
     anchor = DEFAULT_ANCHOR_MINUTES;
   }
   const keys = options.keys && options.keys.length > 0 ? options.keys : DEFAULT_KEYS;
@@ -56,7 +65,8 @@ function patternBoundaries(pattern: readonly ShiftPatternEntry[]): DailyBoundary
     const minutes = parseWallClock(entry.start);
     const previous = boundaries[boundaries.length - 1];
     if (Number.isNaN(minutes) || (previous && minutes <= previous.minutes)) {
-      invalid('shifts.pattern needs "HH:mm" starts in strictly increasing order.');
+      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production')
+        invalid('shifts.pattern needs "HH:mm" starts in strictly increasing order.');
       continue;
     }
     boundaries.push(
@@ -64,7 +74,8 @@ function patternBoundaries(pattern: readonly ShiftPatternEntry[]): DailyBoundary
     );
   }
   if (boundaries.length === 0) {
-    invalid('shifts.pattern needs at least one entry.');
+    if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production')
+      invalid('shifts.pattern needs at least one entry.');
     return regularBoundaries({});
   }
   return boundaries;

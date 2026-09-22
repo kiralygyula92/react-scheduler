@@ -1,10 +1,13 @@
 // SPDX-License-Identifier: MIT
 // Bucketing and ordering (Feature Dossier 05 F-02). Ids are never changed: the source appended a
 // role suffix to previous/next ids and detected carried-over items by substring (B-20).
-import { devWarnOnce } from './env';
+import { type BundlerProcess, devWarnOnce } from './env';
 import { classicLevels, compareByPlacement, resolveLevels } from './levels';
 import { toMs } from './time';
 import type { LevelDefinition, SchedulerItem, SegmentInput, ShiftRole, ShiftSegment, ShiftWindow } from './types';
+
+// Development-only branches read the bundler-replaced NODE_ENV behind a typeof guard (env.ts).
+declare const process: BundlerProcess;
 
 export interface BucketOptions<TItem> {
   /** Replaces the placement order (start → rank → id). */
@@ -31,13 +34,17 @@ export function bucketItems<TItem extends SchedulerItem>(
   const seen = new Set<string>();
   for (const item of items) {
     if (seen.has(item.id)) {
-      devWarnOnce(`duplicate:${item.id}`, `Duplicate item id "${item.id}"; the first occurrence is used.`);
+      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
+        devWarnOnce(`duplicate:${item.id}`, `Duplicate item id "${item.id}"; the first occurrence is used.`);
+      }
       continue;
     }
     seen.add(item.id);
     const start = toMs(item.start);
     if (Number.isNaN(start)) {
-      devWarnOnce(`invalid-start:${item.id}`, `Item "${item.id}" has an invalid start and is not shown.`);
+      if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
+        devWarnOnce(`invalid-start:${item.id}`, `Item "${item.id}" has an invalid start and is not shown.`);
+      }
       continue;
     }
     const index = windows.findIndex((window) => window.start <= start && start < window.end);

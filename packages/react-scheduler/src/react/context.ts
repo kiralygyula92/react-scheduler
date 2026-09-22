@@ -3,7 +3,7 @@
 // changes only when something a card renders changes, so memoized cards skip scroll updates (F-30).
 import { type Context, createContext, type KeyboardEvent, type SyntheticEvent, useContext } from 'react';
 import type { SchedulerController, SchedulerModel, SchedulerViewModel } from '../core/controller';
-import { devWarnOnce } from '../core/env';
+import { type BundlerProcess, devWarnOnce } from '../core/env';
 import type { SchedulerFormatters } from '../core/format';
 import type { ResolvedLevel } from '../core/levels';
 import type { SchedulerLocalization } from '../core/localization';
@@ -11,6 +11,9 @@ import type { PresetName, SchedulerItem, TagDefinition, ViewKind } from '../core
 import type { Customization } from './parts';
 import type { ViewApi, ViewRuntime } from './runtime';
 import type { SchedulerProps } from './types';
+
+// Development-only branches read the bundler-replaced NODE_ENV behind a typeof guard (env.ts).
+declare const process: BundlerProcess;
 
 export type ReactController<TItem extends SchedulerItem> = SchedulerController<TItem, SyntheticEvent, KeyboardEvent>;
 
@@ -85,7 +88,8 @@ const OUTSIDE = 'Scheduler parts render inside <Scheduler>, <ListView> or <Timel
 
 function required<T>(value: T | null, name: string): T {
   if (value === null) {
-    devWarnOnce(`context:${name}`, OUTSIDE);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production')
+      devWarnOnce(`context:${name}`, OUTSIDE);
     throw new Error(`[react-scheduler] ${OUTSIDE}`);
   }
   return value;

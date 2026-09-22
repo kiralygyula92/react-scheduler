@@ -25,7 +25,8 @@ const checks = [
     import: '{ Scheduler, ListView, TimelineView }',
     ignore: peers,
     modifyEsbuildConfig: without(['overflow-dialog.js', 'detail-dialog.js']),
-    limit: '24 kB',
+    // The Dossier's 24 kB, raised to 26 kB after a size pass (your M3 decision; ADR 0004 D3, EXCEPTIONS #4).
+    limit: '26 kB',
   },
   {
     name: 'lazy chunk: overflow dialog, table and pagination',
@@ -54,5 +55,12 @@ const checks = [
     })),
 ];
 
-// The Dossier budgets are gzip sizes (size-limit reports brotli by default).
-export default checks.map((check) => ({ ...check, gzip: true }));
+// The Dossier budgets are gzip sizes (size-limit reports brotli by default), of what a consumer's
+// production build keeps: development warnings are left out, as bundlers drop them.
+const production = (config) => ({ ...config, define: { ...config.define, 'process.env.NODE_ENV': '"production"' } });
+
+export default checks.map((check) => ({
+  ...check,
+  gzip: true,
+  modifyEsbuildConfig: (config) => production(check.modifyEsbuildConfig ? check.modifyEsbuildConfig(config) : config),
+}));

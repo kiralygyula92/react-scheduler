@@ -11,7 +11,7 @@ Template Prompt 2's M3 asks for every Dossier item marked v1.0, locale packs as 
 
 ### D1 — `createScheduler` has its own entry
 
-`@react-schedulerkit/react-scheduler/headless` exports `createScheduler` and the controller types (docs pack `09` §4.3, level 6). `/core` again holds exactly the `04` §8 functions, which keeps it within its 6 kB budget (Dossier `09` §2): 5.38 kB. The controller alone is 11.2 kB and has no Dossier budget. This supersedes ADR 0003 D6's placement.
+`@react-schedulerkit/react-scheduler/headless` exports `createScheduler` and the controller types (docs pack `09` §4.3, level 6). `/core` again holds exactly the `04` §8 functions, which keeps it within its 6 kB budget (Dossier `09` §2): 5.11 kB. The controller alone is 10.9 kB and has no Dossier budget. This supersedes ADR 0003 D6's placement.
 
 ### D2 — Locale packs: both entry shapes, pt-PT, generated from the Dossier
 
@@ -23,23 +23,25 @@ Template Prompt 2's M3 asks for every Dossier item marked v1.0, locale packs as 
 
 ### D3 — Budget measurement
 
-size-limit with its esbuild plugin measures the built package the way a consumer's bundler sees it: minified, gzip (the Dossier's unit), with tree-shaken named imports and the React peers left out.
+size-limit with its esbuild plugin measures the built package the way a consumer's production build sees it: minified, gzip (the Dossier's unit), with tree-shaken named imports, the React peers left out and `NODE_ENV` set to production.
 
 - **Eager part:** `import { Scheduler, ListView, TimelineView }` with the two lazy chunks left out.
 - **Lazy chunks:** each counts only the files it loads on demand.
 - **Chunk names:** built without hashes (`hash: false`), so the checks can name them.
 
-| Check                                        | Size         | Budget |
-| -------------------------------------------- | ------------ | ------ |
-| `/core`                                      | 5.38 kB      | 6 kB   |
-| `/dom`                                       | 1.68 kB      | 4 kB   |
-| overflow dialog, table and pagination (lazy) | 2.52 kB      | 5 kB   |
-| detail dialog (lazy)                         | 0.86 kB      | 3 kB   |
-| `styles.css`                                 | 6.57 kB      | 8 kB   |
-| each locale pack                             | 0.90–1.08 kB | 1.5 kB |
-| main entry, eager part                       | 25.3 kB      | 24 kB  |
+| Check                                        | Size         | Budget                     |
+| -------------------------------------------- | ------------ | -------------------------- |
+| `/core`                                      | 5.11 kB      | 6 kB                       |
+| `/dom`                                       | 1.70 kB      | 4 kB                       |
+| overflow dialog, table and pagination (lazy) | 2.56 kB      | 5 kB                       |
+| detail dialog (lazy)                         | 0.86 kB      | 3 kB                       |
+| `styles.css`                                 | 6.62 kB      | 8 kB                       |
+| each locale pack                             | 0.90–1.08 kB | 1.5 kB                     |
+| main entry, eager part                       | 24.91 kB     | 26 kB (the Dossier: 24 kB) |
 
-The eager part is over its budget; the checkpoint asks how to proceed. An attribution by source module shows no dead weight and no lazy-only code in it: the controller 11.7 kB, the layout engine 6.1 kB, the view runtime 6.6 kB and `enUS` 2.1 kB, minified.
+The eager part measured 25.3 kB. An attribution by source module showed no dead weight and no lazy-only code in it: the controller 11.7 kB, the layout engine 6.1 kB, the view runtime 6.6 kB and `enUS` 2.1 kB, minified. The user chose a bounded size pass with a 26 kB fallback (GAPS G12).
+
+The pass guarded every development-only message at its call site (`typeof process !== 'undefined' && process.env.NODE_ENV !== 'production'`, docs pack `09` §4.5), so production builds drop the messages as well as the logging: 25.3 → 24.91 kB. The rest of the eager code is required behavior, and shrinking it further would have meant restructuring the controller and the runtime. The budget is therefore 26 kB (EXCEPTIONS #4).
 
 ### D4 — The default preset's actions column is 96 px (G11)
 
@@ -72,4 +74,4 @@ Classic keeps the measured 92 px (ADR 0003 D10). In the default preset, the libr
 ## Consequences
 
 - Every Dossier v1.0 acceptance check has a test, and all of them pass: component checks in jsdom, browser checks in Chromium, Firefox and WebKit, and the flip, memory and screen-reader checks in Chromium.
-- One gate is open: the main entry's eager part, 25.3 kB against 24 kB (D3).
+- Every budget is met; the main entry's eager part against 26 kB instead of the Dossier's 24 kB (D3).
