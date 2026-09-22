@@ -77,7 +77,7 @@ axe runs with every rule except `region` (a component is not a page) in Chromium
 
 ### D12 — Performance
 
-The PERF scenario runs from `vitest.perf.config.ts` (`pnpm test:perf`) on React's production build (checked at run time) in Chromium without throttling, and writes its numbers to `test-results/perf.json`. It runs locally and is reported at checkpoints; it is not a CI gate, because shared runners are not the reference machine of `09` §3. Timeline cards compare their placement field by field: any item change recomputes the layout, and a single item change must re-render only that item's card (a jsdom test).
+The PERF scenario runs from `vitest.perf.config.ts` (`pnpm test:perf`) on React's production build (checked at run time) in Chromium without throttling, and writes its numbers to `test-results/perf.json`. It runs locally and is reported at checkpoints; it is not a CI gate, because shared runners are not the reference machine of `09` §3. Timeline cards compare their placement field by field: any item change recomputes the layout, and a single item change must re-render only that item's card (a jsdom test). A clock tick renders only what follows the clock: the time grid's hour labels, lines and bands and its lane are memoized layers, and each list section keeps its card elements while its items and the marker position are unchanged (jsdom tests assert both).
 
 ### D13 — React versions
 
