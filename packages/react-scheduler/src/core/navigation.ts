@@ -50,6 +50,11 @@ export function carriedOverCount<TItem extends SchedulerItem>(
   return count;
 }
 
+/** List navigation shows only when some shift has at least `threshold` items (the timeline always navigates). */
+export function navigationAllowed<TItem>(segments: readonly ShiftSegment<TItem>[], threshold: number): boolean {
+  return segments.some((segment) => segment.items.length >= threshold);
+}
+
 export interface NavInput {
   view: ViewKind;
   /** Rendered shifts in offset order. */

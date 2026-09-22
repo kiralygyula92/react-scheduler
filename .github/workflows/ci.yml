@@ -25,7 +25,7 @@ jobs:
         if: matrix.react != '19'
       - run: pnpm lint
       - run: pnpm typecheck
-      - run: pnpm test
+      - run: pnpm test:coverage # enforces the coverage thresholds (M1 gate: core ≥ 90 % lines, 85 % branches)
       - run: pnpm check:licenses
       - run: pnpm check:zero-reference
       - name: Zero-reference scan of commit messages
@@ -34,6 +34,6 @@ jobs:
         env:
           RANGE: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
       - run: pnpm check:keys
-      - run: pnpm check:scenarios
+      - run: pnpm check:scenarios --enforce=unit # full --enforce from M2 (EXCEPTIONS.md #1)
       - run: pnpm --filter @react-schedulerkit/react-scheduler build
       - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg

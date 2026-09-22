@@ -16,7 +16,7 @@ describe(`shift boundaries in ${zone}`, () => {
     expect(Intl.DateTimeFormat().resolvedOptions().timeZone).toBe(zone);
   });
 
-  it('[B-07] night windows end at 08:00 wall clock on a spring-forward day', () => {
+  it('[L-13] night windows end at 08:00 wall clock on a spring-forward day (fixed: B-07)', () => {
     // The spring-forward night of each zone; in UTC the same dates have no transition.
     const [y, mo, d] = zone === 'Australia/Sydney' ? [2031, 9, 5] : [2031, 2, 30];
     const night = resolveShift(local(y, mo, d, 2, 30));
