@@ -26,6 +26,18 @@ describe('entries', () => {
     );
   });
 
+  it('imports the DOM engines entry without touching globals at import time', async () => {
+    const dom = await import('../../src/dom');
+    expect(Object.keys(dom).sort()).toEqual([
+      'compensateStickyGrowth',
+      'createNavigator',
+      'createPinEngine',
+      'observeCompact',
+      'observeWidth',
+      'prefersReducedMotion',
+    ]);
+  });
+
   it('exposes the classic definitions and the default strings from the main entry', async () => {
     const main = await import('../../src/index');
     expect(Object.keys(main).sort()).toEqual(['CARRIED_OVER_TAG', 'classicLevels', 'classicTags', 'enUS']);

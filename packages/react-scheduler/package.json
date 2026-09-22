@@ -51,6 +51,16 @@
         "default": "./dist/core.cjs"
       }
     },
+    "./dom": {
+      "import": {
+        "types": "./dist/dom.d.ts",
+        "default": "./dist/dom.js"
+      },
+      "require": {
+        "types": "./dist/dom.d.cts",
+        "default": "./dist/dom.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "peerDependencies": {
@@ -74,6 +84,7 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
     "fast-check": "4.10.2",
+    "jsdom": "30.1.1",
     "publint": "0.3.24",
     "react": "19.3.0",
     "react-dom": "19.3.0",

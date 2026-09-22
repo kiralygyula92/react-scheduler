@@ -4,7 +4,7 @@ import { defineConfig, type UserConfig } from 'tsdown';
 // `external` is deprecated there in favour of `deps.neverBundle`.
 // Locale entries and the stylesheet copy are added when those sources exist (M2, M3).
 const config: UserConfig = defineConfig({
-  entry: ['src/index.ts', 'src/core.ts'],
+  entry: ['src/index.ts', 'src/core.ts', 'src/dom.ts'],
   format: ['esm', 'cjs'],
   dts: true,
   sourcemap: true,

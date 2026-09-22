@@ -22,12 +22,10 @@ interface PolicyFile {
 }
 
 function pnpmLicenses(extraArgs: readonly string[]): string {
-  const result = spawnSync('pnpm', ['licenses', 'list', '--json', '--recursive', ...extraArgs], {
-    cwd: repoRoot,
-    encoding: 'utf8',
-    shell: process.platform === 'win32',
-    maxBuffer: 64 * 1024 * 1024,
-  });
+  // One command string: on Windows pnpm is a .cmd shim that needs a shell, and Node warns when
+  // arguments are passed separately to a shell (DEP0190).
+  const command = ['pnpm', 'licenses', 'list', '--json', '--recursive', ...extraArgs].join(' ');
+  const result = spawnSync(command, { cwd: repoRoot, encoding: 'utf8', shell: true, maxBuffer: 64 * 1024 * 1024 });
   if (result.status !== 0) throw new Error(`pnpm licenses list failed:\n${result.stderr}`);
   return result.stdout;
 }
