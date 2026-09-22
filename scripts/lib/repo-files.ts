@@ -6,7 +6,7 @@ import { join, relative, sep } from 'node:path';
 export const ALWAYS_EXCLUDED_DIRS: ReadonlySet<string> = new Set(['.git', 'node_modules', '.pnpm-store']);
 
 /** Repository mode also skips build and test output, which is generated from scanned sources. */
-export const EXCLUDED_DIRS: ReadonlySet<string> = new Set([
+const EXCLUDED_DIRS: ReadonlySet<string> = new Set([
   ...ALWAYS_EXCLUDED_DIRS,
   'dist',
   'build',

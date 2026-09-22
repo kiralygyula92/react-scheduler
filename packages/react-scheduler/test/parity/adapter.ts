@@ -7,8 +7,7 @@ import { getShiftWindows } from '../../src/core/shifts';
 import type { SchedulerItem, TimelineLayout, TimelineLayoutOptions } from '../../src/core/types';
 import { type Fixture, type FixtureFile, toFixture } from '../support/items';
 
-export { toItem } from '../support/items';
-export type { Fixture, ParityData, ParityItem } from '../support/items';
+export type { Fixture, ParityItem } from '../support/items';
 
 // A path, not a URL: under jsdom, import.meta.url is not a file URL.
 const CHARACTERIZATION = resolve(import.meta.dirname, '../../../../spec/feature-dossier/characterization');

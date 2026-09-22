@@ -36,7 +36,7 @@ Compact promotion can produce `column ≥ columns` (ADR 0002 D4). The engine out
 ### D6 — Entries: `/dom`, and `createScheduler` in `/core` (resolves G7)
 
 - `@react-schedulerkit/react-scheduler/dom` is an entry of its own (`exports` and the tsdown entries). It holds the DOM engines: the pin engine, the navigator, compact observation and the reduced-motion query. None of them touches a global at import.
-- `/core` additionally exports `createScheduler` and the controller types: the framework-agnostic controller of docs pack `09` §4.3 (level 6). This extends ADR 0002 D10, where `/core` exported exactly the `04` §8 functions.
+- `/core` additionally exports `createScheduler` and the controller types: the framework-agnostic controller of docs pack `09` §4.3 (level 6). This extends ADR 0002 D10, where `/core` exported exactly the `04` §8 functions. Superseded at M3: `createScheduler` moved to `/headless` (ADR 0004 D1).
 
 ### D7 — Tooltip
 

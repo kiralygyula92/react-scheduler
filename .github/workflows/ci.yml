@@ -35,8 +35,10 @@ jobs:
           RANGE: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
       - run: pnpm check:keys
       - run: pnpm check:scenarios --enforce
+      - run: pnpm knip
       - run: pnpm --filter @react-schedulerkit/react-scheduler build
       - run: pnpm --filter @react-schedulerkit/react-scheduler size
+      - run: pnpm check:pack
       - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
       - run: pnpm exec playwright install --with-deps
         if: matrix.react == '19'

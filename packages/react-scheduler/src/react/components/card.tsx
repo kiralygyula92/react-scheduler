@@ -249,7 +249,7 @@ export const ListCard = memo(function ListCard<TItem extends SchedulerItem>({ it
  * Horizontal geometry of a timeline card: `n` columns sharing the lane with `gap` px between them.
  * A column at or past the count (compact promotion, DQ-3) is clamped into the last column.
  */
-export function cardGeometry(
+function cardGeometry(
   placed: Pick<PlacedCard<unknown>, 'column' | 'columns' | 'top' | 'height'>,
   gap: number,
 ): CSSProperties {

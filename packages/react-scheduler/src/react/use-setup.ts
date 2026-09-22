@@ -25,7 +25,7 @@ function matchQuery(query: string): MediaQueryList | null {
 }
 
 /** The resolved color scheme; `system` follows `prefers-color-scheme` (light on the server). */
-export function useColorScheme(setting: ColorScheme): 'light' | 'dark' {
+function useColorScheme(setting: ColorScheme): 'light' | 'dark' {
   const system = setting === 'system';
   const subscribe = useCallback(
     (listener: () => void) => {

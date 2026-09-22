@@ -12,7 +12,7 @@ export interface ZeroReferenceConfig {
   allowedHosts: readonly string[];
 }
 
-export type FindingKind = 'denylist' | 'email' | 'url' | 'ip' | 'localhost' | 'jwt' | 'secret' | 'absolute-path';
+type FindingKind = 'denylist' | 'email' | 'url' | 'ip' | 'localhost' | 'jwt' | 'secret' | 'absolute-path';
 
 export interface Finding {
   kind: FindingKind;

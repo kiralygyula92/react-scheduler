@@ -1,7 +1,7 @@
 // Fixture items in the new shape (Feature Dossier 07 §3). No Node.js imports: browser tests use it too.
 import type { SchedulerItem } from '../../src/core/types';
 
-export interface FixtureItem {
+interface FixtureItem {
   id: string;
   start: string;
   end?: string;
@@ -27,7 +27,7 @@ export interface FixtureFile {
 }
 
 /** Item payload of the parity fixtures: the source's detail kind (critical / standard). */
-export interface ParityData {
+interface ParityData {
   kind: 'critical' | 'standard';
 }
 
@@ -41,7 +41,7 @@ export interface Fixture {
 }
 
 /** Maps a fixture item to the new item shape: `detail` → `data.kind`; everything else unchanged. */
-export function toItem(raw: FixtureItem): ParityItem {
+function toItem(raw: FixtureItem): ParityItem {
   const item: ParityItem = {
     id: raw.id,
     start: raw.start,
