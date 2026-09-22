@@ -3,6 +3,7 @@
 // titled with the group size, a sortable table and a pager. Sort and page are controlled or
 // uncontrolled through the scheduler; they reset on each open unless controlled.
 import type { MouseEvent, ReactElement, ReactNode } from 'react';
+import { rankOf } from '../../core/levels';
 import { interpolate } from '../../core/localization';
 import { overflowSortValues, pageList, sortOverflowItems } from '../../core/overflow';
 import type { OverflowGroup, SchedulerItem } from '../../core/types';
@@ -158,7 +159,11 @@ export function OverflowDialog<TItem extends SchedulerItem>({ group }: { group: 
     props.overflowColumns ?? (defaultOverflowColumns as unknown as readonly OverflowColumn<TItem>[]),
     model.levels,
   );
-  const sorted = sortOverflowItems(group.items, model.overflowSort, columns, model.compare);
+  // Ties break by rank, then placement order (01 §T.7), or by a consumer's compareItems (F-13).
+  const tieBreak =
+    props.compareItems ??
+    ((a: TItem, b: TItem) => rankOf(model.levels, a.level) - rankOf(model.levels, b.level) || model.compare(a, b));
+  const sorted = sortOverflowItems(group.items, model.overflowSort, columns, tieBreak);
   const pages = Math.max(1, Math.ceil(sorted.length / model.overflowPageSize));
   const page = Math.min(Math.max(0, model.overflowPage), pages - 1);
   const rows = sorted.slice(page * model.overflowPageSize, (page + 1) * model.overflowPageSize);

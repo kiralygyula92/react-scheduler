@@ -78,15 +78,15 @@ export function installObservers(): void {
   vi.stubGlobal('ResizeObserver', FakeResizeObserver);
 }
 
-/** Makes `element.getBoundingClientRect().top` return `top()`. */
+/** Makes `element.getBoundingClientRect()` a 1 × 1 box at `top()` (a laid-out sentinel). */
 export function mockTop(element: Element, top: () => number): void {
   element.getBoundingClientRect = () => ({
     top: top(),
-    bottom: top(),
+    bottom: top() + 1,
     left: 0,
-    right: 0,
-    width: 0,
-    height: 0,
+    right: 1,
+    width: 1,
+    height: 1,
     x: 0,
     y: top(),
     toJSON: () => ({}),

@@ -109,10 +109,13 @@ export function useViewSetup<TItem extends SchedulerItem>(
     };
   }, [views, kind, runtime, active]);
 
-  // Compact mode and listOnlyBreakpoint follow the root's width, not the viewport (B-16).
+  // Compact mode and listOnlyBreakpoint follow the root's width, not the viewport (B-16). A zero
+  // width means no layout (a hidden container), not a narrow one: the last measurement stays.
   useEffect(() => {
     if (!root || !active) return;
-    return observeWidth(root, (width) => controller.setWidth(width));
+    return observeWidth(root, (width) => {
+      if (width > 0) controller.setWidth(width);
+    });
   }, [controller, root, active]);
 
   useEffect(() => {

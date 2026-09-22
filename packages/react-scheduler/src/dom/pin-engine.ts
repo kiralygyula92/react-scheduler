@@ -55,7 +55,10 @@ export function createPinEngine(options: PinEngineOptions): PinEngine {
     onChange(next);
   };
 
-  const apply = (sentinel: Sentinel, top: number, line: number): boolean => {
+  /** A sentinel without a box (not laid out, or display: none) keeps its state. */
+  const apply = (sentinel: Sentinel, rect: DOMRectReadOnly, line: number): boolean => {
+    if (rect.width === 0 && rect.height === 0) return false;
+    const top = rect.top;
     const pinned = nextPinned(sentinel.pinned, top, line, { epsilon, hysteresis });
     if (pinned === sentinel.pinned) return false;
     sentinel.pinned = pinned;
@@ -69,7 +72,7 @@ export function createPinEngine(options: PinEngineOptions): PinEngine {
     for (const entry of entries) {
       const key = byNode.get(entry.target);
       const sentinel = key === undefined ? undefined : sentinels.get(key);
-      if (sentinel) changed = apply(sentinel, entry.boundingClientRect.top, line) || changed;
+      if (sentinel) changed = apply(sentinel, entry.boundingClientRect, line) || changed;
     }
     if (changed) emit();
   };
@@ -96,7 +99,7 @@ export function createPinEngine(options: PinEngineOptions): PinEngine {
     const line = getLine();
     let changed = false;
     for (const sentinel of sentinels.values()) {
-      changed = apply(sentinel, sentinel.node.getBoundingClientRect().top, line) || changed;
+      changed = apply(sentinel, sentinel.node.getBoundingClientRect(), line) || changed;
     }
     if (changed) emit();
   };
