@@ -44,6 +44,14 @@ const checks = [
     limit: '3 kB',
   },
   { name: 'styles.css', path: 'dist/styles/index.css', limit: '8 kB' },
+  ...readdirSync(new URL('./dist/locales', import.meta.url))
+    .filter((file) => file.endsWith('.js') && file !== 'index.js')
+    .map((file) => ({
+      name: `locale pack ${file.slice(0, -3)}`,
+      path: `dist/locales/${file}`,
+      import: '*',
+      limit: '1.5 kB',
+    })),
 ];
 
 // The Dossier budgets are gzip sizes (size-limit reports brotli by default).

@@ -6,7 +6,7 @@ import type { CSSProperties, MouseEvent, ReactElement, ReactNode } from 'react';
 import { rankOf } from '../../core/levels';
 import { interpolate } from '../../core/localization';
 import { overflowSortValues, pageList, sortOverflowItems } from '../../core/overflow';
-import type { OverflowGroup, SchedulerItem } from '../../core/types';
+import type { OverflowGroup, PresetName, SchedulerItem } from '../../core/types';
 import { useCardEnv, useSchedulerContext, useViewContext } from '../context';
 import { renderPart } from '../parts';
 import type { OverflowColumn } from '../types';
@@ -17,17 +17,28 @@ import { ELLIPSIS } from './shared';
 
 const DEFAULT_IDS = new Set(['time', 'level', 'title', 'description']);
 
-/** The default columns sort by the scheduler's own levels, not the classic ranks. */
-function sortColumns<TItem extends SchedulerItem>(
+/** The default preset's actions column: wide enough for every locale's header (GAPS G11). */
+const DEFAULT_PRESET_ACTIONS_WIDTH = 96;
+
+/**
+ * The library's default columns, adapted to the scheduler: they sort by its own levels, not the
+ * classic ranks, and in the default preset the actions column is wider. Classic keeps the measured
+ * 92 px; consumer columns are used as they are.
+ */
+function libraryColumns<TItem extends SchedulerItem>(
   columns: readonly OverflowColumn<TItem>[],
   levels: ReadonlyMap<string, { rank: number }>,
+  preset: PresetName,
 ): readonly OverflowColumn<TItem>[] {
   const values = overflowSortValues(levels);
-  return columns.map((column) =>
-    DEFAULT_IDS.has(column.id) && defaultOverflowColumns.includes(column as unknown as OverflowColumn<SchedulerItem>)
-      ? { ...column, sortValue: values[column.id as keyof typeof values] }
-      : column,
-  );
+  return columns.map((column) => {
+    if (!defaultOverflowColumns.includes(column as unknown as OverflowColumn<SchedulerItem>)) return column;
+    if (DEFAULT_IDS.has(column.id)) return { ...column, sortValue: values[column.id as keyof typeof values] };
+    if (column.id === 'actions' && preset === 'default') {
+      return { ...column, minWidth: DEFAULT_PRESET_ACTIONS_WIDTH, maxWidth: DEFAULT_PRESET_ACTIONS_WIDTH };
+    }
+    return column;
+  });
 }
 
 /** A column's cell sizing; equal minimum and maximum widths make a fixed column. */
@@ -159,13 +170,14 @@ export function Pagination({ page, pages }: { page: number; pages: number }): Re
 }
 
 export function OverflowDialog<TItem extends SchedulerItem>({ group }: { group: OverflowGroup<TItem> }): ReactElement {
-  const { model, controller, props, baseId } = useSchedulerContext<TItem>();
+  const { model, controller, props, baseId, preset } = useSchedulerContext<TItem>();
   const { custom, kind } = useViewContext<TItem>();
   const modal = useModal((reason) => controller.closeOverflow(reason));
   const titleId = `${baseId}-${kind}-overflow-title`;
-  const columns = sortColumns(
+  const columns = libraryColumns(
     props.overflowColumns ?? (defaultOverflowColumns as unknown as readonly OverflowColumn<TItem>[]),
     model.levels,
+    preset,
   );
   // Ties break by rank, then placement order (01 §T.7), or by a consumer's compareItems (F-13).
   const tieBreak =

@@ -450,3 +450,20 @@ describe('feature flags (F-24)', () => {
     expect(tooltip.className).toContain('rs-visually-hidden');
   });
 });
+
+describe('overflow table columns', () => {
+  it('fixes the actions column at 92 px in classic and 96 px in the default preset (GAPS G11)', async () => {
+    for (const [preset, width] of [
+      ['classic', '92px'],
+      ['default', '96px'],
+    ] as const) {
+      const { unmount } = renderUi(<TimelineView {...base} preset={preset} />);
+      settle();
+      fireEvent.click(document.querySelector('[data-rs-part="moreChip"]') as HTMLElement);
+      await flushLazy();
+      const header = screen.getByRole('columnheader', { name: 'Actions' });
+      expect([header.style.width, header.style.minWidth, header.style.maxWidth]).toEqual([width, width, width]);
+      unmount();
+    }
+  });
+});
