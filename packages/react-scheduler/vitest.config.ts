@@ -7,6 +7,8 @@ const config: UserWorkspaceConfig = defineProject({
     name: 'react-scheduler',
     root: import.meta.dirname,
     include: ['test/**/*.test.{ts,tsx}'],
+    // Real-browser tests run in their own project (vitest.browser.config.ts).
+    exclude: ['test/browser/**'],
     environment: 'node',
     env: { TZ: 'UTC' },
   },
