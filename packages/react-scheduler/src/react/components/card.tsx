@@ -11,6 +11,7 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react';
+import { shallowEqual } from '../../core/equal';
 import { isPinnable } from '../../core/pinning';
 import { resolveTimeLabel } from '../../core/time-label';
 import type { CardVariant, PlacedCard, SchedulerItem } from '../../core/types';
@@ -265,16 +266,21 @@ export function cardGeometry(
 }
 
 /** A timeline card, absolutely positioned from the layout engine's output. */
-export const TimelineCard = memo(function TimelineCard<TItem extends SchedulerItem>({
-  placed,
-  gap,
-}: {
-  placed: PlacedCard<TItem>;
-  gap: number;
-}): ReactNode {
-  const env = useCardEnv<TItem>();
-  return renderCard(env, cardData(env, placed.item), 'timelineCard', cardGeometry(placed, gap), {
-    'data-rs-column': placed.column,
-    'data-rs-columns': placed.columns,
-  });
-}) as <TItem extends SchedulerItem>(props: { placed: PlacedCard<TItem>; gap: number }) => ReactNode;
+export const TimelineCard = memo(
+  function TimelineCard<TItem extends SchedulerItem>({
+    placed,
+    gap,
+  }: {
+    placed: PlacedCard<TItem>;
+    gap: number;
+  }): ReactNode {
+    const env = useCardEnv<TItem>();
+    return renderCard(env, cardData(env, placed.item), 'timelineCard', cardGeometry(placed, gap), {
+      'data-rs-column': placed.column,
+      'data-rs-columns': placed.columns,
+    });
+  },
+  // Any item change recomputes the layout with new placement objects; a card whose item and
+  // geometry are unchanged does not render again (09 §3).
+  (previous, next) => previous.gap === next.gap && shallowEqual(previous.placed, next.placed),
+) as <TItem extends SchedulerItem>(props: { placed: PlacedCard<TItem>; gap: number }) => ReactNode;

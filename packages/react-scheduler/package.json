@@ -81,7 +81,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint:pkg": "publint && attw --pack . --profile node16 --exclude-entrypoints ./styles.css ./base.css",
-    "test:browser": "vitest run --config vitest.browser.config.ts"
+    "test:browser": "vitest run --config vitest.browser.config.ts",
+    "test:perf": "vitest run --config vitest.perf.config.ts"
   },
   "dependencies": {},
   "devDependencies": {

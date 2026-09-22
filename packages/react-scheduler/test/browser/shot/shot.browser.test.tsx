@@ -8,8 +8,8 @@ import { fixtures, frames, mount, nav, part, parts, settled, unmountAll, until, 
 import type { Rect } from './diff';
 
 // SHOT: the classic preset against the reference screenshots (Feature Dossier 07 §1.4, 09 §4):
-// colour threshold 0.1, at most 0.1 % differing pixels after the 07 §5 masks. The references were
-// rendered in Linux Chromium; the gate is enforced there (RS_SHOT=1, `pnpm test:visual:docker`) and
+// colour threshold 0.1, at most 0.1 % differing pixels after the 07 §5 masks. The references match
+// Windows Chromium's rasterisation, so the gate is enforced on Windows (anywhere with RS_SHOT=1);
 // elsewhere the captures and diff images are only written to test-results/shot/ for review.
 
 const TOLERANCE = 0.001;
