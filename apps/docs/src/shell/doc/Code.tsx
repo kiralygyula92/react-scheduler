@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: MIT
 // A code block (docs pack 02 §6.8): optional title, per-line highlighting, and a copy button that
 // appears on hover, on focus and always on touch. Code is never translated, so it is the one place
-// where the text is not a locale key.
-import { useEffect, useState } from 'react';
+// where the text is not a locale key. Colouring comes from the site's own highlighter.
+import { Fragment, useEffect, useState } from 'react';
 import { useT } from '~/i18n/useT';
+import { highlight, type Language } from '~/lib/highlight';
 import { CheckIcon, CopyIcon } from '../icons';
 
-export type CodeLanguage = 'tsx' | 'ts' | 'bash' | 'json' | 'css';
+export type CodeLanguage = Language;
 
 export interface CodeProps {
   readonly code: string;
@@ -17,10 +18,10 @@ export interface CodeProps {
   readonly highlight?: readonly number[];
 }
 
-export function Code({ code, lang, title, highlight }: CodeProps): React.ReactElement {
+export function Code({ code, lang, title, highlight: marked }: CodeProps): React.ReactElement {
   const t = useT('common');
   const [copied, setCopied] = useState(false);
-  const lines = code.replace(/\n$/, '').split('\n');
+  const lines = highlight(code.replace(/\n$/, ''), lang);
 
   useEffect(() => {
     if (!copied) return;
@@ -46,15 +47,20 @@ export function Code({ code, lang, title, highlight }: CodeProps): React.ReactEl
   return (
     <div className="ds-code" data-lang={lang}>
       {title !== undefined && <div className="ds-code__title">{title}</div>}
-      <pre>
+      {/* The language is repeated on `pre` so the Markdown twins can fence the block with it. */}
+      <pre data-lang={lang}>
         <code>
-          {lines.map((line, index) => (
+          {lines.map((tokens, index) => (
             <span
-              key={`${String(index)}-${line}`}
+              key={`${String(index)}-${tokens.map((token) => token.text).join('')}`}
               className="ds-code__line"
-              data-highlight={highlight?.includes(index + 1) === true ? '' : undefined}
+              data-highlight={marked?.includes(index + 1) === true ? '' : undefined}
             >
-              {line}
+              {tokens.map((token, position) => (
+                <Fragment key={`${String(position)}-${token.text}`}>
+                  {token.kind === undefined ? token.text : <span className={`ds-t-${token.kind}`}>{token.text}</span>}
+                </Fragment>
+              ))}
               {index < lines.length - 1 ? '\n' : ''}
             </span>
           ))}

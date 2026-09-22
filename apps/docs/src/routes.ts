@@ -1,35 +1,66 @@
 // SPDX-License-Identifier: MIT
-// Every route of the site, generated from `content/nav.json` × the seven locales, plus the 404
-// (docs pack 01 §6). Paths carry the plugin prefix themselves; there is no router basename and Vite
-// `base` stays `/` (10 §2). One module serves every page and resolves which one from the URL, so
-// adding a page means adding it to nav.json and nothing else.
-import { type RouteConfig, route } from '@react-router/dev/routes';
+// Every route of the site, generated from `content/nav.json` × the seven locales, plus the 404 of
+// each locale (docs pack 01 §6). Paths carry the plugin prefix themselves; there is no router
+// basename and Vite `base` stays `/` (10 §2).
+//
+// The page components are the route modules, under one layout route that loads the locale bundles
+// and draws the shell. That gives each page its own chunk and puts its whole content in the
+// prerendered HTML. Adding a page means adding it to nav.json and nothing else.
+import { type RouteConfig, index, route } from '@react-router/dev/routes';
 import navigation from './content/nav.json';
-import { buildPath, LOCALES } from './i18n/paths';
+import { LOCALES } from './i18n/paths';
 
 const pluginId = navigation.pluginId;
 
-function paths(): string[] {
-  const inner: string[] = [];
-  for (const section of navigation.sections) {
-    for (const entry of section.items) {
-      if ('type' in entry && entry.type === 'group') for (const item of entry.items) inner.push(item.path);
-      else if ('path' in entry) inner.push(entry.path);
-    }
-  }
-  return inner;
+interface Page {
+  readonly path: string;
+  readonly page: string;
 }
 
-/** Locale-prefixed URL paths for every page, and the 404 of each locale. */
+/** `nav.json` mixes groups and pages in one array, so it is read through these shapes. */
+interface Entry {
+  readonly type?: string;
+  readonly path?: string;
+  readonly page?: string;
+  readonly items?: readonly Entry[];
+}
+
+function pages(): Page[] {
+  const flat: Page[] = [];
+  for (const section of navigation.sections as readonly { items: readonly Entry[] }[]) {
+    for (const entry of section.items) {
+      for (const item of entry.type === 'group' ? (entry.items ?? []) : [entry]) {
+        if (item.path !== undefined && item.page !== undefined) flat.push({ path: item.path, page: item.page });
+      }
+    }
+  }
+  return flat;
+}
+
+/** `/pinning/` in `ro` → `ro/pinning`, relative to the `react-scheduler` layout route. */
+function relative(locale: string, path: string): string {
+  const inner = path.split('/').filter((segment) => segment !== '');
+  return [...(locale === 'en' ? [] : [locale]), ...inner].join('/');
+}
+
+/** Every URL the site prerenders, in the shape `react-router.config.ts` wants. */
 export function routePaths(): string[] {
   const all: string[] = [];
   for (const locale of LOCALES) {
-    for (const path of paths()) all.push(buildPath(locale, path, pluginId));
-    all.push(buildPath(locale, '/404/', pluginId));
+    for (const page of pages()) all.push(`/${[pluginId, relative(locale, page.path)].join('/').replace(/\/$/, '')}/`);
+    all.push(`/${[pluginId, relative(locale, '/404/')].join('/')}/`);
   }
   return all;
 }
 
-export default routePaths().map((path) =>
-  route(path.slice(1), './routes/page.tsx', { id: `page${path.replaceAll('/', '.')}` }),
-) satisfies RouteConfig;
+const children = LOCALES.flatMap((locale) => [
+  ...pages().map((page) => {
+    const path = relative(locale, page.path);
+    const file = `./content/pages/${page.page}.tsx`;
+    const id = `page.${locale}.${page.page}`;
+    return path === '' ? index(file, { id }) : route(path, file, { id });
+  }),
+  route(relative(locale, '/404/'), './routes/not-found.tsx', { id: `not-found.${locale}` }),
+]);
+
+export default [route(pluginId, './routes/layout.tsx', children)] satisfies RouteConfig;

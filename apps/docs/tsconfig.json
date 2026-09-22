@@ -4,9 +4,12 @@
   "compilerOptions": {
     "types": ["node", "vite/client"],
     "rootDirs": [".", "./.react-router/types"],
-    "paths": { "~/*": ["./src/*"] },
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "isolatedDeclarations": false,
-    "declaration": false
+    "declaration": false,
+    "allowImportingTsExtensions": true
   },
   "include": ["src", "scripts", "test", "*.config.ts", ".react-router/types/**/*"]
 }

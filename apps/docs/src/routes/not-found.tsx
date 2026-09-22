@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { useT } from '~/i18n/useT';
 import { useNav } from '~/shell/nav';
 
-export function NotFound(): React.ReactElement {
+export default function NotFound(): React.ReactElement {
   const t = useT('common');
   const { localePath } = useNav();
   return (

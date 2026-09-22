@@ -6,7 +6,7 @@
   "description": "Documentation website for React Scheduler.",
   "scripts": {
     "dev": "react-router dev",
-    "build": "react-router build",
+    "build": "react-router build && node scripts/build-search-index.ts && node scripts/build-machine-surface.ts",
     "typecheck": "react-router typegen && tsc --noEmit",
     "i18n:check": "node scripts/check-i18n.ts",
     "conformance": "node scripts/check-conformance.ts",
