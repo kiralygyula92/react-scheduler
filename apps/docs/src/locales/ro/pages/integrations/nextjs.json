@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Next.js",
+    "description": "Next.js: obiectivul, ce îți trebuie înainte de a începe, pașii de urmat și cum verifici rezultatul."
+  },
+  "sections": {
+    "goal": "Obiectiv",
+    "before-you-start": "Înainte de a începe",
+    "steps": "Pași",
+    "result": "Rezultat",
+    "related": "Legături conexe"
+  }
+}

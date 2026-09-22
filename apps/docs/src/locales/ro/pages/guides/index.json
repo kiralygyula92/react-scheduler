@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Ghiduri",
+    "description": "Ghiduri orientate pe sarcini pentru React Scheduler, fiecare terminând într-o stare funcțională."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Slots e substituições",
+    "description": "Slots e substituições no React Scheduler: o que pode alterar, como alterar e o que cada alteração afeta."
+  },
+  "sections": {
+    "slots": "Slots",
+    "example": "Exemplo"
+  }
+}

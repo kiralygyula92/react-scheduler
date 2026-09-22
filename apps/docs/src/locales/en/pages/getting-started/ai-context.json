@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "AI context",
+    "description": "How to give a coding agent the complete React Scheduler documentation in one file, and how to check that it read it."
+  },
+  "sections": {
+    "prerequisites": "Prerequisites",
+    "installation": "Installation",
+    "what-is-in-the-file": "What is in the file",
+    "which-file-to-use": "Which file to use",
+    "minimal-working-example": "Minimal working example",
+    "verify": "Verify",
+    "next-steps": "Next steps"
+  }
+}

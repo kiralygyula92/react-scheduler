@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Changelog",
+    "description": "Every released version of React Scheduler and what changed in it. Entries are published in English."
+  }
+}

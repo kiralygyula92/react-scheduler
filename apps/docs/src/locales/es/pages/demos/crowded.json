@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Día concurrido",
+    "description": "Una demo de React Scheduler sobre el conjunto Día concurrido: las capacidades que combina y su código completo."
+  },
+  "sections": {
+    "scenario": "Escenario",
+    "what-it-uses": "Qué utiliza",
+    "source": "Código fuente"
+  }
+}

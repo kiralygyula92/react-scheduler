@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Migração",
+    "description": "Como migrar uma instalação existente para a versão atual do React Scheduler e o que mudou pelo caminho."
+  }
+}

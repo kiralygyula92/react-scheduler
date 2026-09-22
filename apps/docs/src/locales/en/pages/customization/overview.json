@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Overview",
+    "description": "Overview in React Scheduler: what you can change, how to change it, and what each change affects."
+  },
+  "sections": {
+    "css-variables": "CSS variables",
+    "class-names": "Class names",
+    "slot-props": "Slot props",
+    "slots": "Slots",
+    "handlers": "Handlers",
+    "headless-hooks": "Headless hooks"
+  }
+}

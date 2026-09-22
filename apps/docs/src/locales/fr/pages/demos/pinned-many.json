@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Nombreux éléments épinglés",
+    "description": "Une démo React Scheduler sur le jeu Nombreux éléments épinglés : les capacités combinées et son code source complet."
+  },
+  "sections": {
+    "scenario": "Scénario",
+    "what-it-uses": "Ce qu’il utilise",
+    "source": "Code source"
+  }
+}

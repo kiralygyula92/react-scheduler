@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Intégrations",
+    "description": "Comment utiliser React Scheduler avec Vite, Next.js, React Router et le rendu côté serveur."
+  }
+}

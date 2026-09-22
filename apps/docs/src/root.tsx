@@ -1,14 +1,27 @@
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from 'react-router';
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLocation,
+  useRouteError,
+} from 'react-router';
+import { parsePath } from '~/i18n/paths';
 import { themeBootstrap } from '~/shell/theme-bootstrap';
+import '~/shell/tokens.css';
+import '~/shell/shell.css';
 import { site } from '~/shell/nav';
 
 // The document shell (docs pack 01 §5, 10 §3.3). The theme script runs before any stylesheet, so the
 // first paint already has the right theme; analytics use the /react entry points.
 export function Layout({ children }: { children: React.ReactNode }): React.ReactElement {
+  const { locale } = parsePath(useLocation().pathname, site.pluginId);
   return (
-    <html lang="en" data-theme="light">
+    <html lang={locale} data-theme="light">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

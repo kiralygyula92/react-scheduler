@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Integrări",
+    "description": "Cum folosești React Scheduler cu Vite, Next.js, React Router și randare pe server."
+  }
+}

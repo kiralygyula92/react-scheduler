@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Anforderungen",
+    "description": "Anforderungen für das React-Scheduler-Paket: die Schritte der Reihe nach, die beteiligten Versionen und die Prüfung danach."
+  },
+  "sections": {
+    "browsers": "Browser",
+    "react-versions": "React-Versionen",
+    "typescript-versions": "TypeScript-Versionen",
+    "frameworks-and-ssr": "Frameworks und SSR",
+    "bundle-size": "Bundle-Größe",
+    "accessibility-target": "Barrierefreiheitsziel"
+  }
+}

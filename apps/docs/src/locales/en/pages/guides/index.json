@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Guides",
+    "description": "Task-oriented guides for React Scheduler, each one ending in a working state you can build on."
+  }
+}

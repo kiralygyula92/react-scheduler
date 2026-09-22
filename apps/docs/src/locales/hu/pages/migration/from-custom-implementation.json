@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Saját megvalósításról",
+    "description": "Saját megvalósításról: kinek szól, mi változott, és milyen lépésekkel állítható át egy meglévő beállítás a jelenlegi verzióra."
+  },
+  "sections": {
+    "who-this-is-for": "Kinek szól",
+    "summary-of-changes": "A változások összefoglalása",
+    "step-by-step": "Lépésről lépésre",
+    "removed-and-renamed": "Eltávolított és átnevezett elemek",
+    "getting-help": "Segítségkérés"
+  }
+}

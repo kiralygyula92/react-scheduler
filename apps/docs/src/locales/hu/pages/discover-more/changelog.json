@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Változásnapló",
+    "description": "A React Scheduler minden kiadott verziója és annak változásai. A bejegyzések angol nyelven jelennek meg."
+  }
+}

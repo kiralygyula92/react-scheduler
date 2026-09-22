@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "AI-kontextus",
+    "description": "Hogyan add át egy kódoló ügynöknek a teljes React Scheduler dokumentációt egyetlen fájlban, és hogyan ellenőrizd, hogy elolvasta."
+  },
+  "sections": {
+    "prerequisites": "Előfeltételek",
+    "installation": "Telepítés",
+    "what-is-in-the-file": "Mit tartalmaz a fájl",
+    "which-file-to-use": "Melyik fájlt használd",
+    "minimal-working-example": "Minimális működő példa",
+    "verify": "Ellenőrzés",
+    "next-steps": "Következő lépések"
+  }
+}

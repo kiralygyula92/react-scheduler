@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Context AI",
+    "description": "Cum oferi unui agent de programare documentația completă React Scheduler într-un singur fișier și cum verifici că a citit-o."
+  },
+  "sections": {
+    "prerequisites": "Cerințe prealabile",
+    "installation": "Instalare",
+    "what-is-in-the-file": "Ce conține fișierul",
+    "which-file-to-use": "Ce fișier să folosești",
+    "minimal-working-example": "Exemplu minim funcțional",
+    "verify": "Verificare",
+    "next-steps": "Pașii următori"
+  }
+}

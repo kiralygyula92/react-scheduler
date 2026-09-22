@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Contexto de IA",
+    "description": "Cómo dar a un agente de programación toda la documentación de React Scheduler en un archivo y comprobar que la ha leído."
+  },
+  "sections": {
+    "prerequisites": "Requisitos previos",
+    "installation": "Instalación",
+    "what-is-in-the-file": "Qué contiene el archivo",
+    "which-file-to-use": "Qué archivo usar",
+    "minimal-working-example": "Ejemplo mínimo funcional",
+    "verify": "Verificación",
+    "next-steps": "Siguientes pasos"
+  }
+}

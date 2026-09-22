@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Prezentare generală",
+    "description": "Ce este React Scheduler, ce afișează, cum se controlează și de unde continui. Licență MIT, fără plan cu plată."
+  },
+  "sections": {
+    "introduction": "Introducere",
+    "why": "De ce React Scheduler",
+    "start-now": "Începe acum",
+    "license": "Licență"
+  }
+}

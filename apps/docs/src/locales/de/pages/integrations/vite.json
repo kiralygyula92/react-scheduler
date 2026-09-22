@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Vite",
+    "description": "Vite: das Ziel, die Voraussetzungen, die Schritte und wie du das Ergebnis überprüfst."
+  },
+  "sections": {
+    "goal": "Ziel",
+    "before-you-start": "Bevor du beginnst",
+    "steps": "Schritte",
+    "result": "Ergebnis",
+    "related": "Verwandt"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Roadmap",
+    "description": "What is planned for React Scheduler after the first stable release. No dates, and nothing promised."
+  },
+  "sections": {
+    "planned": "Planned"
+  }
+}

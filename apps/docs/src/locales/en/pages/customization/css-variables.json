@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "CSS variables",
+    "description": "CSS variables in React Scheduler: what you can change, how to change it, and what each change affects."
+  },
+  "sections": {
+    "variables": "Variables"
+  }
+}

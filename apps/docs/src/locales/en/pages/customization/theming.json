@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Theming",
+    "description": "Theming in React Scheduler: what you can change, how to change it, and what each change affects."
+  },
+  "sections": {
+    "tokens": "Tokens",
+    "dark-mode": "Dark mode",
+    "presets": "Presets"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Slots y sobrescrituras",
+    "description": "Slots y sobrescrituras en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+  },
+  "sections": {
+    "slots": "Slots",
+    "example": "Ejemplo"
+  }
+}

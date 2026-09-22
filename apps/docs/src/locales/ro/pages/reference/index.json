@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Referință API",
+    "description": "Fiecare componentă, hook, funcție și tip exportat de React Scheduler, cu o descriere de o linie și un link."
+  },
+  "sections": {
+    "components": "Componente",
+    "hooks": "Hook-uri",
+    "functions": "Funcții",
+    "types": "Tipuri",
+    "css-variables": "Variabile CSS"
+  }
+}

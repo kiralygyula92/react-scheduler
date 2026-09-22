@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Fecha pasada",
+    "description": "Una demo de React Scheduler sobre el conjunto Fecha pasada: las capacidades que combina y su código completo."
+  },
+  "sections": {
+    "scenario": "Escenario",
+    "what-it-uses": "Qué utiliza",
+    "source": "Código fuente"
+  }
+}

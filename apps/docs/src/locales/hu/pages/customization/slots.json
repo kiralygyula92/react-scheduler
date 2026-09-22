@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Slotok és felülírások",
+    "description": "Slotok és felülírások a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+  },
+  "sections": {
+    "slots": "Slotok",
+    "example": "Példa"
+  }
+}

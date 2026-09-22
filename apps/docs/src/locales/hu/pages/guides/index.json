@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Útmutatók",
+    "description": "Feladatorientált útmutatók a React Schedulerhez, mindegyik működő állapottal zárul."
+  }
+}

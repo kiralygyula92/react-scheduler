@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Vue d'ensemble",
+    "description": "Vue d'ensemble dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+  },
+  "sections": {
+    "css-variables": "Variables CSS",
+    "class-names": "Noms de classe",
+    "slot-props": "Props de slot",
+    "slots": "Slots",
+    "handlers": "Gestionnaires",
+    "headless-hooks": "Hooks headless"
+  }
+}

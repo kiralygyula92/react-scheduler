@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Áttekintés",
+    "description": "Mi a React Scheduler, mit jelenít meg, hogyan vezérelhető, és merre tovább. MIT licenc, fizetős csomag nélkül."
+  },
+  "sections": {
+    "introduction": "Bevezetés",
+    "why": "Miért a React Scheduler",
+    "start-now": "Kezdés",
+    "license": "Licenc"
+  }
+}

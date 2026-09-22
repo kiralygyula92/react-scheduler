@@ -52,6 +52,8 @@ export const site = {
   repoUrl: navigation.repoUrl,
   /** The deployment's own origin when the build knows it, else the one in `nav.json`. */
   origin: (import.meta.env.VITE_SITE_URL as string | undefined) ?? navigation.siteUrl,
+  /** The documented package's version; the navbar shows it as `v{major}.{minor}` (O14). */
+  version: (import.meta.env.VITE_PACKAGE_VERSION as string | undefined) ?? '0.0.0',
   basePath: `/${navigation.pluginId}/`,
   playground: navigation.playground,
 } as const;
@@ -103,9 +105,9 @@ export interface NavState {
   readonly sections: readonly NavSection[];
   readonly current?: FlatItem;
   readonly activeSectionId?: string;
-  isActive(item: NavItem): boolean;
+  readonly isActive: (item: NavItem) => boolean;
   /** Turns a locale-relative path into a full URL path for the current locale. */
-  localePath(rest: string): string;
+  readonly localePath: (rest: string) => string;
 }
 
 export function useNav(): NavState {

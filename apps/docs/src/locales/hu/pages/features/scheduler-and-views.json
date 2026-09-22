@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Ütemező és nézetek",
+    "description": "Ütemező és nézetek a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+  },
+  "sections": {
+    "basics": "Alapok",
+    "accessibility": "Akadálymentesség",
+    "customization": "Testreszabás",
+    "limitations": "Korlátok",
+    "api": "API"
+  }
+}

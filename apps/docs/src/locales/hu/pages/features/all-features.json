@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Minden funkció",
+    "description": "A React Scheduler összes képessége, az oldalsávval megegyező csoportosításban, egysoros összefoglalóval és hivatkozással."
+  }
+}

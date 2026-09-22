@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4"
+  },
+  "capabilities": {
+    "schedulerAndViews": "Scheduler and views",
+    "shiftsAndDates": "Shifts and dates",
+    "listView": "List view",
+    "timelineView": "Timeline view",
+    "itemsAndLevels": "Items and levels",
+    "pinning": "Pinning",
+    "navigation": "Navigation",
+    "nowIndicator": "Now indicator",
+    "overflow": "Overflow",
+    "itemDetail": "Item detail",
+    "compact": "Compact mode",
+    "states": "States",
+    "motion": "Motion",
+    "eventsAndMiddleware": "Events and middleware",
+    "dataModesAndSsr": "Data modes and SSR",
+    "accessibilityAndKeyboard": "Accessibility and keyboard",
+    "headlessApi": "Headless API"
+  },
+  "demos": {
+    "baselineDay": "Baseline day",
+    "empty": "Empty schedule",
+    "sparse": "Sparse day",
+    "crowded": "Crowded day",
+    "nightShift": "Night shift",
+    "pastDate": "Past date",
+    "pinnedMany": "Many pinned items",
+    "large": "Large schedule"
+  }
+}

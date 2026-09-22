@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Sok rögzített elem",
+    "description": "React Scheduler demó a(z) Sok rögzített elem adatkészleten: a kombinált képességek és a teljes forráskód."
+  },
+  "sections": {
+    "scenario": "Forgatókönyv",
+    "what-it-uses": "Mit használ",
+    "source": "Forráskód"
+  }
+}

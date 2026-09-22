@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Nachtschicht",
+    "description": "Eine React-Scheduler-Demo auf dem Datensatz Nachtschicht: die kombinierten Fähigkeiten und der vollständige Quellcode."
+  },
+  "sections": {
+    "scenario": "Szenario",
+    "what-it-uses": "Was es verwendet",
+    "source": "Quellcode"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Slots and overrides",
+    "description": "Slots and overrides in React Scheduler: what you can change, how to change it, and what each change affects."
+  },
+  "sections": {
+    "slots": "Slots",
+    "example": "Example"
+  }
+}

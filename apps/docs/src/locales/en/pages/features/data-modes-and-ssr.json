@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Data modes and SSR",
+    "description": "Data modes and SSR in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+  },
+  "sections": {
+    "basics": "Basics",
+    "server-and-client": "Server and client",
+    "accessibility": "Accessibility",
+    "customization": "Customization",
+    "limitations": "Limitations",
+    "api": "API"
+  }
+}

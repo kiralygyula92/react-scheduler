@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Verwendung",
+    "description": "Verwendung für das React-Scheduler-Paket: die Schritte der Reihe nach, die beteiligten Versionen und die Prüfung danach."
+  },
+  "sections": {
+    "minimal-example": "Minimales Beispiel",
+    "controlled-and-uncontrolled": "Kontrolliert und unkontrolliert",
+    "common-props": "Häufige Props",
+    "next-steps": "Nächste Schritte"
+  }
+}

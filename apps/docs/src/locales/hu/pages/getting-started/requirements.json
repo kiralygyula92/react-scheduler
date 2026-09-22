@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Követelmények",
+    "description": "Követelmények a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+  },
+  "sections": {
+    "browsers": "Böngészők",
+    "react-versions": "React verziók",
+    "typescript-versions": "TypeScript verziók",
+    "frameworks-and-ssr": "Keretrendszerek és SSR",
+    "bundle-size": "Csomagméret",
+    "accessibility-target": "Akadálymentesítési cél"
+  }
+}

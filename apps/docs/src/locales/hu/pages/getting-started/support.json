@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Támogatás",
+    "description": "Támogatás a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+  },
+  "sections": {
+    "where-to-ask": "Hol kérdezhetsz",
+    "report-a-bug": "Hogyan jelents hibát",
+    "security": "Biztonság",
+    "support-policy": "Támogatási irányelv"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "FAQ",
+    "description": "FAQ for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+  },
+  "sections": {
+    "is-it-free": "Is it free?",
+    "nextjs": "Does it work with Next.js?",
+    "without-default-styles": "Can I use it without the default styles?",
+    "built-in-languages": "Which languages are built in?"
+  }
+}

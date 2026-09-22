@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Lizenz",
+    "description": "React Scheduler steht unter MIT-Lizenz: der vollständige Text und eine klare Zusammenfassung."
+  },
+  "sections": {
+    "summary": "Zusammenfassung",
+    "full-text": "Volltext"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "De uma implementação própria",
+    "description": "De uma implementação própria: a quem se destina, o que mudou e os passos para migrar uma instalação para a versão atual."
+  },
+  "sections": {
+    "who-this-is-for": "A quem se destina",
+    "summary-of-changes": "Resumo das alterações",
+    "step-by-step": "Passo a passo",
+    "removed-and-renamed": "Removido e renomeado",
+    "getting-help": "Obter ajuda"
+  }
+}

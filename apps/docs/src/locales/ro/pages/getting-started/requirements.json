@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Cerințe",
+    "description": "Cerințe pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+  },
+  "sections": {
+    "browsers": "Browsere",
+    "react-versions": "Versiuni React",
+    "typescript-versions": "Versiuni TypeScript",
+    "frameworks-and-ssr": "Framework-uri și SSR",
+    "bundle-size": "Dimensiunea pachetului",
+    "accessibility-target": "Obiectivul de accesibilitate"
+  }
+}

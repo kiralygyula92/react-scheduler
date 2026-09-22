@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Modes de données et SSR",
+    "description": "Modes de données et SSR dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+  },
+  "sections": {
+    "basics": "Bases",
+    "server-and-client": "Serveur et client",
+    "accessibility": "Accessibilité",
+    "customization": "Personnalisation",
+    "limitations": "Limites",
+    "api": "API"
+  }
+}

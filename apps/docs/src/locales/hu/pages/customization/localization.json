@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Lokalizáció",
+    "description": "Lokalizáció a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+  },
+  "sections": {
+    "built-in-locales": "Beépített nyelvek",
+    "custom-messages": "Egyéni üzenetek",
+    "adding-a-language": "Nyelv hozzáadása"
+  }
+}

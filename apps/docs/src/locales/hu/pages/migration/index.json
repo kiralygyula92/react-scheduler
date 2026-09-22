@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Migráció",
+    "description": "Hogyan állíts át egy meglévő beállítást a jelenlegi React Scheduler verzióra, és mi változott közben."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Épinglage",
+    "description": "Épinglage dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+  },
+  "sections": {
+    "basics": "Bases",
+    "accessibility": "Accessibilité",
+    "customization": "Personnalisation",
+    "limitations": "Limites",
+    "api": "API"
+  }
+}

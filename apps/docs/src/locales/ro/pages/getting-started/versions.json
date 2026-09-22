@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Versiuni",
+    "description": "Ce versiuni React Scheduler sunt acceptate, cum sunt numerotate lansările și unde găsești documentația versiunilor vechi."
+  },
+  "sections": {
+    "supported-versions": "Versiuni acceptate",
+    "versioning-policy": "Politica de versionare",
+    "older-versions": "Versiuni mai vechi",
+    "related": "Legături conexe"
+  }
+}

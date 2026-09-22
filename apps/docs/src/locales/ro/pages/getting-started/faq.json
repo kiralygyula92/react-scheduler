@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Întrebări frecvente",
+    "description": "Întrebări frecvente pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+  },
+  "sections": {
+    "is-it-free": "Este gratuit?",
+    "nextjs": "Funcționează cu Next.js?",
+    "without-default-styles": "Îl pot folosi fără stilurile implicite?",
+    "built-in-languages": "Ce limbi sunt incluse?"
+  }
+}

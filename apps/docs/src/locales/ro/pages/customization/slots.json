@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Sloturi și suprascrieri",
+    "description": "Sloturi și suprascrieri în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+  },
+  "sections": {
+    "slots": "Sloturi",
+    "example": "Exemplu"
+  }
+}

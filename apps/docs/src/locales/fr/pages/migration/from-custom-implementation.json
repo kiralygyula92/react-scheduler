@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Depuis une implémentation maison",
+    "description": "Depuis une implémentation maison : à qui cela s’adresse, ce qui a changé et les étapes pour passer à la version actuelle."
+  },
+  "sections": {
+    "who-this-is-for": "À qui cela s’adresse",
+    "summary-of-changes": "Résumé des changements",
+    "step-by-step": "Pas à pas",
+    "removed-and-renamed": "Supprimé et renommé",
+    "getting-help": "Obtenir de l’aide"
+  }
+}

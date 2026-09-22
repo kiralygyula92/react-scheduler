@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Moduri de date și SSR",
+    "description": "Moduri de date și SSR în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+  },
+  "sections": {
+    "basics": "Noțiuni de bază",
+    "server-and-client": "Server și client",
+    "accessibility": "Accesibilitate",
+    "customization": "Personalizare",
+    "limitations": "Limitări",
+    "api": "API"
+  }
+}

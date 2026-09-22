@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Datenmodi und SSR",
+    "description": "Datenmodi und SSR in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+  },
+  "sections": {
+    "basics": "Grundlagen",
+    "server-and-client": "Server und Client",
+    "accessibility": "Barrierefreiheit",
+    "customization": "Anpassung",
+    "limitations": "Einschränkungen",
+    "api": "API"
+  }
+}

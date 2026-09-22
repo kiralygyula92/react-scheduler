@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "GYIK",
+    "description": "GYIK a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+  },
+  "sections": {
+    "is-it-free": "Ingyenes?",
+    "nextjs": "Működik a Next.js-szel?",
+    "without-default-styles": "Használható az alapértelmezett stílusok nélkül?",
+    "built-in-languages": "Mely nyelvek beépítettek?"
+  }
+}

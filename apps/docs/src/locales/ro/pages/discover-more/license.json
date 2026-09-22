@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Licență",
+    "description": "React Scheduler are licență MIT: textul integral al licenței și un rezumat clar al drepturilor pe care le oferă."
+  },
+  "sections": {
+    "summary": "Rezumat",
+    "full-text": "Text integral"
+  }
+}

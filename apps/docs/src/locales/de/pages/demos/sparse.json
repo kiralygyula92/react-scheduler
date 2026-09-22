@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Tag mit wenigen Einträgen",
+    "description": "Eine React-Scheduler-Demo auf dem Datensatz Tag mit wenigen Einträgen: die kombinierten Fähigkeiten und der vollständige Quellcode."
+  },
+  "sections": {
+    "scenario": "Szenario",
+    "what-it-uses": "Was es verwendet",
+    "source": "Quellcode"
+  }
+}

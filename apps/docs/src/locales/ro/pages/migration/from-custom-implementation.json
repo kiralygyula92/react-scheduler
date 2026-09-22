@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "De la o implementare proprie",
+    "description": "De la o implementare proprie: cui se adresează, ce s-a schimbat și pașii care mută o configurație existentă la versiunea curentă."
+  },
+  "sections": {
+    "who-this-is-for": "Cui se adresează",
+    "summary-of-changes": "Rezumatul modificărilor",
+    "step-by-step": "Pas cu pas",
+    "removed-and-renamed": "Eliminate și redenumite",
+    "getting-help": "Cum obții ajutor"
+  }
+}

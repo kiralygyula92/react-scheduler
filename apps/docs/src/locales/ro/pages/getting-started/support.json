@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Suport",
+    "description": "Suport pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+  },
+  "sections": {
+    "where-to-ask": "Unde poți întreba",
+    "report-a-bug": "Cum raportezi o eroare",
+    "security": "Securitate",
+    "support-policy": "Politica de suport"
+  }
+}

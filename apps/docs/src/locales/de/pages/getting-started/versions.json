@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Versionen",
+    "description": "Welche React-Scheduler-Versionen unterstützt werden, wie Releases nummeriert sind und wo ältere Dokumentation liegt."
+  },
+  "sections": {
+    "supported-versions": "Unterstützte Versionen",
+    "versioning-policy": "Versionierungsrichtlinie",
+    "older-versions": "Ältere Versionen",
+    "related": "Verwandt"
+  }
+}

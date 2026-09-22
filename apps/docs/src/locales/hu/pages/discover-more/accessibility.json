@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Akadálymentesség",
+    "description": "A React Scheduler akadálymentesítési célja, mit tesztelünk minden változásnál, és milyen hiányosságok maradtak."
+  },
+  "sections": {
+    "target": "Cél",
+    "what-is-tested": "Mit tesztelünk",
+    "known-gaps": "Ismert hiányosságok",
+    "reporting": "Probléma jelentése"
+  }
+}

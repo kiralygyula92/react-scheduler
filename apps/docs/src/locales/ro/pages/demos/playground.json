@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Playground",
+    "description": "Încearcă React Scheduler cu toate proprietățile publice, vezi evenimentele emise și copiază JSX-ul configurației tale."
+  },
+  "sections": {
+    "setup": "Configurare",
+    "props": "Proprietăți",
+    "code": "Cod",
+    "event-log": "Jurnal de evenimente"
+  }
+}

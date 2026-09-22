@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Acessibilidade",
+    "description": "O objetivo de acessibilidade do React Scheduler, o que é testado em cada alteração e as lacunas que restam."
+  },
+  "sections": {
+    "target": "Objetivo",
+    "what-is-tested": "O que é testado",
+    "known-gaps": "Lacunas conhecidas",
+    "reporting": "Reportar um problema"
+  }
+}

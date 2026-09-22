@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Installation",
+    "description": "Installation für das React-Scheduler-Paket: die Schritte der Reihe nach, die beteiligten Versionen und die Prüfung danach."
+  },
+  "sections": {
+    "install": "Installation",
+    "peer-dependencies": "Peer-Abhängigkeiten",
+    "stylesheet": "Stylesheet",
+    "verify": "Überprüfung",
+    "next-steps": "Nächste Schritte"
+  }
+}

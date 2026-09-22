@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Slots et surcharges",
+    "description": "Slots et surcharges dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+  },
+  "sections": {
+    "slots": "Slots",
+    "example": "Exemple"
+  }
+}
