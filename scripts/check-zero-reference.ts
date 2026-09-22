@@ -16,6 +16,7 @@ interface ConfigFile {
   allowedEmailDomains: string[];
   allowedEmails: string[];
   allowedHosts: string[];
+  allowedLocalPorts: number[];
 }
 
 function loadConfig(): ZeroReferenceConfig {
@@ -26,6 +27,7 @@ function loadConfig(): ZeroReferenceConfig {
     allowedEmailDomains: file.allowedEmailDomains,
     allowedEmails: file.allowedEmails,
     allowedHosts: file.allowedHosts,
+    allowedLocalPorts: file.allowedLocalPorts,
   };
 }
 

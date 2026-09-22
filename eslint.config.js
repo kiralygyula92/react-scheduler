@@ -43,6 +43,7 @@ export default defineConfig(
   {
     ignores: [
       'spec/**',
+      '.cache/**',
       '**/node_modules/**',
       '**/dist/**',
       '**/build/**',

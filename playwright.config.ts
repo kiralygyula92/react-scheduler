@@ -15,6 +15,16 @@ export default defineConfig({
     deviceScaleFactor: 1,
     viewport: { width: 1440, height: 900 },
     trace: 'on-first-retry',
+    baseURL: 'http://localhost:4173',
+  },
+  // The site E2E runs against the built, statically served output — the same files the host
+  // serves (10 §2). The package's browser specs do not need it, and an already-running server is
+  // reused.
+  webServer: {
+    command: 'node apps/docs/scripts/serve.ts 4173',
+    url: 'http://localhost:4173/react-scheduler/',
+    reuseExistingServer: !process.env['CI'],
+    timeout: 60_000,
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } } },

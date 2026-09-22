@@ -39,13 +39,20 @@ export function Sidebar(): React.ReactElement {
   const [open, setOpen] = useSessionState<Record<string, boolean>>('ds:sidebar', {});
   const isOpen = (id: string): boolean => open[id] ?? id === activeSectionId;
 
-  // The active link is brought into view once, on the first render of a full page load (O22).
+  // The active link is brought into view once, on the first render of a full page load (O22). The
+  // scroll container is moved directly rather than with `scrollIntoView`, which also moves the
+  // browser's sequential focus starting point — the first Tab would then land in the middle of the
+  // sidebar instead of on the skip link.
   const nav = useRef<HTMLElement>(null);
   const scrolled = useRef(false);
   useEffect(() => {
     if (scrolled.current) return;
     scrolled.current = true;
-    nav.current?.querySelector('[aria-current="page"]')?.scrollIntoView({ block: 'nearest' });
+    const link = nav.current?.querySelector<HTMLElement>('[aria-current="page"]');
+    const container = nav.current?.closest<HTMLElement>('.ds-sidebar, .ds-drawer');
+    if (link === null || link === undefined || container === null || container === undefined) return;
+    const middle = link.offsetTop - container.clientHeight / 2;
+    if (middle > 0) container.scrollTop = middle;
   }, []);
 
   return (
@@ -68,9 +75,11 @@ export function Sidebar(): React.ReactElement {
               {section.items.map((entry) =>
                 isGroup(entry) ? (
                   <Fragment key={entry.labelKey}>
-                    <li className="ds-nav__group" role="presentation">
-                      {label(entry.labelKey)}
-                    </li>
+                    {/* `11/components.md` writes this as `role="presentation"`, which takes the
+                        item out of the list and makes axe's `list` rule fail on the whole
+                        sidebar — a serious violation, which 07 §1 does not allow. The element is
+                        otherwise unchanged (EXCEPTIONS.md #8). */}
+                    <li className="ds-nav__group">{label(entry.labelKey)}</li>
                     {entry.items.map((item) => (
                       <NavLink key={item.id} item={item} active={isActive(item)} label={label(item.labelKey)} />
                     ))}

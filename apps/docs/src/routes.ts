@@ -63,4 +63,10 @@ const children = LOCALES.flatMap((locale) => [
   route(relative(locale, '/404/'), './routes/not-found.tsx', { id: `not-found.${locale}` }),
 ]);
 
-export default [route(pluginId, './routes/layout.tsx', children)] satisfies RouteConfig;
+export default [
+  route(pluginId, './routes/layout.tsx', children),
+  // Anything else is a 404. The host answers with the prerendered 404 page of the locale (10 §2);
+  // this route keeps that page whole once it hydrates under a URL no page owns. It stays outside
+  // the layout because `ssr: false` allows a build-time loader only on prerendered routes.
+  route('*', './routes/not-found-route.tsx', { id: 'not-found.rest' }),
+] satisfies RouteConfig;

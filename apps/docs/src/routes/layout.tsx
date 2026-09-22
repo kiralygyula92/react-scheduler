@@ -49,6 +49,16 @@ export async function loader({ request }: { request: Request }): Promise<PageDat
 }
 
 /**
+ * Every navigation lands on a different page of this layout, and each page has its own locale
+ * namespace. React Router keeps a parent's data when only a child route changes, which would leave
+ * the new page reading the previous page's bundle, so this route reloads on every navigation. The
+ * data it fetches is a prerendered file.
+ */
+export function shouldRevalidate(): boolean {
+  return true;
+}
+
+/**
  * The per-page half of the metadata contract, rendered as elements so React hoists them into
  * <head>. A route-level `meta` export is not used: React Router calls it without the loader data
  * during this prerender, and a head built from no data would be wrong on every page.

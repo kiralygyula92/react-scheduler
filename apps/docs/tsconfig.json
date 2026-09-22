@@ -11,5 +11,5 @@
     "declaration": false,
     "allowImportingTsExtensions": true
   },
-  "include": ["src", "scripts", "test", "*.config.ts", ".react-router/types/**/*"]
+  "include": ["src", "scripts", "test", "e2e", "*.config.ts", ".react-router/types/**/*"]
 }

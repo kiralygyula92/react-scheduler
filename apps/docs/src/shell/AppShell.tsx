@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The layout frame (docs pack 11 §2, structure normative). `ds-main` carries the content padding
 // and nothing inside it adds a max-width (O1).
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useT } from '~/i18n/useT';
 import { Footer } from './Footer';
 import { MobileDrawer } from './MobileDrawer';
@@ -20,6 +20,13 @@ export function AppShell({
   const [drawerOpen, setDrawerOpen] = useState(false);
   const closeDrawer = useCallback(() => {
     setDrawerOpen(false);
+  }, []);
+
+  // Everything on a prerendered page is visible before its JavaScript runs, so nothing on screen
+  // says when the keyboard shortcuts, the menus and the dialogs become live. This attribute does,
+  // for the E2E suite and the screenshot runs.
+  useEffect(() => {
+    document.documentElement.dataset['hydrated'] = 'true';
   }, []);
 
   return (

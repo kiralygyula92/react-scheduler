@@ -20,6 +20,7 @@
     "json-schema.org",
     "schemastore.org",
     "w3.org",
+    "sitemaps.org",
     "whatwg.org",
     "unicode.org",
     "ecma-international.org",
@@ -57,6 +58,8 @@
     "openfontlicense.org",
     "sil.org",
     "claude.com",
-    "anthropic.com"
-  ]
+    "anthropic.com",
+    "localhost"
+  ],
+  "allowedLocalPorts": [4173]
 }
