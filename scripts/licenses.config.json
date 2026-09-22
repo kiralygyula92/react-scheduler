@@ -38,6 +38,12 @@
       "license": "MPL-2.0",
       "via": "@react-schedulerkit/react-scheduler (accessibility tests)",
       "approved": "With the M3 plan (2026-09-22)"
+    },
+    {
+      "package": "pako",
+      "license": "(MIT AND Zlib)",
+      "via": "subset-font > fontverter (builds the site's web font)",
+      "approved": "Proposed at M4; both licenses are permissive and development-only"
     }
   ]
 }

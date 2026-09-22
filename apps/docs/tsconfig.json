@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node", "vite/client"],
+    "rootDirs": [".", "./.react-router/types"],
+    "paths": { "~/*": ["./src/*"] },
+    "isolatedDeclarations": false,
+    "declaration": false
+  },
+  "include": ["src", "scripts", "test", "*.config.ts", ".react-router/types/**/*"]
+}

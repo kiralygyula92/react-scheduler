@@ -15,6 +15,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "fonts": "node scripts/fetch-fonts.ts",
+    "site:assets": "node scripts/build-site-font.ts && node scripts/build-og-image.ts",
     "test:browser": "node scripts/fetch-fonts.ts && pnpm --filter @react-schedulerkit/react-scheduler test:browser",
     "test:perf": "node scripts/fetch-fonts.ts && pnpm --filter @react-schedulerkit/react-scheduler test:perf",
     "e2e": "playwright test",
@@ -41,6 +42,7 @@
     "prettier": "3.9.8",
     "stylelint": "17.15.0",
     "stylelint-config-standard": "40.0.0",
+    "subset-font": "2.9.0",
     "typescript": "7.0.2",
     "typescript-eslint": "8.70.1",
     "vitest": "5.0.1"

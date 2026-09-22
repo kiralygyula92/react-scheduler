@@ -39,8 +39,13 @@ Docs pack `00` §5 fixes the stack: pnpm 10, Node 24, TypeScript 7 for type-chec
 | dom-accessibility-api                  | 0.7.1                                        | MIT             | Screen-reader names and descriptions snapshot (M3)                               |
 | size-limit, @size-limit/esbuild, /file | 14.0.0                                       | MIT             | Bundle budgets, Dossier 09 §2 (M3)                                               |
 | knip                                   | 6.37.0                                       | ISC             | Unused files, exports and dependencies, P4 (M3)                                  |
+| subset-font                            | 2.9.0                                        | BSD-3-Clause    | Builds the site's Latin + Latin Extended web font, 07 §1 (M4); see D7            |
+| vite                                   | 8.3.0                                        | MIT             | Docs site bundler and dev server (M4)                                            |
+| react-router, @react-router/dev        | 8.4.0                                        | MIT             | Docs site router in framework mode, `ssr: false` with full prerendering (M4)     |
+| @vercel/analytics                      | 2.0.1                                        | MIT             | Page views on the deployed site, `/react` entry (M4)                             |
+| @vercel/speed-insights                 | 2.0.0                                        | Apache-2.0      | Core Web Vitals of the deployed site, `/react` entry (M4)                        |
 
-M2 uses axe-core directly in both test layers, so neither `@axe-core/playwright` nor `vitest-axe` is installed. The browser tests use Vitest's own `userEvent`, so `@testing-library/user-event` was removed at M3. For the site (M4), React Router, Vite and the Vercel analytics packages each get a row here when installed.
+M2 uses axe-core directly in both test layers, so neither `@axe-core/playwright` nor `vitest-axe` is installed. The browser tests use Vitest's own `userEvent`, so `@testing-library/user-event` was removed at M3. `react-router` and the two Vercel packages are dependencies of the private `docs` workspace only; the published package's dependency rule is unchanged (`dependencies: {}`).
 
 ## Decisions
 
@@ -82,14 +87,15 @@ The two specs disagree. Dossier `09` §8 applies MIT/ISC/BSD-2/BSD-3/0BSD/Apache
 - **Production trees** (`pnpm licenses list --prod --recursive`) must be fully covered by MIT, ISC, BSD-2-Clause, BSD-3-Clause, 0BSD, Apache-2.0, CC0-1.0 or Unlicense. SPDX expressions are evaluated (`OR` = any, `AND` = all). Publishable packages must also have no `dependencies`, only `react`/`react-dom` as peers, `license: "MIT"` and a `LICENSE` file.
 - **Development trees** may also contain the packages below. Each one is named with its exact license; anything else fails.
 
-| Package                                   | License       | Pulled in by                                           | Nature                                                                                               |
-| ----------------------------------------- | ------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `@csstools/*` (3 packages)                | MIT-0         | stylelint                                              | MIT without the attribution clause                                                                   |
-| `argparse`                                | Python-2.0    | stylelint → cosmiconfig → js-yaml                      | Permissive (PSF)                                                                                     |
-| `caniuse-lite`                            | CC-BY-4.0     | eslint-plugin-react-hooks → @babel/core → browserslist | Browser-support data, attribution license                                                            |
-| `lightningcss`, `lightningcss-<platform>` | MPL-2.0       | vitest → vite                                          | File-level copyleft; used unmodified, never shipped                                                  |
-| `lru-cache`, `minimatch` (current majors) | BlueOak-1.0.0 | tsdown, @arethetypeswrong/core; eslint                 | Permissive                                                                                           |
-| `axe-core`                                | MPL-2.0       | the package's test suites                              | File-level copyleft; used unmodified in tests, never shipped. Approved with the M3 plan (2026-09-22) |
+| Package                                   | License       | Pulled in by                                           | Nature                                                                                                      |
+| ----------------------------------------- | ------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `@csstools/*` (3 packages)                | MIT-0         | stylelint                                              | MIT without the attribution clause                                                                          |
+| `argparse`                                | Python-2.0    | stylelint → cosmiconfig → js-yaml                      | Permissive (PSF)                                                                                            |
+| `caniuse-lite`                            | CC-BY-4.0     | eslint-plugin-react-hooks → @babel/core → browserslist | Browser-support data, attribution license                                                                   |
+| `lightningcss`, `lightningcss-<platform>` | MPL-2.0       | vitest → vite                                          | File-level copyleft; used unmodified, never shipped                                                         |
+| `lru-cache`, `minimatch` (current majors) | BlueOak-1.0.0 | tsdown, @arethetypeswrong/core; eslint                 | Permissive                                                                                                  |
+| `axe-core`                                | MPL-2.0       | the package's test suites                              | File-level copyleft; used unmodified in tests, never shipped. Approved with the M3 plan (2026-09-22)        |
+| `pako`                                    | MIT AND Zlib  | subset-font → fontverter                               | Two permissive licenses; the checker compares whole expressions, so the pair is listed here. Proposed at M4 |
 
 None of these reaches the published tarball: the package has no dependencies, and CI scans the packed tarball before publishing. The user approved this exception list at the M0 checkpoint (2026-09-22), and `axe-core`, proposed at M2, with the M3 plan (2026-09-22). A new exception needs the same approval.
 
@@ -99,9 +105,17 @@ None of these reaches the published tarball: the package has no dependencies, an
 
 - **Denylist candidates:** raw tokens, identifier sub-tokens, and word 1/2/3-grams, plus 2- and 3-token sequences of raw tokens. File names are scanned too, and so are the printable strings of binary files.
 - **Generic patterns:** e-mails, URLs, IPv4, `localhost` ports, JWT-like and key-like strings, and absolute user paths.
-- **URL hosts:** the allowlist in `scripts/zero-reference.config.json` covers the project's domains, `*.vercel.app` (the docs pack's examples), and well-known registry, specification and documentation hosts. Extending it needs a reason here.
+- **URL hosts:** the allowlist in `scripts/zero-reference.config.json` covers the project's domains, `*.vercel.app` (the docs pack's examples), and well-known registry, specification and documentation hosts. Extending it needs a reason here. `sil.org` was added at M4: the OFL text committed with the site's font (`apps/docs/public/fonts/Inter-OFL.txt`) links to `scripts.sil.org/OFL`, and the license may not be altered.
 - **E-mail allowlist:** `@example.com`/`.org`/`.net`, GitHub's no-reply domain, and the commit co-author trailer address.
 - **Modes:** repository (default), `--stdin` (commit messages in CI), and `--dir` (the unpacked tarball in the release workflow, including `dist/`).
+
+### D7 — The site's web font is subset in the repository, not downloaded ready-made
+
+Docs pack `07` §1 asks for "Inter variable, Latin + Latin Extended subsets"; the verbatim shell (`11-docs-shell-reference/tokens.css`) declares **one** face at `/fonts/InterVariable.woff2` with no `unicode-range`, so a single file has to cover all seven locales. No upstream distribution offers that file: Inter's own release is the full 352 kB font, and Google Fonts splits Latin and Latin Extended into two files that only a `unicode-range` pair can combine.
+
+`scripts/build-site-font.ts` therefore builds it from the OFL release already pinned by SHA-256 in `scripts/lib/fonts.ts` (google/fonts commit `e44c4b0`, the same source as the visual references), using `subset-font` (harfbuzz compiled to WebAssembly, so it runs the same on every platform). It keeps the Latin and Latin Extended code points of the published Inter v20 subsets and pins the `opsz` axis to its default, which is what Google Fonts serves for a `wght@100..900` request: **132.8 kB**, against 352 kB for the full face.
+
+The result and the licence (`apps/docs/public/fonts/`) are committed, with their provenance in `apps/docs/SOURCES.md`, so neither the site build nor CI needs network access; `subset-font` is only needed to regenerate them. Inter carries no Reserved Font Name, so the subset keeps the family name (OFL 1.1 §3).
 
 ## Consequences
 

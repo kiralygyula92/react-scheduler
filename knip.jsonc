@@ -1,0 +1,16 @@
+{
+  // Unused files, exports and dependencies (P4, docs pack 09 §9). Knip's own plugins find every
+  // other entry point; these two need saying.
+  "workspaces": {
+    ".": {
+      // Gate and asset scripts are run by name from package.json, not imported.
+      "entry": ["scripts/*.ts"],
+    },
+    "apps/docs": {
+      // @react-router/node is what knip's react-router plugin expects a server build to import.
+      // This site prerenders with `ssr: false` and a web-stream entry, so it never does.
+      // The package itself is imported by the demos, which arrive with the content milestones.
+      "ignoreDependencies": ["@react-router/node", "@react-schedulerkit/react-scheduler"],
+    },
+  },
+}

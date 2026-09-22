@@ -3,5 +3,28 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Documentation website for React Scheduler (built at M4)."
+  "description": "Documentation website for React Scheduler.",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "typecheck": "react-router typegen && tsc --noEmit",
+    "i18n:check": "node scripts/check-i18n.ts",
+    "conformance": "node scripts/check-conformance.ts",
+    "shell:checksum": "node scripts/shell-checksum.ts"
+  },
+  "dependencies": {
+    "@react-schedulerkit/react-scheduler": "workspace:*",
+    "@vercel/analytics": "2.0.1",
+    "@vercel/speed-insights": "2.0.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "8.4.0",
+    "isbot": "^5"
+  },
+  "devDependencies": {
+    "@react-router/dev": "8.4.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "vite": "8.3.0"
+  }
 }

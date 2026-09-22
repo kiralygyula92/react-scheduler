@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://react-schedulerkit.vercel.app/sitemap.xml
