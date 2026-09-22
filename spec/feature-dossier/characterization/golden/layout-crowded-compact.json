@@ -1,0 +1,34 @@
+{
+  "fixture": "crowded",
+  "mode": "compact",
+  "rangeStart": "2031-03-11T20:00:00",
+  "placed": [
+    {
+      "id": "k06",
+      "column": 0,
+      "columns": 1,
+      "top": 2322,
+      "height": 254
+    },
+    {
+      "id": "k08",
+      "column": 0,
+      "columns": 1,
+      "top": 3096,
+      "height": 168
+    }
+  ],
+  "overflow": [
+    {
+      "anchor": "2031-03-12T09:00:00",
+      "ids": [
+        "k02",
+        "k03",
+        "k04",
+        "k05",
+        "k01",
+        "k07"
+      ]
+    }
+  ]
+}

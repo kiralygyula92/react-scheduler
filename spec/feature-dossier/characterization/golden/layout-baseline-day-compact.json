@@ -1,0 +1,115 @@
+{
+  "fixture": "baseline-day",
+  "mode": "compact",
+  "rangeStart": "2031-03-11T20:00:00",
+  "placed": [
+    {
+      "id": "p01",
+      "column": 0,
+      "columns": 1,
+      "top": 344,
+      "height": 168
+    },
+    {
+      "id": "p02",
+      "column": 0,
+      "columns": 1,
+      "top": 1032,
+      "height": 254
+    },
+    {
+      "id": "p03",
+      "column": 0,
+      "columns": 1,
+      "top": 1548,
+      "height": 168
+    },
+    {
+      "id": "p04",
+      "column": 0,
+      "columns": 1,
+      "top": 1806,
+      "height": 168
+    },
+    {
+      "id": "c01",
+      "column": 0,
+      "columns": 1,
+      "top": 2150,
+      "height": 254
+    },
+    {
+      "id": "c02",
+      "column": 1,
+      "columns": 1,
+      "top": 2236,
+      "height": 254
+    },
+    {
+      "id": "c06",
+      "column": 0,
+      "columns": 1,
+      "top": 2666,
+      "height": 254
+    },
+    {
+      "id": "c07",
+      "column": 0,
+      "columns": 1,
+      "top": 2924,
+      "height": 168
+    },
+    {
+      "id": "c08",
+      "column": 0,
+      "columns": 1,
+      "top": 3268,
+      "height": 168
+    },
+    {
+      "id": "c09",
+      "column": 0,
+      "columns": 2,
+      "top": 3612,
+      "height": 340
+    },
+    {
+      "id": "c10",
+      "column": 1,
+      "columns": 2,
+      "top": 3784,
+      "height": 168
+    },
+    {
+      "id": "n01",
+      "column": 0,
+      "columns": 1,
+      "top": 4300,
+      "height": 168
+    },
+    {
+      "id": "n02",
+      "column": 0,
+      "columns": 1,
+      "top": 4988,
+      "height": 168
+    },
+    {
+      "id": "n03",
+      "column": 0,
+      "columns": 1,
+      "top": 5504,
+      "height": 168
+    }
+  ],
+  "overflow": [
+    {
+      "anchor": "2031-03-12T09:00:00",
+      "ids": [
+        "c03",
+        "c04",
+        "c05"
+      ]
+    }
+  ]
+}

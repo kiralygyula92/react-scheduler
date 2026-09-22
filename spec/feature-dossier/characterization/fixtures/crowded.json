@@ -1,0 +1,100 @@
+{
+  "id": "crowded",
+  "description": "Seven overlapping items around 09:00–11:30 plus one isolated item (column cap, promotion, overflow buckets).",
+  "selectedDate": "2031-03-12T10:30:00",
+  "now": "2031-03-12T10:30:00",
+  "shiftHours": 12,
+  "anchorHour": 8,
+  "userRole": "standard",
+  "items": [
+    {
+      "id": "k01",
+      "start": "2031-03-12T09:00:00",
+      "end": "2031-03-12T10:30:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Crowded A",
+      "description": "Short description for crowded a.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "k02",
+      "start": "2031-03-12T09:00:00",
+      "end": "2031-03-12T10:30:00",
+      "level": "watch",
+      "tags": [],
+      "title": "Crowded B",
+      "description": "Short description for crowded b.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "k03",
+      "start": "2031-03-12T09:00:00",
+      "end": "2031-03-12T10:30:00",
+      "level": "monitoring",
+      "tags": [],
+      "title": "Crowded C",
+      "description": "Short description for crowded c.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "k04",
+      "start": "2031-03-12T09:00:00",
+      "end": "2031-03-12T10:30:00",
+      "level": "ready",
+      "tags": [],
+      "title": "Crowded D",
+      "description": "Short description for crowded d.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "k05",
+      "start": "2031-03-12T09:00:00",
+      "end": "2031-03-12T10:30:00",
+      "level": "normal",
+      "tags": [],
+      "title": "Crowded E",
+      "description": "Short description for crowded e.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "k06",
+      "start": "2031-03-12T09:30:00",
+      "end": "2031-03-12T11:00:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Crowded F",
+      "description": "Short description for crowded f.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "9:30 AM – Present"
+    },
+    {
+      "id": "k07",
+      "start": "2031-03-12T10:00:00",
+      "end": "2031-03-12T11:30:00",
+      "level": "resolved",
+      "tags": [],
+      "title": "Crowded G",
+      "description": "Short description for crowded g.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "k08",
+      "start": "2031-03-12T14:00:00",
+      "end": "2031-03-12T15:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Quiet H",
+      "description": "Short description for quiet h.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    }
+  ]
+}

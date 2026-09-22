@@ -1,0 +1,48 @@
+{
+  "id": "sparse",
+  "description": "One item per shift (navigation threshold not reached).",
+  "selectedDate": "2031-03-12T10:30:00",
+  "now": "2031-03-12T10:30:00",
+  "shiftHours": 12,
+  "anchorHour": 8,
+  "userRole": "standard",
+  "items": [
+    {
+      "id": "p02",
+      "start": "2031-03-12T02:00:00",
+      "end": "2031-03-12T03:30:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Backup verification",
+      "description": "Short description for backup verification.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "1:48 AM – Present"
+    },
+    {
+      "id": "c01",
+      "start": "2031-03-12T08:30:00",
+      "end": "2031-03-12T10:00:00",
+      "level": "critical",
+      "tags": [
+        "impactsNextShift"
+      ],
+      "title": "Server room alert",
+      "description": "Short description for server room alert.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "8:12 AM – Present"
+    },
+    {
+      "id": "n01",
+      "start": "2031-03-12T21:00:00",
+      "end": "2031-03-12T22:00:00",
+      "level": "ready",
+      "tags": [],
+      "title": "Night check-in",
+      "description": "Short description for night check-in.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    }
+  ]
+}

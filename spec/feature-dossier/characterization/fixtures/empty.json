@@ -1,0 +1,10 @@
+{
+  "id": "empty",
+  "description": "No items at all.",
+  "selectedDate": "2031-03-12T10:30:00",
+  "now": "2031-03-12T10:30:00",
+  "shiftHours": 12,
+  "anchorHour": 8,
+  "userRole": "standard",
+  "items": []
+}

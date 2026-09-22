@@ -1,0 +1,18 @@
+{
+  "boundaryRange": {
+    "en": "Mar 11, 8 PM - Mar 12, 8 AM",
+    "es": "11 mar, 8 p. m. - 12 mar, 8 a. m."
+  },
+  "clockTime": {
+    "en": "10:30 AM",
+    "es": "10:30 a. m."
+  },
+  "hourLabels": [
+    "12AM",
+    "8AM",
+    "12PM",
+    "1PM",
+    "8PM"
+  ],
+  "sinceTimestamp": "03/12/2031 07:45 AM"
+}

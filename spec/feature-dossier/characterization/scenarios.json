@@ -1,0 +1,1614 @@
+{
+  "version": 1,
+  "recorded": "2026-09-22",
+  "note": "Every scenario passed against the current source before export (unit/dom: Vitest + jsdom; browser: Playwright + Chromium, production build). Tags \"bug\" pin current behaviour that the new library MUST fix — see 07-parity-and-bugs.md.",
+  "defaults": {
+    "timeZone": "UTC",
+    "locale": "en-US",
+    "viewport": "1440x900",
+    "fixtures": "fixtures/*.json",
+    "golden": "golden/*.json"
+  },
+  "scenarios": [
+    {
+      "id": "L-01",
+      "title": "Placement order",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "sort all items with the placement comparator"
+      ],
+      "then": [
+        "order is start time ascending, then level rank ascending (lower rank = stronger), then id (locale compare)",
+        "three items at the same start with levels watch(id b), watch(id a), critical(id z) sort as z, a, b",
+        "the list view and the timeline view use the same order",
+        "golden: golden/order-baseline.json"
+      ],
+      "tags": [
+        "ordering",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-02",
+      "title": "Isolated items are full width",
+      "given": {
+        "fixture": "pinned-many",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute the timeline layout (regular mode)"
+      ],
+      "then": [
+        "every item that overlaps nothing is in column 0 of 1 column"
+      ],
+      "tags": [
+        "layout",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-03",
+      "title": "Stronger levels take the left columns inside an overlap group",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute the timeline layout (regular mode)"
+      ],
+      "then": [
+        "c01 (critical, 08:30) is column 0 of 3",
+        "golden: golden/layout-baseline-day-regular.json"
+      ],
+      "tags": [
+        "layout",
+        "priority",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-04",
+      "title": "Column cap and overflow group",
+      "given": {
+        "fixture": "crowded",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute the timeline layout (regular mode)"
+      ],
+      "then": [
+        "no overlap group uses more than 3 columns",
+        "overflowed items form at least one \"+more\" group",
+        "golden: golden/layout-crowded-regular.json (k06, k02, k03 placed; k04, k05, k01, k07 in one group anchored 09:00)"
+      ],
+      "tags": [
+        "layout",
+        "overflow",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-05",
+      "title": "Compact mode column cap",
+      "given": {
+        "fixture": "crowded",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute the timeline layout (compact mode)"
+      ],
+      "then": [
+        "when more than 3 items overlap, at most 1 column is used",
+        "golden: golden/layout-crowded-compact.json"
+      ],
+      "tags": [
+        "layout",
+        "compact",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-06",
+      "title": "Promotion from overflow",
+      "given": {
+        "items": "watch, monitoring, routine 09:00–10:00; critical 09:30–11:00"
+      },
+      "when": [
+        "compute the timeline layout"
+      ],
+      "then": [
+        "placed: critical, monitoring, watch",
+        "overflow: routine only"
+      ],
+      "tags": [
+        "layout",
+        "priority",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-07",
+      "title": "Overflow buckets merge across hours",
+      "given": {
+        "items": "four routine 10:00–11:30, one routine 11:00–12:00"
+      },
+      "when": [
+        "compute the timeline layout"
+      ],
+      "then": [
+        "one overflow group anchored at 10:00 containing [d, e]"
+      ],
+      "tags": [
+        "layout",
+        "overflow",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-08",
+      "title": "Shared column count per overlap-connected group",
+      "given": {
+        "fixture": "crowded",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute the timeline layout"
+      ],
+      "then": [
+        "every placed card of the 09:00–11:30 cluster reports the same column count",
+        "the isolated 14:00 item is column 0 of 1"
+      ],
+      "tags": [
+        "layout",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-09",
+      "title": "Geometry",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute the timeline layout with range start = previous shift start"
+      ],
+      "then": [
+        "top = (start − range start) in minutes × 172 / 60 px",
+        "height = max(duration px − 4, 80) px",
+        "missing end = start + 2 h",
+        "c09 (17:00, no end): top 3612, height 340",
+        "10-minute item: height 80",
+        "90 minutes = 258 px"
+      ],
+      "tags": [
+        "layout",
+        "geometry",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-10",
+      "title": "Large golden layouts are stable",
+      "given": {
+        "fixture": "large",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "compute regular and compact layouts twice"
+      ],
+      "then": [
+        "output equals golden/layout-large-regular.json, golden/layout-large-compact.json and golden/layout-baseline-day-compact.json",
+        "measured cost: ~290 ms per layout of 240 items (Node, jsdom run) — see perf budgets"
+      ],
+      "tags": [
+        "layout",
+        "performance",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-11",
+      "title": "Shift windows",
+      "given": {
+        "timeZone": "UTC",
+        "shiftHours": 12,
+        "anchorHour": 8
+      },
+      "when": [
+        "resolve the shift for several instants"
+      ],
+      "then": [
+        "10:30 → day 08:00–20:00",
+        "08:00 → day 08:00–20:00",
+        "07:59:59 → night previous day 20:00 → 08:00",
+        "02:00 → night previous day 20:00 → 08:00",
+        "20:00 → night 20:00 → next day 08:00",
+        "previous and next of a day shift are night shifts; offset +2 is a day shift"
+      ],
+      "tags": [
+        "shifts",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-12",
+      "title": "Bucketing items into shifts",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "extra": "one item at next-day 08:00, one at 20:00"
+      },
+      "when": [
+        "bucket items by start into previous/current/next"
+      ],
+      "then": [
+        "boundaries are half-open [start, end)",
+        "previous: p01–p04; current: c01–c10; next: n01–n03 plus the 20:00 item",
+        "items outside the three windows are dropped",
+        "NOTE: the source mutates ids to keep keys unique across shifts — the new core MUST NOT mutate ids"
+      ],
+      "tags": [
+        "shifts",
+        "core"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-13",
+      "title": "DST: fixed-duration windows drift",
+      "given": {
+        "timeZone": "a zone with a spring-forward on 2031-03-30 at 03:00",
+        "shiftHours": 12,
+        "anchorHour": 8
+      },
+      "when": [
+        "resolve the shift for 2031-03-30 02:30"
+      ],
+      "then": [
+        "current behaviour: night window 2031-03-29 20:00 → 2031-03-30 09:00 (wall clock); next window starts 09:00",
+        "this is bug B-07; the new core MUST anchor boundaries on wall-clock hours"
+      ],
+      "tags": [
+        "shifts",
+        "dst",
+        "bug"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-14",
+      "title": "Label formats",
+      "given": {
+        "timeZone": "UTC"
+      },
+      "when": [
+        "format hour labels, boundary ranges, clock times, \"since\" timestamps, shift dates"
+      ],
+      "then": [
+        "hour labels always en-US compact: 12AM, 8AM, 12PM, 1PM, 8PM",
+        "boundary range (en): \"Mar 11, 8 PM - Mar 12, 8 AM\"; any language other than es falls back to en-US",
+        "non-finite boundary → empty string",
+        "clock time (en): \"10:30 AM\"",
+        "since timestamp: \"03/12/2031 07:45 AM\" (fixed US pattern)",
+        "shift date (en): \"March 12, 2031\"",
+        "golden: golden/format-samples.json (includes es output)"
+      ],
+      "tags": [
+        "i18n",
+        "format"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "L-15",
+      "title": "Item time label",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "build the time label of c01, c04, c02, c09"
+      ],
+      "then": [
+        "pinned-kind (critical detail) item: \"Observed at: {observedLabel}\"",
+        "item with since: \"Ready since: {formatted since}\"",
+        "otherwise \"{start} – {end}\" with an en dash and spaces, e.g. \"9:00 AM – 10:30 AM\"; missing end uses start + 2 h"
+      ],
+      "tags": [
+        "format",
+        "card"
+      ],
+      "layer": "unit"
+    },
+    {
+      "id": "LV-01",
+      "title": "Shift sections and headers",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "three sections in order previous, current, next",
+        "headers \"Previous shift\", \"Current shift\", \"Next shift\"",
+        "range labels \"Mar 11, 8 PM - Mar 12, 8 AM\", \"Mar 12, 8 AM - Mar 12, 8 PM\", \"Mar 12, 8 PM - Mar 13, 8 AM\""
+      ],
+      "tags": [
+        "list",
+        "structure"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-02",
+      "title": "Card order within sections",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "card order p01, p02, p03, p04, c01…c10, n01, n02, n03"
+      ],
+      "tags": [
+        "list",
+        "ordering"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-03",
+      "title": "Empty shift",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "items": "baseline without n*"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "the next section shows \"No items in this shift.\""
+      ],
+      "tags": [
+        "list",
+        "empty"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-04",
+      "title": "No items at all",
+      "given": {
+        "fixture": "empty",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "\"No agenda data available.\" is shown instead of the sections",
+        "onHeaderExpandedChange(true) is emitted",
+        "no navigation buttons"
+      ],
+      "tags": [
+        "list",
+        "empty",
+        "events"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-05",
+      "title": "Navigation threshold",
+      "given": {
+        "view": "list"
+      },
+      "when": [
+        "render sparse (1 per shift), 4 per shift, then 5 in one shift"
+      ],
+      "then": [
+        "navigation buttons are absent unless at least one shift has 5 or more items"
+      ],
+      "tags": [
+        "list",
+        "navigation"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-06",
+      "title": "Carried-over count in the list",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "the top navigation button contains \"(2 inherited)\" — the count of pinned-level items in the previous shift, independent of pinning and of the button label"
+      ],
+      "tags": [
+        "list",
+        "navigation",
+        "bug"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-07",
+      "title": "List card anatomy",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "c02 shows \"9:00 AM – 10:30 AM\", level pill \"Watch\", reference pill \"{referenceLabel} 1042\", title, description; no suggestion line",
+        "the card activator is a focusable element with role button, tabindex 0 and accessible name = title",
+        "c01 shows \"Observed at: 8:12 AM – Present\", level pill \"Critical\", tag pill \"Impacts Next Shift\"",
+        "only pinned-level cards carry a hidden pin sentinel (aria-hidden)",
+        "c04 shows \"Ready since: 03/12/2031 07:45 AM\""
+      ],
+      "tags": [
+        "list",
+        "card",
+        "a11y"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-08",
+      "title": "No now indicator in the list",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "now": "2031-03-12T10:41:00"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "no now line or now label is rendered (bug B-01)"
+      ],
+      "tags": [
+        "list",
+        "now",
+        "bug"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-09",
+      "title": "Loading is ignored by the list",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "loading": true
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "cards render; no progress indicator (bug B-02)"
+      ],
+      "tags": [
+        "list",
+        "loading",
+        "bug"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-10",
+      "title": "No current shift",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "segments": "previous and next only"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "nothing but the root container renders"
+      ],
+      "tags": [
+        "list",
+        "edge"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-11",
+      "title": "Open and close the detail view",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "activate card \"Server room alert\"",
+        "press Escape"
+      ],
+      "then": [
+        "a dialog named \"Server room alert\" opens (lazy)",
+        "Escape closes it"
+      ],
+      "tags": [
+        "list",
+        "detail",
+        "keyboard"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-12",
+      "title": "Detail view reopens by itself",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "open detail of c01",
+        "re-render without c01",
+        "re-render with c01"
+      ],
+      "then": [
+        "dialog disappears when the item disappears",
+        "dialog reappears when the item returns without user action (bug B-03)"
+      ],
+      "tags": [
+        "list",
+        "detail",
+        "bug"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-13",
+      "title": "Switching to the list expands the header",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "render list with view=timeline",
+        "change view to list"
+      ],
+      "then": [
+        "onHeaderExpandedChange(true) is emitted"
+      ],
+      "tags": [
+        "list",
+        "view-switch",
+        "events"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-14",
+      "title": "Header expanded signal (injected layout)",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "layout": "sticky 64 px, client 600, scroll 3000, previous 0, current 600, next 2200, header 60, current cards at 660 + i·110 (h 100)"
+      },
+      "when": [
+        "scroll to 100, 536, 1100, 878, 879"
+      ],
+      "then": [
+        "100 → true (previous in view)",
+        "536 → true (current header at the sticky edge)",
+        "1100 → false",
+        "878 → true, 879 → false: the collapse threshold is the bottom of the 3rd element matching the card selector + 8 px; hidden pin sentinels count as elements, so with a pinned-level first card the threshold is the 2nd card (bug B-08)"
+      ],
+      "tags": [
+        "list",
+        "header-signal",
+        "bug"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-15",
+      "title": "Scroll-to-top button (compact)",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "compact": true
+      },
+      "when": [
+        "scroll to 96",
+        "scroll to 97",
+        "activate the button"
+      ],
+      "then": [
+        "hidden at 96",
+        "visible at 97 with accessible name \"Scroll to top\"",
+        "scrolls to 0 smoothly"
+      ],
+      "tags": [
+        "list",
+        "compact",
+        "navigation"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "LV-16",
+      "title": "Reduced motion",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "compact": true,
+        "reducedMotion": true
+      },
+      "when": [
+        "scroll to 200",
+        "activate scroll-to-top",
+        "activate a navigation button"
+      ],
+      "then": [
+        "scroll-to-top uses behavior \"auto\"",
+        "navigation assigns scrollTop directly (no smooth scroll call)"
+      ],
+      "tags": [
+        "list",
+        "a11y",
+        "motion"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-01",
+      "title": "Loading",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline",
+        "loading": true
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "a progress indicator (role progressbar) and nothing else"
+      ],
+      "tags": [
+        "timeline",
+        "loading"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-02",
+      "title": "Hour labels",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "37 hour labels spanning 36 h from the previous shift start",
+        "labels 1, 13, 25, 37 are 8PM, 8AM, 8PM, 8AM"
+      ],
+      "tags": [
+        "timeline",
+        "grid"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-03",
+      "title": "Timeline card anatomy",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "render"
+      ],
+      "then": [
+        "c02 is a native button named \"Delivery delay\" containing title, description, \"9:00 AM – 10:30 AM\", \"Watch\", \"{referenceLabel} 1042\" and the suggestion \"Suggested next step.\"",
+        "pinned-level cards carry a pin sentinel"
+      ],
+      "tags": [
+        "timeline",
+        "card",
+        "a11y"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-04",
+      "title": "Now indicator conditions",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline",
+        "now": "2031-03-12T10:41:00"
+      },
+      "when": [
+        "render baseline; past-date; now at 21:05"
+      ],
+      "then": [
+        "baseline: label \"10:41 AM\" shown",
+        "past date: not shown",
+        "now outside the current shift: not shown"
+      ],
+      "tags": [
+        "timeline",
+        "now"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-05",
+      "title": "Empty pinned strip",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "render (jsdom, no layout)"
+      ],
+      "then": [
+        "the pinned strip exists and is empty",
+        "no carried-over count on the top button"
+      ],
+      "tags": [
+        "timeline",
+        "pinning"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-06",
+      "title": "\"+more\" and the overflow dialog",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "activate the \"+more\" chip at 09:00",
+        "sort by Title twice",
+        "activate \"View details\" on the first row"
+      ],
+      "then": [
+        "chip is a native button with text \"More\"",
+        "dialog \"More overlapping items (2)\" lists Inventory count, Equipment check (time ascending)",
+        "Title sort: ascending then descending",
+        "row action opens the detail view of that item"
+      ],
+      "tags": [
+        "timeline",
+        "overflow",
+        "dialog"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-07",
+      "title": "Overflow dialog pagination and close",
+      "given": {
+        "fixture": "crowded (16 identical 09:00–10:30 items)",
+        "view": "timeline"
+      },
+      "when": [
+        "open the chip",
+        "activate Close"
+      ],
+      "then": [
+        "title \"More overlapping items (13)\"",
+        "first page shows 10 rows",
+        "Close dismisses the dialog"
+      ],
+      "tags": [
+        "timeline",
+        "overflow",
+        "pagination"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-08",
+      "title": "First landing",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline",
+        "roles": [
+          "standard",
+          "elevated"
+        ]
+      },
+      "when": [
+        "mount"
+      ],
+      "then": [
+        "scrollTop = current shift start (2072 px incl. 8 px top pad) − 86 = 1986 for every user role (role has no effect, see B-09)"
+      ],
+      "tags": [
+        "timeline",
+        "scroll"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-09",
+      "title": "Landing after a date change",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline",
+        "clientHeight": 800
+      },
+      "when": [
+        "mount",
+        "change date to 14:00 same day"
+      ],
+      "then": [
+        "scrollTop = 2072 + 6 × 172 − (800 − 86) = 2390 for every role"
+      ],
+      "tags": [
+        "timeline",
+        "scroll"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-10",
+      "title": "List → timeline switch",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "clientHeight": 800
+      },
+      "when": [
+        "change view to timeline",
+        "reset scrollTop to 0",
+        "advance 279 ms, then 1 ms"
+      ],
+      "then": [
+        "onHeaderExpandedChange(false) is emitted",
+        "scrollTop = 2072 + 2.5 × 172 − (800 − 86) = 1788",
+        "the landing is re-applied exactly 280 ms later"
+      ],
+      "tags": [
+        "timeline",
+        "view-switch",
+        "scroll"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-11",
+      "title": "Scroll thresholds",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline",
+        "headerExpanded": true
+      },
+      "when": [
+        "scroll to 1985, 1989, 1988, 4050, 0"
+      ],
+      "then": [
+        "1985: previous; top \"View previous shift\"; bottom \"View current shift\" (name \"Scroll to current shift start\"); header signal true",
+        "1989: header signal false (rule: scrollTop ≤ shiftStart − 86 + 2)",
+        "1988: header signal true; bottom \"View next shift\"",
+        "4050: next; top \"View current shift\"; bottom disabled, shows \"Next shift\" + \"Mar 12, 8 PM - Mar 13, 8 AM\", name \"No next shift available.\"",
+        "0: top disabled, shows \"Previous shift\" + \"Mar 11, 8 PM - Mar 12, 8 AM\", name \"No previous shift available.\""
+      ],
+      "tags": [
+        "timeline",
+        "navigation",
+        "header-signal"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-12",
+      "title": "Top button when the header is collapsed",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline",
+        "headerExpanded": false
+      },
+      "when": [
+        "scroll to 2500"
+      ],
+      "then": [
+        "top button reads \"View current shift\", name \"Scroll to current shift start\""
+      ],
+      "tags": [
+        "timeline",
+        "navigation"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-13",
+      "title": "Navigation targets",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "scroll to 2500; activate top; activate bottom; scroll to 1000; activate bottom; enable reduced motion; activate bottom"
+      ],
+      "then": [
+        "top → smooth scroll to −78 (previous start 8 − 86)",
+        "bottom → smooth scroll to 4050",
+        "from previous: bottom → 1986",
+        "reduced motion: no smooth call; scrollTop set to 1986 directly"
+      ],
+      "tags": [
+        "timeline",
+        "navigation",
+        "motion"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "TL-14",
+      "title": "Open detail from a timeline card",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "activate card c06"
+      ],
+      "then": [
+        "dialog \"Safety inspection\" opens"
+      ],
+      "tags": [
+        "timeline",
+        "detail"
+      ],
+      "layer": "dom"
+    },
+    {
+      "id": "BR-L01",
+      "title": "List landing",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "mount and wait 600 ms"
+      ],
+      "then": [
+        "scrollTop = current section top − sticky height − 8 (measured 612 − 152 − 8 = 452)",
+        "p02 and p03 (previous shift, pinned level) are pinned on landing",
+        "chips show \"Inherited\" tag, \"Observed at: 1:48 AM – Present\", name = title"
+      ],
+      "tags": [
+        "list",
+        "scroll",
+        "pinning"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L02",
+      "title": "List navigation labels by position",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "scroll to 0, 200, end"
+      ],
+      "then": [
+        "0: no top button; bottom \"View current shift\"",
+        "200: top \"View previous shift(2 inherited)\"; bottom \"View current shift\"",
+        "end: top \"View current shift(2 inherited)\"; no bottom button"
+      ],
+      "tags": [
+        "list",
+        "navigation"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L03",
+      "title": "List: next shift",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "activate \"Scroll to next shift start\""
+      ],
+      "then": [
+        "smooth scroll to min(max scroll, next top − sticky height − 8) (±1 px)",
+        "bottom button disappears"
+      ],
+      "tags": [
+        "list",
+        "navigation"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L04",
+      "title": "List: previous shift",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "activate \"Scroll to previous shift start\" from landing"
+      ],
+      "then": [
+        "target = previous top − sticky height − 8 − 104 (clamped to 0)",
+        "top button disappears at 0"
+      ],
+      "tags": [
+        "list",
+        "navigation"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L05",
+      "title": "List pin hysteresis",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "place c06 top at +5, −1, −3, +20, +23 px relative to the sticky bottom"
+      ],
+      "then": [
+        "+5 not pinned",
+        "−1 not pinned",
+        "−3 pinned",
+        "+20 still pinned",
+        "+23 released"
+      ],
+      "tags": [
+        "list",
+        "pinning"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L06",
+      "title": "Pinned chip opens detail",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "activate chip p02"
+      ],
+      "then": [
+        "dialog \"Backup verification\" opens"
+      ],
+      "tags": [
+        "list",
+        "pinning",
+        "detail"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L07",
+      "title": "List header signal while scrolling",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "scroll to 0, 300, 452, 700, 900, 1049, 600, 0"
+      ],
+      "then": [
+        "expanded at 0–700, collapsed at 900 and 1049, expanded again at 600 and 0"
+      ],
+      "tags": [
+        "list",
+        "header-signal"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L08",
+      "title": "List compact viewport",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "390x844",
+        "view": "list"
+      },
+      "when": [
+        "mount",
+        "scroll to 96, 150",
+        "activate scroll-to-top"
+      ],
+      "then": [
+        "card content stacks (column-reverse)",
+        "sticky padding-bottom 28 px",
+        "top button stacks label and count (column)",
+        "scroll-to-top button 48×48 at 16 px from right and bottom, visible after > 96 px",
+        "activating it returns to 0"
+      ],
+      "tags": [
+        "list",
+        "compact",
+        "responsive"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-L09",
+      "title": "Pinned strip with many chips",
+      "given": {
+        "fixture": "pinned-many",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list"
+      },
+      "when": [
+        "mount",
+        "scroll the strip right by 300 px"
+      ],
+      "then": [
+        "6 chips; x mandatory scroll snap; right edge fade only",
+        "after scrolling: left and right fades"
+      ],
+      "tags": [
+        "list",
+        "pinning",
+        "visual"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T01",
+      "title": "Timeline landing",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "mount"
+      ],
+      "then": [
+        "scrollTop 1986",
+        "p02, p03 pinned",
+        "top button \"View previous shift(2 inherited)\""
+      ],
+      "tags": [
+        "timeline",
+        "scroll",
+        "pinning"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T02",
+      "title": "Timeline pin line offset",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "scroll to 2600",
+        "place c06 bottom sentinel 2 px below, then 2 px above, the line \"scroller top + sticky height\""
+      ],
+      "then": [
+        "pinned only once above that line",
+        "while pinned, the card bottom is still ~156 px inside the visible scroller (bug B-05)"
+      ],
+      "tags": [
+        "timeline",
+        "pinning",
+        "bug"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T03",
+      "title": "Timeline geometry",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "measure"
+      ],
+      "then": [
+        "gutter 88 px, pads 64 px each, grid height 36 × 172 = 6192 px",
+        "c01 top 2150, height 254, left 0",
+        "three columns share the lane: width = (lane − 2 × 4) / 3, left = column × (width + 4)",
+        "measured lane 1190 → width 394, lefts 0 / 398 / 796"
+      ],
+      "tags": [
+        "timeline",
+        "geometry"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T04",
+      "title": "Timeline: next shift",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "activate \"Scroll to next shift start\""
+      ],
+      "then": [
+        "final scrollTop 4050",
+        "bottom button disabled with name \"No next shift available.\""
+      ],
+      "tags": [
+        "timeline",
+        "navigation"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T05",
+      "title": "Timeline view switch flicker",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "list",
+        "mounted": "both views"
+      },
+      "when": [
+        "switch view to timeline"
+      ],
+      "then": [
+        "emits false then true (collapse then expand) because the landing lands above the collapse threshold (bug B-04)",
+        "scrollTop = 2072 + 430 − (client height − 86); measured 1876 with client height 712"
+      ],
+      "tags": [
+        "timeline",
+        "view-switch",
+        "bug"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T06",
+      "title": "Now indicator geometry",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "measure"
+      ],
+      "then": [
+        "line top = 14.5 h × 172 = 2494 px from the grid top, 2 px tall, starts 9 px left of the grid",
+        "label centred on the line (±1 px)"
+      ],
+      "tags": [
+        "timeline",
+        "now",
+        "geometry"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T07",
+      "title": "Timeline keyboard path",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "Tab ×4",
+        "Enter",
+        "Escape"
+      ],
+      "then": [
+        "focus order: pinned chip p02, pinned chip p03, top navigation button, first card (p01)",
+        "Enter opens its detail",
+        "Escape closes and restores focus to the card"
+      ],
+      "tags": [
+        "timeline",
+        "a11y",
+        "keyboard"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T08",
+      "title": "Navigation tooltip",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "hover the bottom button"
+      ],
+      "then": [
+        "tooltip text \"Scroll to next shift start\""
+      ],
+      "tags": [
+        "timeline",
+        "tooltip"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "BR-T09",
+      "title": "\"+more\" chip placement",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900",
+        "view": "timeline"
+      },
+      "when": [
+        "measure"
+      ],
+      "then": [
+        "chip in the right pad, top = 13 × 172 = 2236 px (09:00), left 4 px, height 28 px"
+      ],
+      "tags": [
+        "timeline",
+        "overflow",
+        "geometry"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "VIS-light",
+      "title": "Computed styles (light)",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "measure every part in list, timeline, compact list, overflow dialog, loading"
+      ],
+      "then": [
+        "values are recorded in measured-styles.light.json and summarised in 02-visual-spec.md"
+      ],
+      "tags": [
+        "visual"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "VIS-dark",
+      "title": "Computed styles (dark)",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "same as VIS-light with the dark theme"
+      ],
+      "then": [
+        "values are recorded in measured-styles.dark.json"
+      ],
+      "tags": [
+        "visual"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "SHOT",
+      "title": "Reference screenshots",
+      "given": {
+        "fixture": "baseline-day",
+        "timeZone": "UTC",
+        "locale": "en-US",
+        "viewport": "1440x900"
+      },
+      "when": [
+        "capture the pages listed in screenshots/README.md"
+      ],
+      "then": [
+        "PNG files in screenshots/"
+      ],
+      "tags": [
+        "visual"
+      ],
+      "layer": "browser"
+    },
+    {
+      "id": "PERF",
+      "title": "Mount and scroll cost",
+      "given": {
+        "fixtures": [
+          "baseline-day",
+          "large"
+        ]
+      },
+      "when": [
+        "mount each view 3×; scroll 120 frames"
+      ],
+      "then": [
+        "numbers in 09-quality.md (source production build, Chromium, no throttling)"
+      ],
+      "tags": [
+        "performance"
+      ],
+      "layer": "browser"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Első lépések",
+    "overview": "Áttekintés",
+    "installation": "Telepítés",
+    "usage": "Használat",
+    "aiContext": "AI-kontextus",
+    "requirements": "Követelmények",
+    "faq": "GYIK",
+    "support": "Támogatás",
+    "versions": "Verziók",
+    "features": "Funkciók",
+    "allFeatures": "Minden funkció",
+    "demos": "Bemutatók",
+    "demosIndex": "Bemutatók",
+    "playground": "Kísérletező felület",
+    "themeEditor": "Témaszerkesztő",
+    "reference": "Referencia",
+    "apiIndex": "API-referencia",
+    "customization": "Testreszabás",
+    "customizationOverview": "Áttekintés",
+    "theming": "Témák",
+    "cssVariables": "CSS-változók",
+    "slots": "Slotok és felülírások",
+    "localization": "Lokalizáció",
+    "guides": "Útmutatók",
+    "guidesIndex": "Útmutatók",
+    "integrations": "Integrációk",
+    "integrationsIndex": "Integrációk",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Szerveroldali renderelés",
+    "migration": "Migráció",
+    "migrationIndex": "Migráció",
+    "migrationFromCustom": "Saját megvalósításról",
+    "discoverMore": "Továbbiak",
+    "changelog": "Változásnapló",
+    "roadmap": "Ütemterv",
+    "accessibility": "Akadálymentesség",
+    "license": "Licenc",
+    "groups": {
+      "coreFeatures": "Alapfunkciók",
+      "displayLayout": "Megjelenítés és elrendezés",
+      "interaction": "Interakció",
+      "advanced": "Haladó funkciók",
+      "developerTools": "Fejlesztői eszközök"
+    }
+  },
+  "shell": {
+    "skipToContent": "Ugrás a tartalomhoz",
+    "openMenu": "Navigáció megnyitása",
+    "closeMenu": "Navigáció bezárása",
+    "sidebarLabel": "Dokumentáció",
+    "github": "Forráskód a GitHubon",
+    "themeToDark": "Váltás sötét témára",
+    "themeToLight": "Váltás világos témára",
+    "language": "Nyelv",
+    "version": "Verzió",
+    "packageManager": "Csomagkezelő",
+    "close": "Bezárás",
+    "externalLink": "(külső hivatkozás)",
+    "required": "kötelező"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Keresés",
+    "title": "Keresés",
+    "placeholder": "Keresés a dokumentációban",
+    "empty": "Gépelj a keresáshoz az oldalak, a címsorok és az API között.",
+    "noResults": "Nincs találat erre: „{query}”.",
+    "hintNavigate": "navigálás",
+    "hintOpen": "megnyitás",
+    "hintClose": "bezárás"
+  },
+  "toc": {
+    "title": "Ezen az oldalon"
+  },
+  "pager": {
+    "previous": "Előző",
+    "next": "Következő"
+  },
+  "code": {
+    "copy": "Másolás",
+    "copied": "Másolva",
+    "expand": "Kibontás",
+    "collapse": "Összecsukás"
+  },
+  "demo": {
+    "showCode": "Kód megjelenítése",
+    "hideCode": "Kód elrejtése",
+    "reset": "Visszaállítás",
+    "error": "Ezt a bemutatót nem sikerült megjeleníteni."
+  },
+  "badge": {
+    "new": "Új",
+    "preview": "Előzetes",
+    "beta": "Béta",
+    "deprecated": "Elavult"
+  },
+  "footer": {
+    "product": "Termék",
+    "resources": "Források",
+    "explore": "Felfedezés",
+    "project": "Projekt",
+    "documentation": "Dokumentáció",
+    "license": "MIT-licenc. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Az oldal nem található",
+    "text": "A keresett oldal nem létezik, vagy áthelyezték.",
+    "back": "Ugrás az áttekintéshez"
+  },
+  "playground": {
+    "resetAll": "Összes visszaállítása",
+    "setup": "Beállítás",
+    "props": "Tulajdonságok {count}",
+    "changed": "Módosítva: {count}",
+    "filter": "Tulajdonságok szűrése",
+    "changedOnly": "Csak a módosítottak",
+    "codeOnly": "Csak kódban",
+    "code": "Kód",
+    "eventLog": "Eseménynapló",
+    "clear": "Törlés",
+    "defaultValue": "alapértelmezett ({value})",
+    "resetProp": "Visszaállítás"
+  },
+  "changelog": {
+    "englishNote": "A változásnapló bejegyzései angol nyelvűek."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

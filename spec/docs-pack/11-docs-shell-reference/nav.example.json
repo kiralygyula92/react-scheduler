@@ -1,0 +1,356 @@
+{
+  "$schema": "./nav.schema.json",
+  "pluginId": "react-sample-kit",
+  "displayName": "React Sample Kit",
+  "packageName": "react-sample-kit",
+  "repoUrl": "https://github.com/example-owner/react-sample-kit",
+  "siteUrl": "https://react-sample-kit.vercel.app",
+  "locales": [
+    "en",
+    "ro",
+    "hu",
+    "es",
+    "fr",
+    "de",
+    "pt"
+  ],
+  "playground": {
+    "component": "SampleViewer",
+    "variant": "standard"
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "labelKey": "nav.gettingStarted",
+      "items": [
+        {
+          "id": "overview",
+          "labelKey": "nav.overview",
+          "path": "/",
+          "page": "getting-started/overview",
+          "template": "T1"
+        },
+        {
+          "id": "installation",
+          "labelKey": "nav.installation",
+          "path": "/getting-started/installation/",
+          "page": "getting-started/installation",
+          "template": "T2"
+        },
+        {
+          "id": "usage",
+          "labelKey": "nav.usage",
+          "path": "/getting-started/usage/",
+          "page": "getting-started/usage",
+          "template": "T2"
+        },
+        {
+          "id": "ai-context",
+          "labelKey": "nav.aiContext",
+          "path": "/getting-started/ai-context/",
+          "page": "getting-started/ai-context",
+          "template": "T3"
+        },
+        {
+          "id": "requirements",
+          "labelKey": "nav.requirements",
+          "path": "/getting-started/requirements/",
+          "page": "getting-started/requirements",
+          "template": "T2"
+        },
+        {
+          "id": "faq",
+          "labelKey": "nav.faq",
+          "path": "/getting-started/faq/",
+          "page": "getting-started/faq",
+          "template": "T2"
+        },
+        {
+          "id": "support",
+          "labelKey": "nav.support",
+          "path": "/getting-started/support/",
+          "page": "getting-started/support",
+          "template": "T2"
+        },
+        {
+          "id": "versions",
+          "labelKey": "nav.versions",
+          "path": "/getting-started/versions/",
+          "page": "getting-started/versions",
+          "template": "T4"
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "labelKey": "nav.features",
+      "items": [
+        {
+          "id": "all-features",
+          "labelKey": "nav.allFeatures",
+          "path": "/all-features/",
+          "page": "features/all-features",
+          "template": "T5"
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.groups.coreFeatures",
+          "items": [
+            {
+              "id": "sources",
+              "labelKey": "nav.capabilities.sources",
+              "path": "/sources/",
+              "page": "features/sources",
+              "template": "T6",
+              "symbols": [
+                "SampleViewer",
+                "useSampleSource"
+              ]
+            },
+            {
+              "id": "zoom",
+              "labelKey": "nav.capabilities.zoom",
+              "path": "/zoom/",
+              "page": "features/zoom",
+              "template": "T6",
+              "symbols": [
+                "SampleViewer"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.groups.displayLayout",
+          "items": [
+            {
+              "id": "toolbar",
+              "labelKey": "nav.capabilities.toolbar",
+              "path": "/toolbar/",
+              "page": "features/toolbar",
+              "template": "T6",
+              "symbols": [
+                "SampleViewer",
+                "Toolbar"
+              ],
+              "badge": "new"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demos",
+      "labelKey": "nav.demos",
+      "items": [
+        {
+          "id": "demos",
+          "labelKey": "nav.demosIndex",
+          "path": "/demos/",
+          "page": "demos/index",
+          "template": "T7"
+        },
+        {
+          "id": "review-flow",
+          "labelKey": "nav.demoPages.reviewFlow",
+          "path": "/demos/review-flow/",
+          "page": "demos/review-flow",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "playground",
+          "labelKey": "nav.playground",
+          "path": "/demos/playground/",
+          "page": "demos/playground",
+          "template": "T9",
+          "layout": "wide"
+        },
+        {
+          "id": "theme-editor",
+          "labelKey": "nav.themeEditor",
+          "path": "/demos/theme-editor/",
+          "page": "demos/theme-editor",
+          "template": "T16",
+          "layout": "wide"
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "labelKey": "nav.reference",
+      "items": [
+        {
+          "id": "api",
+          "labelKey": "nav.apiIndex",
+          "path": "/api/",
+          "page": "reference/index",
+          "template": "T10"
+        },
+        {
+          "id": "sample-viewer",
+          "labelKey": "nav.api.SampleViewer",
+          "path": "/api/sample-viewer/",
+          "page": "reference/sample-viewer",
+          "template": "T11"
+        },
+        {
+          "id": "use-sample-source",
+          "labelKey": "nav.api.useSampleSource",
+          "path": "/api/use-sample-source/",
+          "page": "reference/use-sample-source",
+          "template": "T11"
+        }
+      ]
+    },
+    {
+      "id": "customization",
+      "labelKey": "nav.customization",
+      "items": [
+        {
+          "id": "customization",
+          "labelKey": "nav.customizationOverview",
+          "path": "/customization/",
+          "page": "customization/overview",
+          "template": "T12"
+        },
+        {
+          "id": "theming",
+          "labelKey": "nav.theming",
+          "path": "/customization/theming/",
+          "page": "customization/theming",
+          "template": "T12"
+        },
+        {
+          "id": "css-variables",
+          "labelKey": "nav.cssVariables",
+          "path": "/customization/css-variables/",
+          "page": "customization/css-variables",
+          "template": "T12"
+        },
+        {
+          "id": "slots",
+          "labelKey": "nav.slots",
+          "path": "/customization/slots/",
+          "page": "customization/slots",
+          "template": "T12"
+        },
+        {
+          "id": "localization",
+          "labelKey": "nav.localization",
+          "path": "/customization/localization/",
+          "page": "customization/localization",
+          "template": "T12"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "labelKey": "nav.guides",
+      "items": [
+        {
+          "id": "guides",
+          "labelKey": "nav.guidesIndex",
+          "path": "/guides/",
+          "page": "guides/index",
+          "template": "T16"
+        }
+      ]
+    },
+    {
+      "id": "integrations",
+      "labelKey": "nav.integrations",
+      "items": [
+        {
+          "id": "integrations",
+          "labelKey": "nav.integrationsIndex",
+          "path": "/integrations/",
+          "page": "integrations/index",
+          "template": "T16"
+        },
+        {
+          "id": "vite",
+          "labelKey": "nav.vite",
+          "path": "/integrations/vite/",
+          "page": "integrations/vite",
+          "template": "T13"
+        },
+        {
+          "id": "nextjs",
+          "labelKey": "nav.nextjs",
+          "path": "/integrations/nextjs/",
+          "page": "integrations/nextjs",
+          "template": "T13"
+        },
+        {
+          "id": "react-router",
+          "labelKey": "nav.reactRouter",
+          "path": "/integrations/react-router/",
+          "page": "integrations/react-router",
+          "template": "T13"
+        },
+        {
+          "id": "ssr",
+          "labelKey": "nav.ssr",
+          "path": "/integrations/ssr/",
+          "page": "integrations/ssr",
+          "template": "T13"
+        }
+      ]
+    },
+    {
+      "id": "migration",
+      "labelKey": "nav.migration",
+      "items": [
+        {
+          "id": "migration",
+          "labelKey": "nav.migrationIndex",
+          "path": "/migration/",
+          "page": "migration/index",
+          "template": "T16"
+        },
+        {
+          "id": "from-custom",
+          "labelKey": "nav.migrationFromCustom",
+          "path": "/migration/from-custom-implementation/",
+          "page": "migration/from-custom-implementation",
+          "template": "T14"
+        }
+      ]
+    },
+    {
+      "id": "discover-more",
+      "labelKey": "nav.discoverMore",
+      "items": [
+        {
+          "id": "changelog",
+          "labelKey": "nav.changelog",
+          "path": "/discover-more/changelog/",
+          "page": "discover-more/changelog",
+          "template": "T15"
+        },
+        {
+          "id": "roadmap",
+          "labelKey": "nav.roadmap",
+          "path": "/discover-more/roadmap/",
+          "page": "discover-more/roadmap",
+          "template": "T16"
+        },
+        {
+          "id": "accessibility",
+          "labelKey": "nav.accessibility",
+          "path": "/discover-more/accessibility/",
+          "page": "discover-more/accessibility",
+          "template": "T16"
+        },
+        {
+          "id": "license",
+          "labelKey": "nav.license",
+          "path": "/discover-more/license/",
+          "page": "discover-more/license",
+          "template": "T16"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "reviewed",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Getting started",
+    "overview": "Overview",
+    "installation": "Installation",
+    "usage": "Usage",
+    "aiContext": "AI context",
+    "requirements": "Requirements",
+    "faq": "FAQ",
+    "support": "Support",
+    "versions": "Versions",
+    "features": "Features",
+    "allFeatures": "All features",
+    "demos": "Demos",
+    "demosIndex": "Demos",
+    "playground": "Playground",
+    "themeEditor": "Theme editor",
+    "reference": "Reference",
+    "apiIndex": "API reference",
+    "customization": "Customization",
+    "customizationOverview": "Overview",
+    "theming": "Theming",
+    "cssVariables": "CSS variables",
+    "slots": "Slots and overrides",
+    "localization": "Localization",
+    "guides": "Guides",
+    "guidesIndex": "Guides",
+    "integrations": "Integrations",
+    "integrationsIndex": "Integrations",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Server-side rendering",
+    "migration": "Migration",
+    "migrationIndex": "Migration",
+    "migrationFromCustom": "From a custom implementation",
+    "discoverMore": "Discover more",
+    "changelog": "Changelog",
+    "roadmap": "Roadmap",
+    "accessibility": "Accessibility",
+    "license": "License",
+    "groups": {
+      "coreFeatures": "Core features",
+      "displayLayout": "Display & layout",
+      "interaction": "Interaction",
+      "advanced": "Advanced features",
+      "developerTools": "Developer tools"
+    }
+  },
+  "shell": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open navigation",
+    "closeMenu": "Close navigation",
+    "sidebarLabel": "Documentation",
+    "github": "Source on GitHub",
+    "themeToDark": "Switch to dark theme",
+    "themeToLight": "Switch to light theme",
+    "language": "Language",
+    "version": "Version",
+    "packageManager": "Package manager",
+    "close": "Close",
+    "externalLink": "(external link)",
+    "required": "required"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Search",
+    "title": "Search",
+    "placeholder": "Search the documentation",
+    "empty": "Type to search pages, headings and the API.",
+    "noResults": "No results for “{query}”.",
+    "hintNavigate": "to navigate",
+    "hintOpen": "to open",
+    "hintClose": "to close"
+  },
+  "toc": {
+    "title": "On this page"
+  },
+  "pager": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "code": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "expand": "Expand",
+    "collapse": "Collapse"
+  },
+  "demo": {
+    "showCode": "Show code",
+    "hideCode": "Hide code",
+    "reset": "Reset",
+    "error": "This demo could not be displayed."
+  },
+  "badge": {
+    "new": "New",
+    "preview": "Preview",
+    "beta": "Beta",
+    "deprecated": "Deprecated"
+  },
+  "footer": {
+    "product": "Product",
+    "resources": "Resources",
+    "explore": "Explore",
+    "project": "Project",
+    "documentation": "Documentation",
+    "license": "MIT licensed. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has moved.",
+    "back": "Go to the overview"
+  },
+  "playground": {
+    "resetAll": "Reset all",
+    "setup": "Setup",
+    "props": "Props {count}",
+    "changed": "{count} changed",
+    "filter": "Filter props",
+    "changedOnly": "Changed only",
+    "codeOnly": "Code only",
+    "code": "Code",
+    "eventLog": "Event log",
+    "clear": "Clear",
+    "defaultValue": "default ({value})",
+    "resetProp": "Reset"
+  },
+  "changelog": {
+    "englishNote": "Changelog entries are published in English."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

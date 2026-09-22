@@ -1,0 +1,149 @@
+{
+  "id": "pinned-many",
+  "description": "Six pinned-level items in the previous shift, six routine items in the current shift.",
+  "selectedDate": "2031-03-12T10:30:00",
+  "now": "2031-03-12T10:30:00",
+  "shiftHours": 12,
+  "anchorHour": 8,
+  "userRole": "standard",
+  "items": [
+    {
+      "id": "q01",
+      "start": "2031-03-12T00:00:00",
+      "end": "2031-03-12T00:45:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Carry-over alert 1",
+      "description": "Short description for carry-over alert 1.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "12:05 AM – Present"
+    },
+    {
+      "id": "q02",
+      "start": "2031-03-12T01:00:00",
+      "end": "2031-03-12T01:45:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Carry-over alert 2",
+      "description": "Short description for carry-over alert 2.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "1:05 AM – Present"
+    },
+    {
+      "id": "q03",
+      "start": "2031-03-12T02:00:00",
+      "end": "2031-03-12T02:45:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Carry-over alert 3",
+      "description": "Short description for carry-over alert 3.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "2:05 AM – Present"
+    },
+    {
+      "id": "q04",
+      "start": "2031-03-12T03:00:00",
+      "end": "2031-03-12T03:45:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Carry-over alert 4",
+      "description": "Short description for carry-over alert 4.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "3:05 AM – Present"
+    },
+    {
+      "id": "q05",
+      "start": "2031-03-12T04:00:00",
+      "end": "2031-03-12T04:45:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Carry-over alert 5",
+      "description": "Short description for carry-over alert 5.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "4:05 AM – Present"
+    },
+    {
+      "id": "q06",
+      "start": "2031-03-12T05:00:00",
+      "end": "2031-03-12T05:45:00",
+      "level": "critical",
+      "tags": [],
+      "title": "Carry-over alert 6",
+      "description": "Short description for carry-over alert 6.",
+      "suggestion": "Suggested next step.",
+      "detail": "critical",
+      "observedLabel": "5:05 AM – Present"
+    },
+    {
+      "id": "r01",
+      "start": "2031-03-12T08:00:00",
+      "end": "2031-03-12T09:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Routine task 1",
+      "description": "Short description for routine task 1.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "r02",
+      "start": "2031-03-12T10:00:00",
+      "end": "2031-03-12T11:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Routine task 2",
+      "description": "Short description for routine task 2.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "r03",
+      "start": "2031-03-12T12:00:00",
+      "end": "2031-03-12T13:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Routine task 3",
+      "description": "Short description for routine task 3.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "r04",
+      "start": "2031-03-12T14:00:00",
+      "end": "2031-03-12T15:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Routine task 4",
+      "description": "Short description for routine task 4.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "r05",
+      "start": "2031-03-12T16:00:00",
+      "end": "2031-03-12T17:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Routine task 5",
+      "description": "Short description for routine task 5.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    },
+    {
+      "id": "r06",
+      "start": "2031-03-12T18:00:00",
+      "end": "2031-03-12T19:00:00",
+      "level": "routine",
+      "tags": [],
+      "title": "Routine task 6",
+      "description": "Short description for routine task 6.",
+      "suggestion": "Suggested next step.",
+      "detail": "standard"
+    }
+  ]
+}
