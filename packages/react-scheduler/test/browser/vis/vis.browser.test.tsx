@@ -25,11 +25,7 @@ const NOT_RENDERED = new Set(['timeline/grid.hourLine.edge']);
  * Differences that remain by decision (docs/adr/0003-react-adapter.md, "Visual parity"); anything else
  * fails the gate.
  */
-const KNOWN: readonly string[] = [
-  // The source's header row was 1.67 px taller; its cause is not reproducible from the measured cell.
-  'overflowDialog/overflowTable.headCell @box.height',
-  'overflowDialog/overflowTable.headCell height',
-];
+const KNOWN: readonly string[] = [];
 
 /** Moves the pointer to the page's top-left corner, so no part is measured hovered. */
 async function parkPointer(): Promise<void> {

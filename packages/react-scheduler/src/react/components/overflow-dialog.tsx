@@ -2,7 +2,7 @@
 // The overflow dialog (Feature Dossier 01 §T.7, 05 F-13), loaded lazily: a native modal <dialog>
 // titled with the group size, a sortable table and a pager. Sort and page are controlled or
 // uncontrolled through the scheduler; they reset on each open unless controlled.
-import type { MouseEvent, ReactElement, ReactNode } from 'react';
+import type { CSSProperties, MouseEvent, ReactElement, ReactNode } from 'react';
 import { rankOf } from '../../core/levels';
 import { interpolate } from '../../core/localization';
 import { overflowSortValues, pageList, sortOverflowItems } from '../../core/overflow';
@@ -28,6 +28,17 @@ function sortColumns<TItem extends SchedulerItem>(
       ? { ...column, sortValue: values[column.id as keyof typeof values] }
       : column,
   );
+}
+
+/** A column's cell sizing; equal minimum and maximum widths make a fixed column. */
+function cellStyle<TItem>(column: OverflowColumn<TItem>): CSSProperties {
+  const fixed = column.minWidth !== undefined && column.minWidth === column.maxWidth;
+  return {
+    width: fixed ? column.minWidth : undefined,
+    minWidth: column.minWidth,
+    maxWidth: column.maxWidth,
+    textAlign: column.align,
+  };
 }
 
 export function OverflowTable<TItem extends SchedulerItem>({
@@ -58,7 +69,7 @@ export function OverflowTable<TItem extends SchedulerItem>({
                   aria-sort={
                     active && column.sortValue ? (sort.direction === 'asc' ? 'ascending' : 'descending') : undefined
                   }
-                  style={{ minWidth: column.minWidth, maxWidth: column.maxWidth, textAlign: column.align }}
+                  style={cellStyle(column)}
                 >
                   {column.sortValue ? (
                     <button
@@ -82,10 +93,7 @@ export function OverflowTable<TItem extends SchedulerItem>({
           {items.map((item) => (
             <tr key={item.id}>
               {columns.map((column) => (
-                <td
-                  key={column.id}
-                  style={{ minWidth: column.minWidth, maxWidth: column.maxWidth, textAlign: column.align }}
-                >
+                <td key={column.id} style={cellStyle(column)}>
                   {column.renderCell(item, {
                     localization: model.localization,
                     openItem: () => {

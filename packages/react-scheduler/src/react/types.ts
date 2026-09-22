@@ -219,6 +219,7 @@ export interface OverflowColumn<TItem> {
   header: ReactNode | ((localization: SchedulerLocalization) => ReactNode);
   align?: 'start' | 'center' | 'end' | undefined;
   minWidth?: number | undefined;
+  /** Equal to `minWidth`, the column has that fixed width and takes no share of the spare width. */
   maxWidth?: number | undefined;
   /** Omit to make the column unsortable. */
   sortValue?: ((item: TItem) => string | number) | undefined;

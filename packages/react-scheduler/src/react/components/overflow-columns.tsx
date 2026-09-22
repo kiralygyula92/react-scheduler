@@ -86,7 +86,9 @@ export const defaultOverflowColumns: readonly OverflowColumn<SchedulerItem>[] = 
     id: 'actions',
     header: (localization) => localization.overflow.column.actions,
     align: 'center',
+    // Fixed: the measured table gives the other columns all the spare width (214.5 / 328.72 px).
     minWidth: 92,
+    maxWidth: 92,
     renderCell: (item, ctx) => <ActionCell item={item} onOpen={ctx.openItem} />,
   },
 ]);

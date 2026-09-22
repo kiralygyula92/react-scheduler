@@ -254,7 +254,7 @@ export async function disabledTopTargets(scheme: 'light' | 'dark'): Promise<Targ
 }
 
 /** The source's dropped domain column, titled "Age" in the reference (Feature Dossier 02 §5, 04 §10). */
-const AGE: OverflowColumn<ParityItem> = { id: 'age', header: 'Age', minWidth: 120, renderCell: () => null };
+const AGE: OverflowColumn<ParityItem> = { id: 'age', header: 'Age', minWidth: 140, renderCell: () => null };
 
 export async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const columns = [...(defaultOverflowColumns as readonly OverflowColumn<ParityItem>[])];

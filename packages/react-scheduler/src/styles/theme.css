@@ -168,6 +168,10 @@
     gap: 10px;
     align-items: stretch;
     max-width: 100%;
+  }
+
+  /* An empty strip has no height (01 §2.4): the track's scrollbar room only exists with chips. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-strip:not([data-rs-empty]) .rs-pinned-strip-track) {
     padding-block-end: 4px;
   }
 
@@ -200,6 +204,9 @@
       box-shadow var(--rs-duration-fast),
       border-color var(--rs-duration-fast);
     animation: rs-pin-chip-in var(--rs-duration-chip) var(--rs-ease-chip) both;
+
+    /* A layer of its own, rasterised at the entrance's peak scale as the source's chips were. */
+    will-change: transform;
   }
 
   :where(.rs-root:not([data-rs-unstyled])[data-rs-size='md']) :where(.rs-pinned-chip) {
@@ -216,6 +223,18 @@
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+  }
+
+  /* Reduced motion removes the entrance animation (01 §2.7), not only its duration: a finished
+     animation would leave an identity transform, and a transform changes how text is rasterised. */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-reduced-motion]) :where(.rs-pinned-chip) {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip) {
+      animation: none;
+    }
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip:hover) {
@@ -516,8 +535,9 @@
 
   /* ---------------------------------------------------------------- pills */
 
+  /* Inline-level, so a pill keeps its own width outside a flex row (the overflow table). */
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-level-pill, .rs-tag-pill, .rs-reference-pill) {
-    display: flex;
+    display: inline-flex;
     gap: 6px;
     align-items: center;
     height: var(--rs-pill-height);
@@ -940,6 +960,9 @@
     background-color: var(--rs-color-tooltip-bg);
     border-radius: var(--rs-radius-tooltip);
     box-shadow: var(--rs-shadow-tooltip);
+
+    /* A layer of its own, as a popper-positioned tooltip is (text is antialiased on that layer). */
+    will-change: transform;
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-tooltip)::after {
@@ -1042,6 +1065,9 @@
     white-space: nowrap;
     background-color: var(--rs-color-table-head-bg);
     border-block-end: 1px solid var(--rs-color-grid-line);
+
+    /* A label wider than a fixed column may use the end padding, but never widens the table. */
+    overflow: hidden;
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__sort) {
@@ -1052,6 +1078,9 @@
     align-items: center;
     justify-content: flex-start;
     color: inherit;
+
+    /* Centred on the x-height, the label reaches below the strut: the measured 47.67 px header. */
+    vertical-align: middle;
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__sort[data-rs-active]) {
