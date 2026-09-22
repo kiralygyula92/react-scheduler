@@ -4,7 +4,7 @@ React Scheduler used to showcase a schedule in different domains, such as office
 
 This repository holds the `@react-schedulerkit/react-scheduler` package — an MIT-licensed React component library with no runtime dependencies beyond its `react` and `react-dom` peers — and its documentation website.
 
-> **Status:** pre-release. The workspace, toolchain and quality gates are in place (milestone M0); the package has no public API yet. Nothing is published to npm.
+> **Status:** pre-release. The headless core is implemented (milestone M1); the React components come next. Nothing is published to npm.
 
 ## Repository layout
 

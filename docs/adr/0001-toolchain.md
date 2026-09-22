@@ -28,10 +28,11 @@ Docs pack `00` §5 fixes the stack: pnpm 10, Node 24, TypeScript 7 for type-chec
 | @changesets/cli                      | 3.0.3                                        | MIT            | Versioning and changelog                                         |
 | publint                              | 0.3.24                                       | MIT            | Package metadata lint                                            |
 | @arethetypeswrong/cli                | 0.18.5                                       | MIT            | Type-resolution check of the packed package                      |
-| @types/node                          | 24.13.6                                      | MIT            | Node types for `scripts/`                                        |
+| @types/node                          | 24.13.6                                      | MIT            | Node types for `scripts/` and package tests                      |
+| fast-check                           | 4.10.2                                       | MIT            | Property-based differential tests of the layout engine (M1)      |
 | react, react-dom (dev)               | 19.3.0                                       | MIT            | Development and test copies of the peers; CI also runs with 18.3 |
 
-These arrive in later milestones and each gets a row here when installed: Testing Library, `@axe-core/playwright` and `vitest-axe` (M2); size-limit, knip (M3); fast-check (optional). Note that axe-core is MPL-2.0, so it will need a development exception under D5. For the site (M4): React Router, Vite and the Vercel analytics packages.
+These arrive in later milestones and each gets a row here when installed: Testing Library, `@axe-core/playwright` and `vitest-axe` (M2); size-limit, knip (M3). Note that axe-core is MPL-2.0, so it will need a development exception under D5. For the site (M4): React Router, Vite and the Vercel analytics packages.
 
 ## Decisions
 
