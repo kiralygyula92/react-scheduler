@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Primii pași",
+    "overview": "Prezentare generală",
+    "installation": "Instalare",
+    "usage": "Utilizare",
+    "aiContext": "Context AI",
+    "requirements": "Cerințe",
+    "faq": "Întrebări frecvente",
+    "support": "Suport",
+    "versions": "Versiuni",
+    "features": "Funcționalități",
+    "allFeatures": "Toate funcționalitățile",
+    "demos": "Demonstrații",
+    "demosIndex": "Demonstrații",
+    "playground": "Playground",
+    "themeEditor": "Editor de temă",
+    "reference": "Referință",
+    "apiIndex": "Referință API",
+    "customization": "Personalizare",
+    "customizationOverview": "Prezentare generală",
+    "theming": "Teme",
+    "cssVariables": "Variabile CSS",
+    "slots": "Sloturi și suprascrieri",
+    "localization": "Localizare",
+    "guides": "Ghiduri",
+    "guidesIndex": "Ghiduri",
+    "integrations": "Integrări",
+    "integrationsIndex": "Integrări",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Randare pe server",
+    "migration": "Migrare",
+    "migrationIndex": "Migrare",
+    "migrationFromCustom": "De la o implementare proprie",
+    "discoverMore": "Descoperă mai mult",
+    "changelog": "Istoric modificări",
+    "roadmap": "Plan de dezvoltare",
+    "accessibility": "Accesibilitate",
+    "license": "Licență",
+    "groups": {
+      "coreFeatures": "Funcționalități de bază",
+      "displayLayout": "Afișare și aranjare",
+      "interaction": "Interacțiune",
+      "advanced": "Funcționalități avansate",
+      "developerTools": "Instrumente pentru dezvoltatori"
+    }
+  },
+  "shell": {
+    "skipToContent": "Salt la conținut",
+    "openMenu": "Deschide navigarea",
+    "closeMenu": "Închide navigarea",
+    "sidebarLabel": "Documentație",
+    "github": "Codul sursă pe GitHub",
+    "themeToDark": "Comută la tema întunecată",
+    "themeToLight": "Comută la tema luminoasă",
+    "language": "Limbă",
+    "version": "Versiune",
+    "packageManager": "Manager de pachete",
+    "close": "Închide",
+    "externalLink": "(link extern)",
+    "required": "obligatoriu"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Caută",
+    "title": "Căutare",
+    "placeholder": "Caută în documentație",
+    "empty": "Scrie pentru a căuta în pagini, titluri și API.",
+    "noResults": "Niciun rezultat pentru „{query}”.",
+    "hintNavigate": "pentru navigare",
+    "hintOpen": "pentru a deschide",
+    "hintClose": "pentru a închide"
+  },
+  "toc": {
+    "title": "Pe această pagină"
+  },
+  "pager": {
+    "previous": "Anterior",
+    "next": "Următorul"
+  },
+  "code": {
+    "copy": "Copiază",
+    "copied": "Copiat",
+    "expand": "Extinde",
+    "collapse": "Restrânge"
+  },
+  "demo": {
+    "showCode": "Arată codul",
+    "hideCode": "Ascunde codul",
+    "reset": "Resetează",
+    "error": "Această demonstrație nu a putut fi afișată."
+  },
+  "badge": {
+    "new": "Nou",
+    "preview": "Previzualizare",
+    "beta": "Beta",
+    "deprecated": "Învechit"
+  },
+  "footer": {
+    "product": "Produs",
+    "resources": "Resurse",
+    "explore": "Explorează",
+    "project": "Proiect",
+    "documentation": "Documentație",
+    "license": "Licență MIT. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Pagina nu a fost găsită",
+    "text": "Pagina căutată nu există sau a fost mutată.",
+    "back": "Mergi la prezentarea generală"
+  },
+  "playground": {
+    "resetAll": "Resetează tot",
+    "setup": "Configurare",
+    "props": "Proprietăți {count}",
+    "changed": "Modificate: {count}",
+    "filter": "Filtrează proprietățile",
+    "changedOnly": "Doar cele modificate",
+    "codeOnly": "Doar în cod",
+    "code": "Cod",
+    "eventLog": "Jurnal de evenimente",
+    "clear": "Golește",
+    "defaultValue": "implicit ({value})",
+    "resetProp": "Resetează"
+  },
+  "changelog": {
+    "englishNote": "Intrările din istoricul modificărilor sunt publicate în limba engleză."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

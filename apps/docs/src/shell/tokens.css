@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Docs shell tokens — VERBATIM. Copy to apps/docs/src/shell/tokens.css.
+   Change values only in the docs pack, never per plugin.
+   Docs pack 1.0.0
+   ========================================================================== */
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* typography */
+  --ds-font-sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ds-font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  --ds-fs-h1: 36px;   --ds-lh-h1: 1.15;
+  --ds-fs-lead: 18px; --ds-lh-lead: 1.55;
+  --ds-fs-h2: 26px;   --ds-lh-h2: 1.25;
+  --ds-fs-h3: 19px;   --ds-lh-h3: 1.35;
+  --ds-fs-h4: 16px;   --ds-lh-h4: 1.4;
+  --ds-fs-body: 15px; --ds-lh-body: 1.65;
+  --ds-fs-sm: 13px;   --ds-lh-sm: 1.5;
+  --ds-fs-xs: 12px;
+  --ds-fs-2xs: 11px;
+  --ds-fs-code: 13px; --ds-lh-code: 1.6;
+  --ds-fs-wordmark: 17px;
+  --ds-fs-nav-section: 15px;
+  --ds-fs-nav-item: 14px;
+  --ds-tracking-caps: 0.08em;
+  --ds-tracking-th: 0.06em;
+
+  /* space */
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 24px;
+  --ds-space-6: 32px;
+  --ds-space-7: 40px;
+  --ds-space-8: 48px;
+
+  /* radius */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 6px;
+  --ds-radius-lg: 8px;
+  --ds-radius-xl: 12px;
+  --ds-radius-pill: 999px;
+
+  /* layout */
+  --ds-navbar-h: 64px;
+  --ds-sidebar-w: 280px;
+  --ds-toc-w: 240px;
+  --ds-content-px: 40px;
+  --ds-content-pt: 32px;
+  --ds-drawer-w: 320px;
+  --ds-scroll-offset: calc(var(--ds-navbar-h) + 16px);
+  --ds-control-h: 32px;
+  --ds-icon-btn: 36px;
+  --ds-search-w: 240px;
+
+  /* motion */
+  --ds-duration: 150ms;
+  --ds-ease: ease;
+
+  /* z-index */
+  --ds-z-navbar: 40;
+  --ds-z-drawer: 50;
+  --ds-z-menu: 60;
+  --ds-z-dialog: 70;
+}
+
+/* ---------- light (default) ---------- */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ds-bg: #FFFFFF;
+  --ds-bg-subtle: #F8FAFC;
+  --ds-bg-muted: #F1F5F9;
+  --ds-bg-elevated: #FFFFFF;
+  --ds-bg-input: #FFFFFF;
+  --ds-border: #E2E8F0;
+  --ds-border-strong: #CBD5E1;
+  --ds-text: #0F172A;
+  --ds-text-secondary: #475569;
+  --ds-text-tertiary: #5B6B82;
+  --ds-accent: #1D4ED8;
+  --ds-accent-hover: #1E40AF;
+  --ds-accent-soft: #EEF4FF;
+  --ds-accent-contrast: #FFFFFF;
+  --ds-focus: #2563EB;
+  --ds-backdrop: rgba(15, 23, 42, 0.45);
+  --ds-shadow-popover: 0 8px 24px rgba(15, 23, 42, 0.12);
+
+  --ds-info: #1D4ED8;    --ds-info-soft: #EFF6FF;
+  --ds-success: #15803D; --ds-success-soft: #F0FDF4;
+  --ds-warning: #B45309; --ds-warning-soft: #FFFBEB;
+  --ds-danger: #B91C1C;  --ds-danger-soft: #FEF2F2;
+
+  --ds-code-text: #0F172A;
+  --ds-code-keyword: #7C3AED;
+  --ds-code-string: #047857;
+  --ds-code-number: #B45309;
+  --ds-code-comment: #5B6B82;
+  --ds-code-function: #1D4ED8;
+  --ds-code-type: #0E7490;
+  --ds-code-tag: #B91C1C;
+  --ds-code-attr: #9A3412;
+  --ds-code-punct: #475569;
+  --ds-code-operator: #475569;
+  --ds-code-property: #1E40AF;
+}
+
+/* ---------- dark ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ds-bg: #0B1120;
+  --ds-bg-subtle: #0F172A;
+  --ds-bg-muted: #1E293B;
+  --ds-bg-elevated: #111A2E;
+  --ds-bg-input: #0B1120;
+  --ds-border: #1E293B;
+  --ds-border-strong: #334155;
+  --ds-text: #E2E8F0;
+  --ds-text-secondary: #94A3B8;
+  --ds-text-tertiary: #8494AA;
+  --ds-accent: #7DA2FF;
+  --ds-accent-hover: #A5BFFF;
+  --ds-accent-soft: #16213D;
+  --ds-accent-contrast: #0B1120;
+  --ds-focus: #7DA2FF;
+  --ds-backdrop: rgba(2, 6, 23, 0.65);
+  --ds-shadow-popover: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --ds-info: #7DA2FF;    --ds-info-soft: #131D35;
+  --ds-success: #4ADE80; --ds-success-soft: #0F2A1C;
+  --ds-warning: #FBBF24; --ds-warning-soft: #2A2110;
+  --ds-danger: #F87171;  --ds-danger-soft: #2A1414;
+
+  --ds-code-text: #E2E8F0;
+  --ds-code-keyword: #C4A7FF;
+  --ds-code-string: #86EFAC;
+  --ds-code-number: #FCD34D;
+  --ds-code-comment: #8494AA;
+  --ds-code-function: #93B4FF;
+  --ds-code-type: #67E8F9;
+  --ds-code-tag: #FCA5A5;
+  --ds-code-attr: #FDBA74;
+  --ds-code-punct: #94A3B8;
+  --ds-code-operator: #94A3B8;
+  --ds-code-property: #A5BFFF;
+}
+
+/* ---------- breakpoints ---------- */
+@media (max-width: 1279px) {
+  :root { --ds-content-px: 32px; }
+}
+@media (max-width: 899px) {
+  :root { --ds-navbar-h: 56px; --ds-content-px: 16px; }
+}
+@media (max-width: 599px) {
+  :root {
+    --ds-fs-h1: 28px;
+    --ds-fs-h2: 22px;
+    --ds-fs-h3: 18px;
+    --ds-fs-lead: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --ds-duration: 0ms; }
+}

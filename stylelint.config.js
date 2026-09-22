@@ -11,7 +11,18 @@ const RAW_COLOR_AND_DURATION_RULES = {
 /** @type {import('stylelint').Config} */
 export default {
   extends: ['stylelint-config-standard'],
-  ignoreFiles: ['spec/**', '**/node_modules/**', '**/dist/**', '**/build/**', '**/coverage/**'],
+  ignoreFiles: [
+    'spec/**',
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/build/**',
+    '**/coverage/**',
+    // The docs shell is copied byte for byte from the pack and is identical in every plugin
+    // repository (docs pack 11 README); linting it would mean editing it. C9 checks its tokens
+    // instead, and `apps/docs/test/shell/contrast.test.ts` checks its colors.
+    'apps/docs/src/shell/tokens.css',
+    'apps/docs/src/shell/shell.css',
+  ],
   rules: {
     ...RAW_COLOR_AND_DURATION_RULES,
     // kebab-case with BEM elements and modifiers (docs pack 09 §4.2: `rs-toolbar__button--active`).

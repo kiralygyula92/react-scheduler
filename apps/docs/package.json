@@ -10,7 +10,8 @@
     "typecheck": "react-router typegen && tsc --noEmit",
     "i18n:check": "node scripts/check-i18n.ts",
     "conformance": "node scripts/check-conformance.ts",
-    "shell:checksum": "node scripts/shell-checksum.ts"
+    "shell:checksum": "node scripts/shell-checksum.ts",
+    "test": "vitest run --project docs"
   },
   "dependencies": {
     "@react-schedulerkit/react-scheduler": "workspace:*",
@@ -18,13 +19,14 @@
     "@vercel/speed-insights": "2.0.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "react-router": "8.4.0",
-    "isbot": "^5"
+    "react-router": "8.4.0"
   },
   "devDependencies": {
     "@react-router/dev": "8.4.0",
+    "@testing-library/react": "16.3.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "jsdom": "30.1.1",
     "vite": "8.3.0"
   }
 }

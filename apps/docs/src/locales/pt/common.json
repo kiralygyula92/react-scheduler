@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Primeiros passos",
+    "overview": "Visão geral",
+    "installation": "Instalação",
+    "usage": "Uso",
+    "aiContext": "Contexto de IA",
+    "requirements": "Requisitos",
+    "faq": "Perguntas frequentes",
+    "support": "Suporte",
+    "versions": "Versões",
+    "features": "Recursos",
+    "allFeatures": "Todos os recursos",
+    "demos": "Demonstrações",
+    "demosIndex": "Demonstrações",
+    "playground": "Playground",
+    "themeEditor": "Editor de temas",
+    "reference": "Referência",
+    "apiIndex": "Referência da API",
+    "customization": "Personalização",
+    "customizationOverview": "Visão geral",
+    "theming": "Temas",
+    "cssVariables": "Variáveis CSS",
+    "slots": "Slots e substituições",
+    "localization": "Localização",
+    "guides": "Guias",
+    "guidesIndex": "Guias",
+    "integrations": "Integrações",
+    "integrationsIndex": "Integrações",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Renderização no servidor",
+    "migration": "Migração",
+    "migrationIndex": "Migração",
+    "migrationFromCustom": "De uma implementação própria",
+    "discoverMore": "Descubra mais",
+    "changelog": "Registro de alterações",
+    "roadmap": "Roteiro",
+    "accessibility": "Acessibilidade",
+    "license": "Licença",
+    "groups": {
+      "coreFeatures": "Recursos principais",
+      "displayLayout": "Exibição e layout",
+      "interaction": "Interação",
+      "advanced": "Recursos avançados",
+      "developerTools": "Ferramentas para desenvolvedores"
+    }
+  },
+  "shell": {
+    "skipToContent": "Pular para o conteúdo",
+    "openMenu": "Abrir navegação",
+    "closeMenu": "Fechar navegação",
+    "sidebarLabel": "Documentação",
+    "github": "Código-fonte no GitHub",
+    "themeToDark": "Mudar para o tema escuro",
+    "themeToLight": "Mudar para o tema claro",
+    "language": "Idioma",
+    "version": "Versão",
+    "packageManager": "Gerenciador de pacotes",
+    "close": "Fechar",
+    "externalLink": "(link externo)",
+    "required": "obrigatório"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Pesquisar",
+    "title": "Pesquisa",
+    "placeholder": "Pesquisar na documentação",
+    "empty": "Digite para pesquisar páginas, títulos e a API.",
+    "noResults": "Nenhum resultado para “{query}”.",
+    "hintNavigate": "para navegar",
+    "hintOpen": "para abrir",
+    "hintClose": "para fechar"
+  },
+  "toc": {
+    "title": "Nesta página"
+  },
+  "pager": {
+    "previous": "Anterior",
+    "next": "Próximo"
+  },
+  "code": {
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "expand": "Expandir",
+    "collapse": "Recolher"
+  },
+  "demo": {
+    "showCode": "Mostrar código",
+    "hideCode": "Ocultar código",
+    "reset": "Redefinir",
+    "error": "Não foi possível exibir esta demonstração."
+  },
+  "badge": {
+    "new": "Novo",
+    "preview": "Prévia",
+    "beta": "Beta",
+    "deprecated": "Obsoleto"
+  },
+  "footer": {
+    "product": "Produto",
+    "resources": "Recursos",
+    "explore": "Explorar",
+    "project": "Projeto",
+    "documentation": "Documentação",
+    "license": "Licença MIT. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "text": "A página que você procura não existe ou foi movida.",
+    "back": "Ir para a visão geral"
+  },
+  "playground": {
+    "resetAll": "Redefinir tudo",
+    "setup": "Configuração",
+    "props": "Propriedades {count}",
+    "changed": "Alteradas: {count}",
+    "filter": "Filtrar propriedades",
+    "changedOnly": "Somente alteradas",
+    "codeOnly": "Somente no código",
+    "code": "Código",
+    "eventLog": "Registro de eventos",
+    "clear": "Limpar",
+    "defaultValue": "padrão ({value})",
+    "resetProp": "Redefinir"
+  },
+  "changelog": {
+    "englishNote": "As entradas do registro de alterações são publicadas em inglês."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

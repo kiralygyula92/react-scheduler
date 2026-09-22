@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from 'react-router';
 import { themeBootstrap } from '~/shell/theme-bootstrap';
-import { site } from '~/site';
+import { site } from '~/shell/nav';
 
 // The document shell (docs pack 01 §5, 10 §3.3). The theme script runs before any stylesheet, so the
 // first paint already has the right theme; analytics use the /react entry points.

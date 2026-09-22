@@ -24,6 +24,7 @@ export default defineConfig({
         },
       },
       'packages/*/vitest.config.ts',
+      'apps/docs/vitest.config.ts',
       dstProject('Europe/Helsinki'),
       dstProject('Australia/Sydney'),
     ],

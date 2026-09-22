@@ -1,0 +1,473 @@
+{
+  "$schema": "./nav.schema.json",
+  "pluginId": "react-scheduler",
+  "displayName": "React Scheduler",
+  "packageName": "@react-schedulerkit/react-scheduler",
+  "repoUrl": "https://github.com/kiralygyula92/react-scheduler",
+  "siteUrl": "https://react-schedulerkit.vercel.app",
+  "locales": ["en", "ro", "hu", "es", "fr", "de", "pt"],
+  "playground": { "component": "Scheduler", "variant": "standard" },
+  "sections": [
+    {
+      "id": "getting-started",
+      "labelKey": "nav.gettingStarted",
+      "items": [
+        {
+          "id": "overview",
+          "labelKey": "nav.overview",
+          "path": "/",
+          "page": "getting-started/overview",
+          "template": "T1"
+        },
+        {
+          "id": "installation",
+          "labelKey": "nav.installation",
+          "path": "/getting-started/installation/",
+          "page": "getting-started/installation",
+          "template": "T2"
+        },
+        {
+          "id": "usage",
+          "labelKey": "nav.usage",
+          "path": "/getting-started/usage/",
+          "page": "getting-started/usage",
+          "template": "T2"
+        },
+        {
+          "id": "ai-context",
+          "labelKey": "nav.aiContext",
+          "path": "/getting-started/ai-context/",
+          "page": "getting-started/ai-context",
+          "template": "T3"
+        },
+        {
+          "id": "requirements",
+          "labelKey": "nav.requirements",
+          "path": "/getting-started/requirements/",
+          "page": "getting-started/requirements",
+          "template": "T2"
+        },
+        {
+          "id": "faq",
+          "labelKey": "nav.faq",
+          "path": "/getting-started/faq/",
+          "page": "getting-started/faq",
+          "template": "T2"
+        },
+        {
+          "id": "support",
+          "labelKey": "nav.support",
+          "path": "/getting-started/support/",
+          "page": "getting-started/support",
+          "template": "T2"
+        },
+        {
+          "id": "versions",
+          "labelKey": "nav.versions",
+          "path": "/getting-started/versions/",
+          "page": "getting-started/versions",
+          "template": "T4"
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "labelKey": "nav.features",
+      "items": [
+        {
+          "id": "all-features",
+          "labelKey": "nav.allFeatures",
+          "path": "/all-features/",
+          "page": "features/all-features",
+          "template": "T5"
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.groups.coreFeatures",
+          "items": [
+            {
+              "id": "scheduler-and-views",
+              "labelKey": "nav.capabilities.schedulerAndViews",
+              "path": "/scheduler-and-views/",
+              "page": "features/scheduler-and-views",
+              "template": "T6",
+              "symbols": ["Scheduler", "ListView", "TimelineView"]
+            },
+            {
+              "id": "shifts-and-dates",
+              "labelKey": "nav.capabilities.shiftsAndDates",
+              "path": "/shifts-and-dates/",
+              "page": "features/shifts-and-dates",
+              "template": "T6",
+              "symbols": ["useShiftModel", "ShiftHeader"]
+            },
+            {
+              "id": "list-view",
+              "labelKey": "nav.capabilities.listView",
+              "path": "/list-view/",
+              "page": "features/list-view",
+              "template": "T6",
+              "symbols": ["ListView", "ListCard", "ListOptions"]
+            },
+            {
+              "id": "timeline-view",
+              "labelKey": "nav.capabilities.timelineView",
+              "path": "/timeline-view/",
+              "page": "features/timeline-view",
+              "template": "T6",
+              "symbols": ["TimelineView", "TimeGrid", "TimelineOptions", "useTimelineLayout"]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.groups.interaction",
+          "items": [
+            {
+              "id": "items-and-levels",
+              "labelKey": "nav.capabilities.itemsAndLevels",
+              "path": "/items-and-levels/",
+              "page": "features/items-and-levels",
+              "template": "T6",
+              "symbols": ["classicLevels", "classicTags", "LevelPill", "TagPill"]
+            },
+            {
+              "id": "pinning",
+              "labelKey": "nav.capabilities.pinning",
+              "path": "/pinning/",
+              "page": "features/pinning",
+              "template": "T6",
+              "symbols": ["PinnedStrip", "PinnedChip", "PinningOptions", "usePinOnPass"]
+            },
+            {
+              "id": "navigation",
+              "labelKey": "nav.capabilities.navigation",
+              "path": "/navigation/",
+              "page": "features/navigation",
+              "template": "T6",
+              "symbols": ["ShiftNavButton", "useShiftNavigation", "NavState"]
+            },
+            {
+              "id": "now-indicator",
+              "labelKey": "nav.capabilities.nowIndicator",
+              "path": "/now-indicator/",
+              "page": "features/now-indicator",
+              "template": "T6",
+              "symbols": ["NowIndicator", "useNow"]
+            },
+            {
+              "id": "overflow",
+              "labelKey": "nav.capabilities.overflow",
+              "path": "/overflow/",
+              "page": "features/overflow",
+              "template": "T6",
+              "symbols": ["OverflowDialog", "OverflowTable", "MoreChip", "defaultOverflowColumns"]
+            },
+            {
+              "id": "item-detail",
+              "labelKey": "nav.capabilities.itemDetail",
+              "path": "/item-detail/",
+              "page": "features/item-detail",
+              "template": "T6",
+              "symbols": ["DefaultItemDetail", "Tooltip"]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.groups.displayLayout",
+          "items": [
+            {
+              "id": "compact",
+              "labelKey": "nav.capabilities.compact",
+              "path": "/compact/",
+              "page": "features/compact",
+              "template": "T6",
+              "symbols": ["useCompact"]
+            },
+            {
+              "id": "states",
+              "labelKey": "nav.capabilities.states",
+              "path": "/states/",
+              "page": "features/states",
+              "template": "T6",
+              "symbols": ["EmptyState", "LoadingState", "ErrorState"]
+            },
+            {
+              "id": "motion",
+              "labelKey": "nav.capabilities.motion",
+              "path": "/motion/",
+              "page": "features/motion",
+              "template": "T6"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.groups.advanced",
+          "items": [
+            {
+              "id": "events-and-middleware",
+              "labelKey": "nav.capabilities.eventsAndMiddleware",
+              "path": "/events-and-middleware/",
+              "page": "features/events-and-middleware",
+              "template": "T6",
+              "symbols": ["Middleware"]
+            },
+            {
+              "id": "data-modes-and-ssr",
+              "labelKey": "nav.capabilities.dataModesAndSsr",
+              "path": "/data-modes-and-ssr/",
+              "page": "features/data-modes-and-ssr",
+              "template": "T6"
+            },
+            {
+              "id": "accessibility-and-keyboard",
+              "labelKey": "nav.capabilities.accessibilityAndKeyboard",
+              "path": "/accessibility-and-keyboard/",
+              "page": "features/accessibility-and-keyboard",
+              "template": "T6"
+            },
+            {
+              "id": "headless-api",
+              "labelKey": "nav.capabilities.headlessApi",
+              "path": "/headless-api/",
+              "page": "features/headless-api",
+              "template": "T6",
+              "symbols": ["createScheduler", "useScheduler", "SchedulerController"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demos",
+      "labelKey": "nav.demos",
+      "items": [
+        { "id": "demos", "labelKey": "nav.demosIndex", "path": "/demos/", "page": "demos/index", "template": "T7" },
+        {
+          "id": "baseline-day",
+          "labelKey": "nav.demos.baselineDay",
+          "path": "/demos/baseline-day/",
+          "page": "demos/baseline-day",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "empty",
+          "labelKey": "nav.demos.empty",
+          "path": "/demos/empty/",
+          "page": "demos/empty",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "sparse",
+          "labelKey": "nav.demos.sparse",
+          "path": "/demos/sparse/",
+          "page": "demos/sparse",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "crowded",
+          "labelKey": "nav.demos.crowded",
+          "path": "/demos/crowded/",
+          "page": "demos/crowded",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "night-shift",
+          "labelKey": "nav.demos.nightShift",
+          "path": "/demos/night-shift/",
+          "page": "demos/night-shift",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "past-date",
+          "labelKey": "nav.demos.pastDate",
+          "path": "/demos/past-date/",
+          "page": "demos/past-date",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "pinned-many",
+          "labelKey": "nav.demos.pinnedMany",
+          "path": "/demos/pinned-many/",
+          "page": "demos/pinned-many",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "large",
+          "labelKey": "nav.demos.large",
+          "path": "/demos/large/",
+          "page": "demos/large",
+          "template": "T8",
+          "layout": "wide"
+        },
+        {
+          "id": "playground",
+          "labelKey": "nav.playground",
+          "path": "/demos/playground/",
+          "page": "demos/playground",
+          "template": "T9",
+          "layout": "wide"
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "labelKey": "nav.reference",
+      "items": [
+        { "id": "api", "labelKey": "nav.apiIndex", "path": "/api/", "page": "reference/index", "template": "T10" }
+      ]
+    },
+    {
+      "id": "customization",
+      "labelKey": "nav.customization",
+      "items": [
+        {
+          "id": "customization",
+          "labelKey": "nav.customizationOverview",
+          "path": "/customization/",
+          "page": "customization/overview",
+          "template": "T12"
+        },
+        {
+          "id": "theming",
+          "labelKey": "nav.theming",
+          "path": "/customization/theming/",
+          "page": "customization/theming",
+          "template": "T12"
+        },
+        {
+          "id": "css-variables",
+          "labelKey": "nav.cssVariables",
+          "path": "/customization/css-variables/",
+          "page": "customization/css-variables",
+          "template": "T12"
+        },
+        {
+          "id": "slots",
+          "labelKey": "nav.slots",
+          "path": "/customization/slots/",
+          "page": "customization/slots",
+          "template": "T12"
+        },
+        {
+          "id": "localization",
+          "labelKey": "nav.localization",
+          "path": "/customization/localization/",
+          "page": "customization/localization",
+          "template": "T12"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "labelKey": "nav.guides",
+      "items": [
+        { "id": "guides", "labelKey": "nav.guidesIndex", "path": "/guides/", "page": "guides/index", "template": "T16" }
+      ]
+    },
+    {
+      "id": "integrations",
+      "labelKey": "nav.integrations",
+      "items": [
+        {
+          "id": "integrations",
+          "labelKey": "nav.integrationsIndex",
+          "path": "/integrations/",
+          "page": "integrations/index",
+          "template": "T16"
+        },
+        {
+          "id": "vite",
+          "labelKey": "nav.vite",
+          "path": "/integrations/vite/",
+          "page": "integrations/vite",
+          "template": "T13"
+        },
+        {
+          "id": "nextjs",
+          "labelKey": "nav.nextjs",
+          "path": "/integrations/nextjs/",
+          "page": "integrations/nextjs",
+          "template": "T13"
+        },
+        {
+          "id": "react-router",
+          "labelKey": "nav.reactRouter",
+          "path": "/integrations/react-router/",
+          "page": "integrations/react-router",
+          "template": "T13"
+        },
+        {
+          "id": "ssr",
+          "labelKey": "nav.ssr",
+          "path": "/integrations/ssr/",
+          "page": "integrations/ssr",
+          "template": "T13"
+        }
+      ]
+    },
+    {
+      "id": "migration",
+      "labelKey": "nav.migration",
+      "items": [
+        {
+          "id": "migration",
+          "labelKey": "nav.migrationIndex",
+          "path": "/migration/",
+          "page": "migration/index",
+          "template": "T16"
+        },
+        {
+          "id": "from-custom",
+          "labelKey": "nav.migrationFromCustom",
+          "path": "/migration/from-custom-implementation/",
+          "page": "migration/from-custom-implementation",
+          "template": "T14"
+        }
+      ]
+    },
+    {
+      "id": "discover-more",
+      "labelKey": "nav.discoverMore",
+      "items": [
+        {
+          "id": "changelog",
+          "labelKey": "nav.changelog",
+          "path": "/discover-more/changelog/",
+          "page": "discover-more/changelog",
+          "template": "T15"
+        },
+        {
+          "id": "roadmap",
+          "labelKey": "nav.roadmap",
+          "path": "/discover-more/roadmap/",
+          "page": "discover-more/roadmap",
+          "template": "T16"
+        },
+        {
+          "id": "accessibility",
+          "labelKey": "nav.accessibility",
+          "path": "/discover-more/accessibility/",
+          "page": "discover-more/accessibility",
+          "template": "T16"
+        },
+        {
+          "id": "license",
+          "labelKey": "nav.license",
+          "path": "/discover-more/license/",
+          "page": "discover-more/license",
+          "template": "T16"
+        }
+      ]
+    }
+  ]
+}
