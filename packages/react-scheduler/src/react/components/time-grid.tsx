@@ -5,10 +5,11 @@
 import { memo, type MouseEvent, type ReactElement } from 'react';
 import { interpolate } from '../../core/localization';
 import { isPinnable } from '../../core/pinning';
-import { boundaryTimes, hourMarks, offShiftRows, timeToPx } from '../../core/timeline';
-import type { OverflowGroup, SchedulerItem } from '../../core/types';
+import type { SchedulerFormatters } from '../../core/format';
+import { boundaryTimes, hourMarks, offShiftRows, type TimelineGeometry, timeToPx } from '../../core/timeline';
+import type { OverflowGroup, SchedulerItem, ShiftWindow, TimelineLayout } from '../../core/types';
 import { useCardEnv, useSchedulerContext, useViewContext } from '../context';
-import { renderPart } from '../parts';
+import { type Customization, renderPart } from '../parts';
 import { TimelineCard } from './card';
 
 const HOUR_LABEL_OFFSET = 6;
@@ -58,6 +59,107 @@ function bandRuns(rows: readonly number[]): { start: number; count: number }[] {
   return runs;
 }
 
+/** The hour labels: static between ticks, so a clock tick does not render them again. */
+const HourLabels = memo(function HourLabels({
+  custom,
+  geometry,
+  current,
+  formatters,
+}: {
+  custom: Customization<SchedulerItem>;
+  geometry: TimelineGeometry;
+  current: ShiftWindow;
+  formatters: SchedulerFormatters;
+}): ReactElement {
+  return (
+    <>
+      {hourMarks(geometry).map((time) =>
+        renderPart(custom, 'hourLabel', 'span', {
+          key: time,
+          'data-rs-boundary': time === current.start || time === current.end ? '' : undefined,
+          style: { top: timeToPx(time, geometry) - HOUR_LABEL_OFFSET },
+          children: formatters.hourLabel(new Date(time)),
+        }),
+      )}
+    </>
+  );
+});
+
+/** Off-shift bands and hour lines: static between ticks. */
+const GridLines = memo(function GridLines({
+  custom,
+  geometry,
+  shifts,
+  current,
+  bands,
+  hour,
+}: {
+  custom: Customization<SchedulerItem>;
+  geometry: TimelineGeometry;
+  shifts: readonly ShiftWindow[];
+  current: ShiftWindow;
+  bands: boolean;
+  hour: number;
+}): ReactElement {
+  const marks = hourMarks(geometry);
+  const boundaries = new Set(boundaryTimes(shifts));
+  const rowCount = Math.max(1, marks.length - 1);
+  return (
+    <>
+      {bands ? (
+        <div className="rs-grid-bands" aria-hidden="true">
+          {bandRuns(offShiftRows(geometry, current)).map((run) =>
+            renderPart(custom, 'offShiftBand', 'div', {
+              key: run.start,
+              'aria-hidden': true,
+              'data-rs-first': run.start === 0 ? '' : undefined,
+              'data-rs-last': run.start + run.count === rowCount ? '' : undefined,
+              style: { top: run.start * hour, height: run.count * hour },
+            }),
+          )}
+        </div>
+      ) : null}
+      {/* The first and last lines are transparent in the source: they are not drawn. */}
+      {marks.slice(1, -1).map((time) =>
+        renderPart(custom, 'hourLine', 'div', {
+          key: time,
+          'aria-hidden': true,
+          'data-rs-boundary': boundaries.has(time) ? '' : undefined,
+          style: { top: timeToPx(time, geometry) },
+        }),
+      )}
+    </>
+  );
+});
+
+/** The card lane and the "+more" chips: they change with the layout, not with the clock. */
+const Lane = memo(function Lane({
+  custom,
+  layout,
+  geometry,
+  gap,
+}: {
+  custom: Customization<SchedulerItem>;
+  layout: TimelineLayout<SchedulerItem>;
+  geometry: TimelineGeometry;
+  gap: number;
+}): ReactElement {
+  return (
+    <>
+      {renderPart(custom, 'laneStartPad', 'div', {})}
+      {renderPart(custom, 'lane', 'ul', {
+        role: 'list',
+        children: layout.cards.map((placed) => <TimelineCard key={placed.item.id} placed={placed} gap={gap} />),
+      })}
+      {renderPart(custom, 'laneEndPad', 'div', {
+        children: layout.overflow
+          .filter((group) => group.anchor >= layout.rangeStart && group.anchor <= layout.rangeEnd)
+          .map((group) => <MoreChip key={group.id} group={group} top={timeToPx(group.anchor, geometry)} />),
+      })}
+    </>
+  );
+});
+
 export function TimeGrid(): ReactElement | null {
   const { model, controller } = useSchedulerContext();
   const { custom } = useViewContext();
@@ -65,27 +167,17 @@ export function TimeGrid(): ReactElement | null {
   const current = model.current;
   if (!layout || !current) return null;
   const { geometry, timeline, formatters, localization } = model;
-  const hour = timeline.hourHeight;
-  const marks = hourMarks(geometry);
-  const boundaries = new Set(boundaryTimes(model.shifts));
-  const rowCount = Math.max(1, marks.length - 1);
   const nowTop = model.nowVisible ? timeToPx(model.now, geometry) : null;
   const nowText = formatters.clockTime(new Date(model.now));
   const height = layout.height;
 
+  // Only the now line and its label follow the clock; the other layers are memoized.
   const gutter = renderPart(custom, 'timeGutter', 'div', {
     'aria-hidden': true,
     style: { height },
     children: (
       <>
-        {marks.map((time) =>
-          renderPart(custom, 'hourLabel', 'span', {
-            key: time,
-            'data-rs-boundary': time === current.start || time === current.end ? '' : undefined,
-            style: { top: timeToPx(time, geometry) - HOUR_LABEL_OFFSET },
-            children: formatters.hourLabel(new Date(time)),
-          }),
-        )}
+        <HourLabels custom={custom} geometry={geometry} current={current} formatters={formatters} />
         {/* The gutter sits beside the grid box's 1 px top border: +1 centers the label on the line (source value). */}
         {nowTop === null
           ? null
@@ -94,36 +186,18 @@ export function TimeGrid(): ReactElement | null {
     ),
   });
 
-  const bands = model.flags.enableOffShiftBands
-    ? bandRuns(offShiftRows(geometry, current)).map((run) =>
-        renderPart(custom, 'offShiftBand', 'div', {
-          key: run.start,
-          'aria-hidden': true,
-          'data-rs-first': run.start === 0 ? '' : undefined,
-          'data-rs-last': run.start + run.count === rowCount ? '' : undefined,
-          style: { top: run.start * hour, height: run.count * hour },
-        }),
-      )
-    : null;
-
   const box = renderPart(custom, 'gridBox', 'div', {
     style: { height },
     children: (
       <>
-        {bands ? (
-          <div className="rs-grid-bands" aria-hidden="true">
-            {bands}
-          </div>
-        ) : null}
-        {/* The first and last lines are transparent in the source: they are not drawn. */}
-        {marks.slice(1, -1).map((time) =>
-          renderPart(custom, 'hourLine', 'div', {
-            key: time,
-            'aria-hidden': true,
-            'data-rs-boundary': boundaries.has(time) ? '' : undefined,
-            style: { top: timeToPx(time, geometry) },
-          }),
-        )}
+        <GridLines
+          custom={custom}
+          geometry={geometry}
+          shifts={model.shifts}
+          current={current}
+          bands={model.flags.enableOffShiftBands}
+          hour={timeline.hourHeight}
+        />
         {nowTop === null
           ? null
           : renderPart(custom, 'nowLine', 'div', {
@@ -131,18 +205,7 @@ export function TimeGrid(): ReactElement | null {
               'aria-label': interpolate(localization.now.label, { time: nowText }, localization.locale),
               style: { top: nowTop },
             })}
-        {renderPart(custom, 'laneStartPad', 'div', {})}
-        {renderPart(custom, 'lane', 'ul', {
-          role: 'list',
-          children: layout.cards.map((placed) => (
-            <TimelineCard key={placed.item.id} placed={placed} gap={timeline.cardGap} />
-          )),
-        })}
-        {renderPart(custom, 'laneEndPad', 'div', {
-          children: layout.overflow
-            .filter((group) => group.anchor >= layout.rangeStart && group.anchor <= layout.rangeEnd)
-            .map((group) => <MoreChip key={group.id} group={group} top={timeToPx(group.anchor, geometry)} />),
-        })}
+        <Lane custom={custom} layout={layout} geometry={geometry} gap={timeline.cardGap} />
       </>
     ),
   });

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // List view content (Feature Dossier 01 §L, 05 F-04): shift sections labeled by their headers, card
 // lists, per-shift and global empty states, and the now marker in the current section (B-01).
-import { Fragment, type ReactElement, type ReactNode } from 'react';
+import { Fragment, type ReactElement, type ReactNode, useMemo } from 'react';
 import { shiftTitle } from '../../core/navigation';
 import { nowMarkerIndex } from '../../core/now';
 import type { SchedulerItem, ShiftSegment } from '../../core/types';
@@ -48,38 +48,35 @@ function ShiftSection<TItem extends SchedulerItem>({ segment }: { segment: Shift
   const { shift, items } = segment;
   const headerId = `${baseId}-${kind}-shift-${shift.offset}`;
   const markerAt = shift.offset === 0 && model.nowVisible ? nowMarkerIndex(items, model.now) : -1;
+  // The same element while the items and the marker position are unchanged: a clock tick re-renders
+  // the section but skips its cards (09 §3).
+  const cards = useMemo(
+    () => (
+      <>
+        {items.map((item, index) => (
+          <Fragment key={item.id}>
+            {index === markerAt ? (
+              <li className="rs-now-marker-item">
+                <NowIndicator />
+              </li>
+            ) : null}
+            <ListCard item={item} />
+          </Fragment>
+        ))}
+        {markerAt === items.length ? (
+          <li className="rs-now-marker-item">
+            <NowIndicator />
+          </li>
+        ) : null}
+      </>
+    ),
+    [items, markerAt],
+  );
   const list =
     items.length === 0 ? (
       <EmptyState scope="shift" segment={segment} />
     ) : (
-      renderPart(
-        custom,
-        'itemList',
-        'ul',
-        {
-          role: 'list',
-          children: (
-            <>
-              {items.map((item, index) => (
-                <Fragment key={item.id}>
-                  {index === markerAt ? (
-                    <li className="rs-now-marker-item">
-                      <NowIndicator />
-                    </li>
-                  ) : null}
-                  <ListCard item={item} />
-                </Fragment>
-              ))}
-              {markerAt === items.length ? (
-                <li className="rs-now-marker-item">
-                  <NowIndicator />
-                </li>
-              ) : null}
-            </>
-          ),
-        },
-        { shift },
-      )
+      renderPart(custom, 'itemList', 'ul', { role: 'list', children: cards }, { shift })
     );
   return renderPart(
     custom,

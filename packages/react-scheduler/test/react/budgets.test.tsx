@@ -56,6 +56,43 @@ describe('rendering budgets', () => {
     expect([...counts.keys()]).toEqual([target.id]);
   });
 
+  it('a clock tick renders no card, hour label or hour line again (timeline view)', () => {
+    const renders: string[] = [];
+    function Counting({ Default, ownerState: _owner, ...props }: SlotProps<'hourLabel', ParityItem>): ReactElement {
+      renders.push(String(props['data-rs-part']));
+      return <Default {...props} />;
+    }
+    const slots: Partial<SchedulerSlots<ParityItem>> = {
+      hourLabel: Counting,
+      hourLine: Counting,
+      timelineCard: Counting,
+    };
+    const { rerender } = renderUi(<TimelineView items={baseline.items} date={baseline.date} now={now} slots={slots} />);
+    settle();
+    expect(renders.length).toBeGreaterThan(0);
+    renders.length = 0;
+    act(() => {
+      rerender(<TimelineView items={baseline.items} date={baseline.date} now="2031-03-12T10:42:00" slots={slots} />);
+    });
+    settle();
+    expect(renders).toEqual([]);
+  });
+
+  it('a clock tick renders no card again, and the now marker follows the clock (list view)', () => {
+    const { counts, slots } = countingSlots();
+    const { container, rerender } = renderUi(
+      <ListView items={baseline.items} date={baseline.date} now={now} slots={slots} />,
+    );
+    settle();
+    counts.clear();
+    act(() => {
+      rerender(<ListView items={baseline.items} date={baseline.date} now="2031-03-12T10:42:00" slots={slots} />);
+    });
+    settle();
+    expect([...counts.keys()]).toEqual([]);
+    expect(container.querySelector('[data-rs-part="nowMarker"]')?.textContent).toContain('10:42');
+  });
+
   it('the internal clock sets no timers while the document is hidden', () => {
     renderUi(<ListView items={baseline.items} date={baseline.date} />);
     act(() => {
