@@ -44,6 +44,9 @@
     --rs-color-backdrop: rgb(0 0 0 / 50%);
     --rs-color-table-head-bg: #f5f5f5;
     --rs-color-table-head-text: #6f7173;
+
+    /* The carried-over count (02 §3: level critical); a token so the default preset can fix it. */
+    --rs-color-count: var(--rs-level-critical);
     --rs-color-table-row: #fff;
     --rs-color-table-row-alt: #f9f9f9;
     --rs-color-table-row-hover: #ececec;
@@ -238,6 +241,15 @@
     --rs-level-onTarget-on: #000;
     --rs-level-routine-on: #000;
     --rs-level-resolved-on: #000;
+  }
+
+  /*
+   * Default light: two text colours below 4.5:1 that 06 §3 does not list (GAPS G9), fixed with
+   * existing default colours: the count (2.83:1 on the nav button) and the table head (4.49:1).
+   */
+  .rs-root[data-rs-preset='default']:not([data-rs-scheme='dark']) {
+    --rs-color-count: var(--rs-color-alert-text-muted);
+    --rs-color-table-head-text: var(--rs-color-text-secondary);
   }
 
   .rs-root[data-rs-preset='default'][data-rs-scheme='dark'] {

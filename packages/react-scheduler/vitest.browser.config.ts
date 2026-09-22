@@ -14,6 +14,8 @@ const engines = (process.env['RS_BROWSERS'] ?? 'chromium,firefox,webkit').split(
 const config: UserWorkspaceConfig = defineProject({
   // The characterization fixtures and references live in spec/, outside the package.
   server: { fs: { allow: [repoRoot] } },
+  // Pre-bundled up front: a dependency found mid-run reloads the page and fails the running file.
+  optimizeDeps: { include: ['axe-core'] },
   test: {
     name: 'browser',
     root: import.meta.dirname,

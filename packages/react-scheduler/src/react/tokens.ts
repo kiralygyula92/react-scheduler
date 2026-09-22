@@ -17,6 +17,7 @@ export type TokenName =
   | '--rs-color-alert-text-muted'
   | '--rs-color-backdrop'
   | '--rs-color-bg'
+  | '--rs-color-count'
   | '--rs-color-divider'
   | '--rs-color-edge-fade-mid'
   | '--rs-color-edge-fade-tint'
