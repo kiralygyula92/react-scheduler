@@ -5,7 +5,7 @@ Scope: `packages/react-scheduler/src/core/`: the shift model, bucketing, the tim
 
 ## Context
 
-Feature Dossier `01` §T.5 describes the timeline layout algorithm in prose. `05` F-01…F-31 generalise the behaviour, and `characterization/` holds the executable truth (golden layouts, format samples, 67 scenarios). When prose and a scenario disagree, the scenario wins (Dossier README, precedence 5). The Dossier asks for such discrepancies to be logged in its `11-open-questions.md`; `spec/` is read-only here, so they are logged in `GAPS.md` (section "Dossier discrepancies") and decided below.
+Feature Dossier `01` §T.5 describes the timeline layout algorithm in prose. `05` F-01…F-31 generalize the behavior, and `characterization/` holds the executable truth (golden layouts, format samples, 67 scenarios). When prose and a scenario disagree, the scenario wins (Dossier README, precedence 5). The Dossier asks for such discrepancies to be logged in its `11-open-questions.md`; `spec/` is read-only here, so they are logged in `GAPS.md` (section "Dossier discrepancies") and decided below.
 
 ## Decisions
 
@@ -38,7 +38,7 @@ Decided by the user: a bucket joins the previous group when it overlaps the grou
 
 F-06's check that "each group's span is ≤ 2 h" is tested as "every merged bucket starts within 2 h of the anchor", since a single hour bucket can already end more than 2 h after its first start.
 
-### D4 — Compact layouts can overlap cards (source behaviour, kept)
+### D4 — Compact layouts can overlap cards (source behavior, kept)
 
 In compact mode, promotion can move a card into a column at or above its group's column count. Promotion ignores the cap, while column counts are capped by `maxColumnsCompact`. The goldens contain 28 such cards, all with `columns = 1` (1 in `baseline-day-compact`, 27 in `large-compact`). `01` §T.4 draws them full width, so they overlap other cards. Random data also produces `columns ≥ 2` cases in compact mode, which would render outside the lane.
 
@@ -56,7 +56,7 @@ Decided by the user: formatters follow the requested locale (es-ES prints 24-hou
 - **Timestamps:** "since" and date-time values drop the comma between date and time.
 - **U+202F:** engines differ on printing the narrow no-break space before day periods, so every output uses an ordinary space, as the goldens do.
 
-### D7 — Input normalisation
+### D7 — Input normalization
 
 - A date-only string (`2031-03-12`) is local midnight, as `04` §2 says for strings without an offset. `Date` alone would read it as UTC.
 - An invalid `end` falls back to `start + defaultDuration`; the source produced NaN geometry (`01` §7, inferred).
@@ -66,11 +66,11 @@ Decided by the user: formatters follow the requested locale (es-ES prints 24-hou
 
 ### D8 — Pin rule at exact equality
 
-F-07 pins when `sentinelTop ≤ line − epsilon`; the source's timeline used `<` (`01` §T.8). The generalised rule is used; the two differ only when a sentinel sits exactly on the line.
+F-07 pins when `sentinelTop ≤ line − epsilon`; the source's timeline used `<` (`01` §T.8). The generalized rule is used; the two differ only when a sentinel sits exactly on the line.
 
 ### D9 — Scenario assertions that describe a fixed bug
 
-Some scenarios not tagged `bug` record behaviour that a listed fix changes. The tests assert the fixed behaviour and name the bug:
+Some scenarios not tagged `bug` record behavior that a listed fix changes. The tests assert the fixed behavior and name the bug:
 
 - **TL-13:** from scrollTop 2500 the top button now targets the current shift start (1986). The recorded −78 came from the consumer's expanded header (B-22).
 - **BR-L02:** at the end of the list, "View current shift" no longer shows "(2 inherited)" (B-06).

@@ -20,9 +20,9 @@ export interface LevelDefinition<K extends string = string> {
   key: K;
   /** Lower = stronger. Default: index in the `levels` array. */
   rank?: number;
-  /** Accent colour (any CSS colour). Default: token `--rs-level-<key>`. */
+  /** Accent color (any CSS color). Default: token `--rs-level-<key>`. */
   color?: string;
-  /** Pill text/icon colour. Default: token `--rs-level-<key>-on`. */
+  /** Pill text/icon color. Default: token `--rs-level-<key>-on`. */
   onColor?: string;
   /** Card look. Default 'default'. */
   variant?: CardVariant;

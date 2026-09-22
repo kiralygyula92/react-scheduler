@@ -1,5 +1,5 @@
 # docs pack 10 §5.1. Steps whose tooling lands in later milestones are added there
-# (size M3, docs api/i18n/build/conformance M4–M5, Playwright M2/M4): see EXCEPTIONS.md #1.
+# (size M3, docs api/i18n/build/conformance M4–M5, e2e:smoke M4): see EXCEPTIONS.md #1.
 name: CI
 on:
   pull_request:
@@ -34,6 +34,39 @@ jobs:
         env:
           RANGE: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
       - run: pnpm check:keys
-      - run: pnpm check:scenarios --enforce=unit # full --enforce from M2 (EXCEPTIONS.md #1)
+      - run: pnpm check:scenarios --enforce
       - run: pnpm --filter @react-schedulerkit/react-scheduler build
       - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
+      - run: pnpm exec playwright install --with-deps
+        if: matrix.react == '19'
+      # Scenarios, computed styles and accessibility in Chromium, Firefox and WebKit. The screenshot
+      # comparison only writes its captures here: the references are Windows renderings (job below).
+      - run: pnpm test:browser
+        if: matrix.react == '19'
+      - uses: actions/upload-artifact@v4
+        if: always() && matrix.react == '19'
+        with:
+          name: screenshots-linux
+          path: packages/react-scheduler/test-results/shot/
+          if-no-files-found: ignore
+  visual:
+    # The screenshot gate (Feature Dossier 09 §4) on the references' platform (ADR 0003 D9).
+    # Non-blocking until a first green run confirms this runner rasterizes like the reference machine.
+    runs-on: windows-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install chromium
+      - run: pnpm test:browser test/browser/shot test/browser/vis
+        env:
+          RS_BROWSERS: chromium
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-windows
+          path: packages/react-scheduler/test-results/shot/
+          if-no-files-found: ignore

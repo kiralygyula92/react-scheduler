@@ -1,21 +1,43 @@
 {
-  "$comment": "Licence policy: docs pack 09 §3.2 allowlist; development-only exceptions per package, recorded in docs/adr/0001-toolchain.md. Approved by the user at the M0 checkpoint (2026-09-22).",
+  "$comment": "License policy: docs pack 09 §3.2 allowlist; development-only exceptions per package, recorded in docs/adr/0001-toolchain.md. Approved by the user at the M0 checkpoint (2026-09-22).",
   "allowed": ["MIT", "ISC", "BSD-2-Clause", "BSD-3-Clause", "0BSD", "Apache-2.0", "CC0-1.0", "Unlicense"],
   "allowedPeers": ["react", "react-dom"],
   "devExceptions": [
-    { "package": "@csstools/*", "license": "MIT-0", "via": "stylelint" },
-    { "package": "argparse", "license": "Python-2.0", "via": "stylelint > cosmiconfig > js-yaml" },
+    {
+      "package": "@csstools/*",
+      "license": "MIT-0",
+      "via": "stylelint"
+    },
+    {
+      "package": "argparse",
+      "license": "Python-2.0",
+      "via": "stylelint > cosmiconfig > js-yaml"
+    },
     {
       "package": "caniuse-lite",
       "license": "CC-BY-4.0",
       "via": "eslint-plugin-react-hooks > @babel/core > browserslist"
     },
-    { "package": "lightningcss*", "license": "MPL-2.0", "via": "vitest > vite" },
+    {
+      "package": "lightningcss*",
+      "license": "MPL-2.0",
+      "via": "vitest > vite"
+    },
     {
       "package": "lru-cache",
       "license": "BlueOak-1.0.0",
       "via": "tsdown, @arethetypeswrong/cli > @arethetypeswrong/core"
     },
-    { "package": "minimatch", "license": "BlueOak-1.0.0", "via": "eslint > @eslint/config-array" }
+    {
+      "package": "minimatch",
+      "license": "BlueOak-1.0.0",
+      "via": "eslint > @eslint/config-array"
+    },
+    {
+      "package": "axe-core",
+      "license": "MPL-2.0",
+      "via": "@react-schedulerkit/react-scheduler (accessibility tests)",
+      "pending": "Proposed at M2; awaiting the user's approval at the M2 checkpoint"
+    }
   ]
 }

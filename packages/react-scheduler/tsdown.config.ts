@@ -1,10 +1,10 @@
 import { defineConfig, type UserConfig } from 'tsdown';
 
 // docs pack 09 §6. Option names verified against tsdown 0.23 (docs/adr/0001-toolchain.md):
-// `external` is deprecated there in favour of `deps.neverBundle`.
-// Locale entries and the stylesheet copy are added when those sources exist (M2, M3).
+// `external` is deprecated there in favor of `deps.neverBundle`.
+// Locale entries are added with the locale packs (M3).
 const config: UserConfig = defineConfig({
-  entry: ['src/index.ts', 'src/core.ts'],
+  entry: ['src/index.ts', 'src/core.ts', 'src/dom.ts'],
   format: ['esm', 'cjs'],
   dts: true,
   sourcemap: true,
@@ -16,6 +16,7 @@ const config: UserConfig = defineConfig({
   deps: {
     neverBundle: ['react', 'react-dom', 'react/jsx-runtime'],
   },
+  copy: [{ from: 'src/styles/*.css', to: 'dist/styles' }],
 });
 
 export default config;

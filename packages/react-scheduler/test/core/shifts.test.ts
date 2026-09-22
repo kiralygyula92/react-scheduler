@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { getShiftWindows, resolveShift } from '../../src/core/shifts';
 import type { ShiftWindow } from '../../src/core/types';
 
-// Runs with TZ=UTC; DST behaviour is in shifts.dst.test.ts.
+// Runs with TZ=UTC; DST behavior is in shifts.dst.test.ts.
 const at = (day: number, h: number, m = 0): number => new Date(2031, 2, day, h, m).getTime();
 const span = (w: ShiftWindow): [number, number, string, number] => [w.start, w.end, w.key, w.offset];
 

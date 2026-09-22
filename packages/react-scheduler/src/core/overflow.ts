@@ -8,7 +8,7 @@ import type { SchedulerItem, SortDirection } from './types';
 export interface SortableColumn<TItem> {
   id: string;
   /** Omit to make the column unsortable. */
-  sortValue?: (item: TItem) => string | number;
+  sortValue?: ((item: TItem) => string | number) | undefined;
 }
 
 export type DefaultOverflowColumnId = 'time' | 'level' | 'title' | 'description';

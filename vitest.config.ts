@@ -32,8 +32,9 @@ export default defineConfig({
       include: ['scripts/lib/**', 'packages/*/src/**'],
       reporter: ['text', 'json-summary', 'html'],
       thresholds: {
-        // M1 gate (Template Prompt 2): core ≥ 90 % lines / 85 % branches.
+        // Docs pack 09 §9: core ≥ 90 % lines / 85 % branches, react ≥ 80 % (lines).
         'packages/*/src/core/**': { lines: 90, branches: 85 },
+        'packages/*/src/react/**': { lines: 80 },
       },
     },
   },

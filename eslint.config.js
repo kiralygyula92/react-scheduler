@@ -27,6 +27,18 @@ const DOM_GLOBALS = [
   'Element',
 ].map((name) => ({ name, message: 'src/core has no DOM access (Dossier F-27).' }));
 
+const USER_VISIBLE_ATTRIBUTES = [
+  'aria-label',
+  'aria-description',
+  'aria-roledescription',
+  'aria-valuetext',
+  'aria-placeholder',
+  'title',
+  'alt',
+  'placeholder',
+  'label',
+].join('|');
+
 export default defineConfig(
   {
     ignores: [
@@ -83,8 +95,27 @@ export default defineConfig(
   // No user-visible literal in code: package strings go through `localization` (docs pack 08 P9),
   // site strings through the locale files (docs pack 07 §5).
   {
-    files: ['packages/*/src/**/*.tsx', 'apps/docs/src/content/**/*.tsx', 'apps/docs/src/shell/**/*.tsx'],
+    files: ['apps/docs/src/content/**/*.tsx', 'apps/docs/src/shell/**/*.tsx'],
     rules: { 'react/jsx-no-literals': ['error', { noStrings: true, ignoreProps: false }] },
+  },
+  // Package components: attribute values such as class names, roles and types are not text; the
+  // attributes that assistive technology or the pointer reads out are checked on their own.
+  {
+    files: ['packages/*/src/**/*.tsx'],
+    rules: {
+      'react/jsx-no-literals': ['error', { noStrings: true, ignoreProps: true }],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: `JSXAttribute[name.name=/^(${USER_VISIBLE_ATTRIBUTES})$/] > Literal`,
+          message: 'User-visible attribute text comes from `localization`.',
+        },
+        {
+          selector: `JSXAttribute[name.name=/^(${USER_VISIBLE_ATTRIBUTES})$/] > JSXExpressionContainer > :matches(Literal, TemplateLiteral)`,
+          message: 'User-visible attribute text comes from `localization`.',
+        },
+      ],
+    },
   },
   // Published code never logs (docs pack 09 §4.5) and uses no Node.js globals: the package
   // tsconfig includes Node types for its tests, so this rule guards src/ instead.

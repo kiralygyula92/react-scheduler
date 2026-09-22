@@ -22,12 +22,10 @@ interface PolicyFile {
 }
 
 function pnpmLicenses(extraArgs: readonly string[]): string {
-  const result = spawnSync('pnpm', ['licenses', 'list', '--json', '--recursive', ...extraArgs], {
-    cwd: repoRoot,
-    encoding: 'utf8',
-    shell: process.platform === 'win32',
-    maxBuffer: 64 * 1024 * 1024,
-  });
+  // One command string: on Windows pnpm is a .cmd shim that needs a shell, and Node warns when
+  // arguments are passed separately to a shell (DEP0190).
+  const command = ['pnpm', 'licenses', 'list', '--json', '--recursive', ...extraArgs].join(' ');
+  const result = spawnSync(command, { cwd: repoRoot, encoding: 'utf8', shell: true, maxBuffer: 64 * 1024 * 1024 });
   if (result.status !== 0) throw new Error(`pnpm licenses list failed:\n${result.stderr}`);
   return result.stdout;
 }
@@ -50,7 +48,7 @@ function main(): number {
       manifestProblems.push(`${manifest.name ?? dir}: LICENSE file missing`);
   }
 
-  console.log(`licences: ${all.length} installed package(s), ${production.length} in production trees.`);
+  console.log(`licenses: ${all.length} installed package(s), ${production.length} in production trees.`);
   if (report.excepted.length > 0) {
     console.log(`Development-only exceptions in use (docs/adr/0001-toolchain.md):`);
     for (const line of report.excepted) console.log(`  ${line}`);
@@ -60,10 +58,10 @@ function main(): number {
 
   const failures = [...report.violations, ...manifestProblems];
   if (failures.length === 0) {
-    console.log('licences: OK');
+    console.log('licenses: OK');
     return 0;
   }
-  console.error(`licences: ${failures.length} problem(s):`);
+  console.error(`licenses: ${failures.length} problem(s):`);
   for (const line of failures) console.error(`  ${line}`);
   return 1;
 }

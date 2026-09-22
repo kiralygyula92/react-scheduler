@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-// Behaviour options and their parity defaults (Feature Dossier 04 §5.10). At these defaults every
-// feature reduces to the parity behaviour of 01.
+// Behavior options and their parity defaults (Feature Dossier 04 §5.10). At these defaults every
+// feature reduces to the parity behavior of 01.
 import { HOUR } from './time';
 import type { LandingTarget, SchedulerItem } from './types';
 

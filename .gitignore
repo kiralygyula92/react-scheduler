@@ -24,3 +24,7 @@ blob-report/
 *.log
 .DS_Store
 Thumbs.db
+
+# Downloaded test assets (scripts/fetch-fonts.ts) and browser-test attachments
+.cache/
+.vitest/

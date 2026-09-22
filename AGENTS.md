@@ -65,6 +65,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | Lint / typecheck / test             | `pnpm lint` · `pnpm typecheck` · `pnpm test`                                                  |
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
 | E2E                                 | `pnpm e2e`                                                                                    |
+| Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
 | Zero-reference / licences           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
 | Add a changeset                     | `pnpm changeset`                                                                              |
@@ -73,6 +74,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 
 - Work milestone by milestone as defined in Template Prompt 2 (M0–M8, `spec/docs-pack/templates/template-prompt-2-plugin-and-docs-site.md`); the Dossier's package roadmap (`spec/feature-dossier/10-roadmap.md`) adds acceptance criteria. Stop at each checkpoint, report the checklist, and wait for the user.
 - Write tests with the code. A task is done only when lint, typecheck, tests, `i18n:check` and `conformance` pass.
+- Each milestone has its own branch `m{n}-{slug}` created from `main`. When the user approves the milestone, merge it into `main` with `--no-ff`, push `main`, and create the next milestone's branch from `main`.
 - Commit per milestone step with a message that names the milestone and the rule IDs (`O*`, `P*`, `C*`) it satisfies.
 - When unsure, ask. Unknowns go to `GAPS.md`; never invent facts, metrics or claims.
 - Spelling for English content: American English.

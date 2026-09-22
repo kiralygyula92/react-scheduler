@@ -1,0 +1,1212 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Decorative rules (Feature Dossier 02 §4, 06 §2). Every selector is wrapped in :where(), so a
+ * consumer class always wins without !important; data-rs-unstyled removes all of them. Only
+ * logical properties are used (F-29). Values come from tokens.css.
+ */
+@layer rs {
+  :where(.rs-root:not([data-rs-unstyled])) {
+    color: var(--rs-color-text-body);
+    font-family: var(--rs-font-family);
+    font-size: var(--rs-text-empty-size);
+    font-weight: var(--rs-text-empty-weight);
+    line-height: var(--rs-text-empty-line);
+    background-color: var(--rs-color-bg);
+  }
+
+  /* The source's list inherited the page background (classic parity). */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='classic'][data-rs-view='list']) {
+    background-color: transparent;
+  }
+
+  /* Buttons start bare (the parts add their own padding and colors) and are not text-selectable. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(button) {
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    background: none;
+    border: 0;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(h1, h2, h3, h4, h5, h6, p) {
+    margin: 0;
+    font: inherit;
+  }
+
+  /* ---------------------------------------------------------------- sticky areas */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-sticky-top) {
+    padding-block-end: 24px;
+    background-color: var(--rs-color-bg);
+    box-shadow: var(--rs-shadow-sticky);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-view='timeline']) :where(.rs-sticky-top),
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-compact]) :where(.rs-sticky-top) {
+    padding-block-end: 28px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-sticky-bottom) {
+    height: var(--rs-sticky-bottom-list);
+    border-block-start: 1px solid var(--rs-color-divider);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-view='timeline']) :where(.rs-sticky-bottom) {
+    height: var(--rs-sticky-bottom-timeline);
+  }
+
+  /* ---------------------------------------------------------------- navigation buttons */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button) {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    inset-inline-start: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    padding: 6px 12px;
+    font-size: var(--rs-text-nav-size);
+    font-weight: var(--rs-text-nav-weight);
+    line-height: var(--rs-text-nav-line);
+    color: var(--rs-color-text);
+    letter-spacing: var(--rs-letter-spacing-control);
+    white-space: nowrap;
+    background-color: var(--rs-color-nav-bg);
+    border: 1px solid var(--rs-color-nav-border);
+    border-radius: var(--rs-radius-button);
+    transition:
+      background-color var(--rs-duration-base) var(--rs-ease-standard),
+      box-shadow var(--rs-duration-base) var(--rs-ease-standard),
+      border-color var(--rs-duration-base) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button[data-rs-position='top']) {
+    bottom: 0;
+    transform: translate(-50%, 50%);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button[data-rs-position='bottom']) {
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[dir='rtl']) :where(.rs-nav-button[data-rs-position='top']) {
+    transform: translate(50%, 50%);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[dir='rtl']) :where(.rs-nav-button[data-rs-position='bottom']) {
+    transform: translate(50%, -50%);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button:hover) {
+    background-color: var(--rs-color-nav-bg-hover);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button[data-rs-disabled]) {
+    cursor: default;
+    flex-direction: column;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button[data-rs-disabled]:hover) {
+    background-color: var(--rs-color-nav-bg);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-compact]) :where(.rs-nav-button[data-rs-position='top']) {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button__title) {
+    display: block;
+    font-size: var(--rs-text-section-title-size);
+    font-weight: var(--rs-text-section-title-weight);
+    line-height: var(--rs-text-section-title-line);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-nav-button__range) {
+    display: block;
+    font-size: var(--rs-text-section-range-size);
+    font-weight: var(--rs-text-section-range-weight);
+    line-height: var(--rs-text-section-range-line);
+    color: var(--rs-color-text-muted);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-carried-over-count) {
+    display: block;
+    margin-inline-start: 6px;
+    font-size: var(--rs-text-count-size);
+    font-weight: var(--rs-text-count-weight);
+    line-height: var(--rs-text-count-line);
+    color: var(--rs-color-count);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-compact]) :where(.rs-carried-over-count) {
+    margin-inline-start: 0;
+  }
+
+  /* ---------------------------------------------------------------- pinned strip */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-strip:not([data-rs-empty])) {
+    max-width: 100%;
+    padding: 16px 32px 8px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-size='sm']) :where(.rs-pinned-strip:not([data-rs-empty])) {
+    padding-inline: 16px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-strip-track) {
+    scrollbar-width: thin;
+    touch-action: pan-x;
+    overflow: auto hidden;
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    max-width: 100%;
+  }
+
+  /* An empty strip has no height (01 §2.4): the track's scrollbar room only exists with chips. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-strip:not([data-rs-empty]) .rs-pinned-strip-track) {
+    padding-block-end: 4px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-strip-track[data-rs-snap]) {
+    scroll-snap-type: x mandatory;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-strip-track > li) {
+    display: flex;
+    flex: none;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip) {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex: none;
+    width: var(--rs-chip-width-lg);
+    min-width: var(--rs-chip-width-lg);
+    max-width: var(--rs-chip-width-lg);
+    padding: var(--rs-card-padding);
+    text-align: start;
+    background: var(--rs-color-alert-surface);
+    border: 1px solid var(--rs-color-alert-border);
+    border-radius: var(--rs-radius-card);
+    box-shadow: var(--rs-shadow-card);
+    transition:
+      box-shadow var(--rs-duration-fast),
+      border-color var(--rs-duration-fast);
+    animation: rs-pin-chip-in var(--rs-duration-chip) var(--rs-ease-chip) both;
+
+    /* A layer of its own, rasterized at the entrance's peak scale as the source's chips were. */
+    will-change: transform;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-size='md']) :where(.rs-pinned-chip) {
+    width: var(--rs-chip-width-md);
+    min-width: var(--rs-chip-width-md);
+    max-width: var(--rs-chip-width-md);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-size='sm']) :where(.rs-pinned-strip-track > li) {
+    width: var(--rs-chip-width-sm);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-size='sm']) :where(.rs-pinned-chip) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  /* Reduced motion removes the entrance animation (01 §2.7), not only its duration: a finished
+     animation would leave an identity transform, and a transform changes how text is rasterized. */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-reduced-motion]) :where(.rs-pinned-chip) {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip) {
+      animation: none;
+    }
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip:hover) {
+    box-shadow: var(--rs-shadow-card-hover);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip__text) {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip .rs-card-pills) {
+    margin-block-start: 2px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-edge-fade) {
+    pointer-events: none;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: var(--rs-edge-fade-width);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-edge-fade[data-rs-side='start']) {
+    inset-inline-start: 0;
+    background-image: linear-gradient(
+      to right,
+      var(--rs-color-bg),
+      var(--rs-color-edge-fade-mid) 35%,
+      var(--rs-color-edge-fade-tint) 55%,
+      transparent
+    );
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-edge-fade[data-rs-side='end']) {
+    inset-inline-end: 0;
+    background-image: linear-gradient(
+      to left,
+      var(--rs-color-bg),
+      var(--rs-color-edge-fade-mid) 35%,
+      var(--rs-color-edge-fade-tint) 55%,
+      transparent
+    );
+  }
+
+  @keyframes rs-pin-chip-in {
+    0% {
+      transform: translateY(-8px) scale(0.96);
+      opacity: 0;
+    }
+
+    60% {
+      transform: translateY(1px) scale(1.005);
+      opacity: 1;
+    }
+
+    100% {
+      transform: none;
+    }
+  }
+
+  /* ---------------------------------------------------------------- list body and sections */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-body) {
+    max-width: 100%;
+    padding: 24px 16px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-shift-header) {
+    padding: 24px 16px 16px;
+    text-align: center;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-shift-header-title) {
+    font-size: var(--rs-text-section-title-size);
+    font-weight: var(--rs-text-section-title-weight);
+    line-height: var(--rs-text-section-title-line);
+    color: var(--rs-color-text-body);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-shift-header-range) {
+    display: block;
+    margin-block-start: 2px;
+    font-size: var(--rs-text-section-range-size);
+    font-weight: var(--rs-text-section-range-weight);
+    line-height: var(--rs-text-section-range-line);
+    color: var(--rs-color-text-secondary);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-item-list) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rs-list-gap);
+    padding-block: 8px 12px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-shift-empty, .rs-empty-state) {
+    padding-block: 32px;
+    font-size: var(--rs-text-empty-size);
+    font-weight: var(--rs-text-empty-weight);
+    line-height: var(--rs-text-empty-line);
+    color: var(--rs-color-text-secondary);
+    text-align: center;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-empty-state[data-rs-overlay]) {
+    position: absolute;
+    z-index: 3;
+    inset-inline: 0;
+    top: 0;
+  }
+
+  /* ---------------------------------------------------------------- cards (shared) */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card, .rs-timeline-card) {
+    --rs-focus-ring: var(--rs-color-focus);
+
+    overflow: hidden;
+    flex-direction: column;
+    background: var(--rs-color-surface);
+    border: 1px solid var(--rs-color-divider);
+    border-radius: var(--rs-radius-card);
+    box-shadow: var(--rs-shadow-card);
+    transition:
+      box-shadow var(--rs-duration-fast) ease,
+      border-color var(--rs-duration-fast) ease;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card) {
+    display: flex;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='classic'])
+    :where(.rs-list-card, .rs-timeline-card, .rs-pinned-chip) {
+    --rs-focus-ring: var(--rs-card-level);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card, .rs-timeline-card):hover {
+    box-shadow: var(--rs-shadow-card-hover);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]))
+    :where(.rs-list-card, .rs-timeline-card):has(> .rs-card-activator:focus-visible) {
+    outline: var(--rs-focus-width) solid var(--rs-focus-ring);
+    outline-offset: var(--rs-focus-offset);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-activator) {
+    cursor: pointer;
+    user-select: none;
+    justify-content: center;
+    padding: 0;
+    text-align: start;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-activator:focus-visible) {
+    outline: none;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-activator[aria-disabled='true']) {
+    cursor: default;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-rail) {
+    flex: none;
+    align-self: stretch;
+    width: 0;
+    margin-inline-end: var(--rs-card-rail-gap);
+    border-inline-start: var(--rs-rail-width) solid var(--rs-card-level);
+    border-radius: var(--rs-radius-card);
+  }
+
+  /* After the generic rail rule: equal specificity, so order decides. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip > .rs-card-rail) {
+    margin-inline-end: 12px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]))
+    :where(.rs-card-title, .rs-card-description, .rs-card-time-label, .rs-card-suggestion) {
+    /* stylelint-disable-next-line value-no-vendor-prefix -- line clamping has no unprefixed form yet */
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-title) {
+    font-family: var(--rs-font-family-display);
+    font-size: var(--rs-text-card-title-size);
+    font-weight: var(--rs-text-card-title-weight);
+    line-height: var(--rs-text-card-title-line);
+    color: var(--rs-color-text);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-description, .rs-card-time-label) {
+    font-family: var(--rs-font-family-display);
+    font-size: var(--rs-text-card-body-size);
+    font-weight: var(--rs-text-card-body-weight);
+    line-height: var(--rs-text-card-body-line);
+    color: var(--rs-color-text-muted);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-suggestion) {
+    font-size: var(--rs-text-suggestion-size);
+    font-weight: var(--rs-text-suggestion-weight);
+    line-height: var(--rs-text-suggestion-line);
+    color: var(--rs-color-text);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-pills) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  /* Variants (02 §4.3–§4.4). */
+  :where(.rs-root:not([data-rs-unstyled])) :where([data-rs-variant='alert']) {
+    background: var(--rs-color-alert-surface);
+    border-color: var(--rs-color-alert-border);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]))
+    :where([data-rs-variant='alert'])
+    :where(.rs-card-description, .rs-card-time-label),
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip) :where(.rs-card-time-label) {
+    color: var(--rs-color-alert-text-muted);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where([data-rs-variant='muted']) {
+    background: var(--rs-color-surface-muted);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]))
+    :where([data-rs-variant='muted'])
+    :where(.rs-card-title, .rs-card-suggestion) {
+    color: var(--rs-color-text-muted);
+  }
+
+  /* ---------------------------------------------------------------- list card */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__row) {
+    display: flex;
+    padding: var(--rs-card-padding);
+    border-block-end: 1px solid var(--rs-color-divider);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where([data-rs-variant='alert'] .rs-card__row) {
+    border-block-end-color: var(--rs-color-alert-border);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__content) {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 24px;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-compact]) :where(.rs-card__content) {
+    flex-direction: column-reverse;
+    gap: 8px;
+    justify-content: stretch;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__meta) {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card .rs-card-time-label, .rs-list-card .rs-card-title) {
+    -webkit-line-clamp: 2;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card .rs-card-pills) {
+    margin-block-start: 8px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__text) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card .rs-card-description) {
+    margin-block-start: 6px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-compact]) :where(.rs-list-card .rs-card-description) {
+    margin-block-start: 0;
+  }
+
+  /* ---------------------------------------------------------------- pills */
+
+  /* Inline-level, so a pill keeps its own width outside a flex row (the overflow table). */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-level-pill, .rs-tag-pill, .rs-reference-pill) {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    height: var(--rs-pill-height);
+    padding-inline: 8px;
+    color: var(--rs-color-on-pill-dark);
+    background: var(--rs-color-pill-neutral);
+    border-radius: var(--rs-radius-pill);
+    box-shadow: var(--rs-shadow-pill);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-level-pill) {
+    color: var(--rs-pill-on);
+    background: var(--rs-pill-color);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-tag-pill) {
+    color: var(--rs-tag-on, var(--rs-color-on-pill-dark));
+    background: var(--rs-tag-color, var(--rs-color-pill-neutral));
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-reference-pill) {
+    border: 1px solid var(--rs-color-divider);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pill__label) {
+    font-size: var(--rs-text-pill-size);
+    font-weight: var(--rs-text-pill-weight);
+    line-height: var(--rs-text-pill-line);
+    white-space: nowrap;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pill-icon) {
+    display: flex;
+    flex: none;
+    width: 6px;
+    height: 6px;
+    fill: currentcolor;
+  }
+
+  /* ---------------------------------------------------------------- now marker (list) */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-marker) {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-marker)::after {
+    content: '';
+    flex: 1 1 auto;
+    height: var(--rs-now-line);
+    background: var(--rs-color-now);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-marker .rs-now-label) {
+    position: static;
+  }
+
+  /* ---------------------------------------------------------------- scroll-to-top */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-scroll-top-button) {
+    cursor: pointer;
+    position: fixed;
+    z-index: 1050;
+    inset-inline-end: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    color: var(--rs-color-on-accent);
+    background-color: var(--rs-color-accent);
+    border-radius: 50%;
+    box-shadow: var(--rs-shadow-floating);
+    transition:
+      background-color var(--rs-duration-base) var(--rs-ease-standard),
+      box-shadow var(--rs-duration-base) var(--rs-ease-standard),
+      border-color var(--rs-duration-base) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-scroll-top-button svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ---------------------------------------------------------------- timeline */
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-view='timeline']) :where(.rs-scroller) {
+    overscroll-behavior-y: contain;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-timeline__content) {
+    max-width: 100%;
+    min-height: 100%;
+    padding-block: 24px;
+    padding-inline-end: 32px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-time-grid) {
+    padding-block: var(--rs-grid-pad-top) var(--rs-grid-pad-bottom);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-time-gutter) {
+    width: var(--rs-gutter-width);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-hour-label) {
+    user-select: none;
+    inset-inline-start: 0;
+    width: var(--rs-gutter-width);
+    padding-inline-end: 24px;
+    font-size: var(--rs-text-hour-size);
+    font-weight: var(--rs-text-hour-weight);
+    line-height: var(--rs-text-hour-line);
+    color: var(--rs-color-text-muted);
+    text-align: end;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-hour-label[data-rs-boundary]) {
+    color: var(--rs-color-text);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-label) {
+    z-index: 3;
+    inset-inline-end: 8px;
+    padding: 8px;
+    font-size: var(--rs-text-now-size);
+    font-weight: var(--rs-text-now-weight);
+    line-height: var(--rs-text-now-line);
+    color: var(--rs-color-text-inverse);
+    white-space: nowrap;
+    background-color: var(--rs-color-now);
+    border-radius: var(--rs-radius-button);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-time-gutter .rs-now-label) {
+    transform: translateY(-50%);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-grid-box) {
+    border: 1px solid var(--rs-color-grid-line);
+    border-radius: var(--rs-radius-grid);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-grid-bands) {
+    overflow: hidden;
+    z-index: 0;
+    inset: 1px;
+    border-radius: calc(var(--rs-radius-grid) - 1px);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-off-shift-band) {
+    inset-inline: 0;
+    background-color: var(--rs-color-off-shift);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-off-shift-band[data-rs-first]) {
+    border-start-start-radius: calc(var(--rs-radius-grid) - 1px);
+    border-start-end-radius: calc(var(--rs-radius-grid) - 1px);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-off-shift-band[data-rs-last]) {
+    border-end-start-radius: calc(var(--rs-radius-grid) - 1px);
+    border-end-end-radius: calc(var(--rs-radius-grid) - 1px);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-hour-line) {
+    z-index: 0;
+    inset-inline: 0;
+    height: 1px;
+    background-color: var(--rs-color-grid-line);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-hour-line[data-rs-boundary]) {
+    height: 2px;
+    background-color: var(--rs-color-grid-boundary);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-line) {
+    z-index: 3;
+    inset-inline: -9px 0;
+    height: var(--rs-now-line);
+    background-color: var(--rs-color-now);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-lane-start-pad, .rs-lane-end-pad) {
+    width: var(--rs-lane-padding);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-lane-start-pad, .rs-lane) {
+    z-index: 1;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-lane-end-pad) {
+    z-index: 2;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-timeline-card > .rs-card-activator) {
+    height: 100%;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__top) {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: var(--rs-card-top-padding) var(--rs-card-padding) 16px;
+    border-block-end: 1px solid var(--rs-color-divider);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where([data-rs-variant='alert'] .rs-card__top) {
+    border-block-end-color: var(--rs-color-alert-border);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__body) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__bottom) {
+    display: flex;
+    flex: none;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--rs-card-padding);
+    background: var(--rs-color-surface-muted);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where([data-rs-variant='alert'] .rs-card__bottom) {
+    background: transparent;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-timeline-card .rs-card-pills) {
+    flex-wrap: nowrap;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-more-chip) {
+    cursor: pointer;
+    inset-inline-start: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: fit-content;
+    height: var(--rs-more-height);
+    padding: 0 8px;
+    font-size: 13px;
+    line-height: 19.5px;
+    white-space: nowrap;
+    background-color: var(--rs-color-more-bg);
+    border: 1px solid var(--rs-color-more-bg);
+    border-radius: var(--rs-radius-pill);
+    box-shadow: var(--rs-shadow-pill);
+    transition:
+      background-color var(--rs-duration-slow) var(--rs-ease-standard),
+      box-shadow var(--rs-duration-slow) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-more-chip:hover) {
+    box-shadow: var(--rs-shadow-pill-hover);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]))
+    :where(
+      .rs-more-chip:focus-visible,
+      .rs-nav-button:focus-visible,
+      .rs-pinned-chip:focus-visible,
+      .rs-scroll-top-button:focus-visible
+    ) {
+    outline: var(--rs-focus-width) solid var(--rs-focus-ring, var(--rs-color-focus));
+    outline-offset: var(--rs-focus-offset);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='classic'])
+    :where(.rs-more-chip, .rs-nav-button, .rs-scroll-top-button) {
+    --rs-focus-ring: var(--rs-color-accent);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-more-chip__label) {
+    overflow: hidden;
+    display: block;
+    padding-inline: 4px;
+    font-size: var(--rs-text-more-size);
+    font-weight: var(--rs-text-more-weight);
+    line-height: var(--rs-text-more-line);
+    color: var(--rs-color-more-text);
+    text-overflow: ellipsis;
+  }
+
+  /* ---------------------------------------------------------------- states */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-loading-state) {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    padding-block: 32px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-busy) {
+    opacity: 0.6;
+    transition: opacity var(--rs-duration-base) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-spinner) {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: var(--rs-color-accent);
+    animation: rs-spin var(--rs-duration-spin) linear infinite;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-spinner circle) {
+    fill: none;
+    stroke: currentcolor;
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
+    stroke-width: 3.6;
+    animation: rs-spinner-dash var(--rs-duration-spin) ease-in-out infinite;
+  }
+
+  @keyframes rs-spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rs-spinner-dash {
+    0% {
+      stroke-dasharray: 1px, 200px;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 100px, 200px;
+      stroke-dashoffset: -15px;
+    }
+
+    100% {
+      stroke-dasharray: 100px, 200px;
+      stroke-dashoffset: -125px;
+    }
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-error-state) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    padding-block: 32px;
+    font-size: var(--rs-text-nav-size);
+    line-height: var(--rs-text-nav-line);
+    color: var(--rs-color-text-body);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-text-button) {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    padding: 6px 8px;
+    font-size: var(--rs-text-button-size);
+    font-weight: var(--rs-text-button-weight);
+    line-height: var(--rs-text-button-line);
+    color: var(--rs-color-text);
+    letter-spacing: var(--rs-letter-spacing-control);
+    border-radius: var(--rs-radius-button);
+    transition:
+      background-color var(--rs-duration-base) var(--rs-ease-standard),
+      box-shadow var(--rs-duration-base) var(--rs-ease-standard),
+      border-color var(--rs-duration-base) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-text-button:hover, .rs-icon-button:hover) {
+    background-color: var(--rs-color-table-row-hover);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-text-button:focus-visible, .rs-icon-button:focus-visible) {
+    outline: var(--rs-focus-width) solid var(--rs-color-focus);
+    outline-offset: var(--rs-focus-offset);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-icon-button) {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    font-size: 18px;
+    color: var(--rs-color-icon-muted);
+    border-radius: 50%;
+    transition: background-color var(--rs-duration-fast) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-icon-button svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ---------------------------------------------------------------- tooltip */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-tooltip) {
+    pointer-events: none;
+    position: fixed;
+    z-index: 1500;
+    max-width: 360px;
+    padding: 16px;
+    font-size: var(--rs-text-tooltip-size);
+    font-weight: var(--rs-text-tooltip-weight);
+    line-height: var(--rs-text-tooltip-line);
+    color: var(--rs-color-tooltip-text);
+    background-color: var(--rs-color-tooltip-bg);
+    border-radius: var(--rs-radius-tooltip);
+    box-shadow: var(--rs-shadow-tooltip);
+
+    /* A layer of its own, as a popper-positioned tooltip is (text is antialiased on that layer). */
+    will-change: transform;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-tooltip)::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    inset-inline-start: calc(50% - 7px);
+    border: 7px solid transparent;
+    border-block-start-color: var(--rs-color-tooltip-bg);
+  }
+
+  /* ---------------------------------------------------------------- dialogs */
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-dialog, .rs-detail-dialog) {
+    overflow: hidden;
+    flex-direction: column;
+    width: calc(100% - 64px);
+    max-width: 1200px;
+    max-height: calc(100% - 64px);
+    margin: auto;
+    padding: 0;
+    color: var(--rs-color-text-body);
+    background: var(--rs-color-surface-overlay);
+    border: var(--rs-dialog-border-width) solid var(--rs-color-grid-line);
+    border-radius: var(--rs-radius-dialog);
+    box-shadow: var(--rs-shadow-dialog);
+    transition: box-shadow var(--rs-duration-slow) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-dialog[open], .rs-detail-dialog[open]) {
+    display: flex;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-dialog, .rs-detail-dialog)::backdrop {
+    background-color: var(--rs-color-backdrop);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-dialog__title) {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-dialog__heading) {
+    font-size: var(--rs-text-dialog-title-size);
+    font-weight: var(--rs-text-dialog-title-weight);
+    line-height: var(--rs-text-dialog-title-line);
+    color: var(--rs-color-text-body);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-dialog__content) {
+    overflow: auto;
+    flex: 1 1 auto;
+    padding: 16px 24px;
+    border-block: 1px solid var(--rs-color-divider);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-dialog__actions) {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 24px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__container) {
+    overflow: auto;
+    height: 500px;
+    min-height: 500px;
+    background-color: var(--rs-color-table-row);
+    background-image: var(--rs-surface-overlay-image);
+    border: 1px solid var(--rs-color-grid-line);
+    border-radius: var(--rs-radius-table);
+    transition: box-shadow var(--rs-duration-slow) var(--rs-ease-standard);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__container[data-rs-paginated]) {
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table) {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table th[scope='col']) {
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    padding: 12px 24px;
+    font-size: var(--rs-text-table-head-size);
+    font-weight: var(--rs-text-table-head-weight);
+    line-height: var(--rs-text-table-head-line);
+    color: var(--rs-color-table-head-text);
+    text-align: start;
+    white-space: nowrap;
+    background-color: var(--rs-color-table-head-bg);
+    border-block-end: 1px solid var(--rs-color-grid-line);
+
+    /* A label wider than a fixed column may use the end padding, but never widens the table. */
+    overflow: hidden;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__sort) {
+    cursor: pointer;
+    display: inline-flex;
+    text-align: start;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    color: inherit;
+
+    /* Centered on the x-height, the label reaches below the strut: the measured 47.67 px header. */
+    vertical-align: middle;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__sort[data-rs-active]) {
+    color: var(--rs-color-text-body);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__sort svg) {
+    width: 18px;
+    height: 18px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table td, .rs-overflow-table tbody th) {
+    padding: 12px 24px;
+    font-size: var(--rs-text-table-cell-size);
+    font-weight: var(--rs-text-table-cell-weight);
+    line-height: var(--rs-text-table-cell-line);
+    color: var(--rs-color-text-secondary);
+    text-align: start;
+    vertical-align: top;
+    border-block-end: 1px solid var(--rs-color-grid-line);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table tbody tr) {
+    background-color: var(--rs-color-table-row);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table tbody tr:nth-child(odd)) {
+    background-color: var(--rs-color-table-row-alt);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table tbody tr:hover) {
+    background-color: var(--rs-color-table-row-hover);
+  }
+
+  /* Cell texts are blocks: one line box per text, as the source's paragraphs. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__text, .rs-overflow-table__title) {
+    display: block;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__title) {
+    font-weight: 600;
+    color: var(--rs-color-text-body);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__action) {
+    width: 30px;
+    height: 30px;
+    color: var(--rs-color-icon);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pagination) {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid var(--rs-color-grid-line);
+    border-block-start: 0;
+    border-end-start-radius: var(--rs-radius-button);
+    border-end-end-radius: var(--rs-radius-button);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pagination__pages) {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pagination__step) {
+    cursor: pointer;
+    padding: 12px 24px;
+    font-size: 14px;
+    border: 1px solid var(--rs-color-divider);
+    border-radius: var(--rs-radius-button);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pagination__page) {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pagination__page[aria-current='page']) {
+    background-color: var(--rs-color-table-head-bg);
+    border-color: var(--rs-color-divider);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pagination__step:disabled) {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-detail-dialog) {
+    gap: 16px;
+    max-width: 560px;
+    padding: 24px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-detail-dialog__header) {
+    display: flex;
+    align-items: stretch;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-detail-dialog__header .rs-card-title) {
+    -webkit-line-clamp: 3;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-detail-dialog .rs-dialog__actions) {
+    padding: 0;
+  }
+
+  /* ---------------------------------------------------------------- forced colors */
+
+  @media (forced-colors: active) {
+    :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-line, .rs-hour-line[data-rs-boundary]) {
+      background-color: CanvasText;
+    }
+
+    :where(.rs-root:not([data-rs-unstyled])) :where(.rs-list-card, .rs-timeline-card, .rs-pinned-chip, .rs-nav-button) {
+      border-color: CanvasText;
+    }
+  }
+}
