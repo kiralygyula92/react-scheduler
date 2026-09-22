@@ -19,7 +19,7 @@ describe('bug regressions', () => {
     mockTop(part(container, 'scroller'), () => 100);
     settle();
     const margins = FakeIntersectionObserver.active().map((observer) => observer.options.rootMargin);
-    expect(margins).toEqual(['-1px 0px 0px 0px']);
+    expect(margins).toEqual(['-1px 0px 100000px 0px']);
   });
 
   it('[B-12] [B-13] listeners attach once per mount; scrolling reads no card rects', () => {

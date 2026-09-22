@@ -39,6 +39,9 @@ interface Sentinel {
   pinned: boolean;
 }
 
+/** How far below the viewport the observed root extends (px). */
+const BELOW = 100_000;
+
 export function createPinEngine(options: PinEngineOptions): PinEngine {
   const { scroller, getLine, epsilon, hysteresis, onChange } = options;
   const sentinels = new Map<string, Sentinel>();
@@ -88,7 +91,9 @@ export function createPinEngine(options: PinEngineOptions): PinEngine {
     for (const edge of new Set([offset - epsilon + 1, offset + hysteresis - epsilon + 1])) {
       const observer = new IntersectionObserver(onEntries, {
         root: scroller,
-        rootMargin: `${-Math.round(edge)}px 0px 0px 0px`,
+        // The root reaches far below the viewport: everything under the edge counts as intersecting,
+        // so a jump across the edge (from above it to below the fold) is still reported.
+        rootMargin: `${-Math.round(edge)}px 0px ${BELOW}px 0px`,
         threshold: [0, 1],
       });
       for (const sentinel of sentinels.values()) observer.observe(sentinel.node);

@@ -106,6 +106,15 @@ describe('timeline browser scenarios', () => {
     expect(await place(-2)).toBe(true);
   });
 
+  it('unpins after a jump from above the line to below the fold (no observer threshold in between)', async () => {
+    const { host, scroller } = await landedTimeline();
+    expect(chipTitles(host)).toEqual(['Backup verification', 'Network follow-up']);
+    scroller.scrollTop = 0;
+    await until(() => chipTitles(host).length === 0, 3000, 'chips unpinned');
+    scroller.scrollTop = 1986;
+    await until(() => chipTitles(host).length === 2, 3000, 'chips pinned again');
+  });
+
   it('[BR-T03] grid geometry: gutter, pads, grid height and three shared columns', async () => {
     const { host } = await landedTimeline();
     expect(part(host, 'timeGutter').getBoundingClientRect().width).toBe(88);
