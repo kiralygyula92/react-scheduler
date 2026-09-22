@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Renders the one static social image the site uses (docs pack 01 §9: `/{{PLUGIN_ID}}/og.png`,
+// Renders the one static social image the site uses (docs pack 01 §9: `/react-scheduler/og.png`,
 // 1200×630) with Playwright, which this repository already runs, and writes it next to the other
 // prefixed assets. The strings are the display name and the one-line description from the project
 // dictionary in AGENTS.md; this is the only image with text, and the docs pack gives every plugin

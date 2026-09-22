@@ -15,7 +15,7 @@
    version pill lands on top of the search button: WCAG 2.2 target size fails
    with a serious axe violation (07 §1, §2). The wordmark is the one part that
    can give way, so it truncates instead. (EXCEPTIONS.md #9) */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .ds-wordmark {
     min-width: 0;
     overflow: hidden;
@@ -32,13 +32,16 @@
    it but not these two: O7 says breadcrumbs are never underlined in any state, and the prev/next
    cards are cards. (EXCEPTIONS.md #9) */
 .ds-content .ds-breadcrumbs a,
-.ds-content .ds-breadcrumbs a:hover,
-.ds-content .ds-prevnext a,
+.ds-content .ds-prevnext a {
+  text-decoration: none;
+}
+
 .ds-content .ds-prevnext a:hover {
   text-decoration: none;
 }
 
 .ds-content .ds-breadcrumbs a:hover {
+  text-decoration: none;
   color: var(--ds-text);
 }
 
