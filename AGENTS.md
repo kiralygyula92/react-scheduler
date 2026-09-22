@@ -1,4 +1,4 @@
-# AGENTS.md — {{PLUGIN_DISPLAY_NAME}}
+# AGENTS.md — React Scheduler
 
 Single source of instructions for every coding agent in this repository (Codex, Cursor, Claude Code and others). `CLAUDE.md` and `.cursor/rules/project.mdc` only point here.
 
@@ -6,34 +6,36 @@ Single source of instructions for every coding agent in this repository (Codex, 
 
 Keys in double braces in `spec/` (for example `{{PLUGIN_ID}}` in the docs pack) resolve to the values below. Filled once at M0 from the INPUTS table of Template Prompt 2. Never substitute values inside `spec/`; read keys there as variables resolved from this table.
 
-| Key | Value |
-|---|---|
-| `{{NPM_PACKAGE}}` | |
-| `{{PLUGIN_DISPLAY_NAME}}` | |
-| `{{PLUGIN_ID}}` | |
-| `{{NPM_SCOPE}}` | |
-| `{{COMPONENT}}` | |
-| `{{CSS_PREFIX}}` | |
-| `{{ENGINE_PEER}}` | |
-| `{{ONE_LINE_DESCRIPTION}}` | |
-| `{{KEYWORDS}}` | |
-| `{{PACKAGE_DIR}}` | |
-| `{{REPO_NAME}}` | |
-| `{{REPO_URL}}` | |
-| `{{SITE_DOMAIN}}` | |
-| `{{COPYRIGHT_HOLDER}}` | |
-| `{{YEAR}}` | |
-| `{{DENYLIST_SALT}}` | |
-| `{{FEATURE_DOSSIER_PATH}}` | |
-| `{{DOCS_PACK_PATH}}` | |
-| `{{PACKAGE_MANAGER}}` | |
-| `{{NODE_VERSION}}` | |
-| `{{SPELLING}}` | |
+| Key                        | Value                                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------------------------- |
+| `{{NPM_PACKAGE}}`          | `@react-schedulerkit/react-scheduler`                                                             |
+| `{{PLUGIN_DISPLAY_NAME}}`  | React Scheduler                                                                                   |
+| `{{PLUGIN_ID}}`            | `react-scheduler`                                                                                 |
+| `{{NPM_SCOPE}}`            | `react-schedulerkit`                                                                              |
+| `{{COMPONENT}}`            | `Scheduler`                                                                                       |
+| `{{CSS_PREFIX}}`           | `rs`                                                                                              |
+| `{{ENGINE_PEER}}`          | `none`                                                                                            |
+| `{{ONE_LINE_DESCRIPTION}}` | React-scheduler used to showcase a schedule in different domains, such as office or factory work. |
+| `{{KEYWORDS}}`             | `react`, `schedule`, `agenda`                                                                     |
+| `{{PACKAGE_DIR}}`          | `react-scheduler`                                                                                 |
+| `{{REPO_NAME}}`            | `react-scheduler`                                                                                 |
+| `{{REPO_URL}}`             | https://github.com/kiralygyula92/react-scheduler                                                  |
+| `{{SITE_DOMAIN}}`          | `react-schedulerkit.vercel.app` (provisional until the Vercel project exists; see `GAPS.md`)      |
+| `{{COPYRIGHT_HOLDER}}`     | kiralygyula92                                                                                     |
+| `{{YEAR}}`                 | 2026                                                                                              |
+| `{{DENYLIST_SALT}}`        | `k3v9-q1x7`                                                                                       |
+| `{{FEATURE_DOSSIER_PATH}}` | `spec/feature-dossier`                                                                            |
+| `{{DOCS_PACK_PATH}}`       | `spec/docs-pack`                                                                                  |
+| `{{PACKAGE_MANAGER}}`      | pnpm 10 (pinned: `pnpm@10.34.5`)                                                                  |
+| `{{NODE_VERSION}}`         | 24 LTS                                                                                            |
+| `{{SPELLING}}`             | American English                                                                                  |
+
+Decided with the user at M0 (they differ from the first INPUTS table): the package is published under the scope because the unscoped name is taken on npm (Dossier Q-01), and the package folder is the derived value `react-scheduler`.
 
 ## Project
 
-- Package: `{{NPM_PACKAGE}}` in `packages/{{PACKAGE_DIR}}/` — an MIT-licensed, native, dependency-free React component library for {{ONE_LINE_DESCRIPTION}}.
-- Docs site: `apps/docs/` — React + Vite + React Router (prerendered), 7 locales, deployed to Vercel at https://{{SITE_DOMAIN}}/{{PLUGIN_ID}}/.
+- Package: `@react-schedulerkit/react-scheduler` in `packages/react-scheduler/` — an MIT-licensed, native, dependency-free React component library for React-scheduler used to showcase a schedule in different domains, such as office or factory work.
+- Docs site: `apps/docs/` — React + Vite + React Router (prerendered), 7 locales, deployed to Vercel at https://react-schedulerkit.vercel.app/react-scheduler/.
 - Specification (read-only): `spec/docs-pack/` (how to build) and `spec/feature-dossier/` (what to build).
 
 ## Before writing code
@@ -55,21 +57,22 @@ Keys in double braces in `spec/` (for example `{{PLUGIN_ID}}` in the docs pack) 
 
 ## Commands
 
-| Task | Command |
-|---|---|
-| Install | `pnpm install` |
-| Dev (site + package watch) | `pnpm dev` |
-| Build everything | `pnpm build` |
-| Lint / typecheck / test | `pnpm lint` · `pnpm typecheck` · `pnpm test` |
+| Task                                | Command                                                                                       |
+| ----------------------------------- | --------------------------------------------------------------------------------------------- |
+| Install                             | `pnpm install`                                                                                |
+| Dev (site + package watch)          | `pnpm dev`                                                                                    |
+| Build everything                    | `pnpm build`                                                                                  |
+| Lint / typecheck / test             | `pnpm lint` · `pnpm typecheck` · `pnpm test`                                                  |
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
-| E2E | `pnpm e2e` |
-| Zero-reference / licences | `pnpm check:zero-reference` · `pnpm check:licenses` |
-| Add a changeset | `pnpm changeset` |
+| E2E                                 | `pnpm e2e`                                                                                    |
+| Zero-reference / licences           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
+| Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
+| Add a changeset                     | `pnpm changeset`                                                                              |
 
 ## Working style
 
-- Work milestone by milestone as defined in `spec/feature-dossier/roadmap.md`. Stop at each checkpoint, report the checklist, and wait for the user.
+- Work milestone by milestone as defined in Template Prompt 2 (M0–M8, `spec/docs-pack/templates/template-prompt-2-plugin-and-docs-site.md`); the Dossier's package roadmap (`spec/feature-dossier/10-roadmap.md`) adds acceptance criteria. Stop at each checkpoint, report the checklist, and wait for the user.
 - Write tests with the code. A task is done only when lint, typecheck, tests, `i18n:check` and `conformance` pass.
 - Commit per milestone step with a message that names the milestone and the rule IDs (`O*`, `P*`, `C*`) it satisfies.
 - When unsure, ask. Unknowns go to `GAPS.md`; never invent facts, metrics or claims.
-- Spelling for English content: {{SPELLING}}.
+- Spelling for English content: American English.
