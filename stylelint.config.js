@@ -12,7 +12,15 @@ const RAW_COLOUR_AND_DURATION_RULES = {
 export default {
   extends: ['stylelint-config-standard'],
   ignoreFiles: ['spec/**', '**/node_modules/**', '**/dist/**', '**/build/**', '**/coverage/**'],
-  rules: RAW_COLOUR_AND_DURATION_RULES,
+  rules: {
+    ...RAW_COLOUR_AND_DURATION_RULES,
+    // kebab-case with BEM elements and modifiers (docs pack 09 §4.2: `rs-toolbar__button--active`).
+    'selector-class-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$',
+    // Level tokens embed the level key as written (`--rs-level-capacityWatch`, Feature Dossier 06 §3.1).
+    'custom-property-pattern': '^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$',
+    // Font family names keep their case so computed styles match the measured classic values.
+    'value-keyword-case': ['lower', { ignoreProperties: ['/^--rs-font-family/'] }],
+  },
   overrides: [
     {
       files: ['**/tokens.css'],

@@ -1,0 +1,287 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Design tokens (Feature Dossier 02 §1, 06 §3–§4). Every visual value is a custom property on
+ * .rs-root; presets and colour schemes are selected by data attributes set by the component.
+ * The only raw colours and durations of the stylesheet live in this file (stylelint token rule).
+ */
+@layer rs {
+  /* Classic preset, light: the measured values of the source (pixel parity). */
+  .rs-root {
+    --rs-font-family:
+      Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --rs-font-family-display:
+      InterTight, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --rs-color-bg: #fff;
+    --rs-color-surface: #fff;
+    --rs-color-surface-muted: #f9f9f9;
+    --rs-color-surface-overlay: #fff;
+    --rs-color-text: #000;
+    --rs-color-text-muted: #6f7173;
+    --rs-color-text-secondary: rgb(0 0 0 / 60%);
+    --rs-color-text-body: rgb(0 0 0 / 87%);
+    --rs-color-text-inverse: #fff;
+    --rs-color-on-pill-dark: #000;
+    --rs-color-on-pill-light: #fff;
+    --rs-color-divider: #dfdfdf;
+    --rs-color-grid-line: #dfdfdf;
+    --rs-color-grid-boundary: #000;
+    --rs-color-off-shift: #f2f2f2;
+    --rs-color-now: #999da6;
+    --rs-color-nav-bg: #f9f9f9;
+    --rs-color-nav-bg-hover: #ececec;
+    --rs-color-nav-border: #b8b8b8;
+    --rs-color-alert-surface: linear-gradient(45deg, #f8b6a1 0%, #fff 100%);
+    --rs-color-alert-border: #d79c8b;
+    --rs-color-alert-text-muted: #865a4c;
+    --rs-color-pill-neutral: #fff;
+    --rs-color-more-bg: #000;
+    --rs-color-more-text: #fff;
+    --rs-color-tooltip-bg: #262626;
+    --rs-color-tooltip-text: #fff;
+    --rs-color-accent: #141414;
+    --rs-color-on-accent: #fff;
+    --rs-color-focus: #141414;
+    --rs-color-backdrop: rgb(0 0 0 / 50%);
+    --rs-color-table-head-bg: #f5f5f5;
+    --rs-color-table-head-text: #6f7173;
+    --rs-color-table-row: #fff;
+    --rs-color-table-row-alt: #f9f9f9;
+    --rs-color-table-row-hover: #ececec;
+    --rs-color-icon: rgb(0 0 0 / 54%);
+    --rs-color-icon-muted: #6f7173;
+    --rs-color-edge-fade-tint: rgb(36 119 255 / 6%);
+    --rs-color-edge-fade-mid: rgb(255 255 255 / 55%);
+    --rs-color-shadow-sticky-line: #f1f1f1;
+    --rs-level-critical: #f26d43;
+    --rs-level-critical-on: #fff;
+    --rs-level-watch: #ffb443;
+    --rs-level-watch-on: #000;
+    --rs-level-monitoring: #2477ff;
+    --rs-level-monitoring-on: #fff;
+    --rs-level-capacityWatch: #ffb443;
+    --rs-level-capacityWatch-on: #000;
+    --rs-level-ready: #4fcf8e;
+    --rs-level-ready-on: #fff;
+    --rs-level-normal: #4fcf8e;
+    --rs-level-normal-on: #fff;
+    --rs-level-onTarget: #4fcf8e;
+    --rs-level-onTarget-on: #fff;
+    --rs-level-routine: #4fcf8e;
+    --rs-level-routine-on: #fff;
+    --rs-level-resolved: #999da6;
+    --rs-level-resolved-on: #fff;
+    --rs-level-fallback: #999da6;
+    --rs-level-fallback-on: #000;
+    --rs-shadow-card: 0 1px 1px 0 rgb(0 0 0 / 15%);
+    --rs-shadow-card-hover: 0 2px 4px 0 rgb(0 0 0 / 30%);
+    --rs-shadow-sticky: 0 1px 0 0 var(--rs-color-shadow-sticky-line), 0 5px 10px 0 rgb(0 0 0 / 20%);
+    --rs-shadow-pill: inset 0 12px 12px 0 rgb(255 255 255 / 20%);
+    --rs-shadow-pill-hover: inset 0 12px 12px 0 rgb(255 255 255 / 20%), 0 2px 4px 0 rgb(0 0 0 / 30%);
+    --rs-shadow-tooltip: 0 4px 16px 0 rgb(0 0 0 / 25%);
+    --rs-shadow-dialog: 0 2px 6px 0 rgb(0 0 0 / 16%);
+    --rs-shadow-floating: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+    --rs-radius-card: 12px;
+    --rs-radius-pill: 9990px;
+    --rs-radius-button: 8px;
+    --rs-radius-tooltip: 12px;
+    --rs-radius-dialog: 16px;
+    --rs-radius-table: 10px;
+    --rs-radius-grid: 12px;
+    --rs-text-card-title-size: 16px;
+    --rs-text-card-title-line: 20px;
+    --rs-text-card-title-weight: 600;
+    --rs-text-card-body-size: 14px;
+    --rs-text-card-body-line: 20px;
+    --rs-text-card-body-weight: 400;
+    --rs-text-suggestion-size: 14px;
+    --rs-text-suggestion-line: 20px;
+    --rs-text-suggestion-weight: 500;
+    --rs-text-pill-size: 12px;
+    --rs-text-pill-line: 12px;
+    --rs-text-pill-weight: 400;
+    --rs-text-nav-size: 14px;
+    --rs-text-nav-line: 16px;
+    --rs-text-nav-weight: 400;
+    --rs-text-count-size: 14px;
+    --rs-text-count-line: 14px;
+    --rs-text-count-weight: 700;
+    --rs-text-section-title-size: 15.2px;
+    --rs-text-section-title-line: 20px;
+    --rs-text-section-title-weight: 700;
+    --rs-text-section-range-size: 12.48px;
+    --rs-text-section-range-line: 20px;
+    --rs-text-section-range-weight: 500;
+    --rs-text-empty-size: 12px;
+    --rs-text-empty-line: 14px;
+    --rs-text-empty-weight: 500;
+    --rs-text-hour-size: 12px;
+    --rs-text-hour-line: 14px;
+    --rs-text-hour-weight: 500;
+    --rs-text-now-size: 12px;
+    --rs-text-now-line: 14px;
+    --rs-text-now-weight: 500;
+    --rs-text-more-size: 13.6px;
+    --rs-text-more-line: 20.4px;
+    --rs-text-more-weight: 600;
+    --rs-text-tooltip-size: 12px;
+    --rs-text-tooltip-line: 16.8px;
+    --rs-text-tooltip-weight: 400;
+    --rs-text-dialog-title-size: 16px;
+    --rs-text-dialog-title-line: 24px;
+    --rs-text-dialog-title-weight: 600;
+    --rs-text-table-head-size: 14px;
+    --rs-text-table-head-line: 21px;
+    --rs-text-table-head-weight: 600;
+    --rs-text-table-cell-size: 14px;
+    --rs-text-table-cell-line: 20px;
+    --rs-text-table-cell-weight: 400;
+    --rs-text-button-size: 14px;
+    --rs-text-button-line: 24.5px;
+    --rs-text-button-weight: 500;
+    --rs-letter-spacing-control: 0.4px;
+    --rs-gutter-width: 88px;
+    --rs-lane-padding: 64px;
+    --rs-card-gap: 4px;
+    --rs-pill-height: 24px;
+    --rs-more-height: 28px;
+    --rs-rail-width: 4px;
+    --rs-edge-fade-width: 25px;
+    --rs-sticky-bottom-list: 16px;
+    --rs-sticky-bottom-timeline: 32px;
+    --rs-grid-pad-top: 8px;
+    --rs-grid-pad-bottom: 12px;
+    --rs-now-line: 2px;
+    --rs-focus-width: 2px;
+    --rs-focus-offset: 2px;
+    --rs-card-padding: 12px;
+    --rs-card-rail-gap: 20px;
+    --rs-card-top-padding: 20px;
+    --rs-list-gap: 6px;
+    --rs-chip-width-lg: 436px;
+    --rs-chip-width-md: 360px;
+    --rs-chip-width-sm: 90%;
+    --rs-duration-fast: 150ms;
+    --rs-duration-chip: 180ms;
+    --rs-duration-backdrop: 225ms;
+    --rs-duration-base: 250ms;
+    --rs-duration-slow: 300ms;
+    --rs-duration-spin: 1400ms;
+    --rs-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --rs-ease-chip: cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+
+  /* Classic preset, dark. */
+  .rs-root[data-rs-scheme='dark'] {
+    --rs-color-bg: #121212;
+    --rs-color-surface: #1e1e1e;
+    --rs-color-surface-muted: #161616;
+    --rs-color-surface-overlay: #202020;
+    --rs-color-text: #fff;
+    --rs-color-text-muted: #8a8d92;
+    --rs-color-text-secondary: rgb(255 255 255 / 70%);
+    --rs-color-text-body: #fff;
+    --rs-color-text-inverse: #000;
+    --rs-color-divider: #333;
+    --rs-color-grid-line: #222;
+    --rs-color-grid-boundary: #fff;
+    --rs-color-off-shift: #161616;
+    --rs-color-nav-bg: #161616;
+    --rs-color-nav-bg-hover: #2a2a2a;
+    --rs-color-nav-border: #222;
+    --rs-color-alert-surface: linear-gradient(45deg, #5c2410 0%, #1e0f0a 100%);
+    --rs-color-alert-border: #222;
+    --rs-color-alert-text-muted: #a97867;
+    --rs-color-more-bg: #fff;
+    --rs-color-more-text: #000;
+    --rs-color-accent: #000;
+    --rs-color-focus: #000;
+    --rs-color-table-head-bg: #1e1e1e;
+    --rs-color-table-head-text: #a0a4ab;
+    --rs-color-table-row: #161616;
+    --rs-color-table-row-alt: #1e1e1e;
+    --rs-color-table-row-hover: #2a2a2a;
+    --rs-color-icon: #fff;
+    --rs-color-icon-muted: #8a8d92;
+    --rs-color-edge-fade-tint: rgb(63 118 214 / 6%);
+    --rs-color-edge-fade-mid: rgb(18 18 18 / 55%);
+    --rs-color-shadow-sticky-line: #222;
+    --rs-level-critical: #d36a4d;
+    --rs-level-watch: #c08e32;
+    --rs-level-monitoring: #3f76d6;
+    --rs-level-capacityWatch: #c08e32;
+    --rs-level-ready: #3fa36f;
+    --rs-level-normal: #3fa36f;
+    --rs-level-onTarget: #3fa36f;
+    --rs-level-routine: #3fa36f;
+    --rs-level-resolved: #6f747c;
+    --rs-shadow-card-hover: 0 2px 4px 0 #000;
+    --rs-shadow-dialog: 0 2px 6px 0 rgb(0 0 0 / 44%);
+    --rs-shadow-pill-hover: inset 0 12px 12px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 30%);
+  }
+
+  /* Default preset: classic with the accessibility and portability fixes (06 §3, B-19). */
+  .rs-root[data-rs-preset='default'] {
+    --rs-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --rs-font-family-display: var(--rs-font-family);
+    --rs-color-alert-text-muted: #6e4436;
+    --rs-color-now: #6b6f78;
+    --rs-level-critical-on: #000;
+    --rs-level-monitoring-on: #000;
+    --rs-level-ready-on: #000;
+    --rs-level-normal-on: #000;
+    --rs-level-onTarget-on: #000;
+    --rs-level-routine-on: #000;
+    --rs-level-resolved-on: #000;
+  }
+
+  .rs-root[data-rs-preset='default'][data-rs-scheme='dark'] {
+    --rs-color-accent: #f2f2f2;
+    --rs-color-on-accent: #000;
+    --rs-color-focus: #fff;
+    --rs-color-alert-text-muted: #c99a89;
+    --rs-color-now: #999da6;
+    --rs-level-resolved: #7a7f88;
+  }
+
+  /* Density (06 §4). Standard equals classic. */
+  .rs-root[data-rs-density='comfortable'] {
+    --rs-card-padding: 16px;
+    --rs-list-gap: 10px;
+    --rs-pill-height: 28px;
+    --rs-card-top-padding: 24px;
+    --rs-text-card-title-size: 17px;
+    --rs-text-card-title-line: 24px;
+    --rs-text-card-body-size: 15px;
+    --rs-text-card-body-line: 22px;
+  }
+
+  .rs-root[data-rs-density='dense'] {
+    --rs-card-padding: 8px;
+    --rs-card-rail-gap: 12px;
+    --rs-list-gap: 4px;
+    --rs-pill-height: 20px;
+    --rs-card-top-padding: 12px;
+    --rs-text-card-title-size: 14px;
+    --rs-text-card-title-line: 18px;
+    --rs-text-card-body-size: 12px;
+    --rs-text-card-body-line: 16px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rs-root {
+      --rs-duration-fast: 0ms;
+      --rs-duration-chip: 0ms;
+      --rs-duration-backdrop: 0ms;
+      --rs-duration-base: 0ms;
+      --rs-duration-slow: 0ms;
+    }
+  }
+
+  .rs-root[data-rs-reduced-motion] {
+    --rs-duration-fast: 0ms;
+    --rs-duration-chip: 0ms;
+    --rs-duration-backdrop: 0ms;
+    --rs-duration-base: 0ms;
+    --rs-duration-slow: 0ms;
+  }
+}

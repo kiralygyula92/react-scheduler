@@ -61,6 +61,8 @@
         "default": "./dist/dom.cjs"
       }
     },
+    "./styles.css": "./dist/styles/index.css",
+    "./base.css": "./dist/styles/base.css",
     "./package.json": "./package.json"
   },
   "peerDependencies": {
