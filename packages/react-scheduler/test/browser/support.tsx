@@ -10,7 +10,24 @@ import pastFile from '../../../../spec/feature-dossier/characterization/fixtures
 import pinnedManyFile from '../../../../spec/feature-dossier/characterization/fixtures/pinned-many.json';
 import sparseFile from '../../../../spec/feature-dossier/characterization/fixtures/sparse.json';
 import crowdedFile from '../../../../spec/feature-dossier/characterization/fixtures/crowded.json';
+import interUrl from '../../../../.cache/fonts/Inter.ttf?url';
+import interTightUrl from '../../../../.cache/fonts/InterTight.ttf?url';
 import { type Fixture, type FixtureFile, toFixture } from '../support/items';
+
+// The references were rendered with Inter and Inter Tight installed (Feature Dossier 09 §4). The
+// pinned OFL files come from scripts/fetch-fonts.ts, which `pnpm test:browser` runs first.
+const faces = document.createElement('style');
+faces.textContent = [
+  `@font-face { font-family: Inter; src: url('${interUrl}') format('truetype'); font-weight: 100 900; }`,
+  `@font-face { font-family: InterTight; src: url('${interTightUrl}') format('truetype'); font-weight: 100 900; }`,
+].join('\n');
+document.head.append(faces);
+await Promise.all(
+  ['400', '500', '600', '700'].flatMap((weight) => [
+    document.fonts.load(`${weight} 16px Inter`),
+    document.fonts.load(`${weight} 16px InterTight`),
+  ]),
+);
 
 export const fixtures: Record<string, Fixture> = {
   baseline: toFixture(baselineFile as FixtureFile),

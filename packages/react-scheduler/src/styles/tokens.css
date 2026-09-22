@@ -85,6 +85,9 @@
     --rs-radius-button: 8px;
     --rs-radius-tooltip: 12px;
     --rs-radius-dialog: 16px;
+    /* Dialog paper border and the table surface overlay: dark only in the classic source. */
+    --rs-dialog-border-width: 0;
+    --rs-surface-overlay-image: none;
     --rs-radius-table: 10px;
     --rs-radius-grid: 12px;
     --rs-text-card-title-size: 16px;
@@ -217,6 +220,8 @@
     --rs-shadow-card-hover: 0 2px 4px 0 #000;
     --rs-shadow-dialog: 0 2px 6px 0 rgb(0 0 0 / 44%);
     --rs-shadow-pill-hover: inset 0 12px 12px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 30%);
+    --rs-dialog-border-width: 1px;
+    --rs-surface-overlay-image: linear-gradient(rgb(255 255 255 / 5%), rgb(255 255 255 / 5%));
   }
 
   /* Default preset: classic with the accessibility and portability fixes (06 §3, B-19). */

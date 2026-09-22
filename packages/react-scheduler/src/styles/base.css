@@ -3,16 +3,17 @@
  * Structural layout (Feature Dossier 06 §2): what the views need to scroll, stick, pin and position,
  * kept in unstyled mode. Geometry that depends on data (card top/height/offsets, grid height, hour
  * labels, the now line, "+more" chips) is set inline by the components.
+ *
+ * Every selector has zero specificity, so theme.css (later in the cascade) and consumer styles
+ * override it by order. The visually-hidden utility is the exception: it must beat any theme rule on
+ * the same element (a closed tooltip).
  */
 @layer rs {
-  .rs-root,
-  .rs-root *,
-  .rs-root *::before,
-  .rs-root *::after {
+  :where(.rs-root, .rs-root *, .rs-root *::before, .rs-root *::after) {
     box-sizing: border-box;
   }
 
-  .rs-root {
+  :where(.rs-root) {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -21,11 +22,11 @@
     overflow: hidden;
   }
 
-  .rs-root[hidden] {
+  :where(.rs-root[hidden]) {
     display: none;
   }
 
-  .rs-scroller {
+  :where(.rs-scroller) {
     position: relative;
     flex: 1 1 auto;
     min-height: 0;
@@ -33,32 +34,29 @@
     overflow-anchor: none;
   }
 
-  .rs-root[data-rs-view='list'] .rs-sticky-top {
+  :where(.rs-root[data-rs-view='list'] .rs-sticky-top) {
     position: sticky;
     z-index: 10;
     top: -1px;
   }
 
-  .rs-root[data-rs-view='timeline'] .rs-sticky-top,
-  .rs-sticky-bottom {
+  :where(.rs-root[data-rs-view='timeline'] .rs-sticky-top, .rs-sticky-bottom) {
     position: relative;
     z-index: 10;
     flex: none;
   }
 
-  /* Zero specificity: the theme's list paddings (later in the cascade) must win over this reset. */
   :where(.rs-item-list, .rs-pinned-strip-track, .rs-lane) {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .rs-list-card,
-  .rs-pinned-strip-viewport {
+  :where(.rs-list-card, .rs-pinned-strip-viewport) {
     position: relative;
   }
 
-  .rs-pin-sentinel {
+  :where(.rs-pin-sentinel) {
     pointer-events: none;
     position: absolute;
     inset-inline-start: 0;
@@ -66,60 +64,51 @@
     height: 1px;
   }
 
-  .rs-pin-sentinel[data-rs-edge='top'] {
+  :where(.rs-pin-sentinel[data-rs-edge='top']) {
     top: 0;
   }
 
-  .rs-pin-sentinel[data-rs-edge='bottom'] {
+  :where(.rs-pin-sentinel[data-rs-edge='bottom']) {
     bottom: 0;
   }
 
-  .rs-time-grid {
+  :where(.rs-time-grid) {
     position: relative;
     display: flex;
   }
 
-  .rs-time-gutter,
-  .rs-lane-start-pad,
-  .rs-lane-end-pad {
+  :where(.rs-time-gutter, .rs-lane-start-pad, .rs-lane-end-pad) {
     position: relative;
     flex: none;
   }
 
-  .rs-grid-box {
+  :where(.rs-grid-box) {
     position: relative;
     display: flex;
     flex: 1 1 auto;
     min-width: 0;
   }
 
-  .rs-lane {
+  :where(.rs-lane) {
     position: relative;
     flex: 1 1 auto;
     min-width: 0;
   }
 
-  .rs-grid-bands,
-  .rs-hour-line,
-  .rs-now-line,
-  .rs-off-shift-band {
+  :where(.rs-grid-bands, .rs-hour-line, .rs-now-line, .rs-off-shift-band) {
     pointer-events: none;
     position: absolute;
   }
 
-  .rs-hour-label,
-  .rs-now-label,
-  .rs-timeline-card,
-  .rs-more-chip,
-  .rs-edge-fade {
+  :where(.rs-hour-label, .rs-now-label, .rs-timeline-card, .rs-more-chip, .rs-edge-fade) {
     position: absolute;
   }
 
-  .rs-timeline-card {
+  :where(.rs-timeline-card) {
     display: flex;
   }
 
-  .rs-card-activator {
+  :where(.rs-card-activator) {
     display: flex;
     flex-direction: column;
     width: 100%;

@@ -19,8 +19,11 @@
     background-color: transparent;
   }
 
+  /* Buttons start bare (the parts add their own padding and colours) and are not text-selectable. */
   :where(.rs-root:not([data-rs-unstyled])) :where(button) {
+    user-select: none;
     margin: 0;
+    padding: 0;
     font: inherit;
     color: inherit;
     letter-spacing: inherit;
@@ -219,10 +222,6 @@
     box-shadow: var(--rs-shadow-card-hover);
   }
 
-  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip > .rs-card-rail) {
-    margin-inline-end: 12px;
-  }
-
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip__text) {
     display: flex;
     flex: 0 1 auto;
@@ -370,6 +369,7 @@
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card-activator) {
     cursor: pointer;
     user-select: none;
+    justify-content: center;
     padding: 0;
     text-align: start;
   }
@@ -389,6 +389,11 @@
     margin-inline-end: var(--rs-card-rail-gap);
     border-inline-start: var(--rs-rail-width) solid var(--rs-card-level);
     border-radius: var(--rs-radius-card);
+  }
+
+  /* After the generic rail rule: equal specificity, so order decides. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-pinned-chip > .rs-card-rail) {
+    margin-inline-end: 12px;
   }
 
   :where(.rs-root:not([data-rs-unstyled]))
@@ -560,7 +565,7 @@
     align-items: center;
   }
 
-  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-marker::after) {
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-marker)::after {
     content: '';
     flex: 1 1 auto;
     height: var(--rs-now-line);
@@ -589,6 +594,10 @@
     background-color: var(--rs-color-accent);
     border-radius: 50%;
     box-shadow: var(--rs-shadow-floating);
+    transition:
+      background-color var(--rs-duration-base) var(--rs-ease-standard),
+      box-shadow var(--rs-duration-base) var(--rs-ease-standard),
+      border-color var(--rs-duration-base) var(--rs-ease-standard);
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-scroll-top-button svg) {
@@ -728,6 +737,7 @@
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
+    gap: 4px;
     justify-content: space-between;
     min-width: 0;
   }
@@ -881,7 +891,10 @@
     color: var(--rs-color-text);
     letter-spacing: var(--rs-letter-spacing-control);
     border-radius: var(--rs-radius-button);
-    transition: background-color var(--rs-duration-base) var(--rs-ease-standard);
+    transition:
+      background-color var(--rs-duration-base) var(--rs-ease-standard),
+      box-shadow var(--rs-duration-base) var(--rs-ease-standard),
+      border-color var(--rs-duration-base) var(--rs-ease-standard);
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-text-button:hover, .rs-icon-button:hover) {
@@ -929,7 +942,7 @@
     box-shadow: var(--rs-shadow-tooltip);
   }
 
-  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-tooltip::after) {
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-tooltip)::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -950,9 +963,10 @@
     padding: 0;
     color: var(--rs-color-text-body);
     background: var(--rs-color-surface-overlay);
-    border: 0;
+    border: var(--rs-dialog-border-width) solid var(--rs-color-grid-line);
     border-radius: var(--rs-radius-dialog);
     box-shadow: var(--rs-shadow-dialog);
+    transition: box-shadow var(--rs-duration-slow) var(--rs-ease-standard);
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-dialog[open], .rs-detail-dialog[open]) {
@@ -998,8 +1012,10 @@
     height: 500px;
     min-height: 500px;
     background-color: var(--rs-color-table-row);
+    background-image: var(--rs-surface-overlay-image);
     border: 1px solid var(--rs-color-grid-line);
     border-radius: var(--rs-radius-table);
+    transition: box-shadow var(--rs-duration-slow) var(--rs-ease-standard);
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__container[data-rs-paginated]) {
@@ -1031,6 +1047,7 @@
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__sort) {
     cursor: pointer;
     display: inline-flex;
+    text-align: start;
     gap: 4px;
     align-items: center;
     justify-content: flex-start;
@@ -1057,12 +1074,21 @@
     border-block-end: 1px solid var(--rs-color-grid-line);
   }
 
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table tbody tr) {
+    background-color: var(--rs-color-table-row);
+  }
+
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table tbody tr:nth-child(odd)) {
     background-color: var(--rs-color-table-row-alt);
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table tbody tr:hover) {
     background-color: var(--rs-color-table-row-hover);
+  }
+
+  /* Cell texts are blocks: one line box per text, as the source's paragraphs. */
+  :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__text, .rs-overflow-table__title) {
+    display: block;
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-overflow-table__title) {

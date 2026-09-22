@@ -17,7 +17,11 @@ import { Tooltip, useTooltip } from './tooltip';
 function TimeCell({ item }: { item: SchedulerItem }): ReactElement {
   const env = useCardEnv();
   const start = toMs(item.start);
-  return <span>{Number.isNaN(start) ? null : env.formatters.dateTime(new Date(start))}</span>;
+  return (
+    <span className="rs-overflow-table__text">
+      {Number.isNaN(start) ? null : env.formatters.dateTime(new Date(start))}
+    </span>
+  );
 }
 
 function ActionCell({ item, onOpen }: { item: SchedulerItem; onOpen: () => void }): ReactElement {
@@ -76,7 +80,7 @@ export const defaultOverflowColumns: readonly OverflowColumn<SchedulerItem>[] = 
     minWidth: 280,
     maxWidth: 360,
     sortValue: classicSortValues.description,
-    renderCell: (item) => item.description ?? null,
+    renderCell: (item) => <span className="rs-overflow-table__text">{item.description}</span>,
   },
   {
     id: 'actions',
