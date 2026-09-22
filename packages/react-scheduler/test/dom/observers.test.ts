@@ -98,6 +98,22 @@ describe('[B-21] compensateStickyGrowth', () => {
     expect(scroller.scrollTop).toBe(0);
   });
 
+  it('only notes a change while suspended (a navigation corrects its own target)', () => {
+    const scroller = document.createElement('div');
+    const sticky = document.createElement('div');
+    setLayout(scroller, { scrollTop: 600 });
+    setLayout(sticky, { offsetHeight: 152 });
+    let navigating = true;
+    compensateStickyGrowth(scroller, sticky, () => navigating);
+    setLayout(sticky, { offsetHeight: 24 });
+    FakeResizeObserver.instances[0]!.trigger();
+    expect(scroller.scrollTop).toBe(600);
+    navigating = false;
+    setLayout(sticky, { offsetHeight: 152 });
+    FakeResizeObserver.instances[0]!.trigger();
+    expect(scroller.scrollTop).toBe(728);
+  });
+
   it('does nothing without ResizeObserver', () => {
     vi.stubGlobal('ResizeObserver', undefined);
     compensateStickyGrowth(document.createElement('div'), document.createElement('div'))();

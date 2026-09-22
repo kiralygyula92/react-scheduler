@@ -132,6 +132,8 @@ export function PinnedStrip(): ReactElement {
           {renderPart(custom, 'pinnedStripTrack', 'ul', {
             ref: setTrack,
             role: 'list',
+            // Its chips are the stops (F-19); engines that make scrollers focusable skip the track.
+            tabIndex: -1,
             'data-rs-snap': entries.length >= 2 ? '' : undefined,
             children: entries.map((entry) => (
               <li key={entry.item.id}>

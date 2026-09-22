@@ -3,7 +3,9 @@ import { act, fireEvent, screen, within } from '@testing-library/react';
 import { createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { ListView, Scheduler, type SchedulerHandle, TimelineView } from '../../src/index';
-import { fixture, type ParityItem } from '../parity/adapter';
+import { computeTimelineLayout } from '../../src/core/layout';
+import type { TimelineLayout, TimelineLayoutOptions } from '../../src/core/types';
+import { fixture, type ParityItem, parityLayoutOptions } from '../parity/adapter';
 import { FakeIntersectionObserver, mockTop } from '../support/dom-fakes';
 import { injectListLayout, injectTimelineLayout } from '../support/layout';
 import {
@@ -465,5 +467,58 @@ describe('overflow table columns', () => {
       expect([header.style.width, header.style.minWidth, header.style.maxWidth]).toEqual([width, width, width]);
       unmount();
     }
+  });
+});
+
+describe('ordering (F-02)', () => {
+  // Reverse alphabetical: unlike the placement order in every respect that matters here.
+  const byTitleDescending = (a: ParityItem, b: ParityItem): number => b.title.localeCompare(a.title);
+  const titles = (root: ParentNode, name: string): string[] =>
+    parts(root, name).map((card) => part(card, 'cardTitle').textContent ?? '');
+  const sorted = (values: readonly string[]): string[] => [...values].sort((a, b) => b.localeCompare(a));
+
+  it('a consumer compareItems orders the list, the timeline placement and the pinned strip together', () => {
+    const list = renderUi(<ListView {...base} compareItems={byTitleDescending} />);
+    settle();
+    for (const section of parts(list.container, 'shiftSection')) {
+      const own = titles(section, 'listCard');
+      expect(own).toEqual(sorted(own));
+    }
+    list.unmount();
+
+    // The placement sequence decides the columns (time placement, crowded day): the component's are
+    // the engine's for this comparator, and differ from the default order's.
+    const crowded = fixture('crowded');
+    const ref = createRef<SchedulerHandle<ParityItem>>();
+    const timeline = renderUi(
+      <TimelineView
+        items={crowded.items}
+        date={crowded.date}
+        now={crowded.now}
+        timeline={{ columnPlacement: 'time' }}
+        ref={ref}
+        compareItems={byTitleDescending}
+      />,
+    );
+    settle();
+    const columns = (layout: TimelineLayout<ParityItem> | null): Record<string, number[]> =>
+      Object.fromEntries((layout?.cards ?? []).map((card) => [card.item.id, [card.column, card.columns]]));
+    const options = parityLayoutOptions(crowded.date, false, {
+      columnPlacement: 'time',
+    }) as TimelineLayoutOptions<ParityItem>;
+    const placed = columns(ref.current?.getLayout() ?? null);
+    const engine = (extra: Partial<TimelineLayoutOptions<ParityItem>>): Record<string, number[]> =>
+      columns(computeTimelineLayout(crowded.items, { ...options, ...extra }));
+    expect(placed).toEqual(engine({ compareItems: byTitleDescending }));
+    expect(placed).not.toEqual(engine({}));
+    timeline.unmount();
+
+    const { container } = renderUi(<TimelineView {...base} compareItems={byTitleDescending} />);
+    injectTimelineLayout(container, 800);
+    settle();
+    pinTimeline(container, ['Backup verification', 'Network follow-up']);
+    settle();
+    const chips = titles(part(container, 'pinnedStrip'), 'pinnedChip');
+    expect(chips).toEqual(['Network follow-up', 'Backup verification']);
   });
 });
