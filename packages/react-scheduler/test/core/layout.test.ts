@@ -66,7 +66,7 @@ describe('geometry', () => {
     expect(byId['backwards']).toMatchObject({ height: 80, end: new Date(2031, 2, 12, 14).getTime() });
   });
 
-  it('honours hourHeight, cardGap and minCardHeight', () => {
+  it('honors hourHeight, cardGap and minCardHeight', () => {
     const layout = layoutOf([item('x', 'routine', at(9), at(10))], { hourHeight: 120, cardGap: 10, minCardHeight: 20 });
     expect(layout.cards[0]).toMatchObject({ top: 13 * 120, height: 110 });
     expect(layout.height).toBe(36 * 120);

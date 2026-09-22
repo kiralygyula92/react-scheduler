@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Locale-aware formatters (Feature Dossier 05 F-12). The source hard-coded en-US hour labels and a
-// US "since" pattern, and recognised only en/es for dates (B-15); every format now follows `locale`
+// US "since" pattern, and recognized only en/es for dates (B-15); every format now follows `locale`
 // and falls back to en-US only when Intl does not support it.
 import { supportedLocale } from './localization';
 

@@ -27,8 +27,8 @@ const themes = {
   defaultDark: merge(base, dark, defaults, defaultsDark),
 };
 
-/** Normalises #fff / #FFFFFF / rgb(0 0 0 / 60%) to "#RRGGBB" or "#RRGGBB/a", as the Dossier writes colours. */
-function colour(value: string): string {
+/** Normalizes #fff / #FFFFFF / rgb(0 0 0 / 60%) to "#RRGGBB" or "#RRGGBB/a", as the Dossier writes colors. */
+function color(value: string): string {
   const hex = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value);
   if (hex) {
     const digits = hex[1]!.length === 3 ? [...hex[1]!].map((d) => d + d).join('') : hex[1]!;
@@ -181,13 +181,13 @@ describe('tokens.css', () => {
 
   it('uses the classic light and dark values of Feature Dossier 02 §1', () => {
     for (const [name, [light, darkValue]] of Object.entries(CLASSIC)) {
-      expect(colour(themes.classicLight.get(`--rs-${name}`) ?? ''), `${name} light`).toBe(light);
-      expect(colour(themes.classicDark.get(`--rs-${name}`) ?? ''), `${name} dark`).toBe(darkValue);
+      expect(color(themes.classicLight.get(`--rs-${name}`) ?? ''), `${name} light`).toBe(light);
+      expect(color(themes.classicDark.get(`--rs-${name}`) ?? ''), `${name} dark`).toBe(darkValue);
     }
   });
 
-  it('gives classic level pills the measured text colours (01 §2.2)', () => {
-    const on = (theme: Map<string, string>, key: string): string => colour(theme.get(`--rs-level-${key}-on`) ?? '');
+  it('gives classic level pills the measured text colors (01 §2.2)', () => {
+    const on = (theme: Map<string, string>, key: string): string => color(theme.get(`--rs-level-${key}-on`) ?? '');
     for (const key of ['watch', 'capacityWatch']) expect(on(themes.classicLight, key)).toBe('#000000');
     for (const key of ['critical', 'monitoring', 'ready', 'normal', 'onTarget', 'routine', 'resolved']) {
       expect(on(themes.classicLight, key)).toBe('#FFFFFF');
@@ -195,7 +195,7 @@ describe('tokens.css', () => {
   });
 
   it('applies the default preset fixes of Feature Dossier 06 §3', () => {
-    const get = (theme: Map<string, string>, name: string): string => colour(theme.get(`--rs-${name}`) ?? '');
+    const get = (theme: Map<string, string>, name: string): string => color(theme.get(`--rs-${name}`) ?? '');
     expect(themes.defaultLight.get('--rs-font-family')).not.toContain('Inter');
     expect(themes.defaultLight.get('--rs-font-family-display')).toBe('var(--rs-font-family)');
     expect([get(themes.defaultLight, 'color-accent'), get(themes.defaultDark, 'color-accent')]).toEqual([
@@ -239,7 +239,7 @@ describe('tokens.css', () => {
       ['light', themes.defaultLight],
       ['dark', themes.defaultDark],
     ] as const) {
-      const get = (token: string): string => colour(theme.get(`--rs-${token}`) ?? '');
+      const get = (token: string): string => color(theme.get(`--rs-${token}`) ?? '');
       const pairs: [string, string, string, number][] = [
         ['now label', get('color-text-inverse'), get('color-now'), 4.5],
         ['scroll-to-top icon', get('color-on-accent'), get('color-accent'), 3],
@@ -271,7 +271,7 @@ describe('tokens.css', () => {
   });
 
   it('documents the classic shortfalls instead of fixing them (B-19, Q-09)', () => {
-    const get = (token: string): string => colour(themes.classicDark.get(`--rs-${token}`) ?? '');
+    const get = (token: string): string => color(themes.classicDark.get(`--rs-${token}`) ?? '');
     expect(contrast(get('color-accent'), get('color-bg'))).toBeLessThan(3);
   });
 });

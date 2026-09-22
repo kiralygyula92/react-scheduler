@@ -1,8 +1,8 @@
 /*
  * SPDX-License-Identifier: MIT
  * Design tokens (Feature Dossier 02 §1, 06 §3–§4). Every visual value is a custom property on
- * .rs-root; presets and colour schemes are selected by data attributes set by the component.
- * The only raw colours and durations of the stylesheet live in this file (stylelint token rule).
+ * .rs-root; presets and color schemes are selected by data attributes set by the component.
+ * The only raw colors and durations of the stylesheet live in this file (stylelint token rule).
  */
 @layer rs {
   /* Classic preset, light: the measured values of the source (pixel parity). */
@@ -244,8 +244,8 @@
   }
 
   /*
-   * Default light: two text colours below 4.5:1 that 06 §3 does not list (GAPS G9), fixed with
-   * existing default colours: the count (2.83:1 on the nav button) and the table head (4.49:1).
+   * Default light: two text colors below 4.5:1 that 06 §3 does not list (GAPS G9), fixed with
+   * existing default colors: the count (2.83:1 on the nav button) and the table head (4.49:1).
    */
   .rs-root[data-rs-preset='default']:not([data-rs-scheme='dark']) {
     --rs-color-count: var(--rs-color-alert-text-muted);

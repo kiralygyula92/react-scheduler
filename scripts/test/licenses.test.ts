@@ -54,7 +54,7 @@ describe('checkLicenses', () => {
     expect(report.unusedExceptions).toEqual(['unused-tool (BlueOak-1.0.0)']);
   });
 
-  it('rejects an exception whose licence does not match exactly', () => {
+  it('rejects an exception whose license does not match exactly', () => {
     const report = checkLicenses([pkg('lightningcss', 'GPL-3.0')], [], policy);
     expect(report.violations).toEqual(['lightningcss@1.0.0 (GPL-3.0) is not allowlisted']);
   });
@@ -67,7 +67,7 @@ describe('checkLicenses', () => {
 });
 
 describe('parsePnpmLicenses', () => {
-  it('flattens the licence-keyed JSON output', () => {
+  it('flattens the license-keyed JSON output', () => {
     const output = JSON.stringify({
       MIT: [{ name: 'a', versions: ['1.0.0'], license: 'MIT' }],
       'BSD-3-Clause': [{ name: 'b', versions: ['2.0.0'] }],

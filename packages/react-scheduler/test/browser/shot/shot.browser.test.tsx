@@ -8,8 +8,8 @@ import { fixtures, frames, mount, nav, part, parts, settled, unmountAll, until, 
 import type { Rect } from './diff';
 
 // SHOT: the classic preset against the reference screenshots (Feature Dossier 07 §1.4, 09 §4):
-// colour threshold 0.1, at most 0.1 % differing pixels after the 07 §5 masks. The references match
-// Windows Chromium's rasterisation, so the gate is enforced on Windows (anywhere with RS_SHOT=1);
+// color threshold 0.1, at most 0.1 % differing pixels after the 07 §5 masks. The references match
+// Windows Chromium's rasterization, so the gate is enforced on Windows (anywhere with RS_SHOT=1);
 // elsewhere the captures and diff images are only written to test-results/shot/ for review.
 
 const TOLERANCE = 0.001;
@@ -34,8 +34,8 @@ function topButtonMask(host: HTMLElement): Rect[] {
   const top = nav(host, 'top');
   if (!top) return [];
   const rect = top.getBoundingClientRect();
-  const centre = rect.left + rect.width / 2;
-  return [{ x: centre - 140, y: rect.top - 2, width: 280, height: rect.height + 4 }];
+  const center = rect.left + rect.width / 2;
+  return [{ x: center - 140, y: rect.top - 2, width: 280, height: rect.height + 4 }];
 }
 
 interface Shot {

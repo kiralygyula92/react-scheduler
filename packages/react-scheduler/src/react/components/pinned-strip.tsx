@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// The pinned strip (Feature Dossier 01 §2.4, 05 F-07, F-18): a labelled region holding a list of chip
+// The pinned strip (Feature Dossier 01 §2.4, 05 F-07, F-18): a labeled region holding a list of chip
 // buttons, edge fades while the strip can scroll, and a separate polite announcement of the count,
 // at most once per second (B-17). Carried-over chips keep their tags and gain the carried-over tag
 // (B-25).

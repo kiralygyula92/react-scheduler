@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Licence policy (docs pack 09 §3.2, Feature Dossier 09 §8, docs/adr/0001-toolchain.md).
+// License policy (docs pack 09 §3.2, Feature Dossier 09 §8, docs/adr/0001-toolchain.md).
 
 type Expr = { kind: 'id'; id: string } | { kind: 'and' | 'or'; left: Expr; right: Expr };
 
@@ -19,17 +19,17 @@ export function parseSpdx(expression: string): Expr {
   const peek = (): string | undefined => tokens[position];
   const next = (): string => {
     const token = tokens[position++];
-    if (token === undefined) throw new Error(`Unexpected end of licence expression: ${expression}`);
+    if (token === undefined) throw new Error(`Unexpected end of license expression: ${expression}`);
     return token;
   };
   const primary = (): Expr => {
     const token = next();
     if (token === '(') {
       const inner = or();
-      if (next() !== ')') throw new Error(`Missing ")" in licence expression: ${expression}`);
+      if (next() !== ')') throw new Error(`Missing ")" in license expression: ${expression}`);
       return inner;
     }
-    // "X WITH exception" is judged by its base licence X.
+    // "X WITH exception" is judged by its base license X.
     if (peek()?.toUpperCase() === 'WITH') {
       next();
       next();
@@ -54,11 +54,11 @@ export function parseSpdx(expression: string): Expr {
   };
   const result = or();
   if (position !== tokens.length)
-    throw new Error(`Unexpected "${tokens[position]}" in licence expression: ${expression}`);
+    throw new Error(`Unexpected "${tokens[position]}" in license expression: ${expression}`);
   return result;
 }
 
-/** True when the expression can be satisfied with licences from `allowed` (OR = any, AND = all). */
+/** True when the expression can be satisfied with licenses from `allowed` (OR = any, AND = all). */
 export function isLicenseAllowed(expression: string, allowed: readonly string[]): boolean {
   const allowedIds = new Set(allowed.map((id) => id.toLowerCase()));
   let tree: Expr;
@@ -106,7 +106,7 @@ function matchesPackage(pattern: string, name: string): boolean {
 
 /**
  * Production packages must be allowlisted outright. Development packages may also match a
- * named exception with exactly the same licence.
+ * named exception with exactly the same license.
  */
 export function checkLicenses(
   all: readonly InstalledPackage[],

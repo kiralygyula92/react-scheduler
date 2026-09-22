@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// List view content (Feature Dossier 01 §L, 05 F-04): shift sections labelled by their headers, card
+// List view content (Feature Dossier 01 §L, 05 F-04): shift sections labeled by their headers, card
 // lists, per-shift and global empty states, and the now marker in the current section (B-01).
 import { Fragment, type ReactElement, type ReactNode } from 'react';
 import { shiftTitle } from '../../core/navigation';

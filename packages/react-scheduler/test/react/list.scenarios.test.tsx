@@ -60,7 +60,7 @@ describe('list scenarios', () => {
       'Mar 12, 8 AM - Mar 12, 8 PM',
       'Mar 12, 8 PM - Mar 13, 8 AM',
     ]);
-    // Each section is labelled by its header; titles are headings of the configured level.
+    // Each section is labeled by its header; titles are headings of the configured level.
     expect(screen.getByRole('region', { name: /Current shift/ })).toBe(sections[1]);
     expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(3);
   });

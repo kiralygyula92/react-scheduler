@@ -1,7 +1,7 @@
 # 0001 — Toolchain
 
-Status: accepted (by kiralygyula92, 2026-09-22, M0 checkpoint), including the development licence exceptions in D5.
-Scope: every development tool in the workspace, the licence policy that governs them, and the places where the toolchain deviates from docs pack `00` §5 and `09` §6.
+Status: accepted (by kiralygyula92, 2026-09-22, M0 checkpoint), including the development license exceptions in D5.
+Scope: every development tool in the workspace, the license policy that governs them, and the places where the toolchain deviates from docs pack `00` §5 and `09` §6.
 
 ## Context
 
@@ -9,9 +9,9 @@ Docs pack `00` §5 fixes the stack: pnpm 10, Node 24, TypeScript 7 for type-chec
 
 ## Tools
 
-| Tool                                 | Version                                      | Licence (SPDX) | Purpose                                                          |
+| Tool                                 | Version                                      | License (SPDX) | Purpose                                                          |
 | ------------------------------------ | -------------------------------------------- | -------------- | ---------------------------------------------------------------- |
-| pnpm                                 | 10.34.5 (`packageManager`)                   | MIT            | Workspaces, lockfile, licence listing                            |
+| pnpm                                 | 10.34.5 (`packageManager`)                   | MIT            | Workspaces, lockfile, license listing                            |
 | Node.js                              | 24 (`.nvmrc`; local and CI); `>=22.18` works | MIT            | Runtime; runs `scripts/*.ts` via built-in type stripping         |
 | typescript                           | 7.0.2                                        | Apache-2.0     | `tsc` type-checking (root and package)                           |
 | typescript (API)                     | 6.0.3, for typescript-eslint only (see D1)   | Apache-2.0     | TypeScript compiler API for type-aware linting                   |
@@ -60,25 +60,25 @@ Exit: drop the rule when the plugin declares ESLint 10.
 
 | `09` §6 template                   | tsdown 0.23                                    | Change                                                                   |
 | ---------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------ |
-| `external: [...]`                  | deprecated in favour of `deps.neverBundle`     | Uses `deps.neverBundle`                                                  |
+| `external: [...]`                  | deprecated in favor of `deps.neverBundle`      | Uses `deps.neverBundle`                                                  |
 | (none)                             | `target` inferred from `engines.node` (node20) | Explicit `target: 'es2022'` (browser floor Safari 16.4, Dossier `09` §5) |
 | `copy`, `src/locales/*.ts` entries | unchanged                                      | Added when those sources exist (M2, M3)                                  |
 
 - `attw --pack .` runs with `--profile node16`. The `node10` resolution mode cannot see subpath exports, and it is removed in TypeScript 7 (deprecated in 6).
 - `THIRD_PARTY_NOTICES.md` is left out of `files` because no third-party code is copied (`09` §2).
 
-### D5 — Licence policy: strict production, named development exceptions
+### D5 — License policy: strict production, named development exceptions
 
 The two specs disagree. Dossier `09` §8 applies MIT/ISC/BSD-2/BSD-3/0BSD/Apache-2.0 to every installed package. Docs pack `09` §3.2 also allows CC0-1.0 and Unlicense, and forbids MPL only at runtime. axe-core, which both require, is MPL-2.0. The user chose a split policy at M0. `scripts/check-licenses.ts` with `scripts/licenses.config.json` enforces it:
 
 - **Production trees** (`pnpm licenses list --prod --recursive`) must be fully covered by MIT, ISC, BSD-2-Clause, BSD-3-Clause, 0BSD, Apache-2.0, CC0-1.0 or Unlicense. SPDX expressions are evaluated (`OR` = any, `AND` = all). Publishable packages must also have no `dependencies`, only `react`/`react-dom` as peers, `license: "MIT"` and a `LICENSE` file.
-- **Development trees** may also contain the packages below. Each one is named with its exact licence; anything else fails.
+- **Development trees** may also contain the packages below. Each one is named with its exact license; anything else fails.
 
-| Package                                   | Licence       | Pulled in by                                           | Nature                                              |
+| Package                                   | License       | Pulled in by                                           | Nature                                              |
 | ----------------------------------------- | ------------- | ------------------------------------------------------ | --------------------------------------------------- |
 | `@csstools/*` (3 packages)                | MIT-0         | stylelint                                              | MIT without the attribution clause                  |
 | `argparse`                                | Python-2.0    | stylelint → cosmiconfig → js-yaml                      | Permissive (PSF)                                    |
-| `caniuse-lite`                            | CC-BY-4.0     | eslint-plugin-react-hooks → @babel/core → browserslist | Browser-support data, attribution licence           |
+| `caniuse-lite`                            | CC-BY-4.0     | eslint-plugin-react-hooks → @babel/core → browserslist | Browser-support data, attribution license           |
 | `lightningcss`, `lightningcss-<platform>` | MPL-2.0       | vitest → vite                                          | File-level copyleft; used unmodified, never shipped |
 | `lru-cache`, `minimatch` (current majors) | BlueOak-1.0.0 | tsdown, @arethetypeswrong/core; eslint                 | Permissive                                          |
 
@@ -98,4 +98,4 @@ None of these reaches the published tarball: the package has no dependencies, an
 
 - The toolchain matches `00` §5, except for the ESLint major and the TypeScript 6 API copy for linting (both reversible).
 - Development and CI run on Node 24; the gate scripts also run on Node 22.18+.
-- Adding a dev tool means adding a row here and re-running `pnpm check:licenses`. A new non-allowlisted licence fails until it is added to D5 with approval.
+- Adding a dev tool means adding a row here and re-running `pnpm check:licenses`. A new non-allowlisted license fails until it is added to D5 with approval.

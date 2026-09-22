@@ -1,4 +1,4 @@
-// Pixel comparison (Feature Dossier 09 §4): two pixels differ when their perceptual colour distance
+// Pixel comparison (Feature Dossier 09 §4): two pixels differ when their perceptual color distance
 // exceeds the threshold; the distance is the weighted YIQ difference of Kotsarenko and Ramos
 // ("Measuring perceived color difference using YIQ NTSC transmission color space", 2010), with
 // alpha blended over white. Masked rectangles are excluded.
@@ -40,7 +40,7 @@ function yiq(data: Uint8Array, index: number): [number, number, number] {
   ];
 }
 
-export function colourDelta(a: Uint8Array, b: Uint8Array, index: number): number {
+export function colorDelta(a: Uint8Array, b: Uint8Array, index: number): number {
   const [y1, i1, q1] = yiq(a, index);
   const [y2, i2, q2] = yiq(b, index);
   const dy = y1 - y2;
@@ -70,17 +70,17 @@ export function diffImages(actual: Image, reference: Image, masks: readonly Rect
   let different = 0;
   for (let pixel = 0; pixel < width * height; pixel++) {
     const index = pixel * 4;
-    const grey = 255 - (255 - (yiq(reference.data, index)[0] ?? 255)) * 0.1;
+    const gray = 255 - (255 - (yiq(reference.data, index)[0] ?? 255)) * 0.1;
     if (masked[pixel]) {
       output.set([0, 0, 255, 60], index);
       continue;
     }
     compared++;
-    if (colourDelta(actual.data, reference.data, index) > limit) {
+    if (colorDelta(actual.data, reference.data, index) > limit) {
       different++;
       output.set([255, 0, 0, 255], index);
     } else {
-      output.set([grey, grey, grey, 255], index);
+      output.set([gray, gray, gray, 255], index);
     }
   }
   return {

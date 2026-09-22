@@ -42,7 +42,7 @@ async function states(scheme: Scheme): Promise<Difference[]> {
   const push = (key: string, property: string, want: unknown, actual: string): void => {
     if (String(want) !== actual) differences.push({ key, property, expected: String(want), actual });
   };
-  const normaliseShadow = (value: string): string =>
+  const normalizeShadow = (value: string): string =>
     value.replace(/rgba?\(([^)]*)\)/g, (_match, parts: string) => {
       const [r, g, b, a] = parts.split(',').map((part) => Number(part.trim()));
       const hex = [r, g, b].map((channel) => (channel ?? 0).toString(16).padStart(2, '0').toUpperCase()).join('');
@@ -54,19 +54,19 @@ async function states(scheme: Scheme): Promise<Difference[]> {
     'listCard.root:hover',
     'boxShadow',
     measured['listCard.root:hover'],
-    normaliseShadow(getComputedStyle(card).boxShadow),
+    normalizeShadow(getComputedStyle(card).boxShadow),
   );
   await parkPointer();
   const activator = targets['listCard.button']?.element as HTMLElement;
   activator.focus({ focusVisible: true });
   const focus = measured['listCard.button:focus-visible'] as unknown as { outline: string; outlineOffset: string };
-  // The ring is drawn on the card around the activator (06 §2), in the level colour (classic).
+  // The ring is drawn on the card around the activator (06 §2), in the level color (classic).
   const ring = getComputedStyle(card);
   push(
     'listCard.button:focus-visible',
     'outline',
     focus.outline,
-    `${ring.outlineWidth} ${ring.outlineStyle} ${normaliseShadow(ring.outlineColor)}`,
+    `${ring.outlineWidth} ${ring.outlineStyle} ${normalizeShadow(ring.outlineColor)}`,
   );
   push('listCard.button:focus-visible', 'outlineOffset', focus.outlineOffset, getComputedStyle(card).outlineOffset);
 
@@ -78,7 +78,7 @@ async function states(scheme: Scheme): Promise<Difference[]> {
       key,
       'outline',
       want.outline,
-      `${style.outlineWidth} ${style.outlineStyle} ${normaliseShadow(style.outlineColor)}`,
+      `${style.outlineWidth} ${style.outlineStyle} ${normalizeShadow(style.outlineColor)}`,
     );
     push(key, 'outlineOffset', want.outlineOffset, style.outlineOffset);
     element.blur();
@@ -86,7 +86,7 @@ async function states(scheme: Scheme): Promise<Difference[]> {
   const chip = targets['pinnedChip.root']?.element as HTMLElement;
   outline('pinnedChip.root:focus-visible', chip);
 
-  // Hovering the bottom button: its colours, then its tooltip (arrow colour and the 14 px gap).
+  // Hovering the bottom button: its colors, then its tooltip (arrow color and the 14 px gap).
   const bottom = targets['navBottom.button']?.element as HTMLElement;
   await page.elementLocator(bottom).hover();
   await new Promise((resolve) => setTimeout(resolve, 350));
@@ -95,29 +95,29 @@ async function states(scheme: Scheme): Promise<Difference[]> {
     'navBottom.button:hover',
     'backgroundColor',
     hovered.backgroundColor,
-    normaliseShadow(getComputedStyle(bottom).backgroundColor),
+    normalizeShadow(getComputedStyle(bottom).backgroundColor),
   );
   push(
     'navBottom.button:hover',
     'borderColor',
     hovered.borderColor,
-    normaliseShadow(getComputedStyle(bottom).borderTopColor),
+    normalizeShadow(getComputedStyle(bottom).borderTopColor),
   );
   const tooltip = document.getElementById(bottom.getAttribute('aria-describedby') ?? '') as HTMLElement;
   const tip = getComputedStyle(tooltip);
   const wantTip = measured['tooltip'] as unknown as Record<string, string | number>;
   const actualTip: Record<string, string> = {
-    backgroundColor: normaliseShadow(tip.backgroundColor),
-    color: normaliseShadow(tip.color),
+    backgroundColor: normalizeShadow(tip.backgroundColor),
+    color: normalizeShadow(tip.color),
     borderRadius: tip.borderRadius,
     padding: tip.padding,
     maxWidth: tip.maxWidth,
     fontSize: tip.fontSize,
     fontWeight: tip.fontWeight,
     lineHeight: tip.lineHeight,
-    boxShadow: normaliseShadow(tip.boxShadow),
+    boxShadow: normalizeShadow(tip.boxShadow),
     fontFamily: tip.fontFamily.replace(/"/g, ''),
-    arrowColor: normaliseShadow(getComputedStyle(tooltip, '::after').borderTopColor),
+    arrowColor: normalizeShadow(getComputedStyle(tooltip, '::after').borderTopColor),
     gap: String(Math.round(bottom.getBoundingClientRect().top - tooltip.getBoundingClientRect().bottom)),
   };
   for (const [property, value] of Object.entries(actualTip)) {
@@ -132,7 +132,7 @@ async function states(scheme: Scheme): Promise<Difference[]> {
   const more = timeline['moreChip.root']?.element as HTMLElement;
   await page.elementLocator(more).hover();
   await new Promise((resolve) => setTimeout(resolve, 400));
-  const moreShadow = normaliseShadow(getComputedStyle(more).boxShadow);
+  const moreShadow = normalizeShadow(getComputedStyle(more).boxShadow);
   // The hover states are recorded as a bare box-shadow string.
   const wantMore = measured['moreChip.root:hover'] as unknown as string;
   if (!closeShadow(wantMore, moreShadow)) push('moreChip.root:hover', 'boxShadow', wantMore, moreShadow);

@@ -24,7 +24,7 @@ function matchQuery(query: string): MediaQueryList | null {
   return typeof window !== 'undefined' && typeof window.matchMedia === 'function' ? window.matchMedia(query) : null;
 }
 
-/** The resolved colour scheme; `system` follows `prefers-color-scheme` (light on the server). */
+/** The resolved color scheme; `system` follows `prefers-color-scheme` (light on the server). */
 export function useColorScheme(setting: ColorScheme): 'light' | 'dark' {
   const system = setting === 'system';
   const subscribe = useCallback(

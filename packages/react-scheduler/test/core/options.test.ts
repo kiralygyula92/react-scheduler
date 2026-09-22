@@ -8,7 +8,7 @@ import {
   timelineDefaults,
 } from '../../src/core/options';
 
-describe('behaviour options', () => {
+describe('behavior options', () => {
   it('resolves to the parity defaults', () => {
     expect(resolveListOptions()).toEqual(listDefaults);
     expect(resolveTimelineOptions()).toEqual(timelineDefaults);

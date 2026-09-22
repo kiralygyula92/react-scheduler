@@ -19,7 +19,7 @@
     background-color: transparent;
   }
 
-  /* Buttons start bare (the parts add their own padding and colours) and are not text-selectable. */
+  /* Buttons start bare (the parts add their own padding and colors) and are not text-selectable. */
   :where(.rs-root:not([data-rs-unstyled])) :where(button) {
     user-select: none;
     margin: 0;
@@ -205,7 +205,7 @@
       border-color var(--rs-duration-fast);
     animation: rs-pin-chip-in var(--rs-duration-chip) var(--rs-ease-chip) both;
 
-    /* A layer of its own, rasterised at the entrance's peak scale as the source's chips were. */
+    /* A layer of its own, rasterized at the entrance's peak scale as the source's chips were. */
     will-change: transform;
   }
 
@@ -226,7 +226,7 @@
   }
 
   /* Reduced motion removes the entrance animation (01 §2.7), not only its duration: a finished
-     animation would leave an identity transform, and a transform changes how text is rasterised. */
+     animation would leave an identity transform, and a transform changes how text is rasterized. */
   :where(.rs-root:not([data-rs-unstyled])[data-rs-reduced-motion]) :where(.rs-pinned-chip) {
     animation: none;
   }
@@ -1079,7 +1079,7 @@
     justify-content: flex-start;
     color: inherit;
 
-    /* Centred on the x-height, the label reaches below the strut: the measured 47.67 px header. */
+    /* Centered on the x-height, the label reaches below the strut: the measured 47.67 px header. */
     vertical-align: middle;
   }
 
@@ -1198,7 +1198,7 @@
     padding: 0;
   }
 
-  /* ---------------------------------------------------------------- forced colours */
+  /* ---------------------------------------------------------------- forced colors */
 
   @media (forced-colors: active) {
     :where(.rs-root:not([data-rs-unstyled])) :where(.rs-now-line, .rs-hour-line[data-rs-boundary]) {

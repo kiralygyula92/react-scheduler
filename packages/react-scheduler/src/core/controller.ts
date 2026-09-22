@@ -4,7 +4,7 @@
 // nothing about React or the DOM: the view layer reports measurements (widths, scroll facts, pinned
 // ids) and performs scrolling; the controller decides and notifies.
 //
-// Order for one action (F-25): middleware → default behaviour → state callbacks (`onXChange`) →
+// Order for one action (F-25): middleware → default behavior → state callbacks (`onXChange`) →
 // domain events. Controlled values (`x` given) are never written; uncontrolled ones live in the store.
 import { bucketItems, segmentsFromInput } from './bucketing';
 import { devWarnOnce } from './env';

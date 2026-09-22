@@ -24,7 +24,7 @@ interface Finding {
 
 /**
  * The classic shortfalls kept for pixel parity: B-19 (07; 06 §3), and two more this suite found in the
- * classic light colours, recorded as GAPS G10.
+ * classic light colors, recorded as GAPS G10.
  */
 function documented(finding: Finding, scheme: Scheme): boolean {
   if (finding.rule !== 'color-contrast') return false;

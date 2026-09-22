@@ -319,7 +319,7 @@ describe('pinning, the pinned strip and the handle', () => {
     expect(screen.getByRole('dialog', { name: 'Backup verification' })).toBeDefined();
   });
 
-  it('[B-17] the strip is a labelled region with a list; a separate live region announces the count, throttled', () => {
+  it('[B-17] the strip is a labeled region with a list; a separate live region announces the count, throttled', () => {
     const { container } = renderUi(<TimelineView {...base} />);
     injectTimelineLayout(container, 800);
     settle();

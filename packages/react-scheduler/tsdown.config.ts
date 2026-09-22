@@ -1,7 +1,7 @@
 import { defineConfig, type UserConfig } from 'tsdown';
 
 // docs pack 09 §6. Option names verified against tsdown 0.23 (docs/adr/0001-toolchain.md):
-// `external` is deprecated there in favour of `deps.neverBundle`.
+// `external` is deprecated there in favor of `deps.neverBundle`.
 // Locale entries are added with the locale packs (M3).
 const config: UserConfig = defineConfig({
   entry: ['src/index.ts', 'src/core.ts', 'src/dom.ts'],

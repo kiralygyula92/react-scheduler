@@ -6,7 +6,7 @@ type IconProps = Omit<SVGProps<SVGSVGElement>, 'children'>;
 
 /**
  * The pill marker: a 4 × 4 square rotated −45° about (0, 2.828) inside a 6 × 6 box (Feature Dossier
- * 02 §4.5), filled with the current text colour.
+ * 02 §4.5), filled with the current text color.
  */
 export function DiamondIcon(props: IconProps): ReactElement {
   return (

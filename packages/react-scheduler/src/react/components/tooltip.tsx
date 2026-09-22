@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// A small tooltip (Feature Dossier 02 §4.9): shown on hover and keyboard focus, centred above its
+// A small tooltip (Feature Dossier 02 §4.9): shown on hover and keyboard focus, centered above its
 // anchor with a 14 px gap, at whole-pixel positions. The element always exists, visually hidden while
 // closed, so the anchor's aria-describedby keeps working with tooltips disabled.
 import { type FocusEvent, type KeyboardEvent, type ReactElement, type ReactNode, useCallback, useState } from 'react';
@@ -9,9 +9,9 @@ import { VISUALLY_HIDDEN } from './shared';
 
 const GAP = 14;
 
-/** Where the tooltip points: the anchor's horizontal centre and top edge, in viewport pixels. */
+/** Where the tooltip points: the anchor's horizontal center and top edge, in viewport pixels. */
 export interface TooltipAnchor {
-  centre: number;
+  center: number;
   top: number;
 }
 
@@ -34,7 +34,7 @@ export function useTooltip(
   const show = useCallback(() => {
     if (!enabled || !anchor) return;
     const rect = anchor.getBoundingClientRect();
-    setPosition({ centre: rect.left + rect.width / 2, top: rect.top });
+    setPosition({ center: rect.left + rect.width / 2, top: rect.top });
   }, [anchor, enabled]);
   const hide = useCallback(() => setPosition(null), []);
   return {
@@ -73,13 +73,13 @@ export function Tooltip({
   children: ReactNode;
 }): ReactElement {
   const { custom } = useViewContext();
-  // Centred on the anchor from the tooltip's own measured size, rounded to whole pixels as a popper
+  // Centered on the anchor from the tooltip's own measured size, rounded to whole pixels as a popper
   // positions it. A new position is a new ref, so React places it again at commit, before paint.
   const place = useCallback(
     (node: HTMLElement | null) => {
       if (!node || !position) return;
       const { width, height } = node.getBoundingClientRect();
-      node.style.left = `${Math.round(position.centre - width / 2)}px`;
+      node.style.left = `${Math.round(position.center - width / 2)}px`;
       node.style.top = `${Math.round(position.top - GAP - height)}px`;
     },
     [position],

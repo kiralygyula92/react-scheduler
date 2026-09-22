@@ -1,5 +1,5 @@
 // A minimal PNG codec for the screenshot comparison (Node side of a browser command): decodes 8-bit,
-// non-interlaced greyscale, RGB, palette and RGBA images to RGBA; encodes RGBA. No dependencies.
+// non-interlaced grayscale, RGB, palette and RGBA images to RGBA; encodes RGBA. No dependencies.
 import { deflateSync, inflateSync } from 'node:zlib';
 
 export interface Image {
@@ -59,7 +59,7 @@ export function decodePng(buffer: Uint8Array): Image {
       colorType = chunk[9] as number;
       const interlace = chunk[12];
       if (bitDepth !== 8 || interlace !== 0 || CHANNELS[colorType] === undefined) {
-        throw new Error(`unsupported PNG: bit depth ${bitDepth}, colour type ${colorType}, interlace ${interlace}`);
+        throw new Error(`unsupported PNG: bit depth ${bitDepth}, color type ${colorType}, interlace ${interlace}`);
       }
     } else if (type === 'PLTE') palette = chunk;
     else if (type === 'tRNS') transparency = chunk;
@@ -105,10 +105,10 @@ export function decodePng(buffer: Uint8Array): Image {
       data.set((palette as Uint8Array).subarray(entry * 3, entry * 3 + 3), target);
       data[target + 3] = transparency?.[entry] ?? 255;
     } else {
-      const grey = pixels[source] as number;
-      data[target] = grey;
-      data[target + 1] = grey;
-      data[target + 2] = grey;
+      const gray = pixels[source] as number;
+      data[target] = gray;
+      data[target + 1] = gray;
+      data[target + 2] = gray;
       data[target + 3] = colorType === 4 ? (pixels[source + 1] as number) : 255;
     }
   }

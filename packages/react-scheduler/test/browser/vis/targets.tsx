@@ -267,7 +267,7 @@ export async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets
   const rows = [...dialog.querySelectorAll('tbody tr')];
   const first = rows[0] as Element;
   return {
-    // The native ::backdrop replaces the source's backdrop element: its colour is what paints.
+    // The native ::backdrop replaces the source's backdrop element: its color is what paints.
     'overflowDialog.backdrop': {
       element: dialog,
       pseudo: '::backdrop',
@@ -286,7 +286,7 @@ export async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets
         'transition',
       ],
     },
-    // A native modal dialog is fixed and centred by margin: auto; the source centred a relative paper.
+    // A native modal dialog is fixed and centered by margin: auto; the source centered a relative paper.
     'overflowDialog.paper': {
       element: dialog,
       sizes: W,
@@ -308,7 +308,7 @@ export async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets
     },
     'overflowTable.rowOdd': { element: first, sizes: H },
     'overflowTable.rowEven': { element: rows[1] as Element, sizes: H },
-    // Rows carry the stripe colour; the source repeated it on each cell.
+    // Rows carry the stripe color; the source repeated it on each cell.
     'overflowTable.cell.time': { element: first.querySelector('td') as Element, sizes: H, skip: ['backgroundColor'] },
     'overflowTable.cell.time.text': {
       element: first.querySelector('td .rs-overflow-table__text') as Element,
@@ -337,7 +337,7 @@ export async function loadingTargets(scheme: 'light' | 'dark'): Promise<Targets>
   return {
     // The box of a rotating element follows the animation phase.
     // The recorded keyframe name went through the Dossier's identifier sanitising; the spinner is a
-    // blockified flex item centred like the source's inline-block.
+    // blockified flex item centered like the source's inline-block.
     spinner: { element: byClass(host, 'rs-spinner'), sizes: NONE, skip: ['transform', 'animationName', 'display'] },
     'spinner.wrapper': { element: part(host, 'loadingState'), sizes: W },
   };

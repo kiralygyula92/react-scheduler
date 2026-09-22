@@ -1,11 +1,11 @@
 // Computed-style comparison against measured-styles.{light,dark}.json (scenarios VIS-light, VIS-dark).
-// Values are normalised: colours to "#RRGGBB" or "#RRGGBB/a" as the Dossier writes them, transitions
+// Values are normalized: colors to "#RRGGBB" or "#RRGGBB/a" as the Dossier writes them, transitions
 // without their default easing and delay, numbers to at most two decimals.
 //
 // Equivalences (documented in docs/adr/0003-react-adapter.md, "Visual parity"): properties that do
 // not paint, or that paint the same through a different mechanism, are not compared:
-// - typography and colour on parts without their own text (inherited values paint nothing);
-// - border colour and style on sides whose width is 0;
+// - typography and color on parts without their own text (inherited values paint nothing);
+// - border color and style on sides whose width is 0;
 // - `text-align: left` and `start` (left-to-right), `gap: normal` and `0px`;
 // - `position: relative` with zero offsets and `static`; offsets of static elements;
 // - `min-width` / `min-height` of `auto` and `0px`; percentage min/max widths (the box is compared);
@@ -38,7 +38,7 @@ function hex(value: number): string {
   return Math.round(value).toString(16).padStart(2, '0').toUpperCase();
 }
 
-function colour(rgb: string): string {
+function color(rgb: string): string {
   const match = /rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/.exec(rgb);
   if (!match) return rgb;
   const [, r, g, b, a] = match;
@@ -50,9 +50,9 @@ function numbers(value: string): string {
   return value.replace(/-?\d+\.\d+/g, (number) => String(Number(Number(number).toFixed(2))));
 }
 
-/** Normalises a computed value to the Dossier's notation. */
-export function normalise(property: string, value: string): string {
-  let result = value.replace(/rgba?\([^)]*\)/g, colour);
+/** Normalizes a computed value to the Dossier's notation. */
+export function normalize(property: string, value: string): string {
+  let result = value.replace(/rgba?\([^)]*\)/g, color);
   if (property === 'transition') {
     result = result
       .split(/,\s*(?![^(]*\))/)
@@ -110,7 +110,7 @@ export interface Difference {
 }
 
 export interface CompareOptions {
-  /** A text-bearing part: typography and colour are compared. */
+  /** A text-bearing part: typography and color are compared. */
   text: boolean;
   /** Layout-driven dimensions to compare; text-driven ones follow the font. */
   sizes: readonly ('width' | 'height')[];
@@ -172,7 +172,7 @@ export function compareElement(
     // A part whose width follows its text: the side offsets are checked together below.
     if ((property === 'left' || property === 'right') && !options.sizes.includes('width') && !staticLike) continue;
     const want = expected(property, value);
-    let actual = normalise(property, computed(style, property));
+    let actual = normalize(property, computed(style, property));
     if (property === 'transform' && !options.sizes.includes('width')) {
       // Compare the vertical translation only: the horizontal one follows the text width.
       const y = (text: string): string => text.split(',').at(-1)?.replace(')', '').trim() ?? text;
@@ -182,7 +182,7 @@ export function compareElement(
     if (!equivalent(property, want, actual)) differences.push({ key, property, expected: want, actual });
   }
   // Such a part is anchored on one side and the other follows its text width, which the font
-  // rasteriser decides: the side that was measured closest must match.
+  // rasterizer decides: the side that was measured closest must match.
   if (!options.sizes.includes('width') && !staticLike) {
     const offsets = (['left', 'right'] as const)
       .filter((side) => measured[side] !== undefined && !skip.has(side))
@@ -195,8 +195,8 @@ export function compareElement(
         differences.push({
           key,
           property: side,
-          expected: normalise(side, String(measured[side])),
-          actual: normalise(side, computed(style, side)),
+          expected: normalize(side, String(measured[side])),
+          actual: normalize(side, computed(style, side)),
         });
       }
     }

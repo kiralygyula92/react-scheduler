@@ -181,7 +181,7 @@ describe('timeline browser scenarios', () => {
     expect(values).toEqual([true]);
   });
 
-  it('[BR-T06] the now line sits at 14.5 h, 2 px tall, from 9 px left of the grid; the label is centred on it', async () => {
+  it('[BR-T06] the now line sits at 14.5 h, 2 px tall, from 9 px left of the grid; the label is centered on it', async () => {
     const { host } = await landedTimeline();
     const box = part(host, 'gridBox');
     const line = part(host, 'nowLine');

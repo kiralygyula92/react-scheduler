@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Helpers shared by the parts: DOM-safe ids, level and tag labels and colours, card descriptions.
+// Helpers shared by the parts: DOM-safe ids, level and tag labels and colors, card descriptions.
 import type { CSSProperties } from 'react';
 import type { ResolvedLevel } from '../../core/levels';
 import { interpolate, type SchedulerLocalization } from '../../core/localization';
@@ -36,7 +36,7 @@ export function tagLabel(key: string, tag: TagDefinition | undefined, localizati
   return tag?.label ?? localization.tags[key] ?? key;
 }
 
-/** The card's level colour as the `--rs-card-level` property. */
+/** The card's level color as the `--rs-card-level` property. */
 export function cardLevelStyle(key: string, level: ResolvedLevel | undefined): CSSProperties {
   return { '--rs-card-level': levelColor(key, level) } as CSSProperties;
 }
