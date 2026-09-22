@@ -1,5 +1,5 @@
 {
-  "$comment": "Licence policy: docs pack 09 §3.2 allowlist; development-only exceptions per package, recorded in docs/adr/0001-toolchain.md. Status: proposed at the M0 checkpoint, pending approval.",
+  "$comment": "Licence policy: docs pack 09 §3.2 allowlist; development-only exceptions per package, recorded in docs/adr/0001-toolchain.md. Approved by the user at the M0 checkpoint (2026-09-22).",
   "allowed": ["MIT", "ISC", "BSD-2-Clause", "BSD-3-Clause", "0BSD", "Apache-2.0", "CC0-1.0", "Unlicense"],
   "allowedPeers": ["react", "react-dom"],
   "devExceptions": [

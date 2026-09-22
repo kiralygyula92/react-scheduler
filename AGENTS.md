@@ -15,7 +15,7 @@ Keys in double braces in `spec/` (for example `{{PLUGIN_ID}}` in the docs pack) 
 | `{{COMPONENT}}`            | `Scheduler`                                                                                       |
 | `{{CSS_PREFIX}}`           | `rs`                                                                                              |
 | `{{ENGINE_PEER}}`          | `none`                                                                                            |
-| `{{ONE_LINE_DESCRIPTION}}` | React-scheduler used to showcase a schedule in different domains, such as office or factory work. |
+| `{{ONE_LINE_DESCRIPTION}}` | React Scheduler used to showcase a schedule in different domains, such as office or factory work. |
 | `{{KEYWORDS}}`             | `react`, `schedule`, `agenda`                                                                     |
 | `{{PACKAGE_DIR}}`          | `react-scheduler`                                                                                 |
 | `{{REPO_NAME}}`            | `react-scheduler`                                                                                 |
@@ -30,11 +30,11 @@ Keys in double braces in `spec/` (for example `{{PLUGIN_ID}}` in the docs pack) 
 | `{{NODE_VERSION}}`         | 24 LTS                                                                                            |
 | `{{SPELLING}}`             | American English                                                                                  |
 
-Decided with the user at M0 (they differ from the first INPUTS table): the package is published under the scope because the unscoped name is taken on npm (Dossier Q-01), and the package folder is the derived value `react-scheduler`.
+Decided with the user at M0 (they differ from the first INPUTS table): the package is published under the scope because the unscoped name is taken on npm (Dossier Q-01); the package folder is the derived value `react-scheduler`; the description spells the display name "React Scheduler" (docs pack `06` §2). The scope is not registered yet (`GAPS.md` G2); the name may change before M8.
 
 ## Project
 
-- Package: `@react-schedulerkit/react-scheduler` in `packages/react-scheduler/` — an MIT-licensed, native, dependency-free React component library for React-scheduler used to showcase a schedule in different domains, such as office or factory work.
+- Package: `@react-schedulerkit/react-scheduler` in `packages/react-scheduler/` — an MIT-licensed, native, dependency-free React component library for React Scheduler used to showcase a schedule in different domains, such as office or factory work.
 - Docs site: `apps/docs/` — React + Vite + React Router (prerendered), 7 locales, deployed to Vercel at https://react-schedulerkit.vercel.app/react-scheduler/.
 - Specification (read-only): `spec/docs-pack/` (how to build) and `spec/feature-dossier/` (what to build).
 

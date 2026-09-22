@@ -1,6 +1,6 @@
 # 0001 — Toolchain
 
-Status: proposed (M0 checkpoint, 2026-09-22), awaiting approval by kiralygyula92.
+Status: accepted (by kiralygyula92, 2026-09-22, M0 checkpoint), including the development licence exceptions in D5.
 Scope: every development tool in the workspace, the licence policy that governs them, and the places where the toolchain deviates from docs pack `00` §5 and `09` §6.
 
 ## Context
@@ -9,27 +9,27 @@ Docs pack `00` §5 fixes the stack: pnpm 10, Node 24, TypeScript 7 for type-chec
 
 ## Tools
 
-| Tool                                 | Version                                    | Licence (SPDX) | Purpose                                                          |
-| ------------------------------------ | ------------------------------------------ | -------------- | ---------------------------------------------------------------- |
-| pnpm                                 | 10.34.5 (`packageManager`)                 | MIT            | Workspaces, lockfile, licence listing                            |
-| Node.js                              | 24 in CI (`.nvmrc`); `>=22.18` accepted    | MIT            | Runtime; runs `scripts/*.ts` via built-in type stripping         |
-| typescript                           | 7.0.2                                      | Apache-2.0     | `tsc` type-checking (root and package)                           |
-| typescript (API)                     | 6.0.3, for typescript-eslint only (see D1) | Apache-2.0     | TypeScript compiler API for type-aware linting                   |
-| tsdown                               | 0.23.0                                     | MIT            | Package build: ESM + CJS + `.d.ts` via `isolatedDeclarations`    |
-| vitest, @vitest/coverage-v8          | 5.0.1                                      | MIT            | Unit and component tests, coverage                               |
-| @playwright/test                     | 1.63.0                                     | Apache-2.0     | Browser tests (M2) and site E2E (M4)                             |
-| eslint, @eslint/js                   | 10.11.0, 10.0.1                            | MIT            | Linting                                                          |
-| typescript-eslint                    | 8.70.1                                     | MIT            | TypeScript rules (type-aware)                                    |
-| eslint-plugin-react                  | 7.37.5                                     | MIT            | `react/jsx-no-literals` and React rules                          |
-| eslint-plugin-react-hooks            | 7.1.1                                      | MIT            | Hooks rules                                                      |
-| globals                              | 17.12.0                                    | MIT            | ESLint environment globals                                       |
-| stylelint, stylelint-config-standard | 17.15.0, 40.0.0                            | MIT            | CSS lint and the C9 token rule                                   |
-| prettier                             | 3.9.8                                      | MIT            | Formatting                                                       |
-| @changesets/cli                      | 3.0.3                                      | MIT            | Versioning and changelog                                         |
-| publint                              | 0.3.24                                     | MIT            | Package metadata lint                                            |
-| @arethetypeswrong/cli                | 0.18.5                                     | MIT            | Type-resolution check of the packed package                      |
-| @types/node                          | 24.13.6                                    | MIT            | Node types for `scripts/`                                        |
-| react, react-dom (dev)               | 19.3.0                                     | MIT            | Development and test copies of the peers; CI also runs with 18.3 |
+| Tool                                 | Version                                      | Licence (SPDX) | Purpose                                                          |
+| ------------------------------------ | -------------------------------------------- | -------------- | ---------------------------------------------------------------- |
+| pnpm                                 | 10.34.5 (`packageManager`)                   | MIT            | Workspaces, lockfile, licence listing                            |
+| Node.js                              | 24 (`.nvmrc`; local and CI); `>=22.18` works | MIT            | Runtime; runs `scripts/*.ts` via built-in type stripping         |
+| typescript                           | 7.0.2                                        | Apache-2.0     | `tsc` type-checking (root and package)                           |
+| typescript (API)                     | 6.0.3, for typescript-eslint only (see D1)   | Apache-2.0     | TypeScript compiler API for type-aware linting                   |
+| tsdown                               | 0.23.0                                       | MIT            | Package build: ESM + CJS + `.d.ts` via `isolatedDeclarations`    |
+| vitest, @vitest/coverage-v8          | 5.0.1                                        | MIT            | Unit and component tests, coverage                               |
+| @playwright/test                     | 1.63.0                                       | Apache-2.0     | Browser tests (M2) and site E2E (M4)                             |
+| eslint, @eslint/js                   | 10.11.0, 10.0.1                              | MIT            | Linting                                                          |
+| typescript-eslint                    | 8.70.1                                       | MIT            | TypeScript rules (type-aware)                                    |
+| eslint-plugin-react                  | 7.37.5                                       | MIT            | `react/jsx-no-literals` and React rules                          |
+| eslint-plugin-react-hooks            | 7.1.1                                        | MIT            | Hooks rules                                                      |
+| globals                              | 17.12.0                                      | MIT            | ESLint environment globals                                       |
+| stylelint, stylelint-config-standard | 17.15.0, 40.0.0                              | MIT            | CSS lint and the C9 token rule                                   |
+| prettier                             | 3.9.8                                        | MIT            | Formatting                                                       |
+| @changesets/cli                      | 3.0.3                                        | MIT            | Versioning and changelog                                         |
+| publint                              | 0.3.24                                       | MIT            | Package metadata lint                                            |
+| @arethetypeswrong/cli                | 0.18.5                                       | MIT            | Type-resolution check of the packed package                      |
+| @types/node                          | 24.13.6                                      | MIT            | Node types for `scripts/`                                        |
+| react, react-dom (dev)               | 19.3.0                                       | MIT            | Development and test copies of the peers; CI also runs with 18.3 |
 
 These arrive in later milestones and each gets a row here when installed: Testing Library, `@axe-core/playwright` and `vitest-axe` (M2); size-limit, knip (M3); fast-check (optional). Note that axe-core is MPL-2.0, so it will need a development exception under D5. For the site (M4): React Router, Vite and the Vercel analytics packages.
 
@@ -81,7 +81,7 @@ The two specs disagree. Dossier `09` §8 applies MIT/ISC/BSD-2/BSD-3/0BSD/Apache
 | `lightningcss`, `lightningcss-<platform>` | MPL-2.0       | vitest → vite                                          | File-level copyleft; used unmodified, never shipped |
 | `lru-cache`, `minimatch` (current majors) | BlueOak-1.0.0 | tsdown, @arethetypeswrong/core; eslint                 | Permissive                                          |
 
-None of these reaches the published tarball: the package has no dependencies, and CI scans the packed tarball before publishing. **This exception list needs the user's approval**; until then it is a proposal.
+None of these reaches the published tarball: the package has no dependencies, and CI scans the packed tarball before publishing. The user approved this exception list at the M0 checkpoint (2026-09-22). A new exception needs the same approval.
 
 ### D6 — Zero-reference scan implementation
 
@@ -96,5 +96,5 @@ None of these reaches the published tarball: the package has no dependencies, an
 ## Consequences
 
 - The toolchain matches `00` §5, except for the ESLint major and the TypeScript 6 API copy for linting (both reversible).
-- Local development works on Node 22.18+; CI and the stated requirement stay on Node 24.
+- Development and CI run on Node 24; the gate scripts also run on Node 22.18+.
 - Adding a dev tool means adding a row here and re-running `pnpm check:licenses`. A new non-allowlisted licence fails until it is added to D5 with approval.

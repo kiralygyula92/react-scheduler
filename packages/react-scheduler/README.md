@@ -1,6 +1,6 @@
 # @react-schedulerkit/react-scheduler
 
-React-scheduler used to showcase a schedule in different domains, such as office or factory work.
+React Scheduler used to showcase a schedule in different domains, such as office or factory work.
 
 > **Status:** under construction. This package has no public API yet and is not published to npm.
 
