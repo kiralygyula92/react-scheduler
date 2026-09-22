@@ -6,6 +6,27 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+const NODE_GLOBALS = ['process', 'Buffer', 'require', 'module', '__dirname', '__filename', 'global'].map((name) => ({
+  name,
+  message: 'Published code must not use Node.js globals.',
+}));
+
+const DOM_GLOBALS = [
+  'window',
+  'document',
+  'navigator',
+  'localStorage',
+  'sessionStorage',
+  'matchMedia',
+  'requestAnimationFrame',
+  'cancelAnimationFrame',
+  'ResizeObserver',
+  'IntersectionObserver',
+  'getComputedStyle',
+  'HTMLElement',
+  'Element',
+].map((name) => ({ name, message: 'src/core has no DOM access (Dossier F-27).' }));
+
 export default defineConfig(
   {
     ignores: [
@@ -65,9 +86,27 @@ export default defineConfig(
     files: ['packages/*/src/**/*.tsx', 'apps/docs/src/content/**/*.tsx', 'apps/docs/src/shell/**/*.tsx'],
     rules: { 'react/jsx-no-literals': ['error', { noStrings: true, ignoreProps: false }] },
   },
-  // Published code never logs (docs pack 09 §4.5).
+  // Published code never logs (docs pack 09 §4.5) and uses no Node.js globals: the package
+  // tsconfig includes Node types for its tests, so this rule guards src/ instead.
   {
     files: ['packages/*/src/**/*.{ts,tsx}'],
-    rules: { 'no-console': 'error' },
+    rules: { 'no-console': 'error', 'no-restricted-globals': ['error', ...NODE_GLOBALS] },
+  },
+  // The core is framework-agnostic and touches no DOM (docs pack 09 §4.1, Dossier F-27).
+  // Rules do not merge across blocks, so this block repeats the Node.js globals.
+  {
+    files: ['packages/*/src/core/**/*.ts', 'packages/*/src/core.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            { group: ['react', 'react/*', 'react-dom', 'react-dom/*'], message: 'src/core must not import React.' },
+            { group: ['**/react/**', '**/dom/**'], message: 'src/core must not depend on the React or DOM layers.' },
+          ],
+        },
+      ],
+      'no-restricted-globals': ['error', ...NODE_GLOBALS, ...DOM_GLOBALS],
+    },
   },
 );

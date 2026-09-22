@@ -28,6 +28,16 @@ export function findTestTitles(source: string): Map<string, string[]> {
   return titles;
 }
 
+const CORE_TITLE = /['"`]\[([A-Za-z0-9-]+)\/core\]\s/g;
+
+/**
+ * Ids with "[ID/core] …" tests: rules of a DOM or browser scenario checked without rendering. They
+ * are reported separately and never count as scenario coverage.
+ */
+export function findCoreTitles(source: string): Set<string> {
+  return new Set([...source.matchAll(CORE_TITLE)].map((match) => match[1] ?? ''));
+}
+
 export interface CoverageReport {
   covered: string[];
   missing: Scenario[];

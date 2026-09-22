@@ -6,7 +6,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { listFiles, readFile } from './lib/repo-files.ts';
-import { coverage, findTestTitles, parseScenarios } from './lib/scenarios.ts';
+import { coverage, findCoreTitles, findTestTitles, parseScenarios } from './lib/scenarios.ts';
 
 const repoRoot = resolve(import.meta.dirname, '..');
 const SCENARIOS = 'spec/feature-dossier/characterization/scenarios.json';
@@ -15,12 +15,15 @@ const TEST_FILE = /\.(test|spec)\.[cm]?[jt]sx?$/;
 function main(argv: readonly string[]): number {
   const scenarios = parseScenarios(readFileSync(resolve(repoRoot, SCENARIOS), 'utf8'));
   const titles = new Map<string, string[]>();
+  const coreRules = new Set<string>();
   for (const file of listFiles(repoRoot)) {
     // The gate scripts' own tests use made-up ids; spec/ holds no tests.
     if (!TEST_FILE.test(file.path) || file.path.startsWith('scripts/') || file.path.startsWith('spec/')) continue;
-    for (const [id, found] of findTestTitles(readFile(file).toString('utf8'))) {
+    const source = readFile(file).toString('utf8');
+    for (const [id, found] of findTestTitles(source)) {
       titles.set(id, [...(titles.get(id) ?? []), ...found]);
     }
+    for (const id of findCoreTitles(source)) coreRules.add(id);
   }
   const report = coverage(scenarios, titles);
 
@@ -29,6 +32,10 @@ function main(argv: readonly string[]): number {
   for (const scenario of report.missing)
     byLayer.set(scenario.layer, [...(byLayer.get(scenario.layer) ?? []), scenario.id]);
   for (const [layer, ids] of byLayer) console.log(`  missing (${layer}, ${ids.length}): ${ids.join(' ')}`);
+  const coreOnly = report.missing.filter((scenario) => coreRules.has(scenario.id)).map((scenario) => scenario.id);
+  if (coreOnly.length > 0) {
+    console.log(`  core rules tested without rendering (${coreOnly.length}, not counted): ${coreOnly.join(' ')}`);
+  }
   for (const id of report.bugTitleMissing)
     console.log(`  [${id}] is tagged "bug" but no test title carries "fixed: B-nn"`);
 

@@ -2,7 +2,7 @@
 
 React Scheduler used to showcase a schedule in different domains, such as office or factory work.
 
-> **Status:** under construction. This package has no public API yet and is not published to npm.
+> **Status:** under construction and not published to npm. The headless core (`@react-schedulerkit/react-scheduler/core`) is implemented; the React components are not yet.
 
 ## Install
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { coverage, findTestTitles, parseScenarios, type Scenario } from '../lib/scenarios.ts';
+import { coverage, findCoreTitles, findTestTitles, parseScenarios, type Scenario } from '../lib/scenarios.ts';
 
 // Made-up ids, so these samples never count towards real scenario coverage.
 const scenarios: Scenario[] = [
@@ -27,6 +27,14 @@ describe('findTestTitles', () => {
         ['X-02', ['[X-02] night window (fixed: B-07)']],
       ]),
     );
+  });
+});
+
+describe('findCoreTitles', () => {
+  it('collects "[ID/core] …" ids, which findTestTitles does not count', () => {
+    const source = `it('[X-01/core] rule', fn); it('[X-02] rendered', fn);`;
+    expect(findCoreTitles(source)).toEqual(new Set(['X-01']));
+    expect([...findTestTitles(source).keys()]).toEqual(['X-02']);
   });
 });
 
