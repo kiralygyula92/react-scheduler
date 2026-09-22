@@ -85,6 +85,7 @@
     --rs-radius-button: 8px;
     --rs-radius-tooltip: 12px;
     --rs-radius-dialog: 16px;
+
     /* Dialog paper border and the table surface overlay: dark only in the classic source. */
     --rs-dialog-border-width: 0;
     --rs-surface-overlay-image: none;
