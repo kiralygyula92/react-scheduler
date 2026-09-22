@@ -95,11 +95,11 @@
     transform: translate(-50%, -50%);
   }
 
-  :where(.rs-root:not([data-rs-unstyled])[dir='rtl']) :where(.rs-nav-button[data-rs-position='top']) {
+  :where(.rs-root:not([data-rs-unstyled]):dir(rtl)) :where(.rs-nav-button[data-rs-position='top']) {
     transform: translate(50%, 50%);
   }
 
-  :where(.rs-root:not([data-rs-unstyled])[dir='rtl']) :where(.rs-nav-button[data-rs-position='bottom']) {
+  :where(.rs-root:not([data-rs-unstyled]):dir(rtl)) :where(.rs-nav-button[data-rs-position='bottom']) {
     transform: translate(50%, -50%);
   }
 
@@ -259,28 +259,28 @@
     top: 0;
     bottom: 0;
     width: var(--rs-edge-fade-width);
+
+    --rs-edge-fade-stops:
+      var(--rs-color-bg), var(--rs-color-edge-fade-mid) 35%, var(--rs-color-edge-fade-tint) 55%, transparent;
   }
 
+  /* Each fade runs from its own edge inward, in the inline direction (F-29). */
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-edge-fade[data-rs-side='start']) {
     inset-inline-start: 0;
-    background-image: linear-gradient(
-      to right,
-      var(--rs-color-bg),
-      var(--rs-color-edge-fade-mid) 35%,
-      var(--rs-color-edge-fade-tint) 55%,
-      transparent
-    );
+    background-image: linear-gradient(to right, var(--rs-edge-fade-stops));
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-edge-fade[data-rs-side='end']) {
     inset-inline-end: 0;
-    background-image: linear-gradient(
-      to left,
-      var(--rs-color-bg),
-      var(--rs-color-edge-fade-mid) 35%,
-      var(--rs-color-edge-fade-tint) 55%,
-      transparent
-    );
+    background-image: linear-gradient(to left, var(--rs-edge-fade-stops));
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]):dir(rtl)) :where(.rs-edge-fade[data-rs-side='start']) {
+    background-image: linear-gradient(to left, var(--rs-edge-fade-stops));
+  }
+
+  :where(.rs-root:not([data-rs-unstyled]):dir(rtl)) :where(.rs-edge-fade[data-rs-side='end']) {
+    background-image: linear-gradient(to right, var(--rs-edge-fade-stops));
   }
 
   @keyframes rs-pin-chip-in {

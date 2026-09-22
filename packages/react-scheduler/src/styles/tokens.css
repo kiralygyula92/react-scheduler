@@ -30,7 +30,10 @@
     --rs-color-nav-bg: #f9f9f9;
     --rs-color-nav-bg-hover: #ececec;
     --rs-color-nav-border: #b8b8b8;
-    --rs-color-alert-surface: linear-gradient(45deg, #f8b6a1 0%, #fff 100%);
+
+    /* The alert tint runs toward the inline end and up; right-to-left mirrors it (F-29). */
+    --rs-alert-surface-angle: 45deg;
+    --rs-color-alert-surface: linear-gradient(var(--rs-alert-surface-angle), #f8b6a1 0%, #fff 100%);
     --rs-color-alert-border: #d79c8b;
     --rs-color-alert-text-muted: #865a4c;
     --rs-color-pill-neutral: #fff;
@@ -177,6 +180,11 @@
     --rs-ease-chip: cubic-bezier(0.2, 0.9, 0.3, 1.2);
   }
 
+  /* Right-to-left, from the element's own or an inherited dir (F-29). */
+  .rs-root:dir(rtl) {
+    --rs-alert-surface-angle: -45deg;
+  }
+
   /* Classic preset, dark. */
   .rs-root[data-rs-scheme='dark'] {
     --rs-color-bg: #121212;
@@ -195,7 +203,7 @@
     --rs-color-nav-bg: #161616;
     --rs-color-nav-bg-hover: #2a2a2a;
     --rs-color-nav-border: #222;
-    --rs-color-alert-surface: linear-gradient(45deg, #5c2410 0%, #1e0f0a 100%);
+    --rs-color-alert-surface: linear-gradient(var(--rs-alert-surface-angle), #5c2410 0%, #1e0f0a 100%);
     --rs-color-alert-border: #222;
     --rs-color-alert-text-muted: #a97867;
     --rs-color-more-bg: #fff;

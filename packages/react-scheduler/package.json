@@ -51,6 +51,16 @@
         "default": "./dist/core.cjs"
       }
     },
+    "./headless": {
+      "import": {
+        "types": "./dist/headless.d.ts",
+        "default": "./dist/headless.js"
+      },
+      "require": {
+        "types": "./dist/headless.d.cts",
+        "default": "./dist/headless.cjs"
+      }
+    },
     "./dom": {
       "import": {
         "types": "./dist/dom.d.ts",
@@ -59,6 +69,26 @@
       "require": {
         "types": "./dist/dom.d.cts",
         "default": "./dist/dom.cjs"
+      }
+    },
+    "./locales": {
+      "import": {
+        "types": "./dist/locales/index.d.ts",
+        "default": "./dist/locales/index.js"
+      },
+      "require": {
+        "types": "./dist/locales/index.d.cts",
+        "default": "./dist/locales/index.cjs"
+      }
+    },
+    "./locales/*": {
+      "import": {
+        "types": "./dist/locales/*.d.ts",
+        "default": "./dist/locales/*.js"
+      },
+      "require": {
+        "types": "./dist/locales/*.d.cts",
+        "default": "./dist/locales/*.cjs"
       }
     },
     "./styles.css": "./dist/styles/index.css",
@@ -82,24 +112,27 @@
     "test": "vitest run",
     "lint:pkg": "publint && attw --pack . --profile node16 --exclude-entrypoints ./styles.css ./base.css",
     "test:browser": "vitest run --config vitest.browser.config.ts",
-    "test:perf": "vitest run --config vitest.perf.config.ts"
+    "test:perf": "vitest run --config vitest.perf.config.ts",
+    "size": "size-limit"
   },
-  "dependencies": {},
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
+    "@size-limit/esbuild": "14.0.0",
+    "@size-limit/file": "14.0.0",
     "@testing-library/dom": "10.4.2",
     "@testing-library/react": "16.3.3",
-    "@testing-library/user-event": "14.6.7",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitest/browser-playwright": "5.0.1",
     "axe-core": "4.13.0",
+    "dom-accessibility-api": "0.7.1",
     "fast-check": "4.10.2",
     "jsdom": "30.1.1",
     "playwright": "1.63.0",
     "publint": "0.3.24",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "size-limit": "14.0.0",
     "tsdown": "0.23.0",
     "typescript": "7.0.2"
   }

@@ -387,8 +387,9 @@ export function createViewRuntime<TItem extends SchedulerItem>(
         resize.observe(element);
         disposers.push(() => resize.disconnect());
         if (kind === 'list' && stickyElement) {
-          // Keep content still when the sticky top grows (B-21), then move the pin line with it.
-          disposers.push(compensateStickyGrowth(element, stickyElement));
+          // Keep content still when the sticky top grows (B-21), then move the pin line with it. A
+          // navigation corrects its own target instead: compensating first would flash the content.
+          disposers.push(compensateStickyGrowth(element, stickyElement, () => navigating));
           const relayout = new ResizeObserver(() => {
             pins?.relayout();
             scheduleEvaluate('resize');

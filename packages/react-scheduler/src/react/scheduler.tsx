@@ -14,7 +14,7 @@ import {
   useState,
 } from 'react';
 import type { SchedulerItem, ViewKind } from '../core/types';
-import { devWarnOnce } from '../core/env';
+import { type BundlerProcess, devWarnOnce } from '../core/env';
 import { ShiftNavButton } from './components/nav-button';
 import { ListBody } from './components/list-view';
 import { PinnedStrip } from './components/pinned-strip';
@@ -35,6 +35,9 @@ import type { ListViewProps, SchedulerHandle, SchedulerProps, TimelineViewProps 
 import { useSchedulerSetup } from './use-setup';
 import { useViewSetup } from './use-view';
 
+// Development-only branches read the bundler-replaced NODE_ENV behind a typeof guard (env.ts).
+declare const process: BundlerProcess;
+
 function activeElement(): Element | null {
   return typeof document === 'undefined' ? null : document.activeElement;
 }
@@ -47,7 +50,9 @@ export function createHandle<TItem extends SchedulerItem>(
 ): SchedulerHandle<TItem> {
   const api = (): ViewApi | undefined => {
     const found = views.get(controller.getModel().view);
-    if (!found) devWarnOnce('handle-before-mount', 'The scheduler handle was used before the view mounted; ignored.');
+    if (!found && typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
+      devWarnOnce('handle-before-mount', 'The scheduler handle was used before the view mounted; ignored.');
+    }
     return found;
   };
   const viewModel = () => controller.getViewModel(controller.getModel().view);

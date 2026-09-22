@@ -17,7 +17,7 @@
 export type Measured = Record<string, string | number | boolean>;
 
 /** Properties that paint only through text: compared on text-bearing parts only. */
-export const TEXT_PROPERTIES: ReadonlySet<string> = new Set([
+const TEXT_PROPERTIES: ReadonlySet<string> = new Set([
   'color',
   'fontFamily',
   'fontSize',
@@ -51,7 +51,7 @@ function numbers(value: string): string {
 }
 
 /** Normalizes a computed value to the Dossier's notation. */
-export function normalize(property: string, value: string): string {
+function normalize(property: string, value: string): string {
   let result = value.replace(/rgba?\([^)]*\)/g, color);
   if (property === 'transition') {
     result = result

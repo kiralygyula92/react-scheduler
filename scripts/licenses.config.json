@@ -37,7 +37,7 @@
       "package": "axe-core",
       "license": "MPL-2.0",
       "via": "@react-schedulerkit/react-scheduler (accessibility tests)",
-      "pending": "Proposed at M2; awaiting the user's approval at the M2 checkpoint"
+      "approved": "With the M3 plan (2026-09-22)"
     }
   ]
 }

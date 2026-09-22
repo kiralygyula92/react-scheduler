@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 // Feature Dossier 05 F-27: the core entry imports in a plain Node environment (no DOM globals, no
-// React) and exposes exactly the functions of 04 §8, plus createScheduler (docs pack 09 §4.3 level 6).
+// React) and exposes exactly the functions of 04 §8; createScheduler (docs pack 09 §4.3 level 6) has
+// its own entry, so /core stays within its budget (Dossier 09 §2).
 describe('entries', () => {
   it('imports the core entry without a DOM and exposes the 04 §8 functions', async () => {
     expect(typeof (globalThis as { window?: unknown }).window).toBe('undefined');
@@ -13,7 +14,6 @@ describe('entries', () => {
         'compareByPlacement',
         'computeTimelineLayout',
         'createFormatters',
-        'createScheduler',
         'getShiftWindows',
         'interpolate',
         'pageList',
@@ -25,6 +25,11 @@ describe('entries', () => {
         'toMs',
       ].sort(),
     );
+  });
+
+  it('imports the headless controller entry without a DOM and exposes createScheduler', async () => {
+    const headless = await import('../../src/headless');
+    expect(Object.keys(headless)).toEqual(['createScheduler']);
   });
 
   it('imports the DOM engines entry without touching globals at import time', async () => {

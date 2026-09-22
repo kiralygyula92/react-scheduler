@@ -14,7 +14,7 @@ const LEVELS = [
 ];
 const DURATIONS = [30, 45, 60, 90, 120];
 
-export function seededRandom(seed: number): () => number {
+function seededRandom(seed: number): () => number {
   let state = seed % 2_147_483_647 || 1;
   return () => {
     state = (state * 48_271) % 2_147_483_647;

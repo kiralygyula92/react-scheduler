@@ -26,7 +26,7 @@ export interface Customization<TItem> {
 const classCache = new Map<string, string>();
 
 /** `rs-` + the part name in kebab case (`pinnedStripTrack` → `rs-pinned-strip-track`). */
-export function partClass(part: SchedulerPart): string {
+function partClass(part: SchedulerPart): string {
   let name = classCache.get(part);
   if (name === undefined) {
     name = `rs-${part.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`;
@@ -35,7 +35,7 @@ export function partClass(part: SchedulerPart): string {
   return name;
 }
 
-export function joinClasses(...names: (string | false | null | undefined)[]): string {
+function joinClasses(...names: (string | false | null | undefined)[]): string {
   return names.filter(Boolean).join(' ');
 }
 
@@ -88,7 +88,7 @@ function composeRefs(library: Ref<unknown> | undefined, consumer: Ref<unknown> |
  * handlers compose, refs compose, `className` is appended and `style` merged; `data-rs-part` is
  * always the part name.
  */
-export function mergePartProps(
+function mergePartProps(
   part: SchedulerPart,
   defaults: Props,
   extra: Props | undefined,

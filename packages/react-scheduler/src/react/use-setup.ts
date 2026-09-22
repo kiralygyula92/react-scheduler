@@ -25,7 +25,7 @@ function matchQuery(query: string): MediaQueryList | null {
 }
 
 /** The resolved color scheme; `system` follows `prefers-color-scheme` (light on the server). */
-export function useColorScheme(setting: ColorScheme): 'light' | 'dark' {
+function useColorScheme(setting: ColorScheme): 'light' | 'dark' {
   const system = setting === 'system';
   const subscribe = useCallback(
     (listener: () => void) => {
@@ -68,8 +68,9 @@ export function useSchedulerSetup<TItem extends SchedulerItem>(
     return () => controller.setMounted(false);
   }, [controller]);
 
-  // The internal clock ticks while mounted and pauses while the document is hidden (F-11).
-  const internalClock = props.now === undefined;
+  // The internal clock ticks while mounted and pauses while the document is hidden (F-11). It only
+  // feeds the now indicator, so the indicator's flag turns it off too (F-24).
+  const internalClock = props.now === undefined && props.enableNowIndicator !== false;
   const interval = props.nowTickInterval ?? 60_000;
   useEffect(() => {
     if (!internalClock || typeof document === 'undefined') return;

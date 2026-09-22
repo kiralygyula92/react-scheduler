@@ -69,6 +69,7 @@ export type { TokenName } from './react/tokens';
 export type {
   BaseSlotProps,
   CardContentContext,
+  ElementProps,
   EmptyContext,
   HeaderContext,
   ItemDetailContext,
@@ -80,6 +81,7 @@ export type {
   OverflowColumn,
   OverflowSort,
   OwnerState,
+  PartExtraProps,
   PinSentinelProps,
   RenderItemContext,
   SchedulerHandle,

@@ -66,6 +66,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
 | E2E                                 | `pnpm e2e`                                                                                    |
 | Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
+| Size / dead code / package files    | `pnpm --filter @react-schedulerkit/react-scheduler size` · `pnpm knip` · `pnpm check:pack`    |
 | Zero-reference / licences           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
 | Add a changeset                     | `pnpm changeset`                                                                              |

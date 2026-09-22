@@ -1,5 +1,5 @@
 # docs pack 10 §5.1. Steps whose tooling lands in later milestones are added there
-# (size M3, docs api/i18n/build/conformance M4–M5, e2e:smoke M4): see EXCEPTIONS.md #1.
+# (docs api/i18n/build/conformance M4–M5, e2e:smoke M4): see EXCEPTIONS.md #1.
 name: CI
 on:
   pull_request:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        react: ['18.3', '19']
+        react: ['18.2', '18.3', '19']
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,7 +35,10 @@ jobs:
           RANGE: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
       - run: pnpm check:keys
       - run: pnpm check:scenarios --enforce
+      - run: pnpm knip
       - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter @react-schedulerkit/react-scheduler size
+      - run: pnpm check:pack
       - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
       - run: pnpm exec playwright install --with-deps
         if: matrix.react == '19'

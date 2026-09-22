@@ -7,7 +7,7 @@
 // Order for one action (F-25): middleware → default behavior → state callbacks (`onXChange`) →
 // domain events. Controlled values (`x` given) are never written; uncontrolled ones live in the store.
 import { bucketItems, segmentsFromInput } from './bucketing';
-import { devWarnOnce } from './env';
+import { type BundlerProcess, devWarnOnce } from './env';
 import { shallowEqual, stabilizer } from './equal';
 import { createFormatters, type SchedulerFormatters } from './format';
 import { computeTimelineLayout } from './layout';
@@ -52,6 +52,9 @@ import type {
   ViewKind,
 } from './types';
 import { enUS } from '../locales/en';
+
+// Development-only branches read the bundler-replaced NODE_ENV behind a typeof guard (env.ts).
+declare const process: BundlerProcess;
 
 export interface OverflowSort {
   column: string;
@@ -372,7 +375,9 @@ function validTime(input: DateInput | undefined, fallback: number, name: string)
   if (input === undefined) return fallback;
   const time = toMs(input);
   if (Number.isNaN(time)) {
-    devWarnOnce(`invalid-${name}`, `The "${name}" value is not a valid date; the current time is used.`);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
+      devWarnOnce(`invalid-${name}`, `The "${name}" value is not a valid date; the current time is used.`);
+    }
     return fallback;
   }
   return time;

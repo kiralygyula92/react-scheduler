@@ -1,11 +1,10 @@
 // Maps the measured parts (generic names in measured-styles.*.json) to our DOM, per recorded state.
-import type { ReactElement } from 'react';
 import { ListView, type OverflowColumn, type SchedulerProps, TimelineView } from '../../../src/index';
 import { defaultOverflowColumns } from '../../../src/react/components/overflow-columns';
 import type { ParityItem } from '../../support/items';
 import { cardByTitle, fixtures, mount, nav, part, parts, settled, until, wait } from '../support';
 
-export interface Target {
+interface Target {
   element: Element;
   text?: boolean;
   /** Layout-driven dimensions to compare (heights by default). */
@@ -22,7 +21,7 @@ const baseline = fixtures['baseline'] as NonNullable<(typeof fixtures)['baseline
 /** The source never rendered the list's now marker (B-01): list parity renders run without it (07 §5). */
 const NO_LIST_NOW = { enableNowIndicator: false } as const;
 
-export function base(scheme: 'light' | 'dark'): SchedulerProps<ParityItem> {
+function base(scheme: 'light' | 'dark'): SchedulerProps<ParityItem> {
   return { items: baseline.items, date: baseline.date, now: baseline.now, preset: 'classic', colorScheme: scheme };
 }
 
@@ -105,7 +104,7 @@ export async function listTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   return targets;
 }
 
-export async function emptyTargets(scheme: 'light' | 'dark'): Promise<Targets> {
+async function emptyTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const empty = fixtures['empty'] as NonNullable<(typeof fixtures)['empty']>;
   const { host } = mount(<ListView {...base(scheme)} {...NO_LIST_NOW} items={empty.items} />);
   await settled(host, 300);
@@ -116,7 +115,7 @@ export async function emptyTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   };
 }
 
-export async function pinnedManyTargets(scheme: 'light' | 'dark'): Promise<Targets> {
+async function pinnedManyTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const many = fixtures['pinnedMany'] as NonNullable<(typeof fixtures)['pinnedMany']>;
   const { host } = mount(
     <ListView {...base(scheme)} {...NO_LIST_NOW} items={many.items} date={many.date} now={many.now} />,
@@ -133,7 +132,7 @@ export async function pinnedManyTargets(scheme: 'light' | 'dark'): Promise<Targe
   };
 }
 
-export async function compactTargets(scheme: 'light' | 'dark'): Promise<Targets> {
+async function compactTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const { host } = mount(<ListView {...base(scheme)} {...NO_LIST_NOW} />, { width: 390, height: 844 });
   const scroller = await settled(host, 800);
   const targets: Targets = {
@@ -229,7 +228,7 @@ export async function timelineTargets(scheme: 'light' | 'dark'): Promise<Targets
   };
 }
 
-export async function disabledTopTargets(scheme: 'light' | 'dark'): Promise<Targets> {
+async function disabledTopTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const { host } = mount(<TimelineView {...base(scheme)} />);
   const scroller = await settled(host, 800);
   scroller.scrollTop = 0;
@@ -256,7 +255,7 @@ export async function disabledTopTargets(scheme: 'light' | 'dark'): Promise<Targ
 /** The source's dropped domain column, titled "Age" in the reference (Feature Dossier 02 §5, 04 §10). */
 const AGE: OverflowColumn<ParityItem> = { id: 'age', header: 'Age', minWidth: 140, renderCell: () => null };
 
-export async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets> {
+async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const columns = [...(defaultOverflowColumns as readonly OverflowColumn<ParityItem>[])];
   columns.splice(3, 0, AGE);
   const { host } = mount(<TimelineView {...base(scheme)} overflowColumns={columns} />);
@@ -331,7 +330,7 @@ export async function overflowTargets(scheme: 'light' | 'dark'): Promise<Targets
   };
 }
 
-export async function loadingTargets(scheme: 'light' | 'dark'): Promise<Targets> {
+async function loadingTargets(scheme: 'light' | 'dark'): Promise<Targets> {
   const { host } = mount(<TimelineView {...base(scheme)} loading />);
   await wait(300);
   return {
@@ -355,5 +354,3 @@ export const SCENES: Record<string, Scene> = {
   overflowDialog: overflowTargets,
   loading: loadingTargets,
 };
-
-export type Render = (ui: ReactElement) => void;

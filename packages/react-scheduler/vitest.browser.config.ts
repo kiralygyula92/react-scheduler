@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { playwright } from '@vitest/browser-playwright';
 import { defineProject, type UserWorkspaceConfig } from 'vitest/config';
-import { compareScreenshot, screenshotEnvironment } from './test/browser/shot/command';
+import { compareMirrored, compareScreenshot, screenshotEnvironment } from './test/browser/shot/command';
 
 // Browser layer (Feature Dossier 09 §1, §5): the BR-* scenarios, computed styles and accessibility in
 // Chromium, Firefox and WebKit under the characterization conditions: time zone UTC, locale en-US,
@@ -15,7 +15,7 @@ const config: UserWorkspaceConfig = defineProject({
   // The characterization fixtures and references live in spec/, outside the package.
   server: { fs: { allow: [repoRoot] } },
   // Pre-bundled up front: a dependency found mid-run reloads the page and fails the running file.
-  optimizeDeps: { include: ['axe-core'] },
+  optimizeDeps: { include: ['axe-core', 'dom-accessibility-api'] },
   test: {
     name: 'browser',
     root: import.meta.dirname,
@@ -29,7 +29,7 @@ const config: UserWorkspaceConfig = defineProject({
       }),
       instances: engines.map((browser) => ({ browser })),
       viewport: { width: 1440, height: 900 },
-      commands: { compareScreenshot, screenshotEnvironment },
+      commands: { compareMirrored, compareScreenshot, screenshotEnvironment },
     },
   },
 });

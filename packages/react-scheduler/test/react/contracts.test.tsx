@@ -1,9 +1,11 @@
 // @vitest-environment jsdom
 import { act, fireEvent, screen, within } from '@testing-library/react';
-import { createRef } from 'react';
+import { createRef, type ReactElement } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { ListView, Scheduler, type SchedulerHandle, TimelineView } from '../../src/index';
-import { fixture, type ParityItem } from '../parity/adapter';
+import { ListView, Scheduler, type SchedulerHandle, type SchedulerProps, TimelineView } from '../../src/index';
+import { computeTimelineLayout } from '../../src/core/layout';
+import type { TimelineLayout, TimelineLayoutOptions } from '../../src/core/types';
+import { fixture, type ParityItem, parityLayoutOptions } from '../parity/adapter';
 import { FakeIntersectionObserver, mockTop } from '../support/dom-fakes';
 import { injectListLayout, injectTimelineLayout } from '../support/layout';
 import {
@@ -448,5 +450,215 @@ describe('feature flags (F-24)', () => {
     expect(tooltip.textContent).toBe('Scroll to next shift start');
     fireEvent.pointerLeave(bottom);
     expect(tooltip.className).toContain('rs-visually-hidden');
+  });
+});
+
+describe('overflow table columns', () => {
+  it('fixes the actions column at 92 px in classic and 96 px in the default preset (GAPS G11)', async () => {
+    for (const [preset, width] of [
+      ['classic', '92px'],
+      ['default', '96px'],
+    ] as const) {
+      const { unmount } = renderUi(<TimelineView {...base} preset={preset} />);
+      settle();
+      fireEvent.click(document.querySelector('[data-rs-part="moreChip"]') as HTMLElement);
+      await flushLazy();
+      const header = screen.getByRole('columnheader', { name: 'Actions' });
+      expect([header.style.width, header.style.minWidth, header.style.maxWidth]).toEqual([width, width, width]);
+      unmount();
+    }
+  });
+});
+
+describe('ordering (F-02)', () => {
+  // Reverse alphabetical: unlike the placement order in every respect that matters here.
+  const byTitleDescending = (a: ParityItem, b: ParityItem): number => b.title.localeCompare(a.title);
+  const titles = (root: ParentNode, name: string): string[] =>
+    parts(root, name).map((card) => part(card, 'cardTitle').textContent ?? '');
+  const sorted = (values: readonly string[]): string[] => [...values].sort((a, b) => b.localeCompare(a));
+
+  it('a consumer compareItems orders the list, the timeline placement and the pinned strip together', () => {
+    const list = renderUi(<ListView {...base} compareItems={byTitleDescending} />);
+    settle();
+    for (const section of parts(list.container, 'shiftSection')) {
+      const own = titles(section, 'listCard');
+      expect(own).toEqual(sorted(own));
+    }
+    list.unmount();
+
+    // The placement sequence decides the columns (time placement, crowded day): the component's are
+    // the engine's for this comparator, and differ from the default order's.
+    const crowded = fixture('crowded');
+    const ref = createRef<SchedulerHandle<ParityItem>>();
+    const timeline = renderUi(
+      <TimelineView
+        items={crowded.items}
+        date={crowded.date}
+        now={crowded.now}
+        timeline={{ columnPlacement: 'time' }}
+        ref={ref}
+        compareItems={byTitleDescending}
+      />,
+    );
+    settle();
+    const columns = (layout: TimelineLayout<ParityItem> | null): Record<string, number[]> =>
+      Object.fromEntries((layout?.cards ?? []).map((card) => [card.item.id, [card.column, card.columns]]));
+    const options = parityLayoutOptions(crowded.date, false, {
+      columnPlacement: 'time',
+    }) as TimelineLayoutOptions<ParityItem>;
+    const placed = columns(ref.current?.getLayout() ?? null);
+    const engine = (extra: Partial<TimelineLayoutOptions<ParityItem>>): Record<string, number[]> =>
+      columns(computeTimelineLayout(crowded.items, { ...options, ...extra }));
+    expect(placed).toEqual(engine({ compareItems: byTitleDescending }));
+    expect(placed).not.toEqual(engine({}));
+    timeline.unmount();
+
+    const { container } = renderUi(<TimelineView {...base} compareItems={byTitleDescending} />);
+    injectTimelineLayout(container, 800);
+    settle();
+    pinTimeline(container, ['Backup verification', 'Network follow-up']);
+    settle();
+    const chips = titles(part(container, 'pinnedStrip'), 'pinnedChip');
+    expect(chips).toEqual(['Network follow-up', 'Backup verification']);
+  });
+});
+
+describe('middleware cancels every interaction (F-22)', () => {
+  // Each interaction twice: a middleware that does not call next() cancels the default and its
+  // callbacks; one that does lets both run (the control).
+  const cases = [
+    ['cancelled', false],
+    ['passed on', true],
+  ] as const;
+  const middleware =
+    (runs: boolean) =>
+    (_ctx: unknown, next: () => void): void => {
+      if (runs) next();
+    };
+
+  it.each(cases)('onOverflowSort, onOverflowPage and onOverflowClose (%s)', async (_name, runs) => {
+    const onOverflowSortChange = vi.fn();
+    const onOverflowPageChange = vi.fn();
+    const onOpenOverflowIdChange = vi.fn();
+    renderUi(
+      <TimelineView
+        {...base}
+        overflowPageSize={1}
+        handlers={{
+          onOverflowSort: middleware(runs),
+          onOverflowPage: middleware(runs),
+          onOverflowClose: middleware(runs),
+        }}
+        onOverflowSortChange={onOverflowSortChange}
+        onOverflowPageChange={onOverflowPageChange}
+        onOpenOverflowIdChange={onOpenOverflowIdChange}
+      />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /more items from/ }));
+    await flushLazy();
+    onOpenOverflowIdChange.mockClear();
+    const dialog = screen.getByRole('dialog');
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Severity' }));
+    expect(onOverflowSortChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Next' }));
+    expect(onOverflowPageChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    fireEvent.click(within(dialog).getAllByRole('button', { name: 'Close' }).at(-1) as HTMLElement);
+    expect(onOpenOverflowIdChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    expect(screen.queryByRole('dialog') !== null).toBe(!runs);
+  });
+
+  it.each(cases)('onDetailClose (%s)', async (_name, runs) => {
+    const onOpenItemIdChange = vi.fn();
+    renderUi(
+      <ListView {...base} handlers={{ onDetailClose: middleware(runs) }} onOpenItemIdChange={onOpenItemIdChange} />,
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Delivery delay' }));
+    await flushLazy();
+    onOpenItemIdChange.mockClear();
+    fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Close' }));
+    expect(onOpenItemIdChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+    expect(screen.queryByRole('dialog') !== null).toBe(!runs);
+  });
+
+  it.each(cases)('onPin (%s)', (_name, runs) => {
+    const onPinnedChange = vi.fn();
+    const { container } = renderUi(
+      <TimelineView {...base} handlers={{ onPin: middleware(runs) }} onPinnedChange={onPinnedChange} />,
+    );
+    injectTimelineLayout(container, 800);
+    settle();
+    pinTimeline(container, ['Backup verification']);
+    settle();
+    expect(parts(container, 'pinnedChip')).toHaveLength(runs ? 1 : 0);
+    expect(onPinnedChange).toHaveBeenCalledTimes(runs ? 1 : 0);
+  });
+
+  it.each(cases)('onHeaderSignal (%s)', (_name, runs) => {
+    const onHeaderExpandedChange = vi.fn();
+    const { container } = renderUi(
+      <ListView
+        {...base}
+        compact
+        handlers={{ onHeaderSignal: middleware(runs) }}
+        onHeaderExpandedChange={onHeaderExpandedChange}
+      />,
+    );
+    const scroller = injectListLayout(container, listLayout);
+    settle();
+    onHeaderExpandedChange.mockClear();
+    scrollTo(scroller, 2000);
+    expect(onHeaderExpandedChange.mock.calls.length > 0).toBe(runs);
+  });
+});
+
+describe('feature flags remove listeners and computations (F-24)', () => {
+  it('enablePinning false creates no pin observers', () => {
+    for (const view of ['list', 'timeline'] as const) {
+      const props = { ...base, enablePinning: false };
+      const { container, unmount } = renderUi(view === 'list' ? <ListView {...props} /> : <TimelineView {...props} />);
+      if (view === 'list') injectListLayout(container, listLayout);
+      else injectTimelineLayout(container, 800);
+      settle();
+      expect(FakeIntersectionObserver.active(), view).toHaveLength(0);
+      unmount();
+    }
+  });
+
+  it('enableNowIndicator false stops the internal clock', () => {
+    const clocked = renderUi(<ListView items={baseline.items} date={baseline.date} />);
+    act(() => {
+      vi.advanceTimersByTime(2_000);
+    });
+    expect(vi.getTimerCount()).toBe(1);
+    clocked.unmount();
+    renderUi(<ListView items={baseline.items} date={baseline.date} enableNowIndicator={false} />);
+    act(() => {
+      vi.advanceTimersByTime(2_000);
+    });
+    expect(vi.getTimerCount()).toBe(0);
+  });
+});
+
+describe('data modes (F-31)', () => {
+  it('reports the rendered range on mount and whenever it changes, not on other renders', () => {
+    const ranges: string[] = [];
+    const onVisibleRangeChange = ({ start, end }: { start: Date; end: Date }): number =>
+      ranges.push(`${start.toISOString()}…${end.toISOString()}`);
+    const view = (props: Partial<SchedulerProps<ParityItem>>): ReactElement => (
+      <ListView {...base} onVisibleRangeChange={onVisibleRangeChange} {...props} />
+    );
+    const { rerender } = renderUi(view({}));
+    expect(ranges).toHaveLength(1);
+    act(() => rerender(view({ loading: true })));
+    act(() => rerender(view({ now: '2031-03-12T11:00:00' })));
+    expect(ranges).toHaveLength(1);
+    act(() => rerender(view({ date: '2031-03-13T10:30:00' })));
+    expect(ranges).toHaveLength(2);
+    act(() => rerender(view({ date: '2031-03-13T10:30:00', shifts: { before: 2 } })));
+    expect(ranges).toHaveLength(3);
+    // Each range spans the rendered shifts: one earlier, the current and one later by default.
+    const [first] = ranges;
+    const [start, end] = (first ?? '').split('…').map((iso) => Date.parse(iso));
+    expect(((end ?? 0) - (start ?? 0)) / 3_600_000).toBe(36);
   });
 });

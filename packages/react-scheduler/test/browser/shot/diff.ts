@@ -40,7 +40,7 @@ function yiq(data: Uint8Array, index: number): [number, number, number] {
   ];
 }
 
-export function colorDelta(a: Uint8Array, b: Uint8Array, index: number): number {
+function colorDelta(a: Uint8Array, b: Uint8Array, index: number): number {
   const [y1, i1, q1] = yiq(a, index);
   const [y2, i2, q2] = yiq(b, index);
   const dy = y1 - y2;

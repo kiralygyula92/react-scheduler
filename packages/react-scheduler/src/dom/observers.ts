@@ -54,16 +54,21 @@ export function prefersReducedMotion(
 /**
  * Keeps visible content still when `sticky` (inside the scroller) changes height: the scroller moves
  * by the same amount in the same frame, in every engine (B-21). The scroller sets
- * `overflow-anchor: none`, so browser scroll anchoring never adds a second shift.
+ * `overflow-anchor: none`, so browser scroll anchoring never adds a second shift. While
+ * `suspended()` holds (a programmatic scroll that corrects its own target), a change is only noted.
  */
-export function compensateStickyGrowth(scroller: HTMLElement, sticky: HTMLElement): () => void {
+export function compensateStickyGrowth(
+  scroller: HTMLElement,
+  sticky: HTMLElement,
+  suspended: () => boolean = () => false,
+): () => void {
   if (typeof ResizeObserver === 'undefined') return () => undefined;
   let height = sticky.offsetHeight;
   const observer = new ResizeObserver(() => {
     const next = sticky.offsetHeight;
     const delta = next - height;
     height = next;
-    if (delta !== 0 && scroller.scrollTop > 0) scroller.scrollTop += delta;
+    if (delta !== 0 && scroller.scrollTop > 0 && !suspended()) scroller.scrollTop += delta;
   });
   observer.observe(sticky);
   return () => observer.disconnect();

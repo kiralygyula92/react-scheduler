@@ -1,0 +1,105 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`screen-reader names and descriptions > the detail dialog 1`] = `
+[
+  "heading "Server room alert"",
+  "button "Close"",
+]
+`;
+
+exports[`screen-reader names and descriptions > the list view 1`] = `
+[
+  "region "Agenda"",
+  "region "Pinned items"",
+  "list """,
+  "button "Backup verification" — Critical, Observed at: 1:48 AM – Present, Inherited",
+  "button "Network follow-up" — Critical, Observed at: 4:40 AM – Present, Inherited",
+  "live "" (live: polite) "2 items pinned"",
+  "button "View previous shift (2 inherited)" — Scroll to previous shift start",
+  "tooltip "Scroll to previous shift start"",
+  "region "Previous shift Mar 11, 8 PM - Mar 12, 8 AM"",
+  "heading "Previous shift"",
+  "list """,
+  "button "Handover notes" — Watch, 10:00 PM – 11:00 PM",
+  "button "Backup verification" — Critical, Observed at: 1:48 AM – Present",
+  "button "Network follow-up" — Critical, Observed at: 4:40 AM – Present",
+  "button "Cleaning round" — Routine, 6:30 AM – 7:30 AM",
+  "region "Current shift Mar 12, 8 AM - Mar 12, 8 PM"",
+  "heading "Current shift"",
+  "list """,
+  "button "Server room alert" — Critical, Observed at: 8:12 AM – Present, Impacts Next Shift",
+  "button "Delivery delay" — Watch, 9:00 AM – 10:30 AM",
+  "button "Staff briefing" — Monitoring, 9:00 AM – 10:00 AM",
+  "button "Inventory count" — Ready, Ready since: 03/12/2031 07:45 AM",
+  "button "Equipment check" — Routine, 9:15 AM – 10:15 AM",
+  "separator "Now: 10:41 AM"",
+  "button "Safety inspection" — Critical, Observed at: 11:02 AM – Present",
+  "button "Supplier call" — Normal, 1:00 PM – 2:00 PM",
+  "button "Report review" — Resolved, 3:00 PM – 4:00 PM",
+  "button "Maintenance window" — Capacity Watch, 5:00 PM – 7:00 PM",
+  "button "Training session" — On target, 6:00 PM – 7:00 PM",
+  "region "Next shift Mar 12, 8 PM - Mar 13, 8 AM"",
+  "heading "Next shift"",
+  "list """,
+  "button "Night check-in" — Ready, 9:00 PM – 10:00 PM",
+  "button "System update" — Monitoring, 1:00 AM – 2:00 AM",
+  "button "Scheduled restart" — Critical, Observed at: Scheduled",
+  "button "View next shift" — Scroll to next shift start",
+  "tooltip "Scroll to next shift start"",
+]
+`;
+
+exports[`screen-reader names and descriptions > the overflow dialog 1`] = `
+[
+  "heading "More overlapping items (2)"",
+  "button "Close"",
+  "table "Overflow items table"",
+  "columnheader "Observed at"",
+  "button "Observed at"",
+  "columnheader "Severity"",
+  "button "Severity"",
+  "columnheader "Title"",
+  "button "Title"",
+  "columnheader "Description"",
+  "button "Description"",
+  "columnheader "Actions"",
+  "button "View details"",
+  "tooltip "View details"",
+  "button "View details"",
+  "tooltip "View details"",
+  "button "Close"",
+]
+`;
+
+exports[`screen-reader names and descriptions > the timeline view 1`] = `
+[
+  "region "Agenda"",
+  "region "Pinned items"",
+  "list """,
+  "button "Backup verification" — Critical, Observed at: 1:48 AM – Present, Inherited",
+  "button "Network follow-up" — Critical, Observed at: 4:40 AM – Present, Inherited",
+  "live "" (live: polite) "2 items pinned"",
+  "button "View previous shift (2 inherited)" — Scroll to previous shift start",
+  "tooltip "Scroll to previous shift start"",
+  "separator "Now: 10:41 AM"",
+  "list """,
+  "button "Handover notes" — Watch, 10:00 PM – 11:00 PM",
+  "button "Backup verification" — Critical, Observed at: 1:48 AM – Present",
+  "button "Network follow-up" — Critical, Observed at: 4:40 AM – Present",
+  "button "Cleaning round" — Routine, 6:30 AM – 7:30 AM",
+  "button "Server room alert" — Critical, Observed at: 8:12 AM – Present, Impacts Next Shift",
+  "button "Delivery delay" — Watch, 9:00 AM – 10:30 AM",
+  "button "Staff briefing" — Monitoring, 9:00 AM – 10:00 AM",
+  "button "Safety inspection" — Critical, Observed at: 11:02 AM – Present",
+  "button "Supplier call" — Normal, 1:00 PM – 2:00 PM",
+  "button "Report review" — Resolved, 3:00 PM – 4:00 PM",
+  "button "Maintenance window" — Capacity Watch, 5:00 PM – 7:00 PM",
+  "button "Training session" — On target, 6:00 PM – 7:00 PM",
+  "button "Night check-in" — Ready, 9:00 PM – 10:00 PM",
+  "button "System update" — Monitoring, 1:00 AM – 2:00 AM",
+  "button "Scheduled restart" — Critical, Observed at: Scheduled",
+  "button "2 more items from 9:00 AM"",
+  "button "View next shift" — Scroll to next shift start",
+  "tooltip "Scroll to next shift start"",
+]
+`;
