@@ -65,6 +65,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | Lint / typecheck / test             | `pnpm lint` · `pnpm typecheck` · `pnpm test`                                                  |
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
 | E2E                                 | `pnpm e2e`                                                                                    |
+| Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
 | Zero-reference / licences           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
 | Add a changeset                     | `pnpm changeset`                                                                              |
