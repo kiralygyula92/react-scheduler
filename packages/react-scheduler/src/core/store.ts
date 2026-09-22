@@ -3,11 +3,11 @@
 // useSyncExternalStore. No state library.
 
 export interface Store<S> {
-  getState(): S;
+  getState: () => S;
   /** Replaces the state with `updater(state)`; listeners run only when the result differs (Object.is). */
-  setState(updater: (state: S) => S): void;
+  setState: (updater: (state: S) => S) => void;
   /** Returns the unsubscribe function. */
-  subscribe(listener: () => void): () => void;
+  subscribe: (listener: () => void) => () => void;
 }
 
 export function createStore<S>(initial: S): Store<S> {

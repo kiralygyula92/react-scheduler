@@ -1,14 +1,16 @@
 // Thin adapter between the Feature Dossier's characterization data and the new API
 // (Feature Dossier 07 §3): fixtures become SchedulerItem[], layouts become the golden shape.
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { classicLevels, resolveLevels } from '../../src/core/levels';
 import { getShiftWindows } from '../../src/core/shifts';
 import type { SchedulerItem, TimelineLayout, TimelineLayoutOptions } from '../../src/core/types';
 
-const CHARACTERIZATION = new URL('../../../../spec/feature-dossier/characterization/', import.meta.url);
+// A path, not a URL: under jsdom, import.meta.url is not a file URL.
+const CHARACTERIZATION = resolve(import.meta.dirname, '../../../../spec/feature-dossier/characterization');
 
 export function loadJson<T>(relativePath: string): T {
-  return JSON.parse(readFileSync(new URL(relativePath, CHARACTERIZATION), 'utf8')) as T;
+  return JSON.parse(readFileSync(resolve(CHARACTERIZATION, relativePath), 'utf8')) as T;
 }
 
 interface FixtureItem {

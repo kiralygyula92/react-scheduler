@@ -6,7 +6,7 @@ const config: UserWorkspaceConfig = defineProject({
   test: {
     name: 'react-scheduler',
     root: import.meta.dirname,
-    include: ['test/**/*.test.ts'],
+    include: ['test/**/*.test.{ts,tsx}'],
     environment: 'node',
     env: { TZ: 'UTC' },
   },

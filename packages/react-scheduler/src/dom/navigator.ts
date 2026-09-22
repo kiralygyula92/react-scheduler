@@ -82,7 +82,8 @@ export function createNavigator(options: NavigatorOptions): Navigator {
         });
         return;
       }
-      scroller.scrollTo({ top: target(), behavior: 'smooth' });
+      if (typeof scroller.scrollTo === 'function') scroller.scrollTo({ top: target(), behavior: 'smooth' });
+      else scroller.scrollTop = target();
       let finished = false;
       const finishOnce = (): void => {
         if (finished) return;

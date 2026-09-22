@@ -18,8 +18,11 @@ export interface PinEngineOptions {
 export interface PinEngine {
   /** Registers a sentinel for `ids` under `key`; returns a ref callback. */
   register(key: string, ids: readonly string[]): (node: HTMLElement | null) => void;
-  /** Re-reads every sentinel once (after programmatic scrolls, data changes and mounts). */
-  refresh(): void;
+  /**
+   * Re-reads every sentinel once (after programmatic scrolls, data changes and mounts). Skipped while
+   * paused unless `force` is set (the settle step of a programmatic scroll, 01 §L.7).
+   */
+  refresh(options?: { force?: boolean }): void;
   /** Re-creates the observers after the pin line moved (for example, the sticky top resized). */
   relayout(): void;
   pause(): void;
@@ -88,8 +91,8 @@ export function createPinEngine(options: PinEngineOptions): PinEngine {
     }
   };
 
-  const refresh = (): void => {
-    if (paused) return;
+  const refresh = (options: { force?: boolean } = {}): void => {
+    if (paused && options.force !== true) return;
     const line = getLine();
     let changed = false;
     for (const sentinel of sentinels.values()) {

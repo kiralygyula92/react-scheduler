@@ -73,6 +73,29 @@ describe('runMiddleware', () => {
     );
   });
 
+  it('passes the context, or next(override) merged over it, to the default', () => {
+    const run = vi.fn();
+    runMiddleware<{ id: string; flag: boolean }>((_ctx, next) => next(), { id: 'x', flag: true }, run);
+    runMiddleware<{ id: string; flag: boolean }>((_ctx, next) => next({ flag: false }), { id: 'y', flag: true }, run);
+    expect(run.mock.calls).toEqual([[{ id: 'x', flag: true }], [{ id: 'y', flag: false }]]);
+  });
+
+  it('accepts an asynchronous middleware that calls next() later', async () => {
+    const run = vi.fn();
+    runMiddleware<{ id: string }>(
+      async (_ctx, next) => {
+        await Promise.resolve();
+        next();
+      },
+      { id: 'x' },
+      run,
+    );
+    expect(run).not.toHaveBeenCalled();
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(run).toHaveBeenCalledTimes(1);
+  });
+
   it('ignores an asynchronous next() once the owner is no longer active', async () => {
     const run = vi.fn();
     let active = true;
