@@ -1,0 +1,39 @@
+# docs pack 10 §5.1. Steps whose tooling lands in later milestones are added there
+# (size M3, docs api/i18n/build/conformance M4–M5, Playwright M2/M4): see EXCEPTIONS.md #1.
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        react: ['18.3', '19']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the commit-message scan needs the history of the range
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @react-schedulerkit/react-scheduler add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
+        if: matrix.react != '19'
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm check:licenses
+      - run: pnpm check:zero-reference
+      - name: Zero-reference scan of commit messages
+        shell: bash
+        run: git log --format=%B "$RANGE" | pnpm --silent check:zero-reference --stdin
+        env:
+          RANGE: ${{ github.event_name == 'pull_request' && format('{0}..{1}', github.event.pull_request.base.sha, github.event.pull_request.head.sha) || format('{0}..{1}', github.event.before, github.sha) }}
+      - run: pnpm check:keys
+      - run: pnpm check:scenarios
+      - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg

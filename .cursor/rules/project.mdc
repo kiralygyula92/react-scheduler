@@ -1,5 +1,5 @@
 ---
-description: Project rules for {{PLUGIN_DISPLAY_NAME}} (package + docs site)
+description: Project rules for React Scheduler (package + docs site)
 globs:
 alwaysApply: true
 ---

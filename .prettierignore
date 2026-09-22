@@ -1,0 +1,18 @@
+# Read-only specification
+spec/
+
+# Generated
+pnpm-lock.yaml
+**/dist/
+**/build/
+**/coverage/
+**/.react-router/
+test-results/
+playwright-report/
+apps/docs/src/content/api/
+
+# Local tool settings
+.claude/
+
+# Copied verbatim from spec/docs-pack/agent-files/ (no keys to resolve)
+CLAUDE.md

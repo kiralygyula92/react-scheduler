@@ -1,0 +1,82 @@
+{
+  "name": "@react-schedulerkit/react-scheduler",
+  "version": "0.0.0",
+  "description": "React Scheduler used to showcase a schedule in different domains, such as office or factory work.",
+  "license": "MIT",
+  "author": "kiralygyula92",
+  "homepage": "https://react-schedulerkit.vercel.app/react-scheduler/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiralygyula92/react-scheduler.git",
+    "directory": "packages/react-scheduler"
+  },
+  "bugs": {
+    "url": "https://github.com/kiralygyula92/react-scheduler/issues"
+  },
+  "keywords": [
+    "react",
+    "schedule",
+    "agenda"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core.d.ts",
+        "default": "./dist/core.js"
+      },
+      "require": {
+        "types": "./dist/core.d.cts",
+        "default": "./dist/core.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint:pkg": "publint && attw --pack . --profile node16"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "publint": "0.3.24",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tsdown": "0.23.0",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,9 @@
+packages:
+  - packages/*
+  - apps/*
+
+peerDependencyRules:
+  allowedVersions:
+    # eslint-plugin-react 7.37.5 declares eslint ^9.7 but runs on ESLint 10: every removed
+    # context API it calls has a sourceCode fallback. See docs/adr/0001-toolchain.md.
+    eslint-plugin-react>eslint: '10'

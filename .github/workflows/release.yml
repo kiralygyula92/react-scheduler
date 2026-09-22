@@ -1,0 +1,38 @@
+# docs pack 10 §5.2, plus two guards: the job runs only when the repository variable
+# RELEASE_ENABLED is 'true' (set at M8, EXCEPTIONS.md #3), and the packed tarball passes the
+# zero-reference scan before anything is published (Feature Dossier 09 §7).
+name: Release
+on:
+  push:
+    branches: [main]
+concurrency: release
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write # OIDC for npm Trusted Publishing and provenance
+jobs:
+  release:
+    if: vars.RELEASE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm, registry-url: 'https://registry.npmjs.org' }
+      - run: npm install -g npm@latest # Trusted Publishing needs npm >= 11.5.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - name: Zero-reference scan of the package tarball
+        shell: bash
+        run: |
+          pnpm --filter @react-schedulerkit/react-scheduler pack --pack-destination "$RUNNER_TEMP/pack"
+          mkdir -p "$RUNNER_TEMP/pack/contents"
+          tar -xzf "$RUNNER_TEMP"/pack/*.tgz -C "$RUNNER_TEMP/pack/contents"
+          pnpm check:zero-reference --dir "$RUNNER_TEMP/pack/contents"
+      - uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish
+          version: pnpm changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}   # only for the granular-token fallback

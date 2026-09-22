@@ -1,0 +1,15 @@
+{
+  "baseBranch": "main",
+  "access": "public",
+  "format": "prettier",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "ignore": [],
+  "fixed": [],
+  "linked": [],
+  "updateInternalDependencies": "patch",
+  "privatePackages": {
+    "version": false,
+    "tag": false
+  }
+}
