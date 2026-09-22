@@ -34,8 +34,8 @@ describe('createPinEngine', () => {
   it('observes the scroller with one observer at the pin edge and one at the release edge', () => {
     setup();
     expect(FakeIntersectionObserver.active().map((o) => o.options.rootMargin)).toEqual([
-      '-150px 0px 0px 0px',
-      '-174px 0px 0px 0px',
+      '-151px 0px 0px 0px',
+      '-175px 0px 0px 0px',
     ]);
   });
 

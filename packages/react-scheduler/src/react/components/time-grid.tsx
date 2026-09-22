@@ -86,7 +86,10 @@ export function TimeGrid(): ReactElement | null {
             children: formatters.hourLabel(new Date(time)),
           }),
         )}
-        {nowTop === null ? null : renderPart(custom, 'nowLabel', 'span', { style: { top: nowTop }, children: nowText })}
+        {/* The gutter sits beside the grid box's 1 px top border: +1 centres the label on the line (source value). */}
+        {nowTop === null
+          ? null
+          : renderPart(custom, 'nowLabel', 'span', { style: { top: nowTop + 1 }, children: nowText })}
       </>
     ),
   });

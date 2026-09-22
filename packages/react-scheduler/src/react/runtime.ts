@@ -477,7 +477,11 @@ export function createViewRuntime<TItem extends SchedulerItem>(
     },
     scrollToTop(event) {
       controller.scrollToTop(event, () => {
-        if (scroller) scrollElementTo(scroller, 0, model().animate);
+        if (!scroller) return;
+        // A smooth scroll goes through the navigator: pinning pauses on the way up, so no sticky
+        // compensation writes scrollTop mid-flight (which would stop a smooth scroll in Firefox).
+        if (model().animate) scrollWith(() => 0, true);
+        else scrollElementTo(scroller, 0, false);
       });
     },
     api: {

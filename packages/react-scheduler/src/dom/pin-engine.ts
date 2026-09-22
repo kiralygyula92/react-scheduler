@@ -82,8 +82,10 @@ export function createPinEngine(options: PinEngineOptions): PinEngine {
     observers = [];
     if (typeof IntersectionObserver === 'undefined') return;
     const offset = getLine() - scroller.getBoundingClientRect().top;
-    // The pin edge sits at line − epsilon, the release edge at line + hysteresis − epsilon.
-    for (const edge of new Set([offset - epsilon, offset + hysteresis - epsilon])) {
+    // The pin edge sits at line − epsilon, the release edge at line + hysteresis − epsilon. Each edge
+    // is placed 1 px lower: a 1 px sentinel whose top is exactly on a rule's boundary then lies fully
+    // outside the root, so the observer reports it and the rect check decides (≤ versus >).
+    for (const edge of new Set([offset - epsilon + 1, offset + hysteresis - epsilon + 1])) {
       const observer = new IntersectionObserver(onEntries, {
         root: scroller,
         rootMargin: `${-Math.round(edge)}px 0px 0px 0px`,

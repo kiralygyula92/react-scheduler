@@ -5,6 +5,10 @@ import { resolve } from 'node:path';
 import { classicLevels, resolveLevels } from '../../src/core/levels';
 import { getShiftWindows } from '../../src/core/shifts';
 import type { SchedulerItem, TimelineLayout, TimelineLayoutOptions } from '../../src/core/types';
+import { type Fixture, type FixtureFile, toFixture } from '../support/items';
+
+export { toItem } from '../support/items';
+export type { Fixture, ParityData, ParityItem } from '../support/items';
 
 // A path, not a URL: under jsdom, import.meta.url is not a file URL.
 const CHARACTERIZATION = resolve(import.meta.dirname, '../../../../spec/feature-dossier/characterization');
@@ -13,67 +17,8 @@ export function loadJson<T>(relativePath: string): T {
   return JSON.parse(readFileSync(resolve(CHARACTERIZATION, relativePath), 'utf8')) as T;
 }
 
-interface FixtureItem {
-  id: string;
-  start: string;
-  end?: string;
-  level: string;
-  tags: string[];
-  title: string;
-  description: string;
-  suggestion: string;
-  detail: 'critical' | 'standard';
-  observedLabel?: string;
-  since?: string;
-  reference?: string;
-}
-
-interface FixtureFile {
-  id: string;
-  selectedDate: string;
-  now: string;
-  shiftHours: number;
-  anchorHour: number;
-  userRole: string;
-  items: FixtureItem[];
-}
-
-/** Item payload of the parity fixtures: the source's detail kind (critical / standard). */
-export interface ParityData {
-  kind: 'critical' | 'standard';
-}
-
-export type ParityItem = SchedulerItem<ParityData>;
-
-export interface Fixture {
-  items: ParityItem[];
-  /** `selectedDate` → `date`. */
-  date: string;
-  now: string;
-}
-
-/** Maps a fixture item to the new item shape: `detail` → `data.kind`; everything else unchanged. */
-export function toItem(raw: FixtureItem): ParityItem {
-  const item: ParityItem = {
-    id: raw.id,
-    start: raw.start,
-    level: raw.level,
-    tags: raw.tags,
-    title: raw.title,
-    description: raw.description,
-    suggestion: raw.suggestion,
-    data: { kind: raw.detail },
-  };
-  if (raw.end !== undefined) item.end = raw.end;
-  if (raw.observedLabel !== undefined) item.observedLabel = raw.observedLabel;
-  if (raw.since !== undefined) item.since = raw.since;
-  if (raw.reference !== undefined) item.reference = raw.reference;
-  return item;
-}
-
 export function fixture(name: string): Fixture {
-  const file = loadJson<FixtureFile>(`fixtures/${name}.json`);
-  return { items: file.items.map(toItem), date: file.selectedDate, now: file.now };
+  return toFixture(loadJson<FixtureFile>(`fixtures/${name}.json`));
 }
 
 export const HOUR = 3_600_000;

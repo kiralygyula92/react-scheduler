@@ -46,9 +46,8 @@
     flex: none;
   }
 
-  .rs-item-list,
-  .rs-pinned-strip-track,
-  .rs-lane {
+  /* Zero specificity: the theme's list paddings (later in the cascade) must win over this reset. */
+  :where(.rs-item-list, .rs-pinned-strip-track, .rs-lane) {
     margin: 0;
     padding: 0;
     list-style: none;
