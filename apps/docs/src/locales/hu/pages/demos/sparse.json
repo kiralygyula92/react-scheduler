@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Ritka nap",
-    "description": "React Scheduler demó a(z) Ritka nap adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Csendes nap",
+    "description": "Műszakonként egy elem: csendes nap, a léptetőgombok küszöbe alatt."
+  },
+  "demos": {
+    "board": "Egy csendes nap"
+  },
+  "scenario": "Három elem, minden kirajzolt műszakban egy. A csendes napot is meg kell tervezni: így néz ki egy friss telepítés, és egy kis csapatnál a legtöbb nap is.",
+  "look": [
+    "Nincsenek léptetőgombok. Műszakonként öt elemtől jelennek meg, három egyelemes műszak pedig meg sem közelíti ezt.",
+    "Az idővonal megtartja a műszak teljes magasságát. Egy óra akkor is egy óra, ha nincs benne semmi.",
+    "A listanézet kihagyja az elemek közti üres időt, és ez a két nézet közti különbség egy csendes napon.",
+    "Az egyik elem címkét visel, a többi egyet sem."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Léptetés</link> — a küszöb, és hogy mit csinálnak a gombok, ha megjelentek.",
+    "<link to=\"/timeline-view/\">Idővonal nézet</link> — az idő mint távolság, az üres órákkal együtt.",
+    "<link to=\"/list-view/\">Listanézet</link> — ugyanazok az elemek, üres idő nélkül."
+  ]
 }

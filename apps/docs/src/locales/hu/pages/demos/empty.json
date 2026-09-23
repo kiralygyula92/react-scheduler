@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Üres ütemterv",
-    "description": "React Scheduler demó a(z) Üres ütemterv adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Üres beosztás",
+    "description": "Egyetlen elem sincs: az üres állapot az oldal nyelvén, és a gombok, amelyek meg sem jelennek."
+  },
+  "demos": {
+    "board": "Egy nap, amin nincs semmi"
+  },
+  "scenario": "Ugyanaz a nap, ugyanazok a műszakok, és egyetlen elem sem. Az üres beosztás nem hiba és nem töltésjelző — a nap alakja, tartalom nélkül, épp az, amit az olvasónak látnia kell, mielőtt az első elem megérkezik.",
+  "look": [
+    "Az üzenet a nyelvi csomagból jön, tehát ennek az oldalnak a nyelvén szól. A <link to=\"/customization/localization/\">Lokalizáció</link> mutatja, hogyan cseréld le.",
+    "Léptetőgombok nincsenek: ha nincs hová ugrani, csak letiltva állnának ott.",
+    "A két nézet másképp bánik vele: az idővonal megtartja az óráit, és föléjük teszi az üzenetet, a lista pedig átadja neki a szakaszait.",
+    "A színséma és a sűrűség ugyanúgy érvényes. Az üres beosztás is témázott beosztás."
+  ],
+  "uses": [
+    "<link to=\"/states/\">Állapotok</link> — az üres állapot, a betöltés és a hiba mellett.",
+    "<link to=\"/customization/localization/\">Lokalizáció</link> — minden itteni szöveg, ez is, a csomagból jön.",
+    "<link to=\"/navigation/\">Léptetés</link> — a küszöb, amely távol tartja a gombokat."
+  ]
 }

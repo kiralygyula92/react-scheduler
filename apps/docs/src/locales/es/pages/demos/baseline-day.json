@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Día de referencia",
-    "description": "Una demo de React Scheduler sobre el conjunto Día de referencia: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Día de referencia",
+    "description": "Diecisiete elementos en tres turnos, una hora concurrida en medio y dos niveles que se fijan: un día corriente."
+  },
+  "demos": {
+    "board": "Un día corriente"
+  },
+  "scenario": "Diecisiete elementos repartidos entre el turno que ya terminó, el que corre a las 10:30 y el que aún está por venir. Cinco de ellos son <code>critical</code>, el nivel que se fija en cuanto sale de la vista, y cuatro empiezan con menos de media hora de diferencia a última hora de la mañana. Es el día con el que está escrita la mayoría de las pruebas del paquete, así que es el que conviene comparar con los demás.",
+  "look": [
+    "Se dibujan tres turnos: uno antes del actual, el actual y uno después. El actual es el que contiene las 10:30.",
+    "El indicador de «ahora» está en las 10:30 de la línea de tiempo, entre los elementos terminados y los que no han empezado.",
+    "Las dos vistas colocan los elementos en el mismo orden —por hora de inicio, luego por nivel, luego por id—, así que cambiar de vista nunca baraja el día.",
+    "El modo compacto no quita nada: las tarjetas se estrechan, los chips se acortan y la línea de tiempo se limita a una columna."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Turnos y fechas</link> — turnos de doce horas anclados a las 08:00, uno antes y uno después del actual.",
+    "<link to=\"/items-and-levels/\">Elementos y niveles</link> — la escala clásica de nueve niveles, que decide el color, el orden y el trato de la tarjeta.",
+    "<link to=\"/now-indicator/\">Indicador de «ahora»</link> — la línea de las 10:30, dibujada solo en el turno que la contiene.",
+    "<link to=\"/scheduler-and-views/\">Scheduler y vistas</link> — las dos vistas y el conmutador que construye esta página."
+  ]
 }

@@ -63,7 +63,8 @@
     "density": "Densité",
     "densityStandard": "Standard",
     "densityComfortable": "Confortable",
-    "densityDense": "Dense"
+    "densityDense": "Dense",
+    "compact": "Compact"
   },
   "levels": {
     "blocking": "Bloquant",

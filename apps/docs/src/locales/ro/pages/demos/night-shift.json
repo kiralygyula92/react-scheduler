@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Tura de noapte",
-    "description": "O demonstrație React Scheduler pe setul Tura de noapte: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Tura de noapte",
+    "description": "Un program citit la 02:00, unde tura curentă a început la 20:00 în ziua dinainte."
+  },
+  "demos": {
+    "board": "O tură peste miezul nopții"
+  },
+  "scenario": "Este ora 02:00, turele au douăsprezece ore și sunt ancorate la 08:00, deci tura citită a început la 20:00 seara trecută și se termină la 08:00 dimineața asta. Un program care tratează ziua de la miezul nopții la miezul nopții se rupe aici; acesta nu.",
+  "look": [
+    "Tura curentă trece peste miezul nopții: merge de la 20:00 ieri până la 08:00 azi, iar elementele ei sunt de o parte și de alta a schimbării de dată.",
+    "Indicatorul „acum” este la 02:00, adică la șase ore în tură, nu la două ore în zi.",
+    "Titlurile rămân relative — precedentă, curentă, următoare. Care tură este curentă vine din ceas, nu din calendar.",
+    "Nimic de aici nu este o setare pentru munca de noapte: aceeași ancoră și aceeași durată așază fiecare tură, la orice oră."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Ture și date</link> — ancora, durata și care tură contează drept cea curentă.",
+    "<link to=\"/now-indicator/\">Indicatorul „acum”</link> — linia și tura în care este desenată.",
+    "<link to=\"/customization/localization/\">Localizare</link> — datele și orele, formatate după limba pachetului."
+  ]
 }

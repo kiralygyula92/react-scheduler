@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Capability page (T6): what opens when a reader activates an item, and how to replace it.
 import { ApiLinks, Demo, List, P, Page, Section } from '~/shell/doc';
+import BasicDetail from '~/demos/item-detail/basic';
+import basicSource from '~/demos/item-detail/basic.tsx?raw';
 import CustomDetail from '~/demos/item-detail/custom';
 import customSource from '~/demos/item-detail/custom.tsx?raw';
 
@@ -11,6 +13,14 @@ export default function ItemDetailPage(): React.ReactElement {
     <Page ns={NS}>
       <Section id="basics" ns={NS} titleKey="sections.basics">
         <P k="basics.intro" ns={NS} />
+        <Demo
+          id="detail-basic"
+          ns={NS}
+          titleKey="demos.basic"
+          component={<BasicDetail />}
+          source={basicSource}
+          height={460}
+        />
         <List k="basics.points" ns={NS} />
       </Section>
 

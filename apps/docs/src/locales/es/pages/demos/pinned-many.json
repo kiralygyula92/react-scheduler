@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Muchos elementos fijados",
-    "description": "Una demo de React Scheduler sobre el conjunto Muchos elementos fijados: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Muchos elementos fijados",
+    "description": "Seis elementos de un nivel que se fija en el turno ya terminado, y qué hace con ellos la barra de fijados."
+  },
+  "demos": {
+    "board": "Seis elementos que se fijan"
+  },
+  "scenario": "Seis elementos <code>critical</code> en el turno ya terminado, seis <code>routine</code> en el que corre ahora. <code>critical</code> es el único nivel de la escala clásica que se fija, así que este es el conjunto que enseña una barra de fijados bajo carga y no con un solo chip.",
+  "look": [
+    "Desplaza el horario: los elementos críticos que salen por arriba se fijan, en el orden en que salieron.",
+    "Los elementos de rutina no se fijan nunca, por mucho que desplaces. La fijación es una propiedad del nivel, no del elemento.",
+    "La barra es una sola línea. Cuando los chips la superan, se desplaza en horizontal, con un desvanecido en cada extremo para indicarlo, y el número de fijados se anuncia discretamente al cambiar.",
+    "Un elemento fijado sigue en su sitio en el horario; el chip es una segunda vista de él, no un traslado."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Fijación</link> — qué niveles se fijan, dónde, y qué hace la barra cuando se llena.",
+    "<link to=\"/items-and-levels/\">Elementos y niveles</link> — <code>pinOnPass</code> y el resto de una definición de nivel.",
+    "<link to=\"/timeline-view/\">Vista de línea de tiempo</link> — la zona desplazable de la que salen los elementos."
+  ]
 }

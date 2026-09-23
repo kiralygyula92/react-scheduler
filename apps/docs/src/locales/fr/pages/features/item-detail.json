@@ -16,6 +16,7 @@
     "api": "API"
   },
   "demos": {
+    "basic": "Le détail tel qu’il vient",
     "custom": "Le détail, remplacé"
   },
   "basics": {

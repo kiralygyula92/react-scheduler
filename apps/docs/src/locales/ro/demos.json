@@ -63,7 +63,8 @@
     "density": "Densitate",
     "densityStandard": "Standard",
     "densityComfortable": "Confortabilă",
-    "densityDense": "Densă"
+    "densityDense": "Densă",
+    "compact": "Compact"
   },
   "levels": {
     "blocking": "Blocant",

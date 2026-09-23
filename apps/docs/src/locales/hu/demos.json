@@ -63,7 +63,8 @@
     "density": "Sűrűség",
     "densityStandard": "Normál",
     "densityComfortable": "Kényelmes",
-    "densityDense": "Tömör"
+    "densityDense": "Tömör",
+    "compact": "Kompakt"
   },
   "levels": {
     "blocking": "Blokkoló",

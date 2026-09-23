@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Program gol",
-    "description": "O demonstrație React Scheduler pe setul Program gol: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Program gol",
+    "description": "Niciun element: starea goală, în limba paginii, și butoanele care nu se desenează."
+  },
+  "demos": {
+    "board": "O zi fără nimic pe ea"
+  },
+  "scenario": "Aceeași zi, aceleași ture și niciun element. Un program gol nu este o eroare și nu este un indicator de încărcare — este forma zilei fără nimic în ea, adică exact ce trebuie să vadă cititorul înainte să apară primul element.",
+  "look": [
+    "Mesajul vine din pachetul de limbă, deci este în limba acestei pagini. <link to=\"/customization/localization/\">Localizare</link> arată cum îl înlocuiești.",
+    "Nu există butoane de navigare: fără nimic la care să sari, ar fi doar dezactivate.",
+    "Cele două vizualizări o tratează diferit: cronologia își păstrează orele și așază mesajul peste ele, iar lista își cedează secțiunile pentru el.",
+    "Schema de culoare și densitatea se aplică mai departe. Un program gol este tot un program cu temă."
+  ],
+  "uses": [
+    "<link to=\"/states/\">Stări</link> — starea goală, lângă încărcare și eroare.",
+    "<link to=\"/customization/localization/\">Localizare</link> — fiecare text de aici, inclusiv acesta, vine din pachet.",
+    "<link to=\"/navigation/\">Navigare</link> — pragul care ține butoanele departe."
+  ]
 }

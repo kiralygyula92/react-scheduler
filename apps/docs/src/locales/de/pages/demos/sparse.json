@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Tag mit wenigen Einträgen",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Tag mit wenigen Einträgen: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Ruhiger Tag",
+    "description": "Ein Eintrag je Schicht: ein ruhiger Tag, unter der Schwelle, ab der die Navigationsschaltflächen erscheinen."
+  },
+  "demos": {
+    "board": "Ein ruhiger Tag"
+  },
+  "scenario": "Drei Einträge, einer in jeder gezeichneten Schicht. Ein ruhiger Tag will gestaltet sein: So sieht eine frische Installation aus, und in einem kleinen Team die meisten Tage.",
+  "look": [
+    "Keine Navigationsschaltflächen. Sie erscheinen ab fünf Einträgen in einer Schicht, und drei Schichten mit je einem kommen dem nicht nahe.",
+    "Der Zeitstrahl behält die volle Höhe der Schicht. Eine Stunde ist eine Stunde, ob etwas darin liegt oder nicht.",
+    "Die Listenansicht lässt die leere Zeit zwischen den Einträgen weg — das ist an einem ruhigen Tag der Unterschied zwischen beiden Ansichten.",
+    "Ein Eintrag trägt eine Markierung, die anderen keine."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Navigation</link> — die Schwelle, und was die Schaltflächen tun, sobald sie da sind.",
+    "<link to=\"/timeline-view/\">Zeitstrahlansicht</link> — Zeit als Abstand, leere Stunden eingeschlossen.",
+    "<link to=\"/list-view/\">Listenansicht</link> — dieselben Einträge, ohne die leere Zeit."
+  ]
 }

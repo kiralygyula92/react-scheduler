@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Referenztag",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Referenztag: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Normaler Tag",
+    "description": "Siebzehn Einträge über drei Schichten, eine volle Stunde in der Mitte und zwei Stufen, die anheften: ein gewöhnlicher Tag."
+  },
+  "demos": {
+    "board": "Ein gewöhnlicher Tag"
+  },
+  "scenario": "Siebzehn Einträge, verteilt auf die Schicht, die vorbei ist, die Schicht, die um 10:30 läuft, und die Schicht, die noch kommt. Fünf davon sind <code>critical</code>, die Stufe, die anheftet, sobald sie aus dem Bild scrollt, und vier beginnen am späten Vormittag innerhalb einer halben Stunde. Es ist der Tag, gegen den die meisten Tests des Pakets geschrieben sind, und damit der, mit dem die anderen zu vergleichen sind.",
+  "look": [
+    "Drei Schichten werden gezeichnet: eine vor der aktuellen, die aktuelle und eine danach. Die aktuelle ist die, in der 10:30 liegt.",
+    "Die „Jetzt“-Anzeige steht auf dem Zeitstrahl bei 10:30, zwischen den abgeschlossenen Einträgen und denen, die noch nicht begonnen haben.",
+    "Beide Ansichten ordnen die Einträge gleich — nach Startzeit, dann nach Stufe, dann nach Id —, ein Ansichtswechsel mischt den Tag also nie neu.",
+    "Der kompakte Modus lässt nichts weg: Die Karten werden schmaler, die Chips kürzer, und der Zeitstrahl begrenzt sich auf eine Spalte."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Schichten und Daten</link> — zwölfstündige Schichten mit Anker 08:00, eine vor und eine nach der aktuellen.",
+    "<link to=\"/items-and-levels/\">Einträge und Stufen</link> — die klassische Skala mit neun Stufen, die Farbe, Reihenfolge und Kartendarstellung bestimmt.",
+    "<link to=\"/now-indicator/\">„Jetzt“-Anzeige</link> — die Linie bei 10:30, nur in der Schicht gezeichnet, die sie enthält.",
+    "<link to=\"/scheduler-and-views/\">Scheduler und Ansichten</link> — die beiden Ansichten und der Umschalter, den diese Seite dafür baut."
+  ]
 }

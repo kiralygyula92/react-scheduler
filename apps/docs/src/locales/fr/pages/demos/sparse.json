@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Journée peu chargée",
-    "description": "Une démo React Scheduler sur le jeu Journée peu chargée : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Journée calme",
+    "description": "Un élément par poste : une journée calme, sous le seuil d’apparition des boutons de navigation."
+  },
+  "demos": {
+    "board": "Une journée calme"
+  },
+  "scenario": "Trois éléments, un dans chaque poste dessiné. Une journée calme mérite d’être conçue : c’est à cela que ressemble une installation neuve, et la plupart des journées dans une petite équipe.",
+  "look": [
+    "Aucun bouton de navigation. Ils apparaissent à partir de cinq éléments dans un poste, et trois postes d’un élément en sont loin.",
+    "La chronologie garde toute la hauteur du poste. Une heure est une heure, qu’il s’y passe quelque chose ou non.",
+    "La vue liste retire le temps vide entre les éléments : c’est là toute la différence entre les deux vues une journée calme.",
+    "Un élément porte une étiquette ; les autres, aucune."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Navigation</link> — le seuil, et ce que font les boutons une fois là.",
+    "<link to=\"/timeline-view/\">Vue chronologique</link> — le temps comme distance, heures vides comprises.",
+    "<link to=\"/list-view/\">Vue liste</link> — les mêmes éléments, sans le temps vide."
+  ]
 }

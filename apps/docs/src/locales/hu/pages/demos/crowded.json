@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Zsúfolt nap",
-    "description": "React Scheduler demó a(z) Zsúfolt nap adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Zsúfolt nap",
+    "description": "Hét elem ugyanazon a két órán: az oszlopkorlát, az előléptetés és a további elemek jelvénye."
+  },
+  "demos": {
+    "board": "Hét elem, egy óra"
+  },
+  "scenario": "Öt elem 09:00-kor indul és 10:30-ig tart; további kettő rájuk lóg; egy pedig magában áll délután. Itt kell az idővonalnak eldöntenie, mit nem tud kirajzolni, és a döntés mindig ugyanaz: három oszlop, a legerősebb elöl, a többi egy jelvény mögött.",
+  "look": [
+    "Legfeljebb három oszlop — ez az alapértelmezett korlát; kompakt módban egyre csökken.",
+    "A <code>critical</code> elem fél órával az előtte lévő öt után indul, így mire megérkezik, az oszlopok tele vannak. Mégis előlép egybe, és az ott lévő leggyengébb adja át a helyét.",
+    "Ami nem fér el, egy <strong>Továbbiak</strong> jelvénybe kerül. Megnyitva táblázatot ad azokból az elemekből, a legerősebbel az élen, sok elem esetén lapozva.",
+    "A listanézetnek nincs korlátja — ehhez nyúlj, ha minden elemnek egyszerre látszania kell."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">További elemek</link> — a korlát, az előléptetés és a jelvény mögötti párbeszédpanel.",
+    "<link to=\"/timeline-view/\">Idővonal nézet</link> — az oszlopok, és hogy hogyan kerül egy elem az egyikbe.",
+    "<link to=\"/items-and-levels/\">Elemek és szintek</link> — melyik elem számít a legerősebbnek.",
+    "<link to=\"/compact/\">Kompakt mód</link> — ugyanaz az óra egyetlen oszloppal."
+  ]
 }

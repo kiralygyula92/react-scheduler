@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Grand planning",
-    "description": "Une démo React Scheduler sur le jeu Grand planning : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Grand planning",
+    "description": "240 éléments sur trois postes : la taille à laquelle le budget de performance du paquet est mesuré."
+  },
+  "demos": {
+    "board": "240 éléments"
+  },
+  "scenario": "240 éléments sur les trente-six heures que couvrent les trois postes. C’est la taille à laquelle le paquet se mesure, et c’est délibérément plus qu’une personne n’en lirait : ce qui est montré, c’est que le composant tient encore à cette taille, pas qu’une journée doive ressembler à cela.",
+  "look": [
+    "Chaque élément est rendu. Le planning ne virtualise pas : ce que vous faites défiler est réellement dans la page.",
+    "Aux heures chargées, c’est le plafond de colonnes qui travaille ; sans lui, la chronologie serait illisible bien avant 240 éléments.",
+    "La vue liste regroupe ces mêmes 240 éléments par poste, ce qui est la façon la plus rapide de lire une journée aussi pleine.",
+    "Changer de vue, de schéma ou de densité les remet tous en place d’un coup."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Éléments supplémentaires</link> — ce qui garde une heure chargée lisible à cette taille.",
+    "<link to=\"/list-view/\">Vue liste</link> — la vue pour une longue journée.",
+    "<link to=\"/data-modes-and-ssr/\">Modes de données et SSR</link> — d’où viennent les éléments et ce que fait le composant pendant qu’ils arrivent."
+  ]
 }

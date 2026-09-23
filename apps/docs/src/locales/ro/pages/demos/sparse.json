@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Zi cu puține elemente",
-    "description": "O demonstrație React Scheduler pe setul Zi cu puține elemente: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Zi liniștită",
+    "description": "Un element pe tură: o zi liniștită, sub pragul de la care apar butoanele de navigare."
+  },
+  "demos": {
+    "board": "O zi liniștită"
+  },
+  "scenario": "Trei elemente, câte unul în fiecare tură desenată. O zi liniștită merită proiectată: așa arată o instalare nouă și așa arată majoritatea zilelor într-o echipă mică.",
+  "look": [
+    "Niciun buton de navigare. Apar de la cinci elemente într-o tură, iar trei ture cu câte unul nu se apropie.",
+    "Cronologia păstrează toată înălțimea turei. O oră este o oră, indiferent dacă are ceva în ea.",
+    "Vizualizarea listă scoate timpul gol dintre elemente, iar asta este diferența dintre cele două vizualizări într-o zi liniștită.",
+    "Un element poartă o etichetă; celelalte niciuna."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Navigare</link> — pragul, și ce fac butoanele odată apărute.",
+    "<link to=\"/timeline-view/\">Vizualizarea cronologică</link> — timpul ca distanță, cu tot cu orele goale.",
+    "<link to=\"/list-view/\">Vizualizare listă</link> — aceleași elemente, cu timpul gol scos."
+  ]
 }

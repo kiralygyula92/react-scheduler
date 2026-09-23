@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
-// The conformance gate (docs pack 07 §6). Enforced here: C1–C4, C6, C8–C11 and C13–C15. C5 waits
-// for the last capability page and C7 for the Playground; both report as pending, so the list always
-// shows what is and is not being enforced yet.
+// The conformance gate (docs pack 07 §6). Enforced here: C1–C6, C8–C11 and C13–C15. C7 waits for the
+// Playground and reports as pending, so the list always shows what is and is not being enforced yet.
 //
 // Usage: node scripts/check-conformance.ts   (after `pnpm --filter docs build` for C3, C4 and C11)
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
@@ -192,6 +191,30 @@ function c4(): void {
     for (const id of required) if (!present.has(id)) problems.push(`${item.page}: section "${id}" is missing`);
   }
   record('C4', "every template's required sections are present", problems);
+}
+
+// C5 — every capability page opens with a demo in Basics and carries Limitations and API.
+function c5(): void {
+  const problems: string[] = [];
+  for (const item of flat()) {
+    if (item.template !== 'T6') continue;
+    const html = pageFile('en', item.path, 'index.html');
+    if (!existsSync(html)) {
+      problems.push(`${item.page}: not prerendered`);
+      continue;
+    }
+    const body = readFileSync(html, 'utf8');
+    for (const id of ['limitations', 'api']) {
+      if (!new RegExp(`<h[23][^>]*\\bid="${id}"`).test(body)) problems.push(`${item.page}: section "${id}" is missing`);
+    }
+    // The demo has to be inside Basics, not further down the page: the reader meets the component
+    // before the prose about it (docs pack 03 §3.6).
+    const basics = body.indexOf('id="basics"');
+    const next = body.indexOf('<h2', basics + 1);
+    const section = basics < 0 ? '' : body.slice(basics, next < 0 ? undefined : next);
+    if (!section.includes('ds-demo')) problems.push(`${item.page}: no demo in the Basics section`);
+  }
+  record('C5', 'capability pages have a demo in Basics, limitations and api', problems);
 }
 
 // C8 — the shell matches the reference checksum.
@@ -430,7 +453,7 @@ function main(): number {
   c2();
   c3();
   c4();
-  pending('C5', 'capability pages have a demo, limitations and api', 'M5');
+  c5();
   c6();
   pending('C7', 'every public prop is in the Playground', 'M6');
   c8();

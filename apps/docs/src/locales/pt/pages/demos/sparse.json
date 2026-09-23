@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Dia com poucos elementos",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Dia com poucos elementos: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Dia calmo",
+    "description": "Um elemento por turno: um dia calmo, abaixo do limiar em que surgem os botões de navegação."
+  },
+  "demos": {
+    "board": "Um dia calmo"
+  },
+  "scenario": "Três elementos, um em cada turno desenhado. Um dia calmo merece ser desenhado: é assim que se vê uma instalação nova, e assim são a maioria dos dias numa equipa pequena.",
+  "look": [
+    "Nenhum botão de navegação. Aparecem a partir de cinco elementos num turno, e três turnos de um não chegam lá perto.",
+    "A cronologia mantém toda a altura do turno. Uma hora é uma hora, tenha ou não alguma coisa dentro.",
+    "A vista de lista retira o tempo vazio entre os elementos, que é a diferença entre as duas vistas num dia calmo.",
+    "Um elemento traz uma etiqueta; os outros, nenhuma."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Navegação</link> — o limiar, e o que fazem os botões depois de aparecerem.",
+    "<link to=\"/timeline-view/\">Vista cronológica</link> — o tempo como distância, horas vazias incluídas.",
+    "<link to=\"/list-view/\">Vista de lista</link> — os mesmos elementos, sem o tempo vazio."
+  ]
 }

@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Poste de nuit",
-    "description": "Une démo React Scheduler sur le jeu Poste de nuit : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Poste de nuit",
+    "description": "Un planning lu à 02:00, où le poste courant a commencé à 20:00 la veille."
+  },
+  "demos": {
+    "board": "Un poste à cheval sur minuit"
+  },
+  "scenario": "Il est 02:00, les postes durent douze heures et sont ancrés à 08:00 : le poste lu a donc commencé à 20:00 hier soir et se termine à 08:00 ce matin. Un planning qui traite la journée de minuit à minuit casse ici ; celui-ci non.",
+  "look": [
+    "Le poste courant traverse minuit : il va de 20:00 hier à 08:00 aujourd’hui, et ses éléments sont des deux côtés du changement de date.",
+    "L’indicateur « maintenant » est à 02:00, six heures après le début du poste et non deux heures après le début du jour.",
+    "Les titres restent relatifs — précédent, courant, suivant. Quel poste est courant vient de l’horloge, pas du calendrier.",
+    "Rien ici n’est un réglage pour le travail de nuit : le même ancrage et la même durée placent chaque poste, à n’importe quelle heure."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Postes et dates</link> — l’ancrage, la durée, et quel poste compte comme courant.",
+    "<link to=\"/now-indicator/\">Indicateur « maintenant »</link> — la ligne, et le poste où elle est tracée.",
+    "<link to=\"/customization/localization/\">Localisation</link> — les dates et les heures, formatées avec la langue du pack."
+  ]
 }

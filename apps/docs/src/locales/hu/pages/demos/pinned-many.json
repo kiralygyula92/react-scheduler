@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Sok rögzített elem",
-    "description": "React Scheduler demó a(z) Sok rögzített elem adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Sok rögzített elem",
+    "description": "Hat elem egy rögzülő szintről a lezárult műszakban, és hogy mit kezd velük a rögzítősáv."
+  },
+  "demos": {
+    "board": "Hat elem, amely rögzül"
+  },
+  "scenario": "Hat <code>critical</code> elem a lezárult műszakban, hat <code>routine</code> a most futóban. A klasszikus skálán a <code>critical</code> az egyetlen rögzülő szint, így ez az az adatkészlet, amely a rögzítősávot terhelés alatt mutatja, nem egyetlen jelvénnyel.",
+  "look": [
+    "Görgesd a beosztást: a kritikus elemek, ahogy kicsúsznak fölül, rögzülnek — abban a sorrendben, ahogy elhagyták a képet.",
+    "A rutin elemek soha nem rögzülnek, bármeddig is görgetsz. A rögzítés a szint tulajdonsága, nem az elemé.",
+    "A sáv egyetlen sor. Amikor a jelvények kinövik, oldalra görgethető, mindkét szélén elhalványulással, a rögzítettek számát pedig változáskor halkan bemondja.",
+    "A rögzített elem a helyén marad a beosztásban; a jelvény a második nézete, nem áthelyezés."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Rögzítés</link> — mely szintek rögzülnek, hol, és mit csinál a sáv, ha megtelik.",
+    "<link to=\"/items-and-levels/\">Elemek és szintek</link> — a <code>pinOnPass</code> és a szintdefiníció többi része.",
+    "<link to=\"/timeline-view/\">Idővonal nézet</link> — a görgethető terület, amelyből az elemek kicsúsznak."
+  ]
 }

@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Démos",
-    "description": "Démos de scénarios React Scheduler, chacune combinant plusieurs capacités, et le playground pour tester les props."
-  }
+    "description": "Huit journées de planning, d’une journée vide à une journée de 240 éléments, plus le bac à sable pour essayer les props."
+  },
+  "scope": "Chacune est une journée, construite à partir des mêmes jeux de données qui servent à tester le paquet, avec la vue, le schéma de couleurs et la densité entre vos mains. Elles se lisent avec les pages de capacités : un scénario montre plusieurs capacités à la fois, une page de capacité en explique une."
 }

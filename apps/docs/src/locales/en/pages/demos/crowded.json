@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Crowded day",
-    "description": "A React Scheduler demo on the Crowded day fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Crowded day",
+    "description": "Seven items over the same two hours: the column cap, the promotion and the overflow chip."
+  },
+  "demos": {
+    "board": "Seven items, one hour"
+  },
+  "scenario": "Five items start at 09:00 and run to 10:30; two more overlap them; one sits alone in the afternoon. This is where a timeline has to decide what it cannot draw, and the decision is the same every time: three columns, strongest first, and the rest behind a chip.",
+  "look": [
+    "Three columns at most, which is the default cap; in compact mode it drops to one.",
+    "The <code>critical</code> item starts half an hour after the five before it, so the columns are full by the time it arrives. It is promoted into one anyway, and the weakest item there gives up its place.",
+    "What does not fit collapses into a <strong>More</strong> chip. Opening it gives a table of those items, strongest first, paged when there are many.",
+    "The list view has no cap at all — it is the view to reach for when every item has to be visible at once."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Overflow</link> — the cap, the promotion and the dialog behind the chip.",
+    "<link to=\"/timeline-view/\">Timeline view</link> — columns, and how an item is placed in one.",
+    "<link to=\"/items-and-levels/\">Items and levels</link> — which item counts as the strongest.",
+    "<link to=\"/compact/\">Compact</link> — the same hour with one column."
+  ]
 }

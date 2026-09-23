@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Demonstrații",
-    "description": "Demonstrații React Scheduler pe scenarii, fiecare din mai multe funcționalități, plus zona de testare a proprietăților."
-  }
+    "description": "Opt zile de program, de la una goală la una cu 240 de elemente, plus terenul de joacă pentru încercat proprietăți."
+  },
+  "scope": "Fiecare dintre acestea este o zi, construită din aceleași seturi de date pe care este testat pachetul, cu vizualizarea, schema de culoare și densitatea în mâinile tale. Sunt de citit împreună cu paginile de capabilități: un scenariu arată cum arată mai multe capabilități deodată, o pagină de capabilitate explică una singură."
 }

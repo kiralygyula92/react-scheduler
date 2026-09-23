@@ -6,7 +6,7 @@ export { Callout, type Tone } from './Callout';
 export { type Card, CardGrid } from './CardGrid';
 export { Code, type CodeLanguage, type CodeProps } from './Code';
 export { Demo } from './Demo';
-export { FeatureGrid } from './FeatureGrid';
+export { FeatureGrid, PageCards } from './FeatureGrid';
 export { Inline } from './Inline';
 export { Kbd } from './Kbd';
 export { List } from './List';

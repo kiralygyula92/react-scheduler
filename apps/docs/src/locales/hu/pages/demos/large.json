@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Nagy ütemterv",
-    "description": "React Scheduler demó a(z) Nagy ütemterv adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Nagy beosztás",
+    "description": "240 elem három műszakon: ez az a méret, amelyen a csomag teljesítménykerete mérve van."
+  },
+  "demos": {
+    "board": "240 elem"
+  },
+  "scenario": "240 elem azon a harminchat órán, amelyet a három műszak lefed. Ez az a méret, amelyen a csomag méri magát, és szándékosan több, mint amennyit egy ember elolvasna: azt mutatja, hogy a komponens ekkora méretben is rendben viselkedik, nem azt, hogy egy napnak így kellene kinéznie.",
+  "look": [
+    "Minden elem kirajzolódik. A beosztás nem virtualizál, tehát amin végiggörgetsz, valóban ott van a lapon.",
+    "A zsúfolt órákban az oszlopkorlát végzi a munkát; nélküle az idővonal jóval 240 elem előtt olvashatatlanná válna.",
+    "A listanézet ugyanazt a 240 elemet műszakonként csoportosítja, és ez a gyorsabb út egy ilyen teli nap elolvasásához.",
+    "A nézet, a séma vagy a sűrűség váltása mindet egyszerre rakja ki újra."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">További elemek</link> — ami ekkora méretben is olvashatóvá teszi a zsúfolt órát.",
+    "<link to=\"/list-view/\">Listanézet</link> — a hosszú naphoz való nézet.",
+    "<link to=\"/data-modes-and-ssr/\">Adatmódok és SSR</link> — honnan jönnek az elemek, és mit csinál a komponens, amíg úton vannak."
+  ]
 }

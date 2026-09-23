@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Zi aglomerată",
-    "description": "O demonstrație React Scheduler pe setul Zi aglomerată: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Zi aglomerată",
+    "description": "Șapte elemente peste aceleași două ore: plafonul de coloane, promovarea și cipul de suplimentare."
+  },
+  "demos": {
+    "board": "Șapte elemente, o oră"
+  },
+  "scenario": "Cinci elemente încep la 09:00 și țin până la 10:30; încă două se suprapun peste ele; unul stă singur după-amiaza. Aici o cronologie trebuie să decidă ce nu poate desena, iar decizia este de fiecare dată aceeași: trei coloane, cel mai puternic întâi, iar restul în spatele unui cip.",
+  "look": [
+    "Cel mult trei coloane, care este plafonul implicit; în modul compact coboară la una.",
+    "Elementul <code>critical</code> începe cu o jumătate de oră după cele cinci dinaintea lui, deci coloanele sunt pline când ajunge. Este promovat în una oricum, iar cel mai slab de acolo își cedează locul.",
+    "Ce nu încape se strânge într-un cip <strong>Mai multe</strong>. Deschis, dă un tabel cu acele elemente, cel mai puternic întâi, paginat când sunt multe.",
+    "Vizualizarea listă nu are niciun plafon — este vizualizarea la care apelezi când fiecare element trebuie să se vadă deodată."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Suplimentare</link> — plafonul, promovarea și dialogul din spatele cipului.",
+    "<link to=\"/timeline-view/\">Vizualizarea cronologică</link> — coloanele și felul în care un element ajunge într-una.",
+    "<link to=\"/items-and-levels/\">Elemente și niveluri</link> — care element contează drept cel mai puternic.",
+    "<link to=\"/compact/\">Mod compact</link> — aceeași oră cu o singură coloană."
+  ]
 }

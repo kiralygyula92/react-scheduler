@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Data passada",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Data passada: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Data passada",
+    "description": "Um dia dois dias atrás do relógio: tudo já aconteceu e não há indicador de «agora»."
+  },
+  "demos": {
+    "board": "Um dia já terminado"
+  },
+  "scenario": "O horário mostra um dia dois dias antes do atual. Todos os elementos já aconteceram, por isso a pergunta que o componente tem de responder é o que significa um horário de que nada está à sua frente.",
+  "look": [
+    "Nenhum indicador de «agora». Só é desenhado no turno que contém o momento atual, e esse turno está a dois dias daqui.",
+    "Nada é esbatido por já ter passado. Só o nível <code>resolved</code> é desenhado em surdina, e isso vale em qualquer dia.",
+    "Os títulos continuam a ser anterior, atual e seguinte: são relativos à data mostrada, não a hoje.",
+    "A navegação e a fixação comportam-se exatamente como no dia atual."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Turnos e datas</link> — a data selecionada e os turnos desenhados à sua volta.",
+    "<link to=\"/now-indicator/\">Indicador de «agora»</link> — a regra que o mantém fora desta página.",
+    "<link to=\"/pinning/\">Fixação</link> — os elementos herdados, num dia que está inteiramente para trás."
+  ]
 }

@@ -16,6 +16,7 @@
     "api": "API"
   },
   "demos": {
+    "basic": "A részletek alapból",
     "custom": "A részletnézet lecserélve"
   },
   "basics": {

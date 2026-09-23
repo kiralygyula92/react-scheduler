@@ -31,6 +31,17 @@ function Cards({ items }: { items: readonly NavItem[] }): React.ReactElement {
   );
 }
 
+/**
+ * The cards of one sidebar section, for the index pages that open it (T7 and its siblings): every
+ * page of the section in the sidebar's own order, minus the index itself.
+ */
+export function PageCards({ section, exclude }: { section: string; exclude?: string }): React.ReactElement {
+  const items = (sections.find((entry) => entry.id === section)?.items ?? []).flatMap((entry) =>
+    isGroup(entry) ? entry.items : [entry],
+  );
+  return <Cards items={items.filter((item) => item.page !== exclude)} />;
+}
+
 export function FeatureGrid({ ns }: { ns: string }): React.ReactElement {
   const common = useT('common');
   const groups = (sections.find((section) => section.id === 'features')?.items ?? []).filter(

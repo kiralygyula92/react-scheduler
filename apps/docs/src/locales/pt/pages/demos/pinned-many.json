@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Muitos elementos fixados",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Muitos elementos fixados: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Muitos elementos fixados",
+    "description": "Seis elementos de um nível que fixa no turno já terminado, e o que a faixa de fixados faz com eles."
+  },
+  "demos": {
+    "board": "Seis elementos que fixam"
+  },
+  "scenario": "Seis elementos <code>critical</code> no turno já terminado, seis <code>routine</code> no que corre agora. <code>critical</code> é o único nível da escala clássica que fixa, por isso este é o conjunto que mostra uma faixa de fixados sob carga e não com um só chip.",
+  "look": [
+    "Desloque o horário: os elementos críticos que saem por cima fixam-se, pela ordem por que saíram.",
+    "Os elementos de rotina nunca fixam, por mais que desloque. A fixação é uma propriedade do nível, não do elemento.",
+    "A faixa é uma única linha. Quando os chips a excedem, desloca-se na horizontal, com um esbatimento em cada extremo a dizê-lo, e o número de fixados é anunciado discretamente à medida que muda.",
+    "Um elemento fixado continua no seu lugar no horário; o chip é uma segunda vista dele, não uma mudança."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Fixação</link> — que níveis fixam, onde, e o que faz a faixa quando enche.",
+    "<link to=\"/items-and-levels/\">Elementos e níveis</link> — <code>pinOnPass</code> e o resto de uma definição de nível.",
+    "<link to=\"/timeline-view/\">Vista cronológica</link> — a zona deslocável de onde os elementos saem."
+  ]
 }

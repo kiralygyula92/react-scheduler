@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Horário grande",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Horário grande: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Horário grande",
+    "description": "240 elementos em três turnos: o tamanho a que o orçamento de desempenho do pacote é medido."
+  },
+  "demos": {
+    "board": "240 elementos"
+  },
+  "scenario": "240 elementos nas trinta e seis horas que os três turnos cobrem. É o tamanho a que o pacote se mede e é de propósito mais do que uma pessoa leria: o que se mostra é que o componente continua a comportar-se a esse tamanho, não que um dia deva ser assim.",
+  "look": [
+    "Todos os elementos são renderizados. O horário não virtualiza, por isso o que percorre está mesmo na página.",
+    "Nas horas cheias, o trabalho é do limite de colunas; sem ele, a cronologia seria ilegível muito antes dos 240 elementos.",
+    "A vista de lista agrupa os mesmos 240 elementos por turnos, que é a forma mais rápida de ler um dia assim tão cheio.",
+    "Mudar a vista, o esquema ou a densidade volta a dispô-los todos de uma vez."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Elementos adicionais</link> — o que mantém legível uma hora cheia a este tamanho.",
+    "<link to=\"/list-view/\">Vista de lista</link> — a vista para um dia longo.",
+    "<link to=\"/data-modes-and-ssr/\">Modos de dados e SSR</link> — de onde vêm os elementos e o que faz o componente enquanto eles estão a caminho."
+  ]
 }

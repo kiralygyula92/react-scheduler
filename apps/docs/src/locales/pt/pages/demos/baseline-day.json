@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Dia de referência",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Dia de referência: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Dia de referência",
+    "description": "Dezassete elementos em três turnos, uma hora cheia a meio e dois níveis que fixam: um dia vulgar."
+  },
+  "demos": {
+    "board": "Um dia vulgar"
+  },
+  "scenario": "Dezassete elementos repartidos pelo turno que já acabou, o que corre às 10:30 e o que ainda está para vir. Cinco deles são <code>critical</code>, o nível que fixa assim que sai de vista, e quatro começam com menos de meia hora de diferença ao fim da manhã. É o dia com que está escrita a maior parte dos testes do pacote, por isso é o dia com que comparar os outros.",
+  "look": [
+    "São desenhados três turnos: um antes do atual, o atual e um depois. O atual é o que contém as 10:30.",
+    "O indicador de «agora» fica às 10:30 na cronologia, entre os elementos terminados e os que ainda não começaram.",
+    "As duas vistas colocam os elementos pela mesma ordem — por hora de início, depois por nível, depois por id —, por isso mudar de vista nunca baralha o dia.",
+    "O modo compacto não retira nada: os cartões estreitam, os chips encurtam e a cronologia limita-se a uma coluna."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Turnos e datas</link> — turnos de doze horas ancorados às 08:00, um antes e um depois do atual.",
+    "<link to=\"/items-and-levels/\">Elementos e níveis</link> — a escala clássica de nove níveis, que decide a cor, a ordem e o tratamento do cartão.",
+    "<link to=\"/now-indicator/\">Indicador de «agora»</link> — a linha das 10:30, desenhada apenas no turno que a contém.",
+    "<link to=\"/scheduler-and-views/\">Scheduler e vistas</link> — as duas vistas e o comutador que esta página constrói para elas."
+  ]
 }

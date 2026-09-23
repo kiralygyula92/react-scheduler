@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Date passée",
-    "description": "Une démo React Scheduler sur le jeu Date passée : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Date passée",
+    "description": "Une journée deux jours derrière l’horloge : tout est déjà arrivé, et il n’y a pas d’indicateur « maintenant »."
+  },
+  "demos": {
+    "board": "Une journée déjà finie"
+  },
+  "scenario": "Le planning montre une journée deux jours avant la journée courante. Chaque élément a déjà eu lieu : la question à laquelle le composant doit répondre est ce que signifie un planning dont rien n’est devant vous.",
+  "look": [
+    "Aucun indicateur « maintenant ». Il n’est tracé que dans le poste qui contient l’instant présent, et ce poste est à deux jours d’ici.",
+    "Rien n’est atténué parce que c’est passé. Seul le niveau <code>resolved</code> est dessiné en sourdine, et c’est vrai n’importe quel jour.",
+    "Les titres restent précédent, courant et suivant : ils sont relatifs à la date affichée, pas à aujourd’hui.",
+    "La navigation et l’épinglage se comportent exactement comme le jour courant."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Postes et dates</link> — la date sélectionnée et les postes dessinés autour d’elle.",
+    "<link to=\"/now-indicator/\">Indicateur « maintenant »</link> — la règle qui le tient hors de cette page.",
+    "<link to=\"/pinning/\">Épinglage</link> — les éléments repris, dans une journée entièrement derrière."
+  ]
 }

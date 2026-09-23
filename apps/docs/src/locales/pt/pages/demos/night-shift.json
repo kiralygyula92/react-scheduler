@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Turno da noite",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Turno da noite: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Turno da noite",
+    "description": "Um horário lido às 02:00, onde o turno atual começou às 20:00 do dia anterior."
+  },
+  "demos": {
+    "board": "Um turno através da meia-noite"
+  },
+  "scenario": "São 02:00, os turnos duram doze horas e estão ancorados às 08:00, por isso o turno que se lê começou às 20:00 de ontem e acaba às 08:00 desta manhã. Um horário que trata o dia de meia-noite a meia-noite parte-se aqui; este não.",
+  "look": [
+    "O turno atual atravessa a meia-noite: vai das 20:00 de ontem às 08:00 de hoje, e os seus elementos estão dos dois lados da mudança de data.",
+    "O indicador de «agora» está às 02:00, seis horas dentro do turno e não duas horas dentro do dia.",
+    "Os títulos continuam relativos — anterior, atual, seguinte. Qual é o turno atual vem do relógio, não do calendário.",
+    "Nada disto é uma definição para trabalho noturno: a mesma âncora e a mesma duração colocam todos os turnos, a qualquer hora."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Turnos e datas</link> — a âncora, a duração e que turno conta como o atual.",
+    "<link to=\"/now-indicator/\">Indicador de «agora»</link> — a linha e o turno em que é desenhada.",
+    "<link to=\"/customization/localization/\">Localização</link> — as datas e as horas, formatadas com o idioma do pacote."
+  ]
 }

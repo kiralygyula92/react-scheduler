@@ -16,6 +16,7 @@
     "api": "API"
   },
   "demos": {
+    "basic": "Detaliul așa cum vine",
     "custom": "Detaliul, înlocuit"
   },
   "basics": {

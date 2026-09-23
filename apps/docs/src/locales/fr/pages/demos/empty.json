@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Planning vide",
-    "description": "Une démo React Scheduler sur le jeu Planning vide : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Planning vide",
+    "description": "Aucun élément : l’état vide, dans la langue de la page, et les boutons qui ne sont pas dessinés."
+  },
+  "demos": {
+    "board": "Une journée sans rien"
+  },
+  "scenario": "La même journée, les mêmes postes, et pas un élément. Un planning vide n’est ni une erreur ni un indicateur de chargement : c’est la forme de la journée sans rien dedans, exactement ce que le lecteur doit voir avant le premier élément.",
+  "look": [
+    "Le message vient du pack de langue : il est donc dans la langue de cette page. <link to=\"/customization/localization/\">Localisation</link> montre comment le remplacer.",
+    "Aucun bouton de navigation : sans rien où aller, ils ne seraient que désactivés.",
+    "Les deux vues s’y prennent autrement : la chronologie garde ses heures et pose le message par-dessus, la liste lui cède ses sections.",
+    "Le schéma de couleurs et la densité s’appliquent toujours. Un planning vide reste un planning thémé."
+  ],
+  "uses": [
+    "<link to=\"/states/\">États</link> — l’état vide, à côté du chargement et de l’erreur.",
+    "<link to=\"/customization/localization/\">Localisation</link> — chaque texte ici, celui-ci compris, vient du pack.",
+    "<link to=\"/navigation/\">Navigation</link> — le seuil qui tient les boutons à l’écart."
+  ]
 }

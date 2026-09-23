@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Großer Plan",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Großer Plan: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Großer Plan",
+    "description": "240 Einträge über drei Schichten: die Größe, an der das Leistungsbudget des Pakets gemessen wird."
+  },
+  "demos": {
+    "board": "240 Einträge"
+  },
+  "scenario": "240 Einträge über die sechsunddreißig Stunden, die die drei Schichten abdecken. Es ist die Größe, an der sich das Paket misst, und bewusst mehr, als ein Mensch lesen würde: Gezeigt wird, dass die Komponente auch so noch trägt, nicht dass ein Tag so aussehen sollte.",
+  "look": [
+    "Jeder Eintrag wird gerendert. Der Plan virtualisiert nicht, was Sie durchscrollen, steht also wirklich in der Seite.",
+    "In den vollen Stunden leistet die Spaltengrenze die Arbeit; ohne sie wäre der Zeitstrahl lange vor 240 Einträgen unlesbar.",
+    "Die Listenansicht gruppiert dieselben 240 Einträge nach Schichten — der schnellere Weg, einen so vollen Tag zu lesen.",
+    "Ein Wechsel von Ansicht, Schema oder Dichte legt sie alle auf einmal neu aus."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Weitere Einträge</link> — was eine volle Stunde in dieser Größe lesbar hält.",
+    "<link to=\"/list-view/\">Listenansicht</link> — die Ansicht für einen langen Tag.",
+    "<link to=\"/data-modes-and-ssr/\">Datenmodi und SSR</link> — woher die Einträge kommen und was die Komponente tut, während sie unterwegs sind."
+  ]
 }

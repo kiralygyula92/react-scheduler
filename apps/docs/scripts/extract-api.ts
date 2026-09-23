@@ -13,6 +13,7 @@ import { resolve } from 'node:path';
 import ts from 'typescript-api';
 import { nav, pages } from './lib/nav.ts';
 import { writeReference } from './lib/reference.ts';
+import { writeFixtures } from './lib/fixtures.ts';
 import { writeSummaries } from './lib/summaries.ts';
 
 const packageRoot = resolve(import.meta.dirname, '..', '..', '..', 'packages', 'react-scheduler');
@@ -396,6 +397,7 @@ async function main(): Promise<number> {
   );
   console.log(`api: ${String(reference.pages)} reference pages`);
   console.log(`api: ${String(writeSummaries())} page summaries × 7 locales`);
+  console.log(`api: ${String(writeFixtures())} scenario fixtures`);
   return 0;
 }
 

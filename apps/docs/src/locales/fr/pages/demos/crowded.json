@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Journée chargée",
-    "description": "Une démo React Scheduler sur le jeu Journée chargée : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Journée chargée",
+    "description": "Sept éléments sur les deux mêmes heures : le plafond de colonnes, la promotion et la puce des éléments supplémentaires."
+  },
+  "demos": {
+    "board": "Sept éléments, une heure"
+  },
+  "scenario": "Cinq éléments commencent à 09:00 et courent jusqu’à 10:30 ; deux autres les chevauchent ; un dernier est seul l’après-midi. C’est ici qu’une chronologie doit décider ce qu’elle ne peut pas dessiner, et la décision est toujours la même : trois colonnes, le plus fort d’abord, le reste derrière une puce.",
+  "look": [
+    "Trois colonnes au plus, le plafond par défaut ; en mode compact il tombe à une.",
+    "L’élément <code>critical</code> commence une demi-heure après les cinq précédents : les colonnes sont donc pleines à son arrivée. Il y est promu malgré tout, et le plus faible qui s’y trouve cède sa place.",
+    "Ce qui ne tient pas se replie dans une puce <strong>Plus</strong>. En l’ouvrant, on obtient un tableau de ces éléments, le plus fort d’abord, paginé quand ils sont nombreux.",
+    "La vue liste n’a aucun plafond — c’est la vue à choisir quand chaque élément doit être visible en même temps."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Éléments supplémentaires</link> — le plafond, la promotion et la boîte de dialogue derrière la puce.",
+    "<link to=\"/timeline-view/\">Vue chronologique</link> — les colonnes, et comment un élément y est placé.",
+    "<link to=\"/items-and-levels/\">Éléments et niveaux</link> — quel élément compte comme le plus fort.",
+    "<link to=\"/compact/\">Mode compact</link> — la même heure sur une seule colonne."
+  ]
 }

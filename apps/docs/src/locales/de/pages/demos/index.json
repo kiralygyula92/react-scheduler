@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Demos",
-    "description": "Szenario-Demos von React Scheduler, jede aus mehreren Fähigkeiten, dazu der Playground zum Ausprobieren der Props."
-  }
+    "description": "Acht Tage eines Plans, vom leeren Tag bis zu einem mit 240 Einträgen, dazu der Spielplatz zum Ausprobieren der Props."
+  },
+  "scope": "Jede davon ist ein Tag, gebaut aus denselben Datensätzen, gegen die das Paket getestet wird, mit Ansicht, Farbschema und Dichte in Ihrer Hand. Sie gehören zu den Fähigkeitsseiten: ein Szenario zeigt mehrere Fähigkeiten auf einmal, eine Fähigkeitsseite erklärt eine davon."
 }
