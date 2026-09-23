@@ -1,14 +1,29 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Slotok és felülírások",
-    "description": "Slotok és felülírások a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+    "description": "A komponens minden cserélhető része, mit kap egy slot, és egy kidolgozott példa."
   },
   "sections": {
     "slots": "Slotok",
     "example": "Példa"
+  },
+  "demos": {
+    "slots": "Két rész, lecserélve"
+  },
+  "intro": "A slot lecseréli egy rész komponensét, de megtartja a helyét, a propjait és a viselkedését. A komponensed mindent megkap, amit a beépített kapott volna:",
+  "rules": [
+    "Terítsd szét a kapott propokat. Ezek viszik az osztályneveket, az adatattribútumot, az eseménykezelőket és az akadálymentes nevet.",
+    "Csatold a <code>ref</code> értéket, ha van: a rögzítés, a mérés és a fókusz ezen múlik.",
+    "Az <code>ownerState</code> megmondja, mihez jelenik meg a rész — a nézet, a séma, az elem, a műszak —, így egyetlen slot másként viselkedhet a listában és az idővonalon.",
+    "A <code>Default</code> a beépített komponens, ha inkább köré írnál, mint hogy lecseréld.",
+    "A render prop győz a slottal szemben ugyanarra a tartalomra: a <code>renderItem</code> az egész kártyát lecseréli, és onnantól a kártya részei a te dolgod."
+  ],
+  "table": "A részek, a csomag deklarációiból előállítva:",
+  "example": {
+    "intro": "Itt a szintjelölő a beépített köré tekert saját komponens, a <strong>+ még</strong> jelvény pedig csak egy stílust kap — a két legkönnyebb felülírás, egymás mellett."
   }
 }

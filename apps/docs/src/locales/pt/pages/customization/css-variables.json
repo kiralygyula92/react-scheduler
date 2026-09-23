@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Variáveis CSS",
-    "description": "Variáveis CSS no React Scheduler: o que pode alterar, como alterar e o que cada alteração afeta."
+    "description": "Cada token de design do React Scheduler, com o seu valor por omissão claro e escuro, gerado a partir da folha de estilos do pacote."
   },
   "sections": {
     "variables": "Variáveis"
+  },
+  "intro": "Cada valor visual do componente é uma propriedade personalizada na sua raiz. São a forma mais leve de mudar o seu aspeto: defina uma onde a raiz herde, ou passe-a pela prop <code>tokens</code>, e tudo o que é construído a partir dela segue.",
+  "how": "As tabelas abaixo são geradas a partir do <code>tokens.css</code> do pacote, por isso não podem ficar atrasadas. Cada linha tem o seu endereço — pode ligar a um token com <code>#css-color-now</code>, por exemplo.",
+  "families": {
+    "color": {
+      "title": "Cor",
+      "text": "As superfícies, o texto, as linhas e os destaques. São estes os valores que um esquema escuro substitui."
+    },
+    "typography": {
+      "title": "Tipografia",
+      "text": "As duas famílias e, para cada tipo de texto que o componente desenha, um tamanho, uma altura de linha e uma espessura."
+    },
+    "levels": {
+      "title": "Níveis",
+      "text": "Uma cor e uma cor de contraste por cada chave de nível da escala clássica, mais o ângulo com que a superfície de alerta é desenhada. Uma escala sua, com as suas chaves, tira as cores das suas próprias definições."
+    },
+    "shape": {
+      "title": "Forma e profundidade",
+      "text": "Raios, sombras, o anel de foco e a margem da caixa de diálogo."
+    },
+    "motion": {
+      "title": "Movimento",
+      "text": "As durações e as curvas das duas coisas que se movem. Com movimento reduzido não são usadas de todo."
+    },
+    "layout": {
+      "title": "Disposição",
+      "text": "As medidas que não são nem cor nem tipografia: as larguras das etiquetas fixadas, o espaçamento interno da grelha, a altura de uma etiqueta, a largura da barra."
+    }
   }
 }

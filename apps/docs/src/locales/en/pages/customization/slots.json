@@ -1,14 +1,29 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Slots and overrides",
-    "description": "Slots and overrides in React Scheduler: what you can change, how to change it, and what each change affects."
+    "description": "Every replaceable part of the component, what a slot receives, and a worked example."
   },
   "sections": {
     "slots": "Slots",
     "example": "Example"
+  },
+  "demos": {
+    "slots": "Two parts, replaced"
+  },
+  "intro": "A slot replaces the component of a part while keeping its place, its props and its behavior. Your component receives everything the built-in one would have had:",
+  "rules": [
+    "Spread the props you are given. They carry the class names, the data attribute, the event handlers and the accessible name.",
+    "Attach the <code>ref</code> when there is one: pinning, measuring and focus depend on it.",
+    "<code>ownerState</code> says what the part is rendering for — the view, the scheme, the item, the shift — so one slot can behave differently in the list and in the timeline.",
+    "<code>Default</code> is the built-in component, if you want to wrap it rather than replace it.",
+    "A render prop wins over a slot for the same content: <code>renderItem</code> replaces the whole card, and then the card’s own parts are yours to draw."
+  ],
+  "table": "The parts, generated from the package’s declarations:",
+  "example": {
+    "intro": "Here the level pill is a component of your own wrapped around the built-in one, and the <strong>+ more</strong> chip is only given an extra style — the two lightest kinds of override, side by side."
   }
 }

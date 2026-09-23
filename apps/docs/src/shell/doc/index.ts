@@ -17,4 +17,5 @@ export { Section } from './Section';
 export { SymbolPage } from './SymbolPage';
 export { TypeGroupPage } from './TypeGroupPage';
 export { Table } from './Table';
+export { SlotTable, TokenTable } from './TokenTable';
 export { type Tab, Tabs } from './Tabs';

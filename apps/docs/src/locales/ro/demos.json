@@ -56,7 +56,14 @@
     "eventsIdle": "Deschide un element ca să vezi ce rulează.",
     "blocked": "Deschiderea „{title}” a fost anulată de middleware.",
     "opened": "„{title}” a fost deschis.",
-    "scheduleLabel": "Panoul de ture"
+    "scheduleLabel": "Panoul de ture",
+    "scheme": "Schemă de culoare",
+    "schemeLight": "Deschisă",
+    "schemeDark": "Întunecată",
+    "density": "Densitate",
+    "densityStandard": "Standard",
+    "densityComfortable": "Confortabilă",
+    "densityDense": "Densă"
   },
   "levels": {
     "blocking": "Blocant",
@@ -72,5 +79,9 @@
   "detail": {
     "reference": "Referința {reference}",
     "close": "Închide"
+  },
+  "localization": {
+    "emptyShift": "Nimic programat încă în acest schimb.",
+    "pinnedLabel": "Ținut la vedere"
   }
 }

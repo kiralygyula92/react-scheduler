@@ -56,7 +56,14 @@
     "eventsIdle": "Open an item to see what runs.",
     "blocked": "Opening {title} was cancelled by the middleware.",
     "opened": "{title} was opened.",
-    "scheduleLabel": "Shift board"
+    "scheduleLabel": "Shift board",
+    "scheme": "Color scheme",
+    "schemeLight": "Light",
+    "schemeDark": "Dark",
+    "density": "Density",
+    "densityStandard": "Standard",
+    "densityComfortable": "Comfortable",
+    "densityDense": "Dense"
   },
   "levels": {
     "blocking": "Blocking",
@@ -72,5 +79,9 @@
   "detail": {
     "reference": "Reference {reference}",
     "close": "Close"
+  },
+  "localization": {
+    "emptyShift": "Nothing scheduled in this shift yet.",
+    "pinnedLabel": "Kept in view"
   }
 }

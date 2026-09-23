@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Localisation",
-    "description": "Localisation dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+    "description": "Les sept packs de langue fournis, comment remplacer un message et comment ajouter une langue à vous."
   },
   "sections": {
-    "built-in-locales": "Langues incluses",
-    "custom-messages": "Messages personnalisés",
+    "built-in-locales": "Langues fournies",
+    "custom-messages": "Messages à vous",
     "adding-a-language": "Ajouter une langue"
+  },
+  "demos": {
+    "localization": "Deux messages, remplacés"
+  },
+  "packs": {
+    "intro": "Chaque texte affiché par le composant et chaque texte qu’il annonce viennent d’un seul objet. Sept sont livrés avec le paquet ; importez celui dont vous avez besoin depuis son sous-chemin pour que les autres ne soient pas embarqués :",
+    "head": {
+      "pack": "Pack",
+      "language": "Langue",
+      "status": "Statut"
+    },
+    "rows": [
+      ["<code>enUS</code>", "Anglais (États-Unis)", "Par défaut"],
+      ["<code>roRO</code>", "Roumain (Roumanie)", "Brouillon, pas encore relu par un locuteur natif"],
+      ["<code>huHU</code>", "Hongrois (Hongrie)", "Brouillon, pas encore relu par un locuteur natif"],
+      ["<code>esES</code>", "Espagnol (Espagne)", "Les textes plus récents ne sont pas encore relus"],
+      ["<code>frFR</code>", "Français (France)", "Brouillon, pas encore relu par un locuteur natif"],
+      ["<code>deDE</code>", "Allemand (Allemagne)", "Brouillon, pas encore relu par un locuteur natif"],
+      ["<code>ptPT</code>", "Portugais (Portugal)", "Brouillon, pas encore relu par un locuteur natif"]
+    ]
+  },
+  "messages": {
+    "intro": "Un pack est un objet simple : remplacer un message est donc un spread. Rien n’est fusionné en profondeur pour vous : un groupe imbriqué que vous touchez doit être répandu aussi, ce qui empêche une faute de frappe de vider un groupe en silence.",
+    "points": [
+      "Les décomptes passent par <code>Intl.PluralRules</code> : un message avec un décompte est donc un objet de formes plurielles, pas une chaîne.",
+      "Les espaces réservés s’écrivent <code>{{name}}</code>, et la valeur est formatée dans la langue du pack.",
+      "<code>locale</code> est la langue avec laquelle chaque date, heure et nombre est formaté — fixez-la quand vous écrivez un pack à vous.",
+      "<code>dir: 'rtl'</code> retourne toute la mise en page, sans seconde feuille de style."
+    ]
+  },
+  "adding": {
+    "intro": "Une langue à vous est un objet qui satisfait <code>SchedulerLocalization</code>. Partez du pack anglais pour que le type vous dise ce qui manque encore :",
+    "formats": "Les dates, les heures et les intervalles sont formatés par <code>Intl</code> à partir du <code>locale</code> du pack : une nouvelle langue n’a donc pas besoin de chaînes de format. <code>formatters</code> existe pour les cas où un format doit différer de ce que donne <code>Intl</code>."
   }
 }

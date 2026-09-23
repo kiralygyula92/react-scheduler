@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Lokalisierung",
-    "description": "Lokalisierung in React Scheduler: was sich ändern lässt, wie es geändert wird und was die Änderung betrifft."
+    "description": "Die sieben eingebauten Sprachpakete, wie man eine Nachricht überschreibt und wie man eine eigene Sprache hinzufügt."
   },
   "sections": {
-    "built-in-locales": "Mitgelieferte Sprachen",
-    "custom-messages": "Eigene Texte",
+    "built-in-locales": "Eingebaute Sprachen",
+    "custom-messages": "Eigene Nachrichten",
     "adding-a-language": "Eine Sprache hinzufügen"
+  },
+  "demos": {
+    "localization": "Zwei Nachrichten, ersetzt"
+  },
+  "packs": {
+    "intro": "Jeder Text, den die Komponente zeigt, und jeder, den sie ansagt, kommt aus einem Objekt. Sieben werden mit dem Paket ausgeliefert; importieren Sie das gebrauchte aus seinem eigenen Unterpfad, damit die anderen nicht gebündelt werden:",
+    "head": {
+      "pack": "Paket",
+      "language": "Sprache",
+      "status": "Status"
+    },
+    "rows": [
+      ["<code>enUS</code>", "Englisch (Vereinigte Staaten)", "Der Standard"],
+      ["<code>roRO</code>", "Rumänisch (Rumänien)", "Entwurf, noch nicht von einem Muttersprachler geprüft"],
+      ["<code>huHU</code>", "Ungarisch (Ungarn)", "Entwurf, noch nicht von einem Muttersprachler geprüft"],
+      ["<code>esES</code>", "Spanisch (Spanien)", "Neuere Texte sind noch nicht geprüft"],
+      ["<code>frFR</code>", "Französisch (Frankreich)", "Entwurf, noch nicht von einem Muttersprachler geprüft"],
+      ["<code>deDE</code>", "Deutsch (Deutschland)", "Entwurf, noch nicht von einem Muttersprachler geprüft"],
+      ["<code>ptPT</code>", "Portugiesisch (Portugal)", "Entwurf, noch nicht von einem Muttersprachler geprüft"]
+    ]
+  },
+  "messages": {
+    "intro": "Ein Paket ist ein einfaches Objekt, eine Nachricht zu ersetzen ist also ein Spread. Nichts wird tief für Sie zusammengeführt: eine verschachtelte Gruppe, die Sie anfassen, muss ebenfalls ausgebreitet werden — genau das verhindert, dass ein Tippfehler eine Gruppe stillschweigend leert.",
+    "points": [
+      "Zählungen laufen über <code>Intl.PluralRules</code>, deshalb ist eine Nachricht mit einer Zahl ein Objekt von Pluralformen, keine Zeichenkette.",
+      "Platzhalter sind <code>{{name}}</code>, und der Wert wird in der Sprache des Pakets formatiert.",
+      "<code>locale</code> ist die Sprache, mit der jedes Datum, jede Uhrzeit und jede Zahl formatiert wird — setzen Sie sie, wenn Sie ein eigenes Paket schreiben.",
+      "<code>dir: 'rtl'</code> dreht das ganze Layout um, ohne ein zweites Stylesheet."
+    ]
+  },
+  "adding": {
+    "intro": "Eine eigene Sprache ist ein Objekt, das <code>SchedulerLocalization</code> erfüllt. Beginnen Sie beim englischen Paket, damit der Typ Ihnen sagt, was noch fehlt:",
+    "formats": "Daten, Uhrzeiten und Bereiche formatiert <code>Intl</code> aus dem <code>locale</code> des Pakets, eine neue Sprache braucht also keine Formatzeichenketten. <code>formatters</code> ist für die Fälle da, in denen ein Format von dem abweichen muss, was <code>Intl</code> liefert."
   }
 }

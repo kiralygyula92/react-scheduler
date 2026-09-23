@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Localization",
-    "description": "Localization in React Scheduler: what you can change, how to change it, and what each change affects."
+    "description": "The seven built-in locale packs, how to override a message, and how to add a language of your own."
   },
   "sections": {
     "built-in-locales": "Built-in locales",
     "custom-messages": "Custom messages",
     "adding-a-language": "Adding a language"
+  },
+  "demos": {
+    "localization": "Two messages, replaced"
+  },
+  "packs": {
+    "intro": "Every string the component shows, and every string it announces, comes from one object. Seven of them ship with the package; import the one you need from its own subpath so the others are not bundled:",
+    "head": {
+      "pack": "Pack",
+      "language": "Language",
+      "status": "Status"
+    },
+    "rows": [
+      ["<code>enUS</code>", "English (United States)", "The default"],
+      ["<code>roRO</code>", "Romanian (Romania)", "Draft, not yet reviewed by a native speaker"],
+      ["<code>huHU</code>", "Hungarian (Hungary)", "Draft, not yet reviewed by a native speaker"],
+      ["<code>esES</code>", "Spanish (Spain)", "Newer strings not yet reviewed"],
+      ["<code>frFR</code>", "French (France)", "Draft, not yet reviewed by a native speaker"],
+      ["<code>deDE</code>", "German (Germany)", "Draft, not yet reviewed by a native speaker"],
+      ["<code>ptPT</code>", "Portuguese (Portugal)", "Draft, not yet reviewed by a native speaker"]
+    ]
+  },
+  "messages": {
+    "intro": "A pack is a plain object, so replacing one message is a spread. Nothing is merged deeply for you: a nested group you touch has to be spread too, which is what keeps a typo from silently emptying a group.",
+    "points": [
+      "Counts go through <code>Intl.PluralRules</code>, so a message with a count is an object of plural forms, not a string.",
+      "Placeholders are <code>{{name}}</code>, and the value is formatted in the pack’s own locale.",
+      "<code>locale</code> is what every date, time and number is formatted with — set it when you write a pack of your own.",
+      "<code>dir: 'rtl'</code> turns the whole layout around, without a second stylesheet."
+    ]
+  },
+  "adding": {
+    "intro": "A language of your own is one object that satisfies <code>SchedulerLocalization</code>. Start from the English pack so the type tells you what is still missing:",
+    "formats": "Dates, times and ranges are formatted by <code>Intl</code> from the pack’s <code>locale</code>, so a new language needs no format strings. <code>formatters</code> is there for the cases where a format has to differ from what <code>Intl</code> gives."
   }
 }

@@ -56,7 +56,14 @@
     "eventsIdle": "Nyiss meg egy elemet, hogy lásd, mi fut le.",
     "blocked": "A(z) „{title}” megnyitását a middleware megszakította.",
     "opened": "A(z) „{title}” megnyílt.",
-    "scheduleLabel": "Műszaktábla"
+    "scheduleLabel": "Műszaktábla",
+    "scheme": "Színséma",
+    "schemeLight": "Világos",
+    "schemeDark": "Sötét",
+    "density": "Sűrűség",
+    "densityStandard": "Normál",
+    "densityComfortable": "Kényelmes",
+    "densityDense": "Tömör"
   },
   "levels": {
     "blocking": "Blokkoló",
@@ -72,5 +79,9 @@
   "detail": {
     "reference": "{reference} hivatkozás",
     "close": "Bezárás"
+  },
+  "localization": {
+    "emptyShift": "Ebbe a műszakba még nincs beosztva semmi.",
+    "pinnedLabel": "Szem előtt tartva"
   }
 }

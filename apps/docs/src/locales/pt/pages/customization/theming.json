@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Temas",
-    "description": "Temas no React Scheduler: o que pode alterar, como alterar e o que cada alteração afeta."
+    "title": "Tema",
+    "description": "A predefinição, o esquema de cor e a densidade, os tokens por trás deles e como funciona o modo escuro."
   },
   "sections": {
     "tokens": "Tokens",
     "dark-mode": "Modo escuro",
     "presets": "Predefinições"
+  },
+  "demos": {
+    "theming": "Os três controlos"
+  },
+  "tokens": {
+    "intro": "Três props decidem o aspeto do horário: <code>preset</code> é a sua forma, <code>colorScheme</code> a sua paleta, <code>density</code> o seu espaçamento. São independentes — qualquer uma das doze combinações é válida e todas estão estilizadas.",
+    "props": "Por baixo dessas três, tudo é uma variável CSS. <code>tokens</code> define-as na raiz do componente, que é a forma mais pequena de mudar um valor sem uma folha de estilos sua:"
+  },
+  "dark": {
+    "intro": "O esquema escuro não é uma folha de estilos à parte: são os mesmos tokens com outros valores, selecionados por um atributo de dados que o componente define. Isso significa que pode substituir os valores escuros tal como substitui os claros:",
+    "system": "<code>colorScheme=\"system\"</code> segue a definição de quem lê através de <code>prefers-color-scheme</code> e atualiza-se quando ela muda. Escolha o que escolher, o contraste da predefinição por omissão é o que a página de <link to=\"/discover-more/accessibility/\">acessibilidade</link> reporta."
+  },
+  "presets": {
+    "intro": "Uma predefinição é a forma do componente, não as suas cores.",
+    "points": [
+      "<code>'default'</code> — o que este site mostra: cartões mais arredondados, uma barra de nível mais forte, mais ar entre as linhas.",
+      "<code>'classic'</code> — mais denso e mais plano, para um ecrã que tem de conter mais de uma vez.",
+      "Ambas funcionam nos dois esquemas de cor e nas três densidades, e ambas estão cobertas pelos testes visuais.",
+      "Uma predefinição só muda o que o CSS pode mudar; a estrutura, os nomes e o comportamento são os mesmos em cada uma."
+    ]
   }
 }

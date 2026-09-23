@@ -56,7 +56,14 @@
     "eventsIdle": "Ouvrez un élément pour voir ce qui s’exécute.",
     "blocked": "L’ouverture de « {title} » a été annulée par le middleware.",
     "opened": "« {title} » a été ouvert.",
-    "scheduleLabel": "Tableau des postes"
+    "scheduleLabel": "Tableau des postes",
+    "scheme": "Schéma de couleurs",
+    "schemeLight": "Clair",
+    "schemeDark": "Sombre",
+    "density": "Densité",
+    "densityStandard": "Standard",
+    "densityComfortable": "Confortable",
+    "densityDense": "Dense"
   },
   "levels": {
     "blocking": "Bloquant",
@@ -72,5 +79,9 @@
   "detail": {
     "reference": "Référence {reference}",
     "close": "Fermer"
+  },
+  "localization": {
+    "emptyShift": "Rien de prévu dans ce poste pour l’instant.",
+    "pinnedLabel": "Gardé en vue"
   }
 }

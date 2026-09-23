@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Localización",
-    "description": "Localización en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+    "description": "Los siete paquetes de idioma incluidos, cómo sustituir un mensaje y cómo añadir un idioma propio."
   },
   "sections": {
     "built-in-locales": "Idiomas incluidos",
-    "custom-messages": "Mensajes personalizados",
+    "custom-messages": "Mensajes propios",
     "adding-a-language": "Añadir un idioma"
+  },
+  "demos": {
+    "localization": "Dos mensajes, sustituidos"
+  },
+  "packs": {
+    "intro": "Cada texto que el componente muestra y cada texto que anuncia vienen de un solo objeto. Siete se entregan con el paquete; importa el que necesites desde su propia subruta para que los demás no se empaqueten:",
+    "head": {
+      "pack": "Paquete",
+      "language": "Idioma",
+      "status": "Estado"
+    },
+    "rows": [
+      ["<code>enUS</code>", "Inglés (Estados Unidos)", "El predeterminado"],
+      ["<code>roRO</code>", "Rumano (Rumanía)", "Borrador, aún sin revisar por un hablante nativo"],
+      ["<code>huHU</code>", "Húngaro (Hungría)", "Borrador, aún sin revisar por un hablante nativo"],
+      ["<code>esES</code>", "Español (España)", "Los textos más nuevos aún no están revisados"],
+      ["<code>frFR</code>", "Francés (Francia)", "Borrador, aún sin revisar por un hablante nativo"],
+      ["<code>deDE</code>", "Alemán (Alemania)", "Borrador, aún sin revisar por un hablante nativo"],
+      ["<code>ptPT</code>", "Portugués (Portugal)", "Borrador, aún sin revisar por un hablante nativo"]
+    ]
+  },
+  "messages": {
+    "intro": "Un paquete es un objeto plano, así que sustituir un mensaje es un spread. Nada se fusiona en profundidad por ti: un grupo anidado que toques hay que esparcirlo también, y eso es lo que impide que una errata vacíe un grupo en silencio.",
+    "points": [
+      "Los recuentos pasan por <code>Intl.PluralRules</code>, así que un mensaje con un recuento es un objeto de formas de plural, no una cadena.",
+      "Los marcadores son <code>{{name}}</code> y el valor se formatea en el idioma del paquete.",
+      "<code>locale</code> es el idioma con el que se formatean cada fecha, hora y número: fíjalo cuando escribas un paquete propio.",
+      "<code>dir: 'rtl'</code> da la vuelta a toda la disposición, sin una segunda hoja de estilos."
+    ]
+  },
+  "adding": {
+    "intro": "Un idioma propio es un objeto que satisface <code>SchedulerLocalization</code>. Parte del paquete inglés para que el tipo te diga qué falta todavía:",
+    "formats": "Las fechas, las horas y los rangos los formatea <code>Intl</code> a partir del <code>locale</code> del paquete, así que un idioma nuevo no necesita cadenas de formato. <code>formatters</code> está para los casos en que un formato deba diferir de lo que da <code>Intl</code>."
   }
 }

@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Variabile CSS",
-    "description": "Variabile CSS în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+    "description": "Fiecare token de design al React Scheduler, cu valoarea lui implicită deschisă și închisă, generat din foaia de stil a pachetului."
   },
   "sections": {
     "variables": "Variabile"
+  },
+  "intro": "Fiecare valoare vizuală a componentei este o proprietate personalizată pe rădăcina ei. Sunt cel mai ușor fel de a-i schimba aspectul: setează una oriunde moștenește rădăcina sau trece-o prin proprietatea <code>tokens</code>, și tot ce se construiește din ea urmează.",
+  "how": "Tabelele de mai jos sunt generate din <code>tokens.css</code> al pachetului, așa că nu pot rămâne în urma lui. Fiecare rând are adresa lui — poți trimite la un token cu <code>#css-color-now</code>, de pildă.",
+  "families": {
+    "color": {
+      "title": "Culoare",
+      "text": "Suprafețele, textul, liniile și accentele. Acestea sunt valorile pe care le înlocuiește o schemă închisă."
+    },
+    "typography": {
+      "title": "Tipografie",
+      "text": "Cele două familii și câte o dimensiune, o înălțime de rând și o grosime pentru fiecare fel de text pe care îl desenează componenta."
+    },
+    "levels": {
+      "title": "Niveluri",
+      "text": "Câte o culoare și o culoare de contrast pentru fiecare cheie de nivel a scării clasice, plus unghiul la care este desenată suprafața de alertă. O scară proprie, cu cheile ei, își ia culorile din propriile definiții."
+    },
+    "shape": {
+      "title": "Formă și adâncime",
+      "text": "Raze, umbre, inelul de focalizare și marginea dialogului."
+    },
+    "motion": {
+      "title": "Mișcare",
+      "text": "Duratele și curbele celor două lucruri care se mișcă. Sub mișcare redusă nu sunt folosite deloc."
+    },
+    "layout": {
+      "title": "Aranjare",
+      "text": "Măsurile care nu sunt nici culoare, nici tipografie: lățimile pastilelor fixate, marginile grilei, înălțimea unei pastile, lățimea barei."
+    }
   }
 }

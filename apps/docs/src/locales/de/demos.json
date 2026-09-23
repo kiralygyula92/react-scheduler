@@ -56,7 +56,14 @@
     "eventsIdle": "Öffnen Sie einen Eintrag, um zu sehen, was läuft.",
     "blocked": "Das Öffnen von „{title}“ wurde von der Middleware abgebrochen.",
     "opened": "„{title}“ wurde geöffnet.",
-    "scheduleLabel": "Schichtplan"
+    "scheduleLabel": "Schichtplan",
+    "scheme": "Farbschema",
+    "schemeLight": "Hell",
+    "schemeDark": "Dunkel",
+    "density": "Dichte",
+    "densityStandard": "Standard",
+    "densityComfortable": "Komfortabel",
+    "densityDense": "Kompakt"
   },
   "levels": {
     "blocking": "Blockierend",
@@ -72,5 +79,9 @@
   "detail": {
     "reference": "Referenz {reference}",
     "close": "Schließen"
+  },
+  "localization": {
+    "emptyShift": "In dieser Schicht ist noch nichts eingeplant.",
+    "pinnedLabel": "Im Blick behalten"
   }
 }

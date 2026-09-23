@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Themes",
-    "description": "Themes in React Scheduler: was sich ändern lässt, wie es geändert wird und was die Änderung betrifft."
+    "title": "Gestaltung",
+    "description": "Die Voreinstellung, das Farbschema und die Dichte, die Tokens dahinter und wie der dunkle Modus funktioniert."
   },
   "sections": {
     "tokens": "Tokens",
     "dark-mode": "Dunkler Modus",
     "presets": "Voreinstellungen"
+  },
+  "demos": {
+    "theming": "Die drei Regler"
+  },
+  "tokens": {
+    "intro": "Drei Props bestimmen, wie der Plan aussieht: <code>preset</code> ist seine Form, <code>colorScheme</code> seine Palette, <code>density</code> sein Abstand. Sie sind unabhängig — jede der zwölf Kombinationen ist gültig und alle sind gestaltet.",
+    "props": "Unter diesen dreien ist alles eine CSS-Variable. <code>tokens</code> setzt sie an der Wurzel der Komponente — der kleinste Weg, einen Wert ohne eigenes Stylesheet zu ändern:"
+  },
+  "dark": {
+    "intro": "Das dunkle Schema ist kein eigenes Stylesheet: es sind dieselben Tokens mit anderen Werten, ausgewählt über ein Datenattribut, das die Komponente setzt. Sie können die dunklen Werte also genauso überschreiben wie die hellen:",
+    "system": "<code>colorScheme=\"system\"</code> folgt der Einstellung des Lesers über <code>prefers-color-scheme</code> und aktualisiert sich, wenn sie sich ändert. Was Sie auch wählen, der Kontrast der Standardvoreinstellung ist der, den die Seite <link to=\"/discover-more/accessibility/\">Barrierefreiheit</link> nennt."
+  },
+  "presets": {
+    "intro": "Eine Voreinstellung ist die Form der Komponente, nicht ihre Farben.",
+    "points": [
+      "<code>'default'</code> — was diese Website zeigt: rundere Karten, eine stärkere Stufenleiste, mehr Luft zwischen den Zeilen.",
+      "<code>'classic'</code> — dichter und flacher, für einen Bildschirm, der mehr auf einmal fassen muss.",
+      "Beide funktionieren in beiden Farbschemata und in allen drei Dichten, und beide decken die visuellen Tests ab.",
+      "Eine Voreinstellung ändert nur, was CSS ändern kann; Struktur, Namen und Verhalten sind in jeder gleich."
+    ]
   }
 }

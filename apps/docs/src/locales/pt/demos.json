@@ -56,7 +56,14 @@
     "eventsIdle": "Abra um elemento para ver o que corre.",
     "blocked": "A abertura de «{title}» foi cancelada pelo middleware.",
     "opened": "«{title}» foi aberto.",
-    "scheduleLabel": "Painel de turnos"
+    "scheduleLabel": "Painel de turnos",
+    "scheme": "Esquema de cor",
+    "schemeLight": "Claro",
+    "schemeDark": "Escuro",
+    "density": "Densidade",
+    "densityStandard": "Padrão",
+    "densityComfortable": "Confortável",
+    "densityDense": "Compacta"
   },
   "levels": {
     "blocking": "Bloqueante",
@@ -72,5 +79,9 @@
   "detail": {
     "reference": "Referência {reference}",
     "close": "Fechar"
+  },
+  "localization": {
+    "emptyShift": "Ainda não há nada agendado neste turno.",
+    "pinnedLabel": "Mantido à vista"
   }
 }

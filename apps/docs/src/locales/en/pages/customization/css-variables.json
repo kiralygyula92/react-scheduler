@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "CSS variables",
-    "description": "CSS variables in React Scheduler: what you can change, how to change it, and what each change affects."
+    "description": "Every design token of React Scheduler, with its light and dark default, generated from the package’s stylesheet."
   },
   "sections": {
     "variables": "Variables"
+  },
+  "intro": "Every visual value of the component is a custom property on its root. They are the lightest way to change how it looks: set one anywhere the root inherits from, or pass it through the <code>tokens</code> prop, and everything built from it follows.",
+  "how": "The tables below are generated from the package’s own <code>tokens.css</code>, so they cannot fall behind it. Each row is addressable — link to a token with <code>#css-color-now</code>, for instance.",
+  "families": {
+    "color": {
+      "title": "Color",
+      "text": "The surfaces, the text, the lines and the accents. These are the values a dark scheme replaces."
+    },
+    "typography": {
+      "title": "Typography",
+      "text": "The two families, and a size, a line height and a weight for each kind of text the component draws."
+    },
+    "levels": {
+      "title": "Levels",
+      "text": "One color and one on-color per level key of the classic scale, plus the angle the alert surface is drawn at. A scale of your own with its own keys reads its colors from its own definitions."
+    },
+    "shape": {
+      "title": "Shape and depth",
+      "text": "Radii, shadows, the focus ring and the dialog border."
+    },
+    "motion": {
+      "title": "Motion",
+      "text": "The durations and easings of the two things that move. Under reduced motion they are not used at all."
+    },
+    "layout": {
+      "title": "Layout",
+      "text": "The measurements that are neither color nor type: the widths of the pinned chips, the padding of the grid, the height of a pill, the width of the rail."
+    }
   }
 }

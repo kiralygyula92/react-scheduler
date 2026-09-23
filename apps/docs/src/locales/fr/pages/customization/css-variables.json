@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Variables CSS",
-    "description": "Variables CSS dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+    "description": "Chaque jeton de design de React Scheduler, avec sa valeur par défaut claire et sombre, généré depuis la feuille de style du paquet."
   },
   "sections": {
     "variables": "Variables"
+  },
+  "intro": "Chaque valeur visuelle du composant est une propriété personnalisée sur sa racine. C’est la façon la plus légère de changer son apparence : posez-en une là où la racine hérite, ou passez-la par la prop <code>tokens</code>, et tout ce qui en découle suit.",
+  "how": "Les tableaux ci-dessous sont générés depuis le <code>tokens.css</code> du paquet : ils ne peuvent pas prendre de retard. Chaque ligne a son adresse — on peut pointer un jeton avec <code>#css-color-now</code>, par exemple.",
+  "families": {
+    "color": {
+      "title": "Couleur",
+      "text": "Les surfaces, le texte, les lignes et les accents. Ce sont les valeurs qu’un schéma sombre remplace."
+    },
+    "typography": {
+      "title": "Typographie",
+      "text": "Les deux familles, et pour chaque sorte de texte que le composant dessine, une taille, une hauteur de ligne et une graisse."
+    },
+    "levels": {
+      "title": "Niveaux",
+      "text": "Une couleur et une couleur de contraste par clé de niveau de l’échelle classique, plus l’angle sous lequel la surface d’alerte est dessinée. Une échelle à vous, avec ses clés, tire ses couleurs de ses propres définitions."
+    },
+    "shape": {
+      "title": "Forme et profondeur",
+      "text": "Rayons, ombres, l’anneau de focus et la bordure de la boîte de dialogue."
+    },
+    "motion": {
+      "title": "Mouvement",
+      "text": "Les durées et les courbes des deux choses qui bougent. En mouvement réduit, elles ne servent pas du tout."
+    },
+    "layout": {
+      "title": "Disposition",
+      "text": "Les mesures qui ne sont ni couleur ni typographie : les largeurs des pastilles épinglées, les marges internes de la grille, la hauteur d’une pastille, la largeur du rail."
+    }
   }
 }
