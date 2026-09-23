@@ -1,16 +1,36 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Támogatás",
-    "description": "Támogatás a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+    "description": "Hol kérdezz a React Schedulerről, mit tartalmaz egy hasznos hibajelentés, hogyan jelents biztonsági hibát bizalmasan, és meddig támogatott egy verzió."
   },
   "sections": {
     "where-to-ask": "Hol kérdezhetsz",
     "report-a-bug": "Hogyan jelents hibát",
     "security": "Biztonság",
     "support-policy": "Támogatási irányelv"
+  },
+  "ask": {
+    "text": "A kérdések a <ext href=\"https://github.com/kiralygyula92/react-scheduler/discussions\">GitHub Discussions</ext> felületre valók: hogyan lehet valamit megcsinálni, szándékos-e egy viselkedés, illik-e egy ötlet a csomaghoz. Az issue-k a hibáknak vannak fenntartva, ezért az issue-ként megnyitott kérdés általában átkerül oda."
+  },
+  "bug": {
+    "intro": "Nyiss egy <ext href=\"https://github.com/kiralygyula92/react-scheduler/issues/new\">issue-t</ext> ezzel az öt dologgal. Az a jelentés, amelyben mind megvan, általában elolvasása napján javítható; az, amelyben egyik sincs, ritkán halad.",
+    "points": [
+      "A csomag és a React verziója, valamint a böngésző, amelyben a hiba jelentkezik.",
+      "Mire számítottál, egy mondatban.",
+      "Mi történt helyette, egy mondatban.",
+      "Egy minimális reprodukció: a legkisebb <code>&lt;Scheduler&gt;</code>, amely még megmutatja, az elemekkel együtt. Egy sandbox vagy kis tároló linkje a legjobb.",
+      "Bármi, amitől megjelenik vagy eltűnik: egy ablakszélesség, egy nyelv, az idővonal a lista helyett."
+    ],
+    "reduce": "A legtöbbet a szűkítés segít. Vedd ki egyesével a propokat, amíg a hiba el nem tűnik; az utoljára kivett általában bekerül a javítás címébe."
+  },
+  "security": {
+    "text": "A biztonsági hibát bizalmasan, a tároló <ext href=\"https://github.com/kiralygyula92/react-scheduler/security/advisories\">Security</ext> fülén jelentsd, ne nyilvános issue-ban. A jelentés a javítás kiadásáig csak a karbantartók számára látható; a tárolóban lévő <code>SECURITY.md</code> leírja, mit érdemes megadni, és mikorra várható válasz."
+  },
+  "policy": {
+    "text": "A javítások az aktuális főverzió legutóbbi mellékverziójába kerülnek, és az a kiadás az, amelyet itt dokumentálunk. Amíg a csomag <code>1.0.0</code> alatt van, egyszerre egy támogatott verzió létezik: a legutóbbi. Hogy ez mit jelent a frissítésnél, a <link to=\"/getting-started/versions/\">Verziók</link> oldalon olvasható."
   }
 }

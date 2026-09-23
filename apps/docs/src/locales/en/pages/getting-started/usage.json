@@ -1,16 +1,73 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Usage",
-    "description": "Usage for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+    "description": "A complete React Scheduler example, how controlled and uncontrolled state work, and the props most applications set first."
   },
   "sections": {
     "minimal-example": "Minimal example",
     "controlled-and-uncontrolled": "Controlled and uncontrolled",
     "common-props": "Common props",
     "next-steps": "Next steps"
+  },
+  "demos": {
+    "minimal": "Items, a day, and nothing else"
+  },
+  "minimal": {
+    "intro": "Three props carry a working schedule: the items, the day to show, and the language pack. Everything else has a default. Open the source below the demo to see the whole file — it is the file that runs on this page."
+  },
+  "controlled": {
+    "intro": "Every piece of state the component keeps has an uncontrolled form, where the component owns it and only reports changes, and a controlled form, where your application owns it. Uncontrolled is the default: pass the initial value with a <code>default</code> prop and forget about it.",
+    "controlled": "Pass the value itself and the component stops owning it. From then on it renders what you give it and calls you on every change, so the value and the view can never drift apart.",
+    "pairs": "The pairs are:",
+    "points": [
+      "<code>view</code> / <code>defaultView</code> with <code>onViewChange</code> — the list or the timeline.",
+      "<code>date</code> / <code>defaultDate</code> with <code>onDateChange</code> — the day being read.",
+      "<code>openItemId</code> / <code>defaultOpenItemId</code> with <code>onOpenItemIdChange</code> — which item's detail is open.",
+      "<code>headerExpanded</code> / <code>defaultHeaderExpanded</code> with <code>onHeaderExpandedChange</code> — the state of your own page header.",
+      "<code>openOverflowId</code>, <code>overflowPage</code> and <code>overflowSort</code>, each with its <code>default</code> form and its callback — the overflow dialog."
+    ]
+  },
+  "common": {
+    "intro": "The props most applications set. Every one of them is documented in full on the <link to=\"/api/scheduler/\">Scheduler</link> page.",
+    "head": { "prop": "Prop", "what": "What it does" },
+    "rows": [
+      [
+        "<code>items</code>",
+        "The schedule itself: a flat array of items with an <code>id</code>, a <code>start</code>, a <code>level</code> and a <code>title</code>."
+      ],
+      ["<code>date</code>", "The day to show. The shifts that contain it are the ones rendered."],
+      [
+        "<code>shifts</code>",
+        "How the day is cut into shifts: a regular length and an anchor, or a named pattern. See <link to=\"/shifts-and-dates/\">Shifts and dates</link>."
+      ],
+      [
+        "<code>levels</code>",
+        "The severity scale: the ranks, their colors and which of them pin. See <link to=\"/items-and-levels/\">Items and levels</link>."
+      ],
+      [
+        "<code>view</code>",
+        "<code>'list'</code> or <code>'timeline'</code>. The reader can switch, unless you control it."
+      ],
+      [
+        "<code>localization</code>",
+        "A locale pack. Seven are built in; the object is plain, so a partial override is enough."
+      ],
+      [
+        "<code>preset</code> and <code>colorScheme</code>",
+        "The look: <code>'default'</code> or <code>'classic'</code>, and <code>'light'</code>, <code>'dark'</code> or <code>'system'</code>."
+      ],
+      ["<code>onItemOpen</code>", "Called when a reader opens an item, with the item and what activated it."]
+    ]
+  },
+  "next": {
+    "points": [
+      "<link to=\"/all-features/\">All features</link> — one page per capability, each opening with a demo.",
+      "<link to=\"/customization/\">Customization</link> — from a CSS variable to a replaced part.",
+      "<link to=\"/api/\">API reference</link> — every export, generated from the declarations."
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "AI-kontextus",
@@ -15,5 +15,61 @@
     "minimal-working-example": "Minimális működő példa",
     "verify": "Ellenőrzés",
     "next-steps": "Következő lépések"
+  },
+  "prerequisites": {
+    "text": "Egy agentikus fejlesztőeszköz — Claude Code, Cursor, Codex vagy más — a megnyitott tárolóddal. Semmit nem kell telepíteni hozzá: egy Markdown fájl és egyetlen sornyi utasítás."
+  },
+  "install": {
+    "download": "Töltsd le a dokumentációt a tárolódba:",
+    "instruction": "Ezután adj hozzá egy sort ahhoz a fájlhoz, amelyet az eszközöd minden munkamenetben elolvas — <code>CLAUDE.md</code> a Claude Code-nak, <code>AGENTS.md</code> a Codexnek, a Cursornak és a legtöbb másiknak:",
+    "url": "Az az eszköz, amely URL alapján indexeli a dokumentációt, a helyi másolat helyett megkaphatja a <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code> címet. A csomag frissítésekor töltsd le újra: ugyanabban a buildben készül, mint ez az oldal, így a kettő nem mondhat mást."
+  },
+  "what": {
+    "text": "Ennek az oldalnak minden lapja, olvasási sorrendben, egyetlen Markdown dokumentumként:",
+    "points": [
+      "minden oldal szövege, a címsoraival és a táblázataival;",
+      "minden élő példa teljes forrása, pontosan úgy, ahogy itt fut;",
+      "az API-referencia, a csomag saját típusdeklarációiból előállítva — minden prop, a típusa, az alapértéke és a leírása."
+    ]
+  },
+  "which": {
+    "head": {
+      "file": "Fájl",
+      "holds": "Mit tartalmaz",
+      "when": "Mikor használd"
+    },
+    "rows": [
+      [
+        "<code>llms-full.md</code>",
+        "Minden oldal és minden példa Markdownként",
+        "Az eszközöd olvas Markdownt, és a kontextusablak elbírja"
+      ],
+      [
+        "<code>llms-full.txt</code>",
+        "Ugyanaz a tartalom egyszerű szövegként",
+        "Az eszközöd <code>.txt</code> fájlt vár"
+      ],
+      [
+        "<code>llms.txt</code>",
+        "Linkjegyzék: minden oldal az egysoros leírásával",
+        "A teljes fájl túl nagy, vagy az eszköz igény szerint tölti le az oldalakat"
+      ],
+      ["Egy oldal URL-je <code>.md</code> végződéssel", "Egyetlen oldal", "Tudod, melyik oldal válaszol a kérdésre"]
+    ],
+    "context": "A teljes fájl nagyjából 240 kB, ami a mai modellekbe belefér, de egy kis kontextusablakot megtölt. Ha a tiéd szűk, add az ügynöknek a <code>llms.txt</code> fájlt, és hagyd, hogy lekérje a szükséges oldalt — ennek az oldalnak minden lapja elérhető, ha az URL-jéhez <code>.md</code> végződést írsz."
+  },
+  "example": {
+    "text": "Egy prompt, amely használja a fájlt. Az ügynöknél ott vannak a propok, az alapértékek és a példák, így nem kell API-t találgatnia:"
+  },
+  "verify": {
+    "text": "Tegyél fel olyan kérdést, amelyre csak a dokumentáció válaszol. Ha az ügynök hihető propnevet talál ki, nem olvasta el a fájlt:",
+    "answer": "A válasz az <code>overflowMergeWindow</code>: az egymást követő órák csak addig olvadnak egy csoportba, amíg az összevont csoport az ablakon belül marad. Az <link to=\"/timeline-view/\">Idővonal nézet</link> oldalon van."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Telepítés</link> — maga a csomag.",
+      "<link to=\"/getting-started/usage/\">Használat</link> — egy teljes példa, amelyet átadhatsz az ügynöknek.",
+      "<link to=\"/api/\">API-referencia</link> — ugyanazok az adatok, amelyeket a fájl visz, oldalanként."
+    ]
   }
 }

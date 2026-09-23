@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Versions",
@@ -12,5 +12,29 @@
     "versioning-policy": "Versioning policy",
     "older-versions": "Older versions",
     "related": "Related"
+  },
+  "supported": {
+    "head": { "version": "Version", "status": "Status", "docs": "Documentation" },
+    "rows": [["<code>0.x</code>", "Current, in development", "This site"]]
+  },
+  "policy": {
+    "intro": "Releases follow Semantic Versioning, and every change that reaches a release carries a changeset that says which part of the number it moves.",
+    "points": [
+      "<strong>Patch</strong> — a fix that leaves the API and the rendered markup as they were.",
+      "<strong>Minor</strong> — new props, new exports, new CSS variables. Nothing you already pass changes meaning.",
+      "<strong>Major</strong> — a removal or a changed default, with a migration note for each one.",
+      "<strong>While the version starts with 0</strong>, a minor release may do what a major one otherwise would. Each such change is listed in the changelog with what to do about it."
+    ],
+    "optIn": "New behavior arrives switched off. A feature that changes what a reader sees comes with a flag or a prop, defaulted to the old behavior for the rest of the major."
+  },
+  "older": {
+    "text": "When a second major exists, the version pill in the header opens the list of documented majors, and each one keeps its own copy of this site at its own URL. There is only one major so far, so the pill shows a single entry."
+  },
+  "related": {
+    "points": [
+      "<link to=\"/discover-more/changelog/\">Changelog</link> — what changed in each release.",
+      "<link to=\"/migration/\">Migration</link> — what to do when a major changes.",
+      "<link to=\"/getting-started/support/\">Support</link> — how long a version is fixed."
+    ]
   }
 }

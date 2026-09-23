@@ -1,16 +1,36 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Suport",
-    "description": "Suport pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+    "description": "Unde întrebi despre React Scheduler, ce conține un raport de defect util, cum raportezi privat o vulnerabilitate și cât timp este susținută o versiune."
   },
   "sections": {
     "where-to-ask": "Unde poți întreba",
     "report-a-bug": "Cum raportezi o eroare",
     "security": "Securitate",
     "support-policy": "Politica de suport"
+  },
+  "ask": {
+    "text": "Întrebările merg în <ext href=\"https://github.com/kiralygyula92/react-scheduler/discussions\">GitHub Discussions</ext>: cum se face ceva, dacă un comportament este intenționat, dacă o idee se potrivește pachetului. Issue-urile sunt pentru defecte, așa că o întrebare deschisă ca issue este de obicei mutată acolo."
+  },
+  "bug": {
+    "intro": "Deschide un <ext href=\"https://github.com/kiralygyula92/react-scheduler/issues/new\">issue</ext> cu aceste cinci lucruri. Un raport care le are poate fi de obicei rezolvat în ziua în care este citit; unul care nu are niciunul rareori avansează.",
+    "points": [
+      "Versiunea pachetului și a React-ului, și browserul în care apare problema.",
+      "Ce te așteptai să se întâmple, într-o propoziție.",
+      "Ce s-a întâmplat în schimb, într-o propoziție.",
+      "O reproducere minimă: cel mai mic <code>&lt;Scheduler&gt;</code> care încă o arată, cu elementele scrise pe loc. Un link către un sandbox sau un depozit mic este ideal.",
+      "Orice îl face să apară sau să dispară: o lățime a ferestrei, o limbă, cronologia în loc de listă."
+    ],
+    "reduce": "Reducerea cazului este partea care ajută cel mai mult. Scoate proprietăți până când problema dispare, iar ultima scoasă ajunge de obicei în titlul corecției."
+  },
+  "security": {
+    "text": "Raportează o vulnerabilitate privat prin fila <ext href=\"https://github.com/kiralygyula92/react-scheduler/security/advisories\">Security</ext> a depozitului, nu într-un issue public. Raportul rămâne vizibil doar pentru întreținători până la publicarea corecției; <code>SECURITY.md</code> din depozit spune ce să incluzi și când să aștepți un răspuns."
+  },
+  "policy": {
+    "text": "Corecțiile ajung în ultima versiune minoră a majorului curent, iar acea versiune este cea documentată aici. Cât timp pachetul este sub <code>1.0.0</code>, există o singură versiune susținută — ultima. Ce înseamnă asta pentru actualizări se află pe pagina <link to=\"/getting-started/versions/\">Versiuni</link>."
   }
 }

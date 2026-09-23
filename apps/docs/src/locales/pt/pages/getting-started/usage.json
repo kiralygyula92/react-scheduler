@@ -1,16 +1,76 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Uso",
-    "description": "Uso do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+    "description": "Um exemplo completo do React Scheduler, como funcionam o estado controlado e o não controlado, e as props que a maioria das aplicações define primeiro."
   },
   "sections": {
     "minimal-example": "Exemplo mínimo",
     "controlled-and-uncontrolled": "Controlado e não controlado",
     "common-props": "Props comuns",
     "next-steps": "Próximos passos"
+  },
+  "demos": {
+    "minimal": "Elementos, um dia e mais nada"
+  },
+  "minimal": {
+    "intro": "Três props bastam para um horário que funciona: os elementos, o dia a mostrar e o pacote de idioma. Tudo o resto tem um valor por omissão. Abra o código por baixo da demonstração: é o ficheiro que corre nesta página."
+  },
+  "controlled": {
+    "intro": "Cada pedaço de estado que o componente guarda tem uma forma não controlada, em que pertence ao componente e este apenas comunica as alterações, e uma controlada, em que pertence à sua aplicação. Não controlado é o comportamento por omissão: passe o valor inicial numa prop <code>default</code> e esqueça.",
+    "controlled": "Passe o próprio valor e o componente deixa de o possuir. A partir daí renderiza o que lhe der e chama-o a cada alteração, por isso o valor e o que se vê não podem divergir.",
+    "pairs": "Os pares são:",
+    "points": [
+      "<code>view</code> / <code>defaultView</code> com <code>onViewChange</code> — a lista ou a cronologia.",
+      "<code>date</code> / <code>defaultDate</code> com <code>onDateChange</code> — o dia que está a ser lido.",
+      "<code>openItemId</code> / <code>defaultOpenItemId</code> com <code>onOpenItemIdChange</code> — de que elemento está aberto o detalhe.",
+      "<code>headerExpanded</code> / <code>defaultHeaderExpanded</code> com <code>onHeaderExpandedChange</code> — o estado do cabeçalho da sua página.",
+      "<code>openOverflowId</code>, <code>overflowPage</code> e <code>overflowSort</code>, cada um com a sua forma <code>default</code> e o seu callback — a caixa de diálogo dos elementos adicionais."
+    ]
+  },
+  "common": {
+    "intro": "As props que a maioria das aplicações define. Cada uma está documentada por inteiro na página <link to=\"/api/scheduler/\">Scheduler</link>.",
+    "head": {
+      "prop": "Prop",
+      "what": "O que faz"
+    },
+    "rows": [
+      [
+        "<code>items</code>",
+        "O horário em si: um array simples de elementos com <code>id</code>, <code>start</code>, <code>level</code> e <code>title</code>."
+      ],
+      ["<code>date</code>", "O dia a mostrar. São apresentados os turnos que o contêm."],
+      [
+        "<code>shifts</code>",
+        "Como o dia é dividido em turnos: uma duração regular e uma âncora, ou um padrão com nome. Ver <link to=\"/shifts-and-dates/\">Turnos e datas</link>."
+      ],
+      [
+        "<code>levels</code>",
+        "A escala de gravidade: as classificações, as suas cores e quais fixam. Ver <link to=\"/items-and-levels/\">Elementos e níveis</link>."
+      ],
+      [
+        "<code>view</code>",
+        "<code>'list'</code> ou <code>'timeline'</code>. Quem lê pode alternar, a não ser que a controle."
+      ],
+      [
+        "<code>localization</code>",
+        "Um pacote de idioma. Estão incluídos sete; o objeto é simples, por isso basta uma substituição parcial."
+      ],
+      [
+        "<code>preset</code> și <code>colorScheme</code>",
+        "O aspeto: <code>'default'</code> ou <code>'classic'</code>, e <code>'light'</code>, <code>'dark'</code> ou <code>'system'</code>."
+      ],
+      ["<code>onItemOpen</code>", "Chamado quando quem lê abre um elemento, com o elemento e com o que o ativou."]
+    ]
+  },
+  "next": {
+    "points": [
+      "<link to=\"/all-features/\">Todas as funcionalidades</link> — uma página por capacidade, cada uma a abrir com uma demonstração.",
+      "<link to=\"/customization/\">Personalização</link> — de uma variável CSS a uma parte substituída.",
+      "<link to=\"/api/\">Referência da API</link> — cada exportação, gerada a partir das declarações."
+    ]
   }
 }

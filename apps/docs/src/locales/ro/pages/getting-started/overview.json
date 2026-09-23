@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Prezentare generală",
@@ -12,5 +12,49 @@
     "why": "De ce React Scheduler",
     "start-now": "Începe acum",
     "license": "Licență"
+  },
+  "introduction": {
+    "what": "React Scheduler arată o zi de lucru ca pe un program. Primește o listă simplă de elemente cu o oră de început, un nivel și un titlu, le grupează în turele zilei și le afișează fie ca o <link to=\"/list-view/\">listă</link> pe care o citești de sus în jos, fie ca o <link to=\"/timeline-view/\">cronologie</link> în care înălțimea unui element este durata lui. Este o singură componentă React, scrisă în TypeScript, HTML și CSS, <strong>fără nicio dependență la rulare</strong> în afară de React.",
+    "controlled": "Totul se controlează din afară. Proprietățile stabilesc datele, turele și opțiunile; variabilele CSS stabilesc culorile, spațierea și densitatea; callback-urile raportează fiecare schimbare; <link to=\"/customization/slots/\">sloturile</link> și proprietățile de randare înlocuiesc orice parte a markup-ului. Starea poate rămâne la componentă sau poate fi ținută de aplicația ta, proprietate cu proprietate.",
+    "not": "Nu este un calendar și nu este un editor. Nu are grilă lunară sau anuală, nu are tragere și plasare, nu are recurență, nu are fus orar propriu și nu are strat de date: afișează elementele pe care i le dai, pentru ziua cerută, și te anunță când cititorul face ceva."
+  },
+  "why": {
+    "points": [
+      "<strong>Accesibil prin construcție:</strong> fiecare card este un buton, fiecare tură un titlu, fiecare dialog cu focalizarea prinsă înăuntru, iar ținta este WCAG 2.2 AA — verificată cu axe în testele de browser ale pachetului și pe paginile acestui site.",
+      "<strong>Temă fără un kit de interfață:</strong> două preseturi, trei densități, o schemă deschisă și una închisă și peste o sută cincizeci de variabile CSS. Fără CSS-in-JS la rulare, fără bibliotecă de clase utilitare, fără nimic de configurat înainte de prima randare.",
+      "<strong>Zero dependențe la rulare:</strong> doar <code>react</code> și <code>react-dom</code>, ca peers. Nu se instalează nimic altceva odată cu el, deci nimic altceva nu îl poate strica.",
+      "<strong>Sigur pe server:</strong> se randează pe server fără să atingă DOM-ul, se hidratează fără avertismente și își pornește observatorii abia după montare.",
+      "<strong>Mic și leneș:</strong> în jur de 25 kB gzip pentru intrarea principală, cu dialogul de suplimentare și cel de detaliu separate în fragmente care se încarcă la prima deschidere.",
+      "<strong>Șapte limbi incluse:</strong> engleză, română, maghiară, spaniolă, franceză, germană și portugheză, fiecare un obiect simplu pe care îl poți extinde sau înlocui."
+    ]
+  },
+  "cards": {
+    "installation": {
+      "title": "Instalare",
+      "text": "Instalează pachetul, adaugă foaia de stil, verifică prima randare."
+    },
+    "usage": {
+      "title": "Utilizare",
+      "text": "Un exemplu complet, apoi proprietățile pe care le vei folosi primele."
+    },
+    "features": {
+      "title": "Toate funcționalitățile",
+      "text": "Fiecare capabilitate, câte o pagină, cu o demonstrație vie."
+    },
+    "timeline": {
+      "title": "Vizualizarea cronologică",
+      "text": "Grila în care înălțimea unui element este cât durează."
+    },
+    "customization": {
+      "title": "Personalizare",
+      "text": "Variabile CSS, nume de clase, proprietăți de slot, sloturi și handlere."
+    },
+    "api": {
+      "title": "Referința API",
+      "text": "Fiecare export, generat din declarațiile pachetului."
+    }
+  },
+  "license": {
+    "text": "MIT, fără nivel plătit și fără funcționalități blocate. Tot ce este documentat pe acest site se află în pachetul pe care îl instalezi."
   }
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Requirements",
-    "description": "Requirements for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+    "description": "Browsers, React and TypeScript versions, frameworks and server rendering, bundle size and the accessibility target of React Scheduler."
   },
   "sections": {
     "browsers": "Browsers",
@@ -14,5 +14,63 @@
     "frameworks-and-ssr": "Frameworks and SSR",
     "bundle-size": "Bundle size",
     "accessibility-target": "Accessibility target"
+  },
+  "browsers": {
+    "intro": "The package targets current browsers and is tested in three engines on every change.",
+    "head": {
+      "target": "Target",
+      "versions": "Versions"
+    },
+    "rows": [
+      ["Chromium (Chrome, Edge)", "The last two"],
+      ["Firefox", "The last two, and the current ESR"],
+      ["Safari and WebKit (macOS, iOS)", "16.4 and newer"],
+      ["Android Chrome", "The current one"]
+    ],
+    "features": "Four platform features are used without a fallback, because every browser in that matrix has them:",
+    "points": [
+      "<code>&lt;dialog&gt;</code> with <code>showModal()</code>, for the overflow and detail dialogs.",
+      "<code>ResizeObserver</code> and <code>IntersectionObserver</code>, for compact mode and for pinning.",
+      "<code>Intl.DateTimeFormat</code> and <code>Intl.PluralRules</code>, for every date, time and count.",
+      "CSS logical properties and <code>:where()</code>, which is what makes right-to-left work without a second stylesheet."
+    ]
+  },
+  "react": {
+    "intro": "React 18.2, 18.3 and 19.x. CI runs the whole test suite against each of them, so a release cannot pass while one of them is broken.",
+    "strict": "Strict Mode is supported: every effect the component starts is idempotent and cleans up after itself, so a double-invoked effect changes nothing."
+  },
+  "typescript": {
+    "intro": "TypeScript 5.0 or newer. The declarations are generated from the source and shipped with the package; they are checked against TypeScript 5.0, 5.9 and 7.0. Anything older cannot resolve the package's subpath exports.",
+    "generics": "The types are generic over your own data: the item type, the level keys and the tag keys all flow through, so <code>renderItemDetail</code> receives your item and not a widened one. See <link to=\"/api/types-model/\">Model types</link>."
+  },
+  "frameworks": {
+    "intro": "Any React application. The package is published as ESM and CommonJS, with types for both, and it never touches the DOM while rendering.",
+    "points": [
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> and every bundler that reads the <code>exports</code> map.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router and Pages Router: the schedule is a client component.",
+      "<link to=\"/integrations/ssr/\">Server rendering</link> in general: the first render is the server's markup, and the observers start after hydration.",
+      "Node 20 or newer, if you render on a server."
+    ]
+  },
+  "size": {
+    "intro": "Measured by <code>size-limit</code> on every change, minified and gzipped, with React excluded. A build that grows past a budget fails.",
+    "head": {
+      "entry": "Entry",
+      "size": "Size",
+      "budget": "Budget"
+    },
+    "rows": [
+      ["Main entry, eager part", "24.9 kB", "26 kB"],
+      ["Overflow dialog, table and pagination (lazy)", "2.6 kB", "5 kB"],
+      ["Detail dialog (lazy)", "0.9 kB", "3 kB"],
+      ["<code>/core</code>", "5.1 kB", "6 kB"],
+      ["<code>/dom</code>", "1.7 kB", "4 kB"],
+      ["<code>styles.css</code>", "6.6 kB", "8 kB"],
+      ["One locale pack", "About 1.1 kB", "1.5 kB"]
+    ]
+  },
+  "a11y": {
+    "intro": "The target is WCAG 2.2 level AA.",
+    "tested": "Automated checks run axe with the WCAG 2.0, 2.1 and 2.2 A and AA rules in Chromium, Firefox and WebKit, and no serious or critical violation is allowed. The release checklist adds a manual pass with NVDA in Firefox and VoiceOver in Safari: headings, list counts, card announcements and dialog focus. What is not covered yet is listed under <link to=\"/discover-more/accessibility/\">Accessibility</link>."
   }
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Requisitos",
-    "description": "Requisitos do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+    "description": "Navegadores, versões de React e TypeScript, frameworks e renderização no servidor, tamanho do pacote e o alvo de acessibilidade do React Scheduler."
   },
   "sections": {
     "browsers": "Navegadores",
@@ -14,5 +14,63 @@
     "frameworks-and-ssr": "Frameworks e SSR",
     "bundle-size": "Tamanho do pacote",
     "accessibility-target": "Objetivo de acessibilidade"
+  },
+  "browsers": {
+    "intro": "O pacote tem como alvo os navegadores atuais e é testado em três motores a cada alteração.",
+    "head": {
+      "target": "Alvo",
+      "versions": "Versões"
+    },
+    "rows": [
+      ["Chromium (Chrome, Edge)", "As duas últimas"],
+      ["Firefox", "As duas últimas e a ESR atual"],
+      ["Safari e WebKit (macOS, iOS)", "16.4 e posteriores"],
+      ["Android Chrome", "A atual"]
+    ],
+    "features": "Quatro funcionalidades da plataforma são usadas sem alternativa, porque todos os navegadores dessa lista as têm:",
+    "points": [
+      "<code>&lt;dialog&gt;</code> com <code>showModal()</code>, para as caixas de diálogo dos elementos adicionais e do detalhe.",
+      "<code>ResizeObserver</code> e <code>IntersectionObserver</code>, para o modo compacto e para a fixação.",
+      "<code>Intl.DateTimeFormat</code> e <code>Intl.PluralRules</code>, para cada data, hora e contagem.",
+      "As propriedades lógicas do CSS e <code>:where()</code>, que fazem a escrita da direita para a esquerda funcionar sem uma segunda folha de estilos."
+    ]
+  },
+  "react": {
+    "intro": "React 18.2, 18.3 e 19.x. A CI executa toda a bateria de testes contra cada um, por isso uma versão não pode passar enquanto um deles estiver partido.",
+    "strict": "O modo estrito é suportado: cada efeito que o componente arranca é idempotente e limpa-se a si próprio, por isso um efeito invocado duas vezes não muda nada."
+  },
+  "typescript": {
+    "intro": "TypeScript 5.0 ou mais recente. As declarações são geradas a partir do código e vão com o pacote; são verificadas com TypeScript 5.0, 5.9 e 7.0. Versões anteriores não conseguem resolver os subcaminhos do pacote.",
+    "generics": "Os tipos são genéricos sobre os seus dados: o tipo do elemento, as chaves de nível e as de etiqueta percorrem tudo, por isso <code>renderItemDetail</code> recebe o seu elemento e não um alargado. Ver <link to=\"/api/types-model/\">Tipos do modelo</link>."
+  },
+  "frameworks": {
+    "intro": "Qualquer aplicação React. O pacote é publicado como ESM e CommonJS, com tipos para ambos, e nunca toca no DOM enquanto renderiza.",
+    "points": [
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> e qualquer empacotador que leia o mapa <code>exports</code>.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router e Pages Router: o horário é um componente de cliente.",
+      "<link to=\"/integrations/ssr/\">Renderização no servidor</link> em geral: a primeira renderização é a marcação do servidor, e os observadores arrancam depois da hidratação.",
+      "Node 20 ou mais recente, se renderizar num servidor."
+    ]
+  },
+  "size": {
+    "intro": "Medido pelo <code>size-limit</code> a cada alteração, minificado e comprimido, com o React excluído. Uma compilação que passa de um limite falha.",
+    "head": {
+      "entry": "Entrada",
+      "size": "Tamanho",
+      "budget": "Limite"
+    },
+    "rows": [
+      ["Entrada principal, a parte carregada de imediato", "24,9 kB", "26 kB"],
+      ["Caixa de diálogo dos elementos adicionais, tabela e paginação (preguiçoso)", "2,6 kB", "5 kB"],
+      ["Caixa de diálogo do detalhe (preguiçoso)", "0,9 kB", "3 kB"],
+      ["<code>/core</code>", "5,1 kB", "6 kB"],
+      ["<code>/dom</code>", "1,7 kB", "4 kB"],
+      ["<code>styles.css</code>", "6,6 kB", "8 kB"],
+      ["Um pacote de idioma", "Cerca de 1,1 kB", "1,5 kB"]
+    ]
+  },
+  "a11y": {
+    "intro": "O alvo é a WCAG 2.2, nível AA.",
+    "tested": "As verificações automáticas correm o axe com as regras A e AA da WCAG 2.0, 2.1 e 2.2 em Chromium, Firefox e WebKit, e nenhuma violação grave ou crítica é permitida. A lista de verificação antes de uma versão acrescenta uma passagem manual com NVDA no Firefox e VoiceOver no Safari: títulos, contagens das listas, anúncios dos cartões e o foco das caixas de diálogo. O que ainda não está coberto está em <link to=\"/discover-more/accessibility/\">Acessibilidade</link>."
   }
 }

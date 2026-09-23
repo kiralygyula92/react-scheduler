@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Installation",
-    "description": "Installation du paquet React Scheduler : les étapes dans l’ordre, les versions concernées et ce qu’il faut vérifier."
+    "description": "Installez React Scheduler, ajoutez sa feuille de style et affichez le premier planning. Les dépendances peer, les styles et une vérification de cinq lignes."
   },
   "sections": {
     "install": "Installation",
@@ -13,5 +13,41 @@
     "stylesheet": "Feuille de style",
     "verify": "Vérification",
     "next-steps": "Étapes suivantes"
+  },
+  "peers": {
+    "intro": "React Scheduler n’installe rien à lui. Ses deux peers sont le React que vous avez déjà ; tout autre paquet de l’arbre est un outil de développement de ce dépôt, pas de votre application.",
+    "head": {
+      "package": "Paquet",
+      "range": "Intervalle",
+      "why": "Pourquoi"
+    },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Les hooks, le contexte et le rendu concurrent sur lesquels les vues sont bâties."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Le rendu DOM et le portail dans lequel s’ouvrent les boîtes de dialogue des éléments supplémentaires et du détail."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "Importez la feuille de style une seule fois, là où votre application démarre. Elle porte les deux préréglages, le schéma clair et le schéma sombre et les trois densités ; rien n’est injecté à l’exécution.",
+    "unstyled": "Si vous voulez tout styler vous-même, importez plutôt <code>@react-schedulerkit/react-scheduler/base.css</code> : la même structure, sans couleurs, sans échelle d’espacement ni échelle typographique. <link to=\"/customization/\">Personnalisation</link> montre les niveaux intermédiaires."
+  },
+  "verify": {
+    "intro": "Ceci est un fichier complet. S’il affiche une carte dans un poste, le paquet, ses styles et ses peers sont en place.",
+    "calloutTitle": "Sans date, sans postes ?",
+    "callout": "Les deux sont facultatifs. Sans <code>date</code>, le planning montre la journée en cours, et sans <code>shifts</code> il utilise deux postes de douze heures ancrés à 08:00."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Utilisation</link> — les props que vous fixerez en premier et le partage de l’état avec votre application.",
+      "<link to=\"/getting-started/requirements/\">Prérequis</link> — navigateurs, versions de React et TypeScript, taille du paquet.",
+      "<link to=\"/all-features/\">Toutes les fonctionnalités</link> — chaque capacité, avec une démonstration vivante."
+    ]
   }
 }

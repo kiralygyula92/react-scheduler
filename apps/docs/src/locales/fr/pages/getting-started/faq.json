@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "FAQ",
-    "description": "FAQ du paquet React Scheduler : les étapes dans l’ordre, les versions concernées et ce qu’il faut vérifier."
+    "description": "Les quatre questions les plus posées sur React Scheduler : la licence, Next.js, l’utilisation sans les styles par défaut et les langues intégrées."
   },
   "sections": {
     "is-it-free": "Est-ce gratuit ?",
     "nextjs": "Fonctionne-t-il avec Next.js ?",
     "without-default-styles": "Puis-je l’utiliser sans les styles par défaut ?",
     "built-in-languages": "Quelles langues sont incluses ?"
+  },
+  "free": {
+    "text": "Oui. React Scheduler est sous licence MIT, sans offre payante ni fonctionnalité verrouillée : le paquet que vous installez est le tout, et tout ce qui figure sur ce site s’y trouve. Le texte complet est sur la page <link to=\"/discover-more/license/\">Licence</link>."
+  },
+  "nextjs": {
+    "text": "Oui, dans les deux routeurs. Le planning lit la fenêtre et écoute le défilement : c’est donc un composant client. Mettez <code>'use client'</code> en tête du fichier qui l’affiche, ou d’un composant enveloppe. Le serveur rend toujours son balisage et l’hydratation est silencieuse. Les détails sont sur <link to=\"/integrations/nextjs/\">Next.js</link>."
+  },
+  "unstyled": {
+    "text": "Oui, à trois niveaux. Gardez <code>styles.css</code> et changez les variables CSS ; ou importez <code>base.css</code>, qui ne porte que la structure ; ou passez <code>unstyled</code> et apportez vos propres noms de classe via <code>classNames</code>. <link to=\"/customization/\">Personnalisation</link> montre ce que coûte chaque niveau."
+  },
+  "languages": {
+    "text": "Sept : anglais, roumain, hongrois, espagnol, français, allemand et portugais. Chacune est un simple objet exporté depuis <code>@react-schedulerkit/react-scheduler/locales</code> : vous pouvez en passer une, l’étendre ou écrire la vôtre — dates, heures et décomptes suivent la langue du pack via <code>Intl</code>. Voir <link to=\"/customization/localization/\">Localisation</link>."
   }
 }

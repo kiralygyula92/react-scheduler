@@ -1,16 +1,36 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Support",
-    "description": "Support for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+    "description": "Where to ask about React Scheduler, what a useful bug report contains, how to report a vulnerability privately, and how long a version is supported."
   },
   "sections": {
     "where-to-ask": "Where to ask",
     "report-a-bug": "How to report a bug",
     "security": "Security",
     "support-policy": "Support policy"
+  },
+  "ask": {
+    "text": "Questions go to <ext href=\"https://github.com/kiralygyula92/react-scheduler/discussions\">GitHub Discussions</ext>: how to do something, whether a behavior is intended, whether an idea fits the package. Issues are for defects, so a question opened as an issue is usually moved there."
+  },
+  "bug": {
+    "intro": "Open an <ext href=\"https://github.com/kiralygyula92/react-scheduler/issues/new\">issue</ext> with these five things. A report that has them can usually be fixed the same day it is read; one that has none rarely moves at all.",
+    "points": [
+      "The version of the package and of React, and the browser the problem appears in.",
+      "What you expected to happen, in one sentence.",
+      "What happened instead, in one sentence.",
+      "A minimal reproduction: the smallest <code>&lt;Scheduler&gt;</code> that still shows it, with its items inline. A link to a sandbox or a small repository is ideal.",
+      "Anything that makes it appear or disappear: a viewport width, a locale, the timeline rather than the list."
+    ],
+    "reduce": "Reducing the case is the part that helps most. Remove props until the problem goes away, and the last one you removed is usually in the title of the fix."
+  },
+  "security": {
+    "text": "Report a vulnerability privately through the repository's <ext href=\"https://github.com/kiralygyula92/react-scheduler/security/advisories\">Security tab</ext>, not in a public issue. The report stays visible only to the maintainers until a fix is released; <code>SECURITY.md</code> in the repository says what to include and when to expect an answer."
+  },
+  "policy": {
+    "text": "Fixes land on the latest minor release of the current major, and that release is the one documented here. While the package is below <code>1.0.0</code> there is one supported version at a time — the latest. What that means for upgrades is on the <link to=\"/getting-started/versions/\">Versions</link> page."
   }
 }

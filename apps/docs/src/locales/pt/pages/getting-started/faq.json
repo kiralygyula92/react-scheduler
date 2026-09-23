@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Perguntas frequentes",
-    "description": "Perguntas frequentes do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+    "description": "As quatro perguntas mais frequentes sobre o React Scheduler: a licença, o Next.js, usá-lo sem os estilos por omissão e os idiomas incluídos."
   },
   "sections": {
     "is-it-free": "É gratuito?",
     "nextjs": "Funciona com o Next.js?",
     "without-default-styles": "Posso usá-lo sem os estilos predefinidos?",
     "built-in-languages": "Que idiomas estão incluídos?"
+  },
+  "free": {
+    "text": "Sim. O React Scheduler tem licença MIT, sem nível pago e sem funcionalidades bloqueadas: o pacote que instala é tudo, e tudo o que está neste site está nele. O texto completo está na página <link to=\"/discover-more/license/\">Licença</link>."
+  },
+  "nextjs": {
+    "text": "Sim, nos dois routers. O horário lê a janela e ouve o deslocamento, por isso é um componente de cliente: ponha <code>'use client'</code> no topo do ficheiro que o renderiza, ou de um invólucro. O servidor continua a renderizar a sua marcação e a hidratação é silenciosa. Os detalhes estão em <link to=\"/integrations/nextjs/\">Next.js</link>."
+  },
+  "unstyled": {
+    "text": "Sim, em três níveis. Mantém <code>styles.css</code> e muda as variáveis CSS; ou importa <code>base.css</code>, que traz apenas a estrutura; ou passa <code>unstyled</code> e traz os seus próprios nomes de classe através de <code>classNames</code>. <link to=\"/customization/\">Personalização</link> mostra o que custa cada nível."
+  },
+  "languages": {
+    "text": "Sete: inglês, romeno, húngaro, espanhol, francês, alemão e português. Cada um é um objeto simples exportado de <code>@react-schedulerkit/react-scheduler/locales</code>, por isso pode passar um, estendê-lo ou escrever o seu — datas, horas e contagens seguem o idioma do pacote através do <code>Intl</code>. Ver <link to=\"/customization/localization/\">Localização</link>."
   }
 }

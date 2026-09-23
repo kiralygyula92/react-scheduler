@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Verziók",
@@ -12,5 +12,33 @@
     "versioning-policy": "Verziózási irányelv",
     "older-versions": "Korábbi verziók",
     "related": "Kapcsolódó"
+  },
+  "supported": {
+    "head": {
+      "version": "Verzió",
+      "status": "Állapot",
+      "docs": "Dokumentáció"
+    },
+    "rows": [["<code>0.x</code>", "Aktuális, fejlesztés alatt", "Ez az oldal"]]
+  },
+  "policy": {
+    "intro": "A kiadások a Semantic Versioninget követik, és minden változás, amely kiadásba kerül, changesetet visz magával, amely megmondja, a szám melyik részét mozdítja.",
+    "points": [
+      "<strong>Patch</strong> — javítás, amely az API-t és a megjelenített markupot változatlanul hagyja.",
+      "<strong>Minor</strong> — új propok, új exportok, új CSS változók. Semmi, amit már átadsz, nem változtat jelentést.",
+      "<strong>Major</strong> — eltávolítás vagy megváltozott alapérték, mindegyikhez migrációs megjegyzéssel.",
+      "<strong>Amíg a verzió 0-val kezdődik</strong>, egy mellékverzió is megteheti azt, amit egyébként egy főverzió. Minden ilyen változás szerepel a changelogban, azzal együtt, hogy mit kell tenni."
+    ],
+    "optIn": "Az új viselkedés kikapcsolva érkezik. Az a funkció, amely megváltoztatja, amit az olvasó lát, kapcsolóval vagy proppal jön, és a főverzió hátralévő részében alapból a régi viselkedést hozza."
+  },
+  "older": {
+    "text": "Amint lesz második főverzió, a fejlécben lévő verziójelölő megnyitja a dokumentált főverziók listáját, és mindegyiknek saját másolata lesz ebből az oldalból, saját URL-en. Egyelőre csak egy főverzió van, ezért a jelölő egyetlen bejegyzést mutat."
+  },
+  "related": {
+    "points": [
+      "<link to=\"/discover-more/changelog/\">Changelog</link> — mi változott az egyes kiadásokban.",
+      "<link to=\"/migration/\">Migráció</link> — mi a teendő, ha egy főverzió változik.",
+      "<link to=\"/getting-started/support/\">Támogatás</link> — meddig javítunk egy verziót."
+    ]
   }
 }

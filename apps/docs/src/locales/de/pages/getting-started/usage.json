@@ -1,16 +1,79 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Verwendung",
-    "description": "Verwendung für das React-Scheduler-Paket: die Schritte der Reihe nach, die beteiligten Versionen und die Prüfung danach."
+    "description": "Ein vollständiges React-Scheduler-Beispiel, wie kontrollierter und unkontrollierter Zustand funktionieren, und die Props, die die meisten Anwendungen zuerst setzen."
   },
   "sections": {
     "minimal-example": "Minimales Beispiel",
     "controlled-and-uncontrolled": "Kontrolliert und unkontrolliert",
     "common-props": "Häufige Props",
     "next-steps": "Nächste Schritte"
+  },
+  "demos": {
+    "minimal": "Einträge, ein Tag, und sonst nichts"
+  },
+  "minimal": {
+    "intro": "Drei Props tragen einen funktionierenden Plan: die Einträge, der anzuzeigende Tag und das Sprachpaket. Alles andere hat einen Standardwert. Öffnen Sie den Quelltext unter der Demo — es ist die Datei, die auf dieser Seite läuft."
+  },
+  "controlled": {
+    "intro": "Jeder Zustand, den die Komponente hält, hat eine unkontrollierte Form, in der die Komponente ihn besitzt und nur Änderungen meldet, und eine kontrollierte, in der Ihre Anwendung ihn besitzt. Unkontrolliert ist der Standard: den Anfangswert über eine <code>default</code>-Prop übergeben und vergessen.",
+    "controlled": "Übergeben Sie den Wert selbst, und die Komponente besitzt ihn nicht mehr. Von da an rendert sie, was Sie geben, und ruft Sie bei jeder Änderung: Wert und Anzeige können nicht auseinanderlaufen.",
+    "pairs": "Die Paare sind:",
+    "points": [
+      "<code>view</code> / <code>defaultView</code> mit <code>onViewChange</code> — die Liste oder der Zeitstrahl.",
+      "<code>date</code> / <code>defaultDate</code> mit <code>onDateChange</code> — der gelesene Tag.",
+      "<code>openItemId</code> / <code>defaultOpenItemId</code> mit <code>onOpenItemIdChange</code> — wessen Eintrag im Detail offen ist.",
+      "<code>headerExpanded</code> / <code>defaultHeaderExpanded</code> mit <code>onHeaderExpandedChange</code> — der Zustand Ihrer eigenen Seitenkopfzeile.",
+      "<code>openOverflowId</code>, <code>overflowPage</code> und <code>overflowSort</code>, jeweils mit ihrer <code>default</code>-Form und ihrem Callback — der Dialog der weiteren Einträge."
+    ]
+  },
+  "common": {
+    "intro": "Die Props, die die meisten Anwendungen setzen. Jede ist auf der Seite <link to=\"/api/scheduler/\">Scheduler</link> vollständig dokumentiert.",
+    "head": {
+      "prop": "Prop",
+      "what": "Was sie tut"
+    },
+    "rows": [
+      [
+        "<code>items</code>",
+        "Der Plan selbst: ein flaches Array von Einträgen mit <code>id</code>, <code>start</code>, <code>level</code> und <code>title</code>."
+      ],
+      ["<code>date</code>", "Der anzuzeigende Tag. Gerendert werden die Schichten, die ihn enthalten."],
+      [
+        "<code>shifts</code>",
+        "Wie der Tag in Schichten zerfällt: eine feste Länge mit Anker oder ein benanntes Muster. Siehe <link to=\"/shifts-and-dates/\">Schichten und Daten</link>."
+      ],
+      [
+        "<code>levels</code>",
+        "Die Stufenskala: die Ränge, ihre Farben und welche anheften. Siehe <link to=\"/items-and-levels/\">Einträge und Stufen</link>."
+      ],
+      [
+        "<code>view</code>",
+        "<code>'list'</code> oder <code>'timeline'</code>. Der Leser kann wechseln, sofern Sie es nicht steuern."
+      ],
+      [
+        "<code>localization</code>",
+        "Ein Sprachpaket. Sieben sind eingebaut; das Objekt ist einfach, eine teilweise Überschreibung genügt."
+      ],
+      [
+        "<code>preset</code> și <code>colorScheme</code>",
+        "Das Aussehen: <code>'default'</code> oder <code>'classic'</code>, und <code>'light'</code>, <code>'dark'</code> oder <code>'system'</code>."
+      ],
+      [
+        "<code>onItemOpen</code>",
+        "Wird aufgerufen, wenn der Leser einen Eintrag öffnet, mit dem Eintrag und dem, was ihn ausgelöst hat."
+      ]
+    ]
+  },
+  "next": {
+    "points": [
+      "<link to=\"/all-features/\">Alle Funktionen</link> — eine Seite je Fähigkeit, jede beginnt mit einer Demo.",
+      "<link to=\"/customization/\">Anpassung</link> — von einer CSS-Variablen bis zu einem ersetzten Teil.",
+      "<link to=\"/api/\">API-Referenz</link> — jeder Export, erzeugt aus den Deklarationen."
+    ]
   }
 }

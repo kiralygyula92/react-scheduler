@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "GYIK",
-    "description": "GYIK a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+    "description": "A React Schedulerről leggyakrabban feltett négy kérdés: a licenc, a Next.js, a használat az alapstílusok nélkül, és a beépített nyelvek."
   },
   "sections": {
     "is-it-free": "Ingyenes?",
     "nextjs": "Működik a Next.js-szel?",
     "without-default-styles": "Használható az alapértelmezett stílusok nélkül?",
     "built-in-languages": "Mely nyelvek beépítettek?"
+  },
+  "free": {
+    "text": "Igen. A React Scheduler MIT licencű, fizetős csomag és funkciózár nélkül: a telepített csomag maga a teljes termék, és minden, ami ezen az oldalon szerepel, benne van. A teljes szöveg a <link to=\"/discover-more/license/\">Licenc</link> oldalon olvasható."
+  },
+  "nextjs": {
+    "text": "Igen, mindkét routerben. Az ütemterv olvassa a nézetablakot és figyeli a görgetést, ezért kliensoldali komponens: tedd a <code>'use client'</code> sort a megjelenítő fájl vagy egy köré írt burkoló elejére. A szerver továbbra is megjeleníti a markupját, a hidratálás pedig néma. A részletek a <link to=\"/integrations/nextjs/\">Next.js</link> oldalon vannak."
+  },
+  "unstyled": {
+    "text": "Igen, három szinten. Megtartod a <code>styles.css</code> fájlt, és a CSS változókat állítod; vagy a <code>base.css</code> fájlt importálod, amelyben csak a szerkezet van; vagy átadod az <code>unstyled</code> propot, és a <code>classNames</code> segítségével a saját osztályneveidet hozod. A <link to=\"/customization/\">Testreszabás</link> megmutatja, mi az ára az egyes szinteknek."
+  },
+  "languages": {
+    "text": "Hét: angol, román, magyar, spanyol, francia, német és portugál. Mindegyik egy egyszerű objektum, amelyet a <code>@react-schedulerkit/react-scheduler/locales</code> exportál, így átadhatod, kibővítheted vagy megírhatod a sajátodat — a dátumok, az időpontok és a számok a csomag nyelvét követik az <code>Intl</code> révén. Lásd: <link to=\"/customization/localization/\">Lokalizáció</link>."
   }
 }

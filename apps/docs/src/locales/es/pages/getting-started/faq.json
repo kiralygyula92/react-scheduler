@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Preguntas frecuentes",
-    "description": "Preguntas frecuentes del paquete React Scheduler: los pasos en orden, las versiones implicadas y qué comprobar después."
+    "description": "Las cuatro preguntas más frecuentes sobre React Scheduler: la licencia, Next.js, usarlo sin los estilos por defecto y los idiomas incluidos."
   },
   "sections": {
     "is-it-free": "¿Es gratis?",
     "nextjs": "¿Funciona con Next.js?",
     "without-default-styles": "¿Puedo usarlo sin los estilos predeterminados?",
     "built-in-languages": "¿Qué idiomas están incluidos?"
+  },
+  "free": {
+    "text": "Sí. React Scheduler tiene licencia MIT, sin nivel de pago y sin funciones bloqueadas: el paquete que instalas es todo, y todo lo que hay en este sitio está en él. El texto completo está en la página <link to=\"/discover-more/license/\">Licencia</link>."
+  },
+  "nextjs": {
+    "text": "Sí, en los dos routers. El horario lee el viewport y escucha el desplazamiento, así que es un componente de cliente: pon <code>'use client'</code> al principio del archivo que lo renderiza, o de un envoltorio. El servidor sigue renderizando su marcado y la hidratación es silenciosa. Los detalles están en <link to=\"/integrations/nextjs/\">Next.js</link>."
+  },
+  "unstyled": {
+    "text": "Sí, en tres niveles. Mantienes <code>styles.css</code> y cambias las variables CSS; o importas <code>base.css</code>, que lleva la estructura y nada más; o pasas <code>unstyled</code> y traes tus propios nombres de clase con <code>classNames</code>. <link to=\"/customization/\">Personalización</link> muestra qué cuesta cada nivel."
+  },
+  "languages": {
+    "text": "Siete: inglés, rumano, húngaro, español, francés, alemán y portugués. Cada uno es un objeto sencillo exportado desde <code>@react-schedulerkit/react-scheduler/locales</code>, así que puedes pasar uno, ampliarlo o escribir el tuyo: fechas, horas y recuentos siguen el idioma del paquete a través de <code>Intl</code>. Véase <link to=\"/customization/localization/\">Localización</link>."
   }
 }

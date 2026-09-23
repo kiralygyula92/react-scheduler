@@ -1,16 +1,76 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Utilizare",
-    "description": "Utilizare pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+    "description": "Un exemplu complet cu React Scheduler, cum funcționează starea controlată și necontrolată și proprietățile pe care aplicațiile le setează primele."
   },
   "sections": {
     "minimal-example": "Exemplu minim",
     "controlled-and-uncontrolled": "Controlat și necontrolat",
     "common-props": "Proprietăți frecvente",
     "next-steps": "Pașii următori"
+  },
+  "demos": {
+    "minimal": "Elemente, o zi și nimic altceva"
+  },
+  "minimal": {
+    "intro": "Trei proprietăți duc un program funcțional: elementele, ziua de arătat și pachetul de limbă. Restul au valori implicite. Deschide sursa de sub demonstrație ca să vezi fișierul întreg — este chiar fișierul care rulează pe această pagină."
+  },
+  "controlled": {
+    "intro": "Fiecare bucată de stare pe care componenta o ține are o formă necontrolată, în care o deține componenta și doar raportează schimbările, și o formă controlată, în care o deține aplicația ta. Necontrolat este implicit: dai valoarea inițială printr-o proprietate <code>default</code> și uiți de ea.",
+    "controlled": "Dai valoarea însăși și componenta nu o mai deține. De atunci randează ce îi dai și te apelează la fiecare schimbare, așa că valoarea și ce se vede nu pot ajunge să difere.",
+    "pairs": "Perechile sunt:",
+    "points": [
+      "<code>view</code> / <code>defaultView</code> cu <code>onViewChange</code> — lista sau cronologia.",
+      "<code>date</code> / <code>defaultDate</code> cu <code>onDateChange</code> — ziua citită.",
+      "<code>openItemId</code> / <code>defaultOpenItemId</code> cu <code>onOpenItemIdChange</code> — al cărui element este deschis detaliul.",
+      "<code>headerExpanded</code> / <code>defaultHeaderExpanded</code> cu <code>onHeaderExpandedChange</code> — starea antetului paginii tale.",
+      "<code>openOverflowId</code>, <code>overflowPage</code> și <code>overflowSort</code>, fiecare cu forma lui <code>default</code> și cu callback-ul lui — dialogul de suplimentare."
+    ]
+  },
+  "common": {
+    "intro": "Proprietățile pe care le setează majoritatea aplicațiilor. Fiecare este documentată complet pe pagina <link to=\"/api/scheduler/\">Scheduler</link>.",
+    "head": {
+      "prop": "Prop",
+      "what": "Ce face"
+    },
+    "rows": [
+      [
+        "<code>items</code>",
+        "Programul însuși: un tablou simplu de elemente cu <code>id</code>, <code>start</code>, <code>level</code> și <code>title</code>."
+      ],
+      ["<code>date</code>", "Ziua de arătat. Turele care o conțin sunt cele randate."],
+      [
+        "<code>shifts</code>",
+        "Cum este tăiată ziua în ture: o durată regulată și o ancoră, sau un tipar denumit. Vezi <link to=\"/shifts-and-dates/\">Ture și date</link>."
+      ],
+      [
+        "<code>levels</code>",
+        "Scara de severitate: rangurile, culorile lor și care dintre ele fixează. Vezi <link to=\"/items-and-levels/\">Elemente și niveluri</link>."
+      ],
+      [
+        "<code>view</code>",
+        "<code>'list'</code> sau <code>'timeline'</code>. Cititorul poate comuta, dacă nu o controlezi tu."
+      ],
+      [
+        "<code>localization</code>",
+        "Un pachet de limbă. Șapte sunt incluse; obiectul este simplu, așa că ajunge și o suprascriere parțială."
+      ],
+      [
+        "<code>preset</code> și <code>colorScheme</code>",
+        "Aspectul: <code>'default'</code> sau <code>'classic'</code> și <code>'light'</code>, <code>'dark'</code> ori <code>'system'</code>."
+      ],
+      ["<code>onItemOpen</code>", "Apelat când cititorul deschide un element, cu elementul și cu ce l-a activat."]
+    ]
+  },
+  "next": {
+    "points": [
+      "<link to=\"/all-features/\">Toate funcționalitățile</link> — câte o pagină per capabilitate, fiecare începând cu o demonstrație.",
+      "<link to=\"/customization/\">Personalizare</link> — de la o variabilă CSS până la o parte înlocuită.",
+      "<link to=\"/api/\">Referința API</link> — fiecare export, generat din declarații."
+    ]
   }
 }

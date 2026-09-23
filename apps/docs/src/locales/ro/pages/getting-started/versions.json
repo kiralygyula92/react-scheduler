@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Versiuni",
@@ -12,5 +12,33 @@
     "versioning-policy": "Politica de versionare",
     "older-versions": "Versiuni mai vechi",
     "related": "Legături conexe"
+  },
+  "supported": {
+    "head": {
+      "version": "Versiune",
+      "status": "Stare",
+      "docs": "Documentație"
+    },
+    "rows": [["<code>0.x</code>", "Curentă, în dezvoltare", "Acest site"]]
+  },
+  "policy": {
+    "intro": "Versiunile urmează Semantic Versioning, iar fiecare schimbare care ajunge într-o versiune poartă un changeset care spune ce parte a numărului mișcă.",
+    "points": [
+      "<strong>Patch</strong> — o corecție care lasă API-ul și markup-ul randat așa cum erau.",
+      "<strong>Minor</strong> — proprietăți noi, exporturi noi, variabile CSS noi. Nimic din ce treci deja nu își schimbă sensul.",
+      "<strong>Major</strong> — o eliminare sau o valoare implicită schimbată, cu o notă de migrare pentru fiecare.",
+      "<strong>Cât timp versiunea începe cu 0</strong>, o versiune minoră poate face ce ar face altfel una majoră. Fiecare astfel de schimbare este listată în changelog, împreună cu ce ai de făcut."
+    ],
+    "optIn": "Comportamentul nou vine oprit. O funcție care schimbă ce vede cititorul vine cu un flag sau cu o proprietate, cu valoarea implicită pe comportamentul vechi pentru restul majorului."
+  },
+  "older": {
+    "text": "Când va exista un al doilea major, pastila de versiune din antet va deschide lista majorelor documentate, fiecare cu propria copie a acestui site, la propriul URL. Deocamdată există un singur major, așa că pastila arată o singură intrare."
+  },
+  "related": {
+    "points": [
+      "<link to=\"/discover-more/changelog/\">Changelog</link> — ce s-a schimbat în fiecare versiune.",
+      "<link to=\"/migration/\">Migrare</link> — ce ai de făcut când se schimbă un major.",
+      "<link to=\"/getting-started/support/\">Suport</link> — cât timp este corectată o versiune."
+    ]
   }
 }

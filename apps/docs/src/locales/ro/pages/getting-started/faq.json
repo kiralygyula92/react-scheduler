@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Întrebări frecvente",
-    "description": "Întrebări frecvente pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+    "description": "Cele patru întrebări puse cel mai des despre React Scheduler: licența, Next.js, folosirea fără stilurile implicite și limbile incluse."
   },
   "sections": {
     "is-it-free": "Este gratuit?",
     "nextjs": "Funcționează cu Next.js?",
     "without-default-styles": "Îl pot folosi fără stilurile implicite?",
     "built-in-languages": "Ce limbi sunt incluse?"
+  },
+  "free": {
+    "text": "Da. React Scheduler este licențiat MIT, fără nivel plătit și fără funcționalități blocate: pachetul pe care îl instalezi este totul, iar tot ce este pe acest site se află în el. Textul complet este pe pagina <link to=\"/discover-more/license/\">Licență</link>."
+  },
+  "nextjs": {
+    "text": "Da, în ambele routere. Programul citește fereastra și ascultă derularea, deci este o componentă de client: pune <code>'use client'</code> în capul fișierului care îl randează sau al unui înveliș în jurul lui. Serverul tot îi randează markup-ul, iar hidratarea este tăcută. Detaliile sunt la <link to=\"/integrations/nextjs/\">Next.js</link>."
+  },
+  "unstyled": {
+    "text": "Da, pe trei niveluri. Păstrezi <code>styles.css</code> și schimbi variabilele CSS; sau imporți <code>base.css</code>, care are structura și nimic altceva; sau treci <code>unstyled</code> și îți aduci propriile nume de clase prin <code>classNames</code>. <link to=\"/customization/\">Personalizarea</link> arată ce te costă fiecare nivel."
+  },
+  "languages": {
+    "text": "Șapte: engleză, română, maghiară, spaniolă, franceză, germană și portugheză. Fiecare este un obiect simplu exportat din <code>@react-schedulerkit/react-scheduler/locales</code>, deci poți trece unul, îl poți extinde sau îl poți scrie pe al tău — datele, orele și numerele urmează limba pachetului prin <code>Intl</code>. Vezi <link to=\"/customization/localization/\">Localizare</link>."
   }
 }

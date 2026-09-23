@@ -1,16 +1,36 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Suporte",
-    "description": "Suporte do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+    "description": "Onde perguntar sobre o React Scheduler, o que contém um bom relatório de erro, como comunicar uma vulnerabilidade em privado e durante quanto tempo uma versão é mantida."
   },
   "sections": {
     "where-to-ask": "Onde perguntar",
     "report-a-bug": "Como reportar um erro",
     "security": "Segurança",
     "support-policy": "Política de suporte"
+  },
+  "ask": {
+    "text": "As perguntas vão para as <ext href=\"https://github.com/kiralygyula92/react-scheduler/discussions\">GitHub Discussions</ext>: como fazer algo, se um comportamento é intencional, se uma ideia cabe no pacote. Os issues são para defeitos, por isso uma pergunta aberta como issue costuma ser movida para lá."
+  },
+  "bug": {
+    "intro": "Abra um <ext href=\"https://github.com/kiralygyula92/react-scheduler/issues/new\">issue</ext> com estas cinco coisas. Um relatório que as tenha costuma ser corrigido no dia em que é lido; um que não tenha nenhuma raramente avança.",
+    "points": [
+      "A versão do pacote e do React, e o navegador em que o problema aparece.",
+      "O que esperava que acontecesse, numa frase.",
+      "O que aconteceu em vez disso, numa frase.",
+      "Uma reprodução mínima: o mais pequeno <code>&lt;Scheduler&gt;</code> que ainda o mostre, com os elementos no próprio código. Um link para uma sandbox ou um repositório pequeno é o ideal.",
+      "Tudo o que o faz aparecer ou desaparecer: uma largura de janela, um idioma, a cronologia em vez da lista."
+    ],
+    "reduce": "Reduzir o caso é o que mais ajuda. Retire props até o problema desaparecer: a última que retirou costuma acabar no título da correção."
+  },
+  "security": {
+    "text": "Comunique uma vulnerabilidade em privado através do separador <ext href=\"https://github.com/kiralygyula92/react-scheduler/security/advisories\">Security</ext> do repositório, e não num issue público. O relatório fica visível apenas para os responsáveis até a correção ser publicada; o <code>SECURITY.md</code> no repositório diz o que incluir e quando esperar resposta."
+  },
+  "policy": {
+    "text": "As correções entram na última versão menor do maior atual, e é essa versão que está documentada aqui. Enquanto o pacote estiver abaixo de <code>1.0.0</code>, há uma só versão suportada de cada vez — a mais recente. O que isso significa para as atualizações está na página <link to=\"/getting-started/versions/\">Versões</link>."
   }
 }

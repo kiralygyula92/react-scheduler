@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Installation",
-    "description": "Installation für das React-Scheduler-Paket: die Schritte der Reihe nach, die beteiligten Versionen und die Prüfung danach."
+    "description": "Installieren Sie React Scheduler, binden Sie sein Stylesheet ein und rendern Sie den ersten Plan. Die Peer-Abhängigkeiten, die Styles und eine Prüfung in fünf Zeilen."
   },
   "sections": {
     "install": "Installation",
@@ -13,5 +13,41 @@
     "stylesheet": "Stylesheet",
     "verify": "Überprüfung",
     "next-steps": "Nächste Schritte"
+  },
+  "peers": {
+    "intro": "React Scheduler installiert nichts Eigenes. Seine beiden Peers sind das React, das Sie schon haben; jedes weitere Paket im Baum ist ein Entwicklungswerkzeug dieses Repositorys, nicht Ihrer Anwendung.",
+    "head": {
+      "package": "Paket",
+      "range": "Bereich",
+      "why": "Wofür"
+    },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Hooks, Kontext und der nebenläufige Renderer, auf denen die Ansichten aufbauen."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Das DOM-Rendering und das Portal, in dem der Dialog der weiteren Einträge und der Detaildialog öffnen."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "Binden Sie das Stylesheet einmal ein, dort wo Ihre Anwendung startet. Es enthält beide Voreinstellungen, das helle und das dunkle Schema und die drei Dichten; zur Laufzeit wird nichts eingefügt.",
+    "unstyled": "Wenn Sie alles selbst gestalten wollen, binden Sie stattdessen <code>@react-schedulerkit/react-scheduler/base.css</code> ein: dieselbe Struktur, ohne Farben, ohne Abstands- und ohne Typografieskala. <link to=\"/customization/\">Anpassung</link> zeigt die Stufen dazwischen."
+  },
+  "verify": {
+    "intro": "Das ist eine vollständige Datei. Rendert sie eine Karte in einer Schicht, sind das Paket, seine Styles und seine Peers an Ort und Stelle.",
+    "calloutTitle": "Kein Datum, keine Schichten?",
+    "callout": "Beides ist optional. Ohne <code>date</code> zeigt der Plan den heutigen Tag, und ohne <code>shifts</code> nutzt er zwei Zwölfstundenschichten mit Anker um 08:00."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Verwendung</link> — die Props, die Sie zuerst setzen, und wie der Zustand mit Ihrer Anwendung geteilt wird.",
+      "<link to=\"/getting-started/requirements/\">Voraussetzungen</link> — Browser, React- und TypeScript-Versionen, Paketgröße.",
+      "<link to=\"/all-features/\">Alle Funktionen</link> — jede Fähigkeit, mit einer lebenden Demo."
+    ]
   }
 }

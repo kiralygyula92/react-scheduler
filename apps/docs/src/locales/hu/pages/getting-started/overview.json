@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Áttekintés",
@@ -12,5 +12,49 @@
     "why": "Miért a React Scheduler",
     "start-now": "Kezdés",
     "license": "Licenc"
+  },
+  "introduction": {
+    "what": "A React Scheduler egy munkanapot mutat meg ütemtervként. Elemek egyszerű listáját kapja meg – kezdéssel, szinttel és címmel –, a nap műszakaiba rendezi őket, és vagy <link to=\"/list-view/\">listaként</link> jeleníti meg, amelyet fentről lefelé olvasol, vagy <link to=\"/timeline-view/\">idővonalként</link>, ahol egy elem magassága az időtartama. Egyetlen React komponens, TypeScriptben, HTML-ben és CSS-ben megírva, a Reacten kívül <strong>futásidejű függőség nélkül</strong>.",
+    "controlled": "Mindent kívülről vezérelsz. A propok adják az adatokat, a műszakokat és a beállításokat; a CSS változók a színeket, a térközöket és a sűrűséget; a visszahívások minden változást jeleznek; a <link to=\"/customization/slots/\">slotok</link> és a render propok a markup bármely részét lecserélik. Az állapot maradhat a komponensnél, vagy átveheti az alkalmazásod, propról propra.",
+    "not": "Nem naptár és nem szerkesztő. Nincs havi vagy éves rács, nincs húzd és ejtsd, nincs ismétlődés, nincs saját időzóna és nincs adatréteg: azokat az elemeket jeleníti meg, amelyeket megadsz neki, arra a napra, amelyet kérsz, és szól, ha az olvasó tesz valamit."
+  },
+  "why": {
+    "points": [
+      "<strong>Alapból akadálymentes:</strong> minden kártya gomb, minden műszak címsor, minden párbeszédpanel fogva tartja a fókuszt, a cél pedig a WCAG 2.2 AA – amelyet az axe ellenőriz a csomag böngészős tesztjeiben és ennek az oldalnak a lapjain.",
+      "<strong>Témázás UI-készlet nélkül:</strong> két előbeállítás, három sűrűség, világos és sötét séma, és több mint százötven CSS változó. Nincs futásidejű CSS-in-JS, nincs segédosztály-könyvtár, és nincs mit beállítani az első megjelenítés előtt.",
+      "<strong>Nulla futásidejű függőség:</strong> csak a <code>react</code> és a <code>react-dom</code>, peerként. Semmi más nem települ vele, így semmi más nem is ronthatja el.",
+      "<strong>Biztonságos a szerveren:</strong> a szerveren a DOM érintése nélkül jelenik meg, figyelmeztetés nélkül hidratál, és a figyelőit csak a beillesztés után indítja el.",
+      "<strong>Kicsi és lusta:</strong> nagyjából 25 kB gzip a fő belépési pont, a további elemek és a részletek párbeszédpanele pedig külön darabokban, az első megnyitáskor töltődik be.",
+      "<strong>Hét nyelv beépítve:</strong> angol, román, magyar, spanyol, francia, német és portugál, mindegyik egy egyszerű objektum, amelyet kibővíthetsz vagy lecserélhetsz."
+    ]
+  },
+  "cards": {
+    "installation": {
+      "title": "Telepítés",
+      "text": "Telepítsd a csomagot, add hozzá a stíluslapot, ellenőrizd az első megjelenítést."
+    },
+    "usage": {
+      "title": "Használat",
+      "text": "Egy teljes példa, majd azok a propok, amelyekhez elsőként nyúlsz."
+    },
+    "features": {
+      "title": "Minden képesség",
+      "text": "Minden képesség, egy-egy oldalon, élő bemutatóval."
+    },
+    "timeline": {
+      "title": "Idővonal nézet",
+      "text": "A rács, ahol egy elem magassága az, hogy meddig tart."
+    },
+    "customization": {
+      "title": "Testreszabás",
+      "text": "CSS változók, osztálynevek, slot propok, slotok és kezelők."
+    },
+    "api": {
+      "title": "API-referencia",
+      "text": "Minden export, a csomag saját deklarációiból előállítva."
+    }
+  },
+  "license": {
+    "text": "MIT, fizetős csomag és funkciózár nélkül. Minden, amit ez az oldal dokumentál, benne van a telepített csomagban."
   }
 }

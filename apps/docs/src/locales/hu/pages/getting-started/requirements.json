@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Követelmények",
-    "description": "Követelmények a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+    "description": "Böngészők, React- és TypeScript-verziók, keretrendszerek és szerveroldali megjelenítés, csomagméret és a React Scheduler akadálymentességi célja."
   },
   "sections": {
     "browsers": "Böngészők",
@@ -14,5 +14,63 @@
     "frameworks-and-ssr": "Keretrendszerek és SSR",
     "bundle-size": "Csomagméret",
     "accessibility-target": "Akadálymentesítési cél"
+  },
+  "browsers": {
+    "intro": "A csomag a jelenlegi böngészőket célozza, és minden változásnál három motorban tesztelt.",
+    "head": {
+      "target": "Cél",
+      "versions": "Verziók"
+    },
+    "rows": [
+      ["Chromium (Chrome, Edge)", "Az utolsó kettő"],
+      ["Firefox", "Az utolsó kettő és az aktuális ESR"],
+      ["Safari és WebKit (macOS, iOS)", "16.4 és újabb"],
+      ["Android Chrome", "Az aktuális"]
+    ],
+    "features": "Négy platformfunkciót tartalék nélkül használ, mert a fenti listában minden böngésző ismeri őket:",
+    "points": [
+      "<code>&lt;dialog&gt;</code> a <code>showModal()</code> hívással, a további elemek és a részletek párbeszédpaneléhez.",
+      "<code>ResizeObserver</code> és <code>IntersectionObserver</code>, a kompakt módhoz és a rögzítéshez.",
+      "<code>Intl.DateTimeFormat</code> és <code>Intl.PluralRules</code>, minden dátumhoz, időponthoz és számhoz.",
+      "A CSS logikai tulajdonságai és a <code>:where()</code>, amelyek miatt a jobbról balra írás második stíluslap nélkül működik."
+    ]
+  },
+  "react": {
+    "intro": "React 18.2, 18.3 és 19.x. A CI mindegyiken lefuttatja a teljes tesztkészletet, így egy kiadás nem mehet át, amíg valamelyik hibás.",
+    "strict": "A Strict Mode támogatott: a komponens minden effektje idempotens, és maga után takarít, így a kétszer meghívott effekt semmit nem változtat."
+  },
+  "typescript": {
+    "intro": "TypeScript 5.0 vagy újabb. A deklarációk a forrásból készülnek, és a csomaggal együtt érkeznek; a TypeScript 5.0, 5.9 és 7.0 verzióval ellenőrizzük őket. Ennél régebbi nem tudja feloldani a csomag alútvonalait.",
+    "generics": "A típusok a saját adataidra generikusak: az elem típusa, a szintkulcsok és a címkekulcsok végigmennek mindenen, így a <code>renderItemDetail</code> a te elemedet kapja, nem egy kiszélesítettet. Lásd: <link to=\"/api/types-model/\">Modelltípusok</link>."
+  },
+  "frameworks": {
+    "intro": "Bármely React alkalmazás. A csomag ESM és CommonJS formában jelenik meg, mindkettőhöz típusokkal, és megjelenítés közben soha nem nyúl a DOM-hoz.",
+    "points": [
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> és minden bundler, amely olvassa az <code>exports</code> térképet.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router és Pages Router: az ütemterv kliensoldali komponens.",
+      "<link to=\"/integrations/ssr/\">Szerveroldali megjelenítés</link> általában: az első megjelenítés a szerver markupja, a figyelők pedig a hidratálás után indulnak.",
+      "Node 20 vagy újabb, ha szerveren jelenítesz meg."
+    ]
+  },
+  "size": {
+    "intro": "A <code>size-limit</code> méri minden változásnál, minifikálva és gzippelve, a React nélkül. Az a build, amely átlép egy keretet, elbukik.",
+    "head": {
+      "entry": "Belépési pont",
+      "size": "Méret",
+      "budget": "Keret"
+    },
+    "rows": [
+      ["A fő belépési pont, az azonnal betöltött rész", "24,9 kB", "26 kB"],
+      ["A további elemek párbeszédpanele, a táblázat és a lapozás (lusta)", "2,6 kB", "5 kB"],
+      ["A részletek párbeszédpanele (lusta)", "0,9 kB", "3 kB"],
+      ["<code>/core</code>", "5,1 kB", "6 kB"],
+      ["<code>/dom</code>", "1,7 kB", "4 kB"],
+      ["<code>styles.css</code>", "6,6 kB", "8 kB"],
+      ["Egy nyelvi csomag", "Nagyjából 1,1 kB", "1,5 kB"]
+    ]
+  },
+  "a11y": {
+    "intro": "A cél a WCAG 2.2 AA szint.",
+    "tested": "Az automatikus ellenőrzés az axe-t futtatja a WCAG 2.0, 2.1 és 2.2 A és AA szabályaival Chromiumban, Firefoxban és WebKitben, és egyetlen súlyos vagy kritikus szabálysértés sem megengedett. A kiadás előtti ellenőrzőlista kézi kört is tartalmaz NVDA-val Firefoxban és VoiceOverrel Safariban: címsorok, listák elemszáma, kártyabemondások és a párbeszédpanelek fókusza. Amit még nem fed le, az az <link to=\"/discover-more/accessibility/\">Akadálymentesség</link> oldalon található."
   }
 }
