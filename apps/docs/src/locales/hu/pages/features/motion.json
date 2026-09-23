@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Animációk",
-    "description": "Animációk a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "title": "Mozgás",
+    "description": "Mely mozgások animáltak, és hogyan válaszol az ütemterv annak az olvasónak, aki kevesebb mozgást kért."
   },
   "sections": {
     "basics": "Alapok",
@@ -13,5 +13,38 @@
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "motion": "Mozgással és anélkül"
+  },
+  "basics": {
+    "intro": "Két dolog mozog: a műszakok közti ugrás simán görget, a rögzített jelvény pedig becsúszik, nem egyszerűen megjelenik. Mindkettő kikapcsol, ha az olvasó csökkentett mozgást kért, és mindkettő kikapcsol, ha te kapcsolod ki az animációs kapcsolót.",
+    "points": [
+      "A <code>reducedMotion</code> alapból <code>'auto'</code>, és a rendszer <code>prefers-reduced-motion</code> beállítását követi.",
+      "Csökkentett mozgásnál a komponens minden CSS-átmenete megszűnik, nem rövidül — az ugrás azonnal megérkezik, és semmi nem halványul.",
+      "Az <code>enableAnimations</code> a rendszerbeállítástól függetlenül kikapcsolja a mozgást, a szándékosan nyugodt oldalhoz.",
+      "A kézi görgetést ez soha nem érinti: az a böngészőé, nem a komponensé."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A csökkentett mozgást saját beállítás nélkül is tiszteletben tartjuk: a rendszerbeállítás elég.",
+      "Semmi nem függ attól, hogy egy animáció befejeződik-e. Minden megállás abban a pillanatban helyes, amikor kérik; a sima görgetés csak az odajutás módja.",
+      "Az ugrás a fókuszt a műszak címére viszi, akár animált, akár nem, így a billentyűzetes olvasó mindkét esetben ugyanoda érkezik."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>reducedMotion</code> értéke <code>'auto'</code>, <code>true</code> vagy <code>false</code> lehet.",
+      "Az <code>enableAnimations</code> megszünteti a rögzített jelvények belépő animációját.",
+      "A <code>/dom</code> alatti <code>prefersReducedMotion</code> ugyanezt az olvasatot adja a saját markupodnak."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Az időtartamokat a stíluslap rögzíti; nincs prop arra, meddig tart egy átmenet.",
+      "A két nézet között nincs animáció — a váltás szándékosan azonnali.",
+      "A sima görgetés attól függ, hogy a böngésző tiszteletben tartja-e a <code>scroll-behavior</code> tulajdonságot; ahol nem, ott az ugrás egyszerűen azonnali."
+    ]
   }
 }

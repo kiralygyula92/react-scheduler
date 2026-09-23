@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Moduri de date și SSR",
-    "description": "Moduri de date și SSR în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Să ții tu elementele, să le aduci pentru intervalul randat și să randezi programul pe un server fără avertismente de hidratare."
   },
   "sections": {
     "basics": "Noțiuni de bază",
@@ -14,5 +14,42 @@
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Aducere pe intervalul randat"
+  },
+  "basics": {
+    "intro": "Componenta nu aduce niciodată date. Tu ții <code>items</code>, iar ea randează ce ții. Rămân două feluri de a lucra: îi dai tot ce ai sau îi dai ce cere intervalul randat și completezi pe măsură ce intervalul se mută.",
+    "range": "<code>onVisibleRangeChange</code> se declanșează la montare și ori de câte ori intervalul randat se schimbă — o dată nouă, alt tipar de ture, mai multe ture înainte sau după. Este semnalul de a aduce date. Cât timp răspunsul este pe drum, ține <code>loading</code> pornit: elementele deja pe ecran rămân acolo, estompate, în loc să dispară."
+  },
+  "server": {
+    "intro": "Componenta se randează pe un server fără să atingă DOM-ul și se hidratează fără avertisment în React 18 și 19. Primul cadru este intenționat cel simplu:",
+    "points": [
+      "Modul compact este oprit, dacă nu treci tu valoarea booleană — lățimea nu poate fi măsurată pe un server.",
+      "Nimic nu este fixat, pentru că fixarea este o poziție de derulare.",
+      "Semnalul de antet pornește extins.",
+      "Ceasul pornește de la <code>now</code>, sau de la <code>defaultDate</code> când nu dai niciuna. Trecerea lui <code>now</code> este cea care face ca cele două randări să coincidă exact."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Markup-ul randat pe server este aceeași structură pe care o hidratează clientul: un cititor fără JavaScript primește programul, titlurile lui și numele elementelor.",
+      "Nimic din stări nu este anunțat de două ori la hidratare: regiunile live pornesc goale și vorbesc doar la o schimbare.",
+      "O reîmprospătare care păstrează elementele vechi vizibile păstrează și poziția de citire, ceea ce contează cel mai mult pentru cine navighează cu tastatura."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>onVisibleRangeChange</code> pentru aducerea datelor, <code>loading</code> și <code>error</code> pentru ce vede cititorul între timp — vezi <link to=\"/states/\">Stări</link>.",
+      "<code>now</code> face randarea deterministă, pe care se bazează și testele vizuale ale acestui pachet.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> și <link to=\"/integrations/ssr/\">Randarea pe server</link> au părțile specifice fiecărui framework."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Nu există cache încorporat, nici deduplicare de cereri, nici reîncercare: acelea sunt treaba stratului tău de date.",
+      "Dialogul de suplimentare nu este paginat de pe server; arată elementele grupului pe care le are deja.",
+      "O schimbare de interval este raportată după ce s-a întâmplat, așa că o aducere de date începe mereu cu intervalul nou deja randat — gol, în încărcare sau cu elementele anterioare."
+    ]
   }
 }

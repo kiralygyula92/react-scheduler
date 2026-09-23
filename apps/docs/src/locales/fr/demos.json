@@ -43,7 +43,20 @@
     "pinnedCount": "{count, plural, =0 {Rien d’épinglé pour l’instant} one {# élément épinglé} other {# éléments épinglés}}",
     "navigateIdle": "Utilisez les boutons au-dessus et en dessous de la liste.",
     "navigated": "Saut vers le poste au décalage {offset}.",
-    "clock": "Il est maintenant"
+    "clock": "Il est maintenant",
+    "containerWidth": "Largeur du conteneur",
+    "pixels": "{count} pixels",
+    "state": "État",
+    "stateData": "Données",
+    "stateLoading": "Chargement",
+    "stateError": "Erreur",
+    "stateEmpty": "Vide",
+    "reducedMotion": "Demander un mouvement réduit",
+    "guardOpening": "Demander avant d’ouvrir un élément critique",
+    "eventsIdle": "Ouvrez un élément pour voir ce qui s’exécute.",
+    "blocked": "L’ouverture de « {title} » a été annulée par le middleware.",
+    "opened": "« {title} » a été ouvert.",
+    "scheduleLabel": "Tableau des postes"
   },
   "levels": {
     "blocking": "Bloquant",

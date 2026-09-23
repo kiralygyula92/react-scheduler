@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Animații",
-    "description": "Animații în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "title": "Mișcare",
+    "description": "Ce mișcări sunt animate și cum răspunde programul unui cititor care a cerut mai puțină mișcare."
   },
   "sections": {
     "basics": "Noțiuni de bază",
@@ -13,5 +13,38 @@
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "motion": "Cu și fără mișcare"
+  },
+  "basics": {
+    "intro": "Se mișcă două lucruri: un salt între ture derulează lin, iar o pastilă fixată intră alunecând, nu apărând brusc. Amândouă sunt oprite când cititorul a cerut mișcare redusă și amândouă sunt oprite când oprești tu steagul de animație.",
+    "points": [
+      "<code>reducedMotion</code> este implicit <code>'auto'</code> și urmează <code>prefers-reduced-motion</code> al sistemului.",
+      "Sub mișcare redusă, fiecare tranziție CSS din componentă este eliminată, nu scurtată — un salt aterizează imediat și nimic nu se estompează.",
+      "<code>enableAnimations</code> oprește mișcarea indiferent de setarea sistemului, pentru o pagină deliberat liniștită.",
+      "Derularea cu mâna nu este afectată niciodată: ea este a browserului, nu a componentei."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Mișcarea redusă este respectată fără o setare proprie: preferința sistemului este de ajuns.",
+      "Nimic nu depinde de terminarea unei animații. Fiecare aterizare este corectă în momentul în care este cerută, iar derularea lină este doar felul în care se ajunge acolo.",
+      "Un salt mută focalizarea pe titlul turei, indiferent dacă este animat, așa că un cititor cu tastatura ajunge în același loc în ambele cazuri."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>reducedMotion</code> primește <code>'auto'</code>, <code>true</code> sau <code>false</code>.",
+      "<code>enableAnimations</code> elimină animația de intrare a pastilelor fixate.",
+      "<code>prefersReducedMotion</code> din <code>/dom</code> dă aceeași citire unui markup propriu."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Duratele sunt fixate de foaia de stil; nu există o proprietate pentru cât ține o tranziție.",
+      "Nu există animație între cele două vizualizări — comutarea este imediată, prin proiectare.",
+      "Derularea lină depinde de browser, care trebuie să respecte <code>scroll-behavior</code>; acolo unde nu o face, saltul este pur și simplu imediat."
+    ]
   }
 }

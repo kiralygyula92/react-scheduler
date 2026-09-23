@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Állapotok",
-    "description": "Állapotok a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Mit mutat az ütemterv, amíg vár, amikor hibázik, és amikor nincs mit mutatnia."
   },
   "sections": {
     "basics": "Alapok",
@@ -13,5 +13,38 @@
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "states": "Betöltés, hiba, üres"
+  },
+  "basics": {
+    "intro": "Az ütemterv ritkán csak tele vagy csak üres. A <code>loading</code> és az <code>error</code> olyan propok, amelyeket te tartasz, a komponens pedig eldönti, mit jelentenek az egyes nézetekben; az üres állapotok maguknak az elemeknek a következményei.",
+    "points": [
+      "<strong>Betöltés, még semmivel:</strong> egy várakozásjelző, a betöltés szövegével a segítő technológiáknak.",
+      "<strong>Betöltés meglévő adat fölött:</strong> az elemek láthatók maradnak, halványítva, a régió pedig <code>aria-busy</code> jelölést kap — a frissítés soha nem üríti ki a képernyőt.",
+      "<strong>Hiba:</strong> egy címsor, az általad adott üzenet, és újrapróbálkozás gomb, ha az <code>onRetry</code> meg van adva. A tartalom helyére lép, mert a féloldalas ütemterv rosszabb, mint a semmi.",
+      "<strong>Üres:</strong> egy szöveg, ha egyik megjelenített műszakban sincs elem, és egy másik az üres műszakban, ha a többiben van. Az idővonal megtartja a rácsát, és arra középre teszi az üzenetet."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A betöltési állapot egyszer hangzik el, nem minden képkockánál, és a „foglalt” jelölés mondja meg a képernyőolvasónak, hogy a látható tartalom régi, nem pedig eltűnt.",
+      "A hibaállapot címsor és szöveg, nem a fókuszt elragadó riasztás; az újrapróbálkozás gombja rendes gomb a tabulátorsorrendben.",
+      "Az üres műszak megtartja a szakaszát és a címsorát, így a nap vázlata nem változik, ahogy az elemek megérkeznek."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>renderEmpty</code>, a <code>renderLoading</code> és a <code>renderError</code> lecseréli a hármat; az <code>emptyState</code>, a <code>loadingState</code> és az <code>errorState</code> részek a markupjukat.",
+      "A <code>localization.emptyAll</code>, az <code>emptyShift</code>, a <code>loading</code>, az <code>errorTitle</code> és a <code>retry</code> tartalmaz minden szót.",
+      "Az állapotoknak a szövegtokeneken túl nincs saját színük, így külön stílus nélkül követik a témát."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Egyszerre egy hiba van az egész ütemtervre; műszakonkénti hiba nincs modellezve.",
+      "A komponens soha nem tölt be adatot, így magától nem dönti el, hogy tölt: mindkét prop a tiéd.",
+      "Nincsenek vázkártyák. A betöltési állapot várakozásjelző, vagy a sajátod a <code>renderLoading</code> révén."
+    ]
   }
 }

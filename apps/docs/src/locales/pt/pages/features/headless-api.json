@@ -1,17 +1,60 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "API headless",
-    "description": "API headless no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O mesmo modelo sem a marcação: os hooks e o controlador por trás dos componentes."
   },
   "sections": {
     "basics": "Noções básicas",
+    "layers": "As três camadas",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "headless": "Um horário com marcação sua"
+  },
+  "basics": {
+    "intro": "Quando os slots e as props de renderização não chegam — uma estrutura diferente, não um aspeto diferente —, pegue no modelo e deixe a marcação. O <code>useScheduler</code> devolve tudo aquilo a partir do qual o <code>&lt;Scheduler&gt;</code> renderiza: os turnos com os seus elementos, o conjunto fixado, o estado da navegação, os formatadores e um getter para as props de cada elemento.",
+    "points": [
+      "Espalhe <code>getRootProps</code>, <code>getScrollerProps</code> e <code>getSectionProps</code> e as medições funcionam: o modo compacto, o turno ativo, a navegação.",
+      "Espalhe <code>getItemProps</code> naquilo que fizer de cartão, e a ativação, o teclado e o foco funcionam como no integrado.",
+      "<code>getPinSentinelProps</code> é o que faz a fixação funcionar na sua marcação; sem ele, os elementos nunca fixam.",
+      "O estado é o mesmo que os componentes usam, por isso nada falta e nada se duplica."
+    ]
+  },
+  "layers": {
+    "intro": "O pacote são três camadas, e pode entrar em qualquer uma delas:",
+    "points": [
+      "<code>@react-schedulerkit/react-scheduler</code> — os componentes, os hooks e os tipos.",
+      "<code>/core</code> — as funções puras por trás: turnos, agrupamento, disposição da cronologia, formatadores. Sem React, sem DOM; corre em Node simples, e isso é testado.",
+      "<code>/dom</code> — os motores do navegador: o observador de fixação, o navegador, os observadores de largura e de movimento. DOM, sem React.",
+      "<code>/headless</code> — <code>createScheduler</code>, o controlador agnóstico do framework, com o estado, as ações e uma subscrição."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Os getters levam os papéis, os nomes e o tratamento do teclado. Se os espalhar, a acessibilidade vem com eles; se os deixar de fora, fica consigo.",
+      "A região em direto, os anúncios e o regresso do foco fazem parte dos componentes, não do hook: uma renderização headless traz os seus.",
+      "A ordem pela qual renderiza as secções e os cartões é a ordem pela qual um leitor de ecrã lê, por isso mantenha a do dia."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>useScheduler</code> para uma renderização React sua; <code>createScheduler</code> para outro framework por completo.",
+      "<code>useShiftModel</code>, <code>useTimelineLayout</code>, <code>usePinOnPass</code>, <code>useShiftNavigation</code>, <code>useNow</code> e <code>useCompact</code> são as peças, se quiser apenas uma delas.",
+      "As funções puras de <code>/core</code> são úteis num servidor: agrupar elementos ou calcular uma disposição não precisa de navegador."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A folha de estilos está escrita para a marcação integrada. Uma renderização headless traz o seu próprio CSS ou usa <code>base.css</code> como ponto de partida.",
+      "A caixa de diálogo dos elementos adicionais e a do detalhe são componentes, não estado: uma renderização headless abre as suas.",
+      "O hook devolve um novo objeto de estado a cada alteração relevante; memoize o que construir a partir dele se a sua renderização for cara."
+    ]
   }
 }

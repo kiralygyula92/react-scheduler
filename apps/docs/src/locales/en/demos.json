@@ -43,7 +43,20 @@
     "pinnedCount": "{count, plural, =0 {Nothing pinned yet} one {# item pinned} other {# items pinned}}",
     "navigateIdle": "Use the buttons above and below the list.",
     "navigated": "Jumped to the shift at offset {offset}.",
-    "clock": "The time now is"
+    "clock": "The time now is",
+    "containerWidth": "Container width",
+    "pixels": "{count} pixels",
+    "state": "State",
+    "stateData": "Data",
+    "stateLoading": "Loading",
+    "stateError": "Error",
+    "stateEmpty": "Empty",
+    "reducedMotion": "Ask for reduced motion",
+    "guardOpening": "Ask before opening a critical item",
+    "eventsIdle": "Open an item to see what runs.",
+    "blocked": "Opening {title} was cancelled by the middleware.",
+    "opened": "{title} was opened.",
+    "scheduleLabel": "Shift board"
   },
   "levels": {
     "blocking": "Blocking",

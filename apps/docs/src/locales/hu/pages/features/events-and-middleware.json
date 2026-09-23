@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Események és middleware",
-    "description": "Események és middleware a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Mi fut le egy interakció előtt, és mi szakíthatja meg, mi jelenti utána, és milyen sorrendben történik a kettő."
   },
   "sections": {
     "basics": "Alapok",
+    "order": "A dolgok sorrendje",
+    "middleware": "Minden middleware",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "middleware": "Kérdezés a megnyitás előtt"
+  },
+  "basics": {
+    "intro": "Kétféle visszahívás van. A <code>handlers</code> middleware: <em>azelőtt</em> fut, hogy a komponens cselekedne, és eldönti, hogy cselekszik-e egyáltalán. Az <code>onX</code> propok események: azt jelentik, ami már megtörtént. Ami közbe akar szólni — megerősítés, mentetlen módosítás, jogosultság —, az az elsőhöz tartozik; ami rögzíteni vagy reagálni akar, az a másodikhoz.",
+    "next": "A middleware megkapja a kontextust és egy <code>next</code> függvényt. Ha meghívod, lefut az alapértelmezett viselkedés, majd az események; ha nem, mindkettő elmarad. A kontextus csak olvasható, a <code>next</code> pedig később is hívható — például egy await után —, ilyenkor az alapértelmezett viselkedés akkor fut le, feltéve, hogy a komponens még be van illesztve."
+  },
+  "order": {
+    "intro": "Egy interakcióra, ebben a sorrendben:",
+    "head": {
+      "step": "Lépés",
+      "what": "Mi fut le"
+    },
+    "rows": [
+      ["1", "Az adott interakció middleware-e, ha megadtál egyet."],
+      ["2", "A komponens saját viselkedése, ha a middleware meghívta a <code>next</code> függvényt."],
+      [
+        "3",
+        "Az állapotvisszahívások: <code>onViewChange</code>, <code>onDateChange</code>, <code>onOpenItemIdChange</code> és társaik."
+      ],
+      [
+        "4",
+        "A tartományi események: <code>onItemOpen</code>, <code>onNavigate</code>, <code>onOverflowOpen</code> és társaik."
+      ]
+    ],
+    "frames": "A görgetésből fakadó események — <code>onActiveShiftChange</code>, <code>onHeaderExpandedChange</code>, <code>onPinnedChange</code> — animációs képkockánként legfeljebb egyszer, és csak tényleges változáskor sülnek el."
+  },
+  "middleware": {
+    "intro": "A tizenegy middleware, a csomag deklarációiból előállítva:"
+  },
+  "accessibility": {
+    "points": [
+      "A megszakított interakció ott hagyja a fókuszt, ahol volt: semmi nem mozdul, mert semmi nem történt.",
+      "Az a middleware, amely saját megerősítést nyit, felel annak fókuszáért; a komponens nem mozdította el.",
+      "Mivel az események jelentenek, nem döntenek, a képernyőolvasó soha nem hall olyasmiről, amit a middleware utóbb megszakított."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>handlers</code> tartalmaz minden middleware-t; mindegyik választható.",
+      "Az imperatív kezelő szándékosan kihagyja a middleware-t: az a te hívásod, nem az olvasóé.",
+      "Az események szokásos propok, így bármely állapotkezelő könyvtárral együttműködnek, amelyet már használsz."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A middleware kontextusa csak olvasható: nem változtathatja meg az elemet, a cél műszakot vagy a rendezést. Ha más eredményt akarsz, szakítsd meg, majd lépj az imperatív kezelőn keresztül.",
+      "Az aszinkron <code>next</code>, amely a komponens eltávolítása után teljesül, csendben nem csinál semmit.",
+      "Nincs egyetlen esemény, amely minden interakcióra elsülne; mindegyiknek megvan a sajátja."
+    ]
   }
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Motion",
-    "description": "Motion in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "Which movements are animated, and how the schedule answers a reader who asked for less of it."
   },
   "sections": {
     "basics": "Basics",
@@ -13,5 +13,38 @@
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "motion": "With and without motion"
+  },
+  "basics": {
+    "intro": "Two things move: a jump between shifts scrolls smoothly, and a pinned chip slides in rather than appearing. Both are off when the reader has asked for reduced motion, and both are off when you turn the animation flag off.",
+    "points": [
+      "<code>reducedMotion</code> is <code>'auto'</code> by default and follows the system’s <code>prefers-reduced-motion</code>.",
+      "Under reduced motion every CSS transition in the component is removed, not shortened — a jump lands at once, and nothing fades.",
+      "<code>enableAnimations</code> turns the motion off regardless of the system setting, for a page that is deliberately still.",
+      "Scrolling by hand is never affected: that is the browser’s, not the component’s."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Reduced motion is honored without a setting of your own: the system preference is enough.",
+      "Nothing depends on an animation finishing. Every landing is correct at the moment it is asked for, and the smooth scroll is only how it gets there.",
+      "A jump moves focus to the shift heading whether it animates or not, so a keyboard reader lands in the same place either way."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>reducedMotion</code> takes <code>'auto'</code>, <code>true</code> or <code>false</code>.",
+      "<code>enableAnimations</code> removes the entrance animation of the pinned chips.",
+      "<code>prefersReducedMotion</code> from <code>/dom</code> gives the same reading to markup of your own."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "The durations are fixed by the stylesheet; there is no prop for how long a transition lasts.",
+      "There is no animation between the two views — the switch is immediate by design.",
+      "Smooth scrolling depends on the browser honoring <code>scroll-behavior</code>; where it does not, the jump is simply instant."
+    ]
   }
 }

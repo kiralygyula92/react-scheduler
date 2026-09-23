@@ -43,7 +43,20 @@
     "pinnedCount": "{count, plural, =0 {Nada fijado todavía} one {# elemento fijado} other {# elementos fijados}}",
     "navigateIdle": "Usa los botones de encima y debajo de la lista.",
     "navigated": "Salto al turno con desplazamiento {offset}.",
-    "clock": "La hora ahora es"
+    "clock": "La hora ahora es",
+    "containerWidth": "Ancho del contenedor",
+    "pixels": "{count} píxeles",
+    "state": "Estado",
+    "stateData": "Datos",
+    "stateLoading": "Cargando",
+    "stateError": "Error",
+    "stateEmpty": "Vacío",
+    "reducedMotion": "Pedir movimiento reducido",
+    "guardOpening": "Preguntar antes de abrir un elemento crítico",
+    "eventsIdle": "Abre un elemento para ver qué se ejecuta.",
+    "blocked": "La apertura de «{title}» fue cancelada por el middleware.",
+    "opened": "«{title}» se ha abierto.",
+    "scheduleLabel": "Panel de turnos"
   },
   "levels": {
     "blocking": "Bloqueante",

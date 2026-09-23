@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Akadálymentesség és billentyűzet",
-    "description": "Akadálymentesség és billentyűzet a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "A billentyűtérkép, a szerepek és nevek, amelyeket a komponens a részeinek ad, és amit bemond — egy helyen."
   },
   "sections": {
     "basics": "Alapok",
+    "keyboard": "Billentyűzet",
+    "structure": "Szerepek és nevek",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "A teljes ütemterv billentyűzetről"
+  },
+  "basics": {
+    "intro": "Minden képességoldalnak megvan a saját akadálymentességi szakasza; ez az oldal az összefoglaló. A cél a WCAG 2.2 AA szint, amelyet az axe minden változásnál három motorban ellenőriz, kiadás előtt pedig kézzel, NVDA-val és VoiceOverrel is."
+  },
+  "keyboard": {
+    "intro": "Azok a billentyűk, amelyeket a komponens használ. A többi a böngészőé.",
+    "head": {
+      "key": "Billentyű",
+      "what": "Mit csinál"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "A következő vezérlőre lép az ütemtervben, olvasási sorrendben."],
+      ["<kbd>Enter</kbd> vagy <kbd>Space</kbd>", "Aktiválja a fókuszált kártyát, jelvényt vagy gombot."],
+      ["<kbd>Escape</kbd>", "Bezárja a legfelső párbeszédpanelt, és visszaadja a fókuszt annak, ami megnyitotta."]
+    ],
+    "order": "A tabulátorsorrend az olvasás sorrendje: a rögzített jelvények, a felső léptetés, majd a műszakok sorban a kártyáikkal és a <strong>+ továbbiak</strong> jelvényeikkel, aztán az alsó léptetés, végül a tetejére visszavivő gomb. A fókusz mindig látható — kétpixeles gyűrű, kettő eltolással."
+  },
+  "structure": {
+    "points": [
+      "A gyökér egy régió, amelyet az <code>aria-label</code> vagy a saját fejléced nevez el az <code>aria-labelledby</code> révén.",
+      "Minden műszak egy <code>section</code> elem, amelyet a címe címkéz, a címsor szintje pedig a <code>headingLevel</code> értéktől indul.",
+      "A műszak kártyái listát alkotnak, így a képernyőolvasó bemondja, hányan vannak.",
+      "A kártya olyan gomb, amelynek a neve az elem címe, a leírása pedig a szintet és az időt viszi, a címkékkel együtt.",
+      "A rögzített elemek sávja egy régió jelvénylistával, és egy külön, udvarias élő régió mondja be a darabszámot, ha változik, másodpercenként legfeljebb egyszer.",
+      "A „most” jelölő elválasztó, amelyet az általa jelölt időpont nevez el."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A szín soha nem az egyetlen hordozó: a szint színként és feliratként is megjelenik.",
+      "Az alapértelmezett előbeállítás megfelel a WCAG 2.2 AA kontrasztarányainak; a klasszikus előbeállítás azokat a színeket adja vissza, amelyekről elnevezték, és dokumentálja, hol marad el.",
+      "A letiltott elem <code>aria-disabled</code> jelölést kap, nem pedig kikerül a tabulátorsorrendből, így továbbra is olvasható.",
+      "A párbeszédpanelek natív <code>&lt;dialog&gt;</code> elemek: a böngésző tartja bent a fókuszt, az <kbd>Escape</kbd> pedig bezárja őket."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Az <code>aria-label</code> vagy egy fejlécslot nevezi el a régiót; a <code>headingLevel</code> illeszti az oldalad vázlatába.",
+      "Minden szöveg és minden bemondás a <code>localization</code> csomagból jön — lásd: <link to=\"/customization/localization/\">Lokalizáció</link>.",
+      "A <code>renderItem</code> révén lecserélt kártyának szét kell terítenie a <code>getItemProps</code> propokat, mert azok viszik a szerepet, a nevet és a billentyűkezelést."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Egyelőre nincs mozgó fókusz vagy nyílbillentyűs navigáció a kártyák között; a <kbd>Tab</kbd> az egyetlen mozgás. Szerepel az <link to=\"/discover-more/roadmap/\">ütemtervben</link>.",
+      "A léptetőgombokhoz nincsenek billentyűparancsok.",
+      "A klasszikus előbeállításnak ismert kontraszthiányosságai vannak, amelyek az <link to=\"/discover-more/accessibility/\">Akadálymentesség</link> oldalon szerepelnek."
+    ]
   }
 }

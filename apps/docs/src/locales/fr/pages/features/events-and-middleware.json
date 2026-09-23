@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Événements et middleware",
-    "description": "Événements et middleware dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Ce qui s’exécute avant une interaction et peut l’annuler, ce qui la signale ensuite, et dans quel ordre les deux arrivent."
   },
   "sections": {
     "basics": "Bases",
+    "order": "L’ordre des choses",
+    "middleware": "Chaque middleware",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "middleware": "Demander avant d’ouvrir"
+  },
+  "basics": {
+    "intro": "Il y a deux sortes de rappels. <code>handlers</code> sont des middleware : ils s’exécutent <em>avant</em> que le composant agisse et décident s’il agit. Les props <code>onX</code> sont des événements : elles signalent ce qui s’est déjà produit. Tout ce qui doit intervenir — une confirmation, une modification non enregistrée, une permission — relève des premiers ; tout ce qui doit enregistrer ou réagir relève des secondes.",
+    "next": "Un middleware reçoit le contexte et une fonction <code>next</code>. L’appeler exécute le comportement par défaut puis les événements ; ne pas l’appeler annule les deux. Le contexte est en lecture seule, et <code>next</code> peut être appelé plus tard — après un await, par exemple —, auquel cas le comportement par défaut s’exécute alors, si le composant est toujours monté."
+  },
+  "order": {
+    "intro": "Pour une interaction, dans cet ordre :",
+    "head": {
+      "step": "Étape",
+      "what": "Ce qui s’exécute"
+    },
+    "rows": [
+      ["1", "Le middleware de cette interaction, si vous en avez donné un."],
+      ["2", "Le comportement propre du composant, si le middleware a appelé <code>next</code>."],
+      [
+        "3",
+        "Les rappels d’état : <code>onViewChange</code>, <code>onDateChange</code>, <code>onOpenItemIdChange</code> et les leurs."
+      ],
+      [
+        "4",
+        "Les événements du domaine : <code>onItemOpen</code>, <code>onNavigate</code>, <code>onOverflowOpen</code> et les leurs."
+      ]
+    ],
+    "frames": "Les événements issus du défilement — <code>onActiveShiftChange</code>, <code>onHeaderExpandedChange</code>, <code>onPinnedChange</code> — se déclenchent au plus une fois par image d’animation, et seulement quand la valeur a réellement changé."
+  },
+  "middleware": {
+    "intro": "Les onze middleware, générés à partir des déclarations du paquet :"
+  },
+  "accessibility": {
+    "points": [
+      "Une interaction annulée laisse le focus où il était : rien ne bouge parce que rien n’a eu lieu.",
+      "Un middleware qui ouvre sa propre confirmation est responsable de son focus ; le composant ne l’a pas déplacé.",
+      "Comme les événements signalent au lieu de décider, un lecteur d’écran n’entend jamais parler de ce que le middleware a ensuite annulé."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>handlers</code> contient chaque middleware ; tous sont facultatifs.",
+      "La poignée impérative saute le middleware à dessein : c’est votre appel, pas celui du lecteur.",
+      "Les événements sont des props ordinaires : ils se composent avec la bibliothèque d’état que vous utilisez déjà."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Le contexte du middleware est en lecture seule : il ne peut changer ni l’élément, ni le poste visé, ni le tri. Pour changer l’issue, annulez puis agissez via la poignée impérative.",
+      "Un <code>next</code> asynchrone qui se résout après le démontage du composant ne fait rien, silencieusement.",
+      "Il n’y a pas d’événement unique déclenché pour chaque interaction ; chacune a le sien."
+    ]
   }
 }

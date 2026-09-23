@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Eventos e middleware",
-    "description": "Eventos e middleware no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O que corre antes de uma interação e a pode cancelar, o que a comunica depois, e em que ordem os dois acontecem."
   },
   "sections": {
     "basics": "Noções básicas",
+    "order": "A ordem das coisas",
+    "middleware": "Cada middleware",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "middleware": "Perguntar antes de abrir"
+  },
+  "basics": {
+    "intro": "Há duas espécies de callback. Os <code>handlers</code> são middleware: correm <em>antes</em> de o componente agir e decidem se ele age. As props <code>onX</code> são eventos: comunicam o que já aconteceu. Tudo o que tenha de intervir — uma confirmação, uma alteração não guardada, uma permissão — pertence aos primeiros; tudo o que tenha de registar ou reagir, às segundas.",
+    "next": "Um middleware recebe o contexto e uma função <code>next</code>. Chamá-la corre o comportamento por omissão e depois os eventos; não a chamar cancela ambos. O contexto é só de leitura, e o <code>next</code> pode ser chamado mais tarde — depois de um await, por exemplo —, caso em que o comportamento por omissão corre nessa altura, desde que o componente ainda esteja montado."
+  },
+  "order": {
+    "intro": "Para uma interação, por esta ordem:",
+    "head": {
+      "step": "Passo",
+      "what": "O que corre"
+    },
+    "rows": [
+      ["1", "O middleware dessa interação, se tiver dado um."],
+      ["2", "O comportamento próprio do componente, se o middleware chamou <code>next</code>."],
+      [
+        "3",
+        "Os callbacks de estado: <code>onViewChange</code>, <code>onDateChange</code>, <code>onOpenItemIdChange</code> e os da sua espécie."
+      ],
+      [
+        "4",
+        "Os eventos de domínio: <code>onItemOpen</code>, <code>onNavigate</code>, <code>onOverflowOpen</code> e os da sua espécie."
+      ]
+    ],
+    "frames": "Os eventos que vêm do deslocamento — <code>onActiveShiftChange</code>, <code>onHeaderExpandedChange</code>, <code>onPinnedChange</code> — disparam no máximo uma vez por fotograma de animação e só quando o valor mudou mesmo."
+  },
+  "middleware": {
+    "intro": "Os onze middleware, gerados a partir das declarações do pacote:"
+  },
+  "accessibility": {
+    "points": [
+      "Uma interação cancelada deixa o foco onde estava: nada se move porque nada aconteceu.",
+      "Um middleware que abre uma confirmação sua é responsável pelo seu foco; o componente não o moveu.",
+      "Como os eventos comunicam e não decidem, um leitor de ecrã nunca ouve falar de algo que o middleware depois cancelou."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>handlers</code> contém cada middleware; todos são opcionais.",
+      "O handle imperativo salta o middleware de propósito: é a sua chamada, não a de quem lê.",
+      "Os eventos são props comuns, por isso combinam-se com a biblioteca de estado que já usa."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "O contexto do middleware é só de leitura: não pode mudar o elemento, o turno de destino nem a ordenação. Para mudar o resultado, cancele e depois aja através do handle imperativo.",
+      "Um <code>next</code> assíncrono que resolve depois de o componente ser desmontado não faz nada, em silêncio.",
+      "Não há um único evento que dispare para cada interação; cada uma tem o seu."
+    ]
   }
 }

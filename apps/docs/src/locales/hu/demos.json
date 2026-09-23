@@ -43,7 +43,20 @@
     "pinnedCount": "{count, plural, =0 {Még semmi nincs rögzítve} other {# elem rögzítve}}",
     "navigateIdle": "Használd a lista fölötti és alatti gombokat.",
     "navigated": "Ugrás a(z) {offset} eltolású műszakra.",
-    "clock": "Az idő most"
+    "clock": "Az idő most",
+    "containerWidth": "A tároló szélessége",
+    "pixels": "{count} képpont",
+    "state": "Állapot",
+    "stateData": "Adat",
+    "stateLoading": "Betöltés",
+    "stateError": "Hiba",
+    "stateEmpty": "Üres",
+    "reducedMotion": "Csökkentett mozgás kérése",
+    "guardOpening": "Kérdezzen rá, mielőtt kritikus elemet nyit meg",
+    "eventsIdle": "Nyiss meg egy elemet, hogy lásd, mi fut le.",
+    "blocked": "A(z) „{title}” megnyitását a middleware megszakította.",
+    "opened": "A(z) „{title}” megnyílt.",
+    "scheduleLabel": "Műszaktábla"
   },
   "levels": {
     "blocking": "Blokkoló",

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Estados",
-    "description": "Estados no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O que o horário mostra enquanto espera, quando falha e quando não há nada para mostrar."
   },
   "sections": {
     "basics": "Noções básicas",
@@ -13,5 +13,38 @@
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "states": "A carregar, erro, vazio"
+  },
+  "basics": {
+    "intro": "Um horário raramente está só cheio ou só vazio. <code>loading</code> e <code>error</code> são props que guarda, e o componente decide o que isso significa em cada vista; os estados vazios decorrem dos próprios elementos.",
+    "points": [
+      "<strong>A carregar sem nada ainda:</strong> um indicador de espera, com o texto de carregamento para a tecnologia de apoio.",
+      "<strong>A carregar sobre dados:</strong> os elementos ficam visíveis e esbatidos, e a região é marcada <code>aria-busy</code> — uma atualização nunca deixa o ecrã em branco.",
+      "<strong>Erro:</strong> um título, a mensagem que der e um botão de repetição quando <code>onRetry</code> está definido. Substitui o conteúdo, porque um horário parcial é pior do que nenhum.",
+      "<strong>Vazio:</strong> um texto quando nenhum turno apresentado contém elementos e outro dentro de um turno vazio quando os outros não estão. A cronologia mantém a sua grelha e centra a mensagem nela."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "O estado de carregamento é anunciado uma vez, não a cada fotograma, e a marca de ocupado é o que diz a um leitor de ecrã que o conteúdo está desatualizado e não ausente.",
+      "O estado de erro é um título e um texto, não um alerta que rouba o foco; o botão de repetição é um botão normal na ordem de tabulação.",
+      "Um turno vazio mantém a sua secção e o seu título, por isso a estrutura do dia não muda à medida que os elementos chegam."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderEmpty</code>, <code>renderLoading</code> e <code>renderError</code> substituem os três; as partes <code>emptyState</code>, <code>loadingState</code> e <code>errorState</code> substituem a sua marcação.",
+      "<code>localization.emptyAll</code>, <code>emptyShift</code>, <code>loading</code>, <code>errorTitle</code> e <code>retry</code> contêm cada palavra.",
+      "Os estados não têm cor própria para além dos tokens de texto, por isso seguem o tema sem serem reestilizados."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Há um só erro de cada vez para todo o horário; um erro por turno não está modelado.",
+      "O componente nunca vai buscar dados, por isso nunca decide sozinho que está a carregar: as duas props são suas.",
+      "Não há cartões esqueleto. O estado de carregamento é um indicador de espera, ou o seu através de <code>renderLoading</code>."
+    ]
   }
 }

@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Acessibilidade e teclado",
-    "description": "Acessibilidade e teclado no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O mapa do teclado, os papéis e nomes que o componente dá às suas partes, e o que anuncia — num só sítio."
   },
   "sections": {
     "basics": "Noções básicas",
+    "keyboard": "Teclado",
+    "structure": "Papéis e nomes",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "Todo o horário, pelo teclado"
+  },
+  "basics": {
+    "intro": "Cada página de capacidade tem a sua própria secção de acessibilidade; esta página é o resumo. O alvo é a WCAG 2.2 nível AA, verificada pelo axe em três motores a cada alteração e à mão, com NVDA e VoiceOver, antes de uma versão."
+  },
+  "keyboard": {
+    "intro": "As teclas que o componente usa. As restantes são do navegador.",
+    "head": {
+      "key": "Tecla",
+      "what": "O que faz"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "Passa para o controlo seguinte do horário, por ordem de leitura."],
+      ["<kbd>Enter</kbd> ou <kbd>Space</kbd>", "Ativa o cartão, a etiqueta ou o botão com foco."],
+      ["<kbd>Escape</kbd>", "Fecha a caixa de diálogo de cima e devolve o foco ao que a abriu."]
+    ],
+    "order": "A ordem de tabulação é a ordem de leitura: as etiquetas fixadas, a navegação de cima, depois os turnos por ordem com os seus cartões e as suas etiquetas <strong>+ mais</strong>, depois a navegação de baixo, depois o botão de volta ao topo. O foco está sempre visível — um anel de dois píxeis, com desvio de dois."
+  },
+  "structure": {
+    "points": [
+      "A raiz é uma região, nomeada por <code>aria-label</code> ou pelo seu próprio cabeçalho com <code>aria-labelledby</code>.",
+      "Cada turno é um elemento <code>section</code> etiquetado pelo seu título, e o nível do título parte de <code>headingLevel</code>.",
+      "Os cartões de um turno formam uma lista, por isso um leitor de ecrã anuncia quantos há.",
+      "Um cartão é um botão cujo nome é o título do elemento e cuja descrição leva o nível e a hora, mais as etiquetas.",
+      "A faixa dos fixados é uma região com uma lista de etiquetas, e uma região em direto educada separada anuncia a contagem quando muda, no máximo uma vez por segundo.",
+      "O marcador de «agora» é um separador nomeado pela hora que marca."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A cor nunca é o único portador: um nível mostra-se como cor e como etiqueta.",
+      "A predefinição por omissão cumpre os rácios de contraste da WCAG 2.2 AA; a predefinição clássica reproduz as cores de que toma o nome e documenta onde fica aquém.",
+      "Um elemento desativado é marcado com <code>aria-disabled</code> em vez de ser retirado da ordem de tabulação, por isso continua legível.",
+      "As caixas de diálogo são elementos <code>&lt;dialog&gt;</code> nativos: o navegador contém o foco e o <kbd>Escape</kbd> fecha-as."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>aria-label</code> ou um slot de cabeçalho nomeia a região; <code>headingLevel</code> encaixa-a na estrutura da sua página.",
+      "Cada texto e cada anúncio vêm de <code>localization</code> — ver <link to=\"/customization/localization/\">Localização</link>.",
+      "Um cartão substituído por <code>renderItem</code> tem de espalhar <code>getItemProps</code>, que é o que leva o papel, o nome e o tratamento do teclado."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Ainda não há foco móvel nem navegação com setas entre cartões; o <kbd>Tab</kbd> é o único movimento. Está no <link to=\"/discover-more/roadmap/\">plano</link>.",
+      "Não há atalhos de teclado para os botões de navegação.",
+      "A predefinição clássica tem falhas de contraste conhecidas, listadas em <link to=\"/discover-more/accessibility/\">Acessibilidade</link>."
+    ]
   }
 }

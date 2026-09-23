@@ -1,17 +1,60 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "API headless",
-    "description": "API headless dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Le même modèle sans le balisage : les hooks et le contrôleur derrière les composants."
   },
   "sections": {
     "basics": "Bases",
+    "layers": "Les trois couches",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "headless": "Un planning avec votre propre balisage"
+  },
+  "basics": {
+    "intro": "Quand les slots et les props de rendu ne suffisent pas — une structure différente, pas une apparence différente —, prenez le modèle et laissez le balisage. <code>useScheduler</code> renvoie tout ce que <code>&lt;Scheduler&gt;</code> affiche : les postes avec leurs éléments, l’ensemble épinglé, l’état de la navigation, les formateurs, et un getter pour les props de chaque élément.",
+    "points": [
+      "Répandez <code>getRootProps</code>, <code>getScrollerProps</code> et <code>getSectionProps</code> et les mesures fonctionnent : le mode compact, le poste actif, la navigation.",
+      "Répandez <code>getItemProps</code> sur ce que vous faites office de carte, et l’activation, le clavier et le focus fonctionnent comme dans la carte intégrée.",
+      "<code>getPinSentinelProps</code> est ce qui fait fonctionner l’épinglage dans votre balisage ; sans lui, les éléments ne s’épinglent jamais.",
+      "L’état est celui qu’utilisent les composants : rien ne manque et rien n’est dupliqué."
+    ]
+  },
+  "layers": {
+    "intro": "Le paquet est fait de trois couches, et vous pouvez entrer par n’importe laquelle :",
+    "points": [
+      "<code>@react-schedulerkit/react-scheduler</code> — les composants, les hooks et les types.",
+      "<code>/core</code> — les fonctions pures qui sont derrière : postes, regroupement, disposition de la chronologie, formateurs. Ni React ni DOM ; cela tourne dans Node tout court, et c’est testé.",
+      "<code>/dom</code> — les moteurs navigateur : l’observateur d’épinglage, le navigateur, les observateurs de largeur et de mouvement. DOM, sans React.",
+      "<code>/headless</code> — <code>createScheduler</code>, le contrôleur agnostique du framework, avec l’état, les actions et un abonnement."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Les getters portent les rôles, les noms et la gestion du clavier. Répandez-les et l’accessibilité vient avec ; omettez-les et elle vous revient.",
+      "La région live, les annonces et le retour du focus font partie des composants, pas du hook : un rendu headless apporte les siens.",
+      "L’ordre dans lequel vous rendez les sections et les cartes est celui que lit un lecteur d’écran : gardez celui de la journée."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>useScheduler</code> pour un rendu React à vous ; <code>createScheduler</code> pour un tout autre framework.",
+      "<code>useShiftModel</code>, <code>useTimelineLayout</code>, <code>usePinOnPass</code>, <code>useShiftNavigation</code>, <code>useNow</code> et <code>useCompact</code> sont les pièces, si vous n’en voulez qu’une.",
+      "Les fonctions pures de <code>/core</code> sont utiles sur un serveur : regrouper des éléments ou calculer une disposition ne demande pas de navigateur."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "La feuille de style est écrite pour le balisage intégré. Un rendu headless apporte son propre CSS ou part de <code>base.css</code>.",
+      "La boîte de dialogue des éléments supplémentaires et celle du détail sont des composants, pas de l’état : un rendu headless ouvre les siennes.",
+      "Le hook renvoie un nouvel objet d’état à chaque changement pertinent ; mémoïsez ce que vous en construisez si votre rendu est coûteux."
+    ]
   }
 }

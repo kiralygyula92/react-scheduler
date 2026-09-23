@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Modos de dados e SSR",
-    "description": "Modos de dados e SSR no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "Guardar os elementos, ir buscá-los por intervalo apresentado, e renderizar o horário num servidor sem avisos de hidratação."
   },
   "sections": {
     "basics": "Noções básicas",
@@ -14,5 +14,42 @@
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Ir buscar por intervalo apresentado"
+  },
+  "basics": {
+    "intro": "O componente nunca vai buscar dados. Você guarda <code>items</code> e ele renderiza o que guarda. Restam duas formas de trabalhar: dar-lhe tudo o que tem, ou dar-lhe o que o intervalo apresentado pede e repor à medida que o intervalo se move.",
+    "range": "<code>onVisibleRangeChange</code> dispara ao montar e sempre que o intervalo apresentado muda — uma data nova, outro padrão de turnos, mais turnos antes ou depois. É o sinal para ir buscar dados. Enquanto a resposta vem a caminho, mantenha <code>loading</code> ligado: os elementos já no ecrã ficam lá, esbatidos, em vez de desaparecerem."
+  },
+  "server": {
+    "intro": "O componente renderiza num servidor sem tocar no DOM e hidrata sem avisos no React 18 e 19. O primeiro fotograma é deliberadamente o simples:",
+    "points": [
+      "O modo compacto está desligado a não ser que passe o booleano: a largura não se pode medir num servidor.",
+      "Nada está fixado, porque a fixação é uma posição de deslocamento.",
+      "O sinal de cabeçalho começa expandido.",
+      "O relógio arranca a partir de <code>now</code>, ou de <code>defaultDate</code> quando não dá nenhum. Passar <code>now</code> é o que faz as duas renderizações coincidirem exatamente."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A marcação renderizada no servidor é a mesma estrutura que o cliente hidrata: quem lê sem JavaScript recebe o horário, os seus títulos e os nomes dos elementos.",
+      "Nada dos estados é anunciado duas vezes na hidratação: as regiões em direto começam vazias e só falam numa alteração.",
+      "Uma atualização que mantém visíveis os elementos anteriores mantém também a posição de leitura, que é o que mais importa a quem navega com o teclado."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>onVisibleRangeChange</code> para ir buscar, <code>loading</code> e <code>error</code> para o que quem lê vê entretanto — ver <link to=\"/states/\">Estados</link>.",
+      "<code>now</code> torna a renderização determinista, que é também aquilo em que os testes visuais deste pacote assentam.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> e <link to=\"/integrations/ssr/\">Renderização no servidor</link> têm as partes próprias de cada framework."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Não há cache integrada, nem deduplicação de pedidos, nem repetição: isso é tarefa da sua camada de dados.",
+      "A caixa de diálogo dos elementos adicionais não é paginada a partir do servidor; mostra os elementos do grupo que já tem.",
+      "Uma mudança de intervalo é comunicada depois de acontecer, por isso um carregamento começa sempre com o novo intervalo já apresentado — vazio, a carregar ou com os elementos anteriores."
+    ]
   }
 }

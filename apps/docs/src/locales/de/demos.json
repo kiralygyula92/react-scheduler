@@ -43,7 +43,20 @@
     "pinnedCount": "{count, plural, =0 {Noch nichts angeheftet} one {# Eintrag angeheftet} other {# Einträge angeheftet}}",
     "navigateIdle": "Nutzen Sie die Schaltflächen über und unter der Liste.",
     "navigated": "Sprung zur Schicht mit Abstand {offset}.",
-    "clock": "Es ist jetzt"
+    "clock": "Es ist jetzt",
+    "containerWidth": "Breite des Containers",
+    "pixels": "{count} Pixel",
+    "state": "Zustand",
+    "stateData": "Daten",
+    "stateLoading": "Lädt",
+    "stateError": "Fehler",
+    "stateEmpty": "Leer",
+    "reducedMotion": "Reduzierte Bewegung verlangen",
+    "guardOpening": "Vor dem Öffnen eines kritischen Eintrags fragen",
+    "eventsIdle": "Öffnen Sie einen Eintrag, um zu sehen, was läuft.",
+    "blocked": "Das Öffnen von „{title}“ wurde von der Middleware abgebrochen.",
+    "opened": "„{title}“ wurde geöffnet.",
+    "scheduleLabel": "Schichtplan"
   },
   "levels": {
     "blocking": "Blockierend",

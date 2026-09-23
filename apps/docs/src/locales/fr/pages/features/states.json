@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "États",
-    "description": "États dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Ce que le planning affiche pendant qu’il attend, quand il échoue et quand il n’a rien à montrer."
   },
   "sections": {
     "basics": "Bases",
@@ -13,5 +13,38 @@
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "states": "Chargement, erreur, vide"
+  },
+  "basics": {
+    "intro": "Un planning est rarement seulement plein ou seulement vide. <code>loading</code> et <code>error</code> sont des props que vous tenez, et le composant décide de ce que cela signifie pour chaque vue ; les états vides découlent des éléments eux-mêmes.",
+    "points": [
+      "<strong>Chargement sans rien encore :</strong> un indicateur d’attente, avec le texte de chargement pour les technologies d’assistance.",
+      "<strong>Chargement par-dessus des données :</strong> les éléments restent visibles et atténués, et la région est marquée <code>aria-busy</code> — un rafraîchissement ne vide jamais l’écran.",
+      "<strong>Erreur :</strong> un titre, le message que vous donnez et un bouton de réessai quand <code>onRetry</code> est fourni. Il remplace le contenu, car un planning partiel est pire qu’aucun.",
+      "<strong>Vide :</strong> un texte quand aucun poste rendu ne contient d’élément, un autre dans un poste vide alors que d’autres ne le sont pas. La chronologie garde sa grille et y centre le message."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "L’état de chargement est annoncé une fois, pas à chaque image, et le marquage « occupé » est ce qui dit à un lecteur d’écran que le contenu est ancien, pas disparu.",
+      "L’état d’erreur est un titre et un texte, pas une alerte qui vole le focus ; le bouton de réessai est un bouton ordinaire dans l’ordre de tabulation.",
+      "Un poste vide garde sa section et son titre : le plan de la journée ne change pas à mesure que les éléments arrivent."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderEmpty</code>, <code>renderLoading</code> et <code>renderError</code> remplacent les trois ; les parties <code>emptyState</code>, <code>loadingState</code> et <code>errorState</code> en remplacent le balisage.",
+      "<code>localization.emptyAll</code>, <code>emptyShift</code>, <code>loading</code>, <code>errorTitle</code> et <code>retry</code> contiennent chaque mot.",
+      "Les états n’ont pas de couleur propre au-delà des jetons de texte : ils suivent le thème sans être restylés."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Il y a une seule erreur à la fois pour tout le planning ; une erreur par poste n’est pas modélisée.",
+      "Le composant ne va jamais chercher de données : il ne décide donc jamais seul qu’il charge. Les deux props sont à vous.",
+      "Il n’y a pas de cartes squelettes. L’état de chargement est un indicateur d’attente, ou le vôtre via <code>renderLoading</code>."
+    ]
   }
 }

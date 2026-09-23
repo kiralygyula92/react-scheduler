@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Animationen",
-    "description": "Animationen in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "title": "Bewegung",
+    "description": "Welche Bewegungen animiert sind und wie der Plan einem Leser antwortet, der weniger davon verlangt hat."
   },
   "sections": {
     "basics": "Grundlagen",
@@ -13,5 +13,38 @@
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "motion": "Mit und ohne Bewegung"
+  },
+  "basics": {
+    "intro": "Zwei Dinge bewegen sich: ein Sprung zwischen Schichten scrollt weich, und ein angehefteter Chip gleitet herein statt zu erscheinen. Beides ist aus, wenn der Leser reduzierte Bewegung verlangt hat, und beides ist aus, wenn Sie den Animationsschalter abschalten.",
+    "points": [
+      "<code>reducedMotion</code> ist standardmäßig <code>'auto'</code> und folgt dem <code>prefers-reduced-motion</code> des Systems.",
+      "Bei reduzierter Bewegung wird jeder CSS-Übergang der Komponente entfernt, nicht verkürzt — ein Sprung landet sofort, und nichts blendet ein.",
+      "<code>enableAnimations</code> schaltet die Bewegung unabhängig von der Systemeinstellung ab, für eine bewusst ruhige Seite.",
+      "Das Scrollen von Hand ist nie betroffen: es gehört dem Browser, nicht der Komponente."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Reduzierte Bewegung wird ohne eigene Einstellung beachtet: die Systemvorgabe genügt.",
+      "Nichts hängt davon ab, dass eine Animation endet. Jede Landung stimmt in dem Moment, in dem sie verlangt wird; das weiche Scrollen ist nur der Weg dorthin.",
+      "Ein Sprung setzt den Fokus auf die Schichtüberschrift, ob animiert oder nicht, sodass ein Tastaturleser in beiden Fällen am selben Ort landet."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>reducedMotion</code> nimmt <code>'auto'</code>, <code>true</code> oder <code>false</code>.",
+      "<code>enableAnimations</code> entfernt die Eintrittsanimation der angehefteten Chips.",
+      "<code>prefersReducedMotion</code> aus <code>/dom</code> gibt eigenem Markup dieselbe Lesung."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Die Dauern legt das Stylesheet fest; es gibt keine Prop dafür, wie lange ein Übergang dauert.",
+      "Zwischen den beiden Ansichten gibt es keine Animation — der Wechsel ist bewusst sofort.",
+      "Weiches Scrollen hängt davon ab, dass der Browser <code>scroll-behavior</code> beachtet; wo er das nicht tut, ist der Sprung einfach sofort."
+    ]
   }
 }

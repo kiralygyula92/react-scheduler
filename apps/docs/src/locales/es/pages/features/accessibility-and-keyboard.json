@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accesibilidad y teclado",
-    "description": "Accesibilidad y teclado en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "El mapa del teclado, los roles y nombres que el componente da a sus partes, y lo que anuncia, en un solo sitio."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "keyboard": "Teclado",
+    "structure": "Roles y nombres",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "Todo el horario, con el teclado"
+  },
+  "basics": {
+    "intro": "Cada página de capacidad tiene su propia sección de accesibilidad; esta página es el resumen. El objetivo es WCAG 2.2 nivel AA, comprobado por axe en tres motores en cada cambio y a mano, con NVDA y VoiceOver, antes de una versión."
+  },
+  "keyboard": {
+    "intro": "Las teclas que usa el componente. El resto son del navegador.",
+    "head": {
+      "key": "Tecla",
+      "what": "Qué hace"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "Pasa al siguiente control del horario, en orden de lectura."],
+      ["<kbd>Enter</kbd> o <kbd>Space</kbd>", "Activa la tarjeta, la píldora o el botón enfocado."],
+      ["<kbd>Escape</kbd>", "Cierra el diálogo superior y devuelve el foco a lo que lo abrió."]
+    ],
+    "order": "El orden de tabulación es el orden de lectura: las píldoras fijadas, la navegación superior, luego los turnos en orden con sus tarjetas y sus píldoras <strong>+ más</strong>, después la navegación inferior y el botón de vuelta arriba. El foco siempre es visible: un anillo de dos píxeles, con desplazamiento de dos."
+  },
+  "structure": {
+    "points": [
+      "La raíz es una región, nombrada por <code>aria-label</code> o por tu propia cabecera con <code>aria-labelledby</code>.",
+      "Cada turno es un elemento <code>section</code> etiquetado por su encabezado, y el nivel del encabezado parte de <code>headingLevel</code>.",
+      "Las tarjetas de un turno forman una lista, así que un lector de pantalla anuncia cuántas hay.",
+      "Una tarjeta es un botón cuyo nombre es el título del elemento y cuya descripción lleva el nivel y la hora, más las etiquetas.",
+      "La franja de fijados es una región con una lista de píldoras, y una región en vivo educada aparte anuncia el recuento cuando cambia, como mucho una vez por segundo.",
+      "El marcador de «ahora» es un separador nombrado por la hora que marca."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "El color nunca es el único portador: un nivel se muestra como color y como etiqueta.",
+      "El ajuste por defecto cumple las relaciones de contraste de WCAG 2.2 AA; el ajuste clásico reproduce los colores de los que toma su nombre y documenta dónde se queda corto.",
+      "Un elemento deshabilitado se marca con <code>aria-disabled</code> en vez de sacarlo del orden de tabulación, así que puede seguir leyéndose.",
+      "Los diálogos son elementos <code>&lt;dialog&gt;</code> nativos: el navegador contiene el foco y <kbd>Escape</kbd> los cierra."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>aria-label</code> o un slot de cabecera nombran la región; <code>headingLevel</code> la encaja en el esquema de tu página.",
+      "Cada texto y cada anuncio vienen de <code>localization</code> — véase <link to=\"/customization/localization/\">Localización</link>.",
+      "Una tarjeta sustituida con <code>renderItem</code> tiene que esparcir <code>getItemProps</code>, que es lo que lleva el rol, el nombre y el manejo del teclado."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Todavía no hay foco móvil ni navegación con flechas entre tarjetas; <kbd>Tab</kbd> es el único movimiento. Está en la <link to=\"/discover-more/roadmap/\">hoja de ruta</link>.",
+      "No hay atajos de teclado para los botones de navegación.",
+      "El ajuste clásico tiene carencias de contraste conocidas, listadas en <link to=\"/discover-more/accessibility/\">Accesibilidad</link>."
+    ]
   }
 }

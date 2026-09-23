@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Modos de datos y SSR",
-    "description": "Modos de datos y SSR en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Guardar tú los elementos, traerlos por rango renderizado y renderizar el horario en un servidor sin avisos de hidratación."
   },
   "sections": {
     "basics": "Conceptos básicos",
@@ -14,5 +14,42 @@
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Traer por rango renderizado"
+  },
+  "basics": {
+    "intro": "El componente nunca obtiene datos. Tú guardas <code>items</code> y él renderiza lo que guardas. Quedan dos formas de trabajar: darle todo lo que tienes, o darle lo que pide el rango renderizado y reponer a medida que el rango se mueve.",
+    "range": "<code>onVisibleRangeChange</code> se dispara al montar y siempre que cambia el rango renderizado: una fecha nueva, otro patrón de turnos, más turnos antes o después. Es la señal para traer datos. Mientras llega la respuesta, mantén <code>loading</code> encendido: los elementos ya en pantalla se quedan, atenuados, en vez de desaparecer."
+  },
+  "server": {
+    "intro": "El componente se renderiza en un servidor sin tocar el DOM e hidrata sin avisos en React 18 y 19. El primer fotograma es deliberadamente el sencillo:",
+    "points": [
+      "El modo compacto está apagado salvo que pases tú el booleano: el ancho no se puede medir en un servidor.",
+      "Nada está fijado, porque la fijación es una posición de desplazamiento.",
+      "La señal de cabecera empieza expandida.",
+      "El reloj arranca desde <code>now</code>, o desde <code>defaultDate</code> cuando no das ninguno. Pasar <code>now</code> es lo que hace que los dos renders coincidan exactamente."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "El marcado renderizado en el servidor es la misma estructura que hidrata el cliente: quien lee sin JavaScript recibe el horario, sus encabezados y los nombres de los elementos.",
+      "Nada de los estados se anuncia dos veces al hidratar: las regiones en vivo empiezan vacías y solo hablan ante un cambio.",
+      "Una actualización que mantiene visibles los elementos anteriores conserva también la posición de lectura, que es lo que más importa a quien navega con el teclado."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>onVisibleRangeChange</code> para traer datos, <code>loading</code> y <code>error</code> para lo que ve quien lee mientras tanto — véase <link to=\"/states/\">Estados</link>.",
+      "<code>now</code> hace el renderizado determinista, que es también en lo que se apoyan las pruebas visuales de este paquete.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> y <link to=\"/integrations/ssr/\">Renderizado en servidor</link> tienen las partes propias de cada framework."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "No hay caché integrada, ni deduplicación de peticiones, ni reintento: eso es tarea de tu capa de datos.",
+      "El diálogo de elementos adicionales no se pagina desde un servidor; muestra los elementos del grupo que ya tiene.",
+      "Un cambio de rango se informa después de ocurrir, así que una carga siempre empieza con el nuevo rango ya renderizado: vacío, cargando o con los elementos anteriores."
+    ]
   }
 }

@@ -43,7 +43,20 @@
     "pinnedCount": "{count, plural, =0 {Nimic fixat încă} one {# element fixat} few {# elemente fixate} other {# de elemente fixate}}",
     "navigateIdle": "Folosește butoanele de deasupra și de sub listă.",
     "navigated": "Salt la tura cu decalajul {offset}.",
-    "clock": "Ora este acum"
+    "clock": "Ora este acum",
+    "containerWidth": "Lățimea containerului",
+    "pixels": "{count} pixeli",
+    "state": "Stare",
+    "stateData": "Date",
+    "stateLoading": "Se încarcă",
+    "stateError": "Eroare",
+    "stateEmpty": "Gol",
+    "reducedMotion": "Cere mișcare redusă",
+    "guardOpening": "Întreabă înainte de a deschide un element critic",
+    "eventsIdle": "Deschide un element ca să vezi ce rulează.",
+    "blocked": "Deschiderea „{title}” a fost anulată de middleware.",
+    "opened": "„{title}” a fost deschis.",
+    "scheduleLabel": "Panoul de ture"
   },
   "levels": {
     "blocking": "Blocant",

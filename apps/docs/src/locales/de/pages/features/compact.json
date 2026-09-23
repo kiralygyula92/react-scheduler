@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Kompaktmodus",
-    "description": "Kompaktmodus in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "title": "Kompakter Modus",
+    "description": "Wie sich der Plan an die Breite anpasst, die er bekommt — seine eigene, nicht die des Fensters — und was sich dabei ändert."
   },
   "sections": {
     "basics": "Grundlagen",
@@ -13,5 +13,38 @@
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "compact": "Derselbe Plan, drei Breiten"
+  },
+  "basics": {
+    "intro": "Ein Plan in einer Seitenleiste und ein Plan, der die Seite füllt, sind dieselbe Komponente in zwei Breiten. Der kompakte Modus wird mit einem <code>ResizeObserver</code> am eigenen Container des Plans gemessen, nie am Fenster und nie am User-Agent: eine schmale Box in einem breiten Fenster ist kompakt, eine breite Box in einem telefongroßen iframe nicht.",
+    "points": [
+      "<code>compact</code> ist standardmäßig <code>'auto'</code>: wahr unterhalb von <code>compactBreakpoint</code>, also 900 Pixel. Ein Boolescher Wert erzwingt beides.",
+      "Der kompakte Modus rückt die Karten zusammen, bringt den Zeitstrahl auf eine Spalte und verschmälert die angehefteten Chips — 436 Pixel ab 900, 360 zwischen 600 und 899 und 90 % der Breite darunter.",
+      "<code>listOnlyBreakpoint</code> ist davon getrennt und stärker: darunter wird der Zeitstrahl gar nicht angeboten.",
+      "Auf dem Server rendert die Komponente nicht kompakt, sofern Sie keinen Booleschen Wert übergeben; die erste Messung nach der Hydration korrigiert das."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Im kompakten Modus wird nichts entfernt: dieselben Einträge, Überschriften und Namen, auf weniger Pixeln.",
+      "Die Touch-Ziele bleiben mindestens 24 mal 24 Pixel groß, wie WCAG 2.2 es verlangt.",
+      "Gemessen wird der Container, sodass ein Leser, der auf 200 % zoomt, das kompakte Layout bekommt und keine horizontal scrollende Seite."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>compactBreakpoint</code> und <code>listOnlyBreakpoint</code> legen fest, wo die beiden Schwellen liegen.",
+      "<code>density</code> ist der andere Abstandsregler und unabhängig vom kompakten Modus — siehe <link to=\"/customization/theming/\">Gestaltung</link>.",
+      "<code>useCompact</code> gibt dieselbe Messung an eigenes Markup weiter."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Die Schwellen sind Pixelbreiten, keine Container-Queries: ein Layout, das seine Form ändert, ohne die Breite des Plans zu ändern, ändert den kompakten Modus nicht.",
+      "Die Breiten der angehefteten Chips sind auf ihre drei Stufen festgelegt und lassen sich nicht je Anwendung setzen.",
+      "Das erste auf dem Server gerenderte Bild kann die Breite nicht kennen, deshalb erscheint das kompakte Layout nach der Hydration, sofern Sie den Booleschen Wert nicht selbst übergeben."
+    ]
   }
 }

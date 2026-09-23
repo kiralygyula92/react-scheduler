@@ -1,17 +1,60 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Headless-API",
-    "description": "Headless-API in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Dasselbe Modell ohne Markup: die Hooks und der Controller hinter den Komponenten."
   },
   "sections": {
     "basics": "Grundlagen",
+    "layers": "Die drei Schichten",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "headless": "Ein Plan mit eigenem Markup"
+  },
+  "basics": {
+    "intro": "Wenn Slots und Render-Props nicht reichen — eine andere Struktur, nicht ein anderes Aussehen —, nehmen Sie das Modell und lassen Sie das Markup. <code>useScheduler</code> liefert alles, woraus <code>&lt;Scheduler&gt;</code> rendert: die Schichten mit ihren Einträgen, die angeheftete Menge, den Zustand der Navigation, die Formatierer und je einen Getter für die Props jedes Elements.",
+    "points": [
+      "Breiten Sie <code>getRootProps</code>, <code>getScrollerProps</code> und <code>getSectionProps</code> aus, und die Messungen funktionieren: kompakter Modus, aktive Schicht, Navigation.",
+      "Breiten Sie <code>getItemProps</code> auf dem aus, was Ihre Karte ist, und Aktivierung, Tastatur und Fokus funktionieren wie in der eingebauten.",
+      "<code>getPinSentinelProps</code> ist das, was das Anheften in Ihrem Markup möglich macht; ohne es heften Einträge nie an.",
+      "Der Zustand ist derselbe, den die Komponenten nutzen, also fehlt nichts und nichts ist doppelt."
+    ]
+  },
+  "layers": {
+    "intro": "Das Paket besteht aus drei Schichten, und Sie können bei jeder einsteigen:",
+    "points": [
+      "<code>@react-schedulerkit/react-scheduler</code> — die Komponenten, die Hooks und die Typen.",
+      "<code>/core</code> — die reinen Funktionen dahinter: Schichten, Bucketing, Zeitstrahl-Layout, Formatierer. Kein React, kein DOM; es läuft in reinem Node, und das wird getestet.",
+      "<code>/dom</code> — die Browser-Engines: der Anheft-Observer, der Navigator, die Breiten- und Bewegungs-Observer. DOM, kein React.",
+      "<code>/headless</code> — <code>createScheduler</code>, der frameworkunabhängige Controller mit Zustand, Aktionen und einem Abo."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Die Getter tragen die Rollen, die Namen und die Tastaturbehandlung. Breiten Sie sie aus, kommt die Barrierefreiheit mit; lassen Sie sie weg, liegt sie bei Ihnen.",
+      "Die Live-Region, die Ansagen und die Fokusrückgabe gehören zu den Komponenten, nicht zum Hook: eine Headless-Darstellung bringt eigene mit.",
+      "Die Reihenfolge, in der Sie Abschnitte und Karten rendern, ist die, in der ein Screenreader liest — behalten Sie die des Tages bei."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>useScheduler</code> für eine eigene React-Darstellung; <code>createScheduler</code> für ein ganz anderes Framework.",
+      "<code>useShiftModel</code>, <code>useTimelineLayout</code>, <code>usePinOnPass</code>, <code>useShiftNavigation</code>, <code>useNow</code> und <code>useCompact</code> sind die Einzelteile, wenn Sie nur eines davon wollen.",
+      "Die reinen Funktionen aus <code>/core</code> sind auf einem Server nützlich: Einträge zu bucketen oder ein Layout zu berechnen braucht keinen Browser."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Das Stylesheet ist für das eingebaute Markup geschrieben. Eine Headless-Darstellung bringt eigenes CSS mit oder nimmt <code>base.css</code> als Ausgangspunkt.",
+      "Der Dialog der weiteren Einträge und der Detaildialog sind Komponenten, kein Zustand: eine Headless-Darstellung öffnet eigene.",
+      "Der Hook liefert bei jeder relevanten Änderung ein neues Zustandsobjekt; memoisieren Sie, was Sie daraus bauen, wenn Ihre Darstellung teuer ist."
+    ]
   }
 }

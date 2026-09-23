@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Kompakt mód",
-    "description": "Kompakt mód a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Hogyan alkalmazkodik az ütemterv a kapott szélességhez — a sajátjához, nem az ablakéhoz —, és mi változik ilyenkor."
   },
   "sections": {
     "basics": "Alapok",
@@ -13,5 +13,38 @@
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "compact": "Ugyanaz az ütemterv, három szélességben"
+  },
+  "basics": {
+    "intro": "A sávban lévő és a teljes oldalt kitöltő ütemterv ugyanaz a komponens, két szélességben. A kompakt módot az ütemterv saját tárolójából mérjük <code>ResizeObserver</code> segítségével, soha nem az ablakból és soha nem a böngésző azonosítójából, így a széles ablakban lévő keskeny doboz kompakt, a telefonnyi iframe-ben lévő széles doboz pedig nem.",
+    "points": [
+      "A <code>compact</code> alapból <code>'auto'</code>: igaz a <code>compactBreakpoint</code>, azaz 900 képpont alatt. Logikai érték bármelyik irányba kényszeríti.",
+      "A kompakt mód összehúzza a kártyákat, egy oszlopra veszi az idővonalat, és szűkíti a rögzített jelvényeket — 436 képpont 900 felett, 360 a 600 és 899 között, ez alatt a szélesség 90%-a.",
+      "A <code>listOnlyBreakpoint</code> külön és erősebb: alatta az idővonal fel sem kínálkozik.",
+      "A szerveren a komponens nem kompaktként jelenik meg, hacsak nem adsz át logikai értéket, és a hidratálás utáni első mérés javítja."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Kompakt módban semmi nem tűnik el: ugyanazok az elemek, címsorok és nevek, kevesebb képponton.",
+      "Az érintési célpontok legalább 24×24 képpontosak maradnak, ahogy a WCAG 2.2 kéri.",
+      "A mérés a tárolóé, így a 200%-ra nagyító olvasó a kompakt elrendezést kapja, nem vízszintesen görgethető oldalt."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>compactBreakpoint</code> és a <code>listOnlyBreakpoint</code> adja meg, hol van a két küszöb.",
+      "A <code>density</code> a másik térközszabályzó, és független a kompakt módtól — lásd: <link to=\"/customization/theming/\">Témázás</link>.",
+      "A <code>useCompact</code> ugyanezt a mérést adja a saját markupodnak."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A küszöbök képpontban mért szélességek, nem tárolólekérdezések: az az elrendezés, amely az ütemterv szélességének változása nélkül alakul át, nem változtatja a kompakt módot.",
+      "A rögzített jelvények szélessége a három lépcsőhöz kötött, és alkalmazásonként nem állítható.",
+      "A szerveren megjelenített első képkocka nem ismerheti a szélességet, így a kompakt elrendezés a hidratálás után jelenik meg, hacsak nem adod meg magad a logikai értéket."
+    ]
   }
 }

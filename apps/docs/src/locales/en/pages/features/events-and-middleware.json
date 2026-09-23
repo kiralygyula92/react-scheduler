@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Events and middleware",
-    "description": "Events and middleware in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "What runs before an interaction and can cancel it, what reports it afterwards, and the order the two happen in."
   },
   "sections": {
     "basics": "Basics",
+    "order": "The order of things",
+    "middleware": "Every middleware",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "middleware": "Asking before opening"
+  },
+  "basics": {
+    "intro": "There are two kinds of callback. <code>handlers</code> are middleware: they run <em>before</em> the component acts and decide whether it acts at all. The <code>onX</code> props are events: they report what has already happened. Anything that needs to intervene — a confirmation, an unsaved change, a permission — belongs in the first; anything that needs to record or react belongs in the second.",
+    "next": "A middleware receives the context and a <code>next</code> function. Calling it runs the default behavior and then the events; not calling it cancels both. The context is read-only, and <code>next</code> may be called later — after an await, for instance — in which case the default behavior runs then, provided the component is still mounted."
+  },
+  "order": {
+    "intro": "For one interaction, in this order:",
+    "head": {
+      "step": "Step",
+      "what": "What runs"
+    },
+    "rows": [
+      ["1", "The middleware for that interaction, if you gave one."],
+      ["2", "The component’s own behavior, if the middleware called <code>next</code>."],
+      [
+        "3",
+        "The state callbacks: <code>onViewChange</code>, <code>onDateChange</code>, <code>onOpenItemIdChange</code> and their kind."
+      ],
+      [
+        "4",
+        "The domain events: <code>onItemOpen</code>, <code>onNavigate</code>, <code>onOverflowOpen</code> and their kind."
+      ]
+    ],
+    "frames": "The events that come from scrolling — <code>onActiveShiftChange</code>, <code>onHeaderExpandedChange</code>, <code>onPinnedChange</code> — fire at most once per animation frame, and only when the value actually changed."
+  },
+  "middleware": {
+    "intro": "The eleven middleware, generated from the package’s declarations:"
+  },
+  "accessibility": {
+    "points": [
+      "A cancelled interaction leaves focus where it was: nothing moves because something did not happen.",
+      "A middleware that opens a confirmation of your own is responsible for its focus; the component has not moved any.",
+      "Because the events report rather than decide, a screen reader never hears about something the middleware went on to cancel."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>handlers</code> holds every middleware; each one is optional.",
+      "The imperative handle skips the middleware on purpose: it is your own call, not the reader’s.",
+      "Events are ordinary props, so they compose with whatever state library you already use."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "The middleware context is read-only: it cannot change the item, the target shift or the sort. To change the outcome, cancel and then act through the imperative handle.",
+      "An asynchronous <code>next</code> that resolves after the component unmounted does nothing, silently.",
+      "There is no single event that fires for every interaction; each one has its own."
+    ]
   }
 }
