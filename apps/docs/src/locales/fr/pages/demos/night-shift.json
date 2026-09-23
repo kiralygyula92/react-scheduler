@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Poste de nuit",
+    "description": "Une démo React Scheduler sur le jeu Poste de nuit : les capacités combinées et son code source complet."
+  },
+  "sections": {
+    "scenario": "Scénario",
+    "what-it-uses": "Ce qu’il utilise",
+    "source": "Code source"
+  }
+}

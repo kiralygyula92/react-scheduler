@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Feuille de route",
+    "description": "Ce qui est prévu pour React Scheduler après la première version stable. Sans dates ni promesses."
+  },
+  "sections": {
+    "planned": "Prévu"
+  }
+}

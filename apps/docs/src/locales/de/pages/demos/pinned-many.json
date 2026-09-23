@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Viele angeheftete Elemente",
+    "description": "Eine React-Scheduler-Demo auf dem Datensatz Viele angeheftete Elemente: die kombinierten Fähigkeiten und der vollständige Quellcode."
+  },
+  "sections": {
+    "scenario": "Szenario",
+    "what-it-uses": "Was es verwendet",
+    "source": "Quellcode"
+  }
+}

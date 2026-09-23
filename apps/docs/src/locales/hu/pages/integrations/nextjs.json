@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Next.js",
+    "description": "Next.js: a cél, mire van szükség a kezdés előtt, a követendő lépések, és hogyan ellenőrizd az eredményt."
+  },
+  "sections": {
+    "goal": "Cél",
+    "before-you-start": "Mielőtt elkezded",
+    "steps": "Lépések",
+    "result": "Eredmény",
+    "related": "Kapcsolódó"
+  }
+}

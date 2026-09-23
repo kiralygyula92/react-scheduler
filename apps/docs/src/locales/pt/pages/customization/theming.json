@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Temas",
+    "description": "Temas no React Scheduler: o que pode alterar, como alterar e o que cada alteração afeta."
+  },
+  "sections": {
+    "tokens": "Tokens",
+    "dark-mode": "Modo escuro",
+    "presets": "Predefinições"
+  }
+}

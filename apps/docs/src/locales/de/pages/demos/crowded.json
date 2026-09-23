@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Voller Tag",
+    "description": "Eine React-Scheduler-Demo auf dem Datensatz Voller Tag: die kombinierten Fähigkeiten und der vollständige Quellcode."
+  },
+  "sections": {
+    "scenario": "Szenario",
+    "what-it-uses": "Was es verwendet",
+    "source": "Quellcode"
+  }
+}

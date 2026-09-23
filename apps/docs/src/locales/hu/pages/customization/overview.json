@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Áttekintés",
+    "description": "Áttekintés a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+  },
+  "sections": {
+    "css-variables": "CSS változók",
+    "class-names": "Osztálynevek",
+    "slot-props": "Slot propok",
+    "slots": "Slotok",
+    "handlers": "Eseménykezelők",
+    "headless-hooks": "Headless hookok"
+  }
+}

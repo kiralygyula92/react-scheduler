@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Migration",
+    "description": "Wie eine bestehende Einrichtung auf die aktuelle React-Scheduler-Version wechselt und was sich änderte."
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Premiers pas",
+    "overview": "Vue d'ensemble",
+    "installation": "Installation",
+    "usage": "Utilisation",
+    "aiContext": "Contexte IA",
+    "requirements": "Prérequis",
+    "faq": "FAQ",
+    "support": "Assistance",
+    "versions": "Versions",
+    "features": "Fonctionnalités",
+    "allFeatures": "Toutes les fonctionnalités",
+    "demos": "Démos",
+    "demosIndex": "Démos",
+    "playground": "Bac à sable",
+    "themeEditor": "Éditeur de thème",
+    "reference": "Référence",
+    "apiIndex": "Référence de l'API",
+    "customization": "Personnalisation",
+    "customizationOverview": "Vue d'ensemble",
+    "theming": "Thèmes",
+    "cssVariables": "Variables CSS",
+    "slots": "Slots et surcharges",
+    "localization": "Localisation",
+    "guides": "Guides",
+    "guidesIndex": "Guides",
+    "integrations": "Intégrations",
+    "integrationsIndex": "Intégrations",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Rendu côté serveur",
+    "migration": "Migration",
+    "migrationIndex": "Migration",
+    "migrationFromCustom": "Depuis une implémentation maison",
+    "discoverMore": "En savoir plus",
+    "changelog": "Journal des modifications",
+    "roadmap": "Feuille de route",
+    "accessibility": "Accessibilité",
+    "license": "Licence",
+    "groups": {
+      "coreFeatures": "Fonctionnalités principales",
+      "displayLayout": "Affichage et mise en page",
+      "interaction": "Interaction",
+      "advanced": "Fonctionnalités avancées",
+      "developerTools": "Outils de développement"
+    }
+  },
+  "shell": {
+    "skipToContent": "Aller au contenu",
+    "openMenu": "Ouvrir la navigation",
+    "closeMenu": "Fermer la navigation",
+    "sidebarLabel": "Documentation",
+    "github": "Code source sur GitHub",
+    "themeToDark": "Passer au thème sombre",
+    "themeToLight": "Passer au thème clair",
+    "language": "Langue",
+    "version": "Version",
+    "packageManager": "Gestionnaire de paquets",
+    "close": "Fermer",
+    "externalLink": "(lien externe)",
+    "required": "obligatoire"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Rechercher",
+    "title": "Recherche",
+    "placeholder": "Rechercher dans la documentation",
+    "empty": "Saisissez du texte pour rechercher dans les pages, les titres et l'API.",
+    "noResults": "Aucun résultat pour « {query} ».",
+    "hintNavigate": "pour naviguer",
+    "hintOpen": "pour ouvrir",
+    "hintClose": "pour fermer"
+  },
+  "toc": {
+    "title": "Sur cette page"
+  },
+  "pager": {
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "code": {
+    "copy": "Copier",
+    "copied": "Copié",
+    "expand": "Développer",
+    "collapse": "Réduire"
+  },
+  "demo": {
+    "showCode": "Afficher le code",
+    "hideCode": "Masquer le code",
+    "reset": "Réinitialiser",
+    "error": "Impossible d'afficher cette démo."
+  },
+  "badge": {
+    "new": "Nouveau",
+    "preview": "Aperçu",
+    "beta": "Bêta",
+    "deprecated": "Obsolète"
+  },
+  "footer": {
+    "product": "Produit",
+    "resources": "Ressources",
+    "explore": "Explorer",
+    "project": "Projet",
+    "documentation": "Documentation",
+    "license": "Sous licence MIT. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "back": "Aller à la vue d'ensemble"
+  },
+  "playground": {
+    "resetAll": "Tout réinitialiser",
+    "setup": "Configuration",
+    "props": "Propriétés {count}",
+    "changed": "Modifiées : {count}",
+    "filter": "Filtrer les propriétés",
+    "changedOnly": "Modifiées uniquement",
+    "codeOnly": "Code uniquement",
+    "code": "Code",
+    "eventLog": "Journal des événements",
+    "clear": "Effacer",
+    "defaultValue": "par défaut ({value})",
+    "resetProp": "Réinitialiser"
+  },
+  "changelog": {
+    "englishNote": "Les entrées du journal des modifications sont publiées en anglais."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

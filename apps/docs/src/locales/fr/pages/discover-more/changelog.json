@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Journal des modifications",
+    "description": "Chaque version publiée de React Scheduler et ses changements. Les entrées sont publiées en anglais."
+  }
+}

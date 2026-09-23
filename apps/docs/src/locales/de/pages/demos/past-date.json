@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Vergangenes Datum",
+    "description": "Eine React-Scheduler-Demo auf dem Datensatz Vergangenes Datum: die kombinierten Fähigkeiten und der vollständige Quellcode."
+  },
+  "sections": {
+    "scenario": "Szenario",
+    "what-it-uses": "Was es verwendet",
+    "source": "Quellcode"
+  }
+}

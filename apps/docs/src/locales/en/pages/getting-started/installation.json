@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Installation",
+    "description": "Installation for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+  },
+  "sections": {
+    "install": "Install",
+    "peer-dependencies": "Peer dependencies",
+    "stylesheet": "Stylesheet",
+    "verify": "Verify",
+    "next-steps": "Next steps"
+  }
+}

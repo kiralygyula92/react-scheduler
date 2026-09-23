@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "API-referencia",
+    "description": "A React Scheduler összes exportált komponense, hookja, függvénye és típusa, egysoros leírással és hivatkozással."
+  },
+  "sections": {
+    "components": "Komponensek",
+    "hooks": "Hookok",
+    "functions": "Függvények",
+    "types": "Típusok",
+    "css-variables": "CSS változók"
+  }
+}

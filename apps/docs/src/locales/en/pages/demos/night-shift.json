@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Night shift",
+    "description": "A React Scheduler demo on the Night shift fixture: the capabilities it combines and its complete source."
+  },
+  "sections": {
+    "scenario": "Scenario",
+    "what-it-uses": "What it uses",
+    "source": "Source"
+  }
+}

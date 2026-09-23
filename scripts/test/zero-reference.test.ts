@@ -20,6 +20,7 @@ const config: ZeroReferenceConfig = {
   allowedEmailDomains: ['example.com'],
   allowedEmails: [['noreply', 'anthropic.com'].join('@')],
   allowedHosts: ['github.com', 'vercel.app'],
+  allowedLocalPorts: [4173],
 };
 const encode = (text: string): Uint8Array => new TextEncoder().encode(text);
 

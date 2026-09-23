@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Erste Schritte",
+    "overview": "Überblick",
+    "installation": "Installation",
+    "usage": "Verwendung",
+    "aiContext": "KI-Kontext",
+    "requirements": "Anforderungen",
+    "faq": "FAQ",
+    "support": "Support",
+    "versions": "Versionen",
+    "features": "Funktionen",
+    "allFeatures": "Alle Funktionen",
+    "demos": "Demos",
+    "demosIndex": "Demos",
+    "playground": "Playground",
+    "themeEditor": "Theme-Editor",
+    "reference": "Referenz",
+    "apiIndex": "API-Referenz",
+    "customization": "Anpassung",
+    "customizationOverview": "Überblick",
+    "theming": "Themes",
+    "cssVariables": "CSS-Variablen",
+    "slots": "Slots und Überschreibungen",
+    "localization": "Lokalisierung",
+    "guides": "Anleitungen",
+    "guidesIndex": "Anleitungen",
+    "integrations": "Integrationen",
+    "integrationsIndex": "Integrationen",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Serverseitiges Rendering",
+    "migration": "Migration",
+    "migrationIndex": "Migration",
+    "migrationFromCustom": "Von einer eigenen Implementierung",
+    "discoverMore": "Mehr entdecken",
+    "changelog": "Änderungsprotokoll",
+    "roadmap": "Roadmap",
+    "accessibility": "Barrierefreiheit",
+    "license": "Lizenz",
+    "groups": {
+      "coreFeatures": "Kernfunktionen",
+      "displayLayout": "Darstellung und Layout",
+      "interaction": "Interaktion",
+      "advanced": "Erweiterte Funktionen",
+      "developerTools": "Entwicklerwerkzeuge"
+    }
+  },
+  "shell": {
+    "skipToContent": "Zum Inhalt springen",
+    "openMenu": "Navigation öffnen",
+    "closeMenu": "Navigation schließen",
+    "sidebarLabel": "Dokumentation",
+    "github": "Quellcode auf GitHub",
+    "themeToDark": "Zum dunklen Design wechseln",
+    "themeToLight": "Zum hellen Design wechseln",
+    "language": "Sprache",
+    "version": "Version",
+    "packageManager": "Paketmanager",
+    "close": "Schließen",
+    "externalLink": "(externer Link)",
+    "required": "erforderlich"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Suchen",
+    "title": "Suche",
+    "placeholder": "Dokumentation durchsuchen",
+    "empty": "Tippe, um Seiten, Überschriften und die API zu durchsuchen.",
+    "noResults": "Keine Ergebnisse für „{query}“.",
+    "hintNavigate": "zum Navigieren",
+    "hintOpen": "zum Öffnen",
+    "hintClose": "zum Schließen"
+  },
+  "toc": {
+    "title": "Auf dieser Seite"
+  },
+  "pager": {
+    "previous": "Zurück",
+    "next": "Weiter"
+  },
+  "code": {
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "expand": "Ausklappen",
+    "collapse": "Einklappen"
+  },
+  "demo": {
+    "showCode": "Code anzeigen",
+    "hideCode": "Code ausblenden",
+    "reset": "Zurücksetzen",
+    "error": "Diese Demo konnte nicht angezeigt werden."
+  },
+  "badge": {
+    "new": "Neu",
+    "preview": "Vorschau",
+    "beta": "Beta",
+    "deprecated": "Veraltet"
+  },
+  "footer": {
+    "product": "Produkt",
+    "resources": "Ressourcen",
+    "explore": "Entdecken",
+    "project": "Projekt",
+    "documentation": "Dokumentation",
+    "license": "MIT-lizenziert. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "back": "Zum Überblick"
+  },
+  "playground": {
+    "resetAll": "Alles zurücksetzen",
+    "setup": "Einrichtung",
+    "props": "Props {count}",
+    "changed": "Geändert: {count}",
+    "filter": "Props filtern",
+    "changedOnly": "Nur geänderte",
+    "codeOnly": "Nur im Code",
+    "code": "Code",
+    "eventLog": "Ereignisprotokoll",
+    "clear": "Leeren",
+    "defaultValue": "Standard ({value})",
+    "resetProp": "Zurücksetzen"
+  },
+  "changelog": {
+    "englishNote": "Einträge im Änderungsprotokoll werden auf Englisch veröffentlicht."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

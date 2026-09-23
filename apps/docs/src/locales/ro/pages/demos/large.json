@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Program mare",
+    "description": "O demonstrație React Scheduler pe setul Program mare: funcționalitățile combinate și codul sursă complet."
+  },
+  "sections": {
+    "scenario": "Scenariu",
+    "what-it-uses": "Ce folosește",
+    "source": "Cod sursă"
+  }
+}

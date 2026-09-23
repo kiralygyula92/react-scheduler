@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Support",
+    "description": "Support for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+  },
+  "sections": {
+    "where-to-ask": "Where to ask",
+    "report-a-bug": "How to report a bug",
+    "security": "Security",
+    "support-policy": "Support policy"
+  }
+}

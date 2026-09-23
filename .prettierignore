@@ -16,3 +16,10 @@ apps/docs/src/content/api/
 
 # Copied verbatim from spec/docs-pack/agent-files/ (no keys to resolve)
 CLAUDE.md
+
+# Copied verbatim from spec/docs-pack/11-docs-shell-reference/ (11 README: never modified per
+# plugin; the shell checksum compares them byte for byte across repositories)
+apps/docs/src/shell/tokens.css
+apps/docs/src/shell/shell.css
+apps/docs/src/locales/*/common.json
+apps/docs/src/content/nav.schema.json

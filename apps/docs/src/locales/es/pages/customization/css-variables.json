@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Variables CSS",
+    "description": "Variables CSS en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+  },
+  "sections": {
+    "variables": "Variables"
+  }
+}

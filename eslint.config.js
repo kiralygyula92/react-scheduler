@@ -43,6 +43,7 @@ export default defineConfig(
   {
     ignores: [
       'spec/**',
+      '.cache/**',
       '**/node_modules/**',
       '**/dist/**',
       '**/build/**',
@@ -94,9 +95,25 @@ export default defineConfig(
   },
   // No user-visible literal in code: package strings go through `localization` (docs pack 08 P9),
   // site strings through the locale files (docs pack 07 §5).
+  // (docs pack 07 §6: the rule runs on `src/content/**` and `src/shell/**`.) Props are exempt for
+  // the same reason as in the package — a class name or a role is not text — and the attributes a
+  // person actually reads are restricted separately, below.
   {
     files: ['apps/docs/src/content/**/*.tsx', 'apps/docs/src/shell/**/*.tsx'],
-    rules: { 'react/jsx-no-literals': ['error', { noStrings: true, ignoreProps: false }] },
+    rules: {
+      'react/jsx-no-literals': ['error', { noStrings: true, ignoreProps: true }],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: `JSXAttribute[name.name=/^(${USER_VISIBLE_ATTRIBUTES})$/] > Literal`,
+          message: 'User-visible attribute text comes from the locale files.',
+        },
+        {
+          selector: `JSXAttribute[name.name=/^(${USER_VISIBLE_ATTRIBUTES})$/] > JSXExpressionContainer > :matches(Literal, TemplateLiteral)`,
+          message: 'User-visible attribute text comes from the locale files.',
+        },
+      ],
+    },
   },
   // Package components: attribute values such as class names, roles and types are not text; the
   // attributes that assistive technology or the pointer reads out are checked on their own.

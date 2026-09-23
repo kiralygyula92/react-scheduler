@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "CSS-változók",
+    "description": "CSS-változók a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+  },
+  "sections": {
+    "variables": "Változók"
+  }
+}

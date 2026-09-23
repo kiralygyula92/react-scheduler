@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Shell overrides — NOT part of the verbatim shell.
+
+   `tokens.css` and `shell.css` are copied from the docs pack and are never
+   edited per plugin (11 README). This file holds the few rules the shell needs
+   for this site to meet the requirements in `07`, each with the reason it
+   exists, so the docs pack can fold them in and this file can disappear.
+   Every value here is a token or a layout keyword: no colours, no durations
+   (conformance C9).
+   ========================================================================== */
+
+/* Below 900px the navbar carries the hamburger, the wordmark, the version pill
+   and four controls. With a two-word plugin name that is wider than a 390px
+   viewport, and `.ds-navbar__start` shrinks while its children do not, so the
+   version pill lands on top of the search button: WCAG 2.2 target size fails
+   with a serious axe violation (07 §1, §2). The wordmark is the one part that
+   can give way, so it truncates instead. (EXCEPTIONS.md #9) */
+@media (width <= 899px) {
+  .ds-wordmark {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ds-version {
+    flex: none;
+  }
+}
+
+/* `.ds-content a` sits in the `ds-content` layer and underlines every link inside `main`, which is
+   where breadcrumbs and the prev/next cards are rendered (01 §8). The pack carves `.ds-card` out of
+   it but not these two: O7 says breadcrumbs are never underlined in any state, and the prev/next
+   cards are cards. (EXCEPTIONS.md #9) */
+.ds-content .ds-breadcrumbs a,
+.ds-content .ds-prevnext a {
+  text-decoration: none;
+}
+
+.ds-content .ds-prevnext a:hover {
+  text-decoration: none;
+}
+
+.ds-content .ds-breadcrumbs a:hover {
+  text-decoration: none;
+  color: var(--ds-text);
+}
+
+/* 02 §6.10 puts two links at the right end of the footer's bottom row; `.ds-footer__bottom` styles
+   the row but not the pair, so they would run together. (EXCEPTIONS.md #9) */
+.ds-footer__bottom > span:last-child {
+  display: flex;
+  gap: var(--ds-space-3);
+}

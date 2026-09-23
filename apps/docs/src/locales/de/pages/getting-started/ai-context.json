@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "KI-Kontext",
+    "description": "Wie ein Coding-Agent die vollständige React-Scheduler-Dokumentation in einer Datei erhält und wie man das prüft."
+  },
+  "sections": {
+    "prerequisites": "Voraussetzungen",
+    "installation": "Installation",
+    "what-is-in-the-file": "Was in der Datei steht",
+    "which-file-to-use": "Welche Datei zu verwenden ist",
+    "minimal-working-example": "Minimales funktionierendes Beispiel",
+    "verify": "Überprüfung",
+    "next-steps": "Nächste Schritte"
+  }
+}

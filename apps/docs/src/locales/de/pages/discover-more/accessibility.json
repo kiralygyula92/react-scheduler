@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Barrierefreiheit",
+    "description": "Das Barrierefreiheitsziel von React Scheduler, was bei jeder Änderung geprüft wird und welche Lücken bleiben."
+  },
+  "sections": {
+    "target": "Ziel",
+    "what-is-tested": "Was geprüft wird",
+    "known-gaps": "Bekannte Lücken",
+    "reporting": "Ein Problem melden"
+  }
+}

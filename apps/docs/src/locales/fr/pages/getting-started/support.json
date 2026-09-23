@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Assistance",
+    "description": "Assistance du paquet React Scheduler : les étapes dans l’ordre, les versions concernées et ce qu’il faut vérifier."
+  },
+  "sections": {
+    "where-to-ask": "Où poser une question",
+    "report-a-bug": "Comment signaler un bug",
+    "security": "Sécurité",
+    "support-policy": "Politique de support"
+  }
+}

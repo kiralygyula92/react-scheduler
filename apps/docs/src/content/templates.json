@@ -1,0 +1,66 @@
+{
+  "$comment": "Required sections per page (docs pack 03 §3), matched by section id — what conformance check C4 compares against. Pages whose template fixes the same sections for every page of that kind are listed under `templates`; the rest, where 03 names the sections per page, under `pages`.",
+  "templates": {
+    "T6": ["basics", "accessibility", "customization", "limitations", "api"],
+    "T8": ["scenario", "what-it-uses", "source"],
+    "T13": ["goal", "before-you-start", "steps", "result", "related"],
+    "T7": [],
+    "T9": ["setup", "props", "code", "event-log"],
+    "T15": []
+  },
+  "pages": {
+    "getting-started/overview": ["introduction", "why", "start-now", "license"],
+    "getting-started/installation": ["install", "peer-dependencies", "stylesheet", "verify", "next-steps"],
+    "getting-started/usage": ["minimal-example", "controlled-and-uncontrolled", "common-props", "next-steps"],
+    "getting-started/ai-context": [
+      "prerequisites",
+      "installation",
+      "what-is-in-the-file",
+      "which-file-to-use",
+      "minimal-working-example",
+      "verify",
+      "next-steps"
+    ],
+    "getting-started/requirements": [
+      "browsers",
+      "react-versions",
+      "typescript-versions",
+      "frameworks-and-ssr",
+      "bundle-size",
+      "accessibility-target"
+    ],
+    "getting-started/faq": ["is-it-free", "nextjs", "without-default-styles", "built-in-languages"],
+    "getting-started/support": ["where-to-ask", "report-a-bug", "security", "support-policy"],
+    "getting-started/versions": ["supported-versions", "versioning-policy", "older-versions", "related"],
+    "features/all-features": [],
+    "features/data-modes-and-ssr": [
+      "basics",
+      "server-and-client",
+      "accessibility",
+      "customization",
+      "limitations",
+      "api"
+    ],
+    "demos/index": [],
+    "reference/index": ["components", "hooks", "functions", "types", "css-variables"],
+    "customization/overview": ["css-variables", "class-names", "slot-props", "slots", "handlers", "headless-hooks"],
+    "customization/theming": ["tokens", "dark-mode", "presets"],
+    "customization/css-variables": ["variables"],
+    "customization/slots": ["slots", "example"],
+    "customization/localization": ["built-in-locales", "custom-messages", "adding-a-language"],
+    "guides/index": [],
+    "integrations/index": [],
+    "migration/index": [],
+    "migration/from-custom-implementation": [
+      "who-this-is-for",
+      "summary-of-changes",
+      "step-by-step",
+      "removed-and-renamed",
+      "getting-help"
+    ],
+    "discover-more/changelog": [],
+    "discover-more/roadmap": ["planned"],
+    "discover-more/accessibility": ["target", "what-is-tested", "known-gaps", "reporting"],
+    "discover-more/license": ["summary", "full-text"]
+  }
+}

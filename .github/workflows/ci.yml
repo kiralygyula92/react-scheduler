@@ -1,5 +1,5 @@
 # docs pack 10 §5.1. Steps whose tooling lands in later milestones are added there
-# (docs api/i18n/build/conformance M4–M5, e2e:smoke M4): see EXCEPTIONS.md #1.
+# (docs api M5–M6): see EXCEPTIONS.md #1.
 name: CI
 on:
   pull_request:
@@ -40,6 +40,13 @@ jobs:
       - run: pnpm --filter @react-schedulerkit/react-scheduler size
       - run: pnpm check:pack
       - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
+      # The site: the package it documents is already built above.
+      - run: pnpm --filter docs i18n:check
+        if: matrix.react == '19'
+      - run: pnpm --filter docs build
+        if: matrix.react == '19'
+      - run: pnpm --filter docs conformance
+        if: matrix.react == '19'
       - run: pnpm exec playwright install --with-deps
         if: matrix.react == '19'
       # Scenarios, computed styles and accessibility in Chromium, Firefox and WebKit. The screenshot
@@ -51,6 +58,16 @@ jobs:
         with:
           name: screenshots-linux
           path: packages/react-scheduler/test-results/shot/
+          if-no-files-found: ignore
+      # The site's journeys in three engines, against the built static output. The shell's visual
+      # baselines are Windows renderings and skip here (visual job below).
+      - run: pnpm e2e apps/docs/e2e
+        if: matrix.react == '19'
+      - uses: actions/upload-artifact@v4
+        if: failure() && matrix.react == '19'
+        with:
+          name: playwright-report
+          path: playwright-report/
           if-no-files-found: ignore
   visual:
     # The screenshot gate (Feature Dossier 09 §4) on the references' platform (ADR 0003 D9).
@@ -67,6 +84,10 @@ jobs:
       - run: pnpm test:browser test/browser/shot test/browser/vis
         env:
           RS_BROWSERS: chromium
+      # The docs shell's baselines were recorded on Windows for the same reason.
+      - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter docs build
+      - run: pnpm e2e apps/docs/e2e/visual.spec.ts --project=chromium
       - uses: actions/upload-artifact@v4
         if: always()
         with:

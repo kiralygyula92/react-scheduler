@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Timeline view",
+    "description": "Timeline view in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+  },
+  "sections": {
+    "basics": "Basics",
+    "accessibility": "Accessibility",
+    "customization": "Customization",
+    "limitations": "Limitations",
+    "api": "API"
+  }
+}

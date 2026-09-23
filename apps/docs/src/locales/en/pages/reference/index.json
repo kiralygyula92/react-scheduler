@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "API reference",
+    "description": "Every component, hook, function and type React Scheduler exports, with a one-line description and a link."
+  },
+  "sections": {
+    "components": "Components",
+    "hooks": "Hooks",
+    "functions": "Functions",
+    "types": "Types",
+    "css-variables": "CSS variables"
+  }
+}

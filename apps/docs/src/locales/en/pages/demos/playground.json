@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Playground",
+    "description": "Try React Scheduler with every public prop, watch the events it emits, and copy the JSX for the setup you built."
+  },
+  "sections": {
+    "setup": "Setup",
+    "props": "Props",
+    "code": "Code",
+    "event-log": "Event log"
+  }
+}

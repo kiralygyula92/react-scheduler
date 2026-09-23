@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Bemutatók",
+    "description": "React Scheduler forgatókönyv-demók, mindegyik több képességből építve, valamint a propok kipróbálására szolgáló playground."
+  }
+}

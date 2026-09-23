@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Versions",
+    "description": "Quelles versions de React Scheduler sont prises en charge, comment elles sont numérotées et où trouver la documentation antérieure."
+  },
+  "sections": {
+    "supported-versions": "Versions prises en charge",
+    "versioning-policy": "Politique de versionnage",
+    "older-versions": "Versions antérieures",
+    "related": "Voir aussi"
+  }
+}

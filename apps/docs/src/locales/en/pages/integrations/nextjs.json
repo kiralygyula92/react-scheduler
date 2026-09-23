@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Next.js",
+    "description": "Next.js: the goal, what you need before you start, the steps to follow, and how to check the result."
+  },
+  "sections": {
+    "goal": "Goal",
+    "before-you-start": "Before you start",
+    "steps": "Steps",
+    "result": "Result",
+    "related": "Related"
+  }
+}

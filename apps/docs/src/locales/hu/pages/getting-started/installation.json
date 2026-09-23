@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Telepítés",
+    "description": "Telepítés a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+  },
+  "sections": {
+    "install": "Telepítés",
+    "peer-dependencies": "Peer függőségek",
+    "stylesheet": "Stíluslap",
+    "verify": "Ellenőrzés",
+    "next-steps": "Következő lépések"
+  }
+}

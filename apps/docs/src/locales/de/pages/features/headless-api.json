@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Headless-API",
+    "description": "Headless-API in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+  },
+  "sections": {
+    "basics": "Grundlagen",
+    "accessibility": "Barrierefreiheit",
+    "customization": "Anpassung",
+    "limitations": "Einschränkungen",
+    "api": "API"
+  }
+}

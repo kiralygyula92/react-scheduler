@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4"
+  },
+  "capabilities": {
+    "schedulerAndViews": "Scheduler și vizualizări",
+    "shiftsAndDates": "Ture și date",
+    "listView": "Vizualizare listă",
+    "timelineView": "Vizualizare cronologică",
+    "itemsAndLevels": "Elemente și niveluri",
+    "pinning": "Fixare",
+    "navigation": "Navigare",
+    "nowIndicator": "Indicator pentru momentul curent",
+    "overflow": "Elemente suplimentare",
+    "itemDetail": "Detaliile elementului",
+    "compact": "Mod compact",
+    "states": "Stări",
+    "motion": "Animații",
+    "eventsAndMiddleware": "Evenimente și middleware",
+    "dataModesAndSsr": "Moduri de date și SSR",
+    "accessibilityAndKeyboard": "Accesibilitate și tastatură",
+    "headlessApi": "API headless"
+  },
+  "demos": {
+    "baselineDay": "Zi de referință",
+    "empty": "Program gol",
+    "sparse": "Zi cu puține elemente",
+    "crowded": "Zi aglomerată",
+    "nightShift": "Tura de noapte",
+    "pastDate": "Dată din trecut",
+    "pinnedMany": "Multe elemente fixate",
+    "large": "Program mare"
+  }
+}

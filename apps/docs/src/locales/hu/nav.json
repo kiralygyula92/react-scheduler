@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4"
+  },
+  "capabilities": {
+    "schedulerAndViews": "Ütemező és nézetek",
+    "shiftsAndDates": "Műszakok és dátumok",
+    "listView": "Listanézet",
+    "timelineView": "Idővonal nézet",
+    "itemsAndLevels": "Elemek és szintek",
+    "pinning": "Rögzítés",
+    "navigation": "Navigáció",
+    "nowIndicator": "Aktuális idő jelzése",
+    "overflow": "További elemek",
+    "itemDetail": "Elem részletei",
+    "compact": "Kompakt mód",
+    "states": "Állapotok",
+    "motion": "Animációk",
+    "eventsAndMiddleware": "Események és middleware",
+    "dataModesAndSsr": "Adatmódok és SSR",
+    "accessibilityAndKeyboard": "Akadálymentesség és billentyűzet",
+    "headlessApi": "Headless API"
+  },
+  "demos": {
+    "baselineDay": "Alap nap",
+    "empty": "Üres ütemterv",
+    "sparse": "Ritka nap",
+    "crowded": "Zsúfolt nap",
+    "nightShift": "Éjszakai műszak",
+    "pastDate": "Múltbeli dátum",
+    "pinnedMany": "Sok rögzített elem",
+    "large": "Nagy ütemterv"
+  }
+}

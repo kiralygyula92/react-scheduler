@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Prezentare generală",
+    "description": "Prezentare generală în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+  },
+  "sections": {
+    "css-variables": "Variabile CSS",
+    "class-names": "Nume de clase",
+    "slot-props": "Proprietăți de slot",
+    "slots": "Sloturi",
+    "handlers": "Handlere",
+    "headless-hooks": "Hook-uri headless"
+  }
+}

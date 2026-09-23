@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Nagy ütemterv",
+    "description": "React Scheduler demó a(z) Nagy ütemterv adatkészleten: a kombinált képességek és a teljes forráskód."
+  },
+  "sections": {
+    "scenario": "Forgatókönyv",
+    "what-it-uses": "Mit használ",
+    "source": "Forráskód"
+  }
+}

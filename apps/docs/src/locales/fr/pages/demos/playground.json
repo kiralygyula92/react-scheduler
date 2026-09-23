@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Bac à sable",
+    "description": "Essayez React Scheduler avec toutes les props publiques, observez ses événements et copiez le JSX obtenu."
+  },
+  "sections": {
+    "setup": "Configuration",
+    "props": "Props",
+    "code": "Code",
+    "event-log": "Journal des événements"
+  }
+}

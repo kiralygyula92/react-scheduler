@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Mod compact",
+    "description": "Mod compact în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+  },
+  "sections": {
+    "basics": "Noțiuni de bază",
+    "accessibility": "Accesibilitate",
+    "customization": "Personalizare",
+    "limitations": "Limitări",
+    "api": "API"
+  }
+}

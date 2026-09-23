@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Kísérletező felület",
+    "description": "Próbáld ki a React Schedulert minden publikus proppal, figyeld az eseményeket, és másold ki a beállításod JSX-ét."
+  },
+  "sections": {
+    "setup": "Beállítás",
+    "props": "Propok",
+    "code": "Kód",
+    "event-log": "Eseménynapló"
+  }
+}

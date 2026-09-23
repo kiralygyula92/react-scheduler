@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Referencia de la API",
+    "description": "Cada componente, hook, función y tipo que exporta React Scheduler, con una descripción breve y un enlace."
+  },
+  "sections": {
+    "components": "Componentes",
+    "hooks": "Hooks",
+    "functions": "Funciones",
+    "types": "Tipos",
+    "css-variables": "Variables CSS"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "From a custom implementation",
+    "description": "From a custom implementation: who it is for, what changed, and the steps that move an existing setup to the current version."
+  },
+  "sections": {
+    "who-this-is-for": "Who this is for",
+    "summary-of-changes": "Summary of changes",
+    "step-by-step": "Step by step",
+    "removed-and-renamed": "Removed and renamed",
+    "getting-help": "Getting help"
+  }
+}

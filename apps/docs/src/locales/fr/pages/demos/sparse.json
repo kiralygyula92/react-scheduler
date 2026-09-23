@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Journée peu chargée",
+    "description": "Une démo React Scheduler sur le jeu Journée peu chargée : les capacités combinées et son code source complet."
+  },
+  "sections": {
+    "scenario": "Scénario",
+    "what-it-uses": "Ce qu’il utilise",
+    "source": "Code source"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Turnos y fechas",
+    "description": "Turnos y fechas en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+  },
+  "sections": {
+    "basics": "Conceptos básicos",
+    "accessibility": "Accesibilidad",
+    "customization": "Personalización",
+    "limitations": "Limitaciones",
+    "api": "API"
+  }
+}

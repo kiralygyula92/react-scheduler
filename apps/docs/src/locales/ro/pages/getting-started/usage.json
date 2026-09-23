@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Utilizare",
+    "description": "Utilizare pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+  },
+  "sections": {
+    "minimal-example": "Exemplu minim",
+    "controlled-and-uncontrolled": "Controlat și necontrolat",
+    "common-props": "Proprietăți frecvente",
+    "next-steps": "Pașii următori"
+  }
+}

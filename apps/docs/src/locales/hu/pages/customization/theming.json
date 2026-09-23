@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Témák",
+    "description": "Témák a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+  },
+  "sections": {
+    "tokens": "Tokenek",
+    "dark-mode": "Sötét mód",
+    "presets": "Előbeállítások"
+  }
+}

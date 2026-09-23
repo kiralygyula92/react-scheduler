@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Demonstrații",
+    "description": "Demonstrații React Scheduler pe scenarii, fiecare din mai multe funcționalități, plus zona de testare a proprietăților."
+  }
+}

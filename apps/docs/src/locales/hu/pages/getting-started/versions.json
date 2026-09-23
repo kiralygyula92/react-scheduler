@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Verziók",
+    "description": "Mely React Scheduler verziók támogatottak, hogyan számozzuk a kiadásokat, és hol érhető el a korábbi főverziók dokumentációja."
+  },
+  "sections": {
+    "supported-versions": "Támogatott verziók",
+    "versioning-policy": "Verziózási irányelv",
+    "older-versions": "Korábbi verziók",
+    "related": "Kapcsolódó"
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Schedule">
+  <!-- Three offset bars: a schedule row per line. Accent token from the shell (--ds-accent), which
+       carries enough contrast on both a light and a dark browser chrome. No wordmark, no logo
+       square (docs pack 02 §5). -->
+  <rect x="3" y="6" width="20" height="5" rx="2.5" fill="#1D4ED8" />
+  <rect x="9" y="13.5" width="20" height="5" rx="2.5" fill="#1D4ED8" opacity="0.72" />
+  <rect x="3" y="21" width="14" height="5" rx="2.5" fill="#1D4ED8" opacity="0.48" />
+</svg>

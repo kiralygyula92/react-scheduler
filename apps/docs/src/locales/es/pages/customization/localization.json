@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Localización",
+    "description": "Localización en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+  },
+  "sections": {
+    "built-in-locales": "Idiomas incluidos",
+    "custom-messages": "Mensajes personalizados",
+    "adding-a-language": "Añadir un idioma"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Ütemterv",
+    "description": "Mi a terv a React Schedulerhez az első stabil kiadás után. Dátumok és ígéretek nélkül."
+  },
+  "sections": {
+    "planned": "Tervezett"
+  }
+}

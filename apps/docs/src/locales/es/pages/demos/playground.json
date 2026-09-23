@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Área de pruebas",
+    "description": "Prueba React Scheduler con todas las props públicas, observa sus eventos y copia el JSX de la configuración."
+  },
+  "sections": {
+    "setup": "Configuración",
+    "props": "Props",
+    "code": "Código",
+    "event-log": "Registro de eventos"
+  }
+}

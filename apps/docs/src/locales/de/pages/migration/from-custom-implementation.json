@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Von einer eigenen Implementierung",
+    "description": "Von einer eigenen Implementierung: für wen es gilt, was sich geändert hat und die Schritte zur aktuellen Version."
+  },
+  "sections": {
+    "who-this-is-for": "Für wen das ist",
+    "summary-of-changes": "Zusammenfassung der Änderungen",
+    "step-by-step": "Schritt für Schritt",
+    "removed-and-renamed": "Entfernt und umbenannt",
+    "getting-help": "Hilfe erhalten"
+  }
+}

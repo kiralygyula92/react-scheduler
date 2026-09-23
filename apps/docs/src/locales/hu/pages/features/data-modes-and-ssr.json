@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Adatmódok és SSR",
+    "description": "Adatmódok és SSR a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+  },
+  "sections": {
+    "basics": "Alapok",
+    "server-and-client": "Szerver és kliens",
+    "accessibility": "Akadálymentesség",
+    "customization": "Testreszabás",
+    "limitations": "Korlátok",
+    "api": "API"
+  }
+}

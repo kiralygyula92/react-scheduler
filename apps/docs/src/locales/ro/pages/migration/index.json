@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Migrare",
+    "description": "Cum muți o configurație existentă la versiunea curentă React Scheduler și ce s-a schimbat pe parcurs."
+  }
+}

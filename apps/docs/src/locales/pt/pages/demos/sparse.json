@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Dia com poucos elementos",
+    "description": "Uma demonstração do React Scheduler sobre o conjunto Dia com poucos elementos: as capacidades combinadas e o código completo."
+  },
+  "sections": {
+    "scenario": "Cenário",
+    "what-it-uses": "O que utiliza",
+    "source": "Código-fonte"
+  }
+}

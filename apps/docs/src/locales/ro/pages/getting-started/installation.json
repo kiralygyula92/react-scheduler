@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Instalare",
+    "description": "Instalare pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+  },
+  "sections": {
+    "install": "Instalare",
+    "peer-dependencies": "Dependențe peer",
+    "stylesheet": "Foaie de stil",
+    "verify": "Verificare",
+    "next-steps": "Pașii următori"
+  }
+}

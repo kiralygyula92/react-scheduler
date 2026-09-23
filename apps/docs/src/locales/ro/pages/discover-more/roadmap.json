@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Plan de dezvoltare",
+    "description": "Ce este planificat pentru React Scheduler după prima versiune stabilă. Fără date și fără promisiuni."
+  },
+  "sections": {
+    "planned": "Planificate"
+  }
+}

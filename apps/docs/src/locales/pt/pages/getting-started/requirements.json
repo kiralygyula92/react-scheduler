@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Requisitos",
+    "description": "Requisitos do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+  },
+  "sections": {
+    "browsers": "Navegadores",
+    "react-versions": "Versões do React",
+    "typescript-versions": "Versões do TypeScript",
+    "frameworks-and-ssr": "Frameworks e SSR",
+    "bundle-size": "Tamanho do pacote",
+    "accessibility-target": "Objetivo de acessibilidade"
+  }
+}

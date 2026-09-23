@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "docs-pack 1.0.0"
+  },
+  "nav": {
+    "gettingStarted": "Primeros pasos",
+    "overview": "Descripción general",
+    "installation": "Instalación",
+    "usage": "Uso",
+    "aiContext": "Contexto de IA",
+    "requirements": "Requisitos",
+    "faq": "Preguntas frecuentes",
+    "support": "Soporte",
+    "versions": "Versiones",
+    "features": "Funcionalidades",
+    "allFeatures": "Todas las funcionalidades",
+    "demos": "Demos",
+    "demosIndex": "Demos",
+    "playground": "Área de pruebas",
+    "themeEditor": "Editor de temas",
+    "reference": "Referencia",
+    "apiIndex": "Referencia de la API",
+    "customization": "Personalización",
+    "customizationOverview": "Descripción general",
+    "theming": "Temas",
+    "cssVariables": "Variables CSS",
+    "slots": "Slots y sobrescrituras",
+    "localization": "Localización",
+    "guides": "Guías",
+    "guidesIndex": "Guías",
+    "integrations": "Integraciones",
+    "integrationsIndex": "Integraciones",
+    "vite": "Vite",
+    "nextjs": "Next.js",
+    "reactRouter": "React Router",
+    "ssr": "Renderizado en el servidor",
+    "migration": "Migración",
+    "migrationIndex": "Migración",
+    "migrationFromCustom": "Desde una implementación propia",
+    "discoverMore": "Descubre más",
+    "changelog": "Registro de cambios",
+    "roadmap": "Hoja de ruta",
+    "accessibility": "Accesibilidad",
+    "license": "Licencia",
+    "groups": {
+      "coreFeatures": "Funcionalidades principales",
+      "displayLayout": "Visualización y diseño",
+      "interaction": "Interacción",
+      "advanced": "Funcionalidades avanzadas",
+      "developerTools": "Herramientas para desarrolladores"
+    }
+  },
+  "shell": {
+    "skipToContent": "Saltar al contenido",
+    "openMenu": "Abrir navegación",
+    "closeMenu": "Cerrar navegación",
+    "sidebarLabel": "Documentación",
+    "github": "Código fuente en GitHub",
+    "themeToDark": "Cambiar al tema oscuro",
+    "themeToLight": "Cambiar al tema claro",
+    "language": "Idioma",
+    "version": "Versión",
+    "packageManager": "Gestor de paquetes",
+    "close": "Cerrar",
+    "externalLink": "(enlace externo)",
+    "required": "obligatorio"
+  },
+  "meta": {
+    "titleTemplate": "{title} · {pluginName}"
+  },
+  "search": {
+    "button": "Buscar",
+    "title": "Búsqueda",
+    "placeholder": "Buscar en la documentación",
+    "empty": "Escribe para buscar en páginas, encabezados y la API.",
+    "noResults": "No hay resultados para «{query}».",
+    "hintNavigate": "para navegar",
+    "hintOpen": "para abrir",
+    "hintClose": "para cerrar"
+  },
+  "toc": {
+    "title": "En esta página"
+  },
+  "pager": {
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "code": {
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "expand": "Expandir",
+    "collapse": "Contraer"
+  },
+  "demo": {
+    "showCode": "Mostrar código",
+    "hideCode": "Ocultar código",
+    "reset": "Restablecer",
+    "error": "No se pudo mostrar esta demo."
+  },
+  "badge": {
+    "new": "Nuevo",
+    "preview": "Vista previa",
+    "beta": "Beta",
+    "deprecated": "Obsoleto"
+  },
+  "footer": {
+    "product": "Producto",
+    "resources": "Recursos",
+    "explore": "Explorar",
+    "project": "Proyecto",
+    "documentation": "Documentación",
+    "license": "Licencia MIT. {pluginName} v{version}."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "La página que buscas no existe o se ha movido.",
+    "back": "Ir a la descripción general"
+  },
+  "playground": {
+    "resetAll": "Restablecer todo",
+    "setup": "Configuración",
+    "props": "Propiedades {count}",
+    "changed": "Modificadas: {count}",
+    "filter": "Filtrar propiedades",
+    "changedOnly": "Solo modificadas",
+    "codeOnly": "Solo en código",
+    "code": "Código",
+    "eventLog": "Registro de eventos",
+    "clear": "Borrar",
+    "defaultValue": "predeterminado ({value})",
+    "resetProp": "Restablecer"
+  },
+  "changelog": {
+    "englishNote": "Las entradas del registro de cambios se publican en inglés."
+  },
+  "localeNames": {
+    "en": "English",
+    "ro": "Română",
+    "hu": "Magyar",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português"
+  }
+}

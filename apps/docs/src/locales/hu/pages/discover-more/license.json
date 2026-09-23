@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Licenc",
+    "description": "A React Scheduler MIT licencű: a licenc teljes szövege és egy közérthető összefoglaló arról, mit enged meg."
+  },
+  "sections": {
+    "summary": "Összefoglaló",
+    "full-text": "Teljes szöveg"
+  }
+}

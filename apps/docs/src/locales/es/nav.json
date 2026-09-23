@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4"
+  },
+  "capabilities": {
+    "schedulerAndViews": "Scheduler y vistas",
+    "shiftsAndDates": "Turnos y fechas",
+    "listView": "Vista de lista",
+    "timelineView": "Vista de línea de tiempo",
+    "itemsAndLevels": "Elementos y niveles",
+    "pinning": "Fijado",
+    "navigation": "Navegación",
+    "nowIndicator": "Indicador de ahora",
+    "overflow": "Elementos adicionales",
+    "itemDetail": "Detalle del elemento",
+    "compact": "Modo compacto",
+    "states": "Estados",
+    "motion": "Animación",
+    "eventsAndMiddleware": "Eventos y middleware",
+    "dataModesAndSsr": "Modos de datos y SSR",
+    "accessibilityAndKeyboard": "Accesibilidad y teclado",
+    "headlessApi": "API headless"
+  },
+  "demos": {
+    "baselineDay": "Día de referencia",
+    "empty": "Horario vacío",
+    "sparse": "Día con pocos elementos",
+    "crowded": "Día concurrido",
+    "nightShift": "Turno de noche",
+    "pastDate": "Fecha pasada",
+    "pinnedMany": "Muchos elementos fijados",
+    "large": "Horario grande"
+  }
+}

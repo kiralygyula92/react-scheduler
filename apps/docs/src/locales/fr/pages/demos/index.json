@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Démos",
+    "description": "Démos de scénarios React Scheduler, chacune combinant plusieurs capacités, et le playground pour tester les props."
+  }
+}

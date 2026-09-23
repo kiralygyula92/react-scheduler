@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Anleitungen",
+    "description": "Aufgabenorientierte Anleitungen für React Scheduler, die jeweils in einem lauffähigen Stand enden."
+  }
+}

@@ -10,6 +10,8 @@ export interface ZeroReferenceConfig {
   allowedEmails: readonly string[];
   /** Host suffixes: `github.com` allows `github.com` and `api.github.com`. */
   allowedHosts: readonly string[];
+  /** Ports this repository serves itself on, which are not a leaked address. */
+  allowedLocalPorts: readonly number[];
 }
 
 type FindingKind = 'denylist' | 'email' | 'url' | 'ip' | 'localhost' | 'jwt' | 'secret' | 'absolute-path';
@@ -171,14 +173,17 @@ export function findGenericPatterns(text: string, config: ZeroReferenceConfig): 
     }
     for (const match of content.matchAll(URL)) {
       const host = match[1] ?? '';
-      // Template hosts (a dictionary key in braces) and elided ones (https://…) are not addresses.
-      if (host.length === 0 || host.startsWith('…') || host.startsWith('$')) continue;
+      // Template hosts (a dictionary key in braces), interpolated ones (`localhost:${port}`) and
+      // elided ones (https://…) are not addresses.
+      if (host.length === 0 || host.startsWith('…') || host.startsWith('$') || host.endsWith('$')) continue;
       if (!hostAllowed(host, config.allowedHosts)) findings.push({ kind: 'url', line, detail: mask(host) });
     }
     for (const match of content.matchAll(IPV4)) {
       if (isIpv4(match[0])) findings.push({ kind: 'ip', line, detail: mask(match[0]) });
     }
     for (const match of content.matchAll(LOCALHOST_PORT)) {
+      const port = Number(match[0].split(':')[1]);
+      if (config.allowedLocalPorts.includes(port)) continue;
       findings.push({ kind: 'localhost', line, detail: match[0].toLowerCase() });
     }
     for (const match of content.matchAll(JWT)) findings.push({ kind: 'jwt', line, detail: mask(match[0]) });

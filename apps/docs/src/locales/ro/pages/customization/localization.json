@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Localizare",
+    "description": "Localizare în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+  },
+  "sections": {
+    "built-in-locales": "Localizări incluse",
+    "custom-messages": "Mesaje personalizate",
+    "adding-a-language": "Adăugarea unei limbi"
+  }
+}

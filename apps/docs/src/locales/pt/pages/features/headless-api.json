@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "API headless",
+    "description": "API headless no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+  },
+  "sections": {
+    "basics": "Noções básicas",
+    "accessibility": "Acessibilidade",
+    "customization": "Personalização",
+    "limitations": "Limitações",
+    "api": "API"
+  }
+}

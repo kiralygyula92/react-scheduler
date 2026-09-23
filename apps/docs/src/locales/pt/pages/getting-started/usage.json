@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Uso",
+    "description": "Uso do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+  },
+  "sections": {
+    "minimal-example": "Exemplo mínimo",
+    "controlled-and-uncontrolled": "Controlado e não controlado",
+    "common-props": "Props comuns",
+    "next-steps": "Próximos passos"
+  }
+}

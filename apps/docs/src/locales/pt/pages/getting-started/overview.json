@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Visão geral",
+    "description": "O que é o React Scheduler, o que apresenta, como é controlado e por onde continuar. Licença MIT, sem plano pago."
+  },
+  "sections": {
+    "introduction": "Introdução",
+    "why": "Porquê o React Scheduler",
+    "start-now": "Começar agora",
+    "license": "Licença"
+  }
+}

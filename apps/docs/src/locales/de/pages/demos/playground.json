@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Playground",
+    "description": "Probiere React Scheduler mit allen öffentlichen Props aus, beobachte die Ereignisse und kopiere das fertige JSX."
+  },
+  "sections": {
+    "setup": "Einrichtung",
+    "props": "Props",
+    "code": "Code",
+    "event-log": "Ereignisprotokoll"
+  }
+}

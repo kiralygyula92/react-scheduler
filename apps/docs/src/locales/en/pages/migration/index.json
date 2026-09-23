@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M4 stub"
+  },
+  "meta": {
+    "title": "Migration",
+    "description": "How to move an existing setup to the current React Scheduler version, and what changed on the way."
+  }
+}
