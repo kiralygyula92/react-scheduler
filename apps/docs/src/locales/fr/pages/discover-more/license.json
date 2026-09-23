@@ -1,14 +1,27 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Licence",
-    "description": "React Scheduler est sous licence MIT : le texte intégral et un résumé clair de ce qu’elle autorise."
+    "description": "Le paquet est sous licence MIT : ce qu’elle permet, et le texte intégral."
   },
   "sections": {
-    "summary": "Résumé",
+    "summary": "En bref",
     "full-text": "Texte intégral"
+  },
+  "summary": {
+    "intro": "Le paquet et ce site de documentation sont publiés sous licence MIT. En bref, et sans valeur de conseil juridique :",
+    "points": [
+      "Vous pouvez l’utiliser commercialement, en privé, et dans un logiciel à source fermée.",
+      "Vous pouvez le modifier, le forker et le redistribuer, en source ou compilé.",
+      "Vous devez conserver la mention de copyright et ce texte de licence dans les copies que vous distribuez.",
+      "Il est fourni sans aucune garantie, et les auteurs ne répondent pas de ce qu’il fait."
+    ],
+    "note": "Le paquet n’a pas de dépendance d’exécution au-delà de ses peers React : l’installer n’ajoute donc aucune autre licence à votre projet."
+  },
+  "full": {
+    "intro": "La licence telle qu’elle est dans le dépôt, reproduite ici sans traduction :"
   }
 }

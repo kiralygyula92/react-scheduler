@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vite",
-    "description": "Vite: das Ziel, die Voraussetzungen, die Schritte und wie du das Ergebnis überprüfst."
+    "description": "Von einer leeren Vite-+-React-Anwendung zu einem laufenden Plan, in drei Schritten."
   },
   "sections": {
     "goal": "Ziel",
     "before-you-start": "Bevor du beginnst",
     "steps": "Schritte",
     "result": "Ergebnis",
-    "related": "Verwandt"
+    "related": "Verwandt",
+    "troubleshooting": "Fehlersuche"
+  },
+  "goal": "Den Plan in einer Vite-Anwendung rendern, gestaltet und mit eigenen Einträgen. Vite braucht dafür keine Konfiguration: Das Paket liefert ESM und eine gewöhnliche CSS-Datei, und Vite nimmt beides, wie es ist.",
+  "before": {
+    "points": [
+      "Ein Vite-+-React-Projekt, JavaScript oder TypeScript. <code>npm create vite@latest</code> liefert eines.",
+      "React 18.2 oder 19 und das passende <code>react-dom</code>. Sie sind Peer-Abhängigkeiten und bleiben damit Ihre.",
+      "Node 20 oder neuer zum Bauen."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Das Paket installieren",
+      "text": "Eine einzige Abhängigkeit, sonst keine. Alles Weitere ist entweder Peer oder schon dabei."
+    },
+    "stylesheet": {
+      "title": "Das Stylesheet einmal importieren",
+      "text": "Das Stylesheet ist eine gewöhnliche CSS-Datei, importiert dort, wo Sie Ihr globales CSS importieren — meist im Einstiegsmodul. Es ist der einzige Import, der genau einmal geschehen muss."
+    },
+    "render": {
+      "title": "Einen Plan rendern",
+      "text": "Ein Eintrag braucht eine Id, einen Beginn und einen Titel; die Stufe gibt ihm Farbe und Platz in der Reihenfolge. Alles andere hat einen Standardwert."
+    }
+  },
+  "result": {
+    "text": "Führen Sie <code>npm run dev</code> aus. Sie bekommen eine Schicht um die aktuelle Zeit, zwei Einträge darin und die „Jetzt“-Anzeige dort, wo die Uhr steht. Von hier ändert <link to=\"/shifts-and-dates/\">Schichten und Daten</link> die Form des Tages und <link to=\"/customization/theming/\">Themen</link> sein Aussehen."
+  },
+  "troubleshooting": {
+    "points": [
+      "Der Plan erscheint ungestaltet: Der Stylesheet-Import fehlt oder steckt in einem Modul, das nie geladen wird. Es muss importiert, nicht verlinkt werden.",
+      "Ein Build, der CSS-Importe aus Abhängigkeiten als Fehler behandelt: Lassen Sie den Import in Ihrem eigenen Einstiegsmodul, nicht in einem geteilten eigenen Paket.",
+      "Zwei Reacts im Bundle — meist ein verlinktes lokales Paket — erzeugen den Hook-Fehler, den React selbst meldet. <code>npm ls react</code> findet ihn."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Installation</link> — die Peer-Abhängigkeiten, das Stylesheet und ein erstes Rendering.",
+      "<link to=\"/integrations/ssr/\">Rendern auf dem Server</link> — wenn dieselbe Anwendung einen Server bekommt.",
+      "<link to=\"/customization/\">Anpassung</link> — die sechs Stufen der Überschreibung, die leichteste zuerst."
+    ]
   }
 }

@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Szerveroldali renderelés",
-    "description": "Szerveroldali renderelés: a cél, mire van szükség a kezdés előtt, a követendő lépések, és hogyan ellenőrizd az eredményt."
+    "description": "A beosztás renderelése szerveren, majd hidratálása figyelmeztetés nélkül, bármelyik keretrendszerben."
   },
   "sections": {
     "goal": "Cél",
     "before-you-start": "Mielőtt elkezded",
     "steps": "Lépések",
     "result": "Eredmény",
-    "related": "Kapcsolódó"
+    "related": "Kapcsolódó",
+    "troubleshooting": "Hibakeresés"
+  },
+  "goal": "Rendereld a beosztást egy szerveren — bármelyiken, bármelyik keretrendszerben —, és hagyd, hogy a böngésző hidratálási figyelmeztetés nélkül vegye át. A komponens rendereléskor nem nyúl a DOM-hoz, így csak annyi a dolgod, hogy mindkét renderelés ugyanazokat a tényeket kapja.",
+  "before": {
+    "points": [
+      "Egy React 18.2 vagy 19 alkalmazás, amely szerveren renderel.",
+      "A stíluslap oda importálva, ahonnan eljut a szerveren renderelt dokumentumba.",
+      "Valamilyen mód, hogy értékeket vigyél át a szerveroldali rendereléstől a kliensoldaliig — propok, loader, sorosított adat."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Döntsd el az órát egyszer",
+      "text": "Minden, ami mozog a beosztásban, egyetlen pillanatból következik: melyik a jelenlegi műszak, hol áll a „most” jelző, mely elemek múltak el. Olvasd le az órát egyszer, a szerveren, és add tovább.",
+      "calloutTitle": "Az eltérések egyetlen igazi forrása",
+      "callout": "A <code>now</code> nélkül renderelt beosztás annak az óráját veszi, aki rendereli. A szerver és a böngésző órája sosem ugyanaz az ezredmásodperc, és gyakran nem is ugyanaz a perc — ezt a React hidratálási eltérésként jelenti."
+    },
+    "firstFrame": {
+      "title": "Tudd, hogy néz ki az első képkocka",
+      "text": "A szerveroldali renderelés szándékosan az egyszerű változat. Minden, ami a böngészőtől függ, kikapcsolva indul, és hidratálás után áll be:",
+      "points": [
+        "A kompakt mód ki van kapcsolva, hacsak nem adod át magad a logikai értéket — tároló nem mérhető elrendezés nélkül.",
+        "Semmi nincs rögzítve: a rögzítés görgetési pozíció, és még nincs görgetés.",
+        "A fejlécjelzés kinyitva indul.",
+        "Az első képkockán semmilyen animáció nem fut."
+      ]
+    },
+    "compact": {
+      "title": "Döntsd el, mit tegyen a kompakt mód",
+      "text": "Alapból a tárolót követi, amint a böngésző meg tudja mérni. Ha az első képkockának keskenynek kell lennie — egy alkalmazás, amely már tudja, hogy telefont szolgál ki —, döntsd el a szerveren."
+    },
+    "styles": {
+      "title": "Tedd a CSS-t az első válaszba",
+      "text": "A beosztás stíluslapja sima CSS-fájl, semmilyen futásidő nincs mögötte, tehát pontosan az kell neki, amit a keretrendszered a globális CSS-sel csinál. Oda importáld, ahol a keretrendszer a globális stílusokat gyűjti, ne egy lustán betöltött komponensbe — különben az első képkocka stílus nélküli, és megvillan."
+    }
+  },
+  "result": {
+    "text": "A HTML-válasz tartalmazza a beosztást, a címsoraival, elemeivel és időpontjaival. A konzol csendben marad a hidratálás alatt, és az egyetlen látható változás az, amit kértél: egy megmért tároló, egy visszaállított görgetési pozíció."
+  },
+  "troubleshooting": {
+    "points": [
+      "Eltérés egy időnél vagy egy feliratnál: az órák különböznek. Add át a <code>now</code> értéket, és ugyanazt a <code>date</code> értékre is, ha ugyanazt a napot is akarod.",
+      "Eltérés egy osztálynévnél: a sémák nem értenek egyet. A <code>colorScheme=\"system\"</code> a böngészőben dől el, ezért adj át <code>'light'</code> vagy <code>'dark'</code> értéket, ha a szerveroldali rendereléshez pontosan illeszkednie kell.",
+      "Zóna nélküli, helyi szövegként írt dátumok, más zónában lévő szerveren renderelve: használj eltolással ellátott ISO-szöveget vagy időbélyeget.",
+      "<code>window</code> vagy <code>document</code> a saját slotodban — a beosztás rendereléskor egyikhez sem nyúl, de egy lecserélt rész igen."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Adatmódok és SSR</link> — az útmutató mögötti képességoldal.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — ugyanazok a szabályok az App Routerben.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — ugyanazok a szabályok framework módban."
+    ]
   }
 }

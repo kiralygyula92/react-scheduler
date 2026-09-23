@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Akadálymentesség",
-    "description": "A React Scheduler akadálymentesítési célja, mit tesztelünk minden változásnál, és milyen hiányosságok maradtak."
+    "description": "A cél, mit tesztelünk minden változásnál, mely hiányosságok maradtak, és hol jelentheted őket."
   },
   "sections": {
     "target": "Cél",
     "what-is-tested": "Mit tesztelünk",
     "known-gaps": "Ismert hiányosságok",
     "reporting": "Probléma jelentése"
+  },
+  "target": {
+    "intro": "A cél a WCAG 2.2 AA szint, a komponensre és erre az oldalra is. Ez olyan cél, amelyet a tesztek kényszerítenek ki, nem tanúsítvány: auditot nem rendeltünk, és megfelelőségi nyilatkozatot nem teszünk.",
+    "points": [
+      "Az alapértelmezett előbeállítás mindkét színsémában megfelel a kontrasztkövetelményeknek.",
+      "Minden, amit mutatóval meg lehet tenni, billentyűzetről is megtehető, abban a sorrendben, ahogy az oldal olvasható.",
+      "Minden résznek van szerepe és neve; semmi nem múlik pusztán a színen.",
+      "<code>prefers-reduced-motion</code> mellett semmi nem animálódik, és a mozgás semmilyen információt nem hordoz."
+    ]
+  },
+  "tested": {
+    "intro": "Minden változás ugyanazokat az ellenőrzéseket futtatja, egy kiadás pedig hozzáteszi azokat is, amelyeket ember végez:",
+    "points": [
+      "axe-core a kirajzolt komponensen Chromiumban, Firefoxban és WebKitben, mindkét előbeállításban, mindkét színsémában és minden állapotban, bekapcsolt kontrasztszabályokkal.",
+      "axe-core ennek az oldalnak a lapjain, minden nyelven, egyetlen súlyos vagy kritikus szabálysértés nélkül.",
+      "Billentyűzetes tesztek, amelyek végigjárják az egész beosztást: a kártyákat, a rögzített jelvényeket, a léptetést, a párbeszédpaneleket és azt, ahogy a fókusz visszatér.",
+      "Pillanatképek arról, amit egy képernyőolvasó kap — a hozzáférhető nevek, az élő régiók bemondásai és azok ütemezése.",
+      "Jobbról balra készült képernyőképek a balról jobbra párjukhoz mérve, hogy a tükrözött elrendezés teszthiba legyen, ne meglepetés.",
+      "Kiadás előtt a kézi lista: NVDA Firefoxszal és VoiceOver Safarival, a bemutatók feladatai csak billentyűzettel, 200%-os nagyítás 320 képpont szélességben, és a windowsos nagy kontraszt."
+    ]
+  },
+  "gaps": {
+    "intro": "Az ismert hiányosságok, és hogy mi történik velük:",
+    "points": [
+      "A kártyák között még nincs vándorló fókusz: a <kbd>Tab</kbd> az egyetlen mozgás, és egy sokelemes műszak sok megállót jelent. Rajta van az <link to=\"/discover-more/roadmap/\">útiterven</link>.",
+      "A léptetőgombokhoz nincsenek gyorsbillentyűk.",
+      "A <code>classic</code> előbeállítás szándékosan megtart néhány kontraszthiányt, a képpontpontos hűség kedvéért ahhoz a kinézethez, amelyet reprodukál: a szintjelölők, a riasztás árnyalata és további három a világos sémában. Az alapértelmezett előbeállításban egy sincs, és a tesztek pontosan ezt a listát engedik meg, mást nem.",
+      "Ennek a dokumentációs oldalnak az egyik színe — a mezők és a kurzor alatti kártyák kerete — a saját designrendszere által állított 3:1 alatt van. Teszt méri, hogy ne romolhasson tovább, és az oldal keretéhez tartozik, nem a komponenshez.",
+      "A kézi lista még nem futott le, mert még semmi nem jelent meg."
+    ]
+  },
+  "reporting": {
+    "intro": "Az akadálymentességi probléma hiba, és a funkciók előtt kerül sorra. Amikor bejelentesz egyet:",
+    "points": [
+      "Írd meg, melyik segítő technológia és melyik böngésző, verziószámmal — a párosítás többet számít, mint külön-külön bármelyik.",
+      "Írd meg, mit vártál hallani vagy elérni, és mi történt helyette.",
+      "Egy hivatkozás a hiba reprodukciójára többet ér a leírásnál; a <link to=\"/demos/\">bemutatók</link> jó kiindulópont.",
+      "A <link to=\"/getting-started/support/\">Támogatás</link> megmondja, hol nyisd meg, és mit mellékelj még."
+    ]
   }
 }

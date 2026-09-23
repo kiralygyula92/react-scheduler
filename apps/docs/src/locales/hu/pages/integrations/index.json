@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Integrációk",
-    "description": "Hogyan használd a React Schedulert Vite, Next.js, React Router és szerveroldali renderelés mellett."
-  }
+    "description": "Négy rövid útmutató: Vite, a Next.js App Router, a React Router framework módban, és a szerveroldali renderelés."
+  },
+  "scope": "A komponens sima React-komponens, saját keretrendszer nélkül, így egy integráció rendszerint három sor: telepíted, egyszer importálod a stíluslapot, kirajzolod. Ezek az oldalak a részletek — hová kerül a stíluslap, a szerverhatár melyik oldalán él a beosztás, és mit adj át neki, hogy a két renderelés egyetértsen."
 }

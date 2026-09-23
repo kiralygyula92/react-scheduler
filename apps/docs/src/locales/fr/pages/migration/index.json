@@ -1,10 +1,12 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Migration",
-    "description": "Comment migrer une installation existante vers la version actuelle de React Scheduler et ce qui a changé."
-  }
+    "description": "Passer à ce composant depuis un planning écrit par vous, et où sont consignés les changements d’une version à l’autre."
+  },
+  "scope": "Il n’y a pour l’instant qu’un guide de migration : venir d’un tableau de postes construit par votre équipe. C’est exactement le déplacement pour lequel ce paquet a été écrit.",
+  "versions": "Les mises à jour entre versions du paquet sont consignées dans le <link to=\"/discover-more/changelog/\">Journal des modifications</link>. Une version qui demande ses propres étapes reçoit ici sa page, liée depuis l’entrée qui l’introduit."
 }

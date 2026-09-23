@@ -1,17 +1,64 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Next.js",
-    "description": "Next.js: a cél, mire van szükség a kezdés előtt, a követendő lépések, és hogyan ellenőrizd az eredményt."
+    "description": "App Router: a beosztás kliens komponensként, az adat a szerveren lekérve, egyetlen óra mindkettőnek."
   },
   "sections": {
     "goal": "Cél",
     "before-you-start": "Mielőtt elkezded",
     "steps": "Lépések",
     "result": "Eredmény",
-    "related": "Kapcsolódó"
+    "related": "Kapcsolódó",
+    "troubleshooting": "Hibakeresés"
+  },
+  "goal": "Jelenítsd meg a beosztást egy Next.js alkalmazásban App Routerrel. A komponens interaktív — görget, párbeszédpanelt nyit, mér —, ezért a kliensen a helye; az elemeknek, amelyeket mutat, nem kell ott lenniük.",
+  "before": {
+    "points": [
+      "Egy Next.js projekt App Routerrel.",
+      "React 18.2 vagy 19, amelyet a Next.js magával hoz.",
+      "Valahonnan elemeket kell szerezni: adatbázis-hívás, API-útvonal, bármi, amit egy szerverkomponens meg tud várni."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Telepítsd a csomagot",
+      "text": "Semmi más nem kell, és semmit nem kell transzpilálni."
+    },
+    "stylesheet": {
+      "title": "Importáld a stíluslapot a gyökér layoutban",
+      "text": "Az App Routerben a gyökér layout a globális CSS helye, a beosztás stíluslapja pedig globális CSS. Ott importálva már az első HTML-válaszban benne van, nem a kliensoldali bundle-lel érkezik."
+    },
+    "client": {
+      "title": "Csomagold a beosztást kliens komponensbe",
+      "text": "A csomag nem szállít saját <code>'use client'</code> bannert, így a direktíva a te modulod tetejére kerül. Tartsd kicsin azt a modult: ő a határ, és minden vele megy át, amit importál.",
+      "calloutTitle": "Miért a tiéd a direktíva",
+      "callout": "Az a könyvtár, amely magát „csak kliens”-ként jelöli, minden felhasználót kliens határ mögé kényszerít, azokat is, akiknek csak a típusok vagy a <code>/core</code> segédei kellenek. A saját fájlodba tett direktíva ott hagyja a döntést, ahol meg lehet hozni."
+    },
+    "server": {
+      "title": "Szerezd az adatot a szerveren, adj tovább egyetlen órát",
+      "text": "A szerverkomponens hozza az adatot, és átadja az elemeket meg egyetlen időbélyeget. E nélkül a szerver egy „mostot” renderel, a kliens egy másikat — pontosan az a hidratálási eltérés, amire a React figyelmeztet."
+    }
+  },
+  "result": {
+    "text": "Az első válasz HTML-ként hozza a beosztást — címsorokkal, elemekkel, időpontokkal —, a kliens pedig hidratáláskor átveszi. Az olvasó, akihez a JavaScript még nem ért el, így is látja a napot."
+  },
+  "troubleshooting": {
+    "points": [
+      "<em>You’re importing a component that needs useState</em> — hiányzik a <code>'use client'</code> direktíva abból a modulból, amely a beosztást rendereli.",
+      "Szöveges tartalomra vonatkozó hidratálási figyelmeztetés: a két renderelés nem ért egyet az időben. Add át a <code>now</code> értéket a szerverről.",
+      "Az elrendezés egyszer megugrik hidratálás után: ott méri a <code>compact=\"auto\"</code> először a tárolót. Adj át logikai értéket, ha az első képkockának véglegesnek kell lennie.",
+      "A Turbopack vagy a Webpack panaszkodik a <code>node_modules</code>-ból jövő CSS-re: importáld a stíluslapot a gyökér layoutban, ezt az egy helyet mindkettő elfogadja."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Adatmódok és SSR</link> — hogy néz ki az első képkocka, és miért.",
+      "<link to=\"/integrations/ssr/\">Szerveroldali renderelés</link> — ugyanazok a szabályok, keretrendszer nélkül.",
+      "<link to=\"/states/\">Állapotok</link> — betöltés, hiba és üresség, amíg az adat úton van."
+    ]
   }
 }

@@ -1,14 +1,26 @@
 // SPDX-License-Identifier: MIT
-// M4 stub: the page frame and the sections template T16 requires (docs pack 03 §3).
-// The prose, demos and tables arrive with M5.
-import { Page, Section } from '~/shell/doc';
+// Roadmap (T16): what is planned after 1.0, as plain rows. No dates, and nothing promised.
+import { List, P, Page, Section, Table } from '~/shell/doc';
 
 const NS = 'pages/discover-more/roadmap';
 
 export default function Roadmap(): React.ReactElement {
   return (
     <Page ns={NS}>
-      <Section id="planned" ns={NS} titleKey="sections.planned" />
+      <P k="intro" ns={NS} />
+
+      <Section id="planned" ns={NS} titleKey="sections.planned">
+        <Table k="planned.rows" ns={NS} headKeys={['planned.head.item', 'planned.head.status', 'planned.head.what']} />
+      </Section>
+
+      <Section id="not-planned" ns={NS} titleKey="sections.not-planned">
+        <P k="notPlanned.intro" ns={NS} />
+        <List k="notPlanned.points" ns={NS} />
+      </Section>
+
+      <Section id="how-it-changes" ns={NS} titleKey="sections.how-it-changes">
+        <P k="how.text" ns={NS} />
+      </Section>
     </Page>
   );
 }

@@ -1,13 +1,68 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Plan de dezvoltare",
-    "description": "Ce este planificat pentru React Scheduler după prima versiune stabilă. Fără date și fără promisiuni."
+    "title": "Plan de parcurs",
+    "description": "Ce este planificat după prima versiune stabilă — ca listă de intenții, fără date calendaristice."
   },
   "sections": {
-    "planned": "Planificate"
+    "planned": "Planificat",
+    "not-planned": "Neplanificat",
+    "how-it-changes": "Cum se schimbă lista"
+  },
+  "intro": "Acestea sunt lucrurile cu care pachetul ar trebui să crească după 1.0. Nu au date și niciunul nu este o promisiune: ordinea este cea care are sens azi, iar prima lansare trebuie să vină prima.",
+  "planned": {
+    "head": {
+      "item": "Element",
+      "status": "Stare",
+      "what": "Ce ar însemna"
+    },
+    "rows": [
+      [
+        "Editare prin tragere",
+        "Planificat",
+        "Mutarea și redimensionarea elementelor cu indicatorul și cu tastatura, cu elemente care pot fi blocate."
+      ],
+      [
+        "Virtualizare",
+        "Planificat",
+        "Randarea doar a ceea ce este aproape de fereastra vizibilă. Bugetele sunt respectate și fără ea azi, de aceea nu este în 1.0."
+      ],
+      [
+        "Focus itinerant și scurtături",
+        "Planificat",
+        "Deplasare cu săgețile între carduri și scurtături pentru butoanele de navigare."
+      ],
+      [
+        "Fus orar explicit",
+        "Planificat",
+        "Randarea unei zile în alt fus decât cel al cititorului. Azi componenta lucrează în fusul local și rezistă la ora de vară."
+      ],
+      ["Bară de date", "Planificat", "Un mod inclus de a alege ziua. Azi data este a ta."],
+      [
+        "Persistență",
+        "Planificat",
+        "Reținerea vizualizării, a poziției de derulare și a elementelor fixate între vizite, în spatele unei proprietăți."
+      ],
+      [
+        "Un registru de capabilități",
+        "În discuție",
+        "Adăugarea unei capabilități din afara pachetului, în loc de un comutator intern."
+      ]
+    ]
+  },
+  "notPlanned": {
+    "intro": "Unele lucruri sunt dinadins în afara a ceea ce face componenta, iar a o spune face parte din planul de parcurs:",
+    "points": [
+      "Un strat de date. Componenta nu aduce niciodată date; elementele sunt ale tale, de oriunde le ții.",
+      "O bibliotecă de stare. Starea este stare React, controlată sau necontrolată, și nu trebuie nimic altceva.",
+      "Un runtime de stilizare. Aspectul înseamnă variabile CSS și nume de clase, rezolvate de browser.",
+      "Un calendar. Acesta este un program de o zi pe rând, nu o vedere lunară sau anuală."
+    ]
+  },
+  "how": {
+    "text": "Un element trece de aici în <link to=\"/discover-more/changelog/\">Jurnalul de modificări</link> când este livrat și dispare de aici dacă se decide împotriva lui. Dacă îți lipsește ceva, <link to=\"/getting-started/support/\">Asistență</link> este locul unde să o spui."
   }
 }

@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accesibilidad",
-    "description": "El objetivo de accesibilidad de React Scheduler, qué se prueba en cada cambio y qué carencias quedan."
+    "description": "El objetivo, qué se prueba en cada cambio, las carencias que quedan y dónde informar de una."
   },
   "sections": {
     "target": "Objetivo",
     "what-is-tested": "Qué se prueba",
     "known-gaps": "Carencias conocidas",
     "reporting": "Informar de un problema"
+  },
+  "target": {
+    "intro": "El objetivo es WCAG 2.2 nivel AA, para el componente y para este sitio. Es un objetivo que hacen cumplir las pruebas, no una certificación: no se ha encargado ninguna auditoría y no se hace ninguna declaración de conformidad.",
+    "points": [
+      "El preajuste predeterminado cumple los requisitos de contraste en ambos esquemas de color.",
+      "Todo lo que puede hacerse con el puntero puede hacerse con el teclado, en el orden en que se lee la página.",
+      "Cada parte lleva un rol y un nombre; nada depende solo del color.",
+      "Bajo <code>prefers-reduced-motion</code> no se anima nada, y el movimiento no transporta ninguna información."
+    ]
+  },
+  "tested": {
+    "intro": "Cada cambio pasa las mismas comprobaciones, y una publicación añade las que tiene que hacer una persona:",
+    "points": [
+      "axe-core sobre el componente renderizado en Chromium, Firefox y WebKit, en ambos preajustes, ambos esquemas de color y todos los estados, con las reglas de contraste activas.",
+      "axe-core sobre las páginas de este sitio, en cada idioma, sin ninguna violación grave o crítica.",
+      "Pruebas de teclado que recorren todo el horario: las tarjetas, los chips fijados, la navegación, los diálogos y cómo vuelve el foco.",
+      "Instantáneas de lo que recibe un lector de pantalla: los nombres accesibles, los anuncios de las regiones activas y su limitación.",
+      "Capturas de derecha a izquierda comparadas con sus equivalentes de izquierda a derecha, para que una disposición reflejada sea un fallo de prueba y no una sorpresa.",
+      "Antes de una publicación, la lista manual: NVDA con Firefox y VoiceOver con Safari, las tareas de las demostraciones solo con teclado, zoom al 200% a 320 píxeles de ancho y el alto contraste de Windows."
+    ]
+  },
+  "gaps": {
+    "intro": "Las carencias conocidas y qué se hace con ellas:",
+    "points": [
+      "Todavía no hay foco itinerante entre tarjetas: <kbd>Tab</kbd> es el único movimiento, y un turno con muchos elementos son muchas paradas. Está en la <link to=\"/discover-more/roadmap/\">hoja de ruta</link>.",
+      "Los botones de navegación no tienen atajos de teclado.",
+      "El preajuste <code>classic</code> conserva a propósito unas cuantas carencias de contraste, por fidelidad al píxel con el aspecto que reproduce: las píldoras de nivel, el tinte de alerta y tres más en el esquema claro. El preajuste predeterminado no tiene ninguna, y el conjunto de pruebas permite exactamente esa lista y nada más.",
+      "Un color de este sitio de documentación —el borde de los campos y de las tarjetas bajo el cursor— está por debajo del 3:1 que afirma su propio sistema de diseño. Se mide en una prueba, para que no pueda empeorar, y pertenece al armazón del sitio, no al componente.",
+      "La lista manual todavía no se ha ejecutado, porque aún no se ha publicado nada."
+    ]
+  },
+  "reporting": {
+    "intro": "Un problema de accesibilidad es un fallo y se atiende antes que las funciones. Al informar de uno:",
+    "points": [
+      "Di qué tecnología de asistencia y qué navegador, con versiones: la combinación importa más que cada uno por separado.",
+      "Di qué esperabas oír o alcanzar y qué ocurrió en su lugar.",
+      "Un enlace a una reproducción vale más que una descripción; las <link to=\"/demos/\">demostraciones</link> son un buen punto de partida.",
+      "<link to=\"/getting-started/support/\">Soporte</link> indica dónde abrirlo y qué más incluir."
+    ]
   }
 }

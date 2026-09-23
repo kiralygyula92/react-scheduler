@@ -1,10 +1,14 @@
 // SPDX-License-Identifier: MIT
-// M4 stub: the page frame and the sections template T16 requires (docs pack 03 §3).
-// The prose, demos and tables arrive with M5.
-import { Page } from '~/shell/doc';
+// Integrations index (T16): a scope sentence and a card per guide, generated from nav.json.
+import { P, Page, PageCards } from '~/shell/doc';
 
 const NS = 'pages/integrations/index';
 
 export default function IntegrationsIndex(): React.ReactElement {
-  return <Page ns={NS} />;
+  return (
+    <Page ns={NS}>
+      <P k="scope" ns={NS} />
+      <PageCards section="integrations" exclude="integrations/index" />
+    </Page>
+  );
 }

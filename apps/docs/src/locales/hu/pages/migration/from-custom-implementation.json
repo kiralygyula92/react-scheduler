@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Saját megvalósításról",
-    "description": "Saját megvalósításról: kinek szól, mi változott, és milyen lépésekkel állítható át egy meglévő beállítás a jelenlegi verzióra."
+    "description": "Hogyan feleltethető meg egy kézzel írt műszaktábla ennek: elemek, szintek, műszakok, szövegek és stílusok."
   },
   "sections": {
     "who-this-is-for": "Kinek szól",
@@ -13,5 +13,96 @@
     "step-by-step": "Lépésről lépésre",
     "removed-and-renamed": "Eltávolított és átnevezett elemek",
     "getting-help": "Segítségkérés"
+  },
+  "who": {
+    "intro": "Már van beosztás a képernyőn. Valaki megírta — műszakonként csoportosított lista vagy abszolút pozicionált kártyaoszlop —, és működik is, csak minden új igény ugyanarra a néhány száz sorra hullik. Ez az útmutató a meglévőt felelteti meg annak, amit a csomag már tud.",
+    "points": [
+      "Egy napot vagy egy műszakot jelenítesz meg listaként vagy időrácsként.",
+      "Van saját fogalmad a súlyosságról, a prioritásról vagy az állapotról, és ez dönti el a színeket meg a sorrendet.",
+      "Legalább egyet már megoldottál ezek közül: átfedő elemek, éjfélen átnyúló műszak, elemek, amelyeknek szem előtt kell maradniuk, miután kigördültek.",
+      "React 18.2-n vagy 19-en vagy, és hozzá tudsz adni egy függőséget."
+    ]
+  },
+  "summary": {
+    "intro": "Mi mozdul, és mivé lesz. Semmihez nem kell kódmódosító eszköz: a változás egy leképező függvény és néhány property.",
+    "head": {
+      "before": "Amid van",
+      "after": "Mivé lesz",
+      "action": "Mit tegyél"
+    },
+    "rows": [
+      [
+        "A saját sortípusod",
+        "<code>SchedulerItem</code>",
+        "Képezd le egyszer; a saját objektumodat tartsd a <code>data</code> mezőben."
+      ],
+      [
+        "Súlyosság, prioritás vagy állapot",
+        "<code>levels</code>",
+        "Kulcsonként egy definíció: rang, szín, kártyamegjelenés, rögzül-e."
+      ],
+      [
+        "Napok vagy műszakok szerinti csoportosítás",
+        "<code>shifts</code>",
+        "Egy horgony és egy hossz. Hogy melyik a jelenlegi műszak, a komponens dönti el."
+      ],
+      [
+        "A saját átfedéskezelésed",
+        "Oszlopok és a további elemek jelvénye",
+        "Töröld. A korlát és az előléptetés be van építve."
+      ],
+      [
+        "Egy ragadós „még nyitott” sáv",
+        "A rögzítősáv",
+        "Állítsd be a <code>pinOnPass</code> értéket azokon a szinteken, amelyek odatartoznak."
+      ],
+      ["Kódba írt angol szövegek", "Egy nyelvi csomag", "Adj át egyet a hét közül, vagy írd meg a saját objektumodat."],
+      [
+        "A saját CSS-fájlod",
+        "Tokenek, osztálynevek, slotok",
+        "Kezdd a tokenekkel; slotokhoz csak ott nyúlj, ahol a szerkezetnek el kell térnie."
+      ],
+      [
+        "A saját részletek-ablakod",
+        "A beépített párbeszédpanel vagy a <code>renderItemDetail</code>",
+        "Tartsd meg a sajátodat, ha dolgozik; a property átadja neki az elemet."
+      ]
+    ]
+  },
+  "steps": {
+    "items": {
+      "title": "Képezd le a sorokat elemekké",
+      "text": "Egy elemhez azonosító, kezdés és cím kell. A többi nem kötelező, a saját objektumod pedig a <code>data</code> mezőben utazik tovább, típusosan, hogy a slotok és a kezelők keresés nélkül elérjék."
+    },
+    "levels": {
+      "title": "Alakítsd a súlyosságot szintekké",
+      "text": "A szintdefiníció dönti el a színt, a sorrendet és a kártya megjelenését. A legerősebbnek add a legkisebb rangot. Ha a skálád közel áll a klasszikus kilenchez, indulj a <code>classicLevels</code> értékből és szerkeszd; ha nem, definiáld a sajátodat — a komponens semmije nem feltételezi a klasszikus kulcsokat."
+    },
+    "shifts": {
+      "title": "Írd le a napot ahelyett, hogy csoportosítanád",
+      "text": "Ahelyett, hogy magad pakolnád vödrökbe az elemeket, mondd meg, meddig tart egy műszak, és mikor kezdődik az egyik. A komponens elhelyez minden elemet, eldönti, melyik műszakba esik a jelen pillanat, és kirajzolja az előtte meg utána lévőt is. Az éjfélen átnyúló műszakhoz semmi extra nem kell."
+    },
+    "strings": {
+      "title": "Vidd a szövegeidet nyelvi csomagba",
+      "text": "Minden szöveg, amelyet a komponens mutat, egyetlen objektumból jön. Adj át egyet a hét csomag közül, vagy teríts szét egyet és cseréld le azokat az üzeneteket, amelyeket máshogy fogalmazol. A saját szövegeid — az elemeid címei — a tieid maradnak."
+    },
+    "styles": {
+      "title": "Építsd újra a kinézetet előbb tokenekkel",
+      "text": "A legtöbb házi stílus néhány CSS-változó: egy felület, egy sarokrádiusz, egy kiemelőszín. Ezeket állítsd be, mielőtt saját CSS-t írnál, aztán a maradék szabályokra használd a <code>classNames</code>-t, slotokat pedig csak ott, ahol magának a jelölésnek kell másnak lennie."
+    },
+    "behavior": {
+      "title": "Cseréld le a beavatkozási pontjaidat",
+      "text": "Megerősítés nyitás előtt, jogosultság-ellenőrzés, mentetlen változásokra figyelmeztetés: ezekből middleware lesz. A kezelő azelőtt fut, hogy a komponens cselekedne, és le is állíthatja — így a komponensnél marad az állapotgép, nálad pedig a szabályok."
+    }
+  },
+  "removed": {
+    "text": "Egyelőre semmi. Ez az első kiadás, így nincs átnevezés vagy eltávolítás, amit tovább kellene vinni. Minden későbbi ilyen változást a <link to=\"/discover-more/changelog/\">Változásnapló</link> rögzít, és amelyikhez lépések kellenek, az saját útmutatót kap emellé."
+  },
+  "help": {
+    "points": [
+      "<link to=\"/all-features/\">Minden képesség</link> — a leggyorsabb út ahhoz az oldalhoz, amely egy általad már megépített viselkedésről szól.",
+      "<link to=\"/headless-api/\">Headless API</link> — amikor a szerkezetnek tényleg a tiédnek kell lennie.",
+      "<link to=\"/getting-started/support/\">Támogatás</link> — hol kérdezz, és mit mellékelj."
+    ]
   }
 }

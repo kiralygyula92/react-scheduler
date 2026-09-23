@@ -1,10 +1,23 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Guías",
-    "description": "Guías orientadas a tareas para React Scheduler, cada una termina en un estado funcional."
+    "description": "Dónde están las páginas orientadas a tareas: las cuatro guías de integración y las páginas de capacidades que hay detrás."
+  },
+  "sections": {
+    "start-here": "Empieza aquí"
+  },
+  "scope": "Las guías paso a paso de este sitio están en <link to=\"/integrations/\">Integraciones</link>: cada una parte de un proyecto vacío y termina en un horario sobre el que construir. Esta página es el mapa hacia ellas y hacia las páginas que responden a las preguntas que una guía plantearía.",
+  "start": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Uso</link> — el ejemplo completo más corto y para qué sirve cada prop que aparece en él.",
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/nextjs/\">Next.js</link>, <link to=\"/integrations/react-router/\">React Router</link> — el mismo horario en tres montajes.",
+      "<link to=\"/integrations/ssr/\">Renderizado en servidor</link> — qué pasar para que dos renderizaciones coincidan.",
+      "<link to=\"/demos/\">Demostraciones</link> — ocho días de horario, cada uno con su código.",
+      "<link to=\"/customization/\">Personalización</link> — hasta dónde puedes llegar sin bifurcar nada."
+    ]
   }
 }

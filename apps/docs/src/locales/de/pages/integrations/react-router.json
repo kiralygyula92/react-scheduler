@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "React Router",
-    "description": "React Router: das Ziel, die Voraussetzungen, die Schritte und wie du das Ergebnis überprüfst."
+    "description": "Framework-Modus: Der Loader hält die Einträge, die Route rendert sie, die URL trägt den Tag."
   },
   "sections": {
     "goal": "Ziel",
     "before-you-start": "Bevor du beginnst",
     "steps": "Schritte",
     "result": "Ergebnis",
-    "related": "Verwandt"
+    "related": "Verwandt",
+    "troubleshooting": "Fehlersuche"
+  },
+  "goal": "Den Plan in einer React-Router-Anwendung im Framework-Modus rendern, mit dem Tag in der URL und den Einträgen in einem Loader. Diese Dokumentationsseite ist so gebaut, das Muster hier ist also ihr eigenes.",
+  "before": {
+    "points": [
+      "Ein React-Router-7- oder -8-Projekt im Framework-Modus, mit oder ohne Server-Rendering.",
+      "React 18.2 oder 19.",
+      "Eine Route, auf die der Plan kommt."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Das Paket installieren",
+      "text": "Eine einzige Abhängigkeit; der Router bleibt Ihrer."
+    },
+    "stylesheet": {
+      "title": "Das Stylesheet in der Wurzelroute importieren",
+      "text": "Das Modul der Wurzelroute wird für jede Seite geladen, damit ist es der richtige Ort für ein globales Stylesheet. Bei aktiviertem Server-Rendering sorgt der Import zugleich dafür, dass das CSS im Dokument steht und nicht in einem späteren Chunk."
+    },
+    "route": {
+      "title": "Die Einträge laden, den Plan rendern",
+      "text": "Der Loader ist der Ort des Datenholens. Die Datumsangabe neben den Einträgen zurückzugeben hält das Rendering deterministisch: Dieselbe URL rendert denselben Plan auf dem Server und im Browser."
+    },
+    "range": {
+      "title": "Dem gerenderten Bereich folgen",
+      "text": "<code>onVisibleRangeChange</code> feuert beim Einhängen und bei jeder Verschiebung des Bereichs. Diesen Bereich zurück in die URL zu schreiben lässt den Loader neu laden — das hält Zurück-Schaltfläche und geteilten Link ehrlich."
+    }
+  },
+  "result": {
+    "text": "Eine Route, die den Tag aus ihrer URL rendert, bei einem Schichtwechsel neu lädt und einen Reload mit demselben Plan auf dem Schirm übersteht."
+  },
+  "troubleshooting": {
+    "points": [
+      "Eine Schleife aus Anfragen: Die Bereichsänderung schreibt eine URL, die Einträge lädt, die den Bereich ändern. Schreiben Sie nur das Datum, und nur wenn es vom vorhandenen abweicht.",
+      "Die Scrollposition springt bei jeder Navigation: Übergeben Sie <code>preventScrollReset</code>, wie im Ausschnitt oben.",
+      "Mit <code>ssr: false</code> und Vorab-Rendering entsteht der Plan zur Bauzeit; übergeben Sie <code>now</code>, damit dieses Bild und der Browser übereinstimmen."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Datenmodi und SSR</link> — Daten für den gerenderten Bereich holen.",
+      "<link to=\"/navigation/\">Navigation</link> — was den Bereich bewegt und was dabei ausgelöst wird.",
+      "<link to=\"/integrations/ssr/\">Rendern auf dem Server</link> — die frameworkunabhängigen Regeln."
+    ]
   }
 }

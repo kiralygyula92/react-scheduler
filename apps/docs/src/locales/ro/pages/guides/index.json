@@ -1,10 +1,23 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Ghiduri",
-    "description": "Ghiduri orientate pe sarcini pentru React Scheduler, fiecare terminând într-o stare funcțională."
+    "description": "Unde sunt paginile orientate pe sarcini: cele patru ghiduri de integrare și paginile de capabilități din spatele lor."
+  },
+  "sections": {
+    "start-here": "Începe aici"
+  },
+  "scope": "Ghidurile pas cu pas ale acestui site stau la <link to=\"/integrations/\">Integrări</link>: fiecare pornește de la un proiect gol și se termină cu un program pe care poți construi. Pagina aceasta este harta către ele și către paginile care răspund la întrebările pe care le-ar ridica un ghid.",
+  "start": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Utilizare</link> — cel mai scurt exemplu complet și la ce folosește fiecare proprietate din el.",
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/nextjs/\">Next.js</link>, <link to=\"/integrations/react-router/\">React Router</link> — același program în trei configurații.",
+      "<link to=\"/integrations/ssr/\">Randare pe server</link> — ce trebuie transmis ca două randări să fie de acord.",
+      "<link to=\"/demos/\">Demonstrații</link> — opt zile de program, fiecare cu sursa ei.",
+      "<link to=\"/customization/\">Personalizare</link> — cât de departe poți ajunge fără să bifurci nimic."
+    ]
   }
 }

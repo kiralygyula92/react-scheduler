@@ -1,10 +1,12 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Migration",
-    "description": "Wie eine bestehende Einrichtung auf die aktuelle React-Scheduler-Version wechselt und was sich änderte."
-  }
+    "description": "Der Umstieg auf diese Komponente von einem selbst geschriebenen Plan, und wo die Änderungen von Version zu Version stehen."
+  },
+  "scope": "Bislang gibt es eine Migrationsanleitung: von einer Schichttafel kommen, die das eigene Team gebaut hat. Genau für diesen Wechsel ist das Paket geschrieben.",
+  "versions": "Aktualisierungen zwischen Versionen des Pakets stehen im <link to=\"/discover-more/changelog/\">Änderungsprotokoll</link>. Eine Version, die eigene Schritte braucht, bekommt hier eine eigene Seite, verlinkt aus dem Eintrag, der sie einführt."
 }

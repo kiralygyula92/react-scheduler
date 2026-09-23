@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vite",
-    "description": "Vite: a cél, mire van szükség a kezdés előtt, a követendő lépések, és hogyan ellenőrizd az eredményt."
+    "description": "Egy üres Vite + React alkalmazástól a működő beosztásig, három lépésben."
   },
   "sections": {
     "goal": "Cél",
     "before-you-start": "Mielőtt elkezded",
     "steps": "Lépések",
     "result": "Eredmény",
-    "related": "Kapcsolódó"
+    "related": "Kapcsolódó",
+    "troubleshooting": "Hibakeresés"
+  },
+  "goal": "Jelenítsd meg a beosztást egy Vite-alkalmazásban, stílusokkal és a saját elemeiddel. A Vite-nak ehhez semmilyen beállítás nem kell: a csomag ESM-et és sima CSS-fájlt szállít, és a Vite mindkettőt úgy kezeli, ahogy van.",
+  "before": {
+    "points": [
+      "Egy Vite + React projekt, JavaScriptben vagy TypeScriptben. Az <code>npm create vite@latest</code> ad egyet.",
+      "React 18.2 vagy 19 és a hozzá tartozó <code>react-dom</code>. Ezek peer függőségek, tehát a tieid maradnak.",
+      "Node 20 vagy újabb a build-hez."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Telepítsd a csomagot",
+      "text": "Egyetlen függőség, más semmi. Amire szüksége van, az vagy peer, vagy már a dobozban van."
+    },
+    "stylesheet": {
+      "title": "Importáld a stíluslapot egyszer",
+      "text": "A stíluslap közönséges CSS-fájl, oda importálod, ahová a globális CSS-edet — rendszerint a belépési modulba. Ez az egyetlen import, amelynek pontosan egyszer kell megtörténnie."
+    },
+    "render": {
+      "title": "Rajzolj ki egy beosztást",
+      "text": "Egy elemhez azonosító, kezdés és cím kell; a szint adja a színét és a helyét a sorrendben. A többinek van alapértelmezése."
+    }
+  },
+  "result": {
+    "text": "Futtasd az <code>npm run dev</code> parancsot. Egy műszakot kapsz az aktuális idő körül, benne két elemmel, és a „most” jelzőt ott, ahol az óra áll. Innen a <link to=\"/shifts-and-dates/\">Műszakok és dátumok</link> változtat a nap alakján, a <link to=\"/customization/theming/\">Témázás</link> pedig azon, ahogy kinéz."
+  },
+  "troubleshooting": {
+    "points": [
+      "A beosztás stílus nélkül jelenik meg: hiányzik a stíluslap importja, vagy olyan modulban van, amely sosem töltődik be. Importálni kell, nem hivatkozni rá.",
+      "Olyan build, amely a függőségekből jövő CSS-importot hibának veszi: tartsd az importot a saját belépési modulodban, ne egy közös saját csomagban.",
+      "Két React a bundle-ben — jellemzően egy linkelt helyi csomag miatt — azt a hook-hibát adja, amelyet maga a React jelez. Az <code>npm ls react</code> megtalálja."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Telepítés</link> — a peer függőségek, a stíluslap és az első renderelés.",
+      "<link to=\"/integrations/ssr/\">Szerveroldali renderelés</link> — amikor ugyanaz az alkalmazás szervert kap.",
+      "<link to=\"/customization/\">Testreszabás</link> — a felülírás hat szintje, a legkönnyebbtől kezdve."
+    ]
   }
 }

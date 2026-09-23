@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "De la o implementare proprie",
-    "description": "De la o implementare proprie: cui se adresează, ce s-a schimbat și pașii care mută o configurație existentă la versiunea curentă."
+    "description": "Cum se așază un panou de ture scris de mână peste acesta: elemente, niveluri, ture, texte și stiluri."
   },
   "sections": {
     "who-this-is-for": "Cui se adresează",
@@ -13,5 +13,100 @@
     "step-by-step": "Pas cu pas",
     "removed-and-renamed": "Eliminate și redenumite",
     "getting-help": "Cum obții ajutor"
+  },
+  "who": {
+    "intro": "Ai deja un program pe ecran. Cineva l-a scris — o listă grupată pe ture sau o coloană de carduri poziționate absolut — și funcționează, dar fiecare cerință nouă cade pe aceleași câteva sute de linii. Ghidul acesta așază ce ai peste ce face deja pachetul.",
+    "points": [
+      "Randezi o zi, sau o tură, ca listă sau ca grilă de timp.",
+      "Ai propria idee de gravitate, prioritate sau stare, iar ea decide culorile și ordinea.",
+      "Ai rezolvat deja măcar una dintre: elemente care se suprapun, o tură care trece peste miezul nopții, elemente care trebuie să rămână la vedere după ce ies din ecran.",
+      "Ești pe React 18.2 sau 19 și poți adăuga o dependență."
+    ]
+  },
+  "summary": {
+    "intro": "Ce se mută și în ce se transformă. Nimic de aici nu are nevoie de un codemod: schimbarea este o funcție de transformare și câteva proprietăți.",
+    "head": {
+      "before": "Ce ai",
+      "after": "În ce se transformă",
+      "action": "Ce ai de făcut"
+    },
+    "rows": [
+      [
+        "Tipul tău de rând",
+        "<code>SchedulerItem</code>",
+        "Transformă-l o dată; păstrează-ți obiectul în <code>data</code>."
+      ],
+      [
+        "Gravitate, prioritate sau stare",
+        "<code>levels</code>",
+        "Câte o definiție pe cheie: rang, culoare, tratamentul cardului, dacă se fixează."
+      ],
+      [
+        "Gruparea pe zile sau pe ture",
+        "<code>shifts</code>",
+        "O ancoră și o durată. Componenta decide care tură este curentă."
+      ],
+      [
+        "Logica ta de suprapunere",
+        "Coloane și cipul de suplimentare",
+        "Șterge-o. Plafonul și promovarea sunt incluse."
+      ],
+      [
+        "O bară lipicioasă „încă deschise”",
+        "Banda de fixare",
+        "Pune <code>pinOnPass</code> pe nivelurile care îi aparțin."
+      ],
+      [
+        "Texte englezești scrise în cod",
+        "Un pachet de limbă",
+        "Transmite unul dintre cele șapte sau scrie-ți propriul obiect."
+      ],
+      [
+        "Fișierul tău CSS",
+        "Token-uri, nume de clase, sloturi",
+        "Începe cu token-urile; ajunge la sloturi doar acolo unde structura trebuie să difere."
+      ],
+      [
+        "Modalul tău de detaliu",
+        "Dialogul încorporat sau <code>renderItemDetail</code>",
+        "Păstrează-l pe al tău dacă face treabă; proprietatea îi dă elementul."
+      ]
+    ]
+  },
+  "steps": {
+    "items": {
+      "title": "Transformă-ți rândurile în elemente",
+      "text": "Un element are nevoie de un id, un început și un titlu. Restul este opțional, iar obiectul tău călătorește mai departe în <code>data</code>, tipat, ca sloturile și handlerele să ajungă la el fără o căutare."
+    },
+    "levels": {
+      "title": "Transformă-ți gravitatea în niveluri",
+      "text": "Definiția unui nivel decide culoarea, ordinea și tratamentul cardului. Dă-i celui mai puternic rangul cel mai mic. Dacă scala ta seamănă cu cele nouă clasice, pornește de la <code>classicLevels</code> și modific-o; dacă nu, definește-ți-o pe a ta — nimic din componentă nu presupune cheile clasice."
+    },
+    "shifts": {
+      "title": "Descrie ziua în loc să o grupezi",
+      "text": "În loc să pui singur elementele în găleți, spune cât ține o tură și când începe una dintre ele. Componenta așază fiecare element, decide care tură conține momentul curent și le randează pe cele dinainte și de după. O tură care trece peste miezul nopții nu are nevoie de nimic în plus."
+    },
+    "strings": {
+      "title": "Mută-ți textele într-un pachet de limbă",
+      "text": "Fiecare text pe care îl arată componenta vine dintr-un singur obiect. Transmite unul dintre cele șapte pachete sau răspândește unul și înlocuiește mesajele pe care le formulezi altfel. Textele tale — titlurile elementelor — rămân ale tale."
+    },
+    "styles": {
+      "title": "Reconstruiește aspectul întâi cu token-uri",
+      "text": "Majoritatea stilurilor de casă înseamnă câteva variabile CSS: o suprafață, o rază, un accent. Setează-le pe acelea înainte să scrii CSS propriu, apoi folosește <code>classNames</code> pentru regulile rămase și sloturi doar acolo unde marcajul însuși trebuie să fie altul."
+    },
+    "behavior": {
+      "title": "Înlocuiește-ți punctele de intervenție",
+      "text": "O confirmare înainte de deschidere, o verificare de permisiune, un avertisment despre modificări nesalvate: acestea devin middleware. Un handler rulează înainte ca ea să acționeze și o poate anula, deci componenta își păstrează automatul de stare, iar tu regulile."
+    }
+  },
+  "removed": {
+    "text": "Deocamdată nimic. Aceasta este prima versiune, deci nu există nicio redenumire sau eliminare de dus mai departe. Orice schimbare de acest fel, de acum înainte, este consemnată în <link to=\"/discover-more/changelog/\">Jurnalul de modificări</link>, iar una care cere pași primește un ghid al ei, lângă acesta."
+  },
+  "help": {
+    "points": [
+      "<link to=\"/all-features/\">Toate capabilitățile</link> — cel mai rapid mod de a găsi pagina pentru un comportament pe care l-ai construit deja.",
+      "<link to=\"/headless-api/\">API headless</link> — când structura chiar trebuie să fie a ta.",
+      "<link to=\"/getting-started/support/\">Asistență</link> — unde întrebi și ce să incluzi."
+    ]
   }
 }

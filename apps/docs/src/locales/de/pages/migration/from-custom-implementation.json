@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Von einer eigenen Implementierung",
-    "description": "Von einer eigenen Implementierung: für wen es gilt, was sich geändert hat und die Schritte zur aktuellen Version."
+    "description": "Wie sich eine handgeschriebene Schichttafel auf diese abbilden lässt: Einträge, Stufen, Schichten, Texte und Stile."
   },
   "sections": {
     "who-this-is-for": "Für wen das ist",
@@ -13,5 +13,100 @@
     "step-by-step": "Schritt für Schritt",
     "removed-and-renamed": "Entfernt und umbenannt",
     "getting-help": "Hilfe erhalten"
+  },
+  "who": {
+    "intro": "Sie haben schon einen Plan auf dem Schirm. Jemand hat ihn geschrieben — eine nach Schichten gruppierte Liste oder eine Spalte absolut positionierter Karten — und er funktioniert, doch jede neue Anforderung landet in denselben paar hundert Zeilen. Diese Anleitung bildet Vorhandenes auf das ab, was das Paket bereits tut.",
+    "points": [
+      "Sie rendern einen Tag oder eine Schicht, als Liste oder als Zeitraster.",
+      "Sie haben eine eigene Vorstellung von Schweregrad, Priorität oder Status, und die bestimmt Farben und Reihenfolge.",
+      "Sie haben mindestens eines davon schon gelöst: überlappende Einträge, eine Schicht über Mitternacht, Einträge, die sichtbar bleiben müssen, nachdem sie hinausgescrollt sind.",
+      "Sie sind auf React 18.2 oder 19 und können eine Abhängigkeit hinzufügen."
+    ]
+  },
+  "summary": {
+    "intro": "Was sich bewegt und wozu es wird. Nichts davon braucht ein Codemod: Die Änderung ist eine Abbildungsfunktion und ein paar Props.",
+    "head": {
+      "before": "Was Sie haben",
+      "after": "Was daraus wird",
+      "action": "Was zu tun ist"
+    },
+    "rows": [
+      [
+        "Ihr Zeilentyp",
+        "<code>SchedulerItem</code>",
+        "Einmal abbilden; das eigene Objekt in <code>data</code> behalten."
+      ],
+      [
+        "Schweregrad, Priorität oder Status",
+        "<code>levels</code>",
+        "Eine Definition je Schlüssel: Rang, Farbe, Kartendarstellung, ob sie anheftet."
+      ],
+      [
+        "Die Gruppierung nach Tagen oder Schichten",
+        "<code>shifts</code>",
+        "Ein Anker und eine Länge. Welche Schicht die aktuelle ist, entscheidet die Komponente."
+      ],
+      [
+        "Ihre Überlappungslogik",
+        "Spalten und der Chip für weitere Einträge",
+        "Löschen Sie sie. Grenze und Beförderung sind eingebaut."
+      ],
+      [
+        "Eine klebende „noch offen“-Leiste",
+        "Das Anheftband",
+        "Setzen Sie <code>pinOnPass</code> auf die Stufen, die dorthin gehören."
+      ],
+      [
+        "Fest einprogrammierte englische Texte",
+        "Ein Sprachpaket",
+        "Übergeben Sie eines der sieben oder schreiben Sie ein eigenes Objekt."
+      ],
+      [
+        "Ihre CSS-Datei",
+        "Tokens, Klassennamen, Slots",
+        "Beginnen Sie bei den Tokens; greifen Sie nur dort zu Slots, wo die Struktur anders sein muss."
+      ],
+      [
+        "Ihr Detail-Modal",
+        "Der eingebaute Dialog oder <code>renderItemDetail</code>",
+        "Behalten Sie Ihres, wenn es Arbeit leistet; die Prop reicht ihm den Eintrag."
+      ]
+    ]
+  },
+  "steps": {
+    "items": {
+      "title": "Ihre Zeilen auf Einträge abbilden",
+      "text": "Ein Eintrag braucht eine Id, einen Beginn und einen Titel. Der Rest ist optional, und Ihr eigenes Objekt reist typisiert in <code>data</code> mit, damit Slots und Handler ohne Nachschlagen darankommen."
+    },
+    "levels": {
+      "title": "Ihren Schweregrad in Stufen verwandeln",
+      "text": "Die Definition einer Stufe entscheidet über Farbe, Reihenfolge und Kartendarstellung. Geben Sie der stärksten den niedrigsten Rang. Ähnelt Ihre Skala den klassischen neun, starten Sie bei <code>classicLevels</code> und ändern sie; sonst definieren Sie eine eigene — nichts in der Komponente setzt die klassischen Schlüssel voraus."
+    },
+    "shifts": {
+      "title": "Den Tag beschreiben statt gruppieren",
+      "text": "Statt die Einträge selbst einzusortieren, sagen Sie, wie lang eine Schicht ist und wann eine davon beginnt. Die Komponente platziert jeden Eintrag, entscheidet, welche Schicht den aktuellen Moment enthält, und rendert die davor und danach. Eine Schicht über Mitternacht braucht nichts Zusätzliches."
+    },
+    "strings": {
+      "title": "Ihre Texte in ein Sprachpaket verlegen",
+      "text": "Jeder Text, den die Komponente zeigt, kommt aus einem Objekt. Übergeben Sie eines der sieben Pakete oder breiten Sie eines aus und ersetzen die Nachrichten, die Sie anders formulieren. Ihre eigenen Texte — die Titel Ihrer Einträge — bleiben Ihre."
+    },
+    "styles": {
+      "title": "Das Aussehen zuerst mit Tokens nachbauen",
+      "text": "Die meisten Hausstile sind eine Handvoll CSS-Variablen: eine Fläche, ein Radius, ein Akzent. Setzen Sie die, bevor Sie eigenes CSS schreiben, nehmen Sie dann <code>classNames</code> für die restlichen Regeln und Slots nur dort, wo das Markup selbst anders sein muss."
+    },
+    "behavior": {
+      "title": "Ihre Eingriffspunkte ersetzen",
+      "text": "Eine Bestätigung vor dem Öffnen, eine Rechteprüfung, ein Hinweis auf ungespeicherte Änderungen: Daraus wird Middleware. Ein Handler läuft, bevor die Komponente handelt, und kann es abbrechen — die Komponente behält ihren Zustandsautomaten, Sie behalten Ihre Regeln."
+    }
+  },
+  "removed": {
+    "text": "Noch nichts. Dies ist die erste Veröffentlichung, es gibt also keine Umbenennung und keine Entfernung mitzuschleppen. Jede spätere Änderung dieser Art steht im <link to=\"/discover-more/changelog/\">Änderungsprotokoll</link>, und eine, die Schritte braucht, bekommt eine eigene Anleitung neben dieser."
+  },
+  "help": {
+    "points": [
+      "<link to=\"/all-features/\">Alle Fähigkeiten</link> — der schnellste Weg zur Seite für ein Verhalten, das Sie schon gebaut haben.",
+      "<link to=\"/headless-api/\">Headless-API</link> — wenn die Struktur wirklich Ihre sein muss.",
+      "<link to=\"/getting-started/support/\">Unterstützung</link> — wo man fragt und was dazugehört."
+    ]
   }
 }

@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "React Router",
-    "description": "React Router : l’objectif, ce qu’il faut avant de commencer, les étapes à suivre et comment vérifier le résultat."
+    "description": "Mode framework : le loader tient les éléments, la route les rend, l’URL porte la journée."
   },
   "sections": {
     "goal": "Objectif",
     "before-you-start": "Avant de commencer",
     "steps": "Étapes",
     "result": "Résultat",
-    "related": "Voir aussi"
+    "related": "Voir aussi",
+    "troubleshooting": "Dépannage"
+  },
+  "goal": "Afficher le planning dans une application React Router en mode framework, avec la journée dans l’URL et les éléments dans un loader. Ce site de documentation est construit ainsi : le motif présenté ici est celui qu’il utilise.",
+  "before": {
+    "points": [
+      "Un projet React Router 7 ou 8 en mode framework, avec ou sans rendu serveur.",
+      "React 18.2 ou 19.",
+      "Une route où poser le planning."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Installez le paquet",
+      "text": "Une seule dépendance ; le routeur reste le vôtre."
+    },
+    "stylesheet": {
+      "title": "Importez la feuille de style dans la route racine",
+      "text": "Le module de la route racine est chargé pour chaque page : c’est donc le bon endroit pour une feuille de style globale. Avec le rendu serveur activé, l’import est aussi ce qui met le CSS dans le document plutôt que dans un chunk ultérieur."
+    },
+    "route": {
+      "title": "Chargez les éléments, rendez le planning",
+      "text": "Le loader est la place de la récupération. Renvoyer la date avec les éléments garde le rendu déterministe : la même URL rend le même planning côté serveur et dans le navigateur."
+    },
+    "range": {
+      "title": "Suivez la plage rendue",
+      "text": "<code>onVisibleRangeChange</code> se déclenche au montage et chaque fois que la plage bouge. Réécrire cette plage dans l’URL permet au loader de recharger, ce qui garde honnêtes le bouton retour et un lien partagé."
+    }
+  },
+  "result": {
+    "text": "Une route qui rend la journée inscrite dans son URL, recharge les données quand le lecteur passe à un autre poste, et survit à un rechargement avec le même planning à l’écran."
+  },
+  "troubleshooting": {
+    "points": [
+      "Une boucle de requêtes : le changement de plage écrit une URL qui charge des éléments qui changent la plage. N’écrivez que la date, et seulement si elle diffère de celle déjà présente.",
+      "La position de défilement saute à chaque navigation : passez <code>preventScrollReset</code>, comme le fait l’extrait ci-dessus.",
+      "Avec <code>ssr: false</code> et le prérendu, le planning est rendu à la compilation ; passez <code>now</code> pour que cette image et le navigateur s’accordent."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modes de données et SSR</link> — récupérer selon la plage rendue.",
+      "<link to=\"/navigation/\">Navigation</link> — ce qui déplace la plage, et ce qui est émis.",
+      "<link to=\"/integrations/ssr/\">Rendu côté serveur</link> — les règles indépendantes du framework."
+    ]
   }
 }

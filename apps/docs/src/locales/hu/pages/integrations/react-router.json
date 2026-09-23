@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "React Router",
-    "description": "React Router: a cél, mire van szükség a kezdés előtt, a követendő lépések, és hogyan ellenőrizd az eredményt."
+    "description": "Framework mód: a loader tartja az elemeket, az útvonal kirajzolja őket, az URL hordozza a napot."
   },
   "sections": {
     "goal": "Cél",
     "before-you-start": "Mielőtt elkezded",
     "steps": "Lépések",
     "result": "Eredmény",
-    "related": "Kapcsolódó"
+    "related": "Kapcsolódó",
+    "troubleshooting": "Hibakeresés"
+  },
+  "goal": "Jelenítsd meg a beosztást egy React Router alkalmazásban framework módban, a nappal az URL-ben és az elemekkel egy loaderben. Ez a dokumentációs oldal is így épül, tehát az itteni minta pontosan az, amit használ.",
+  "before": {
+    "points": [
+      "Egy React Router 7 vagy 8 projekt framework módban, szerveroldali rendereléssel vagy anélkül.",
+      "React 18.2 vagy 19.",
+      "Egy útvonal, ahová a beosztás kerül."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Telepítsd a csomagot",
+      "text": "Egyetlen függőség; a router a tiéd marad."
+    },
+    "stylesheet": {
+      "title": "Importáld a stíluslapot a gyökérútvonalon",
+      "text": "A gyökérútvonal modulja minden oldalnál betöltődik, ezért ez a jó hely a globális stíluslapnak. Bekapcsolt szerveroldali rendereléssel az import az is, ami a CSS-t a dokumentumba teszi, nem egy későbbi chunkba."
+    },
+    "route": {
+      "title": "Töltsd be az elemeket, rajzold ki a beosztást",
+      "text": "A loader az adatlekérés helye. Ha a dátumot is visszaadod az elemek mellett, a renderelés determinisztikus marad: ugyanaz az URL ugyanazt a beosztást rajzolja ki a szerveren és a böngészőben."
+    },
+    "range": {
+      "title": "Kövesd a kirajzolt tartományt",
+      "text": "Az <code>onVisibleRangeChange</code> csatoláskor és a tartomány minden mozdulásakor lefut. Ha a tartományt visszaírod az URL-be, a loader újratölthet, és ettől marad becsületes a vissza gomb meg a megosztott hivatkozás."
+    }
+  },
+  "result": {
+    "text": "Egy útvonal, amely az URL-jében lévő napot rajzolja ki, újratölt, ha az olvasó másik műszakra lép, és úgy éli túl az újratöltést, hogy ugyanaz a beosztás marad a képen."
+  },
+  "troubleshooting": {
+    "points": [
+      "Lekéréshurok: a tartományváltás olyan URL-t ír, amely olyan elemeket tölt, amelyek megváltoztatják a tartományt. Csak a dátumot írd, és csak akkor, ha eltér az ott lévőtől.",
+      "A görgetési pozíció minden navigációnál ugrik: add át a <code>preventScrollReset</code> értéket, ahogy a fenti részlet teszi.",
+      "<code>ssr: false</code> és előrenderelés esetén a beosztás build időben készül; add át a <code>now</code> értéket, hogy az előrenderelt képkocka és a böngésző egyetértsen."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Adatmódok és SSR</link> — adatlekérés a kirajzolt tartományra.",
+      "<link to=\"/navigation/\">Léptetés</link> — mi mozdítja a tartományt, és mit bocsát ki.",
+      "<link to=\"/integrations/ssr/\">Szerveroldali renderelés</link> — a keretrendszertől független szabályok."
+    ]
   }
 }

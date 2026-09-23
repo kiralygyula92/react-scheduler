@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Renderização no servidor",
-    "description": "Renderização no servidor: o objetivo, o que precisa antes de começar, os passos a seguir e como verificar o resultado."
+    "description": "Renderizar o horário num servidor e hidratá-lo sem avisos, em qualquer framework."
   },
   "sections": {
     "goal": "Objetivo",
     "before-you-start": "Antes de começar",
     "steps": "Passos",
     "result": "Resultado",
-    "related": "Relacionado"
+    "related": "Relacionado",
+    "troubleshooting": "Resolução de problemas"
+  },
+  "goal": "Renderizar o horário num servidor — qualquer servidor, qualquer framework — e deixar o navegador assumi-lo sem avisos de hidratação. O componente não toca no DOM enquanto renderiza, por isso só falta dar os mesmos factos às duas renderizações.",
+  "before": {
+    "points": [
+      "Uma aplicação React 18.2 ou 19 que renderiza num servidor.",
+      "A folha de estilos importada nalgum sítio que chegue ao documento renderizado no servidor.",
+      "Uma forma de passar valores da renderização do servidor para a do cliente — props, um loader, dados serializados."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Decida o relógio uma só vez",
+      "text": "Tudo o que se move no horário decorre de um único momento: qual é o turno atual, onde fica o indicador de «agora», que elementos já passaram. Leia o relógio uma vez, no servidor, e passe-o adiante.",
+      "calloutTitle": "A única fonte real de divergências",
+      "callout": "Um horário renderizado sem <code>now</code> toma o relógio de quem o renderiza. O relógio do servidor e o do navegador nunca são o mesmo milissegundo, e muitas vezes nem o mesmo minuto, e o React reporta isso como divergência de hidratação."
+    },
+    "firstFrame": {
+      "title": "Saiba como é o primeiro fotograma",
+      "text": "A renderização no servidor é de propósito a simples. Tudo o que depende do navegador começa desligado e assenta depois da hidratação:",
+      "points": [
+        "O modo compacto está desligado a não ser que passe o booleano — um contentor não se mede sem uma disposição.",
+        "Nada está fixado: a fixação é uma posição de deslocamento, e ainda não há deslocamento.",
+        "O sinal de cabeçalho começa expandido.",
+        "Nenhuma animação corre no primeiro fotograma."
+      ]
+    },
+    "compact": {
+      "title": "Escolha o que faz o modo compacto",
+      "text": "Por omissão segue o contentor assim que o navegador o consegue medir. Se o primeiro fotograma tiver de ser estreito — uma aplicação que já sabe que serve um telemóvel —, decida-o no servidor."
+    },
+    "styles": {
+      "title": "Ponha o CSS na primeira resposta",
+      "text": "A folha de estilos do horário é um ficheiro CSS vulgar, sem runtime nenhum por detrás, por isso precisa exatamente do que o seu framework faz com o CSS global. Importe-a onde o framework reúne os estilos globais, não dentro de um componente carregado de forma preguiçosa — senão o primeiro fotograma sai sem estilos e pisca."
+    }
+  },
+  "result": {
+    "text": "A resposta HTML contém o horário, com os seus títulos, elementos e horas. A consola fica calada durante a hidratação, e a única mudança visível é a que pediu: um contentor medido, uma posição de deslocamento restaurada."
+  },
+  "troubleshooting": {
+    "points": [
+      "Uma divergência numa hora ou numa etiqueta: os relógios diferem. Passe <code>now</code>, e o mesmo valor a <code>date</code> se também quiser o mesmo dia.",
+      "Uma divergência num nome de classe: os esquemas não concordam. O <code>colorScheme=\"system\"</code> resolve-se no navegador, por isso passe <code>'light'</code> ou <code>'dark'</code> quando a renderização no servidor tiver de coincidir exatamente.",
+      "Datas como cadeias locais sem fuso, renderizadas num servidor noutro fuso: use cadeias ISO com deslocamento, ou marcas temporais.",
+      "<code>window</code> ou <code>document</code> num slot seu — o horário não toca em nenhum enquanto renderiza, mas uma parte substituída pode."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modos de dados e SSR</link> — a página de capacidade por detrás deste guia.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — as mesmas regras no App Router.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — as mesmas regras em modo framework."
+    ]
   }
 }

@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Acessibilidade",
-    "description": "O objetivo de acessibilidade do React Scheduler, o que é testado em cada alteração e as lacunas que restam."
+    "description": "O objetivo, o que é testado em cada alteração, as lacunas que ficam e onde comunicá-las."
   },
   "sections": {
     "target": "Objetivo",
     "what-is-tested": "O que é testado",
     "known-gaps": "Lacunas conhecidas",
-    "reporting": "Reportar um problema"
+    "reporting": "Comunicar um problema"
+  },
+  "target": {
+    "intro": "O objetivo é WCAG 2.2 nível AA, para o componente e para este sítio. É um objetivo que os testes impõem, não uma certificação: não foi encomendada qualquer auditoria e não é feita qualquer declaração de conformidade.",
+    "points": [
+      "A predefinição cumpre os requisitos de contraste nos dois esquemas de cor.",
+      "Tudo o que se pode fazer com o ponteiro pode fazer-se com o teclado, na ordem em que a página se lê.",
+      "Cada parte tem um papel e um nome; nada depende apenas da cor.",
+      "Com <code>prefers-reduced-motion</code> nada anima, e o movimento não transporta qualquer informação."
+    ]
+  },
+  "tested": {
+    "intro": "Cada alteração passa pelas mesmas verificações, e uma publicação acrescenta as que uma pessoa tem de fazer:",
+    "points": [
+      "axe-core sobre o componente renderizado em Chromium, Firefox e WebKit, nas duas predefinições, nos dois esquemas de cor e em todos os estados, com as regras de contraste ligadas.",
+      "axe-core sobre as páginas deste sítio, em cada idioma, sem qualquer violação grave ou crítica.",
+      "Testes de teclado que percorrem todo o horário: os cartões, os chips fixados, a navegação, as caixas de diálogo e a forma como o foco regressa.",
+      "Instantâneos do que um leitor de ecrã recebe — os nomes acessíveis, os anúncios das regiões ativas e a sua limitação.",
+      "Capturas da direita para a esquerda comparadas com as suas equivalentes da esquerda para a direita, para que uma disposição espelhada seja uma falha de teste e não uma surpresa.",
+      "Antes de uma publicação, a lista manual: NVDA com Firefox e VoiceOver com Safari, as tarefas das demonstrações só com teclado, zoom a 200% com 320 píxeis de largura, e o alto contraste do Windows."
+    ]
+  },
+  "gaps": {
+    "intro": "As lacunas conhecidas e o que se faz quanto a elas:",
+    "points": [
+      "Ainda não há foco itinerante entre cartões: <kbd>Tab</kbd> é o único movimento, e um turno com muitos elementos são muitas paragens. Está no <link to=\"/discover-more/roadmap/\">plano</link>.",
+      "Os botões de navegação não têm atalhos de teclado.",
+      "A predefinição <code>classic</code> mantém de propósito algumas falhas de contraste, por fidelidade ao píxel com o aspeto que reproduz: as etiquetas de nível, o tom de alerta e mais três no esquema claro. A predefinição normal não tem nenhuma, e o conjunto de testes permite exatamente essa lista e mais nada.",
+      "Uma cor deste sítio de documentação — o contorno dos campos e dos cartões sob o cursor — está abaixo do 3:1 que o seu próprio sistema de design afirma. É medida num teste, para não poder piorar, e pertence à casca do sítio, não ao componente.",
+      "A lista manual ainda não correu, porque ainda nada foi publicado."
+    ]
+  },
+  "reporting": {
+    "intro": "Um problema de acessibilidade é um erro e é tratado antes das funcionalidades. Ao comunicar um:",
+    "points": [
+      "Diga que tecnologia de apoio e que navegador, com versões — a combinação conta mais do que cada um por si.",
+      "Diga o que esperava ouvir ou alcançar e o que aconteceu em vez disso.",
+      "Uma ligação para uma reprodução vale mais do que uma descrição; as <link to=\"/demos/\">demonstrações</link> são um bom ponto de partida.",
+      "<link to=\"/getting-started/support/\">Apoio</link> diz onde o abrir e o que mais incluir."
+    ]
   }
 }

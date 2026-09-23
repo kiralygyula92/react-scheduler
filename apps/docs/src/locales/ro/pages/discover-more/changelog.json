@@ -1,10 +1,25 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Istoric modificări",
-    "description": "Fiecare versiune lansată de React Scheduler și ce s-a schimbat în ea. Intrările sunt publicate în engleză."
+    "title": "Jurnal de modificări",
+    "description": "Fiecare versiune lansată și ce s-a schimbat în ea, luate din jurnalul propriu al pachetului."
+  },
+  "sections": {
+    "unreleased": "Încă nelansat",
+    "how-to-read-it": "Cum se citește"
+  },
+  "intro": "Pagina este generată din jurnalul de modificări al depozitului pachetului, scris versiune cu versiune din changeset-urile care au intrat în ea. Nimic de aici nu se întreține manual, deci nu poate contrazice ce a fost publicat.",
+  "english": {
+    "title": "Intrările sunt în engleză",
+    "text": "Restul sitului este tradus; intrările acestea nu. Sunt scrise de cine a făcut schimbarea și publicate în engleză pe npm, iar o copie tradusă s-ar depărta de versiunea pe care oamenii o instalează."
+  },
+  "unreleased": {
+    "text": "Nu există încă nicio versiune lansată, deci nu e nimic de listat. Prima lansare va apărea aici și pe npm în același moment, iar fiecare următoare se va adăuga în capul paginii."
+  },
+  "how": {
+    "text": "Versiunile urmează versionarea semantică: o versiune majoră pentru o schimbare care poate strica un build, una minoră pentru o capabilitate nouă, un patch pentru o corectură. O intrare care are nevoie de pași proprii trimite la un ghid de migrare sub <link to=\"/migration/\">Migrare</link>."
   }
 }

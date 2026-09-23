@@ -29,3 +29,4 @@ Thumbs.db
 .cache/
 .vitest/
 apps/docs/src/content/fixtures/
+apps/docs/src/content/changelog.json

@@ -1,10 +1,12 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Migrare",
-    "description": "Cum muți o configurație existentă la versiunea curentă React Scheduler și ce s-a schimbat pe parcurs."
-  }
+    "description": "Trecerea la această componentă de la un program scris de tine, și unde sunt consemnate schimbările de la o versiune la alta."
+  },
+  "scope": "Deocamdată există un singur ghid de migrare: venirea de la un panou de ture construit de echipa ta. Este exact mutarea pentru care a fost scris pachetul.",
+  "versions": "Actualizările între versiunile pachetului sunt consemnate în <link to=\"/discover-more/changelog/\">Jurnalul de modificări</link>. O versiune care are nevoie de pași proprii primește aici o pagină a ei, legată din intrarea care o introduce."
 }

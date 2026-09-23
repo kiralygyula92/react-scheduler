@@ -1,10 +1,25 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Változásnapló",
-    "description": "A React Scheduler minden kiadott verziója és annak változásai. A bejegyzések angol nyelven jelennek meg."
+    "description": "Minden kiadott verzió és ami benne változott, a csomag saját naplójából."
+  },
+  "sections": {
+    "unreleased": "Még nincs kiadás",
+    "how-to-read-it": "Hogyan olvasd"
+  },
+  "intro": "Az oldal a csomag tárolójában lévő változásnaplóból készül, amely kiadásról kiadásra a beérkezett changeset-ekből íródik. Itt semmit nem tartunk karban kézzel, így nem mondhat mást, mint ami megjelent.",
+  "english": {
+    "title": "A bejegyzések angolul vannak",
+    "text": "Az oldal többi része le van fordítva; ezek a bejegyzések nem. Azt írja őket, aki a változtatást tette, és angolul jelennek meg az npm-en — egy fordított másolat eltávolodna attól a verziótól, amelyet az emberek telepítenek."
+  },
+  "unreleased": {
+    "text": "Még nincs kiadott verzió, így nincs mit felsorolni. Az első kiadás itt és az npm-en ugyanabban a pillanatban jelenik meg, és minden további az oldal tetejére kerül."
+  },
+  "how": {
+    "text": "A verziók a szemantikus verziózást követik: nagy verzió az olyan változáshoz, amely elronthat egy buildet, kisebb az új képességhez, javítás a hibajavításhoz. Amelyik bejegyzéshez saját lépések kellenek, az átmutat egy átállási útmutatóra az <link to=\"/migration/\">Átállás</link> alatt."
   }
 }

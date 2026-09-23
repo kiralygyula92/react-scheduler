@@ -1,17 +1,64 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Next.js",
-    "description": "Next.js : l’objectif, ce qu’il faut avant de commencer, les étapes à suivre et comment vérifier le résultat."
+    "description": "App Router : le planning en composant client, les données récupérées côté serveur, une seule horloge pour les deux."
   },
   "sections": {
     "goal": "Objectif",
     "before-you-start": "Avant de commencer",
     "steps": "Étapes",
     "result": "Résultat",
-    "related": "Voir aussi"
+    "related": "Voir aussi",
+    "troubleshooting": "Dépannage"
+  },
+  "goal": "Afficher le planning dans une application Next.js avec l’App Router. Le composant est interactif — il défile, ouvre des dialogues, mesure — donc sa place est côté client ; les éléments qu’il affiche, non.",
+  "before": {
+    "points": [
+      "Un projet Next.js avec l’App Router.",
+      "React 18.2 ou 19, que Next.js apporte avec lui.",
+      "De quoi récupérer les éléments : un appel à la base, une route d’API, tout ce qu’un composant serveur peut attendre."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Installez le paquet",
+      "text": "Rien d’autre n’est nécessaire, et rien n’a besoin d’être transpilé."
+    },
+    "stylesheet": {
+      "title": "Importez la feuille de style dans le layout racine",
+      "text": "Dans l’App Router, le layout racine est la place du CSS global, et la feuille de style du planning en est. L’importer là la met aussi dans la première réponse HTML plutôt qu’avec le bundle client."
+    },
+    "client": {
+      "title": "Enveloppez le planning dans un composant client",
+      "text": "Le paquet n’embarque pas de bannière <code>'use client'</code> à lui : la directive va donc en tête de votre module. Gardez-le petit : c’est la frontière, et tout ce qu’il importe la traverse avec lui.",
+      "calloutTitle": "Pourquoi la directive vous appartient",
+      "callout": "Une bibliothèque qui se déclare elle-même côté client pousse chaque consommateur dans une frontière client, y compris ceux qui ne veulent que les types ou les utilitaires de <code>/core</code>. Mettre la directive dans votre fichier laisse le choix là où il peut être fait."
+    },
+    "server": {
+      "title": "Récupérez côté serveur, transmettez une seule horloge",
+      "text": "Le composant serveur fait la récupération et transmet les éléments ainsi qu’un seul horodatage. Sans lui, le serveur rend un « maintenant » et le client un autre : c’est exactement le décalage d’hydratation que React signale."
+    }
+  },
+  "result": {
+    "text": "La première réponse apporte le planning en HTML — titres, éléments, heures — et le client le reprend à l’hydratation. Un lecteur dont le JavaScript n’est pas encore arrivé voit tout de même la journée."
+  },
+  "troubleshooting": {
+    "points": [
+      "<em>You’re importing a component that needs useState</em> — la directive <code>'use client'</code> manque dans le module qui rend le planning.",
+      "Un avertissement d’hydratation sur le contenu textuel : les deux rendus ne s’accordent pas sur l’heure. Passez <code>now</code> depuis le serveur.",
+      "La mise en page saute une fois après l’hydratation : c’est <code>compact=\"auto\"</code> qui mesure le conteneur pour la première fois. Passez un booléen si la première image doit être définitive.",
+      "Turbopack ou Webpack se plaint du CSS venu de <code>node_modules</code> : importez la feuille de style dans le layout racine, le seul endroit que les deux acceptent."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modes de données et SSR</link> — à quoi ressemble la première image, et pourquoi.",
+      "<link to=\"/integrations/ssr/\">Rendu côté serveur</link> — les mêmes règles sans le framework.",
+      "<link to=\"/states/\">États</link> — chargement, erreur et vide pendant que les données arrivent."
+    ]
   }
 }

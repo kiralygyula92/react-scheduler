@@ -1,13 +1,64 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Roadmap",
-    "description": "What is planned for React Scheduler after the first stable release. No dates, and nothing promised."
+    "description": "What is planned after the first stable release — as a list of intentions, without dates."
   },
   "sections": {
-    "planned": "Planned"
+    "planned": "Planned",
+    "not-planned": "Not planned",
+    "how-it-changes": "How this list changes"
+  },
+  "intro": "These are the things the package is meant to grow after 1.0. There are no dates on them, and nothing here is a commitment: the order is what makes sense today, and the first release has to come first.",
+  "planned": {
+    "head": {
+      "item": "Item",
+      "status": "Status",
+      "what": "What it would be"
+    },
+    "rows": [
+      [
+        "Drag-and-drop editing",
+        "Planned",
+        "Moving and resizing items by pointer and by keyboard, with items that can be locked against it."
+      ],
+      [
+        "Virtualization",
+        "Planned",
+        "Rendering only what is near the viewport. The budgets are met without it today, which is why it is not in 1.0."
+      ],
+      [
+        "Roving focus and shortcuts",
+        "Planned",
+        "Arrow-key movement between cards, and shortcuts for the navigation buttons."
+      ],
+      [
+        "Explicit time zone",
+        "Planned",
+        "Rendering a day in a zone other than the reader’s. Today the component is local-zone and DST-safe."
+      ],
+      ["Date toolbar", "Planned", "A built-in way to pick the day. The date is the consumer’s to choose today."],
+      ["Persistence", "Planned", "Remembering view, scroll position and pinned items across visits, behind a prop."],
+      [
+        "A feature registry",
+        "Considered",
+        "Letting a capability be added from outside the package instead of behind a flag."
+      ]
+    ]
+  },
+  "notPlanned": {
+    "intro": "Some things are deliberately outside what this component does, and saying so is part of the roadmap:",
+    "points": [
+      "A data layer. The component never fetches; items are yours, from wherever you keep them.",
+      "A state library. The state is React state, controlled or uncontrolled, and nothing else is needed.",
+      "A styling runtime. The looks are CSS variables and class names, resolved by the browser.",
+      "A calendar. This is a schedule of one day at a time, not a month view or a year view."
+    ]
+  },
+  "how": {
+    "text": "An item moves from this page to the <link to=\"/discover-more/changelog/\">Changelog</link> when it ships, and disappears from here when it is decided against. If something you need is missing, <link to=\"/getting-started/support/\">Support</link> is where to say so."
   }
 }

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vite",
-    "description": "Vite: the goal, what you need before you start, the steps to follow, and how to check the result."
+    "description": "From an empty Vite + React app to a working schedule, in three steps."
   },
   "sections": {
     "goal": "Goal",
     "before-you-start": "Before you start",
     "steps": "Steps",
     "result": "Result",
-    "related": "Related"
+    "related": "Related",
+    "troubleshooting": "Troubleshooting"
+  },
+  "goal": "Render the schedule in a Vite application, styled, with items of your own. Vite needs no configuration for this: the package ships ESM and a plain CSS file, both of which Vite handles as they are.",
+  "before": {
+    "points": [
+      "A Vite + React project, JavaScript or TypeScript. <code>npm create vite@latest</code> gives you one.",
+      "React 18.2 or 19, and the matching <code>react-dom</code>. They are peer dependencies, so they stay yours.",
+      "Node 20 or newer to build with."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Install the package",
+      "text": "One dependency, no others. Everything it needs is either a peer or already in the box."
+    },
+    "stylesheet": {
+      "title": "Import the stylesheet once",
+      "text": "The stylesheet is a normal CSS file, imported wherever you import your global CSS — usually the entry module. It is the only import that has to happen exactly once."
+    },
+    "render": {
+      "title": "Render a schedule",
+      "text": "An item needs an id, a start and a title; a level is what gives it its color and its place in the order. Everything else has a default."
+    }
+  },
+  "result": {
+    "text": "Run <code>npm run dev</code>. You get one shift around the current time, two items in it, and a now indicator where the clock is. From here, <link to=\"/shifts-and-dates/\">Shifts and dates</link> changes the shape of the day and <link to=\"/customization/theming/\">Theming</link> changes how it looks."
+  },
+  "troubleshooting": {
+    "points": [
+      "The schedule is unstyled: the stylesheet import is missing, or it is in a module that is never loaded. It has to be imported, not linked.",
+      "A build that treats CSS imports in dependencies as an error: keep the import in your own entry module rather than importing it from a shared package of yours.",
+      "Two Reacts in the bundle — usually a linked local package — produce the hook error React itself reports. <code>npm ls react</code> finds it."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Installation</link> — the peers, the stylesheet and a first render.",
+      "<link to=\"/integrations/ssr/\">Server rendering</link> — when the same app grows a server.",
+      "<link to=\"/customization/\">Customization</link> — the six levels of override, lightest first."
+    ]
   }
 }

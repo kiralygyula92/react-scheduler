@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Renderizado en el servidor",
-    "description": "Renderizado en el servidor: el objetivo, lo que necesitas antes de empezar, los pasos a seguir y cómo comprobar el resultado."
+    "title": "Renderizado en servidor",
+    "description": "Renderizar el horario en un servidor e hidratarlo sin avisos, en cualquier framework."
   },
   "sections": {
     "goal": "Objetivo",
     "before-you-start": "Antes de empezar",
     "steps": "Pasos",
     "result": "Resultado",
-    "related": "Relacionado"
+    "related": "Relacionado",
+    "troubleshooting": "Resolución de problemas"
+  },
+  "goal": "Renderiza el horario en un servidor —cualquier servidor, cualquier framework— y deja que el navegador lo asuma sin avisos de hidratación. El componente no toca el DOM mientras renderiza, así que lo único que queda es que ambas renderizaciones reciban los mismos datos.",
+  "before": {
+    "points": [
+      "Una aplicación React 18.2 o 19 que renderiza en un servidor.",
+      "La hoja de estilos importada en algún sitio que llegue al documento renderizado en el servidor.",
+      "Una forma de pasar valores del render del servidor al del cliente: props, un loader, datos serializados."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Decide el reloj una sola vez",
+      "text": "Todo lo que se mueve en el horario se desprende de un solo momento: qué turno es el actual, dónde está el indicador de «ahora», qué elementos han pasado. Lee el reloj una vez, en el servidor, y pásalo.",
+      "calloutTitle": "La única fuente real de desajustes",
+      "callout": "Un horario renderizado sin <code>now</code> toma el reloj de quien lo renderiza. El reloj del servidor y el del navegador nunca son el mismo milisegundo, y a menudo ni el mismo minuto, y React lo informa como desajuste de hidratación."
+    },
+    "firstFrame": {
+      "title": "Conoce cómo es el primer fotograma",
+      "text": "La renderización del servidor es a propósito la simple. Todo lo que depende del navegador empieza apagado y se asienta tras la hidratación:",
+      "points": [
+        "El modo compacto está apagado salvo que pases tú el booleano: un contenedor no puede medirse sin un layout.",
+        "No hay nada fijado: la fijación es una posición de desplazamiento, y todavía no hay desplazamiento.",
+        "La señal de cabecera empieza expandida.",
+        "Ninguna animación corre en el primer fotograma."
+      ]
+    },
+    "compact": {
+      "title": "Elige qué hace el modo compacto",
+      "text": "Por defecto sigue al contenedor en cuanto el navegador puede medirlo. Si el primer fotograma tiene que ser estrecho —una aplicación que ya sabe que sirve a un móvil—, decídelo en el servidor."
+    },
+    "styles": {
+      "title": "Mete el CSS en la primera respuesta",
+      "text": "La hoja de estilos del horario es un archivo CSS normal, sin ningún runtime detrás, así que necesita justo lo que tu framework haga con el CSS global. Impórtala donde el framework reúne los estilos globales, no dentro de un componente cargado de forma diferida: si no, el primer fotograma sale sin estilos y parpadea."
+    }
+  },
+  "result": {
+    "text": "La respuesta HTML contiene el horario, con sus encabezados, sus elementos y sus horas. La consola calla durante la hidratación, y el único cambio visible es el que pediste: un contenedor medido, una posición de desplazamiento restaurada."
+  },
+  "troubleshooting": {
+    "points": [
+      "Un desajuste en una hora o en una etiqueta: los relojes difieren. Pasa <code>now</code>, y el mismo valor a <code>date</code> si además quieres el mismo día.",
+      "Un desajuste en un nombre de clase: los esquemas no coinciden. <code>colorScheme=\"system\"</code> se resuelve en el navegador, así que pasa <code>'light'</code> o <code>'dark'</code> cuando el render del servidor deba coincidir exactamente.",
+      "Fechas como cadenas locales sin zona, renderizadas en un servidor de otra zona: usa cadenas ISO con desfase, o marcas de tiempo.",
+      "<code>window</code> o <code>document</code> en un slot tuyo: el horario no toca ninguno mientras renderiza, pero una parte sustituida sí puede."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modos de datos y SSR</link> — la página de capacidad detrás de esta guía.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — las mismas reglas en el App Router.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — las mismas reglas en modo framework."
+    ]
   }
 }

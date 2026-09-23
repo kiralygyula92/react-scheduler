@@ -1,17 +1,64 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Next.js",
-    "description": "Next.js: the goal, what you need before you start, the steps to follow, and how to check the result."
+    "description": "The App Router: the schedule as a client component, the data fetched on the server, one clock for both."
   },
   "sections": {
     "goal": "Goal",
     "before-you-start": "Before you start",
     "steps": "Steps",
     "result": "Result",
-    "related": "Related"
+    "related": "Related",
+    "troubleshooting": "Troubleshooting"
+  },
+  "goal": "Render the schedule in a Next.js application using the App Router. The component is interactive — it scrolls, it opens dialogs, it measures — so it belongs on the client; the items it shows do not have to.",
+  "before": {
+    "points": [
+      "A Next.js project with the App Router.",
+      "React 18.2 or 19, which Next.js brings with it.",
+      "Somewhere to get items from: a database call, an API route, anything a server component can await."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Install the package",
+      "text": "Nothing else is needed, and nothing has to be transpiled."
+    },
+    "stylesheet": {
+      "title": "Import the stylesheet in the root layout",
+      "text": "The root layout is where global CSS belongs in the App Router, and the schedule’s stylesheet is global CSS. Importing it there also means it is in the first HTML response rather than arriving with the client bundle."
+    },
+    "client": {
+      "title": "Wrap the schedule in a client component",
+      "text": "The package ships no <code>'use client'</code> banner of its own, so the directive goes at the top of your module. Keep that module small: it is the boundary, and everything it imports crosses with it.",
+      "calloutTitle": "Why the directive is yours",
+      "callout": "A library that marks itself client-only forces every consumer into a client boundary, including the ones that only want the types or the <code>/core</code> helpers. Putting the directive in your own file keeps the choice where it can be made."
+    },
+    "server": {
+      "title": "Fetch on the server, hand down one clock",
+      "text": "The server component does the fetching and passes both the items and a single timestamp. Without that timestamp the server renders one \"now\" and the client another, which is exactly the hydration mismatch React warns about."
+    }
+  },
+  "result": {
+    "text": "The first response carries the schedule as HTML — headings, items, times — and the client takes it over on hydration. A reader whose JavaScript has not arrived yet still sees the day."
+  },
+  "troubleshooting": {
+    "points": [
+      "<em>You’re importing a component that needs useState</em> — the <code>'use client'</code> directive is missing from the module that renders the schedule.",
+      "A hydration warning about text content: the two renders disagree about the time. Pass <code>now</code> from the server.",
+      "The layout jumps once after hydration: that is <code>compact=\"auto\"</code> measuring the container for the first time. Pass a boolean instead if the first frame has to be final.",
+      "Turbopack or Webpack complaining about CSS from <code>node_modules</code>: import the stylesheet in the root layout, which is the one place both allow it."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Data modes and SSR</link> — what the first frame looks like, and why.",
+      "<link to=\"/integrations/ssr/\">Server rendering</link> — the same rules without the framework.",
+      "<link to=\"/states/\">States</link> — loading, error and empty while the data is on its way."
+    ]
   }
 }

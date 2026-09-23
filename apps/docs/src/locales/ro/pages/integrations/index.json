@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Integrări",
-    "description": "Cum folosești React Scheduler cu Vite, Next.js, React Router și randare pe server."
-  }
+    "description": "Patru ghiduri scurte: Vite, App Router-ul Next.js, React Router în mod framework și randarea pe server."
+  },
+  "scope": "Componenta este o componentă React obișnuită, fără framework propriu, așa că o integrare înseamnă de obicei trei linii: o instalezi, imporți o dată foaia de stil, o randezi. Paginile acestea sunt detaliile — unde pui foaia de stil, de care parte a graniței server–client stă programul și ce îi dai ca cele două randări să fie de acord."
 }

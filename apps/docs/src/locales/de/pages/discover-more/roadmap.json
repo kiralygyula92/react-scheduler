@@ -1,13 +1,68 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Roadmap",
-    "description": "Was für React Scheduler nach dem ersten stabilen Release geplant ist. Ohne Daten und ohne Zusagen."
+    "title": "Fahrplan",
+    "description": "Was nach der ersten stabilen Veröffentlichung geplant ist — eine Liste von Absichten, ohne Daten."
   },
   "sections": {
-    "planned": "Geplant"
+    "planned": "Geplant",
+    "not-planned": "Nicht geplant",
+    "how-it-changes": "Wie sich diese Liste ändert"
+  },
+  "intro": "Das sind die Dinge, um die das Paket nach 1.0 wachsen soll. Sie tragen keine Daten, und nichts davon ist eine Zusage: Die Reihenfolge ist die, die heute sinnvoll ist, und zuerst muss die erste Veröffentlichung kommen.",
+  "planned": {
+    "head": {
+      "item": "Punkt",
+      "status": "Status",
+      "what": "Was es wäre"
+    },
+    "rows": [
+      [
+        "Bearbeiten per Ziehen",
+        "Geplant",
+        "Einträge mit Zeiger und Tastatur verschieben und in der Größe ändern, mit Einträgen, die sich sperren lassen."
+      ],
+      [
+        "Virtualisierung",
+        "Geplant",
+        "Nur das rendern, was nahe am Sichtfenster liegt. Die Budgets werden auch ohne sie eingehalten, darum ist sie nicht in 1.0."
+      ],
+      [
+        "Wanderndes Fokussieren und Kürzel",
+        "Geplant",
+        "Bewegung mit den Pfeiltasten zwischen Karten und Kürzel für die Navigationsschaltflächen."
+      ],
+      [
+        "Ausdrückliche Zeitzone",
+        "Geplant",
+        "Einen Tag in einer anderen Zone als der des Lesers rendern. Heute arbeitet die Komponente in der lokalen Zone und ist sommerzeitfest."
+      ],
+      ["Datumsleiste", "Geplant", "Ein eingebauter Weg, den Tag zu wählen. Heute gehört das Datum Ihnen."],
+      [
+        "Persistenz",
+        "Geplant",
+        "Ansicht, Scrollposition und angeheftete Einträge über Besuche hinweg merken, hinter einer Prop."
+      ],
+      [
+        "Ein Fähigkeitsregister",
+        "In Erwägung",
+        "Eine Fähigkeit von außerhalb des Pakets hinzufügen statt hinter einem internen Schalter."
+      ]
+    ]
+  },
+  "notPlanned": {
+    "intro": "Manches liegt bewusst außerhalb dessen, was die Komponente tut, und das zu sagen gehört zum Fahrplan:",
+    "points": [
+      "Eine Datenschicht. Die Komponente holt nie Daten; die Einträge sind Ihre, woher auch immer.",
+      "Eine State-Bibliothek. Der Zustand ist React-Zustand, kontrolliert oder unkontrolliert, mehr braucht es nicht.",
+      "Eine Styling-Laufzeit. Das Aussehen sind CSS-Variablen und Klassennamen, die der Browser auflöst.",
+      "Ein Kalender. Dies ist ein Plan für einen Tag, keine Monats- oder Jahresansicht."
+    ]
+  },
+  "how": {
+    "text": "Ein Punkt wandert von hier ins <link to=\"/discover-more/changelog/\">Änderungsprotokoll</link>, sobald er ausgeliefert ist, und verschwindet von hier, wenn dagegen entschieden wird. Fehlt Ihnen etwas, ist <link to=\"/getting-started/support/\">Unterstützung</link> der Ort, das zu sagen."
   }
 }
