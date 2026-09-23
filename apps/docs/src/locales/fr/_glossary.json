@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M5"
+  },
+  "shift": "poste",
+  "item": "élément",
+  "level": "niveau",
+  "timeline": "chronologi",
+  "overflow": "supplémentaire",
+  "preset": "préréglage",
+  "playground": "playground",
+  "changelog": "journal des modifications",
+  "roadmap": "feuille de route",
+  "slot": "slot",
+  "hook": "hook",
+  "headless": "headless",
+  "middleware": "middleware",
+  "token": "jeton"
+}

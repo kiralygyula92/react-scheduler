@@ -4,7 +4,7 @@
     "source": "M5"
   },
   "meta": {
-    "title": "Útiterv",
+    "title": "Ütemterv",
     "description": "Mi a terv az első stabil kiadás után — szándékok listája, dátumok nélkül."
   },
   "sections": {
@@ -59,6 +59,6 @@
     ]
   },
   "how": {
-    "text": "Egy tétel innen a <link to=\"/discover-more/changelog/\">Változásnaplóba</link> kerül, amikor elkészül, és eltűnik innen, ha úgy döntünk, hogy mégsem. Ha valami hiányzik neked, a <link to=\"/getting-started/support/\">Támogatás</link> az a hely, ahol elmondhatod."
+    "text": "Egy tétel innen a <link to=\"/discover-more/changelog/\">Változásnapló</link> kerül, amikor elkészül, és eltűnik innen, ha úgy döntünk, hogy mégsem. Ha valami hiányzik neked, a <link to=\"/getting-started/support/\">Támogatás</link> az a hely, ahol elmondhatod."
   }
 }

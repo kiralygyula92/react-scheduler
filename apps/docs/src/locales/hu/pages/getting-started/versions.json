@@ -36,7 +36,7 @@
   },
   "related": {
     "points": [
-      "<link to=\"/discover-more/changelog/\">Changelog</link> — mi változott az egyes kiadásokban.",
+      "<link to=\"/discover-more/changelog/\">Változásnapló</link> — mi változott az egyes kiadásokban.",
       "<link to=\"/migration/\">Migráció</link> — mi a teendő, ha egy főverzió változik.",
       "<link to=\"/getting-started/support/\">Támogatás</link> — meddig javítunk egy verziót."
     ]

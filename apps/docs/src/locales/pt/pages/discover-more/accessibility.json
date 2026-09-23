@@ -36,7 +36,7 @@
   "gaps": {
     "intro": "As lacunas conhecidas e o que se faz quanto a elas:",
     "points": [
-      "Ainda não há foco itinerante entre cartões: <kbd>Tab</kbd> é o único movimento, e um turno com muitos elementos são muitas paragens. Está no <link to=\"/discover-more/roadmap/\">plano</link>.",
+      "Ainda não há foco itinerante entre cartões: <kbd>Tab</kbd> é o único movimento, e um turno com muitos elementos são muitas paragens. Está no <link to=\"/discover-more/roadmap/\">Roteiro</link>.",
       "Os botões de navegação não têm atalhos de teclado.",
       "A predefinição <code>classic</code> mantém de propósito algumas falhas de contraste, por fidelidade ao píxel com o aspeto que reproduz: as etiquetas de nível, o tom de alerta e mais três no esquema claro. A predefinição normal não tem nenhuma, e o conjunto de testes permite exatamente essa lista e mais nada.",
       "Uma cor deste sítio de documentação — o contorno dos campos e dos cartões sob o cursor — está abaixo do 3:1 que o seu próprio sistema de design afirma. É medida num teste, para não poder piorar, e pertence à casca do sítio, não ao componente.",

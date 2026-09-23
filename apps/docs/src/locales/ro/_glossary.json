@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M5"
+  },
+  "shift": "tur",
+  "item": "element",
+  "level": "nivel",
+  "timeline": "cronologi",
+  "overflow": "suplimentar",
+  "preset": "preset",
+  "playground": "playground",
+  "changelog": "istoric modificări",
+  "roadmap": "plan de dezvoltare",
+  "slot": "slot",
+  "hook": "hook",
+  "headless": "headless",
+  "middleware": "middleware",
+  "token": "token"
+}

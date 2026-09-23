@@ -62,7 +62,7 @@
   },
   "limitations": {
     "points": [
-      "Ainda não há foco móvel nem navegação com setas entre cartões; o <kbd>Tab</kbd> é o único movimento. Está no <link to=\"/discover-more/roadmap/\">plano</link>.",
+      "Ainda não há foco móvel nem navegação com setas entre cartões; o <kbd>Tab</kbd> é o único movimento. Está no <link to=\"/discover-more/roadmap/\">roteiro</link>.",
       "Não há atalhos de teclado para os botões de navegação.",
       "A predefinição clássica tem falhas de contraste conhecidas, listadas em <link to=\"/discover-more/accessibility/\">Acessibilidade</link>."
     ]

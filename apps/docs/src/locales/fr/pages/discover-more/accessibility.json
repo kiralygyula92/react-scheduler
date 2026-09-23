@@ -36,7 +36,7 @@
   "gaps": {
     "intro": "Les manques connus et ce qui est fait à leur sujet :",
     "points": [
-      "Il n’y a pas encore de focus itinérant entre les cartes : <kbd>Tab</kbd> est le seul déplacement, et un poste chargé fait beaucoup d’arrêts. C’est sur la <link to=\"/discover-more/roadmap/\">feuille de route</link>.",
+      "Il n’y a pas encore de focus itinérant entre les cartes : <kbd>Tab</kbd> est le seul déplacement, et un poste chargé fait beaucoup d’arrêts. C’est sur la <link to=\"/discover-more/roadmap/\">Feuille de route</link>.",
       "Les boutons de navigation n’ont pas de raccourcis clavier.",
       "Le préréglage <code>classic</code> garde à dessein quelques défauts de contraste, par fidélité au pixel à l’allure qu’il reproduit : les pastilles de niveau, la teinte d’alerte, et trois autres dans le schéma clair. Le préréglage par défaut n’en a aucun, et la suite de tests n’autorise que cette liste.",
       "Une couleur de ce site de documentation — la bordure des champs et des cartes survolées — est sous le 3:1 que revendique son propre système de design. Elle est mesurée dans un test, pour ne pas pouvoir empirer, et relève de la coquille du site, pas du composant.",

@@ -4,7 +4,7 @@
     "source": "M5"
   },
   "meta": {
-    "title": "Plano de estrada",
+    "title": "Roteiro",
     "description": "O que está planeado depois da primeira versão estável — uma lista de intenções, sem datas."
   },
   "sections": {
@@ -15,7 +15,7 @@
   "intro": "Estas são as coisas com que o pacote deve crescer depois da 1.0. Não têm datas e nenhuma é um compromisso: a ordem é a que faz sentido hoje, e a primeira versão tem de vir primeiro.",
   "planned": {
     "head": {
-      "item": "Item",
+      "item": "Elemento",
       "status": "Estado",
       "what": "Em que consistiria"
     },
@@ -63,6 +63,6 @@
     ]
   },
   "how": {
-    "text": "Um item passa daqui para o <link to=\"/discover-more/changelog/\">Registo de alterações</link> quando é entregue, e desaparece daqui se for decidido o contrário. Se lhe falta alguma coisa, <link to=\"/getting-started/support/\">Apoio</link> é o sítio para o dizer."
+    "text": "Um elemento passa daqui para o <link to=\"/discover-more/changelog/\">Registo de alterações</link> quando é entregue, e desaparece daqui se for decidido o contrário. Se lhe falta alguma coisa, <link to=\"/getting-started/support/\">Apoio</link> é o sítio para o dizer."
   }
 }

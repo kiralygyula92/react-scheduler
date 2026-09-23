@@ -8,5 +8,5 @@
     "description": "Trecerea la această componentă de la un program scris de tine, și unde sunt consemnate schimbările de la o versiune la alta."
   },
   "scope": "Deocamdată există un singur ghid de migrare: venirea de la un panou de ture construit de echipa ta. Este exact mutarea pentru care a fost scris pachetul.",
-  "versions": "Actualizările între versiunile pachetului sunt consemnate în <link to=\"/discover-more/changelog/\">Jurnalul de modificări</link>. O versiune care are nevoie de pași proprii primește aici o pagină a ei, legată din intrarea care o introduce."
+  "versions": "Actualizările între versiunile pachetului sunt consemnate în <link to=\"/discover-more/changelog/\">Istoric modificări</link>. O versiune care are nevoie de pași proprii primește aici o pagină a ei, legată din intrarea care o introduce."
 }

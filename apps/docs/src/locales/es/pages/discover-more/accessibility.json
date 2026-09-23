@@ -36,7 +36,7 @@
   "gaps": {
     "intro": "Las carencias conocidas y qué se hace con ellas:",
     "points": [
-      "Todavía no hay foco itinerante entre tarjetas: <kbd>Tab</kbd> es el único movimiento, y un turno con muchos elementos son muchas paradas. Está en la <link to=\"/discover-more/roadmap/\">hoja de ruta</link>.",
+      "Todavía no hay foco itinerante entre tarjetas: <kbd>Tab</kbd> es el único movimiento, y un turno con muchos elementos son muchas paradas. Está en la <link to=\"/discover-more/roadmap/\">Hoja de ruta</link>.",
       "Los botones de navegación no tienen atajos de teclado.",
       "El preajuste <code>classic</code> conserva a propósito unas cuantas carencias de contraste, por fidelidad al píxel con el aspecto que reproduce: las píldoras de nivel, el tinte de alerta y tres más en el esquema claro. El preajuste predeterminado no tiene ninguna, y el conjunto de pruebas permite exactamente esa lista y nada más.",
       "Un color de este sitio de documentación —el borde de los campos y de las tarjetas bajo el cursor— está por debajo del 3:1 que afirma su propio sistema de diseño. Se mide en una prueba, para que no pueda empeorar, y pertenece al armazón del sitio, no al componente.",

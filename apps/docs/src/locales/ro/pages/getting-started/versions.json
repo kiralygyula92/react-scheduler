@@ -27,7 +27,7 @@
       "<strong>Patch</strong> — o corecție care lasă API-ul și markup-ul randat așa cum erau.",
       "<strong>Minor</strong> — proprietăți noi, exporturi noi, variabile CSS noi. Nimic din ce treci deja nu își schimbă sensul.",
       "<strong>Major</strong> — o eliminare sau o valoare implicită schimbată, cu o notă de migrare pentru fiecare.",
-      "<strong>Cât timp versiunea începe cu 0</strong>, o versiune minoră poate face ce ar face altfel una majoră. Fiecare astfel de schimbare este listată în changelog, împreună cu ce ai de făcut."
+      "<strong>Cât timp versiunea începe cu 0</strong>, o versiune minoră poate face ce ar face altfel una majoră. Fiecare astfel de schimbare este listată în istoricul modificărilor, împreună cu ce ai de făcut."
     ],
     "optIn": "Comportamentul nou vine oprit. O funcție care schimbă ce vede cititorul vine cu un flag sau cu o proprietate, cu valoarea implicită pe comportamentul vechi pentru restul majorului."
   },
@@ -36,7 +36,7 @@
   },
   "related": {
     "points": [
-      "<link to=\"/discover-more/changelog/\">Changelog</link> — ce s-a schimbat în fiecare versiune.",
+      "<link to=\"/discover-more/changelog/\">Istoric modificări</link> — ce s-a schimbat în fiecare versiune.",
       "<link to=\"/migration/\">Migrare</link> — ce ai de făcut când se schimbă un major.",
       "<link to=\"/getting-started/support/\">Suport</link> — cât timp este corectată o versiune."
     ]

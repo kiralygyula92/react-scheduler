@@ -78,9 +78,14 @@ function withoutDateTimeComma(parts: readonly Intl.DateTimeFormatPart[]): string
  */
 export function createFormatters(locale: string, options: FormatterOptions = {}): SchedulerFormatters {
   const resolved = supportedLocale(locale);
-  const clock = new Intl.DateTimeFormat(resolved, { hour: 'numeric', minute: '2-digit' });
-  const hour = new Intl.DateTimeFormat(resolved, { hour: 'numeric' });
-  const boundary = new Intl.DateTimeFormat(resolved, { month: 'short', day: 'numeric', hour: 'numeric' });
+  // Engines disagree about whether a `numeric` hour is padded in a 24-hour locale: Node prints
+  // `0:15` for Romanian and Firefox `00:15`, which makes a server-rendered schedule and its hydrated
+  // copy differ. Asking for the padding the locale's own convention uses is the same text in both.
+  const hourDigits = new Intl.DateTimeFormat(resolved, { hour: 'numeric' }).resolvedOptions().hourCycle;
+  const hourStyle = hourDigits === 'h23' || hourDigits === 'h24' ? '2-digit' : 'numeric';
+  const clock = new Intl.DateTimeFormat(resolved, { hour: hourStyle, minute: '2-digit' });
+  const hour = new Intl.DateTimeFormat(resolved, { hour: hourStyle });
+  const boundary = new Intl.DateTimeFormat(resolved, { month: 'short', day: 'numeric', hour: hourStyle });
   const timestamp = new Intl.DateTimeFormat(resolved, {
     year: 'numeric',
     month: '2-digit',

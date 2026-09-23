@@ -51,3 +51,18 @@
   display: flex;
   gap: var(--ds-space-3);
 }
+
+/* An open menu leaves the page behind it clickable, and a menu that covers part
+   of a link makes that link fail WCAG 2.2 target size: axe reports
+   `target-size` (serious) on the table-of-contents entry the language menu
+   half-covers, which `07` §1 does not allow. The menus render a transparent
+   catcher under themselves, which both takes the outside click that closes them
+   and puts the page fully behind the popup. (EXCEPTIONS.md #14) */
+.ds-menu-catcher {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--ds-z-menu) - 1);
+  background: none;
+  border: 0;
+  cursor: default;
+}

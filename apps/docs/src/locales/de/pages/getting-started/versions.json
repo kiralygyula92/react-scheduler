@@ -27,7 +27,7 @@
       "<strong>Patch</strong> — eine Korrektur, die API und gerendertes Markup so lässt, wie sie waren.",
       "<strong>Minor</strong> — neue Props, neue Exporte, neue CSS-Variablen. Nichts, was Sie bereits übergeben, ändert seine Bedeutung.",
       "<strong>Major</strong> — eine Entfernung oder ein geänderter Standardwert, jeweils mit einer Migrationsnotiz.",
-      "<strong>Solange die Version mit 0 beginnt</strong>, darf ein Minor-Release tun, was sonst ein Major täte. Jede solche Änderung steht im Changelog, mit dem, was zu tun ist."
+      "<strong>Solange die Version mit 0 beginnt</strong>, darf ein Minor-Release tun, was sonst ein Major täte. Jede solche Änderung steht im Änderungsprotokoll, mit dem, was zu tun ist."
     ],
     "optIn": "Neues Verhalten kommt ausgeschaltet. Eine Funktion, die ändert, was der Leser sieht, kommt mit einem Schalter oder einer Prop, standardmäßig auf dem alten Verhalten für den Rest des Majors."
   },
@@ -36,7 +36,7 @@
   },
   "related": {
     "points": [
-      "<link to=\"/discover-more/changelog/\">Changelog</link> — was sich in jedem Release geändert hat.",
+      "<link to=\"/discover-more/changelog/\">Änderungsprotokoll</link> — was sich in jedem Release geändert hat.",
       "<link to=\"/migration/\">Migration</link> — was zu tun ist, wenn ein Major wechselt.",
       "<link to=\"/getting-started/support/\">Hilfe</link> — wie lange eine Version Korrekturen bekommt."
     ]

@@ -36,7 +36,7 @@
   "gaps": {
     "intro": "Az ismert hiányosságok, és hogy mi történik velük:",
     "points": [
-      "A kártyák között még nincs vándorló fókusz: a <kbd>Tab</kbd> az egyetlen mozgás, és egy sokelemes műszak sok megállót jelent. Rajta van az <link to=\"/discover-more/roadmap/\">útiterven</link>.",
+      "A kártyák között még nincs vándorló fókusz: a <kbd>Tab</kbd> az egyetlen mozgás, és egy sokelemes műszak sok megállót jelent. Rajta van az <link to=\"/discover-more/roadmap/\">Ütemterv</link>.",
       "A léptetőgombokhoz nincsenek gyorsbillentyűk.",
       "A <code>classic</code> előbeállítás szándékosan megtart néhány kontraszthiányt, a képpontpontos hűség kedvéért ahhoz a kinézethez, amelyet reprodukál: a szintjelölők, a riasztás árnyalata és további három a világos sémában. Az alapértelmezett előbeállításban egy sincs, és a tesztek pontosan ezt a listát engedik meg, mást nem.",
       "Ennek a dokumentációs oldalnak az egyik színe — a mezők és a kurzor alatti kártyák kerete — a saját designrendszere által állított 3:1 alatt van. Teszt méri, hogy ne romolhasson tovább, és az oldal keretéhez tartozik, nem a komponenshez.",

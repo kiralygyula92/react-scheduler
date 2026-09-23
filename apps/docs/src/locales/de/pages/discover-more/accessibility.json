@@ -36,7 +36,7 @@
   "gaps": {
     "intro": "Die bekannten Lücken und was dagegen getan wird:",
     "points": [
-      "Zwischen den Karten gibt es noch kein wanderndes Fokussieren: <kbd>Tab</kbd> ist die einzige Bewegung, und eine volle Schicht sind viele Halte. Es steht auf dem <link to=\"/discover-more/roadmap/\">Fahrplan</link>.",
+      "Zwischen den Karten gibt es noch kein wanderndes Fokussieren: <kbd>Tab</kbd> ist die einzige Bewegung, und eine volle Schicht sind viele Halte. Es steht auf dem <link to=\"/discover-more/roadmap/\">Roadmap</link>.",
       "Die Navigationsschaltflächen haben keine Tastenkürzel.",
       "Die Vorgabe <code>classic</code> behält absichtlich einige Kontrastmängel, aus pixelgenauer Treue zu dem Aussehen, das sie nachbildet: die Stufenplaketten, der Alarmton und drei weitere im hellen Schema. Die Standardvorgabe hat keinen, und die Testsuite erlaubt genau diese Liste und sonst nichts.",
       "Eine Farbe dieser Dokumentationsseite — der Rahmen von Eingabefeldern und überfahrenen Karten — liegt unter den 3:1, die ihr eigenes Designsystem behauptet. Sie wird in einem Test gemessen, damit sie nicht schlechter werden kann, und gehört zur Hülle der Website, nicht zur Komponente.",

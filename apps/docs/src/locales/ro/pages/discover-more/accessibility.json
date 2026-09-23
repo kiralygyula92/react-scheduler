@@ -36,7 +36,7 @@
   "gaps": {
     "intro": "Lipsurile cunoscute și ce se face cu ele:",
     "points": [
-      "Nu există încă focus itinerant între carduri: <kbd>Tab</kbd> este singura mișcare, iar o tură cu multe elemente înseamnă multe opriri. Este în <link to=\"/discover-more/roadmap/\">planul de parcurs</link>.",
+      "Nu există încă focus itinerant între carduri: <kbd>Tab</kbd> este singura mișcare, iar o tură cu multe elemente înseamnă multe opriri. Este în <link to=\"/discover-more/roadmap/\">Plan de dezvoltare</link>.",
       "Butoanele de navigare nu au scurtături de tastatură.",
       "Presetarea <code>classic</code> păstrează dinadins câteva neajunsuri de contrast, pentru fidelitate la pixel cu aspectul pe care îl reproduce: pastilele de nivel, nuanța de alertă și încă trei în schema deschisă. Presetarea implicită nu are niciunul, iar suita de teste permite exact acea listă și nimic altceva.",
       "O culoare a acestui sit de documentație — chenarul câmpurilor și al cardurilor sub cursor — este sub raportul de 3:1 pe care îl susține propriul lui sistem de design. Este măsurată într-un test, ca să nu se poată înrăutăți, și ține de carcasa sitului, nu de componentă.",

@@ -4,7 +4,7 @@
     "source": "M5"
   },
   "meta": {
-    "title": "Plan de parcurs",
+    "title": "Plan de dezvoltare",
     "description": "Ce este planificat după prima versiune stabilă — ca listă de intenții, fără date calendaristice."
   },
   "sections": {
@@ -63,6 +63,6 @@
     ]
   },
   "how": {
-    "text": "Un element trece de aici în <link to=\"/discover-more/changelog/\">Jurnalul de modificări</link> când este livrat și dispare de aici dacă se decide împotriva lui. Dacă îți lipsește ceva, <link to=\"/getting-started/support/\">Asistență</link> este locul unde să o spui."
+    "text": "Un element trece de aici în <link to=\"/discover-more/changelog/\">Istoric modificări</link> când este livrat și dispare de aici dacă se decide împotriva lui. Dacă îți lipsește ceva, <link to=\"/getting-started/support/\">Asistență</link> este locul unde să o spui."
   }
 }

@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M5"
+  },
+  "shift": "turno",
+  "item": "elemento",
+  "level": "nível",
+  "timeline": "cronologi",
+  "overflow": "adicionai",
+  "preset": "predefinição",
+  "playground": "playground",
+  "changelog": "registo de alterações",
+  "roadmap": "roteiro",
+  "slot": "slot",
+  "hook": "hook",
+  "headless": "headless",
+  "middleware": "middleware",
+  "token": "token"
+}

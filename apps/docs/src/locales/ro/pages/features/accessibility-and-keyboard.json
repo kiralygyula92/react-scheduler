@@ -62,7 +62,7 @@
   },
   "limitations": {
     "points": [
-      "Nu există încă focalizare mobilă sau navigare cu săgeți între carduri; <kbd>Tab</kbd> este singura mișcare. Se află pe <link to=\"/discover-more/roadmap/\">foaia de parcurs</link>.",
+      "Nu există încă focalizare mobilă sau navigare cu săgeți între carduri; <kbd>Tab</kbd> este singura mișcare. Se află în <link to=\"/discover-more/roadmap/\">Plan de dezvoltare</link>.",
       "Nu există scurtături de tastatură pentru butoanele de navigare.",
       "Presetul clasic are neajunsuri de contrast cunoscute, listate la <link to=\"/discover-more/accessibility/\">Accesibilitate</link>."
     ]

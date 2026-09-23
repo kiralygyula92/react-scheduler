@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M5"
+  },
+  "shift": "műszak",
+  "item": "elem",
+  "level": "szint",
+  "timeline": "idővonal",
+  "overflow": "további",
+  "preset": "előbeállítás",
+  "playground": "playground",
+  "changelog": "változásnapló",
+  "roadmap": "ütemterv",
+  "slot": "slot",
+  "hook": "hook",
+  "headless": "headless",
+  "middleware": "middleware",
+  "token": "token"
+}

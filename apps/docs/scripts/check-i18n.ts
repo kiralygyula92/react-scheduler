@@ -203,11 +203,18 @@ function checkGlossaries(): void {
     );
     for (const [namespace, bundle] of bundles(locale)) {
       for (const [key, message] of stringsOf(bundle)) {
-        // Code spans are never translated, so a term inside backticks is not a finding.
-        const prose = message.replaceAll(/`[^`]*`/g, '');
+        // Code spans, inline code and bare identifiers (`shift.start`, `overflow-anchor`) are the
+        // API's own names, never translated, so a term inside them is not a finding.
+        const prose = message
+          .replaceAll(/`[^`]*`/g, '')
+          .replaceAll(/<code>[^<]*<\/code>/g, '')
+          .replaceAll(/[A-Za-z][\w$]*(?:[.-][A-Za-z][\w$]*)+/g, '');
+        const lower = prose.toLowerCase();
         for (const [term, translation] of terms) {
           const pattern = new RegExp(`\\b${term.replaceAll(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-          if (pattern.test(prose) && !prose.includes(translation)) {
+          // The translation is matched loosely — lower-cased and as a substring — so that a glossary
+          // can hold the base word of a language that inflects it.
+          if (pattern.test(prose) && !lower.includes(translation.toLowerCase())) {
             report(`${locale}/${namespace}.json`, `${key}: "${term}" is not translated (glossary: "${translation}")`);
           }
         }

@@ -141,3 +141,21 @@ export function useDismissOnOutside(active: boolean, onDismiss: () => void): Rea
   }, [active, onDismiss]);
   return ref;
 }
+
+/**
+ * Marks the page behind an open menu inert. A popup that covers part of a link leaves it a target
+ * too small for WCAG 2.2 target size — axe reports `target-size` on the table-of-contents entry the
+ * language menu half-covers — and the page behind an open menu is not operable anyway: the first
+ * click anywhere outside closes it. `inert` says that, and the menu's own catcher takes the click.
+ * (EXCEPTIONS.md #14)
+ */
+export function useInertBehind(active: boolean): void {
+  useEffect(() => {
+    if (!active) return;
+    const regions = [...document.querySelectorAll<HTMLElement>('.ds-body, .ds-footer')];
+    for (const region of regions) region.inert = true;
+    return () => {
+      for (const region of regions) region.inert = false;
+    };
+  }, [active]);
+}
