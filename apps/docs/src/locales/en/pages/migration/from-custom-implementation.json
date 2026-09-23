@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "From a custom implementation",
-    "description": "From a custom implementation: who it is for, what changed, and the steps that move an existing setup to the current version."
+    "description": "Mapping a hand-written shift board onto this one: items, levels, shifts, strings and styles."
   },
   "sections": {
     "who-this-is-for": "Who this is for",
@@ -13,5 +13,88 @@
     "step-by-step": "Step by step",
     "removed-and-renamed": "Removed and renamed",
     "getting-help": "Getting help"
+  },
+  "who": {
+    "intro": "You already have a schedule on screen. Somebody wrote it — a list grouped by shift, or a column of cards with absolute positions — and it works, but every new requirement lands on the same few hundred lines. This guide maps what you have onto what this package already does.",
+    "points": [
+      "You render a day, or a shift, as a list or as a time grid.",
+      "You have your own idea of severity, priority or status, and it decides colors and order.",
+      "You have handled at least one of: items that overlap, a shift that crosses midnight, items that must stay in view once they scroll past.",
+      "You are on React 18.2 or 19 and can add a dependency."
+    ]
+  },
+  "summary": {
+    "intro": "What moves, and what it becomes. Nothing here needs a codemod: the change is a mapping function and a few props.",
+    "head": {
+      "before": "What you have",
+      "after": "What it becomes",
+      "action": "What to do"
+    },
+    "rows": [
+      ["Your row type", "<code>SchedulerItem</code>", "Map it once; keep your own object in <code>data</code>."],
+      [
+        "Severity, priority or status",
+        "<code>levels</code>",
+        "One definition per key: rank, color, card treatment, whether it pins."
+      ],
+      [
+        "Grouping by day or shift",
+        "<code>shifts</code>",
+        "An anchor and a length. The component decides which shift is current."
+      ],
+      ["Your overlap logic", "Columns and the overflow chip", "Delete it. The cap and the promotion are built in."],
+      [
+        "A sticky \"still open\" bar",
+        "The pinned strip",
+        "Set <code>pinOnPass</code> on the levels that belong there."
+      ],
+      ["Hard-coded English strings", "A locale pack", "Pass one of the seven, or write your own object."],
+      [
+        "Your CSS file",
+        "Tokens, class names, slots",
+        "Start with the tokens; reach for slots only where the structure has to differ."
+      ],
+      [
+        "Your detail modal",
+        "The built-in dialog, or <code>renderItemDetail</code>",
+        "Keep yours if it is doing work; the prop hands it the item."
+      ]
+    ]
+  },
+  "steps": {
+    "items": {
+      "title": "Map your rows to items",
+      "text": "An item needs an id, a start and a title. Everything else is optional, and your own object rides along in <code>data</code>, typed, so slots and handlers can reach it without a lookup."
+    },
+    "levels": {
+      "title": "Turn your severity into levels",
+      "text": "A level definition is what decides color, order and card treatment. Give the strongest the lowest rank. If your scale is close to the classic nine, start from <code>classicLevels</code> and edit; if it is not, define your own — nothing in the component assumes the classic keys."
+    },
+    "shifts": {
+      "title": "Describe the day instead of grouping it",
+      "text": "Rather than bucketing items yourself, say how long a shift is and when one of them starts. The component places every item, decides which shift holds the current moment, and renders the ones before and after it. A shift that crosses midnight needs nothing extra."
+    },
+    "strings": {
+      "title": "Move your strings into a locale pack",
+      "text": "Every string the component shows comes from one object. Pass one of the seven packs, or spread one and replace the messages you word differently. Your own strings — the titles of your items — stay yours."
+    },
+    "styles": {
+      "title": "Rebuild the look with tokens first",
+      "text": "Most house styles are a handful of CSS variables: a surface, a radius, an accent. Set those before writing any CSS of your own, then use <code>classNames</code> for the rules that remain, and slots only where the markup itself has to be different."
+    },
+    "behavior": {
+      "title": "Replace your interception points",
+      "text": "A confirmation before opening, a permission check, an unsaved-changes prompt: those become middleware. A handler runs before the component acts and can cancel it, so the component keeps its own state machine and you keep your rules."
+    }
+  },
+  "removed": {
+    "text": "Nothing yet. This is the first release, so there is no rename or removal to carry. Every later change of that kind is recorded in the <link to=\"/discover-more/changelog/\">Changelog</link>, and one that needs steps gets a guide of its own next to this one."
+  },
+  "help": {
+    "points": [
+      "<link to=\"/all-features/\">All features</link> — the fastest way to find the page for a behavior you already built.",
+      "<link to=\"/headless-api/\">Headless API</link> — when the structure really does have to be yours.",
+      "<link to=\"/getting-started/support/\">Support</link> — where to ask, and what to include."
+    ]
   }
 }

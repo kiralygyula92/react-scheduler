@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Temas",
-    "description": "Temas en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+    "title": "Tematización",
+    "description": "El ajuste preestablecido, el esquema de color y la densidad, los tokens que hay detrás y cómo funciona el modo oscuro."
   },
   "sections": {
     "tokens": "Tokens",
     "dark-mode": "Modo oscuro",
-    "presets": "Preajustes"
+    "presets": "Ajustes preestablecidos"
+  },
+  "demos": {
+    "theming": "Los tres mandos"
+  },
+  "tokens": {
+    "intro": "Tres props deciden cómo se ve el horario: <code>preset</code> es su forma, <code>colorScheme</code> su paleta, <code>density</code> su espaciado. Son independientes: cualquiera de las doce combinaciones es válida y todas están estilizadas.",
+    "props": "Por debajo de esas tres, todo es una variable CSS. <code>tokens</code> las fija en la raíz del componente, que es la forma más pequeña de cambiar un valor sin una hoja de estilos propia:"
+  },
+  "dark": {
+    "intro": "El esquema oscuro no es una hoja de estilos aparte: son los mismos tokens con otros valores, seleccionados por un atributo de datos que pone el componente. Eso significa que puedes sustituir los valores oscuros igual que los claros:",
+    "system": "<code>colorScheme=\"system\"</code> sigue el ajuste de quien lee mediante <code>prefers-color-scheme</code> y se actualiza cuando cambia. Elijas lo que elijas, el contraste del ajuste por defecto es el que informa la página de <link to=\"/discover-more/accessibility/\">accesibilidad</link>."
+  },
+  "presets": {
+    "intro": "Un ajuste preestablecido es la forma del componente, no sus colores.",
+    "points": [
+      "<code>'default'</code> — lo que muestra este sitio: tarjetas más redondeadas, un carril de nivel más fuerte, más aire entre las filas.",
+      "<code>'classic'</code> — más denso y más plano, para una pantalla que debe abarcar más a la vez.",
+      "Los dos funcionan en ambos esquemas de color y en las tres densidades, y ambos están cubiertos por las pruebas visuales.",
+      "Un ajuste preestablecido solo cambia lo que el CSS puede cambiar; la estructura, los nombres y el comportamiento son los mismos en cada uno."
+    ]
   }
 }

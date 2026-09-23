@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "huHU",
+    "description": "El paquete de idioma húngaro (Hungría), que se pasa a localization."
+  }
+}

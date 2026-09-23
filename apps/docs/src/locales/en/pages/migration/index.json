@@ -1,10 +1,12 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Migration",
-    "description": "How to move an existing setup to the current React Scheduler version, and what changed on the way."
-  }
+    "description": "Moving to this component from a schedule you wrote yourself, and where version-to-version changes are recorded."
+  },
+  "scope": "There is one migration guide so far: coming from a shift board your team built itself. It is the move this package was written for.",
+  "versions": "Upgrades between versions of the package are recorded in the <link to=\"/discover-more/changelog/\">Changelog</link>. A release that needs steps of its own gets its own page here, linked from the entry that introduces it."
 }

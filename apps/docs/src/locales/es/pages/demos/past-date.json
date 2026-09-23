@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Fecha pasada",
-    "description": "Una demo de React Scheduler sobre el conjunto Fecha pasada: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Fecha pasada",
+    "description": "Un día dos días por detrás del reloj: todo ha ocurrido ya y no hay indicador de «ahora»."
+  },
+  "demos": {
+    "board": "Un día ya terminado"
+  },
+  "scenario": "El horario muestra un día dos días antes del actual. Todos los elementos ya han ocurrido, así que la pregunta que el componente tiene que responder es qué significa un horario cuando nada de él está por delante.",
+  "look": [
+    "Ningún indicador de «ahora». Solo se dibuja en el turno que contiene el momento actual, y ese turno está a dos días.",
+    "Nada se atenúa por haber pasado. Solo el nivel <code>resolved</code> se dibuja apagado, y eso vale cualquier día.",
+    "Los encabezados siguen siendo anterior, actual y siguiente: son relativos a la fecha mostrada, no a hoy.",
+    "La navegación y la fijación se comportan exactamente igual que en el día actual."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Turnos y fechas</link> — la fecha seleccionada y los turnos dibujados a su alrededor.",
+    "<link to=\"/now-indicator/\">Indicador de «ahora»</link> — la regla que lo mantiene fuera de esta página.",
+    "<link to=\"/pinning/\">Fijación</link> — los elementos heredados, en un día que está entero por detrás."
+  ]
 }

@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accessibilité",
-    "description": "L’objectif d’accessibilité de React Scheduler, ce qui est testé à chaque changement et les lacunes restantes."
+    "description": "L’objectif, ce qui est testé à chaque changement, les manques qui subsistent et où les signaler."
   },
   "sections": {
     "target": "Objectif",
     "what-is-tested": "Ce qui est testé",
-    "known-gaps": "Lacunes connues",
+    "known-gaps": "Manques connus",
     "reporting": "Signaler un problème"
+  },
+  "target": {
+    "intro": "L’objectif est WCAG 2.2 niveau AA, pour le composant comme pour ce site. C’est un objectif que les tests imposent, pas une certification : aucun audit n’a été commandé et aucune déclaration de conformité n’est faite.",
+    "points": [
+      "Le préréglage par défaut respecte les exigences de contraste dans les deux schémas de couleurs.",
+      "Tout ce qui se fait au pointeur se fait au clavier, dans l’ordre où la page se lit.",
+      "Chaque partie porte un rôle et un nom ; rien ne dépend de la seule couleur.",
+      "Sous <code>prefers-reduced-motion</code>, rien ne s’anime, et le mouvement ne porte aucune information."
+    ]
+  },
+  "tested": {
+    "intro": "Chaque changement passe les mêmes vérifications, et une publication y ajoute celles qu’une personne doit faire :",
+    "points": [
+      "axe-core sur le composant rendu dans Chromium, Firefox et WebKit, dans les deux préréglages, les deux schémas de couleurs et chaque état, règles de contraste activées.",
+      "axe-core sur les pages de ce site, dans chaque langue, sans aucune violation sérieuse ou critique.",
+      "Des tests au clavier qui parcourent tout le planning : les cartes, les puces épinglées, la navigation, les dialogues et la façon dont le focus revient.",
+      "Des instantanés de ce qu’un lecteur d’écran reçoit — les noms accessibles, les annonces des régions live et leur limitation.",
+      "Des captures de droite à gauche comparées à leurs équivalentes de gauche à droite, pour qu’une mise en page en miroir soit un échec de test et non une surprise.",
+      "Avant une publication, la liste manuelle : NVDA avec Firefox et VoiceOver avec Safari, les tâches des démos au clavier seul, zoom à 200 % en 320 pixels de large, et le contraste élevé de Windows."
+    ]
+  },
+  "gaps": {
+    "intro": "Les manques connus et ce qui est fait à leur sujet :",
+    "points": [
+      "Il n’y a pas encore de focus itinérant entre les cartes : <kbd>Tab</kbd> est le seul déplacement, et un poste chargé fait beaucoup d’arrêts. C’est sur la <link to=\"/discover-more/roadmap/\">Feuille de route</link>.",
+      "Les boutons de navigation n’ont pas de raccourcis clavier.",
+      "Le préréglage <code>classic</code> garde à dessein quelques défauts de contraste, par fidélité au pixel à l’allure qu’il reproduit : les pastilles de niveau, la teinte d’alerte, et trois autres dans le schéma clair. Le préréglage par défaut n’en a aucun, et la suite de tests n’autorise que cette liste.",
+      "Une couleur de ce site de documentation — la bordure des champs et des cartes survolées — est sous le 3:1 que revendique son propre système de design. Elle est mesurée dans un test, pour ne pas pouvoir empirer, et relève de la coquille du site, pas du composant.",
+      "La liste manuelle n’a pas encore été passée, puisque rien n’a encore été publié."
+    ]
+  },
+  "reporting": {
+    "intro": "Un problème d’accessibilité est un bug, traité avant les fonctionnalités. Pour en signaler un :",
+    "points": [
+      "Dites quelle technologie d’assistance et quel navigateur, avec les versions — la combinaison compte plus que chacun isolément.",
+      "Dites ce que vous attendiez d’entendre ou d’atteindre, et ce qui s’est passé à la place.",
+      "Un lien vers une reproduction vaut mieux qu’une description ; les <link to=\"/demos/\">démos</link> sont un bon point de départ.",
+      "<link to=\"/getting-started/support/\">Assistance</link> indique où l’ouvrir et quoi d’autre inclure."
+    ]
   }
 }

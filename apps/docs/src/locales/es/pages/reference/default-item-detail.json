@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "DefaultItemDetail",
+    "description": "La vista de detalle en la que se abre un elemento, tal como la renderiza la biblioteca."
+  }
+}

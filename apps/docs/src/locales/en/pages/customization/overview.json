@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Overview",
-    "description": "Overview in React Scheduler: what you can change, how to change it, and what each change affects."
+    "description": "The six ways to change React Scheduler, from a CSS variable to a rendering of your own — lightest first."
   },
   "sections": {
     "css-variables": "CSS variables",
@@ -14,5 +14,24 @@
     "slots": "Slots",
     "handlers": "Handlers",
     "headless-hooks": "Headless hooks"
+  },
+  "scope": "Six levels, from the lightest to the heaviest. Each one costs more to maintain than the one before it, so take the first that does what you need — and stop there.",
+  "variables": {
+    "text": "A value: a color, a radius, a height. Set a token on the component, in your own stylesheet, or through the <code>tokens</code> prop, and everything built from it follows. Nothing about the structure changes. See <link to=\"/customization/css-variables/\">CSS variables</link>."
+  },
+  "classNames": {
+    "text": "A hook for your own CSS. <code>classNames</code> adds a class to any part, next to the library’s own, so your rules can target it without depending on the library’s class names. With <code>unstyled</code>, they are the only classes there are."
+  },
+  "slotProps": {
+    "text": "An attribute on a part: a title, a data attribute, an extra class, a ref. The part stays the library’s; you are only adding to its props. A function form receives the owner state, so the value can depend on the item or the shift."
+  },
+  "slots": {
+    "text": "The part itself, replaced. Your component receives the props the built-in one would have had — including the ref and the handlers — and renders whatever it likes. See <link to=\"/customization/slots/\">Slots and overrides</link>."
+  },
+  "handlers": {
+    "text": "Behavior rather than markup. A middleware runs before the component acts and can change the outcome or cancel it — a confirmation, a permission, an unsaved change. See <link to=\"/events-and-middleware/\">Events and middleware</link>."
+  },
+  "hooks": {
+    "text": "The model without the markup. When the structure itself has to be different, take the state and the prop getters and render your own. See <link to=\"/headless-api/\">Headless API</link>."
   }
 }

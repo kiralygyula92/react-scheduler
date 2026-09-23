@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedStrip",
+    "description": "La banda de elementos fijados que permanece a la vista mientras su turno está en pantalla."
+  }
+}

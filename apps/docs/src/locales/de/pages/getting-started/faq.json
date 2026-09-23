@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "FAQ",
-    "description": "FAQ für das React-Scheduler-Paket: die Schritte der Reihe nach, die beteiligten Versionen und die Prüfung danach."
+    "description": "Die vier häufigsten Fragen zu React Scheduler: die Lizenz, Next.js, die Nutzung ohne die Standardstile und die eingebauten Sprachen."
   },
   "sections": {
     "is-it-free": "Ist es kostenlos?",
     "nextjs": "Funktioniert es mit Next.js?",
     "without-default-styles": "Kann ich es ohne die Standardstile verwenden?",
     "built-in-languages": "Welche Sprachen sind enthalten?"
+  },
+  "free": {
+    "text": "Ja. React Scheduler steht unter der MIT-Lizenz, ohne kostenpflichtige Stufe und ohne gesperrte Funktionen: das Paket, das Sie installieren, ist das Ganze, und alles auf dieser Website steckt darin. Der vollständige Text steht auf der Seite <link to=\"/discover-more/license/\">Lizenz</link>."
+  },
+  "nextjs": {
+    "text": "Ja, in beiden Routern. Der Plan liest den Viewport und hört auf das Scrollen, ist also eine Client-Komponente: Schreiben Sie <code>'use client'</code> an den Anfang der Datei, die ihn rendert, oder einer Hülle darum. Der Server rendert sein Markup weiterhin, und die Hydration ist still. Die Einzelheiten stehen unter <link to=\"/integrations/nextjs/\">Next.js</link>."
+  },
+  "unstyled": {
+    "text": "Ja, auf drei Stufen. Behalten Sie <code>styles.css</code> und ändern Sie die CSS-Variablen; oder binden Sie <code>base.css</code> ein, das nur die Struktur trägt; oder übergeben Sie <code>unstyled</code> und bringen Ihre eigenen Klassennamen über <code>classNames</code> mit. <link to=\"/customization/\">Anpassung</link> zeigt, was jede Stufe kostet."
+  },
+  "languages": {
+    "text": "Sieben: Englisch, Rumänisch, Ungarisch, Spanisch, Französisch, Deutsch und Portugiesisch. Jede ist ein einfaches Objekt aus <code>@react-schedulerkit/react-scheduler/locales</code>, das Sie übergeben, erweitern oder selbst schreiben können — Datum, Uhrzeit und Anzahl folgen der Sprache des Pakets über <code>Intl</code>. Siehe <link to=\"/customization/localization/\">Lokalisierung</link>."
   }
 }

@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Demonstrações",
-    "description": "Demonstrações de cenários do React Scheduler, cada uma com várias capacidades, e o playground para testar props."
-  }
+    "description": "Oito dias de horário, de um vazio a um com 240 elementos, mais o espaço de testes para experimentar props."
+  },
+  "scope": "Cada uma delas é um dia, construído a partir dos mesmos conjuntos de dados com que o pacote é testado, com a vista, o esquema de cor e a densidade nas suas mãos. Leem-se a par das páginas de capacidades: um cenário mostra várias capacidades ao mesmo tempo, uma página de capacidade explica uma só."
 }

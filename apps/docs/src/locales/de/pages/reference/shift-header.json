@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftHeader",
+    "description": "Die Kopfzeile einer Schicht in der Listenansicht."
+  }
+}

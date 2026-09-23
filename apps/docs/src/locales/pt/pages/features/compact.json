@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Modo compacto",
-    "description": "Modo compacto no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "Como o horário se adapta à largura que recebe — a sua, não a da janela — e o que muda quando o faz."
   },
   "sections": {
     "basics": "Noções básicas",
@@ -13,5 +13,38 @@
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "compact": "O mesmo horário, três larguras"
+  },
+  "basics": {
+    "intro": "Um horário numa barra lateral e um que preenche a página são o mesmo componente em duas larguras. O modo compacto é medido a partir do contentor do próprio horário com um <code>ResizeObserver</code>, nunca a partir da janela nem do agente do utilizador, por isso uma caixa estreita numa janela larga é compacta e uma caixa larga dentro de um iframe do tamanho de um telemóvel não é.",
+    "points": [
+      "<code>compact</code> é <code>'auto'</code> por omissão: verdadeiro abaixo de <code>compactBreakpoint</code>, que são 900 píxeis. Um booleano força-o num sentido ou no outro.",
+      "O modo compacto aperta os cartões, reduz a cronologia a uma coluna e estreita as etiquetas fixadas — 436 píxeis a partir de 900, 360 entre 600 e 899, e 90% da largura abaixo disso.",
+      "<code>listOnlyBreakpoint</code> é separado e mais forte: abaixo dele a cronologia nem sequer é oferecida.",
+      "No servidor o componente renderiza como não compacto, a não ser que passe um booleano, e a primeira medição depois da hidratação corrige-o."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "No modo compacto não se retira nada: os mesmos elementos, os mesmos títulos, os mesmos nomes, em menos píxeis.",
+      "Os alvos de toque mantêm-se com pelo menos 24 por 24 píxeis, que é o que a WCAG 2.2 pede.",
+      "A medição é do contentor, por isso quem amplia para 200% obtém a disposição compacta e não uma página com deslocamento horizontal."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>compactBreakpoint</code> e <code>listOnlyBreakpoint</code> definem onde estão os dois limiares.",
+      "<code>density</code> é o outro controlo de espaçamento e é independente do modo compacto — ver <link to=\"/customization/theming/\">Tema</link>.",
+      "<code>useCompact</code> dá a mesma medição a uma marcação sua."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Os limiares são larguras em píxeis, não consultas de contentor: uma disposição que muda de forma sem mudar a largura do horário não muda o modo compacto.",
+      "As larguras das etiquetas fixadas estão fixas nos seus três degraus e não podem ser definidas por aplicação.",
+      "O primeiro fotograma renderizado no servidor não pode conhecer a largura, por isso a disposição compacta aparece depois da hidratação, a não ser que passe o booleano."
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createNavigator",
+    "description": "Crée le navigateur d’une zone de défilement."
+  }
+}

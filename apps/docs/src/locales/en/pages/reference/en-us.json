@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "enUS",
+    "description": "The English locale pack, and the default when no localization is given."
+  }
+}

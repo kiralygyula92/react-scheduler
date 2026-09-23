@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "Las ventanas de turno renderizadas alrededor de date, con desplazamientos -before … +after. La ventana actual es [último límite ≤ date, siguiente límite); los desplazamientos recorren los límites a través de los días."
+  }
+}

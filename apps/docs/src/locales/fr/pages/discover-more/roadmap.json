@@ -1,13 +1,68 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Feuille de route",
-    "description": "Ce qui est prévu pour React Scheduler après la première version stable. Sans dates ni promesses."
+    "description": "Ce qui est prévu après la première version stable — une liste d’intentions, sans dates."
   },
   "sections": {
-    "planned": "Prévu"
+    "planned": "Prévu",
+    "not-planned": "Non prévu",
+    "how-it-changes": "Comment cette liste évolue"
+  },
+  "intro": "Voici ce dont le paquet devrait s’enrichir après la 1.0. Rien n’est daté et rien n’est promis : l’ordre est celui qui a du sens aujourd’hui, et la première version doit venir d’abord.",
+  "planned": {
+    "head": {
+      "item": "Élément",
+      "status": "Statut",
+      "what": "Ce que ce serait"
+    },
+    "rows": [
+      [
+        "Édition par glisser-déposer",
+        "Prévu",
+        "Déplacer et redimensionner les éléments au pointeur et au clavier, avec des éléments verrouillables."
+      ],
+      [
+        "Virtualisation",
+        "Prévu",
+        "Ne rendre que ce qui est proche de la fenêtre. Les budgets sont tenus sans elle aujourd’hui, d’où son absence en 1.0."
+      ],
+      [
+        "Focus itinérant et raccourcis",
+        "Prévu",
+        "Déplacement aux flèches entre les cartes, et raccourcis pour les boutons de navigation."
+      ],
+      [
+        "Fuseau horaire explicite",
+        "Prévu",
+        "Rendre une journée dans un fuseau autre que celui du lecteur. Aujourd’hui le composant travaille dans le fuseau local et tient face à l’heure d’été."
+      ],
+      ["Barre de dates", "Prévu", "Un moyen intégré de choisir la journée. Aujourd’hui, la date vous appartient."],
+      [
+        "Persistance",
+        "Prévu",
+        "Se souvenir de la vue, de la position de défilement et des éléments épinglés entre les visites, derrière une prop."
+      ],
+      [
+        "Un registre de capacités",
+        "À l’étude",
+        "Ajouter une capacité depuis l’extérieur du paquet, au lieu d’un interrupteur interne."
+      ]
+    ]
+  },
+  "notPlanned": {
+    "intro": "Certaines choses sont délibérément hors de ce que fait le composant, et le dire fait partie de la feuille de route :",
+    "points": [
+      "Une couche de données. Le composant ne va jamais chercher de données ; les éléments sont les vôtres, d’où que vous les gardiez.",
+      "Une bibliothèque d’état. L’état est de l’état React, contrôlé ou non, et rien d’autre n’est nécessaire.",
+      "Un runtime de style. L’allure, ce sont des variables CSS et des noms de classes, résolus par le navigateur.",
+      "Un calendrier. Ceci est un planning d’une journée à la fois, pas une vue mensuelle ou annuelle."
+    ]
+  },
+  "how": {
+    "text": "Un élément passe d’ici au <link to=\"/discover-more/changelog/\">Journal des modifications</link> quand il est livré, et disparaît d’ici s’il est abandonné. S’il vous manque quelque chose, <link to=\"/getting-started/support/\">Assistance</link> est l’endroit pour le dire."
   }
 }

@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Întârziere la livrare",
+      "Ședință de tură",
+      "Inventariere",
+      "Verificarea echipamentelor",
+      "Inspecție de siguranță",
+      "Apel către furnizor",
+      "Analiza raportului",
+      "Fereastră de mentenanță",
+      "Sesiune de instruire",
+      "Raportare de noapte",
+      "Actualizare de sistem",
+      "Verificarea copiei de rezervă",
+      "Note de predare",
+      "Rundă de curățenie"
+    ],
+    "description": "Scurtă descriere pentru {title}.",
+    "suggestion": "Următorul pas sugerat."
+  },
+  "controls": {
+    "maxColumns": "Cel mult atâtea coloane",
+    "columnPlacement": "Așezarea pe coloane",
+    "placementPriority": "După prioritate",
+    "placementTime": "După ora de început",
+    "mergeWindow": "Fereastră de comasare",
+    "minutes": "{count} minute",
+    "hours": "{count, plural, one {# oră} few {# ore} other {# de ore}}",
+    "unlimited": "Fără limită",
+    "view": "Vizualizare",
+    "preset": "Preset",
+    "presetDefault": "Implicit",
+    "presetClassic": "Clasic",
+    "shiftLength": "Durata turei",
+    "navigationThreshold": "Navigarea apare de la",
+    "items": "{count, plural, one {# element} few {# elemente} other {# de elemente}}",
+    "sortByTitle": "Sortează după titlu, nu după oră",
+    "pinnedCount": "{count, plural, =0 {Nimic fixat încă} one {# element fixat} few {# elemente fixate} other {# de elemente fixate}}",
+    "navigateIdle": "Folosește butoanele de deasupra și de sub listă.",
+    "navigated": "Salt la tura cu decalajul {offset}.",
+    "clock": "Ora este acum",
+    "containerWidth": "Lățimea containerului",
+    "pixels": "{count} pixeli",
+    "state": "Stare",
+    "stateData": "Date",
+    "stateLoading": "Se încarcă",
+    "stateError": "Eroare",
+    "stateEmpty": "Gol",
+    "reducedMotion": "Cere mișcare redusă",
+    "guardOpening": "Întreabă înainte de a deschide un element critic",
+    "eventsIdle": "Deschide un element ca să vezi ce rulează.",
+    "blocked": "Deschiderea „{title}” a fost anulată de middleware.",
+    "opened": "„{title}” a fost deschis.",
+    "scheduleLabel": "Panoul de ture",
+    "scheme": "Schemă de culoare",
+    "schemeLight": "Deschisă",
+    "schemeDark": "Întunecată",
+    "density": "Densitate",
+    "densityStandard": "Standard",
+    "densityComfortable": "Confortabilă",
+    "densityDense": "Densă",
+    "compact": "Compact"
+  },
+  "levels": {
+    "blocking": "Blocant",
+    "attention": "Necesită atenție",
+    "planned": "Planificat",
+    "done": "Gata"
+  },
+  "columns": {
+    "reference": "Referință",
+    "title": "Titlu",
+    "level": "Nivel"
+  },
+  "detail": {
+    "reference": "Referința {reference}",
+    "close": "Închide"
+  },
+  "localization": {
+    "emptyShift": "Nimic programat încă în acest schimb.",
+    "pinnedLabel": "Ținut la vedere"
+  }
+}

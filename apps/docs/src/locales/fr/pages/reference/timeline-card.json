@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineCard",
+    "description": "Une carte de chronologie, positionnée en absolu d’après la sortie du moteur de disposition."
+  }
+}

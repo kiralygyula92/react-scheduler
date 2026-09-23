@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Modo compacto",
-    "description": "Modo compacto en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Cómo se adapta el horario al ancho que recibe —el suyo, no el de la ventana— y qué cambia cuando lo hace."
   },
   "sections": {
     "basics": "Conceptos básicos",
@@ -13,5 +13,38 @@
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "compact": "El mismo horario, tres anchos"
+  },
+  "basics": {
+    "intro": "Un horario en una barra lateral y uno que llena la página son el mismo componente a dos anchos. El modo compacto se mide desde el contenedor propio del horario con un <code>ResizeObserver</code>, nunca desde la ventana ni desde el agente de usuario, así que una caja estrecha en una ventana ancha es compacta y una caja ancha dentro de un iframe del tamaño de un teléfono no lo es.",
+    "points": [
+      "<code>compact</code> es <code>'auto'</code> por defecto: verdadero por debajo de <code>compactBreakpoint</code>, que son 900 píxeles. Un booleano lo fuerza en cualquiera de los dos sentidos.",
+      "El modo compacto aprieta las tarjetas, deja la línea de tiempo en una columna y estrecha las píldoras fijadas: 436 píxeles a partir de 900, 360 entre 600 y 899, y el 90% del ancho por debajo.",
+      "<code>listOnlyBreakpoint</code> es aparte y más fuerte: por debajo de él la línea de tiempo ni siquiera se ofrece.",
+      "En el servidor el componente se renderiza como no compacto, salvo que pases un booleano, y la primera medición tras la hidratación lo corrige."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "En modo compacto no se quita nada: los mismos elementos, los mismos encabezados, los mismos nombres, en menos píxeles.",
+      "Los objetivos táctiles siguen siendo de al menos 24 por 24 píxeles, que es lo que pide WCAG 2.2.",
+      "La medición es del contenedor, así que quien amplía al 200% obtiene la disposición compacta y no una página con desplazamiento horizontal."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>compactBreakpoint</code> y <code>listOnlyBreakpoint</code> fijan dónde están los dos umbrales.",
+      "<code>density</code> es el otro mando de espaciado y es independiente del modo compacto — véase <link to=\"/customization/theming/\">Tematización</link>.",
+      "<code>useCompact</code> da la misma medición a un marcado propio."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Los umbrales son anchos en píxeles, no consultas de contenedor: una disposición que cambia de forma sin cambiar el ancho del horario no cambia el modo compacto.",
+      "Los anchos de las píldoras fijadas están fijos en sus tres escalones y no se pueden ajustar por aplicación.",
+      "El primer fotograma renderizado en el servidor no puede conocer el ancho, así que la disposición compacta aparece tras la hidratación, salvo que pases tú el booleano."
+    ]
   }
 }

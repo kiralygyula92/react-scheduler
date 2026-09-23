@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipos de slots y renderizado",
+    "description": "Las partes, su owner state y lo que recibe cada slot y cada prop de renderizado."
+  }
+}

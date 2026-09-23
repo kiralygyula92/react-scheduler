@@ -1,18 +1,37 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Áttekintés",
-    "description": "Áttekintés a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+    "description": "A React Scheduler megváltoztatásának hat módja, egy CSS változótól a saját megjelenítésig — a legkönnyebbel kezdve."
   },
   "sections": {
     "css-variables": "CSS változók",
     "class-names": "Osztálynevek",
     "slot-props": "Slot propok",
     "slots": "Slotok",
-    "handlers": "Eseménykezelők",
+    "handlers": "Kezelők",
     "headless-hooks": "Headless hookok"
+  },
+  "scope": "Hat szint, a legkönnyebbtől a legnehezebbig. Mindegyik többe kerül karbantartásban, mint az előtte lévő, ezért válaszd az elsőt, amely megteszi, amire szükséged van — és állj meg ott.",
+  "variables": {
+    "text": "Egy érték: szín, lekerekítés, magasság. Állítsd be a tokent a komponensen, a saját stíluslapodban vagy a <code>tokens</code> propon át, és minden követi, ami belőle épül. A szerkezet nem változik. Lásd: <link to=\"/customization/css-variables/\">CSS változók</link>."
+  },
+  "classNames": {
+    "text": "Fogódzó a saját CSS-edhez. A <code>classNames</code> bármely részhez hozzáad egy osztályt a könyvtáré mellé, így a szabályaid úgy célozhatnak rá, hogy nem függnek a könyvtár osztályneveitől. Az <code>unstyled</code> mellett ezek az egyetlen osztályok."
+  },
+  "slotProps": {
+    "text": "Egy attribútum egy részen: cím, adatattribútum, plusz osztály, ref. A rész a könyvtáré marad; te csak hozzáadsz a propjaihoz. A függvényforma megkapja az owner state-et, így az érték függhet az elemtől vagy a műszaktól."
+  },
+  "slots": {
+    "text": "Maga a rész, lecserélve. A komponensed megkapja azokat a propokat, amelyeket a beépített kapott volna — a reffel és a kezelőkkel együtt —, és azt jelenít meg, amit akar. Lásd: <link to=\"/customization/slots/\">Slotok és felülírások</link>."
+  },
+  "handlers": {
+    "text": "Viselkedés, nem markup. A middleware azelőtt fut, hogy a komponens cselekedne, és megváltoztathatja vagy meghiúsíthatja az eredményt — megerősítés, jogosultság, mentetlen módosítás. Lásd: <link to=\"/events-and-middleware/\">Események és middleware</link>."
+  },
+  "hooks": {
+    "text": "A modell markup nélkül. Ha magának a szerkezetnek kell másnak lennie, vedd az állapotot és a propgyűjtőket, és jelenítsd meg a sajátodat. Lásd: <link to=\"/headless-api/\">Headless API</link>."
   }
 }

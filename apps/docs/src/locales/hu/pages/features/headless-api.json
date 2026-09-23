@@ -1,17 +1,60 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Headless API",
-    "description": "Headless API a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Ugyanaz a modell markup nélkül: a hookok és a vezérlő a komponensek mögött."
   },
   "sections": {
     "basics": "Alapok",
+    "layers": "A három réteg",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "headless": "Ütemterv saját markuppal"
+  },
+  "basics": {
+    "intro": "Amikor a slotok és a render propok kevesek — más szerkezet kell, nem más látvány —, vedd el a modellt, és hagyd ott a markupot. A <code>useScheduler</code> mindent visszaad, amiből a <code>&lt;Scheduler&gt;</code> megjelenít: a műszakokat az elemeikkel, a rögzített halmazt, a léptetés állapotát, a formázókat, és minden elemhez egy propgyűjtő függvényt.",
+    "points": [
+      "Terítsd szét a <code>getRootProps</code>, a <code>getScrollerProps</code> és a <code>getSectionProps</code> propokat, és a mérések működnek: a kompakt mód, az aktív műszak, a léptetés.",
+      "Terítsd szét a <code>getItemProps</code> propokat arra, amit kártyának szánsz, és az aktiválás, a billentyűzet és a fókusz úgy működik, mint a beépítettnél.",
+      "A <code>getPinSentinelProps</code> az, ami a rögzítést működővé teszi a saját markupodban; nélküle az elemek soha nem rögzülnek.",
+      "Az állapot ugyanaz, amelyet a komponensek használnak, így semmi nem hiányzik és semmi nem duplázódik."
+    ]
+  },
+  "layers": {
+    "intro": "A csomag három rétegből áll, és bármelyiknél beléphetsz:",
+    "points": [
+      "<code>@react-schedulerkit/react-scheduler</code> — a komponensek, a hookok és a típusok.",
+      "<code>/core</code> — a mögöttük lévő tiszta függvények: műszakok, csoportosítás, idővonal-elrendezés, formázók. React és DOM nélkül; egyszerű Node-ban is fut, és ezt teszteljük.",
+      "<code>/dom</code> — a böngészőmotorok: a rögzítésfigyelő, a navigátor, a szélesség- és mozgásfigyelők. DOM, React nélkül.",
+      "<code>/headless</code> — a <code>createScheduler</code>, a keretrendszer-független vezérlő az állapottal, a műveletekkel és egy feliratkozással."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A propgyűjtők viszik a szerepeket, a neveket és a billentyűkezelést. Ha szétteríted őket, az akadálymentesség velük jön; ha kihagyod, rád marad.",
+      "Az élő régió, a bemondások és a fókusz visszaadása a komponensek része, nem a hooké: a headless megjelenítés a sajátját hozza.",
+      "A szakaszok és a kártyák megjelenítési sorrendje az a sorrend, ahogy a képernyőolvasó olvas, ezért tartsd meg a nap sorrendjét."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>useScheduler</code> saját React megjelenítéshez; a <code>createScheduler</code> egy egészen más keretrendszerhez.",
+      "A <code>useShiftModel</code>, a <code>useTimelineLayout</code>, a <code>usePinOnPass</code>, a <code>useShiftNavigation</code>, a <code>useNow</code> és a <code>useCompact</code> az alkatrészek, ha csak egy kell közülük.",
+      "A <code>/core</code> tiszta függvényei szerveren is hasznosak: az elemek csoportosításához vagy egy elrendezés kiszámításához nem kell böngésző."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A stíluslap a beépített markuphoz készült. A headless megjelenítés a saját CSS-ét hozza, vagy a <code>base.css</code> fájlból indul ki.",
+      "A további elemek és a részletek párbeszédpanele komponens, nem állapot: a headless megjelenítés a sajátját nyitja meg.",
+      "A hook minden lényeges változásnál új állapotobjektumot ad vissza; memoizáld, amit belőle építesz, ha a megjelenítésed költséges."
+    ]
   }
 }

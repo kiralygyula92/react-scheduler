@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ListCard",
+    "description": "Une carte de liste (li) avec son activateur ; renderItem la remplace entièrement."
+  }
+}

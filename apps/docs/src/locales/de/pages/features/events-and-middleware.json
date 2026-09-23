@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Ereignisse und Middleware",
-    "description": "Ereignisse und Middleware in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Was vor einer Interaktion läuft und sie abbrechen kann, was sie danach meldet, und in welcher Reihenfolge beides geschieht."
   },
   "sections": {
     "basics": "Grundlagen",
+    "order": "Die Reihenfolge der Dinge",
+    "middleware": "Jede Middleware",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "middleware": "Vor dem Öffnen fragen"
+  },
+  "basics": {
+    "intro": "Es gibt zwei Arten von Callback. <code>handlers</code> sind Middleware: sie laufen, <em>bevor</em> die Komponente handelt, und entscheiden, ob sie handelt. Die <code>onX</code>-Props sind Ereignisse: sie melden, was schon geschehen ist. Alles, was eingreifen muss — eine Bestätigung, eine ungespeicherte Änderung, eine Berechtigung —, gehört zu den ersten; alles, was aufzeichnen oder reagieren soll, zu den zweiten.",
+    "next": "Eine Middleware erhält den Kontext und eine <code>next</code>-Funktion. Sie aufzurufen führt das Standardverhalten und danach die Ereignisse aus; sie nicht aufzurufen bricht beides ab. Der Kontext ist nur lesbar, und <code>next</code> darf auch später aufgerufen werden — etwa nach einem await —, dann läuft das Standardverhalten zu diesem Zeitpunkt, sofern die Komponente noch eingehängt ist."
+  },
+  "order": {
+    "intro": "Für eine Interaktion, in dieser Reihenfolge:",
+    "head": {
+      "step": "Schritt",
+      "what": "Was läuft"
+    },
+    "rows": [
+      ["1", "Die Middleware dieser Interaktion, sofern Sie eine angegeben haben."],
+      ["2", "Das eigene Verhalten der Komponente, wenn die Middleware <code>next</code> aufgerufen hat."],
+      [
+        "3",
+        "Die Zustands-Callbacks: <code>onViewChange</code>, <code>onDateChange</code>, <code>onOpenItemIdChange</code> und ihresgleichen."
+      ],
+      [
+        "4",
+        "Die Domänenereignisse: <code>onItemOpen</code>, <code>onNavigate</code>, <code>onOverflowOpen</code> und ihresgleichen."
+      ]
+    ],
+    "frames": "Die Ereignisse aus dem Scrollen — <code>onActiveShiftChange</code>, <code>onHeaderExpandedChange</code>, <code>onPinnedChange</code> — feuern höchstens einmal je Animationsbild und nur, wenn sich der Wert wirklich geändert hat."
+  },
+  "middleware": {
+    "intro": "Die elf Middleware, erzeugt aus den Deklarationen des Pakets:"
+  },
+  "accessibility": {
+    "points": [
+      "Eine abgebrochene Interaktion lässt den Fokus, wo er war: nichts bewegt sich, weil nichts geschehen ist.",
+      "Eine Middleware, die eine eigene Bestätigung öffnet, ist für deren Fokus verantwortlich; die Komponente hat ihn nicht bewegt.",
+      "Da die Ereignisse melden und nicht entscheiden, hört ein Screenreader nie von etwas, das die Middleware anschließend abgebrochen hat."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>handlers</code> enthält jede Middleware; alle sind optional.",
+      "Der imperative Handle überspringt die Middleware absichtlich: es ist Ihr Aufruf, nicht der des Lesers.",
+      "Die Ereignisse sind gewöhnliche Props und lassen sich mit jeder Zustandsbibliothek kombinieren, die Sie schon nutzen."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Der Kontext der Middleware ist nur lesbar: er kann weder den Eintrag noch die Zielschicht noch die Sortierung ändern. Um das Ergebnis zu ändern, brechen Sie ab und handeln dann über den imperativen Handle.",
+      "Ein asynchrones <code>next</code>, das nach dem Aushängen der Komponente auflöst, tut stillschweigend nichts.",
+      "Es gibt kein einzelnes Ereignis für jede Interaktion; jede hat ihr eigenes."
+    ]
   }
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Modes de données et SSR",
-    "description": "Modes de données et SSR dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Tenir vous-même les éléments, les récupérer par intervalle rendu, et afficher le planning sur un serveur sans avertissement d’hydratation."
   },
   "sections": {
     "basics": "Bases",
@@ -14,5 +14,42 @@
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Récupération par intervalle rendu"
+  },
+  "basics": {
+    "intro": "Le composant ne va jamais chercher de données. Vous tenez <code>items</code>, et il affiche ce que vous tenez. Restent deux façons de travailler : lui donner tout ce que vous avez, ou lui donner ce qu’exige l’intervalle rendu et compléter à mesure qu’il se déplace.",
+    "range": "<code>onVisibleRangeChange</code> se déclenche au montage et chaque fois que l’intervalle rendu change — une nouvelle date, un autre motif de postes, plus de postes avant ou après. C’est le signal pour aller chercher les données. Le temps que la réponse arrive, gardez <code>loading</code> actif : les éléments déjà à l’écran y restent, atténués, au lieu de disparaître."
+  },
+  "server": {
+    "intro": "Le composant s’affiche sur un serveur sans toucher au DOM et s’hydrate sans avertissement avec React 18 et 19. La première image est délibérément la plus simple :",
+    "points": [
+      "Le mode compact est désactivé sauf si vous passez vous-même le booléen — la largeur ne se mesure pas sur un serveur.",
+      "Rien n’est épinglé, car l’épinglage est une position de défilement.",
+      "Le signal d’en-tête démarre déployé.",
+      "L’horloge démarre depuis <code>now</code>, ou depuis <code>defaultDate</code> si vous n’en donnez aucun. Passer <code>now</code> est ce qui fait coïncider exactement les deux rendus."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Le balisage rendu sur le serveur est la structure que le client hydrate : un lecteur sans JavaScript obtient le planning, ses titres et les noms des éléments.",
+      "Rien des états n’est annoncé deux fois à l’hydratation : les régions live démarrent vides et ne parlent qu’au changement.",
+      "Un rafraîchissement qui garde les anciens éléments visibles conserve aussi la position de lecture, ce qui compte le plus pour qui navigue au clavier."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>onVisibleRangeChange</code> pour récupérer, <code>loading</code> et <code>error</code> pour ce que voit le lecteur pendant ce temps — voir <link to=\"/states/\">États</link>.",
+      "<code>now</code> rend le rendu déterministe, ce sur quoi reposent aussi les tests visuels de ce paquet.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> et <link to=\"/integrations/ssr/\">Rendu serveur</link> contiennent les parties propres à chaque framework."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Il n’y a ni cache intégré, ni déduplication des requêtes, ni réessai : c’est le travail de votre couche de données.",
+      "La boîte de dialogue des éléments supplémentaires n’est pas paginée depuis un serveur ; elle montre les éléments du groupe qu’elle possède déjà.",
+      "Un changement d’intervalle est signalé après coup : une récupération commence donc toujours avec le nouvel intervalle déjà rendu — vide, en chargement, ou avec les éléments précédents."
+    ]
   }
 }

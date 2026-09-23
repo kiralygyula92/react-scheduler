@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Versões",
@@ -12,5 +12,33 @@
     "versioning-policy": "Política de versionamento",
     "older-versions": "Versões anteriores",
     "related": "Relacionado"
+  },
+  "supported": {
+    "head": {
+      "version": "Versão",
+      "status": "Estado",
+      "docs": "Documentação"
+    },
+    "rows": [["<code>0.x</code>", "Atual, em desenvolvimento", "Este site"]]
+  },
+  "policy": {
+    "intro": "As versões seguem o versionamento semântico, e cada alteração que chega a uma versão traz um changeset que diz que parte do número move.",
+    "points": [
+      "<strong>Patch</strong> — uma correção que deixa a API e a marcação renderizada como estavam.",
+      "<strong>Menor</strong> — novas props, novas exportações, novas variáveis CSS. Nada do que já passa muda de significado.",
+      "<strong>Maior</strong> — uma remoção ou um valor por omissão alterado, com uma nota de migração para cada um.",
+      "<strong>Enquanto a versão começar por 0</strong>, uma versão menor pode fazer o que faria uma maior. Cada alteração dessas está no registo de alterações, com o que fazer a respeito."
+    ],
+    "optIn": "O comportamento novo chega desligado. Uma funcionalidade que muda o que quem lê vê vem com um sinalizador ou uma prop, por omissão no comportamento antigo durante o resto do maior."
+  },
+  "older": {
+    "text": "Quando existir um segundo maior, a etiqueta de versão no cabeçalho abrirá a lista dos maiores documentados, cada um com a sua própria cópia deste site, no seu próprio URL. Para já só há um maior, por isso a etiqueta mostra uma única entrada."
+  },
+  "related": {
+    "points": [
+      "<link to=\"/discover-more/changelog/\">Registo de alterações</link> — o que mudou em cada versão.",
+      "<link to=\"/migration/\">Migração</link> — o que fazer quando um maior muda.",
+      "<link to=\"/getting-started/support/\">Apoio</link> — durante quanto tempo uma versão é corrigida."
+    ]
   }
 }

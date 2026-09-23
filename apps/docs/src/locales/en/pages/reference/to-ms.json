@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Epoch milliseconds of a date input; NaN when invalid. A string without an offset is local wall-clock time, including date-only strings (which Date alone would read as UTC)."
+  }
+}

@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Éjszakai műszak",
-    "description": "React Scheduler demó a(z) Éjszakai műszak adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Éjszakai műszak",
+    "description": "Beosztás 02:00-kor olvasva, ahol a jelenlegi műszak előző nap 20:00-kor kezdődött."
+  },
+  "demos": {
+    "board": "Műszak éjfélen át"
+  },
+  "scenario": "Hajnali 2 van, a műszakok tizenkét órásak és 08:00-hoz horgonyzottak, tehát az olvasott műszak tegnap este 20:00-kor kezdődött, és ma reggel 08:00-kor ér véget. Az a beosztás, amely a napot éjféltől éjfélig érti, itt elromlik; ez nem.",
+  "look": [
+    "A jelenlegi műszak átlépi az éjfelet: tegnap 20:00-tól ma 08:00-ig tart, elemei pedig a dátumváltás mindkét oldalán vannak.",
+    "A „most” jelző 02:00-nál áll: hat órával a műszak kezdete után, nem két órával a nap kezdete után.",
+    "A címek relatívak maradnak — előző, jelenlegi, következő. Hogy melyik a jelenlegi műszak, az óra dönti el, nem a naptár.",
+    "Semmi ebből nem az éjszakai munkára szóló beállítás: ugyanaz a horgony és ugyanaz a hossz rakja ki minden műszakot, bármelyik órában."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Műszakok és dátumok</link> — a horgony, a hossz, és hogy melyik műszak számít jelenleginek.",
+    "<link to=\"/now-indicator/\">„Most” jelző</link> — a vonal, és a műszak, amelyikben megjelenik.",
+    "<link to=\"/customization/localization/\">Lokalizáció</link> — a dátumok és az időpontok a csomag saját nyelvén formázva."
+  ]
 }

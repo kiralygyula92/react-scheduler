@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Telepítés",
-    "description": "Telepítés a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+    "description": "Telepítsd a React Schedulert, add hozzá a stíluslapját, és jelenítsd meg az első ütemtervet. A peer függőségek, a stílusok és egy ötsoros ellenőrzés."
   },
   "sections": {
     "install": "Telepítés",
@@ -13,5 +13,41 @@
     "stylesheet": "Stíluslap",
     "verify": "Ellenőrzés",
     "next-steps": "Következő lépések"
+  },
+  "peers": {
+    "intro": "A React Scheduler semmit sem telepít magától. A két peer függősége az a React, amely már megvan; a fában minden más csomag ennek a tárolónak a fejlesztői eszköze, nem az alkalmazásodé.",
+    "head": {
+      "package": "Csomag",
+      "range": "Tartomány",
+      "why": "Miért"
+    },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "A hookok, a kontextus és a konkurens megjelenítés, amelyre a nézetek épülnek."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "A DOM megjelenítése és a portál, amelyben a további elemek és a részletek párbeszédpanele megnyílik."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "A stíluslapot egyszer importáld, ott, ahol az alkalmazás indul. Mindkét előbeállítást, a világos és a sötét sémát és mindhárom sűrűséget tartalmazza; futásidőben semmi sem kerül be.",
+    "unstyled": "Ha mindent magad stílusoznál, helyette a <code>@react-schedulerkit/react-scheduler/base.css</code> fájlt importáld: ugyanaz a szerkezet, színek, térközskála és tipográfiai skála nélkül. A <link to=\"/customization/\">Testreszabás</link> mutatja a köztes szinteket."
+  },
+  "verify": {
+    "intro": "Ez egy teljes fájl. Ha egy kártyát jelenít meg egy műszakban, a csomag, a stílusai és a peer függőségei a helyükön vannak.",
+    "calloutTitle": "Nincs dátum, nincsenek műszakok?",
+    "callout": "Mindkettő nem kötelező. A <code>date</code> nélkül az ütemterv az aktuális napot mutatja, a <code>shifts</code> nélkül pedig két tizenkét órás, 08:00-hoz rögzített műszakot használ."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Használat</link> — a propok, amelyeket elsőként állítasz be, és az állapot megosztása az alkalmazásoddal.",
+      "<link to=\"/getting-started/requirements/\">Követelmények</link> — böngészők, React- és TypeScript-verziók, csomagméret.",
+      "<link to=\"/all-features/\">Minden képesség</link> — minden képesség élő bemutatóval."
+    ]
   }
 }

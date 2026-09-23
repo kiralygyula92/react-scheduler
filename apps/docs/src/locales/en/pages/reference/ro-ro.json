@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "roRO",
+    "description": "The Romanian (Romania) locale pack, passed to localization."
+  }
+}

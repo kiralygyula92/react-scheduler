@@ -1,17 +1,58 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Detaliile elementului",
-    "description": "Detaliile elementului în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "title": "Detaliul elementului",
+    "description": "Ce se deschide când un cititor activează un element, ce arată dialogul implicit și cum se înlocuiește."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "your-own": "Un detaliu propriu",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "basic": "Detaliul așa cum vine",
+    "custom": "Detaliul, înlocuit"
+  },
+  "basics": {
+    "intro": "Activarea unui element — un card, o pastilă fixată, un rând din tabelul de suplimentare — îi deschide detaliul. Implicit este un dialog modal cu nivelul și titlul, descrierea, pastilele, ora și un buton de închidere. Care element este deschis se află în <code>openItemId</code>, controlat sau necontrolat ca restul stării.",
+    "points": [
+      "Activarea rulează întâi <code>handlers.onItemActivate</code>, care o poate anula, apoi setează id-ul, apoi apelează <code>onItemOpen</code>.",
+      "Un element marcat <code>disabled</code> nu se deschide.",
+      "Dacă elementul deschis dispare din <code>items</code>, detaliul se închide cu motivul <code>itemRemoved</code> și nu se redeschide singur.",
+      "Închiderea întoarce focalizarea la ce l-a deschis; când acel element nu mai există, focalizarea merge la zona de derulare."
+    ]
+  },
+  "own": {
+    "intro": "<code>renderItemDetail</code> înlocuiește complet dialogul — cu un sertar, un panou lângă program sau o rută proprie. Primește elementul, felul în care a fost deschis și o funcție care îl închide.",
+    "state": "Pentru că <code>openItemId</code> este stare obișnuită, un detaliu propriu poate fi deschis și din afară: setezi id-ul, iar componenta tratează asta ca pe o activare — așa funcționează un link direct către un element."
+  },
+  "accessibility": {
+    "points": [
+      "Detaliul implicit este un dialog modal nativ: browserul ține focalizarea înăuntru, <kbd>Escape</kbd> îl închide, iar fundalul este o țintă de clic.",
+      "Este etichetat prin titlul lui, iar conținutul este citit în ordinea în care este desenat.",
+      "Focalizarea se întoarce la activator la închidere, ceea ce face suportabilă deschiderea și închiderea repetată cu tastatura.",
+      "Un detaliu propriu este al tău de făcut accesibil: componenta îți spune doar ce element să arăți și când să închizi."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderItemDetail</code> pentru tot, sau partea <code>detailDialog</code> prin <link to=\"/customization/slots/\">sloturi</link> pentru dialogul însuși.",
+      "<code>localization.detail.close</code> este eticheta de închidere a dialogului implicit.",
+      "<code>openItemId</code>, <code>defaultOpenItemId</code> și <code>onOpenItemIdChange</code> țin starea; <code>onItemOpen</code> și <code>onItemClose</code> o raportează.",
+      "Dialogul implicit se află într-un fragment leneș, încărcat prima dată când se deschide un element."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un singur element este deschis deodată.",
+      "Dialogul implicit arată câmpurile pe care le are modelul elementului; orice altceva ține de un detaliu propriu.",
+      "Nu există editare în detaliu — el arată, nu schimbă."
+    ]
   }
 }

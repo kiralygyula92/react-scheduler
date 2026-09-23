@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Alap nap",
-    "description": "React Scheduler demó a(z) Alap nap adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Átlagos nap",
+    "description": "Tizenhét elem három műszakon át, egy zsúfolt óra középen és két rögzülő szint: egy átlagos nap."
+  },
+  "demos": {
+    "board": "Egy átlagos nap"
+  },
+  "scenario": "Tizenhét elem oszlik meg a már lezárult műszak, a 10:30-kor futó műszak és a még hátralévő műszak között. Öt közülük <code>critical</code>, az a szint, amely rögzül, amint kigördül a képből, és négy fél órán belül indul egymáshoz képest késő délelőtt. Ez az a nap, amelyre a csomag tesztjeinek java része épül, így ehhez érdemes mérni a többit.",
+  "look": [
+    "Három műszak látszik: egy a jelenlegi előtt, a jelenlegi, és egy utána. A jelenlegi az, amelyikbe a 10:30 esik.",
+    "A „most” jelző 10:30-nál áll az idővonalon, a lezárult és a még el sem kezdődött elemek között.",
+    "Mindkét nézet ugyanabban a sorrendben rakja ki az elemeket — kezdés, majd szint, majd azonosító szerint —, így a nézetváltás sosem keveri össze a napot.",
+    "A kompakt mód semmit nem dob el: a kártyák keskenyednek, a jelvények rövidülnek, az idővonal pedig egy oszlopra korlátozódik."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Műszakok és dátumok</link> — tizenkét órás műszakok 08:00-hoz horgonyozva, egy a jelenlegi előtt és egy utána.",
+    "<link to=\"/items-and-levels/\">Elemek és szintek</link> — a kilencfokú klasszikus skála, amely a színt, a sorrendet és a kártya megjelenését adja.",
+    "<link to=\"/now-indicator/\">„Most” jelző</link> — a 10:30-nál húzódó vonal, csak abban a műszakban, amelyikbe beleesik.",
+    "<link to=\"/scheduler-and-views/\">Ütemező és nézetek</link> — a két nézet, és a váltó, amelyet ez az oldal épít hozzájuk."
+  ]
 }

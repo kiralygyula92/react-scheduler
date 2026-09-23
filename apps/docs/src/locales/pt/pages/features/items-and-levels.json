@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Elementos e níveis",
-    "description": "Elementos e níveis no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O que é um elemento, como a escala de níveis lhe dá a cor e a classificação, e o que decide a ordem dentro de um turno."
   },
   "sections": {
     "basics": "Noções básicas",
+    "levels": "A escala de níveis",
+    "order": "Ordem",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "levels": "Uma escala sua",
+    "compare": "Ordenado por título"
+  },
+  "basics": {
+    "intro": "Um elemento é um objeto simples. Quatro campos são obrigatórios — <code>id</code>, <code>start</code>, <code>level</code> e <code>title</code> — e o resto afina como o cartão se lê. Os elementos são colocados em turnos pelo seu início: o que cai fora de todos os turnos apresentados não é mostrado, e o que tem um início inválido é descartado e comunicado uma vez em desenvolvimento.",
+    "item": "O elemento completo, gerado a partir das declarações do pacote:"
+  },
+  "levels": {
+    "intro": "Um nível é uma classificação numa escala que define: como se chama, que força tem, que cor leva e se os elementos dessa classificação fixam ao passar. O pacote traz <code>classicLevels</code>, uma escala de nove classificações, mas uma escala de quatro com as suas chaves é igualmente válida — e as chaves entram no tipo do elemento, por isso uma gralha é um erro de tipos e não uma falha silenciosa.",
+    "points": [
+      "<code>rank</code> assume por omissão a posição no array, por isso um array bem ordenado não precisa de classificações.",
+      "<code>color</code> e <code>onColor</code> assumem por omissão os tokens <code>--rs-level-{key}</code> e <code>--rs-level-{key}-on</code>, pelo que um tema pode recolorir uma escala sem tocar nos dados.",
+      "<code>variant</code> escolhe o tratamento do cartão: <code>'alert'</code> para a classificação mais forte, <code>'muted'</code> para o que está concluído.",
+      "<code>pinOnPass</code> faz com que cada elemento dessa classificação fixe — ver <link to=\"/pinning/\">Fixação</link>.",
+      "A etiqueta vem de <code>localization.levels[key]</code>, por isso a escala é traduzida com o resto do componente."
+    ]
+  },
+  "order": {
+    "intro": "Dentro de um turno, os elementos seguem <code>compareItems</code>. O valor por omissão é a ordem de colocação: o início, depois a classificação de nível, depois o id. Substituí-lo muda ao mesmo tempo a lista, a sequência de colocação da cronologia e a faixa dos fixados, por isso as três nunca discordam sobre qual vem primeiro."
+  },
+  "accessibility": {
+    "points": [
+      "O nome acessível de um cartão leva o seu título, o seu nível e a sua hora, por isso a cor da barra nunca é a única coisa que diz o quão sério é um elemento.",
+      "As etiquetas de nível e de tag são texto, não ícones, e fazem parte do nome do cartão.",
+      "A cor de um nível é apenas um reforço: a mesma informação está na etiqueta ao lado."
+    ]
+  },
+  "customization": {
+    "points": [
+      "As partes <code>levelPill</code>, <code>tagPill</code> e <code>cardRail</code> podem ser substituídas por <link to=\"/customization/slots/\">slots</link>.",
+      "As cores estão nos tokens <code>--rs-level-*</code> — ver <link to=\"/customization/css-variables/\">Variáveis CSS</link>.",
+      "<code>tags</code> define as etiquetas que um elemento pode ter, cada uma com o seu rótulo e as suas cores."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Um elemento pertence a exatamente um turno, aquele em que o seu início cai. Um elemento que atravessa dois turnos é desenhado no primeiro e não se repete no segundo.",
+      "Os ids duplicados não são fundidos: a primeira ocorrência ganha e o resto é descartado, com um aviso em desenvolvimento.",
+      "A escala é plana — não há agrupamento de níveis em famílias nem escala por turno."
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipos de localización",
+    "description": "La forma de un paquete de idioma y de los formateadores, y las utilidades que los rodean."
+  }
+}

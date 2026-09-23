@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Listenansicht",
-    "description": "Listenansicht in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Die Listenansicht: ein Abschnitt je Schicht, Karten in zeitlicher Reihenfolge, und die Optionen, die bestimmen, wo ein Sprung landet und wann die Navigation erscheint."
   },
   "sections": {
     "basics": "Grundlagen",
+    "reading": "Eine lange Liste lesen",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Eine Schicht, von oben nach unten gelesen",
+    "options": "Wann die Navigation erscheint"
+  },
+  "basics": {
+    "intro": "Die Liste ist die Ansicht zum Lesen: ein Abschnitt je gerenderter Schicht, die Karten dieser Schicht in zeitlicher Reihenfolge, und die Abschnittsüberschrift klebt oben, solange man darin liest. Sie ist die Standardansicht und unterhalb von <code>listOnlyBreakpoint</code> die einzige.",
+    "points": [
+      "Eine Karte trägt Titel, Stufe, Uhrzeit und die optionalen Felder, die der Eintrag hat — eine Beschreibung, eine Referenz, ein Etikett, einen Vorschlag.",
+      "Die gelesene Schicht ist die, in der der Scroller steht, und von ihr arbeiten die Navigationsschaltflächen und das Band der angehefteten Einträge.",
+      "Wenn die aktuelle Schicht die ist, die das Jetzt enthält, steht eine Markierung zwischen den Karten, vor dem ersten Eintrag, der noch nicht begonnen hat."
+    ]
+  },
+  "reading": {
+    "intro": "Das meiste, was <code>list</code> enthält, betrifft das Lesen eines langen Tages: wann die Navigationsschaltflächen es wert sind, gezeigt zu werden, wo ein Sprung landet, damit die Überschrift nicht unter der oben klebenden Leiste verschwindet, und wie weit man scrollen muss, bis die Schaltfläche nach oben erscheint.",
+    "options": "Die vollständige Liste, erzeugt aus den Deklarationen des Pakets:"
+  },
+  "accessibility": {
+    "points": [
+      "Jede Schicht ist ein Abschnitt mit Überschrift, und die Karten einer Schicht bilden eine Liste, sodass ein Screenreader ansagt, wie viele Einträge sie hat.",
+      "Jede Karte ist eine Schaltfläche: <kbd>Tab</kbd> erreicht sie in zeitlicher Reihenfolge, <kbd>Enter</kbd> oder <kbd>Space</kbd> öffnet ihr Detail.",
+      "Die „Jetzt“-Markierung ist ein beschrifteter Trenner, sodass die Grenze zwischen Vergangenem und Kommendem angesagt und nicht nur gezeichnet wird.",
+      "Ein Sprung landet mit der Schichtüberschrift im Blick, nicht unter der oben klebenden Leiste, und setzt den Fokus dorthin — <code>alignOffset</code> und <code>previousJumpExtraOffset</code> halten das bei jeder Dichte aufrecht."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Die Teile <code>itemList</code>, <code>listCard</code>, <code>shiftSection</code> und <code>shiftHeader</code> lassen sich über <link to=\"/customization/slots/\">Slots</link> ersetzen.",
+      "<code>renderItem</code> ersetzt eine Karte vollständig, mit <code>getItemProps</code>, damit Ihre das Verhalten behält; <code>renderCardContent</code> behält die Karte und ersetzt ihr Inneres.",
+      "<code>--rs-card-gap</code>, <code>--rs-list-gap</code> und die Dichteskala setzen die Abstände — siehe <link to=\"/customization/css-variables/\">CSS-Variablen</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Die Liste virtualisiert nicht: eine Schicht mit tausend Einträgen rendert tausend Karten.",
+      "Karten lassen sich innerhalb einer Schicht nur nach Zeit gruppieren; eine Gruppierung nach Stufe oder Etikett ist Sache der <link to=\"/headless-api/\">Headless-API</link>.",
+      "Es gibt kein Bearbeiten an Ort und Stelle und kein Auswahlmodell — eine Karte öffnet ihr Detail, und das ist die ganze Interaktion."
+    ]
   }
 }

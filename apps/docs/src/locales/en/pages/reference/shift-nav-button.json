@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftNavButton",
+    "description": "The button that jumps to the previous or the next shift."
+  }
+}

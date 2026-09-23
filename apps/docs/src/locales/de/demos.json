@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Lieferverzug",
+      "Schichtbesprechung",
+      "Inventur",
+      "Gerätekontrolle",
+      "Sicherheitsbegehung",
+      "Lieferantengespräch",
+      "Berichtsprüfung",
+      "Wartungsfenster",
+      "Schulung",
+      "Nachtmeldung",
+      "Systemaktualisierung",
+      "Sicherungsprüfung",
+      "Übergabenotizen",
+      "Reinigungsrunde"
+    ],
+    "description": "Kurze Beschreibung für {title}.",
+    "suggestion": "Vorgeschlagener nächster Schritt."
+  },
+  "controls": {
+    "maxColumns": "Höchstens so viele Spalten",
+    "columnPlacement": "Spaltenverteilung",
+    "placementPriority": "Nach Priorität",
+    "placementTime": "Nach Startzeit",
+    "mergeWindow": "Zusammenfassungsfenster",
+    "minutes": "{count} Minuten",
+    "hours": "{count, plural, one {# Stunde} other {# Stunden}}",
+    "unlimited": "Ohne Grenze",
+    "view": "Ansicht",
+    "preset": "Voreinstellung",
+    "presetDefault": "Standard",
+    "presetClassic": "Klassisch",
+    "shiftLength": "Schichtlänge",
+    "navigationThreshold": "Navigation erscheint ab",
+    "items": "{count, plural, one {# Eintrag} other {# Einträge}}",
+    "sortByTitle": "Nach Titel statt nach Uhrzeit sortieren",
+    "pinnedCount": "{count, plural, =0 {Noch nichts angeheftet} one {# Eintrag angeheftet} other {# Einträge angeheftet}}",
+    "navigateIdle": "Nutzen Sie die Schaltflächen über und unter der Liste.",
+    "navigated": "Sprung zur Schicht mit Abstand {offset}.",
+    "clock": "Es ist jetzt",
+    "containerWidth": "Breite des Containers",
+    "pixels": "{count} Pixel",
+    "state": "Zustand",
+    "stateData": "Daten",
+    "stateLoading": "Lädt",
+    "stateError": "Fehler",
+    "stateEmpty": "Leer",
+    "reducedMotion": "Reduzierte Bewegung verlangen",
+    "guardOpening": "Vor dem Öffnen eines kritischen Eintrags fragen",
+    "eventsIdle": "Öffnen Sie einen Eintrag, um zu sehen, was läuft.",
+    "blocked": "Das Öffnen von „{title}“ wurde von der Middleware abgebrochen.",
+    "opened": "„{title}“ wurde geöffnet.",
+    "scheduleLabel": "Schichtplan",
+    "scheme": "Farbschema",
+    "schemeLight": "Hell",
+    "schemeDark": "Dunkel",
+    "density": "Dichte",
+    "densityStandard": "Standard",
+    "densityComfortable": "Komfortabel",
+    "densityDense": "Kompakt",
+    "compact": "Kompakt"
+  },
+  "levels": {
+    "blocking": "Blockierend",
+    "attention": "Braucht Aufmerksamkeit",
+    "planned": "Geplant",
+    "done": "Erledigt"
+  },
+  "columns": {
+    "reference": "Referenz",
+    "title": "Titel",
+    "level": "Stufe"
+  },
+  "detail": {
+    "reference": "Referenz {reference}",
+    "close": "Schließen"
+  },
+  "localization": {
+    "emptyShift": "In dieser Schicht ist noch nichts eingeplant.",
+    "pinnedLabel": "Im Blick behalten"
+  }
+}

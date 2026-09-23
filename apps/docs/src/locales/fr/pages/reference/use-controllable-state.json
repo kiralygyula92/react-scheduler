@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useControllableState",
+    "description": "Contrôlé lorsque value est fourni, sinon état interne partant de defaultValue."
+  }
+}

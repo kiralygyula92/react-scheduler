@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tooltip",
+    "description": "A buboréksúgó rész; a position a useTooltip értékéből jön (zárt állapotban null)."
+  }
+}

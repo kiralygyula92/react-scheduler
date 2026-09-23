@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Múltbeli dátum",
-    "description": "React Scheduler demó a(z) Múltbeli dátum adatkészleten: a kombinált képességek és a teljes forráskód."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Forgatókönyv",
+    "what-to-look-for": "Mit érdemes figyelni",
     "what-it-uses": "Mit használ",
     "source": "Forráskód"
-  }
+  },
+  "source": "A fenti bemutató egyetlen fájl, teljes és futtatható. A <strong>Kód megjelenítése</strong> megnyitja a tábla alatt, a <strong>Másolás</strong> elviszi, a mögötte lévő adat pedig az oldalon megnevezett adatkészlet.",
+  "meta": {
+    "title": "Múltbeli dátum",
+    "description": "Egy nap két nappal az óra mögött: minden megtörtént már, és nincs „most” jelző."
+  },
+  "demos": {
+    "board": "Egy már lezárult nap"
+  },
+  "scenario": "A beosztás egy két nappal korábbi napot mutat. Minden elem megtörtént már, így a komponensnek arra kell válaszolnia, mit jelent egy beosztás, amelyből semmi sincs már előtted.",
+  "look": [
+    "Nincs „most” jelző. Csak abban a műszakban rajzolódik ki, amelyik a jelen pillanatot tartalmazza, az a műszak pedig két nappal odébb van.",
+    "Semmi nem halványul el attól, hogy elmúlt. Csak a <code>resolved</code> szint rajzolódik tompán, és ez bármelyik napon így van.",
+    "A címek továbbra is előző, jelenlegi és következő: a megjelenített dátumhoz képest relatívak, nem a mai naphoz.",
+    "A léptetés és a rögzítés pontosan úgy működik, mint a mai napon."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Műszakok és dátumok</link> — a kiválasztott dátum és a köré rajzolt műszakok.",
+    "<link to=\"/now-indicator/\">„Most” jelző</link> — a szabály, amely távol tartja ettől az oldaltól.",
+    "<link to=\"/pinning/\">Rögzítés</link> — az áthozott elemek egy teljesen múltbeli napon."
+  ]
 }

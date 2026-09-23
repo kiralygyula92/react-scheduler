@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Estados",
-    "description": "Estados en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Qué muestra el horario mientras espera, cuando falla y cuando no hay nada que mostrar."
   },
   "sections": {
     "basics": "Conceptos básicos",
@@ -13,5 +13,38 @@
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "states": "Cargando, error, vacío"
+  },
+  "basics": {
+    "intro": "Un horario rara vez está solo lleno o solo vacío. <code>loading</code> y <code>error</code> son props que guardas tú, y el componente decide qué significan en cada vista; los estados vacíos se deducen de los propios elementos.",
+    "points": [
+      "<strong>Cargando sin nada todavía:</strong> un indicador de espera, con el texto de carga para la tecnología asistiva.",
+      "<strong>Cargando sobre datos:</strong> los elementos siguen visibles y atenuados, y la región se marca <code>aria-busy</code>: una actualización nunca deja la pantalla en blanco.",
+      "<strong>Error:</strong> un encabezado, el mensaje que das y un botón de reintento cuando <code>onRetry</code> está fijado. Sustituye al contenido, porque un horario parcial es peor que ninguno.",
+      "<strong>Vacío:</strong> un texto cuando ningún turno renderizado contiene elementos y otro dentro de un turno vacío cuando los demás no lo están. La línea de tiempo conserva su rejilla y centra el mensaje sobre ella."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "El estado de carga se anuncia una vez, no en cada fotograma, y la marca de ocupado es lo que dice a un lector de pantalla que el contenido está anticuado, no ausente.",
+      "El estado de error es un encabezado y un texto, no una alerta que roba el foco; el botón de reintento es un botón normal del orden de tabulación.",
+      "Un turno vacío conserva su sección y su encabezado, así que el esquema del día no cambia a medida que llegan elementos."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderEmpty</code>, <code>renderLoading</code> y <code>renderError</code> sustituyen los tres; las partes <code>emptyState</code>, <code>loadingState</code> y <code>errorState</code> sustituyen su marcado.",
+      "<code>localization.emptyAll</code>, <code>emptyShift</code>, <code>loading</code>, <code>errorTitle</code> y <code>retry</code> contienen cada palabra.",
+      "Los estados no llevan color propio más allá de los tokens de texto, así que siguen al tema sin necesidad de reestilizarlos."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Hay un solo error a la vez para todo el horario; un error por turno no está modelado.",
+      "El componente nunca obtiene datos, así que nunca decide por sí mismo que está cargando: las dos props son tuyas.",
+      "No hay tarjetas de esqueleto. El estado de carga es un indicador de espera, o el tuyo mediante <code>renderLoading</code>."
+    ]
   }
 }

@@ -9,7 +9,7 @@ export function Table({ k, ns, headKeys }: { k: string; ns: string; headKeys: re
   const rows = t.list(k) as unknown as readonly (readonly string[])[];
 
   return (
-    <div className="ds-table-wrap">
+    <div className="ds-table-wrap" tabIndex={0}>
       <table className="ds-table">
         <thead>
           <tr>

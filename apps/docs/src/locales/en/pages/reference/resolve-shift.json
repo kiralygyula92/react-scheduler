@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveShift",
+    "description": "The current shift window (offset 0) for date."
+  }
+}

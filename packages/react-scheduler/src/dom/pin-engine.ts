@@ -5,16 +5,31 @@
 // observers are created once per line position, not per render (B-13).
 import { nextPinned } from '../core/pinning';
 
+/**
+ * What the pin engine needs: the scroller, the rule and the items it may pin.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface PinEngineOptions {
+  /** The element whose top edge the pin line is measured from. */
   scroller: HTMLElement;
   /** The pin line in viewport coordinates. List: the sticky top's bottom; timeline: the scroller's top (B-05). */
   getLine: () => number;
+  /** Moves the pin line, in pixels; a positive value pins earlier. */
   epsilon: number;
+  /** How far back, in pixels, an item must travel before it unpins. */
   hysteresis: number;
   /** Called with the pinned ids whenever they change. */
   onChange: (ids: readonly string[]) => void;
 }
 
+/**
+ * Watches the scroller and reports which items are pinned by position.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface PinEngine {
   /** Registers a sentinel for `ids` under `key`; returns a ref callback. */
   register(key: string, ids: readonly string[]): (node: HTMLElement | null) => void;
@@ -25,11 +40,15 @@ export interface PinEngine {
   refresh(options?: { force?: boolean }): void;
   /** Re-creates the observers after the pin line moved (for example, the sticky top resized). */
   relayout(): void;
+  /** Stops observing, for a view that is mounted but hidden. */
   pause(): void;
+  /** Starts observing again after a pause. */
   resume(): void;
   /** Unpins everything (the selected date changed). */
   reset(): void;
+  /** The ids pinned right now, in document order. */
   getPinnedIds(): readonly string[];
+  /** Detaches the observer; call it when the scroller goes away. */
   destroy(): void;
 }
 
@@ -42,6 +61,13 @@ interface Sentinel {
 /** How far below the viewport the observed root extends (px). */
 const BELOW = 100_000;
 
+/**
+ * Creates the pin engine for one scroller.
+ *
+ * @category DOM
+ * @since 1.0.0
+ * @param options The scroller, the pin line and the callback that reports the pinned ids.
+ */
 export function createPinEngine(options: PinEngineOptions): PinEngine {
   const { scroller, getLine, epsilon, hysteresis, onChange } = options;
   const sentinels = new Map<string, Sentinel>();

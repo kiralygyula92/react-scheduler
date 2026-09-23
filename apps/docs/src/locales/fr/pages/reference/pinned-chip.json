@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedChip",
+    "description": "Une puce de la bande d’épinglés."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeWidth",
+    "description": "Meghívja az onWidth függvényt az elem tartalomdobozának szélességével, most és minden változáskor. A kompakt mód és a listOnlyBreakpoint a gyökér szélességét használja, nem a nézetablakét vagy a böngészőét."
+  }
+}

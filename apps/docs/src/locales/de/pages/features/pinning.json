@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Anheften",
-    "description": "Anheften in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Welche Einträge im Blick bleiben, nachdem sie vorbeigescrollt sind, was das entscheidet und wie das Band geordnet ist."
   },
   "sections": {
     "basics": "Grundlagen",
+    "rules": "Regeln und Feinabstimmung",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Einträge, die im Blick bleiben"
+  },
+  "basics": {
+    "intro": "Etwas Wichtiges, das aus dem Blick gescrollt ist, bleibt wichtig. Das Anheften hält solche Einträge in einem Band oben am Scroller, in der Reihenfolge, die sie in der Schicht gehabt hätten, und lässt sie wieder los, wenn sie zurück ins Bild kommen.",
+    "which": "Drei Dinge entscheiden, ob ein Eintrag anheftet:",
+    "points": [
+      "<code>item.pinned === true</code> heftet ihn an, solange seine Schicht gerendert wird, was der Leser auch tut.",
+      "<code>item.pinnable</code> lässt einen einzelnen Eintrag ein- oder aussteigen.",
+      "Sonst entscheidet die Stufe über <code>pinOnPass</code> — ein ganzer Rang auf einmal."
+    ]
+  },
+  "rules": {
+    "intro": "Das Anheften geschieht, wenn die Kante des Eintrags eine Linie überschreitet: in der Liste die Unterkante der oben klebenden Leiste, im Zeitstrahl die Oberkante des Scrollers. <code>epsilon</code> verschiebt diese Linie, und <code>hysteresis</code> sagt, wie weit der Eintrag zurückwandern muss, bevor er sich löst, damit einer an der Grenze nicht flackert.",
+    "carried": "Einträge aus einer bereits vergangenen Schicht tragen das Etikett <code>carriedOver</code>, ergänzt zu denen, die sie schon haben. Darum geht es bei der Zahl auf der oberen Navigationsschaltfläche, und sie wird aus den Schichten berechnet, nie aus den Ids."
+  },
+  "accessibility": {
+    "points": [
+      "Das Band ist eine beschriftete Region mit einer Liste, sodass ein Screenreader sagt, wie viele Einträge angeheftet sind.",
+      "Änderungen werden über eine Live-Region angesagt, und wiederholte Ansagen werden gedrosselt, damit schnelles Scrollen sie nicht überflutet.",
+      "Ein angehefteter Chip ist eine Schaltfläche, die dasselbe Detail öffnet wie die Karte und deren zugänglichen Namen behält.",
+      "Der Scroller schaltet die Scrollverankerung des Browsers ab und gleicht die Höhe des Bandes selbst aus, sodass unter dem Auge des Lesers nichts springt, wenn ein Chip erscheint."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>pinning.list</code> und <code>pinning.timeline</code> stimmen jede Ansicht einzeln ab.",
+      "<code>pinning.compare</code> ordnet das Band; der Standard ist dieselbe Platzierungsreihenfolge wie in der Schicht.",
+      "Die Teile <code>pinnedStrip</code>, <code>pinnedStripTrack</code>, <code>pinnedChip</code> und <code>edgeFade</code> lassen sich über <link to=\"/customization/slots/\">Slots</link> ersetzen, und <code>renderPinnedChip</code> ersetzt einen Chip vollständig.",
+      "<code>handlers.onPin</code> kann ein Anheften vorher ablehnen; <code>onPinnedChange</code> meldet danach die Menge, mit dem, was hinzukam und wegfiel."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Die Menge der angehefteten Einträge wird beim Wechsel von <code>date</code> zurückgesetzt: ein neuer Tag beginnt ohne Anheftungen.",
+      "Das Anheften gilt je Ansicht. Ein Wechsel berechnet es dort neu, wo diese Ansicht steht, sodass die beiden Bänder sich unterscheiden können.",
+      "Es gibt keine Grenze, wie viele Einträge zugleich anheften; eine Schicht, in der jeder Eintrag anheftet, füllt das Band."
+    ]
   }
 }

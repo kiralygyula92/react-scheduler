@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ErrorState",
+    "description": "What a view shows when loading failed, with the retry action when one is given."
+  }
+}

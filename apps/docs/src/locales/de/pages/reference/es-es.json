@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "esES",
+    "description": "Das spanische Sprachpaket (Spanien), das an localization übergeben wird."
+  }
+}

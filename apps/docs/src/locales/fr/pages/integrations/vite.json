@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vite",
-    "description": "Vite : l’objectif, ce qu’il faut avant de commencer, les étapes à suivre et comment vérifier le résultat."
+    "description": "D’une application Vite + React vide à un planning qui marche, en trois étapes."
   },
   "sections": {
     "goal": "Objectif",
     "before-you-start": "Avant de commencer",
     "steps": "Étapes",
     "result": "Résultat",
-    "related": "Voir aussi"
+    "related": "Voir aussi",
+    "troubleshooting": "Dépannage"
+  },
+  "goal": "Afficher le planning dans une application Vite, stylé, avec vos propres éléments. Vite n’a besoin d’aucune configuration pour cela : le paquet livre de l’ESM et un fichier CSS ordinaire, que Vite traite tels quels.",
+  "before": {
+    "points": [
+      "Un projet Vite + React, en JavaScript ou TypeScript. <code>npm create vite@latest</code> vous en donne un.",
+      "React 18.2 ou 19, et le <code>react-dom</code> correspondant. Ce sont des dépendances peer : elles restent les vôtres.",
+      "Node 20 ou plus récent pour construire."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Installez le paquet",
+      "text": "Une seule dépendance, pas d’autres. Tout ce dont il a besoin est soit peer, soit déjà dans la boîte."
+    },
+    "stylesheet": {
+      "title": "Importez la feuille de style une fois",
+      "text": "La feuille de style est un fichier CSS ordinaire, importé là où vous importez votre CSS global — généralement le module d’entrée. C’est le seul import qui doit avoir lieu exactement une fois."
+    },
+    "render": {
+      "title": "Affichez un planning",
+      "text": "Un élément a besoin d’un id, d’un début et d’un titre ; le niveau lui donne sa couleur et sa place dans l’ordre. Tout le reste a une valeur par défaut."
+    }
+  },
+  "result": {
+    "text": "Lancez <code>npm run dev</code>. Vous obtenez un poste autour de l’heure courante, deux éléments dedans et l’indicateur « maintenant » là où est l’horloge. Ensuite, <link to=\"/shifts-and-dates/\">Postes et dates</link> change la forme de la journée et <link to=\"/customization/theming/\">Thématisation</link> change son allure."
+  },
+  "troubleshooting": {
+    "points": [
+      "Le planning apparaît sans style : l’import de la feuille de style manque, ou se trouve dans un module jamais chargé. Elle doit être importée, pas liée.",
+      "Un build qui traite les imports CSS venant de dépendances comme une erreur : gardez l’import dans votre module d’entrée, pas dans un paquet partagé à vous.",
+      "Deux React dans le bundle — souvent un paquet local lié — produisent l’erreur de hook que React signale lui-même. <code>npm ls react</code> le trouve."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Installation</link> — les dépendances peer, la feuille de style et un premier rendu.",
+      "<link to=\"/integrations/ssr/\">Rendu côté serveur</link> — quand la même application se dote d’un serveur.",
+      "<link to=\"/customization/\">Personnalisation</link> — les six niveaux de remplacement, du plus léger d’abord."
+    ]
   }
 }

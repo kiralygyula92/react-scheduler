@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "Fixarea la trecere pentru marcaj propriu: înregistrezi senzorii, citești cheile fixate."
+  }
+}

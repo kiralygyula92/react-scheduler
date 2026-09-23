@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveLevels",
+    "description": "Die Stufendefinitionen nach key indiziert, mit ausgefülltem rank (Standard: der Array-Index), variant und pinOnPass."
+  }
+}

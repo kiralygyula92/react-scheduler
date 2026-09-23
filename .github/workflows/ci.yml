@@ -23,6 +23,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @react-schedulerkit/react-scheduler add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
         if: matrix.react != '19'
+      # The reference pages and their data are generated: lint, typecheck and the build all read
+      # them, so the extractor runs before the first of them (docs pack 05 §2).
+      - run: pnpm --filter docs api
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test:coverage # enforces the coverage thresholds (M1 gate: core ≥ 90 % lines, 85 % branches)
@@ -46,6 +49,8 @@ jobs:
       - run: pnpm --filter docs build
         if: matrix.react == '19'
       - run: pnpm --filter docs conformance
+        if: matrix.react == '19'
+      - run: pnpm --filter docs check:links
         if: matrix.react == '19'
       - run: pnpm exec playwright install --with-deps
         if: matrix.react == '19'
@@ -86,6 +91,7 @@ jobs:
           RS_BROWSERS: chromium
       # The docs shell's baselines were recorded on Windows for the same reason.
       - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter docs api
       - run: pnpm --filter docs build
       - run: pnpm e2e apps/docs/e2e/visual.spec.ts --project=chromium
       - uses: actions/upload-artifact@v4

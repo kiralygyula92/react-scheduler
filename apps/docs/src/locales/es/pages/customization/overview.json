@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Descripción general",
-    "description": "Descripción general en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+    "title": "Visión general",
+    "description": "Las seis formas de cambiar React Scheduler, desde una variable CSS hasta un renderizado propio, de la más ligera a la más pesada."
   },
   "sections": {
     "css-variables": "Variables CSS",
@@ -14,5 +14,24 @@
     "slots": "Slots",
     "handlers": "Manejadores",
     "headless-hooks": "Hooks headless"
+  },
+  "scope": "Seis niveles, del más ligero al más pesado. Cada uno cuesta más de mantener que el anterior, así que toma el primero que haga lo que necesitas y quédate ahí.",
+  "variables": {
+    "text": "Un valor: un color, un radio, una altura. Fija un token en el componente, en tu hoja de estilos o mediante la prop <code>tokens</code>, y todo lo construido a partir de él lo sigue. Nada de la estructura cambia. Véase <link to=\"/customization/css-variables/\">Variables CSS</link>."
+  },
+  "classNames": {
+    "text": "Un asidero para tu CSS. <code>classNames</code> añade una clase a cualquier parte, junto a la de la biblioteca, así que tus reglas pueden apuntarla sin depender de los nombres de clase de la biblioteca. Con <code>unstyled</code>, son las únicas clases que hay."
+  },
+  "slotProps": {
+    "text": "Un atributo en una parte: un título, un atributo de datos, una clase más, una ref. La parte sigue siendo de la biblioteca; tú solo añades a sus props. La forma de función recibe el owner state, así que el valor puede depender del elemento o del turno."
+  },
+  "slots": {
+    "text": "La parte en sí, sustituida. Tu componente recibe las props que habría tenido la integrada —incluidas la ref y los manejadores— y renderiza lo que quiera. Véase <link to=\"/customization/slots/\">Slots y sustituciones</link>."
+  },
+  "handlers": {
+    "text": "Comportamiento, no marcado. Un middleware se ejecuta antes de que el componente actúe y puede cambiar el resultado o cancelarlo: una confirmación, un permiso, un cambio sin guardar. Véase <link to=\"/events-and-middleware/\">Eventos y middleware</link>."
+  },
+  "hooks": {
+    "text": "El modelo sin el marcado. Cuando la estructura misma tiene que ser otra, toma el estado y los getters de props y renderiza el tuyo. Véase <link to=\"/headless-api/\">API headless</link>."
   }
 }

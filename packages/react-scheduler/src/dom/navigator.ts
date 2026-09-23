@@ -2,6 +2,12 @@
 // Programmatic scrolling (Feature Dossier 01 §L.7, §T.10, 05 F-08). Targets are re-measured at every
 // step, so late layout changes (for example, the pinned strip growing) are corrected.
 
+/**
+ * The scrolling the navigator performs, so a host can replace it.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface NavigatorHooks {
   /** Called before a navigation starts (the list pauses pinning). */
   onStart?: () => void;
@@ -11,23 +17,54 @@ export interface NavigatorHooks {
   onDone?: () => void;
 }
 
+/**
+ * What the navigator needs: the scroller, the shifts and the landing rules.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface NavigatorOptions extends NavigatorHooks {
+  /** The element the navigator scrolls. */
   scroller: HTMLElement;
-  /** ms after the final correction before onDone. Default 180. */
+  /**
+   * How long to wait after the final correction before `onDone`, in milliseconds.
+   *
+   * @defaultValue 180
+   */
   resumeDelay?: number;
-  /** ms without scroll events that count as settled when `scrollend` is not supported. Default 500. */
+  /**
+   * How long without scroll events counts as settled where `scrollend` is not supported, in
+   * milliseconds.
+   *
+   * @defaultValue 500
+   */
   settleDelay?: number;
 }
 
+/**
+ * Moves a view to a shift, an item or a time, with the alignment the options ask for.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface Navigator {
   /** Scrolls to `target()`; smooth unless `smooth` is false. A new call replaces a pending one. */
   scrollTo(target: () => number, options?: { smooth?: boolean }): void;
+  /** Stops a movement that is under way. */
   cancel(): void;
+  /** Detaches every listener; call it when the scroller goes away. */
   destroy(): void;
 }
 
 const CORRECTION_TOLERANCE = 1;
 
+/**
+ * Creates the navigator for one scroller.
+ *
+ * @category DOM
+ * @since 1.0.0
+ * @param options The scroller to move and the callbacks that report the movement.
+ */
 export function createNavigator(options: NavigatorOptions): Navigator {
   const { scroller, onStart, onSettle, onDone } = options;
   const resumeDelay = options.resumeDelay ?? 180;

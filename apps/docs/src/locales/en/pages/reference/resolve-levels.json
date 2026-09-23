@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveLevels",
+    "description": "Level definitions keyed by key, with rank (default: array index), variant and pinOnPass filled in."
+  }
+}

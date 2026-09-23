@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Éléments et niveaux",
-    "description": "Éléments et niveaux dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Ce qu’est un élément, comment l’échelle de niveaux lui donne sa couleur et son rang, et ce qui décide de l’ordre dans un poste."
   },
   "sections": {
     "basics": "Bases",
+    "levels": "L’échelle de niveaux",
+    "order": "Ordre",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "levels": "Une échelle à vous",
+    "compare": "Trié par titre"
+  },
+  "basics": {
+    "intro": "Un élément est un simple objet. Quatre champs sont obligatoires — <code>id</code>, <code>start</code>, <code>level</code> et <code>title</code> — et le reste affine la lecture de la carte. Les éléments sont placés dans les postes selon leur début : celui qui tombe hors de tout poste rendu n’est pas affiché, et celui dont le début est invalide est écarté et signalé une fois en développement.",
+    "item": "L’élément complet, généré à partir des déclarations du paquet :"
+  },
+  "levels": {
+    "intro": "Un niveau est un rang sur une échelle que vous définissez : son nom, sa force, sa couleur et si les éléments de ce rang s’épinglent en défilant. Le paquet fournit <code>classicLevels</code>, une échelle de neuf rangs, mais une échelle de quatre rangs avec vos clés est tout aussi valable — et les clés entrent dans le type de l’élément, si bien qu’une faute de frappe est une erreur de type et non un oubli silencieux.",
+    "points": [
+      "<code>rank</code> prend par défaut la position dans le tableau : un tableau bien ordonné n’a besoin d’aucun rang.",
+      "<code>color</code> et <code>onColor</code> prennent par défaut les jetons <code>--rs-level-{key}</code> et <code>--rs-level-{key}-on</code> : un thème peut recolorer une échelle sans toucher aux données.",
+      "<code>variant</code> choisit le traitement de la carte : <code>'alert'</code> pour le rang le plus fort, <code>'muted'</code> pour ce qui est terminé.",
+      "<code>pinOnPass</code> fait épingler chaque élément de ce rang — voir <link to=\"/pinning/\">Épinglage</link>.",
+      "Le libellé vient de <code>localization.levels[key]</code> : l’échelle est traduite avec le reste du composant."
+    ]
+  },
+  "order": {
+    "intro": "Dans un poste, les éléments suivent <code>compareItems</code>. Par défaut c’est l’ordre de placement : le début, puis le rang de niveau, puis l’id. Le remplacer change d’un coup la liste, la séquence de placement de la chronologie et le bandeau des épinglés : les trois ne se contredisent jamais sur l’élément qui vient en premier."
+  },
+  "accessibility": {
+    "points": [
+      "Le nom accessible d’une carte porte son titre, son niveau et son heure : la couleur du rail n’est jamais la seule chose qui dit la gravité d’un élément.",
+      "Les pastilles de niveau et d’étiquette sont du texte, pas des icônes, et font partie du nom de la carte.",
+      "La couleur d’un niveau n’est qu’un renfort : la même information figure dans le libellé à côté."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Les parties <code>levelPill</code>, <code>tagPill</code> et <code>cardRail</code> se remplacent par des <link to=\"/customization/slots/\">slots</link>.",
+      "Les couleurs vivent dans les jetons <code>--rs-level-*</code> — voir <link to=\"/customization/css-variables/\">Variables CSS</link>.",
+      "<code>tags</code> définit les étiquettes qu’un élément peut porter, chacune avec son libellé et ses couleurs."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un élément appartient à exactement un poste, celui où tombe son début. Un élément qui chevauche deux postes est dessiné dans le premier et ne se répète pas dans le second.",
+      "Les ids en double ne sont pas fusionnés : la première occurrence l’emporte, les autres sont écartées, avec un avertissement en développement.",
+      "L’échelle est plate — pas de regroupement des niveaux en familles, ni d’échelle par poste."
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "LoadingState",
+    "description": "O que uma vista mostra enquanto os elementos são carregados."
+  }
+}

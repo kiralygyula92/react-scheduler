@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Depuis une implémentation maison",
-    "description": "Depuis une implémentation maison : à qui cela s’adresse, ce qui a changé et les étapes pour passer à la version actuelle."
+    "description": "Comment faire correspondre un tableau de postes écrit à la main avec celui-ci : éléments, niveaux, postes, textes et styles."
   },
   "sections": {
     "who-this-is-for": "À qui cela s’adresse",
@@ -13,5 +13,96 @@
     "step-by-step": "Pas à pas",
     "removed-and-renamed": "Supprimé et renommé",
     "getting-help": "Obtenir de l’aide"
+  },
+  "who": {
+    "intro": "Vous avez déjà un planning à l’écran. Quelqu’un l’a écrit — une liste groupée par poste, ou une colonne de cartes positionnées en absolu — et il marche, mais chaque nouvelle exigence retombe sur les mêmes quelques centaines de lignes. Ce guide fait correspondre ce que vous avez à ce que le paquet fait déjà.",
+    "points": [
+      "Vous affichez une journée, ou un poste, en liste ou en grille de temps.",
+      "Vous avez votre propre notion de gravité, de priorité ou d’état, et elle décide des couleurs et de l’ordre.",
+      "Vous avez déjà traité au moins l’un de ces cas : des éléments qui se chevauchent, un poste à cheval sur minuit, des éléments qui doivent rester en vue une fois sortis de l’écran.",
+      "Vous êtes sur React 18.2 ou 19 et pouvez ajouter une dépendance."
+    ]
+  },
+  "summary": {
+    "intro": "Ce qui bouge, et ce que cela devient. Rien ici ne réclame de codemod : le changement, c’est une fonction de correspondance et quelques props.",
+    "head": {
+      "before": "Ce que vous avez",
+      "after": "Ce que cela devient",
+      "action": "Que faire"
+    },
+    "rows": [
+      [
+        "Votre type de ligne",
+        "<code>SchedulerItem</code>",
+        "Faites la correspondance une fois ; gardez votre objet dans <code>data</code>."
+      ],
+      [
+        "Gravité, priorité ou état",
+        "<code>levels</code>",
+        "Une définition par clé : rang, couleur, traitement de la carte, s’il s’épingle."
+      ],
+      [
+        "Le regroupement par jour ou par poste",
+        "<code>shifts</code>",
+        "Un ancrage et une durée. Le composant décide quel poste est courant."
+      ],
+      [
+        "Votre logique de chevauchement",
+        "Colonnes et puce d’éléments supplémentaires",
+        "Supprimez-la. Le plafond et la promotion sont intégrés."
+      ],
+      [
+        "Une barre collante « encore ouverts »",
+        "La bande d’épinglage",
+        "Mettez <code>pinOnPass</code> sur les niveaux qui y ont leur place."
+      ],
+      ["Des textes anglais écrits en dur", "Un pack de langue", "Passez l’un des sept, ou écrivez votre propre objet."],
+      [
+        "Votre fichier CSS",
+        "Jetons, noms de classes, slots",
+        "Commencez par les jetons ; ne touchez aux slots que là où la structure doit différer."
+      ],
+      [
+        "Votre modale de détail",
+        "La boîte de dialogue intégrée, ou <code>renderItemDetail</code>",
+        "Gardez la vôtre si elle travaille ; la prop lui remet l’élément."
+      ]
+    ]
+  },
+  "steps": {
+    "items": {
+      "title": "Faites correspondre vos lignes à des éléments",
+      "text": "Un élément a besoin d’un id, d’un début et d’un titre. Le reste est facultatif, et votre objet voyage dans <code>data</code>, typé, pour que slots et handlers y accèdent sans recherche."
+    },
+    "levels": {
+      "title": "Transformez votre gravité en niveaux",
+      "text": "La définition d’un niveau décide de la couleur, de l’ordre et du traitement de la carte. Donnez au plus fort le rang le plus bas. Si votre échelle ressemble aux neuf classiques, partez de <code>classicLevels</code> et modifiez-la ; sinon, définissez la vôtre — rien dans le composant ne présuppose les clés classiques."
+    },
+    "shifts": {
+      "title": "Décrivez la journée au lieu de la regrouper",
+      "text": "Plutôt que de répartir vous-même les éléments, dites la durée d’un poste et l’heure de début de l’un d’eux. Le composant place chaque élément, décide quel poste contient l’instant présent et rend ceux d’avant et d’après. Un poste à cheval sur minuit ne demande rien de plus."
+    },
+    "strings": {
+      "title": "Déplacez vos textes dans un pack de langue",
+      "text": "Chaque texte affiché par le composant vient d’un seul objet. Passez l’un des sept packs, ou répandez-en un et remplacez les messages que vous formulez autrement. Vos propres textes — les titres de vos éléments — restent les vôtres."
+    },
+    "styles": {
+      "title": "Refaites l’allure d’abord avec les jetons",
+      "text": "La plupart des styles maison tiennent en quelques variables CSS : une surface, un rayon, un accent. Fixez-les avant d’écrire du CSS à vous, puis utilisez <code>classNames</code> pour les règles restantes, et des slots seulement là où le balisage lui-même doit différer."
+    },
+    "behavior": {
+      "title": "Remplacez vos points d’interception",
+      "text": "Une confirmation avant ouverture, un contrôle de droits, une alerte de modifications non enregistrées : cela devient du middleware. Un handler s’exécute avant que le composant n’agisse et peut l’annuler, si bien que le composant garde sa machine à états et vous vos règles."
+    }
+  },
+  "removed": {
+    "text": "Rien pour l’instant. C’est la première version : il n’y a donc ni renommage ni suppression à reporter. Tout changement ultérieur de ce genre est consigné dans le <link to=\"/discover-more/changelog/\">Journal des modifications</link>, et celui qui demande des étapes reçoit son propre guide à côté de celui-ci."
+  },
+  "help": {
+    "points": [
+      "<link to=\"/all-features/\">Toutes les capacités</link> — le moyen le plus rapide de trouver la page d’un comportement que vous avez déjà construit.",
+      "<link to=\"/headless-api/\">API headless</link> — quand la structure doit vraiment être la vôtre.",
+      "<link to=\"/getting-started/support/\">Assistance</link> — où demander, et quoi inclure."
+    ]
   }
 }

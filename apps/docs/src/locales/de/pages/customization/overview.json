@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Überblick",
-    "description": "Überblick in React Scheduler: was sich ändern lässt, wie es geändert wird und was die Änderung betrifft."
+    "description": "Die sechs Wege, React Scheduler zu ändern, von einer CSS-Variablen bis zu einer eigenen Darstellung — der leichteste zuerst."
   },
   "sections": {
     "css-variables": "CSS-Variablen",
@@ -14,5 +14,24 @@
     "slots": "Slots",
     "handlers": "Handler",
     "headless-hooks": "Headless-Hooks"
+  },
+  "scope": "Sechs Stufen, von der leichtesten zur schwersten. Jede kostet mehr Pflege als die davor, nehmen Sie also die erste, die tut, was Sie brauchen — und hören Sie dort auf.",
+  "variables": {
+    "text": "Ein Wert: eine Farbe, ein Radius, eine Höhe. Setzen Sie ein Token an der Komponente, in Ihrem Stylesheet oder über die <code>tokens</code>-Prop, und alles, was daraus gebaut ist, folgt. An der Struktur ändert sich nichts. Siehe <link to=\"/customization/css-variables/\">CSS-Variablen</link>."
+  },
+  "classNames": {
+    "text": "Ein Griff für Ihr CSS. <code>classNames</code> fügt jedem Teil eine Klasse neben der der Bibliothek hinzu, sodass Ihre Regeln sie ansprechen können, ohne von den Klassennamen der Bibliothek abzuhängen. Mit <code>unstyled</code> sind sie die einzigen Klassen."
+  },
+  "slotProps": {
+    "text": "Ein Attribut an einem Teil: ein Titel, ein Datenattribut, eine zusätzliche Klasse, eine Ref. Der Teil bleibt der der Bibliothek; Sie ergänzen nur seine Props. Die Funktionsform erhält den Owner State, sodass der Wert vom Eintrag oder von der Schicht abhängen kann."
+  },
+  "slots": {
+    "text": "Der Teil selbst, ersetzt. Ihre Komponente erhält die Props, die die eingebaute gehabt hätte — samt Ref und Handlern — und rendert, was sie will. Siehe <link to=\"/customization/slots/\">Slots und Überschreibungen</link>."
+  },
+  "handlers": {
+    "text": "Verhalten statt Markup. Eine Middleware läuft, bevor die Komponente handelt, und kann das Ergebnis ändern oder abbrechen — eine Bestätigung, eine Berechtigung, eine ungespeicherte Änderung. Siehe <link to=\"/events-and-middleware/\">Ereignisse und Middleware</link>."
+  },
+  "hooks": {
+    "text": "Das Modell ohne Markup. Wenn die Struktur selbst anders sein muss, nehmen Sie den Zustand und die Prop-Getter und rendern Ihr eigenes. Siehe <link to=\"/headless-api/\">Headless-API</link>."
   }
 }

@@ -1,14 +1,29 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Slots und Überschreibungen",
-    "description": "Slots und Überschreibungen in React Scheduler: was sich ändern lässt, wie es geändert wird und was die Änderung betrifft."
+    "description": "Jeder ersetzbare Teil der Komponente, was ein Slot erhält, und ein ausgearbeitetes Beispiel."
   },
   "sections": {
     "slots": "Slots",
     "example": "Beispiel"
+  },
+  "demos": {
+    "slots": "Zwei Teile, ersetzt"
+  },
+  "intro": "Ein Slot ersetzt die Komponente eines Teils und behält dabei ihren Platz, ihre Props und ihr Verhalten. Ihre Komponente erhält alles, was die eingebaute gehabt hätte:",
+  "rules": [
+    "Breiten Sie die erhaltenen Props aus. Sie tragen die Klassennamen, das Datenattribut, die Ereignishandler und den zugänglichen Namen.",
+    "Setzen Sie die <code>ref</code>, wenn es eine gibt: Anheften, Messen und Fokus hängen davon ab.",
+    "<code>ownerState</code> sagt, wofür der Teil gerendert wird — Ansicht, Schema, Eintrag, Schicht —, sodass ein Slot sich in Liste und Zeitstrahl unterschiedlich verhalten kann.",
+    "<code>Default</code> ist die eingebaute Komponente, falls Sie sie umschließen statt ersetzen wollen.",
+    "Eine Render-Prop gewinnt gegen einen Slot für denselben Inhalt: <code>renderItem</code> ersetzt die ganze Karte, und dann zeichnen Sie deren Teile selbst."
+  ],
+  "table": "Die Teile, erzeugt aus den Deklarationen des Pakets:",
+  "example": {
+    "intro": "Hier ist die Stufenplakette eine eigene Komponente um die eingebaute herum, und der Chip <strong>+ weitere</strong> bekommt nur einen zusätzlichen Stil — die beiden leichtesten Arten der Überschreibung, nebeneinander."
   }
 }

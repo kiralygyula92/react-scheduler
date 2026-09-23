@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "További elemek",
-    "description": "További elemek a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Mi történik azokkal az elemekkel, amelyeket egy zsúfolt óra nem tud elhelyezni: a „+ továbbiak” jelvény, a mögötte lévő párbeszédpanel és a táblázat, amelyet alakíthatsz."
   },
   "sections": {
     "basics": "Alapok",
+    "columns": "Oszlopok és rendezés",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "columns": "Saját táblázat"
+  },
+  "basics": {
+    "intro": "Az idővonal oszlopokba helyezi az elemeket, legfeljebb <code>maxColumns</code> darabba. Ha egy órában több van, mint amennyi elfér, a többi egy csoportba kerül, a csoport pedig <strong>+ továbbiak</strong> jelvényként jelenik meg a rácson. A jelvény megnyitása párbeszédpanelt nyit az egész csoporttal, táblázatban.",
+    "points": [
+      "Egy csoport csak addig fed le egymást követő órákat, amíg az <code>overflowMergeWindow</code> ablakon belül marad — lásd: <link to=\"/timeline-view/\">Idővonal nézet</link>.",
+      "A jelvény akadálymentes neve megmondja, hány elemet tartalmaz és melyik időponttól.",
+      "A jelvény egyben rögzítési őrszem is: a benne lévő rögzíthető elemek akkor rögzülnek, amikor a jelvény elgördül.",
+      "A párbeszédpanel natív modális, így a böngésző tartja bent a fókuszt, az <kbd>Escape</kbd> bezárja, a háttér pedig kattintható."
+    ]
+  },
+  "columns": {
+    "intro": "Alapból a táblázat az időt, a szintet, a címet, a leírást és egy műveletet mutat, amely megnyitja az elem részleteit. Az <code>overflowColumns</code> ezt a készletet a sajátodra cseréli:",
+    "sorting": "Egy oszlop akkor rendez, ha van <code>sortValue</code> értéke; enélkül tétlen. A rendezhető fejlécre kattintva növekvő lesz a rendezés, másodszorra megfordul, oszlopváltáskor pedig visszatér az első lapra. A holtversenyt a <code>compareItems</code> dönti el, a rendezés irányában. A rendezés és a lap ugyanúgy vezérelt vagy nem vezérelt, mint minden más, és a párbeszédpanel minden megnyitásakor visszaáll, hacsak te nem tartod őket."
+  },
+  "accessibility": {
+    "points": [
+      "A párbeszédpanelt a címe címkézi, amely a csoport elemszámát viszi.",
+      "A táblázat valódi táblázat: az oszlopfejlécek <code>aria-sort</code> attribútumot visznek, a rendezhető fejléc pedig gomb a fejléccellában.",
+      "Egy elem megnyitása a sorból egy második párbeszédpanelt tesz az első fölé; a bezárása visszaadja a fókuszt a sor műveletének.",
+      "A lapozás a fókuszt a lapozóban tartja, és a laplista ugyanaz, amelyet a látható számok mutatnak."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Az <code>overflowColumns</code>, az <code>overflowPageSize</code>, valamint a vezérelt <code>overflowSort</code> és <code>overflowPage</code>.",
+      "A <code>renderMoreLabel</code> lecseréli a jelvény szövegét; a <code>moreChip</code>, az <code>overflowDialog</code>, az <code>overflowTable</code> és a <code>pagination</code> részek a markupot.",
+      "A <code>localization.overflow</code> tartalmazza a címet, az oszlopfejléceket és a bezárás feliratait.",
+      "A párbeszédpanel és a táblázat külön darabban van, amely az első jelvénynyitáskor töltődik be."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A további elemek fogalma az idővonalé; a lista minden elemet megmutat, és soha nem von össze semmit.",
+      "A táblázat egyszerre egy csoportot mutat — azt, amelyiknek a jelvényét megnyitották.",
+      "Az oszlopokat az olvasó nem méretezheti át, a szélességük az, amit az oszlopdefinícióid kérnek."
+    ]
   }
 }

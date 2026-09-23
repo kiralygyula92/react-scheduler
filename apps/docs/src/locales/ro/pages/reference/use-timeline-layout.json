@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useTimelineLayout",
+    "description": "Aranjarea cronologică a elementelor items, memorată pe intrările ei."
+  }
+}

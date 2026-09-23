@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Slot- és megjelenítési típusok",
+    "description": "A részek, a hozzájuk tartozó owner state, és hogy mit kap minden slot és minden render prop."
+  }
+}

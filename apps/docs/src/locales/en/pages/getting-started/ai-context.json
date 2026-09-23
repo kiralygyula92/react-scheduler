@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "AI context",
@@ -15,5 +15,53 @@
     "minimal-working-example": "Minimal working example",
     "verify": "Verify",
     "next-steps": "Next steps"
+  },
+  "prerequisites": {
+    "text": "An agentic coding tool — Claude Code, Cursor, Codex or another — with your repository open. Nothing is installed for this: it is one Markdown file and one line of instruction."
+  },
+  "install": {
+    "download": "Download the documentation into your repository:",
+    "instruction": "Then add one line to the file your tool reads on every session — <code>CLAUDE.md</code> for Claude Code, <code>AGENTS.md</code> for Codex, Cursor and most others:",
+    "url": "A tool that indexes documentation by URL can be given <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code> instead of a local copy. Re-download it when you upgrade the package: the file is generated in the same build as this site, so the two can never disagree."
+  },
+  "what": {
+    "text": "Every page of this site, in reading order, as one Markdown document:",
+    "points": [
+      "the prose of each page, with its headings and tables;",
+      "the full source of every live example, exactly as it runs here;",
+      "the API reference, generated from the package's own type declarations — every prop, its type, its default and its description."
+    ]
+  },
+  "which": {
+    "head": { "file": "File", "holds": "What it holds", "when": "Use it when" },
+    "rows": [
+      [
+        "<code>llms-full.md</code>",
+        "Every page and every example, as Markdown",
+        "Your tool reads Markdown and the context window can hold it"
+      ],
+      ["<code>llms-full.txt</code>", "The same content as plain text", "Your tool expects <code>.txt</code>"],
+      [
+        "<code>llms.txt</code>",
+        "A link index: every page, with its one-line description",
+        "The full file is too large, or the tool fetches pages on demand"
+      ],
+      ["A page's URL with <code>.md</code>", "One page", "You know which page answers the question"]
+    ],
+    "context": "The full file is around 240 kB, which fits in current models but crowds a small context window. If yours is tight, give the agent <code>llms.txt</code> and let it fetch the one page it needs — every page of this site is reachable by appending <code>.md</code> to its URL."
+  },
+  "example": {
+    "text": "One prompt that uses the file. The agent has the props, the defaults and the examples, so it does not have to guess an API:"
+  },
+  "verify": {
+    "text": "Ask a question only the documentation answers. If the agent invents a plausible prop name, it did not read the file:",
+    "answer": "The answer is <code>overflowMergeWindow</code>: consecutive hours merge into one group only while the merged group stays inside that window. It is on the <link to=\"/timeline-view/\">Timeline view</link> page."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Installation</link> — the package itself.",
+      "<link to=\"/getting-started/usage/\">Usage</link> — a complete example to hand the agent.",
+      "<link to=\"/api/\">API reference</link> — the same data the file carries, page by page."
+    ]
   }
 }

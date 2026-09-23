@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedStrip",
+    "description": "La bande d’éléments épinglés qui reste visible tant que leur poste est à l’écran."
+  }
+}

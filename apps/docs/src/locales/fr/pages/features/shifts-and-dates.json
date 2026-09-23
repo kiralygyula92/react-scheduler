@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Postes et dates",
-    "description": "Postes et dates dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Comment une journée est découpée en postes — une durée régulière ou un motif nommé — et combien d’entre eux sont rendus autour de celui qu’on lit."
   },
   "sections": {
     "basics": "Bases",
+    "patterns": "Motifs irréguliers",
+    "how-many": "Combien de postes sont rendus",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "regular": "Une durée, une ancre",
+    "pattern": "Tôt, tard, nuit",
+    "moreShifts": "Deux en arrière, trois en avant"
+  },
+  "basics": {
+    "intro": "Un planning se lit poste par poste : la première chose que le composant fait de vos éléments est de décider dans quel poste chacun tombe. Des postes réguliers demandent deux nombres : la durée d’un poste et l’heure à laquelle l’un d’eux commence. Le reste de la journée en découle — des postes de six heures ancrés à 06:00 commencent à 06:00, 12:00, 18:00 et 00:00.",
+    "day": "<code>date</code> choisit le moment lu, et le poste qui contient ce moment est le poste courant. Une journée n’est pas ici une journée calendaire : un poste de nuit qui va de 22:00 à 06:00 est un seul poste, pas deux moitiés, et la grille comme la liste le traitent ainsi."
+  },
+  "patterns": {
+    "intro": "Quand les postes n’ont pas tous la même durée, donnez plutôt un <code>pattern</code> : les heures de début, dans l’ordre, chacune avec sa clé. Une entrée se termine là où la suivante commence, et la dernière passe minuit pour rejoindre la première. <code>durationHours</code>, <code>anchor</code> et <code>keys</code> sont ignorés quand un motif est donné."
+  },
+  "howMany": {
+    "intro": "<code>before</code> et <code>after</code> disent quelle part de la journée alentour est rendue. C’est l’intervalle dans lequel le lecteur peut défiler et naviguer sans que votre application n’aille rien chercher : au-delà, avancer est un changement de date, que vous gérez.",
+    "options": "La liste complète, générée à partir des déclarations du paquet :"
+  },
+  "accessibility": {
+    "points": [
+      "Chaque poste est une section avec un vrai titre : un lecteur d’écran peut sauter de poste en poste par les titres.",
+      "Le titre d’un poste dit ce qu’il est par rapport à maintenant — précédent, courant, suivant, ou à combien de postes — puis son intervalle, formaté dans la langue du lecteur.",
+      "L’intervalle du titre est du texte, pas une image ni un attribut <code>title</code> : il est lu et il est cherchable.",
+      "Les postes autres que le poste courant ne sont pas masqués aux technologies d’assistance : ce sont les mêmes sections, dans le même ordre que la grille visuelle."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>formatters.shiftRange</code> met en forme l’intervalle d’un titre, et <code>formatters.hourLabel</code> les étiquettes d’heure de la chronologie.",
+      "<code>localization.shiftHeader</code> contient les mots pour précédent, courant, suivant, plus tôt et plus tard.",
+      "Les parties <code>shiftHeader</code>, <code>shiftHeaderTitle</code> et <code>shiftHeaderRange</code> se remplacent par des <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderShiftHeader</code> remplace tout le titre par le vôtre, en gardant la section autour."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "<code>durationHours</code> doit diviser 24 : des postes de cinq ou sept heures sont un motif, pas une durée régulière.",
+      "Un seul motif couvre chaque journée. Un motif qui diffère entre semaine et week-end n’est pas encore exprimable ; changer <code>shifts</code> avec la date est le contournement.",
+      "Les postes sont placés par horodatage, dans le fuseau horaire du lecteur. Un planning lu dans deux fuseaux montre deux découpages différents des mêmes éléments.",
+      "Il n’y a pas moyen de masquer un poste sans éléments ; un poste vide rend son état vide."
+    ]
   }
 }

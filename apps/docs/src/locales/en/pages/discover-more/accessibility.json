@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accessibility",
-    "description": "The accessibility target of React Scheduler, what is tested on every change, and the gaps that remain."
+    "description": "The target, what every change is tested against, the gaps that remain, and where to report one."
   },
   "sections": {
     "target": "Target",
     "what-is-tested": "What is tested",
     "known-gaps": "Known gaps",
     "reporting": "Reporting an issue"
+  },
+  "target": {
+    "intro": "The target is WCAG 2.2 level AA for the component and for this site. That is a target the tests enforce, not a certification: no audit has been commissioned, and no conformance claim is made.",
+    "points": [
+      "The default preset meets the contrast requirements in both color schemes.",
+      "Everything that can be done with a pointer can be done with a keyboard, in the order the page reads.",
+      "Every part carries a role and a name; nothing depends on color alone.",
+      "Under <code>prefers-reduced-motion</code> nothing animates, and no information is carried by motion."
+    ]
+  },
+  "tested": {
+    "intro": "Every change runs the same checks, and a release adds the ones a person has to do:",
+    "points": [
+      "axe-core over the rendered component in Chromium, Firefox and WebKit, in both presets, both color schemes and every state, with the contrast rules on.",
+      "axe-core over the pages of this site, in each locale, with no serious or critical violation allowed.",
+      "Keyboard tests that walk the whole schedule: the cards, the pinned chips, the navigation, the dialogs and the way focus returns.",
+      "Snapshots of what a screen reader is given — the accessible names, the live-region announcements and their throttling.",
+      "Right-to-left screenshots against their left-to-right counterparts, so a mirrored layout is a test failure rather than a surprise.",
+      "Before a release, the manual checklist: NVDA with Firefox and VoiceOver with Safari, keyboard-only demo tasks, 200% zoom at 320 pixels wide, and Windows High Contrast."
+    ]
+  },
+  "gaps": {
+    "intro": "The gaps that are known, and what is being done about them:",
+    "points": [
+      "There is no roving focus between cards yet: <kbd>Tab</kbd> is the only movement, and a shift with many items is many stops. It is on the <link to=\"/discover-more/roadmap/\">roadmap</link>.",
+      "The navigation buttons have no keyboard shortcuts.",
+      "The <code>classic</code> preset keeps a few contrast shortfalls on purpose, for pixel parity with the look it reproduces: the level pills, the alert tint, and three more in the light scheme. The default preset has none, and the test suite allows exactly that list and nothing else.",
+      "One color of this documentation site — the border of inputs and hovered cards — is below the 3:1 that its own design system claims. It is measured in a test so it cannot get worse, and it belongs to the shell rather than to the component.",
+      "The manual checklist has not run yet, because nothing has been released yet."
+    ]
+  },
+  "reporting": {
+    "intro": "An accessibility issue is a bug, and it is triaged ahead of features. When reporting one:",
+    "points": [
+      "Say which assistive technology and browser, with versions — the combination matters more than either on its own.",
+      "Say what you expected to hear or reach, and what happened instead.",
+      "A link to a reproduction is worth more than a description; the <link to=\"/demos/\">demos</link> are a fair starting point.",
+      "<link to=\"/getting-started/support/\">Support</link> has the place to open it and what else to include."
+    ]
   }
 }

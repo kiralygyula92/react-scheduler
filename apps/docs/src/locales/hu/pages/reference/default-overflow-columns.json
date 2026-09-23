@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "defaultOverflowColumns",
+    "description": "Az oszlopok, amelyeket a további elemek táblázata mutat, ha nincs megadva más."
+  }
+}

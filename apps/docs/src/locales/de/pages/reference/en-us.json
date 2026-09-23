@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "enUS",
+    "description": "Das englische Sprachpaket und der Standard, wenn kein localization übergeben wird."
+  }
+}

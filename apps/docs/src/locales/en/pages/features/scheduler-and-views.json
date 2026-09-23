@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Scheduler and views",
-    "description": "Scheduler and views in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "The Scheduler component and its two views: what each one is for, how a reader switches, and what the two presets change."
   },
   "sections": {
     "basics": "Basics",
+    "presets": "Presets",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "views": "The same day, both ways",
+    "presets": "Default and classic"
+  },
+  "basics": {
+    "intro": "<code>Scheduler</code> is the whole component: it reads the items, cuts the day into shifts, and renders one of two views. The list is for reading a shift from top to bottom; the timeline is for seeing how the hours are filled. Everything else on this site is a detail of one of those two.",
+    "switch": "The package does not draw a view switch — your page does, where it fits your layout. Pass <code>defaultView</code> to choose where a reader starts, or <code>view</code> with <code>onViewChange</code> to keep the choice in your own state, in a URL for instance, so a link opens the view it was shared from. The labels for such a control are in the locale pack, under <code>views.list</code> and <code>views.timeline</code>.",
+    "points": [
+      "<code>ListView</code> and <code>TimelineView</code> are exported on their own, for a page that only ever wants one of them.",
+      "<code>keepInactiveViewMounted</code> keeps the other view mounted, so switching back is instant and its scroll position survives.",
+      "Below <code>listOnlyBreakpoint</code> the timeline is dropped entirely: a phone gets the list, whatever the view says."
+    ]
+  },
+  "presets": {
+    "intro": "A preset is the shape of the component, not its colors: the card layout, the strength of the level rail, how much air a row gets. <code>'default'</code> is the one this site uses; <code>'classic'</code> is denser and flatter. Both work in both color schemes and all three densities."
+  },
+  "accessibility": {
+    "points": [
+      "The component renders the active view only, so a keyboard never walks through a hidden one. With <code>keepInactiveViewMounted</code> the other view stays in the DOM, hidden, with every listener and timer paused.",
+      "A view switch is yours to build: a pair of buttons with <code>aria-pressed</code> reads well, and the labels are in the locale pack.",
+      "The component is one labelled region; its label is the schedule's name, so a screen reader can jump straight to it.",
+      "Heading levels inside it start at <code>headingLevel</code>, which defaults to <code>3</code>: set it to fit the page it lives on."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> and <code>density</code> for the look — see <link to=\"/customization/theming/\">Theming</link>.",
+      "<code>slots</code> and <code>slotProps</code> to replace or extend any part — see <link to=\"/customization/slots/\">Slots and overrides</link>.",
+      "<code>classNames</code> and <code>unstyled</code> to bring your own CSS entirely.",
+      "<code>localization</code> for every string the component shows — see <link to=\"/customization/localization/\">Localization</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "There are two views and no way to add a third. A different rendering is a job for <link to=\"/headless-api/\">the headless API</link>, which gives you the same model without any markup.",
+      "The views cannot be shown side by side in one component; render two if you need that.",
+      "Switching views keeps the date and the pinned items. The scroll position of the view you left is kept only with <code>keepInactiveViewMounted</code>; otherwise the view you enter lands where <code>landing.onViewEnter</code> says."
+    ]
   }
 }

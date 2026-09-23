@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accesibilitate",
-    "description": "Obiectivul de accesibilitate al React Scheduler, ce se testează la fiecare modificare și ce lipsuri rămân."
+    "description": "Ținta, ce se testează la fiecare schimbare, lipsurile care rămân și unde le raportezi."
   },
   "sections": {
-    "target": "Obiectiv",
-    "what-is-tested": "Ce este testat",
+    "target": "Țintă",
+    "what-is-tested": "Ce se testează",
     "known-gaps": "Lipsuri cunoscute",
     "reporting": "Raportarea unei probleme"
+  },
+  "target": {
+    "intro": "Ținta este WCAG 2.2 nivel AA, pentru componentă și pentru acest sit. Este o țintă pe care testele o impun, nu o certificare: nu a fost comandat niciun audit și nu se face nicio declarație de conformitate.",
+    "points": [
+      "Presetarea implicită respectă cerințele de contrast în ambele scheme de culoare.",
+      "Tot ce se poate face cu indicatorul se poate face și de la tastatură, în ordinea în care se citește pagina.",
+      "Fiecare parte are un rol și un nume; nimic nu depinde doar de culoare.",
+      "Sub <code>prefers-reduced-motion</code> nu se animează nimic, iar mișcarea nu poartă nicio informație."
+    ]
+  },
+  "tested": {
+    "intro": "Fiecare schimbare rulează aceleași verificări, iar o lansare adaugă și pe cele pe care le face un om:",
+    "points": [
+      "axe-core peste componenta randată în Chromium, Firefox și WebKit, în ambele presetări, ambele scheme de culoare și fiecare stare, cu regulile de contrast pornite.",
+      "axe-core peste paginile acestui sit, în fiecare limbă, fără nicio încălcare serioasă sau critică.",
+      "Teste de tastatură care parcurg tot programul: cardurile, cipurile fixate, navigarea, dialogurile și felul în care se întoarce focusul.",
+      "Instantanee cu ce primește un cititor de ecran — numele accesibile, anunțurile din regiunile live și limitarea lor.",
+      "Capturi de la dreapta la stânga comparate cu cele de la stânga la dreapta, ca o aranjare oglindită să fie o eroare de test, nu o surpriză.",
+      "Înainte de o lansare, lista manuală: NVDA cu Firefox și VoiceOver cu Safari, sarcinile din demonstrații doar de la tastatură, zoom 200% la 320 de pixeli lățime și contrastul ridicat din Windows."
+    ]
+  },
+  "gaps": {
+    "intro": "Lipsurile cunoscute și ce se face cu ele:",
+    "points": [
+      "Nu există încă focus itinerant între carduri: <kbd>Tab</kbd> este singura mișcare, iar o tură cu multe elemente înseamnă multe opriri. Este în <link to=\"/discover-more/roadmap/\">Plan de dezvoltare</link>.",
+      "Butoanele de navigare nu au scurtături de tastatură.",
+      "Presetarea <code>classic</code> păstrează dinadins câteva neajunsuri de contrast, pentru fidelitate la pixel cu aspectul pe care îl reproduce: pastilele de nivel, nuanța de alertă și încă trei în schema deschisă. Presetarea implicită nu are niciunul, iar suita de teste permite exact acea listă și nimic altceva.",
+      "O culoare a acestui sit de documentație — chenarul câmpurilor și al cardurilor sub cursor — este sub raportul de 3:1 pe care îl susține propriul lui sistem de design. Este măsurată într-un test, ca să nu se poată înrăutăți, și ține de carcasa sitului, nu de componentă.",
+      "Lista manuală nu a rulat încă, pentru că nu s-a lansat încă nimic."
+    ]
+  },
+  "reporting": {
+    "intro": "O problemă de accesibilitate este o eroare și se tratează înaintea funcțiilor noi. Când raportezi una:",
+    "points": [
+      "Spune ce tehnologie asistivă și ce browser, cu versiuni — combinația contează mai mult decât fiecare în parte.",
+      "Spune ce te așteptai să auzi sau să atingi și ce s-a întâmplat în loc.",
+      "Un link către o reproducere valorează mai mult decât o descriere; <link to=\"/demos/\">demonstrațiile</link> sunt un punct de plecare bun.",
+      "<link to=\"/getting-started/support/\">Asistență</link> arată unde o deschizi și ce altceva să incluzi."
+    ]
   }
 }

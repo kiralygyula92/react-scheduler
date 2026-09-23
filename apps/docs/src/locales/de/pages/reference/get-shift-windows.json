@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "Die dargestellten Schichtfenster um date, mit den Versätzen -before … +after. Das aktuelle Fenster ist [letzte Grenze ≤ date, nächste Grenze); die Versätze laufen über Tagesgrenzen hinweg."
+  }
+}

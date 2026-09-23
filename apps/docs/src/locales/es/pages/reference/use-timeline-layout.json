@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useTimelineLayout",
+    "description": "La disposición de línea de tiempo de items, memorizada según sus entradas."
+  }
+}

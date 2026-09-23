@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useNow",
+    "description": "Epoch ms of now, or an internal clock ticking every interval ms, paused while the document is hidden."
+  }
+}

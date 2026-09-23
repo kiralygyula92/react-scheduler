@@ -1,16 +1,76 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Utilisation",
-    "description": "Utilisation du paquet React Scheduler : les étapes dans l’ordre, les versions concernées et ce qu’il faut vérifier."
+    "description": "Un exemple complet de React Scheduler, le fonctionnement de l’état contrôlé et non contrôlé, et les props que la plupart des applications fixent en premier."
   },
   "sections": {
     "minimal-example": "Exemple minimal",
     "controlled-and-uncontrolled": "Contrôlé et non contrôlé",
     "common-props": "Props courantes",
     "next-steps": "Étapes suivantes"
+  },
+  "demos": {
+    "minimal": "Des éléments, une journée, et rien d’autre"
+  },
+  "minimal": {
+    "intro": "Trois props suffisent à un planning qui fonctionne : les éléments, la journée à afficher et le pack de langue. Tout le reste a une valeur par défaut. Ouvrez la source sous la démonstration : c’est le fichier qui s’exécute sur cette page."
+  },
+  "controlled": {
+    "intro": "Chaque état que le composant garde a une forme non contrôlée, où le composant le possède et se contente de signaler les changements, et une forme contrôlée, où votre application le possède. Le non contrôlé est la valeur par défaut : passez la valeur initiale via une prop <code>default</code> et oubliez-la.",
+    "controlled": "Passez la valeur elle-même et le composant cesse de la posséder. Dès lors, il affiche ce que vous donnez et vous appelle à chaque changement : la valeur et l’affichage ne peuvent plus diverger.",
+    "pairs": "Les paires sont :",
+    "points": [
+      "<code>view</code> / <code>defaultView</code> avec <code>onViewChange</code> — la liste ou la chronologie.",
+      "<code>date</code> / <code>defaultDate</code> avec <code>onDateChange</code> — la journée lue.",
+      "<code>openItemId</code> / <code>defaultOpenItemId</code> avec <code>onOpenItemIdChange</code> — le détail de quel élément est ouvert.",
+      "<code>headerExpanded</code> / <code>defaultHeaderExpanded</code> avec <code>onHeaderExpandedChange</code> — l’état de l’en-tête de votre page.",
+      "<code>openOverflowId</code>, <code>overflowPage</code> et <code>overflowSort</code>, chacun avec sa forme <code>default</code> et son rappel — la boîte de dialogue des éléments supplémentaires."
+    ]
+  },
+  "common": {
+    "intro": "Les props que la plupart des applications fixent. Chacune est documentée en entier sur la page <link to=\"/api/scheduler/\">Scheduler</link>.",
+    "head": {
+      "prop": "Prop",
+      "what": "Ce qu’elle fait"
+    },
+    "rows": [
+      [
+        "<code>items</code>",
+        "Le planning lui-même : un tableau simple d’éléments avec <code>id</code>, <code>start</code>, <code>level</code> et <code>title</code>."
+      ],
+      ["<code>date</code>", "La journée à afficher. Les postes qui la contiennent sont ceux qui sont rendus."],
+      [
+        "<code>shifts</code>",
+        "Comment la journée est découpée en postes : une durée régulière et une ancre, ou un motif nommé. Voir <link to=\"/shifts-and-dates/\">Postes et dates</link>."
+      ],
+      [
+        "<code>levels</code>",
+        "L’échelle de gravité : les rangs, leurs couleurs et ceux qui épinglent. Voir <link to=\"/items-and-levels/\">Éléments et niveaux</link>."
+      ],
+      [
+        "<code>view</code>",
+        "<code>'list'</code> ou <code>'timeline'</code>. Le lecteur peut basculer, sauf si vous la contrôlez."
+      ],
+      [
+        "<code>localization</code>",
+        "Un pack de langue. Sept sont fournis ; l’objet est simple, donc un remplacement partiel suffit."
+      ],
+      [
+        "<code>preset</code> și <code>colorScheme</code>",
+        "L’apparence : <code>'default'</code> ou <code>'classic'</code>, et <code>'light'</code>, <code>'dark'</code> ou <code>'system'</code>."
+      ],
+      ["<code>onItemOpen</code>", "Appelé quand le lecteur ouvre un élément, avec l’élément et ce qui l’a activé."]
+    ]
+  },
+  "next": {
+    "points": [
+      "<link to=\"/all-features/\">Toutes les fonctionnalités</link> — une page par capacité, chacune ouvrant sur une démonstration.",
+      "<link to=\"/customization/\">Personnalisation</link> — d’une variable CSS à une partie remplacée.",
+      "<link to=\"/api/\">Référence de l’API</link> — chaque export, généré à partir des déclarations."
+    ]
   }
 }

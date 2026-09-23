@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedStrip",
+    "description": "Banda cu elementele fixate, care rămâne vizibilă cât timp tura lor este pe ecran."
+  }
+}

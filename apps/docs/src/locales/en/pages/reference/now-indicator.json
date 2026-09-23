@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "NowIndicator",
+    "description": "The list's now marker: the clock time in a pill, then a line."
+  }
+}

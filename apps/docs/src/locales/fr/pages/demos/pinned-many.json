@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Nombreux éléments épinglés",
-    "description": "Une démo React Scheduler sur le jeu Nombreux éléments épinglés : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Beaucoup d’éléments épinglés",
+    "description": "Six éléments d’un niveau qui s’épingle dans le poste terminé, et ce que la bande d’épinglage en fait."
+  },
+  "demos": {
+    "board": "Six éléments qui s’épinglent"
+  },
+  "scenario": "Six éléments <code>critical</code> dans le poste terminé, six <code>routine</code> dans celui qui tourne. <code>critical</code> est le seul niveau de l’échelle classique qui s’épingle : c’est donc le jeu qui montre une bande d’épinglage chargée, et non avec une seule puce.",
+  "look": [
+    "Faites défiler le planning : les éléments critiques qui sortent par le haut s’épinglent, dans l’ordre où ils sont sortis.",
+    "Les éléments de routine ne s’épinglent jamais, quel que soit le défilement. L’épinglage est une propriété du niveau, pas de l’élément.",
+    "La bande tient sur une ligne. Quand les puces la débordent, elle défile latéralement, avec un fondu à chaque extrémité pour le dire, et le nombre d’éléments épinglés est annoncé discrètement à chaque changement.",
+    "Un élément épinglé reste à sa place dans le planning ; la puce en est une seconde vue, pas un déplacement."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Épinglage</link> — quels niveaux s’épinglent, où, et ce que fait la bande quand elle se remplit.",
+    "<link to=\"/items-and-levels/\">Éléments et niveaux</link> — <code>pinOnPass</code> et le reste d’une définition de niveau.",
+    "<link to=\"/timeline-view/\">Vue chronologique</link> — la zone de défilement d’où sortent les éléments."
+  ]
 }

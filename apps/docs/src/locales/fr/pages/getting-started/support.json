@@ -1,16 +1,36 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Assistance",
-    "description": "Assistance du paquet React Scheduler : les étapes dans l’ordre, les versions concernées et ce qu’il faut vérifier."
+    "description": "Où poser une question sur React Scheduler, ce que contient un bon rapport de bogue, comment signaler une vulnérabilité en privé et pendant combien de temps une version est suivie."
   },
   "sections": {
     "where-to-ask": "Où poser une question",
     "report-a-bug": "Comment signaler un bug",
     "security": "Sécurité",
     "support-policy": "Politique de support"
+  },
+  "ask": {
+    "text": "Les questions vont dans les <ext href=\"https://github.com/kiralygyula92/react-scheduler/discussions\">GitHub Discussions</ext> : comment faire quelque chose, si un comportement est voulu, si une idée a sa place dans le paquet. Les tickets sont pour les défauts : une question ouverte en ticket y est généralement déplacée."
+  },
+  "bug": {
+    "intro": "Ouvrez un <ext href=\"https://github.com/kiralygyula92/react-scheduler/issues/new\">ticket</ext> avec ces cinq éléments. Un rapport qui les contient peut souvent être corrigé le jour où il est lu ; un rapport qui n’en contient aucun n’avance que rarement.",
+    "points": [
+      "La version du paquet et de React, et le navigateur où le problème apparaît.",
+      "Ce que vous attendiez, en une phrase.",
+      "Ce qui s’est passé à la place, en une phrase.",
+      "Une reproduction minimale : le plus petit <code>&lt;Scheduler&gt;</code> qui le montre encore, avec ses éléments en ligne. Un lien vers un bac à sable ou un petit dépôt est idéal.",
+      "Tout ce qui le fait apparaître ou disparaître : une largeur de fenêtre, une langue, la chronologie plutôt que la liste."
+    ],
+    "reduce": "Réduire le cas est ce qui aide le plus. Retirez des props jusqu’à ce que le problème disparaisse : la dernière retirée finit souvent dans le titre du correctif."
+  },
+  "security": {
+    "text": "Signalez une vulnérabilité en privé via l’onglet <ext href=\"https://github.com/kiralygyula92/react-scheduler/security/advisories\">Security</ext> du dépôt, et non dans un ticket public. Le signalement reste visible des seuls mainteneurs jusqu’à la publication du correctif ; <code>SECURITY.md</code> dans le dépôt indique quoi inclure et sous quel délai attendre une réponse."
+  },
+  "policy": {
+    "text": "Les correctifs arrivent dans la dernière version mineure du majeur courant, et c’est cette version qui est documentée ici. Tant que le paquet est sous <code>1.0.0</code>, une seule version est suivie : la dernière. Ce que cela implique pour les mises à jour figure sur la page <link to=\"/getting-started/versions/\">Versions</link>."
   }
 }

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Éléments supplémentaires",
-    "description": "Éléments supplémentaires dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Ce qu’il advient des éléments qu’une heure chargée ne peut pas placer : la pastille « + plus », la boîte de dialogue derrière elle, et le tableau que vous pouvez façonner."
   },
   "sections": {
     "basics": "Bases",
+    "columns": "Colonnes et tri",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "columns": "Un tableau à vous"
+  },
+  "basics": {
+    "intro": "La chronologie place les éléments en colonnes, au plus <code>maxColumns</code>. Quand une heure en contient plus qu’il n’en tient, le reste est regroupé, et le groupe devient une pastille <strong>+ plus</strong> sur la grille. L’ouvrir ouvre une boîte de dialogue avec tout le groupe dans un tableau.",
+    "points": [
+      "Un groupe couvre des heures consécutives tant qu’il reste dans <code>overflowMergeWindow</code> — voir <link to=\"/timeline-view/\">Vue chronologique</link>.",
+      "Le nom accessible de la pastille dit combien d’éléments elle contient et à partir de quelle heure.",
+      "Une pastille est aussi une sentinelle d’épinglage : les éléments épinglables qu’elle contient s’épinglent quand elle défile.",
+      "La boîte de dialogue est un modal natif : le navigateur contient le focus, <kbd>Escape</kbd> la ferme, et l’arrière-plan est une cible de clic."
+    ]
+  },
+  "columns": {
+    "intro": "Par défaut, le tableau montre l’heure, le niveau, le titre, la description et une action qui ouvre le détail de l’élément. <code>overflowColumns</code> remplace cet ensemble par le vôtre :",
+    "sorting": "Une colonne trie quand elle a un <code>sortValue</code> ; sans lui elle est inerte. Cliquer un en-tête triable trie en ordre croissant, un second clic inverse, et changer de colonne ramène à la première page. Les égalités sont départagées par <code>compareItems</code>, dans le sens du tri. Le tri et la page sont contrôlés ou non comme le reste et se réinitialisent à chaque ouverture, sauf si vous les tenez."
+  },
+  "accessibility": {
+    "points": [
+      "La boîte de dialogue est étiquetée par son titre, qui porte le nombre d’éléments du groupe.",
+      "Le tableau est un vrai tableau : les en-têtes de colonne portent <code>aria-sort</code>, et un en-tête triable est un bouton dans la cellule.",
+      "Ouvrir un élément depuis une ligne empile une seconde boîte de dialogue sur la première ; la fermer rend le focus à l’action de la ligne.",
+      "La pagination garde le focus dans la pagination, et la liste des pages est celle qu’affichent les numéros visibles."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>overflowColumns</code>, <code>overflowPageSize</code> et les contrôlés <code>overflowSort</code> et <code>overflowPage</code>.",
+      "<code>renderMoreLabel</code> remplace le texte de la pastille ; les parties <code>moreChip</code>, <code>overflowDialog</code>, <code>overflowTable</code> et <code>pagination</code> remplacent le balisage.",
+      "<code>localization.overflow</code> contient le titre, les en-têtes de colonne et les libellés de fermeture.",
+      "La boîte de dialogue et le tableau vivent dans un fragment à part, chargé à la première ouverture d’une pastille."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Les éléments supplémentaires sont une idée de la chronologie ; la liste montre chaque élément et n’en replie jamais aucun.",
+      "Le tableau montre un groupe à la fois — celui dont la pastille a été ouverte.",
+      "Les colonnes ne sont pas redimensionnables par le lecteur, et leurs largeurs sont celles que demandent vos définitions."
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useCompact",
+    "description": "Le mode compact d’après la largeur de contenu de l’élément ; un booléen l’impose. Faux côté serveur."
+  }
+}

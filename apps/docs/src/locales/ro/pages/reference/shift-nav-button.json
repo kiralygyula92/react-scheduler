@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftNavButton",
+    "description": "Butonul care sare la tura anterioară sau la cea următoare."
+  }
+}

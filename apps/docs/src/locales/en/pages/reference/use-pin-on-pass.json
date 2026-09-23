@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "Pin-on-pass for custom markup: register sentinels, read the pinned keys."
+  }
+}

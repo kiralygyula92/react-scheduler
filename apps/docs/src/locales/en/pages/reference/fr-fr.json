@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "frFR",
+    "description": "The French (France) locale pack, passed to localization."
+  }
+}

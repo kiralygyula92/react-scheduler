@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Zi de referință",
-    "description": "O demonstrație React Scheduler pe setul Zi de referință: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Zi obișnuită",
+    "description": "Șaptesprezece elemente pe trei ture, o oră aglomerată la mijloc și două niveluri care se fixează: o zi obișnuită."
+  },
+  "demos": {
+    "board": "O zi obișnuită"
+  },
+  "scenario": "Șaptesprezece elemente împărțite între tura care s-a încheiat, tura care rulează la 10:30 și tura care urmează. Cinci dintre ele sunt <code>critical</code>, nivelul care se fixează odată ce iese din vedere, iar patru încep la mai puțin de o jumătate de oră unul de altul, târziu în dimineață. Este ziua față de care sunt scrise majoritatea testelor pachetului, așa că este și cea cu care merită comparate celelalte.",
+  "look": [
+    "Sunt desenate trei ture: una înainte de cea curentă, cea curentă și una după ea. Cea curentă este cea care conține ora 10:30.",
+    "Indicatorul „acum” stă la 10:30 în cronologie, între elementele încheiate și cele care nu au început.",
+    "Ambele vizualizări așază elementele în aceeași ordine — după ora de început, apoi după nivel, apoi după id — așa că schimbarea vizualizării nu rearanjează ziua.",
+    "Modul compact nu scoate nimic: cardurile se îngustează, cipurile se scurtează, iar cronologia se limitează la o coloană."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Ture și date</link> — ture de douăsprezece ore ancorate la 08:00, una înainte și una după cea curentă.",
+    "<link to=\"/items-and-levels/\">Elemente și niveluri</link> — scala clasică de nouă niveluri, care decide culoarea, ordinea și tratamentul cardului.",
+    "<link to=\"/now-indicator/\">Indicatorul „acum”</link> — linia de la 10:30, desenată doar în tura care o conține.",
+    "<link to=\"/scheduler-and-views/\">Scheduler și vizualizări</link> — cele două vizualizări și comutatorul pe care îl construiește această pagină."
+  ]
 }

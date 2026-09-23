@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TagPill",
+    "description": "La píldora que muestra una de las etiquetas de un elemento."
+  }
+}

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Weitere Elemente",
-    "description": "Weitere Elemente in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "title": "Weitere Einträge",
+    "description": "Was mit den Einträgen geschieht, die eine volle Stunde nicht platzieren kann: der „+ mehr“-Chip, der Dialog dahinter und die Tabelle, die Sie formen können."
   },
   "sections": {
     "basics": "Grundlagen",
+    "columns": "Spalten und Sortierung",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "columns": "Eine eigene Tabelle"
+  },
+  "basics": {
+    "intro": "Der Zeitstrahl platziert Einträge in Spalten, höchstens <code>maxColumns</code> davon. Enthält eine Stunde mehr, als hineinpassen, wird der Rest zu einer Gruppe, und die Gruppe wird zu einem <strong>+ mehr</strong>-Chip auf der Fläche. Ihn zu öffnen öffnet einen Dialog mit der ganzen Gruppe in einer Tabelle.",
+    "points": [
+      "Eine Gruppe umfasst aufeinanderfolgende Stunden nur, solange sie in <code>overflowMergeWindow</code> bleibt — siehe <link to=\"/timeline-view/\">Zeitstrahlansicht</link>.",
+      "Der zugängliche Name des Chips sagt, wie viele Einträge er enthält und ab welcher Uhrzeit.",
+      "Ein Chip ist auch ein Anheft-Wächter: die anheftbaren Einträge darin heften an, wenn der Chip vorbeiscrollt.",
+      "Der Dialog ist ein nativer Modal-Dialog: der Browser hält den Fokus darin, <kbd>Escape</kbd> schließt ihn, und der Hintergrund ist ein Klickziel."
+    ]
+  },
+  "columns": {
+    "intro": "Standardmäßig zeigt die Tabelle Uhrzeit, Stufe, Titel, Beschreibung und eine Aktion, die das Detail des Eintrags öffnet. <code>overflowColumns</code> ersetzt diesen Satz durch Ihren:",
+    "sorting": "Eine Spalte sortiert, wenn sie ein <code>sortValue</code> hat; ohne es ist sie träge. Ein Klick auf eine sortierbare Kopfzelle sortiert aufsteigend, ein zweiter dreht um, und ein Spaltenwechsel führt zurück auf die erste Seite. Gleichstände löst <code>compareItems</code> in der Sortierrichtung. Sortierung und Seite sind kontrolliert oder unkontrolliert wie alles andere und setzen sich bei jedem Öffnen zurück, sofern Sie sie nicht halten."
+  },
+  "accessibility": {
+    "points": [
+      "Der Dialog ist durch seinen Titel beschriftet, der die Anzahl der Einträge der Gruppe trägt.",
+      "Die Tabelle ist eine echte Tabelle: die Spaltenköpfe tragen <code>aria-sort</code>, und ein sortierbarer Kopf ist eine Schaltfläche in der Kopfzelle.",
+      "Einen Eintrag aus einer Zeile zu öffnen stapelt einen zweiten Dialog über den ersten; sein Schließen gibt den Fokus an die Aktion der Zeile zurück.",
+      "Der Seitenwechsel hält den Fokus in der Seitennavigation, und die Seitenliste ist dieselbe, die die sichtbaren Zahlen zeigen."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>overflowColumns</code>, <code>overflowPageSize</code> und die kontrollierten <code>overflowSort</code> und <code>overflowPage</code>.",
+      "<code>renderMoreLabel</code> ersetzt den Text auf dem Chip; die Teile <code>moreChip</code>, <code>overflowDialog</code>, <code>overflowTable</code> und <code>pagination</code> ersetzen das Markup.",
+      "<code>localization.overflow</code> enthält den Titel, die Spaltenköpfe und die Schließbeschriftungen.",
+      "Dialog und Tabelle liegen in einem eigenen Teil, der beim ersten Öffnen eines Chips geladen wird."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Weitere Einträge sind eine Idee des Zeitstrahls; die Liste zeigt jeden Eintrag und faltet keinen zusammen.",
+      "Die Tabelle zeigt eine Gruppe zur Zeit — die, deren Chip geöffnet wurde.",
+      "Die Spalten kann der Leser nicht in der Breite ändern; ihre Breiten sind die, die Ihre Spaltendefinitionen verlangen."
+    ]
   }
 }

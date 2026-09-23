@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Night shift",
-    "description": "A React Scheduler demo on the Night shift fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Night shift",
+    "description": "A schedule read at 02:00, where the current shift started at 20:00 the day before."
+  },
+  "demos": {
+    "board": "A shift across midnight"
+  },
+  "scenario": "The time is 02:00, the shifts are twelve hours long and anchored at 08:00, so the shift being read started at 20:00 the previous evening and ends at 08:00 this morning. A schedule that treats the day as midnight to midnight breaks here; this one does not.",
+  "look": [
+    "The current shift crosses midnight: it runs from 20:00 yesterday to 08:00 today, and its items are on both sides of the date change.",
+    "The now indicator is at 02:00, six hours into the shift rather than two hours into the day.",
+    "The headings stay relative — previous, current, next. Which shift is current comes from the clock, not from the calendar.",
+    "Nothing here is a setting for night work: the same anchor and the same length place every shift, at any hour."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Shifts and dates</link> — the anchor, the length, and which shift counts as current.",
+    "<link to=\"/now-indicator/\">Now indicator</link> — the line, and the shift it is drawn in.",
+    "<link to=\"/customization/localization/\">Localization</link> — the dates and times, formatted by the pack’s own locale."
+  ]
 }

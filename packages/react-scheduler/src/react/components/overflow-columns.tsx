@@ -52,6 +52,12 @@ function ActionCell({ item, onOpen }: { item: SchedulerItem; onOpen: () => void 
 // sort values of its own levels (see sortColumns in overflow-dialog.tsx).
 const classicSortValues = overflowSortValues(resolveLevels(classicLevels));
 
+/**
+ * The columns the overflow table shows when none are given.
+ *
+ * @category Overflow
+ * @since 1.0.0
+ */
 export const defaultOverflowColumns: readonly OverflowColumn<SchedulerItem>[] = Object.freeze([
   {
     id: 'time',

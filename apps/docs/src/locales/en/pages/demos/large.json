@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Large schedule",
-    "description": "A React Scheduler demo on the Large schedule fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Large schedule",
+    "description": "240 items over three shifts: the size the package’s performance budget is measured at."
+  },
+  "demos": {
+    "board": "240 items"
+  },
+  "scenario": "240 items across the thirty-six hours the three shifts cover. It is the size the package measures itself at, and it is deliberately more than a person would read: what is being shown is that the component still behaves at that size, not that a day should look like this.",
+  "look": [
+    "Every item is rendered. The schedule does not virtualize, so what you scroll past is really in the page.",
+    "The column cap does the work in the busy hours; without it the timeline would be unreadable long before 240 items.",
+    "The list view groups the same 240 items by shift, which is the faster way to read a day this full.",
+    "Switching the view, the scheme or the density re-lays out all of them at once."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Overflow</link> — what keeps a crowded hour readable at this size.",
+    "<link to=\"/list-view/\">List view</link> — the view for a long day.",
+    "<link to=\"/data-modes-and-ssr/\">Data modes and SSR</link> — where items come from, and what the component does while they are on their way."
+  ]
 }

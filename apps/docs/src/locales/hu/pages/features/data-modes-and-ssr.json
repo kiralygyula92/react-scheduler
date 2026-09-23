@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Adatmódok és SSR",
-    "description": "Adatmódok és SSR a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Amikor te tartod az elemeket, amikor a megjelenített tartományhoz töltöd be őket, és amikor az ütemtervet szerveren jeleníted meg hidratálási figyelmeztetés nélkül."
   },
   "sections": {
     "basics": "Alapok",
@@ -14,5 +14,42 @@
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Betöltés a megjelenített tartományra"
+  },
+  "basics": {
+    "intro": "A komponens soha nem tölt be adatot. Te tartod az <code>items</code> tömböt, ő pedig azt jeleníti meg, amit tartasz. Ebből kétféle munkamód következik: vagy mindent átadsz, amid van, vagy azt, amit a megjelenített tartomány kér, és utántöltesz, ahogy a tartomány mozog.",
+    "range": "Az <code>onVisibleRangeChange</code> beilleszkedéskor sül el, és mindannyiszor, ahányszor a megjelenített tartomány változik — új dátum, más műszakminta, több műszak előtte vagy utána. Ez a jelzés a betöltésre. Amíg a válasz úton van, tartsd bekapcsolva a <code>loading</code> propot: a képernyőn lévő elemek ott maradnak halványítva, ahelyett hogy eltűnnének."
+  },
+  "server": {
+    "intro": "A komponens szerveren a DOM érintése nélkül jelenik meg, és a React 18 és 19 alatt figyelmeztetés nélkül hidratál. Az első képkocka szándékosan a legegyszerűbb:",
+    "points": [
+      "A kompakt mód ki van kapcsolva, hacsak nem adod meg magad a logikai értéket — a szélesség szerveren nem mérhető.",
+      "Semmi nincs rögzítve, mert a rögzítés görgetési helyzet kérdése.",
+      "A fejlécjelzés kinyitva indul.",
+      "Az óra a <code>now</code> értékről indul, vagy a <code>defaultDate</code> értékről, ha egyiket sem adod meg. A <code>now</code> átadása teszi a két megjelenítést pontosan egyformává."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "A szerveren megjelenített markup ugyanaz a szerkezet, amelyet a kliens hidratál: a JavaScript nélküli olvasó megkapja az ütemtervet, a címsorait és az elemek nevét.",
+      "Az állapotokból semmi nem hangzik el kétszer a hidratálásnál: az élő régiók üresen indulnak, és csak változáskor szólalnak meg.",
+      "Az a frissítés, amely láthatóan hagyja a régi elemeket, megőrzi az olvasási helyzetet is — ez számít a legtöbbet annak, aki billentyűzettel navigál."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Az <code>onVisibleRangeChange</code> a betöltéshez, a <code>loading</code> és az <code>error</code> ahhoz, amit az olvasó közben lát — lásd: <link to=\"/states/\">Állapotok</link>.",
+      "A <code>now</code> determinisztikussá teszi a megjelenítést, és a csomag vizuális tesztjei is erre épülnek.",
+      "A <link to=\"/integrations/nextjs/\">Next.js</link> és a <link to=\"/integrations/ssr/\">Szerveroldali megjelenítés</link> oldalon vannak a keretrendszer-specifikus részek."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Nincs beépített gyorsítótár, kérésösszevonás vagy újrapróbálkozás: ezek az adatréteged dolgai.",
+      "A további elemek párbeszédpanele nem szerverről lapoz; azokat az elemeket mutatja, amelyek a csoportban már megvannak.",
+      "A tartományváltást utólag jelentjük, így a betöltés mindig úgy indul, hogy az új tartomány már megjelent — üresen, betöltés közben vagy a korábbi elemekkel."
+    ]
   }
 }

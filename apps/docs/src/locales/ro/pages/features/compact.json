@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Mod compact",
-    "description": "Mod compact în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Cum se adaptează programul la lățimea pe care o primește — a lui, nu a ferestrei — și ce se schimbă atunci."
   },
   "sections": {
     "basics": "Noțiuni de bază",
@@ -13,5 +13,38 @@
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "compact": "Același program, trei lățimi"
+  },
+  "basics": {
+    "intro": "Un program într-o bară laterală și unul care umple pagina sunt aceeași componentă la două lățimi. Modul compact este măsurat din containerul propriu al programului cu un <code>ResizeObserver</code>, niciodată din fereastră și niciodată din agentul utilizator, așa că o cutie îngustă într-o fereastră lată este compactă, iar o cutie lată într-un iframe cât un telefon nu este.",
+    "points": [
+      "<code>compact</code> este implicit <code>'auto'</code>: adevărat sub <code>compactBreakpoint</code>, adică 900 de pixeli. O valoare booleană îl forțează într-un sens sau altul.",
+      "Modul compact strânge cardurile, aduce cronologia la o coloană și îngustează pastilele fixate — 436 de pixeli de la 900 în sus, 360 între 600 și 899 și 90% din lățime sub asta.",
+      "<code>listOnlyBreakpoint</code> este separat și mai puternic: sub el cronologia nici nu este oferită.",
+      "Pe server componenta se randează necompactă, dacă nu treci o valoare booleană, iar prima măsurătoare de după hidratare o corectează."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "În modul compact nu se elimină nimic: aceleași elemente, aceleași titluri, aceleași nume, în mai puțini pixeli.",
+      "Țintele de atingere rămân de cel puțin 24 pe 24 de pixeli, cât cere WCAG 2.2.",
+      "Măsurătoarea este a containerului, așa că un cititor care mărește la 200% primește aranjarea compactă, nu o pagină care se derulează pe orizontală."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>compactBreakpoint</code> și <code>listOnlyBreakpoint</code> stabilesc unde sunt cele două praguri.",
+      "<code>density</code> este celălalt buton de spațiere și este independent de modul compact — vezi <link to=\"/customization/theming/\">Teme</link>.",
+      "<code>useCompact</code> dă aceeași măsurătoare unui markup propriu."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Pragurile sunt lățimi în pixeli, nu interogări de container: o aranjare care își schimbă forma fără să schimbe lățimea programului nu schimbă modul compact.",
+      "Lățimile pastilelor fixate sunt fixate la cele trei trepte ale lor și nu pot fi setate per aplicație.",
+      "Primul cadru randat pe server nu poate cunoaște lățimea, așa că aranjarea compactă apare după hidratare, dacă nu treci tu valoarea booleană."
+    ]
   }
 }

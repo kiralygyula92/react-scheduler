@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Kitölti a {{name}} helyőrzőket. A többes számú sablon a values.count értékhez az Intl.PluralRules(locale) alapján választ alakot, szükség esetén az other alakra esve vissza. A számokat az Intl.NumberFormat formázza. Az ismeretlen helyőrző úgy marad, ahogy le van írva."
+  }
+}

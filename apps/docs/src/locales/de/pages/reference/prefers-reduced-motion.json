@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "prefersReducedMotion",
+    "description": "Die Media-Query prefers-reduced-motion: reduce; false, wenn Media-Queries nicht verfügbar sind."
+  }
+}

@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Serverseitiges Rendering",
-    "description": "Serverseitiges Rendering: das Ziel, die Voraussetzungen, die Schritte und wie du das Ergebnis überprüfst."
+    "title": "Rendern auf dem Server",
+    "description": "Den Plan auf einem Server rendern und ohne Warnung hydratisieren, in jedem Framework."
   },
   "sections": {
     "goal": "Ziel",
     "before-you-start": "Bevor du beginnst",
     "steps": "Schritte",
     "result": "Ergebnis",
-    "related": "Verwandt"
+    "related": "Verwandt",
+    "troubleshooting": "Fehlersuche"
+  },
+  "goal": "Den Plan auf einem Server rendern — auf jedem, in jedem Framework — und den Browser ihn ohne Hydratationswarnung übernehmen lassen. Die Komponente rührt beim Rendern kein DOM an; es bleibt nur, beiden Renderings dieselben Fakten zu geben.",
+  "before": {
+    "points": [
+      "Eine React-18.2- oder -19-Anwendung, die auf einem Server rendert.",
+      "Das Stylesheet dort importiert, wo es das servergerenderte Dokument erreicht.",
+      "Einen Weg, Werte vom Server-Rendering ins Client-Rendering zu bringen — Props, einen Loader, serialisierte Daten."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Die Uhr einmal festlegen",
+      "text": "Alles, was sich im Plan bewegt, folgt aus einem einzigen Moment: welche Schicht die aktuelle ist, wo die „Jetzt“-Anzeige steht, welche Einträge vorbei sind. Lesen Sie die Uhr einmal, auf dem Server, und reichen Sie sie weiter.",
+      "calloutTitle": "Die einzige echte Quelle von Abweichungen",
+      "callout": "Ein ohne <code>now</code> gerenderter Plan nimmt die Uhr dessen, der ihn rendert. Die Uhr des Servers und die des Browsers sind nie dieselbe Millisekunde und oft nicht dieselbe Minute — React meldet das als Hydratationsabweichung."
+    },
+    "firstFrame": {
+      "title": "Wissen, wie das erste Bild aussieht",
+      "text": "Das Server-Rendering ist bewusst das schlichte. Alles, was vom Browser abhängt, beginnt aus und setzt sich nach der Hydratation:",
+      "points": [
+        "Der kompakte Modus ist aus, solange Sie den Boolean nicht selbst übergeben — ein Container lässt sich ohne Layout nicht messen.",
+        "Nichts ist angeheftet: Anheften ist eine Scrollposition, und es wird noch nicht gescrollt.",
+        "Das Kopfzeilensignal startet ausgeklappt.",
+        "Im ersten Bild läuft keine Animation."
+      ]
+    },
+    "compact": {
+      "title": "Entscheiden, was der kompakte Modus tut",
+      "text": "Standardmäßig folgt er dem Container, sobald der Browser ihn messen kann. Muss das erste Bild schmal sein — eine Anwendung, die schon weiß, dass sie ein Telefon bedient —, entscheiden Sie es auf dem Server."
+    },
+    "styles": {
+      "title": "Das CSS in die erste Antwort bringen",
+      "text": "Das Stylesheet des Plans ist eine gewöhnliche CSS-Datei ohne Runtime dahinter, es braucht also genau das, was Ihr Framework mit globalem CSS tut. Importieren Sie es dort, wo das Framework globale Stile sammelt, nicht in einer lazy geladenen Komponente — sonst ist das erste Bild ungestaltet und blitzt auf."
+    }
+  },
+  "result": {
+    "text": "Die HTML-Antwort enthält den Plan mit seinen Überschriften, Einträgen und Zeiten. Die Konsole bleibt bei der Hydratation still, und die einzige sichtbare Änderung ist die gewünschte: ein gemessener Container, eine wiederhergestellte Scrollposition."
+  },
+  "troubleshooting": {
+    "points": [
+      "Eine Abweichung bei einer Zeit oder einer Beschriftung: Die Uhren unterscheiden sich. Übergeben Sie <code>now</code> — und denselben Wert an <code>date</code>, wenn auch der Tag gleich sein soll.",
+      "Eine Abweichung bei einem Klassennamen: Die Schemata sind uneins. <code>colorScheme=\"system\"</code> löst sich im Browser auf; übergeben Sie <code>'light'</code> oder <code>'dark'</code>, wenn das Server-Rendering genau passen muss.",
+      "Daten als lokale Zeichenketten ohne Zone, auf einem Server in einer anderen Zone gerendert: Nutzen Sie ISO-Zeichenketten mit Offset oder Zeitstempel.",
+      "<code>window</code> oder <code>document</code> in einem eigenen Slot — der Plan rührt beides beim Rendern nicht an, ein ersetzter Teil schon."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Datenmodi und SSR</link> — die Fähigkeitsseite hinter dieser Anleitung.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — dieselben Regeln im App Router.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — dieselben Regeln im Framework-Modus."
+    ]
   }
 }

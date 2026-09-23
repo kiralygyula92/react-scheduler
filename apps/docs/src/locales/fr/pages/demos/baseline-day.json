@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Journée de référence",
-    "description": "Une démo React Scheduler sur le jeu Journée de référence : les capacités combinées et son code source complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scénario",
+    "what-to-look-for": "Ce qu’il faut regarder",
     "what-it-uses": "Ce qu’il utilise",
     "source": "Code source"
-  }
+  },
+  "source": "La démo ci-dessus est un seul fichier, complet et exécutable. <strong>Afficher le code</strong> l’ouvre sous le tableau, <strong>Copier</strong> l’emporte, et les données derrière sont le jeu nommé sur cette page.",
+  "meta": {
+    "title": "Journée de référence",
+    "description": "Dix-sept éléments sur trois postes, une heure chargée au milieu et deux niveaux qui s’épinglent : une journée ordinaire."
+  },
+  "demos": {
+    "board": "Une journée ordinaire"
+  },
+  "scenario": "Dix-sept éléments répartis entre le poste terminé, celui qui tourne à 10:30 et celui à venir. Cinq d’entre eux sont <code>critical</code>, le niveau qui s’épingle dès qu’il sort de l’écran, et quatre commencent à moins d’une demi-heure d’écart en fin de matinée. C’est la journée contre laquelle la plupart des tests du paquet sont écrits, donc celle à laquelle comparer les autres.",
+  "look": [
+    "Trois postes sont dessinés : un avant le poste courant, le poste courant et un après. Le courant est celui qui contient 10:30.",
+    "L’indicateur « maintenant » est à 10:30 sur la chronologie, entre les éléments terminés et ceux qui n’ont pas commencé.",
+    "Les deux vues placent les éléments dans le même ordre — par heure de début, puis par niveau, puis par id — si bien que changer de vue ne rebat jamais la journée.",
+    "Le mode compact ne retire rien : les cartes se resserrent, les puces raccourcissent et la chronologie se limite à une colonne."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Postes et dates</link> — des postes de douze heures ancrés à 08:00, un avant et un après le poste courant.",
+    "<link to=\"/items-and-levels/\">Éléments et niveaux</link> — l’échelle classique à neuf niveaux, qui décide de la couleur, de l’ordre et du traitement de la carte.",
+    "<link to=\"/now-indicator/\">Indicateur « maintenant »</link> — la ligne de 10:30, tracée seulement dans le poste qui la contient.",
+    "<link to=\"/scheduler-and-views/\">Scheduler et vues</link> — les deux vues, et le sélecteur que cette page construit pour elles."
+  ]
 }

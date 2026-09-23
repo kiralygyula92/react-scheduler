@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Los milisegundos desde la época de una entrada de fecha; NaN cuando no es válida. Una cadena sin desfase es hora local de reloj, incluidas las cadenas de solo fecha (que Date por sí solo leería como UTC)."
+  }
+}

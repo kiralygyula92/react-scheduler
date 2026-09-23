@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Dia preenchido",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Dia preenchido: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Dia cheio",
+    "description": "Sete elementos nas mesmas duas horas: o limite de colunas, a promoção e o chip de elementos adicionais."
+  },
+  "demos": {
+    "board": "Sete elementos, uma hora"
+  },
+  "scenario": "Cinco elementos começam às 09:00 e vão até às 10:30; mais dois sobrepõem-se-lhes; um fica sozinho à tarde. É aqui que uma cronologia tem de decidir o que não consegue desenhar, e a decisão é sempre a mesma: três colunas, o mais forte primeiro, e o resto por detrás de um chip.",
+  "look": [
+    "No máximo três colunas, que é o limite predefinido; no modo compacto desce para uma.",
+    "O elemento <code>critical</code> começa meia hora depois dos cinco anteriores, por isso as colunas já estão cheias quando chega. Ainda assim é promovido a uma, e o mais fraco que lá está cede o lugar.",
+    "O que não cabe recolhe-se num chip <strong>Mais</strong>. Ao abri-lo, dá uma tabela desses elementos, o mais forte primeiro, paginada quando são muitos.",
+    "A vista de lista não tem limite nenhum — é a vista a que recorrer quando todos os elementos têm de estar visíveis ao mesmo tempo."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Elementos adicionais</link> — o limite, a promoção e a caixa de diálogo por detrás do chip.",
+    "<link to=\"/timeline-view/\">Vista cronológica</link> — as colunas e como um elemento é colocado numa.",
+    "<link to=\"/items-and-levels/\">Elementos e níveis</link> — que elemento conta como o mais forte.",
+    "<link to=\"/compact/\">Modo compacto</link> — a mesma hora com uma só coluna."
+  ]
 }

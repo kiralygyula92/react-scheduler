@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "All features",
     "description": "Every capability of React Scheduler, grouped exactly as in the sidebar, each with a one-line summary and a link."
-  }
+  },
+  "scope": "Every capability of React Scheduler, in the groups the sidebar uses. Each page opens with a live demo, then says what you can change, what a keyboard and a screen reader get, and where the feature stops."
 }

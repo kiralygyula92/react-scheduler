@@ -1,17 +1,58 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Elementdetails",
-    "description": "Elementdetails in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "title": "Eintragsdetail",
+    "description": "Was sich öffnet, wenn ein Leser einen Eintrag aktiviert, was der Standarddialog zeigt und wie man ihn ersetzt."
   },
   "sections": {
     "basics": "Grundlagen",
+    "your-own": "Ein eigenes Detail",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "basic": "Das Detail, wie es kommt",
+    "custom": "Das Detail, ersetzt"
+  },
+  "basics": {
+    "intro": "Einen Eintrag zu aktivieren — eine Karte, ein angehefteter Chip, eine Zeile der Tabelle weiterer Einträge — öffnet sein Detail. Standardmäßig ist das ein modaler Dialog mit Stufe und Titel, Beschreibung, Chips, Uhrzeit und einer Schließen-Schaltfläche. Welcher Eintrag offen ist, steht in <code>openItemId</code>, kontrolliert oder unkontrolliert wie der übrige Zustand.",
+    "points": [
+      "Die Aktivierung führt zuerst <code>handlers.onItemActivate</code> aus, das sie abbrechen kann, setzt dann die Id und ruft dann <code>onItemOpen</code>.",
+      "Ein als <code>disabled</code> markierter Eintrag öffnet nicht.",
+      "Verschwindet der offene Eintrag aus <code>items</code>, schließt das Detail mit dem Grund <code>itemRemoved</code> und öffnet sich nicht von selbst wieder.",
+      "Das Schließen gibt den Fokus an das zurück, was es geöffnet hat; ist dieses Element weg, geht der Fokus zum Scroller."
+    ]
+  },
+  "own": {
+    "intro": "<code>renderItemDetail</code> ersetzt den Dialog vollständig — durch eine Schublade, ein Panel neben dem Plan oder eine eigene Route. Es erhält den Eintrag, wie er geöffnet wurde, und eine Funktion, die ihn schließt.",
+    "state": "Da <code>openItemId</code> gewöhnlicher Zustand ist, lässt sich ein eigenes Detail auch von außen öffnen: Sie setzen die Id, und die Komponente behandelt das als Aktivierung — so funktioniert ein Direktlink auf einen Eintrag."
+  },
+  "accessibility": {
+    "points": [
+      "Das Standarddetail ist ein nativer Modal-Dialog: der Browser hält den Fokus darin, <kbd>Escape</kbd> schließt ihn, und der Hintergrund ist ein Klickziel.",
+      "Er ist durch seinen Titel beschriftet, und sein Inhalt wird in der gezeichneten Reihenfolge gelesen.",
+      "Der Fokus kehrt beim Schließen zum Aktivator zurück, was wiederholtes Öffnen und Schließen per Tastatur erträglich macht.",
+      "Ein eigenes Detail müssen Sie selbst zugänglich machen: die Komponente sagt nur, welchen Eintrag Sie zeigen und wann Sie schließen."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderItemDetail</code> für das Ganze, oder der Teil <code>detailDialog</code> über <link to=\"/customization/slots/\">Slots</link> für den Dialog selbst.",
+      "<code>localization.detail.close</code> ist die Schließbeschriftung des Standarddialogs.",
+      "<code>openItemId</code>, <code>defaultOpenItemId</code> und <code>onOpenItemIdChange</code> halten den Zustand; <code>onItemOpen</code> und <code>onItemClose</code> melden ihn.",
+      "Der Standarddialog liegt in einem faulen Teil, der beim ersten Öffnen eines Eintrags geladen wird."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Es ist ein Eintrag zur Zeit offen.",
+      "Der Standarddialog zeigt die Felder, die das Eintragsmodell hat; alles andere gehört in ein eigenes Detail.",
+      "Im Detail wird nicht bearbeitet — es zeigt, es ändert nicht."
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "NowIndicator",
+    "description": "Die Jetzt-Markierung der Liste: die Uhrzeit in einer Pille, dann eine Linie."
+  }
+}

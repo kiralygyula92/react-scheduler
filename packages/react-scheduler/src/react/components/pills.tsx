@@ -15,9 +15,19 @@ function label(text: ReactNode): ReactElement {
   return <span className="rs-pill__label">{text}</span>;
 }
 
-export const LevelPill: NamedExoticComponent<{ level: string }> = memo(function LevelPill({
+/**
+ * The pill that shows an item’s level.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
+export const LevelPill: NamedExoticComponent<{
+  /** The key of the level the pill stands for. */
+  level: string;
+}> = memo(function LevelPill({
   level,
 }: {
+  /** The key of the level the pill stands for. */
   level: string;
 }): ReactElement {
   const env = useCardEnv();
@@ -44,9 +54,19 @@ export const LevelPill: NamedExoticComponent<{ level: string }> = memo(function 
   );
 });
 
-export const TagPill: NamedExoticComponent<{ tag: string }> = memo(function TagPill({
+/**
+ * The pill that shows one of an item’s tags.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
+export const TagPill: NamedExoticComponent<{
+  /** The key of the tag the pill stands for. */
+  tag: string;
+}> = memo(function TagPill({
   tag,
 }: {
+  /** The key of the tag the pill stands for. */
   tag: string;
 }): ReactElement {
   const env = useCardEnv();
@@ -67,9 +87,19 @@ export const TagPill: NamedExoticComponent<{ tag: string }> = memo(function TagP
   });
 });
 
-export const ReferencePill: NamedExoticComponent<{ reference: string }> = memo(function ReferencePill({
+/**
+ * The pill that shows an item’s reference number.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
+export const ReferencePill: NamedExoticComponent<{
+  /** The reference number to show. */
+  reference: string;
+}> = memo(function ReferencePill({
   reference,
 }: {
+  /** The reference number to show. */
   reference: string;
 }): ReactElement {
   const env = useCardEnv();

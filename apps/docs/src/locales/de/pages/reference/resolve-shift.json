@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveShift",
+    "description": "Das Fenster der aktuellen Schicht (Versatz 0) für date."
+  }
+}

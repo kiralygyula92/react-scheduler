@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vizualizare listă",
-    "description": "Vizualizare listă în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Vizualizarea listă: câte o secțiune pe tură, carduri în ordinea timpului și opțiunile care decid unde aterizează un salt și când apare navigarea."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "reading": "Citirea unei liste lungi",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "basics": "O tură, citită de sus în jos",
+    "options": "Când apare navigarea"
+  },
+  "basics": {
+    "intro": "Lista este vizualizarea pentru citit: câte o secțiune pentru fiecare tură randată, cardurile turei în ordinea timpului, iar titlul secțiunii rămâne lipit de marginea de sus cât timp ești înăuntrul ei. Este vizualizarea implicită și singura sub <code>listOnlyBreakpoint</code>.",
+    "points": [
+      "Un card poartă titlul, nivelul, ora și oricare dintre câmpurile opționale pe care le are elementul — o descriere, o referință, o etichetă, o sugestie.",
+      "Tura citită este cea în care se află derularea, iar ea este cea de la care lucrează butoanele de navigare și banda de elemente fixate.",
+      "Când tura curentă este cea care conține acum, un marcaj stă între carduri, înaintea primului element care nu a început încă."
+    ]
+  },
+  "reading": {
+    "intro": "Cea mai mare parte din ce conține <code>list</code> ține de citirea unei zile lungi: când merită arătate butoanele de navigare, unde aterizează un salt ca titlul să nu rămână ascuns sub marginea lipită de sus și cât trebuie să derulezi până apare butonul de întoarcere la început.",
+    "options": "Lista completă, generată din declarațiile pachetului:"
+  },
+  "accessibility": {
+    "points": [
+      "Fiecare tură este o secțiune cu titlu, iar cardurile unei ture formează o listă, așa că un cititor de ecran anunță câte elemente conține.",
+      "Fiecare card este un buton: <kbd>Tab</kbd> ajunge la el în ordinea timpului, iar <kbd>Enter</kbd> sau <kbd>Space</kbd> îi deschide detaliul.",
+      "Marcajul „acum” este un separator cu etichetă, așa că granița dintre ce a trecut și ce nu este anunțată, nu doar desenată.",
+      "Un salt aterizează cu titlul turei la vedere, nu sub marginea lipită de sus, și mută focalizarea acolo — <code>alignOffset</code> și <code>previousJumpExtraOffset</code> sunt cele care păstrează asta la orice densitate."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Părțile <code>itemList</code>, <code>listCard</code>, <code>shiftSection</code> și <code>shiftHeader</code> pot fi înlocuite prin <link to=\"/customization/slots/\">sloturi</link>.",
+      "<code>renderItem</code> înlocuiește complet un card, cu <code>getItemProps</code> ca al tău să păstreze comportamentul; <code>renderCardContent</code> păstrează cardul și îi înlocuiește interiorul.",
+      "<code>--rs-card-gap</code>, <code>--rs-list-gap</code> și scara de densitate stabilesc spațierea — vezi <link to=\"/customization/css-variables/\">Variabile CSS</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Lista nu virtualizează: o tură cu o mie de elemente randează o mie de carduri.",
+      "Cardurile nu pot fi grupate în interiorul unei ture după altceva decât timp; o grupare după nivel sau după etichetă este treaba <link to=\"/headless-api/\">API-ului headless</link>.",
+      "Nu există editare pe loc și nici model de selecție — un card își deschide detaliul, și asta este toată interacțiunea."
+    ]
   }
 }

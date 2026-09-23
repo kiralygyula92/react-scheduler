@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Milisecundele de la epocă ale unei intrări de dată; NaN când este invalidă. Un șir fără decalaj este ora locală de perete, inclusiv șirurile cu dată simplă (pe care Date singur le-ar citi ca UTC)."
+  }
+}

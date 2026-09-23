@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ScrollTopButton",
+    "description": "A gomb, amely a görgethető területet visszaviszi a tetejére."
+  }
+}

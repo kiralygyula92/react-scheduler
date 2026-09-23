@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Randare pe server",
-    "description": "Randare pe server: obiectivul, ce îți trebuie înainte de a începe, pașii de urmat și cum verifici rezultatul."
+    "description": "Randarea programului pe un server și hidratarea lui fără avertisment, în orice framework."
   },
   "sections": {
     "goal": "Obiectiv",
     "before-you-start": "Înainte de a începe",
     "steps": "Pași",
     "result": "Rezultat",
-    "related": "Legături conexe"
+    "related": "Legături conexe",
+    "troubleshooting": "Depanare"
+  },
+  "goal": "Randează programul pe un server — orice server, orice framework — și lasă browserul să îl preia fără avertisment de hidratare. Componenta nu atinge DOM-ul în timp ce randează, așa că tot ce rămâne de făcut este ca ambele randări să primească aceleași fapte.",
+  "before": {
+    "points": [
+      "O aplicație React 18.2 sau 19 care randează pe un server.",
+      "Foaia de stil importată undeva unde ajunge în documentul randat pe server.",
+      "Un mod de a trece valori de la randarea de pe server la cea de pe client — proprietăți, un loader, date serializate."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Stabilește ceasul o singură dată",
+      "text": "Tot ce se mișcă în program decurge dintr-un singur moment: care tură este curentă, unde stă indicatorul „acum”, ce elemente au trecut. Citește ceasul o dată, pe server, și transmite-l mai departe.",
+      "calloutTitle": "Singura sursă reală de nepotriviri",
+      "callout": "Un program randat fără <code>now</code> ia ceasul celui care îl randează. Ceasul serverului și cel al browserului nu sunt niciodată aceeași milisecundă, iar deseori nici același minut, iar React raportează asta drept nepotrivire de hidratare."
+    },
+    "firstFrame": {
+      "title": "Află cum arată primul cadru",
+      "text": "Randarea de pe server este dinadins cea simplă. Tot ce depinde de browser pornește oprit și se așază după hidratare:",
+      "points": [
+        "Modul compact este oprit dacă nu transmiți tu boolean-ul — un container nu poate fi măsurat fără o aranjare.",
+        "Nimic nu este fixat: fixarea este o poziție de derulare, iar deocamdată nu se derulează nimic.",
+        "Semnalul de antet pornește extins.",
+        "Nicio animație nu rulează la primul cadru."
+      ]
+    },
+    "compact": {
+      "title": "Alege ce face modul compact",
+      "text": "Implicit urmează containerul, odată ce browserul îl poate măsura. Dacă primul cadru trebuie să fie îngust — o aplicație care știe deja că servește un telefon — decide-l pe server."
+    },
+    "styles": {
+      "title": "Pune CSS-ul în primul răspuns",
+      "text": "Foaia de stil a programului este un fișier CSS simplu, fără niciun runtime în spate, deci îi trebuie exact ce face framework-ul tău cu CSS-ul global. Importă-l acolo unde framework-ul adună stilurile globale, nu într-o componentă încărcată leneș — altfel primul cadru este nestilizat și clipește."
+    }
+  },
+  "result": {
+    "text": "Răspunsul HTML conține programul, cu titlurile, elementele și orele lui. Consola rămâne tăcută la hidratare, iar singura schimbare vizibilă este cea cerută de tine: un container măsurat, o poziție de derulare restaurată."
+  },
+  "troubleshooting": {
+    "points": [
+      "O nepotrivire la o oră sau la o etichetă: ceasurile diferă. Transmite <code>now</code>, și aceeași valoare la <code>date</code> dacă vrei și aceeași zi.",
+      "O nepotrivire la un nume de clasă: schemele nu sunt de acord. <code>colorScheme=\"system\"</code> se rezolvă în browser, deci transmite <code>'light'</code> sau <code>'dark'</code> când randarea de pe server trebuie să se potrivească exact.",
+      "Date scrise ca text local fără fus, randate pe un server din alt fus: folosește șiruri ISO cu decalaj sau timestamp-uri.",
+      "<code>window</code> sau <code>document</code> într-un slot al tău — programul nu atinge niciunul cât randează, dar o parte înlocuită poate."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Moduri de date și SSR</link> — pagina de capabilitate din spatele acestui ghid.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — aceleași reguli în App Router.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — aceleași reguli în mod framework."
+    ]
   }
 }

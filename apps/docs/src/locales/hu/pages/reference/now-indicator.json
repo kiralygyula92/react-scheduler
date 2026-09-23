@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "NowIndicator",
+    "description": "A lista „most” jelölése: az óraidő egy pirulában, majd egy vonal."
+  }
+}

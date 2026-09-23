@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "bucketItems",
+    "description": "Puts each item into the window with start ≤ item.start < end. Items outside every window are not shown; items with an invalid start are dropped; for duplicate ids the first occurrence wins."
+  }
+}

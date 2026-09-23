@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveLevels",
+    "description": "A szintdefiníciók key szerint indexelve, kitöltött rank (alapértelmezés: a tömbbeli index), variant és pinOnPass mezőkkel."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "bucketItems",
+    "description": "Pune fiecare element în fereastra cu start ≤ item.start < end. Elementele din afara oricărei ferestre nu se afișează; cele cu un început invalid se elimină; la id-uri duplicate câștigă prima apariție."
+  }
+}

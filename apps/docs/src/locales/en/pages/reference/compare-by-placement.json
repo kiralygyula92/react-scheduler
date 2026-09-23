@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compareByPlacement",
+    "description": "Placement order: start ascending, then level rank ascending (stronger first), then id."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Keeps visible content still when sticky (inside the scroller) changes height: the scroller moves by the same amount in the same frame, in every engine. The scroller sets overflow-anchor: none, so browser scroll anchoring never adds a second shift. While suspended() holds (a programmatic scroll that corrects its own target), a change is only noted."
+  }
+}

@@ -1,17 +1,58 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Detalhe do elemento",
-    "description": "Detalhe do elemento no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O que abre quando quem lê ativa um elemento, o que a caixa de diálogo por omissão mostra, e como substituí-la."
   },
   "sections": {
     "basics": "Noções básicas",
+    "your-own": "Um detalhe seu",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "basic": "O detalhe tal como vem",
+    "custom": "O detalhe, substituído"
+  },
+  "basics": {
+    "intro": "Ativar um elemento — um cartão, uma etiqueta fixada, uma linha da tabela dos adicionais — abre o seu detalhe. Por omissão é uma caixa de diálogo modal com o nível e o título, a descrição, as etiquetas, a hora e um botão de fecho. Que elemento está aberto é <code>openItemId</code>, controlado ou não como o resto do estado.",
+    "points": [
+      "A ativação corre primeiro <code>handlers.onItemActivate</code>, que a pode cancelar, depois define o id e depois chama <code>onItemOpen</code>.",
+      "Um elemento marcado como <code>disabled</code> não abre.",
+      "Se o elemento aberto desaparecer de <code>items</code>, o detalhe fecha com o motivo <code>itemRemoved</code> e não reabre sozinho.",
+      "Fechar devolve o foco ao que o abriu; quando esse elemento já não existe, o foco vai para o deslocador."
+    ]
+  },
+  "own": {
+    "intro": "<code>renderItemDetail</code> substitui a caixa de diálogo por completo — por uma gaveta, um painel ao lado do horário ou uma rota sua. Recebe o elemento, como foi aberto e uma função que o fecha.",
+    "state": "Como <code>openItemId</code> é estado comum, um detalhe seu também pode ser aberto de fora: define o id e o componente trata isso como uma ativação — é assim que uma ligação direta a um elemento funciona."
+  },
+  "accessibility": {
+    "points": [
+      "O detalhe por omissão é uma caixa de diálogo modal nativa: o navegador contém o foco, o <kbd>Escape</kbd> fecha-a, e o fundo é um alvo de clique.",
+      "É etiquetado pelo seu título, e o conteúdo é lido pela ordem em que é desenhado.",
+      "O foco volta ao ativador ao fechar, o que torna suportável abrir e fechar repetidamente com o teclado.",
+      "Um detalhe seu é seu para tornar acessível: o componente só lhe diz que elemento mostrar e quando fechar."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderItemDetail</code> para tudo, ou a parte <code>detailDialog</code> através de <link to=\"/customization/slots/\">slots</link> para a própria caixa de diálogo.",
+      "<code>localization.detail.close</code> é a etiqueta de fecho da caixa de diálogo por omissão.",
+      "<code>openItemId</code>, <code>defaultOpenItemId</code> e <code>onOpenItemIdChange</code> guardam o estado; <code>onItemOpen</code> e <code>onItemClose</code> comunicam-no.",
+      "A caixa de diálogo por omissão está num pedaço preguiçoso, carregado na primeira vez que um elemento é aberto."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Um só elemento está aberto de cada vez.",
+      "A caixa de diálogo por omissão mostra os campos que o modelo do elemento tem; tudo o resto pertence a um detalhe seu.",
+      "Não há edição no detalhe — mostra, não altera."
+    ]
   }
 }

@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "CSS-változók",
-    "description": "CSS-változók a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+    "title": "CSS változók",
+    "description": "A React Scheduler minden dizájntokene, világos és sötét alapértékével, a csomag stíluslapjából előállítva."
   },
   "sections": {
     "variables": "Változók"
+  },
+  "intro": "A komponens minden vizuális értéke egyedi tulajdonság a gyökerén. Ezek a legkönnyebb módjai a megjelenés megváltoztatásának: állítsd be bárhol, ahonnan a gyökér örököl, vagy add át a <code>tokens</code> propon, és minden követi, ami belőle épül.",
+  "how": "Az alábbi táblázatok a csomag <code>tokens.css</code> fájljából készülnek, így nem maradhatnak le tőle. Minden sornak saját címe van — például a <code>#css-color-now</code> hivatkozással.",
+  "families": {
+    "color": {
+      "title": "Szín",
+      "text": "A felületek, a szöveg, a vonalak és a kiemelések. Ezeket az értékeket cseréli le a sötét séma."
+    },
+    "typography": {
+      "title": "Tipográfia",
+      "text": "A két betűcsalád, és minden szövegfajtához, amelyet a komponens megjelenít, egy méret, egy sormagasság és egy vastagság."
+    },
+    "levels": {
+      "title": "Szintek",
+      "text": "A klasszikus skála minden szintkulcsához egy szín és egy rá írható szín, valamint az a szög, amellyel a riasztási felület készül. A saját kulcsokkal készült skála a saját definícióiból veszi a színeit."
+    },
+    "shape": {
+      "title": "Forma és mélység",
+      "text": "Lekerekítések, árnyékok, a fókuszgyűrű és a párbeszédpanel szegélye."
+    },
+    "motion": {
+      "title": "Mozgás",
+      "text": "A két mozgó dolog időtartamai és időzítőgörbéi. Csökkentett mozgásnál egyáltalán nem használjuk őket."
+    },
+    "layout": {
+      "title": "Elrendezés",
+      "text": "Azok a méretek, amelyek sem nem színek, sem nem tipográfia: a rögzített jelvények szélessége, a rács belső margói, a jelvény magassága, a sáv szélessége."
+    }
   }
 }

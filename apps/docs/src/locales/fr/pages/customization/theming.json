@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Thèmes",
-    "description": "Thèmes dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+    "title": "Thématisation",
+    "description": "Le préréglage, le schéma de couleur et la densité, les jetons derrière eux, et le fonctionnement du mode sombre."
   },
   "sections": {
-    "tokens": "Tokens",
+    "tokens": "Jetons",
     "dark-mode": "Mode sombre",
     "presets": "Préréglages"
+  },
+  "demos": {
+    "theming": "Les trois réglages"
+  },
+  "tokens": {
+    "intro": "Trois props décident de l’allure du planning : <code>preset</code> est sa forme, <code>colorScheme</code> sa palette, <code>density</code> son espacement. Elles sont indépendantes — les douze combinaisons sont valables et toutes sont stylées.",
+    "props": "Sous ces trois-là, tout est une variable CSS. <code>tokens</code> les pose sur la racine du composant, la plus petite façon de changer une valeur sans feuille de style à vous :"
+  },
+  "dark": {
+    "intro": "Le schéma sombre n’est pas une feuille de style séparée : ce sont les mêmes jetons avec d’autres valeurs, sélectionnés par un attribut de données que le composant pose. Vous pouvez donc remplacer les valeurs sombres comme les claires :",
+    "system": "<code>colorScheme=\"system\"</code> suit le réglage du lecteur via <code>prefers-color-scheme</code> et se met à jour quand il change. Quel que soit votre choix, le contraste du préréglage par défaut est celui que rapporte la page <link to=\"/discover-more/accessibility/\">accessibilité</link>."
+  },
+  "presets": {
+    "intro": "Un préréglage est la forme du composant, pas ses couleurs.",
+    "points": [
+      "<code>'default'</code> — ce que montre ce site : des cartes plus arrondies, un rail de niveau plus marqué, plus d’air entre les lignes.",
+      "<code>'classic'</code> — plus dense et plus plat, pour un écran qui doit contenir davantage à la fois.",
+      "Les deux fonctionnent dans les deux schémas de couleur et dans les trois densités, et les deux sont couverts par les tests visuels.",
+      "Un préréglage ne change que ce que le CSS peut changer ; la structure, les noms et le comportement sont les mêmes dans chacun."
+    ]
   }
 }

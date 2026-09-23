@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Bemutatók",
-    "description": "React Scheduler forgatókönyv-demók, mindegyik több képességből építve, valamint a propok kipróbálására szolgáló playground."
-  }
+    "description": "Nyolc beosztásnap, az üres naptól a 240 elemesig, és a játszótér a property-k kipróbálásához."
+  },
+  "scope": "Mindegyik egyetlen nap, ugyanazokból az adatkészletekből építve, amelyekkel a csomagot teszteljük, és a nézet, a színséma meg a sűrűség a te kezedben van. A képességoldalakkal együtt érdemes olvasni őket: egy forgatókönyv azt mutatja, hogyan néz ki több képesség egyszerre, egy képességoldal egyet magyaráz el."
 }

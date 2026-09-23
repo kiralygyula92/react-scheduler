@@ -2,6 +2,7 @@
   "$comment": "Required sections per page (docs pack 03 §3), matched by section id — what conformance check C4 compares against. Pages whose template fixes the same sections for every page of that kind are listed under `templates`; the rest, where 03 names the sections per page, under `pages`.",
   "templates": {
     "T6": ["basics", "accessibility", "customization", "limitations", "api"],
+    "T11": ["import", "source"],
     "T8": ["scenario", "what-it-uses", "source"],
     "T13": ["goal", "before-you-start", "steps", "result", "related"],
     "T7": [],

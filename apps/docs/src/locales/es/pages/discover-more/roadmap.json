@@ -1,13 +1,68 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Hoja de ruta",
-    "description": "Qué está planeado para React Scheduler tras la primera versión estable. Sin fechas ni promesas."
+    "description": "Qué está planeado después de la primera versión estable: una lista de intenciones, sin fechas."
   },
   "sections": {
-    "planned": "Planificado"
+    "planned": "Planeado",
+    "not-planned": "No planeado",
+    "how-it-changes": "Cómo cambia esta lista"
+  },
+  "intro": "Estas son las cosas con las que el paquete debería crecer después de 1.0. No llevan fechas y ninguna es un compromiso: el orden es el que tiene sentido hoy, y la primera versión tiene que llegar antes.",
+  "planned": {
+    "head": {
+      "item": "Elemento",
+      "status": "Estado",
+      "what": "En qué consistiría"
+    },
+    "rows": [
+      [
+        "Edición por arrastre",
+        "Planeado",
+        "Mover y redimensionar elementos con puntero y con teclado, con elementos que puedan bloquearse."
+      ],
+      [
+        "Virtualización",
+        "Planeado",
+        "Renderizar solo lo que está cerca del área visible. Los presupuestos se cumplen sin ella hoy, por eso no está en la 1.0."
+      ],
+      [
+        "Foco itinerante y atajos",
+        "Planeado",
+        "Movimiento con las flechas entre tarjetas y atajos para los botones de navegación."
+      ],
+      [
+        "Zona horaria explícita",
+        "Planeado",
+        "Renderizar un día en una zona distinta de la del lector. Hoy el componente trabaja en la zona local y aguanta el horario de verano."
+      ],
+      ["Barra de fechas", "Planeado", "Una forma incluida de elegir el día. Hoy la fecha es tuya."],
+      [
+        "Persistencia",
+        "Planeado",
+        "Recordar la vista, la posición de desplazamiento y los elementos fijados entre visitas, detrás de una prop."
+      ],
+      [
+        "Un registro de capacidades",
+        "En estudio",
+        "Añadir una capacidad desde fuera del paquete, en vez de detrás de un interruptor interno."
+      ]
+    ]
+  },
+  "notPlanned": {
+    "intro": "Algunas cosas quedan a propósito fuera de lo que hace el componente, y decirlo forma parte de la hoja de ruta:",
+    "points": [
+      "Una capa de datos. El componente nunca pide datos; los elementos son tuyos, de donde los guardes.",
+      "Una biblioteca de estado. El estado es estado de React, controlado o no controlado, y no hace falta nada más.",
+      "Un runtime de estilos. El aspecto son variables CSS y nombres de clase, resueltos por el navegador.",
+      "Un calendario. Esto es un horario de un día cada vez, no una vista mensual o anual."
+    ]
+  },
+  "how": {
+    "text": "Un elemento pasa de aquí al <link to=\"/discover-more/changelog/\">Registro de cambios</link> cuando se entrega, y desaparece de aquí si se decide en contra. Si te falta algo, <link to=\"/getting-started/support/\">Soporte</link> es el sitio para decirlo."
   }
 }

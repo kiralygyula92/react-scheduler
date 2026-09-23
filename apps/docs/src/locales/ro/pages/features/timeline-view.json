@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Vizualizare cronologică",
-    "description": "Vizualizare cronologică în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "title": "Vizualizarea cronologică",
+    "description": "Vizualizarea cronologică din React Scheduler: cum se comportă implicit, ce se poate configura, accesibilitatea ei și limitele ei."
   },
   "sections": {
-    "basics": "Noțiuni de bază",
+    "basics": "Bazele",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "basics": "O zi pe cronologie",
+    "columns": "Câte coloane poate folosi o oră",
+    "columnPlacement": "Ce element ocupă coloana din stânga",
+    "overflowWindow": "Cât de departe poate ajunge un grup „+ mai multe”"
+  },
+  "basics": {
+    "intro": "Cronologia desenează turele afișate ca o singură grilă continuă, de la începutul primei ture până la sfârșitul ultimei. Elementele sunt așezate la minutul în care încep și sunt înalte cât durează, așa că o privire arată cât de plină este ziua, nu doar ce conține. Setează <code>view=\"timeline\"</code> sau lasă cititorul să schimbe vizualizarea cu <code>defaultView</code>.",
+    "grid": "Grila are <code>hourHeight</code> pixeli pentru fiecare oră scursă, cu o etichetă pe oră și o linie de graniță la fiecare schimbare de tură din interval. Orele din afara turei citite sunt desenate ca benzi în afara programului, așa că o noapte care trece de miezul nopții rămâne o singură grilă, nu două zile.",
+    "parts": [
+      "Un element fără <code>end</code> primește <code>defaultDuration</code>, iar unul mai scurt decât <code>minCardHeight</code> este desenat la acea înălțime, ca titlul să rămână lizibil.",
+      "Elementele care se suprapun împart banda în coloane, cel mult <code>maxColumns</code> dintre ele.",
+      "Ce nu încape în coloane este strâns într-un grup accesibil printr-un buton <strong>+ mai multe</strong>, care deschide dialogul de suplimentare."
+    ]
+  },
+  "accessibility": {
+    "intro": "Cronologia este o listă de elemente cu o poziție, nu o imagine a uneia. Tot ce spune grila vizual este spus și în text.",
+    "points": [
+      "Fiecare card este un buton: intră în ordinea de tabulare, iar <kbd>Enter</kbd> sau <kbd>Space</kbd> îi deschide detaliul.",
+      "Numele accesibil al unui card cuprinde nivelul și ora lui, așa că poziția din grilă nu trebuie citită niciodată pentru a ști ce este un element.",
+      "Antetele de tură sunt titluri adevărate, iar nivelul lor urmează <code>headingLevel</code>, așa că pagina păstrează o singură structură.",
+      "Marcajul „acum” și liniile de graniță sunt decorative; ora pe care o marchează se află în etichetele de oră și în numele fiecărui card.",
+      "Culoarea nu este niciodată singurul purtător: nivelul pe care îl reprezintă este scris și pe card."
+    ]
+  },
+  "customization": {
+    "intro": "Tot ce urmează este un câmp al lui <code>timeline</code>. Valorile implicite sunt cele arătate de demonstrațiile de mai sus; cele de aici schimbă câte un câmp pe rând.",
+    "placement": "<code>columnPlacement</code> decide ce coloană primește un element când mai multe se suprapun. <code>'priority'</code>, valoarea implicită, grupează elementele care se suprapun, le ordonează cu <code>compareItems</code> și poate promova un element din grupul de suplimentare într-o coloană care se eliberează. <code>'time'</code> păstrează ordinea simplă a începuturilor și sare peste acea promovare, așa că un element început mai devreme își păstrează coloana.",
+    "overflow": "<code>overflowMergeWindow</code> limitează cât timp poate acoperi un singur grup <strong>+ mai multe</strong>. Orele consecutive se comasează într-un grup doar cât timp grupul rezultat rămâne în fereastră, așa că o dimineață aglomerată devine câteva grupuri oneste, nu unul care acoperă toată tura.",
+    "options": "Lista completă, generată din declarațiile pachetului:"
+  },
+  "limitations": {
+    "points": [
+      "Grila acoperă doar turele afișate. Citirea mai departe înapoi sau înainte este navigare între ture, nu derulare dincolo de capătul grilei.",
+      "Elementele sunt așezate după marcaj de timp, în fusul orar al cititorului; pachetul nu are încă un fus orar propriu (vezi foaia de parcurs).",
+      "Cardurile care se suprapun împart banda în coloane egale. O coloană nu poate fi făcută mai lată decât vecinele ei.",
+      "Cronologia nu își virtualizează rândurile: un interval de câteva zile la valoarea implicită a lui <code>hourHeight</code> este un document înalt.",
+      "Elementele nu pot fi mutate sau redimensionate aici. Editarea este planificată, nu livrată."
+    ]
   }
 }

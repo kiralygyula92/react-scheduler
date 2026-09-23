@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Horario grande",
-    "description": "Una demo de React Scheduler sobre el conjunto Horario grande: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Horario grande",
+    "description": "240 elementos en tres turnos: el tamaño al que se mide el presupuesto de rendimiento del paquete."
+  },
+  "demos": {
+    "board": "240 elementos"
+  },
+  "scenario": "240 elementos en las treinta y seis horas que cubren los tres turnos. Es el tamaño al que se mide el paquete y es a propósito más de lo que una persona leería: lo que se enseña es que el componente sigue comportándose a ese tamaño, no que un día deba verse así.",
+  "look": [
+    "Todos los elementos se renderizan. El horario no virtualiza, así que lo que recorres está de verdad en la página.",
+    "En las horas concurridas el trabajo lo hace el tope de columnas; sin él, la línea de tiempo sería ilegible mucho antes de 240 elementos.",
+    "La vista de lista agrupa los mismos 240 elementos por turnos, que es la forma más rápida de leer un día así de lleno.",
+    "Cambiar la vista, el esquema o la densidad los recoloca todos a la vez."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Elementos adicionales</link> — lo que mantiene legible una hora concurrida a este tamaño.",
+    "<link to=\"/list-view/\">Vista de lista</link> — la vista para un día largo.",
+    "<link to=\"/data-modes-and-ssr/\">Modos de datos y SSR</link> — de dónde vienen los elementos y qué hace el componente mientras están en camino."
+  ]
 }

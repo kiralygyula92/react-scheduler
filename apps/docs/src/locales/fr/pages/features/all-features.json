@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Toutes les fonctionnalités",
     "description": "Toutes les capacités de React Scheduler, groupées comme dans la barre latérale, avec un résumé d’une ligne et un lien."
-  }
+  },
+  "scope": "Toutes les capacités de React Scheduler, dans les groupes utilisés par la barre latérale. Chaque page ouvre sur une démonstration vivante, puis dit ce que vous pouvez changer, ce que reçoivent le clavier et le lecteur d’écran, et où la fonctionnalité s’arrête."
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Vue d'ensemble",
-    "description": "Vue d'ensemble dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+    "title": "Vue d’ensemble",
+    "description": "Les six façons de modifier React Scheduler, d’une variable CSS à un rendu à vous — la plus légère d’abord."
   },
   "sections": {
     "css-variables": "Variables CSS",
@@ -14,5 +14,24 @@
     "slots": "Slots",
     "handlers": "Gestionnaires",
     "headless-hooks": "Hooks headless"
+  },
+  "scope": "Six niveaux, du plus léger au plus lourd. Chacun coûte plus cher à maintenir que le précédent : prenez le premier qui fait ce dont vous avez besoin, et arrêtez-vous là.",
+  "variables": {
+    "text": "Une valeur : une couleur, un rayon, une hauteur. Posez un jeton sur le composant, dans votre feuille de style ou via la prop <code>tokens</code>, et tout ce qui en découle suit. Rien de la structure ne change. Voir <link to=\"/customization/css-variables/\">Variables CSS</link>."
+  },
+  "classNames": {
+    "text": "Une prise pour votre CSS. <code>classNames</code> ajoute une classe à n’importe quelle partie, à côté de celle de la bibliothèque : vos règles peuvent la viser sans dépendre des noms de classe de la bibliothèque. Avec <code>unstyled</code>, ce sont les seules classes présentes."
+  },
+  "slotProps": {
+    "text": "Un attribut sur une partie : un titre, un attribut de données, une classe de plus, une ref. La partie reste celle de la bibliothèque ; vous ne faites qu’ajouter à ses props. La forme fonction reçoit l’owner state : la valeur peut dépendre de l’élément ou du poste."
+  },
+  "slots": {
+    "text": "La partie elle-même, remplacée. Votre composant reçoit les props qu’aurait eues celui d’origine — y compris la ref et les gestionnaires — et affiche ce qu’il veut. Voir <link to=\"/customization/slots/\">Slots et remplacements</link>."
+  },
+  "handlers": {
+    "text": "Du comportement, pas du balisage. Un middleware s’exécute avant que le composant agisse et peut changer l’issue ou l’annuler — une confirmation, une permission, une modification non enregistrée. Voir <link to=\"/events-and-middleware/\">Événements et middleware</link>."
+  },
+  "hooks": {
+    "text": "Le modèle sans le balisage. Quand c’est la structure elle-même qui doit changer, prenez l’état et les getters de props et affichez le vôtre. Voir <link to=\"/headless-api/\">API headless</link>."
   }
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "De uma implementação própria",
-    "description": "De uma implementação própria: a quem se destina, o que mudou e os passos para migrar uma instalação para a versão atual."
+    "description": "Como mapear um quadro de turnos escrito à mão sobre este: elementos, níveis, turnos, textos e estilos."
   },
   "sections": {
     "who-this-is-for": "A quem se destina",
@@ -13,5 +13,100 @@
     "step-by-step": "Passo a passo",
     "removed-and-renamed": "Removido e renomeado",
     "getting-help": "Obter ajuda"
+  },
+  "who": {
+    "intro": "Já tem um horário no ecrã. Alguém o escreveu — uma lista agrupada por turnos, ou uma coluna de cartões posicionados em absoluto — e funciona, mas cada novo requisito cai nas mesmas poucas centenas de linhas. Este guia mapeia o que tem sobre o que o pacote já faz.",
+    "points": [
+      "Renderiza um dia, ou um turno, como lista ou como grelha de tempo.",
+      "Tem a sua própria ideia de gravidade, prioridade ou estado, e é ela que decide cores e ordem.",
+      "Já resolveu pelo menos uma destas: elementos que se sobrepõem, um turno que atravessa a meia-noite, elementos que têm de ficar à vista depois de saírem do ecrã.",
+      "Está em React 18.2 ou 19 e pode acrescentar uma dependência."
+    ]
+  },
+  "summary": {
+    "intro": "O que se move e no que se transforma. Nada disto precisa de um codemod: a mudança é uma função de mapeamento e algumas props.",
+    "head": {
+      "before": "O que tem",
+      "after": "No que se transforma",
+      "action": "O que fazer"
+    },
+    "rows": [
+      [
+        "O seu tipo de linha",
+        "<code>SchedulerItem</code>",
+        "Mapeie-o uma vez; guarde o seu objeto em <code>data</code>."
+      ],
+      [
+        "Gravidade, prioridade ou estado",
+        "<code>levels</code>",
+        "Uma definição por chave: posto, cor, tratamento do cartão, se fixa."
+      ],
+      [
+        "O agrupamento por dias ou turnos",
+        "<code>shifts</code>",
+        "Uma âncora e uma duração. O componente decide qual é o turno atual."
+      ],
+      [
+        "A sua lógica de sobreposição",
+        "Colunas e o chip de elementos adicionais",
+        "Apague-a. O limite e a promoção vêm de série."
+      ],
+      [
+        "Uma barra fixa de «ainda abertos»",
+        "A faixa de fixados",
+        "Ponha <code>pinOnPass</code> nos níveis que lá pertencem."
+      ],
+      [
+        "Textos ingleses escritos no código",
+        "Um pacote de idioma",
+        "Passe um dos sete ou escreva o seu próprio objeto."
+      ],
+      [
+        "O seu ficheiro CSS",
+        "Tokens, nomes de classes, slots",
+        "Comece pelos tokens; recorra aos slots só onde a estrutura tiver de diferir."
+      ],
+      [
+        "A sua janela modal de detalhe",
+        "A caixa de diálogo integrada, ou <code>renderItemDetail</code>",
+        "Mantenha a sua se fizer trabalho; a prop entrega-lhe o elemento."
+      ]
+    ]
+  },
+  "steps": {
+    "items": {
+      "title": "Mapeie as suas linhas para elementos",
+      "text": "Um elemento precisa de um id, um início e um título. O resto é opcional, e o seu objeto viaja em <code>data</code>, tipado, para que slots e handlers lhe cheguem sem procurar."
+    },
+    "levels": {
+      "title": "Transforme a sua gravidade em níveis",
+      "text": "A definição de um nível decide a cor, a ordem e o tratamento do cartão. Dê ao mais forte o posto mais baixo. Se a sua escala se parece com as nove clássicas, parta de <code>classicLevels</code> e edite-a; se não, defina a sua — nada no componente pressupõe as chaves clássicas."
+    },
+    "shifts": {
+      "title": "Descreva o dia em vez de o agrupar",
+      "text": "Em vez de distribuir os elementos, diga quanto dura um turno e quando começa um deles. O componente coloca cada elemento, decide que turno contém o momento atual e renderiza os de antes e de depois. Um turno que atravessa a meia-noite não precisa de mais nada."
+    },
+    "strings": {
+      "title": "Passe os seus textos para um pacote de idioma",
+      "text": "Cada texto que o componente mostra vem de um único objeto. Passe um dos sete pacotes, ou espalhe um e substitua as mensagens que redige de outra forma. Os seus textos — os títulos dos seus elementos — continuam a ser seus."
+    },
+    "styles": {
+      "title": "Reconstrua o aspeto primeiro com tokens",
+      "text": "A maioria dos estilos da casa é um punhado de variáveis CSS: uma superfície, um raio, um acento. Defina-as antes de escrever CSS seu, depois use <code>classNames</code> para as regras que sobrarem e slots só onde a própria marcação tiver de ser diferente."
+    },
+    "behavior": {
+      "title": "Substitua os seus pontos de intervenção",
+      "text": "Uma confirmação antes de abrir, uma verificação de permissões, um aviso de alterações por guardar: isso passa a middleware. Um handler corre antes de o componente agir e pode cancelá-lo, por isso o componente mantém a sua máquina de estados e você as suas regras."
+    }
+  },
+  "removed": {
+    "text": "Nada ainda. Esta é a primeira versão, por isso não há qualquer renomeação ou remoção para arrastar. Cada mudança posterior desse género fica registada no <link to=\"/discover-more/changelog/\">Registo de alterações</link>, e a que precisar de passos recebe um guia próprio ao lado deste."
+  },
+  "help": {
+    "points": [
+      "<link to=\"/all-features/\">Todas as capacidades</link> — a forma mais rápida de encontrar a página de um comportamento que já construiu.",
+      "<link to=\"/headless-api/\">API headless</link> — quando a estrutura tem mesmo de ser sua.",
+      "<link to=\"/getting-started/support/\">Apoio</link> — onde perguntar e o que incluir."
+    ]
   }
 }

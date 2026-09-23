@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Remplit les substituts {{name}}. Un modèle pluriel choisit sa forme pour values.count avec Intl.PluralRules(locale), en repliant sur other. Les nombres sont formatés avec Intl.NumberFormat. Un substitut inconnu est laissé tel quel."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useControllableState",
+    "description": "Vezérelt, ha meg van adva a value, egyébként belső állapot, amely a defaultValue értékről indul."
+  }
+}

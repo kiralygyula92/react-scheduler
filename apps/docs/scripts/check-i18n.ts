@@ -4,7 +4,8 @@
 // message survives formatting — including the plural categories each locale actually needs.
 //
 // Usage: node scripts/check-i18n.ts
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { relative, resolve } from 'node:path';
 
 const LOCALES = ['en', 'ro', 'hu', 'es', 'fr', 'de', 'pt'] as const;
@@ -19,13 +20,18 @@ function report(file: string, message: string): void {
   problems.push(`${file}: ${message}`);
 }
 
-/** Every namespace in a locale, as `pages/features/pinning` → parsed JSON. */
+/**
+ * Every namespace in a locale, as `pages/features/pinning` → parsed JSON. Files starting with `.`
+ * or `_` are the locale's own bookkeeping — the source hashes and the glossary — not namespaces the
+ * site renders.
+ */
 function bundles(locale: Locale): Map<string, unknown> {
   const root = resolve(localesDir, locale);
   const found = new Map<string, unknown>();
   const walk = (dir: string): void => {
     for (const entry of readdirSync(dir)) {
       const path = resolve(dir, entry);
+      if (entry.startsWith('.') || entry.startsWith('_')) continue;
       if (statSync(path).isDirectory()) walk(path);
       else if (entry.endsWith('.json')) {
         const namespace = relative(root, path)
@@ -142,6 +148,9 @@ function main(): number {
     }
   }
 
+  checkStaleTranslations();
+  checkGlossaries();
+
   if (problems.length > 0) {
     console.error(`i18n: ${String(problems.length)} problem(s):`);
     for (const problem of problems.slice(0, 40)) console.error(`  ${problem}`);
@@ -150,6 +159,78 @@ function main(): number {
   }
   console.log(`i18n: OK — ${String(bundles(REFERENCE).size)} namespaces × ${String(LOCALES.length)} locales`);
   return 0;
+}
+
+/**
+ * A translation whose English source changed since it was written is stale, and stale documentation
+ * is worse than none (docs pack 05 §3, 06 §5.5). `.api-sources.json` stores the hash of the English
+ * value each translation was made from; a mismatch is an error, not a warning.
+ */
+function checkStaleTranslations(): void {
+  const english = stringsOfBundle('api');
+  if (english.size === 0) return;
+  for (const locale of LOCALES) {
+    if (locale === REFERENCE) continue;
+    const path = resolve(localesDir, locale, '.api-sources.json');
+    if (!existsSync(path)) {
+      report(`${locale}/.api-sources.json`, 'missing: translations record the English they came from');
+      continue;
+    }
+    const hashes = JSON.parse(readFileSync(path, 'utf8')) as Record<string, string>;
+    for (const [key, source] of english) {
+      const recorded = hashes[key];
+      if (recorded === undefined) report(`${locale}/api.json`, `${key} has no recorded English source`);
+      else if (recorded !== sourceHash(source)) {
+        report(`${locale}/api.json`, `${key} was translated from an older English text`);
+      }
+    }
+  }
+}
+
+/**
+ * The glossary fixes how the words of this domain are translated (06 §5.5). A term that appears in a
+ * locale still in its English form is reported, so "prop", "slot" or "shift" cannot drift from page
+ * to page.
+ */
+function checkGlossaries(): void {
+  for (const locale of LOCALES) {
+    if (locale === REFERENCE) continue;
+    const path = resolve(localesDir, locale, '_glossary.json');
+    if (!existsSync(path)) continue;
+    const glossary = JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>;
+    const terms = Object.entries(glossary).filter(
+      (entry): entry is [string, string] => typeof entry[1] === 'string' && entry[0] !== '_meta',
+    );
+    for (const [namespace, bundle] of bundles(locale)) {
+      for (const [key, message] of stringsOf(bundle)) {
+        // Code spans, inline code and bare identifiers (`shift.start`, `overflow-anchor`) are the
+        // API's own names, never translated, so a term inside them is not a finding.
+        const prose = message
+          .replaceAll(/`[^`]*`/g, '')
+          .replaceAll(/<code>[^<]*<\/code>/g, '')
+          .replaceAll(/[A-Za-z][\w$]*(?:[.-][A-Za-z][\w$]*)+/g, '');
+        const lower = prose.toLowerCase();
+        for (const [term, translation] of terms) {
+          const pattern = new RegExp(`\\b${term.replaceAll(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+          // The translation is matched loosely — lower-cased and as a substring — so that a glossary
+          // can hold the base word of a language that inflects it.
+          if (pattern.test(prose) && !lower.includes(translation.toLowerCase())) {
+            report(`${locale}/${namespace}.json`, `${key}: "${term}" is not translated (glossary: "${translation}")`);
+          }
+        }
+      }
+    }
+  }
+}
+
+/** Flat strings of one namespace of the reference locale. */
+function stringsOfBundle(namespace: string): Map<string, string> {
+  const bundle = bundles(REFERENCE).get(namespace);
+  return bundle === undefined ? new Map<string, string>() : stringsOf(bundle);
+}
+
+function sourceHash(value: string): string {
+  return createHash('sha256').update(value).digest('hex').slice(0, 16);
 }
 
 /**

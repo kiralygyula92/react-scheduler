@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Animations",
-    "description": "Animations dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "title": "Mouvement",
+    "description": "Quels mouvements sont animés, et comment le planning répond à un lecteur qui en a demandé moins."
   },
   "sections": {
     "basics": "Bases",
@@ -13,5 +13,38 @@
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "motion": "Avec et sans mouvement"
+  },
+  "basics": {
+    "intro": "Deux choses bougent : un saut entre postes défile en douceur, et une pastille épinglée arrive en glissant plutôt qu’en apparaissant. Les deux s’arrêtent quand le lecteur a demandé un mouvement réduit, et les deux s’arrêtent quand vous coupez le drapeau d’animation.",
+    "points": [
+      "<code>reducedMotion</code> vaut <code>'auto'</code> par défaut et suit le <code>prefers-reduced-motion</code> du système.",
+      "En mouvement réduit, chaque transition CSS du composant est supprimée, pas raccourcie — un saut atterrit aussitôt et rien ne s’estompe.",
+      "<code>enableAnimations</code> coupe le mouvement quel que soit le réglage du système, pour une page délibérément calme.",
+      "Le défilement à la main n’est jamais affecté : il appartient au navigateur, pas au composant."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Le mouvement réduit est respecté sans réglage propre : la préférence du système suffit.",
+      "Rien ne dépend de la fin d’une animation. Chaque atterrissage est correct au moment où il est demandé, et le défilement fluide n’est que la manière d’y aller.",
+      "Un saut déplace le focus sur le titre du poste, qu’il soit animé ou non : un lecteur au clavier arrive au même endroit dans les deux cas."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>reducedMotion</code> accepte <code>'auto'</code>, <code>true</code> ou <code>false</code>.",
+      "<code>enableAnimations</code> supprime l’animation d’entrée des pastilles épinglées.",
+      "<code>prefersReducedMotion</code> de <code>/dom</code> donne la même lecture à un balisage à vous."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Les durées sont fixées par la feuille de style ; il n’y a pas de prop pour la durée d’une transition.",
+      "Il n’y a pas d’animation entre les deux vues — le basculement est immédiat par conception.",
+      "Le défilement fluide dépend du respect de <code>scroll-behavior</code> par le navigateur ; là où il ne l’honore pas, le saut est simplement immédiat."
+    ]
   }
 }

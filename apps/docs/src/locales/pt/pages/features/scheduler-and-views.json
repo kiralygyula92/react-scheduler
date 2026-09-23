@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Scheduler e vistas",
-    "description": "Scheduler e vistas no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O componente Scheduler e as suas duas vistas: para que serve cada uma, como quem lê alterna, e o que mudam as duas predefinições."
   },
   "sections": {
     "basics": "Noções básicas",
+    "presets": "Predefinições",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "views": "O mesmo dia, das duas formas",
+    "presets": "Predefinido e clássico"
+  },
+  "basics": {
+    "intro": "O <code>Scheduler</code> é o componente inteiro: lê os elementos, divide o dia em turnos e apresenta uma das duas vistas. A lista serve para ler um turno de cima para baixo; a cronologia, para ver como as horas se enchem. Tudo o resto neste site é um detalhe de uma das duas.",
+    "switch": "O pacote não desenha um seletor de vista — a sua página desenha-o, onde encaixar no seu layout. Passe <code>defaultView</code> para escolher onde quem lê começa, ou <code>view</code> com <code>onViewChange</code> para guardar a escolha no seu próprio estado, num URL por exemplo, de modo que um link abra a vista a partir da qual foi partilhado. As etiquetas de um controlo desses estão no pacote de idioma, em <code>views.list</code> e <code>views.timeline</code>.",
+    "points": [
+      "<code>ListView</code> e <code>TimelineView</code> são exportadas em separado, para uma página que só quer uma delas.",
+      "<code>keepInactiveViewMounted</code> mantém a outra vista montada, por isso voltar é imediato e a sua posição de deslocamento mantém-se.",
+      "Abaixo de <code>listOnlyBreakpoint</code> a cronologia desaparece por completo: um telemóvel recebe a lista, diga o que disser a vista."
+    ]
+  },
+  "presets": {
+    "intro": "Uma predefinição é a forma do componente, não as suas cores: a disposição do cartão, a força da barra de nível, quanto ar uma linha recebe. <code>'default'</code> é a que este site usa; <code>'classic'</code> é mais densa e mais plana. Ambas funcionam nos dois esquemas de cor e nas três densidades."
+  },
+  "accessibility": {
+    "points": [
+      "O componente renderiza apenas a vista ativa, por isso o teclado nunca percorre uma escondida. Com <code>keepInactiveViewMounted</code>, a outra fica no DOM, escondida, com todos os ouvintes e temporizadores em pausa.",
+      "O seletor de vista é seu: um par de botões com <code>aria-pressed</code> lê-se bem, e as etiquetas estão no pacote de idioma.",
+      "O componente é uma única região etiquetada, por isso um leitor de ecrã pode saltar diretamente para ele.",
+      "Os níveis de título lá dentro começam em <code>headingLevel</code>, que é <code>3</code> por omissão: ajuste-o à página onde vive."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> e <code>density</code> para o aspeto — ver <link to=\"/customization/theming/\">Tema</link>.",
+      "<code>slots</code> e <code>slotProps</code> para substituir ou estender qualquer parte — ver <link to=\"/customization/slots/\">Slots e substituições</link>.",
+      "<code>classNames</code> e <code>unstyled</code> para trazer inteiramente o seu CSS.",
+      "<code>localization</code> para cada texto que o componente mostra — ver <link to=\"/customization/localization/\">Localização</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Há duas vistas e nenhuma forma de acrescentar uma terceira. Uma renderização diferente é tarefa da <link to=\"/headless-api/\">API headless</link>, que dá o mesmo modelo sem marcação.",
+      "As vistas não podem ser mostradas lado a lado num só componente; renderize dois se precisar disso.",
+      "Alternar mantém a data e os elementos fixados. A posição de deslocamento da vista que deixa só se mantém com <code>keepInactiveViewMounted</code>; caso contrário, a vista em que entra aterra onde <code>landing.onViewEnter</code> disser."
+    ]
   }
 }

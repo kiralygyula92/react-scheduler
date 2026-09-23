@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedStrip",
+    "description": "A rögzített elemek sávja, amely látható marad, amíg a műszakuk a képernyőn van."
+  }
+}

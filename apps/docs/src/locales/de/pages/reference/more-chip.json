@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "MoreChip",
+    "description": "Der Chip, der für die Elemente steht, die eine gedrängte Gruppe nicht platzieren konnte."
+  }
+}

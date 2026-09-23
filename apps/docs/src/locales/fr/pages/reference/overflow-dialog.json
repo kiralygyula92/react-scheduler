@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "OverflowDialog",
+    "description": "La boîte de dialogue qui liste les éléments derrière une puce « +more »."
+  }
+}

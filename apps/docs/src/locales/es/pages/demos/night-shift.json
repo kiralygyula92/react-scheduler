@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Turno de noche",
-    "description": "Una demo de React Scheduler sobre el conjunto Turno de noche: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Turno de noche",
+    "description": "Un horario leído a las 02:00, donde el turno actual empezó a las 20:00 del día anterior."
+  },
+  "demos": {
+    "board": "Un turno a través de la medianoche"
+  },
+  "scenario": "Son las 02:00, los turnos duran doce horas y están anclados a las 08:00, así que el turno que se lee empezó a las 20:00 de anoche y acaba a las 08:00 de esta mañana. Un horario que entiende el día de medianoche a medianoche se rompe aquí; este no.",
+  "look": [
+    "El turno actual cruza la medianoche: va de las 20:00 de ayer a las 08:00 de hoy, y sus elementos están a ambos lados del cambio de fecha.",
+    "El indicador de «ahora» está en las 02:00, seis horas dentro del turno y no dos horas dentro del día.",
+    "Los encabezados siguen siendo relativos: anterior, actual, siguiente. Qué turno es el actual lo dice el reloj, no el calendario.",
+    "Nada de esto es un ajuste para el trabajo nocturno: el mismo anclaje y la misma duración colocan todos los turnos, a cualquier hora."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Turnos y fechas</link> — el anclaje, la duración y qué turno cuenta como el actual.",
+    "<link to=\"/now-indicator/\">Indicador de «ahora»</link> — la línea y el turno en que se dibuja.",
+    "<link to=\"/customization/localization/\">Localización</link> — las fechas y las horas, formateadas con el idioma del paquete."
+  ]
 }

@@ -1,10 +1,25 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Registro de alterações",
-    "description": "Cada versão publicada do React Scheduler e o que mudou. As entradas são publicadas em inglês."
+    "title": "Registo de alterações",
+    "description": "Cada versão publicada e o que nela mudou, retirados do registo do próprio pacote."
+  },
+  "sections": {
+    "unreleased": "Ainda sem publicação",
+    "how-to-read-it": "Como lê-lo"
+  },
+  "intro": "Esta página é gerada a partir do registo de alterações do repositório do pacote, escrito versão a versão com os changesets que nela entraram. Nada aqui é mantido à mão, por isso não pode contradizer o que foi publicado.",
+  "english": {
+    "title": "As entradas estão em inglês",
+    "text": "O resto do sítio está traduzido; estas entradas não. São escritas por quem fez a alteração e publicadas em inglês no npm, e uma cópia traduzida afastar-se-ia da versão que as pessoas instalam."
+  },
+  "unreleased": {
+    "text": "Ainda não há qualquer versão publicada, por isso não há nada a listar. A primeira aparecerá aqui e no npm no mesmo momento, e cada seguinte será acrescentada no topo da página."
+  },
+  "how": {
+    "text": "As versões seguem o versionamento semântico: uma versão maior para uma alteração que pode partir uma compilação, uma menor para uma capacidade nova, um patch para uma correção. Uma entrada que precise de passos próprios remete para um guia em <link to=\"/migration/\">Migração</link>."
   }
 }

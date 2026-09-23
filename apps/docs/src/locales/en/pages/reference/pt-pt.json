@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ptPT",
+    "description": "The Portuguese (Portugal) locale pack, passed to localization."
+  }
+}

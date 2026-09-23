@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Barrierefreiheit und Tastatur",
-    "description": "Barrierefreiheit und Tastatur in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Die Tastaturbelegung, die Rollen und Namen, die die Komponente ihren Teilen gibt, und was sie ansagt — an einer Stelle."
   },
   "sections": {
     "basics": "Grundlagen",
+    "keyboard": "Tastatur",
+    "structure": "Rollen und Namen",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "Der ganze Plan, per Tastatur"
+  },
+  "basics": {
+    "intro": "Jede Fähigkeitsseite hat ihren eigenen Abschnitt zur Barrierefreiheit; diese Seite ist die Zusammenfassung. Das Ziel ist WCAG 2.2 Stufe AA, von axe bei jeder Änderung in drei Engines geprüft und vor einem Release von Hand mit NVDA und VoiceOver."
+  },
+  "keyboard": {
+    "intro": "Die Tasten, die die Komponente nutzt. Der Rest gehört dem Browser.",
+    "head": {
+      "key": "Taste",
+      "what": "Was sie tut"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "Geht zum nächsten Bedienelement des Plans, in Lesereihenfolge."],
+      ["<kbd>Enter</kbd> oder <kbd>Space</kbd>", "Aktiviert die fokussierte Karte, den Chip oder die Schaltfläche."],
+      ["<kbd>Escape</kbd>", "Schließt den obersten Dialog und gibt den Fokus an das zurück, was ihn geöffnet hat."]
+    ],
+    "order": "Die Tabulatorreihenfolge ist die Lesereihenfolge: die angehefteten Chips, die obere Navigation, dann die Schichten der Reihe nach mit ihren Karten und ihren <strong>+ mehr</strong>-Chips, dann die untere Navigation, dann die Schaltfläche nach oben. Der Fokus ist immer sichtbar — ein Ring von zwei Pixeln, um zwei versetzt."
+  },
+  "structure": {
+    "points": [
+      "Die Wurzel ist eine Region, benannt durch <code>aria-label</code> oder durch Ihre eigene Kopfzeile via <code>aria-labelledby</code>.",
+      "Jede Schicht ist ein <code>section</code>-Element, beschriftet durch seine Überschrift, deren Rang bei <code>headingLevel</code> beginnt.",
+      "Die Karten einer Schicht bilden eine Liste, sodass ein Screenreader ansagt, wie viele es sind.",
+      "Eine Karte ist eine Schaltfläche, deren Name der Titel des Eintrags ist und deren Beschreibung Stufe und Uhrzeit trägt, dazu die Etiketten.",
+      "Das Band der angehefteten Einträge ist eine Region mit einer Liste von Chips, und eine eigene höfliche Live-Region sagt die Anzahl an, wenn sie sich ändert, höchstens einmal pro Sekunde.",
+      "Die „Jetzt“-Markierung ist ein Trenner, benannt nach der Uhrzeit, die sie markiert."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Farbe ist nie der einzige Träger: eine Stufe zeigt sich als Farbe und als Beschriftung.",
+      "Die Standardvoreinstellung erfüllt die Kontrastverhältnisse von WCAG 2.2 AA; die klassische gibt die Farben wieder, nach denen sie heißt, und dokumentiert, wo sie zurückbleibt.",
+      "Ein deaktivierter Eintrag wird mit <code>aria-disabled</code> markiert statt aus der Tabulatorreihenfolge entfernt, bleibt also lesbar.",
+      "Die Dialoge sind native <code>&lt;dialog&gt;</code>-Elemente: der Browser hält den Fokus darin, und <kbd>Escape</kbd> schließt sie."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>aria-label</code> oder ein Kopfzeilen-Slot benennt die Region; <code>headingLevel</code> fügt sie in die Gliederung Ihrer Seite ein.",
+      "Jeder Text und jede Ansage kommen aus <code>localization</code> — siehe <link to=\"/customization/localization/\">Lokalisierung</link>.",
+      "Eine über <code>renderItem</code> ersetzte Karte muss <code>getItemProps</code> ausbreiten, denn das trägt Rolle, Name und Tastaturbehandlung."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Es gibt noch keinen wandernden Fokus und keine Pfeilnavigation zwischen Karten; <kbd>Tab</kbd> ist die einzige Bewegung. Das steht auf der <link to=\"/discover-more/roadmap/\">Roadmap</link>.",
+      "Für die Navigationsschaltflächen gibt es keine Tastenkürzel.",
+      "Die klassische Voreinstellung hat bekannte Kontrastmängel, aufgeführt unter <link to=\"/discover-more/accessibility/\">Barrierefreiheit</link>."
+    ]
   }
 }

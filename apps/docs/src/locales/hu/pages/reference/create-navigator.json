@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createNavigator",
+    "description": "Létrehozza a navigátort egy görgethető területhez."
+  }
+}

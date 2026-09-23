@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Sparse day",
-    "description": "A React Scheduler demo on the Sparse day fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Sparse day",
+    "description": "One item per shift: a quiet day, below the threshold the navigation buttons appear at."
+  },
+  "demos": {
+    "board": "A quiet day"
+  },
+  "scenario": "Three items, one in each rendered shift. A quiet day is worth designing for: it is what a new installation looks like, and what most days look like in a small team.",
+  "look": [
+    "No navigation buttons. They appear from five items in a shift, and three shifts of one are not close.",
+    "The timeline keeps the full height of the shift. An hour is an hour whether or not anything is in it.",
+    "The list view drops the empty time between the items, which is the difference between the two views on a quiet day.",
+    "One item carries a tag; the rest carry none."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Navigation</link> — the threshold, and what the buttons do once they appear.",
+    "<link to=\"/timeline-view/\">Timeline view</link> — time as distance, empty hours included.",
+    "<link to=\"/list-view/\">List view</link> — the same items with the empty time taken out."
+  ]
 }

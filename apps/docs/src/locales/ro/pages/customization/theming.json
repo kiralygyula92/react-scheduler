@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Teme",
-    "description": "Teme în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+    "description": "Presetul, schema de culoare și densitatea, tokenurile din spatele lor și cum funcționează modul întunecat."
   },
   "sections": {
     "tokens": "Tokenuri",
     "dark-mode": "Mod întunecat",
-    "presets": "Presetări"
+    "presets": "Preseturi"
+  },
+  "demos": {
+    "theming": "Cele trei butoane"
+  },
+  "tokens": {
+    "intro": "Trei proprietăți decid cum arată programul: <code>preset</code> este forma lui, <code>colorScheme</code> paleta, <code>density</code> spațierea. Sunt independente — oricare dintre cele douăsprezece combinații este validă și toate sunt stilizate.",
+    "props": "Sub acestea trei, totul este o variabilă CSS. <code>tokens</code> le setează pe rădăcina componentei, ceea ce este cel mai mic fel de a schimba o valoare fără o foaie de stil proprie:"
+  },
+  "dark": {
+    "intro": "Schema întunecată nu este o foaie de stil separată: sunt aceleași tokenuri cu alte valori, selectate printr-un atribut de date pe care îl pune componenta. Asta înseamnă că poți suprascrie valorile întunecate la fel cum le suprascrii pe cele deschise:",
+    "system": "<code>colorScheme=\"system\"</code> urmează setarea cititorului prin <code>prefers-color-scheme</code> și se actualizează când aceasta se schimbă. Orice ai alege, contrastul presetului implicit este cel raportat pe pagina de <link to=\"/discover-more/accessibility/\">accesibilitate</link>."
+  },
+  "presets": {
+    "intro": "Un preset este forma componentei, nu culorile ei.",
+    "points": [
+      "<code>'default'</code> — ce arată acest site: carduri mai rotunjite, o bară de nivel mai puternică, mai mult aer între rânduri.",
+      "<code>'classic'</code> — mai dens și mai plat, pentru un ecran care trebuie să cuprindă mai mult deodată.",
+      "Amândouă merg în ambele scheme de culoare și în toate cele trei densități, iar amândouă sunt acoperite de testele vizuale.",
+      "Un preset schimbă doar ce poate schimba CSS-ul; structura, numele și comportamentul sunt aceleași în fiecare."
+    ]
   }
 }

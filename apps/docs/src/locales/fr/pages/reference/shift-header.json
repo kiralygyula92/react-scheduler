@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftHeader",
+    "description": "La ligne d’en-tête d’un poste dans la vue liste."
+  }
+}

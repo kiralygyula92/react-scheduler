@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Pagination",
+    "description": "The pager under the overflow table."
+  }
+}

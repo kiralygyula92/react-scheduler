@@ -28,3 +28,5 @@ Thumbs.db
 # Downloaded test assets (scripts/fetch-fonts.ts) and browser-test attachments
 .cache/
 .vitest/
+apps/docs/src/content/fixtures/
+apps/docs/src/content/changelog.json

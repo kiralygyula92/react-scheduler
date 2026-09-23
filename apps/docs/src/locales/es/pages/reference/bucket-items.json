@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "bucketItems",
+    "description": "Coloca cada elemento en la ventana con start ≤ item.start < end. Los elementos fuera de toda ventana no se muestran; los que tienen un inicio inválido se descartan; con ids duplicados gana la primera aparición."
+  }
+}

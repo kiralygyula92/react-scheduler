@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "sortOverflowItems",
+    "description": "Les éléments triés par la valeur de la colonne ; les égalités sont départagées par compare. Toute la comparaison, égalités comprises, suit le sens. Une colonne non triable ou inconnue trie uniquement par compare."
+  }
+}

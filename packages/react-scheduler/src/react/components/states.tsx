@@ -9,13 +9,22 @@ import { renderPart } from '../parts';
 import { ChevronUpIcon, Spinner } from './icons';
 import { Tooltip, useTooltip } from './tooltip';
 
+/**
+ * What a view shows when there is nothing to place.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function EmptyState<TItem extends SchedulerItem>({
   scope,
   segment,
   overlay = false,
 }: {
+  /** Whether the whole schedule is empty or only one shift. */
   scope: 'all' | 'shift';
+  /** The empty shift, when the scope is one shift. */
   segment?: ShiftSegment<TItem> | undefined;
+  /** Renders the state over the content instead of in place of it. */
   overlay?: boolean;
 }): ReactElement {
   const { model, props } = useSchedulerContext<TItem>();
@@ -28,7 +37,18 @@ export function EmptyState<TItem extends SchedulerItem>({
   return renderPart(custom, 'emptyState', 'div', { 'data-rs-overlay': overlay ? '' : undefined, children: content });
 }
 
-export function LoadingState({ overlay = false }: { overlay?: boolean }): ReactElement {
+/**
+ * What a view shows while items are being loaded.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
+export function LoadingState({
+  overlay = false,
+}: {
+  /** Renders the state over the content instead of in place of it. */
+  overlay?: boolean;
+}): ReactElement {
   const { model, props } = useSchedulerContext();
   const { custom } = useViewContext();
   return renderPart(custom, 'loadingState', 'div', {
@@ -39,6 +59,12 @@ export function LoadingState({ overlay = false }: { overlay?: boolean }): ReactE
   });
 }
 
+/**
+ * What a view shows when loading failed, with the retry action when one is given.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function ErrorState(): ReactElement {
   const { model, props } = useSchedulerContext();
   const { custom } = useViewContext();
@@ -70,6 +96,12 @@ export function NowIndicator(): ReactElement {
   });
 }
 
+/**
+ * The button that returns the scroller to the top.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function ScrollTopButton(): ReactElement | null {
   const { model, baseId } = useSchedulerContext();
   const { viewModel, runtime, custom, kind } = useViewContext();

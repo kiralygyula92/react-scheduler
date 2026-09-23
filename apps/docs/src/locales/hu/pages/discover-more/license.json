@@ -1,14 +1,27 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Licenc",
-    "description": "A React Scheduler MIT licencű: a licenc teljes szövege és egy közérthető összefoglaló arról, mit enged meg."
+    "description": "A csomag MIT licenc alatt áll: mit enged meg, és a licenc teljes szövege."
   },
   "sections": {
-    "summary": "Összefoglaló",
+    "summary": "Röviden",
     "full-text": "Teljes szöveg"
+  },
+  "summary": {
+    "intro": "A csomag és ez a dokumentációs oldal MIT licenc alatt jelenik meg. Röviden, és nem jogi tanácsként:",
+    "points": [
+      "Használhatod kereskedelmi célra, magánúton és zárt forráskódú szoftverben.",
+      "Módosíthatod, leforkolhatod és továbbterjesztheted, forrásként vagy lefordítva.",
+      "Meg kell tartanod a szerzői jogi közlést és ezt a licencszöveget a terjesztett példányokban.",
+      "Semmilyen garanciát nem vállal, és a szerzők nem felelnek azért, amit tesz."
+    ],
+    "note": "A csomagnak a React peereken túl nincs futásidejű függősége, így a telepítése semmilyen további licencet nem hoz a projektedbe."
+  },
+  "full": {
+    "intro": "A licenc úgy, ahogy a tárolóban áll, fordítás nélkül:"
   }
 }

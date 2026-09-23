@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Viele angeheftete Elemente",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Viele angeheftete Elemente: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Viele angeheftete Einträge",
+    "description": "Sechs Einträge einer anheftenden Stufe in der vergangenen Schicht, und was das Anheftband mit ihnen tut."
+  },
+  "demos": {
+    "board": "Sechs Einträge, die anheften"
+  },
+  "scenario": "Sechs <code>critical</code>-Einträge in der vergangenen Schicht, sechs <code>routine</code> in der laufenden. <code>critical</code> ist die einzige Stufe der klassischen Skala, die anheftet; dieser Satz zeigt das Anheftband also unter Last und nicht mit einem einzigen Chip.",
+  "look": [
+    "Scrollen Sie den Plan: Die kritischen Einträge, die oben hinauslaufen, heften an — in der Reihenfolge, in der sie gingen.",
+    "Die Routine-Einträge heften nie an, so weit Sie auch scrollen. Anheften ist eine Eigenschaft der Stufe, nicht des Eintrags.",
+    "Das Band ist eine Zeile. Wenn die Chips darüber hinauswachsen, scrollt es seitwärts, mit je einem Verlauf an den Enden als Hinweis, und die Zahl der angehefteten Einträge wird bei jeder Änderung leise angesagt.",
+    "Ein angehefteter Eintrag bleibt an seinem Platz im Plan; der Chip ist eine zweite Ansicht davon, kein Umzug."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Anheften</link> — welche Stufen anheften, wo, und was das Band tut, wenn es voll wird.",
+    "<link to=\"/items-and-levels/\">Einträge und Stufen</link> — <code>pinOnPass</code> und der Rest einer Stufendefinition.",
+    "<link to=\"/timeline-view/\">Zeitstrahlansicht</link> — der Scrollbereich, aus dem die Einträge laufen."
+  ]
 }

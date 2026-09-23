@@ -56,11 +56,25 @@ import { enUS } from '../locales/en';
 // Development-only branches read the bundler-replaced NODE_ENV behind a typeof guard (env.ts).
 declare const process: BundlerProcess;
 
+/**
+ * Which column the overflow table is sorted by, and in which direction.
+ *
+ * @category Overflow
+ * @since 1.0.0
+ */
 export interface OverflowSort {
+  /** The id of the column being sorted by. */
   column: string;
+  /** Ascending or descending. */
   direction: SortDirection;
 }
 
+/**
+ * Which navigation button an event came from.
+ *
+ * @category Navigation
+ * @since 1.0.0
+ */
 export type NavPosition = 'top' | 'bottom';
 
 /**
@@ -68,57 +82,239 @@ export type NavPosition = 'top' | 'bottom';
  * the view layer (React's synthetic events in the main entry).
  */
 export interface SchedulerHandlers<TItem, TEvent = unknown, TKeyEvent = TEvent> {
+  /** Runs before an item opens; not calling `next` leaves it closed. */
   onItemActivate?: Middleware<{ item: TItem; source: ActivationSource; event?: TEvent | undefined }> | undefined;
+  /** Runs on every key pressed on a card, before the built-in handling. */
   onItemKeyDown?: Middleware<{ item: TItem; event: TKeyEvent }> | undefined;
+  /** Runs before a jump between shifts; not calling `next` cancels it. */
   onNavigate?: Middleware<{ from: ShiftWindow; to: ShiftWindow; position: NavPosition; event: TEvent }> | undefined;
+  /** Runs before an overflow group opens. */
   onMoreActivate?: Middleware<{ group: OverflowGroup<TItem>; event: TEvent }> | undefined;
+  /** Runs before the scroll back to the top. */
   onScrollTop?: Middleware<{ event: TEvent }> | undefined;
+  /** Runs before the overflow table is sorted, and may change the sort it applies. */
   onOverflowSort?: Middleware<{ sort: OverflowSort; event: TEvent }> | undefined;
+  /** Runs before the overflow table changes page. */
   onOverflowPage?: Middleware<{ page: number; event: TEvent }> | undefined;
+  /** Runs before the overflow dialog closes, with what asked for it. */
   onOverflowClose?: Middleware<{ group: OverflowGroup<TItem>; reason: CloseReason }> | undefined;
+  /** Runs before an item detail closes, with what asked for it. */
   onDetailClose?: Middleware<{ item: TItem; reason: CloseReason }> | undefined;
+  /** Runs before an item pins or unpins; not calling `next` leaves the strip as it was. */
   onPin?: Middleware<{ item: TItem; pinned: boolean }> | undefined;
+  /** Runs before the header signal changes, with what caused it. */
   onHeaderSignal?: Middleware<{ expanded: boolean; view: ViewKind; reason: HeaderReason }> | undefined;
 }
 
-/** State callbacks and domain events (Feature Dossier 04 §5.5–§5.9). */
+/**
+ * State callbacks and domain events (Feature Dossier 04 §5.5–§5.9). They report what happened; to
+ * intervene before it happens, use `handlers`.
+ *
+ * @category Events
+ * @since 1.0.0
+ */
 export interface SchedulerEvents<TItem> {
+  /**
+   * The rendered date changed, in the uncontrolled case.
+   *
+   * @category Events
+   */
   onDateChange?: ((date: Date) => void) | undefined;
+  /**
+   * The view changed, whether by the reader, by the breakpoint or through the API.
+   *
+   * @category Events
+   */
   onViewChange?: ((view: ViewKind) => void) | undefined;
+  /**
+   * The header signal changed. `reason` says what caused it, so a page can ignore the causes it does
+   * not care about.
+   *
+   * @category Events
+   */
   onHeaderExpandedChange?: ((expanded: boolean, info: { view: ViewKind; reason: HeaderReason }) => void) | undefined;
+  /**
+   * The open item changed, in the uncontrolled case. `null` means the detail view closed.
+   *
+   * @category Events
+   */
   onOpenItemIdChange?: ((id: string | null) => void) | undefined;
+  /**
+   * An item was opened. `source` says whether it came from a pointer, the keyboard or the API.
+   *
+   * @category Events
+   */
   onItemOpen?: ((item: TItem, info: { source: ActivationSource }) => void) | undefined;
+  /**
+   * The open item was closed, with the reason it closed.
+   *
+   * @category Events
+   */
   onItemClose?: ((item: TItem, info: { reason: CloseReason }) => void) | undefined;
+  /**
+   * The open overflow group changed, in the uncontrolled case.
+   *
+   * @category Events
+   */
   onOpenOverflowIdChange?: ((id: string | null) => void) | undefined;
+  /**
+   * The overflow dialog's sort changed, in the uncontrolled case.
+   *
+   * @category Events
+   */
   onOverflowSortChange?: ((sort: OverflowSort) => void) | undefined;
+  /**
+   * The overflow dialog's page changed, in the uncontrolled case.
+   *
+   * @category Events
+   */
   onOverflowPageChange?: ((page: number) => void) | undefined;
+  /**
+   * The shift the reader is looking at changed, by scrolling or by navigating.
+   *
+   * @category Events
+   */
   onActiveShiftChange?: ((shift: ShiftWindow, info: { view: ViewKind }) => void) | undefined;
+  /**
+   * The set of pinned items changed, with what entered and left it.
+   *
+   * @category Events
+   */
   onPinnedChange?:
     ((ids: readonly string[], diff: { added: readonly string[]; removed: readonly string[] }) => void) | undefined;
+  /**
+   * A jump to another shift finished. `position` is `'api'` when the handle was called.
+   *
+   * @category Events
+   */
   onNavigate?:
     ((info: { from: ShiftWindow; to: ShiftWindow; position: NavPosition | 'api'; view: ViewKind }) => void) | undefined;
+  /**
+   * The time range on screen changed. This is the hook for loading a day's items on demand.
+   *
+   * @category Events
+   */
   onVisibleRangeChange?: ((range: { start: Date; end: Date }) => void) | undefined;
+  /**
+   * The timeline recomputed its layout, with the placement of every card.
+   *
+   * @category Events
+   */
   onLayout?: ((layout: TimelineLayout<TItem>) => void) | undefined;
+  /**
+   * An overflow group was opened.
+   *
+   * @category Events
+   */
   onOverflowOpen?: ((group: OverflowGroup<TItem>) => void) | undefined;
+  /**
+   * An overflow group was closed.
+   *
+   * @category Events
+   */
   onOverflowClose?: ((group: OverflowGroup<TItem>) => void) | undefined;
+  /**
+   * The scroll-to-top button was used.
+   *
+   * @category Events
+   */
   onScrollTop?: (() => void) | undefined;
 }
 
-/** Feature flags (Feature Dossier 04 §5.8); all default to `true`. */
+/**
+ * Feature flags (Feature Dossier 04 §5.8). Turning one off removes the feature and everything it
+ * renders; nothing else changes.
+ *
+ * @category Features
+ * @since 1.0.0
+ */
 export interface SchedulerFlags {
+  /**
+   * Items may pin to the edge of the scroller and appear in the pinned strip.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enablePinning?: boolean | undefined;
+  /**
+   * The buttons that jump to the previous and next shift.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableNavigation?: boolean | undefined;
+  /**
+   * The count of items carried over from earlier shifts, shown on the navigation button.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableCarriedOverCount?: boolean | undefined;
+  /**
+   * The marker for the current time in the list and the line in the timeline.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableNowIndicator?: boolean | undefined;
+  /**
+   * The shaded bands the timeline draws outside the active shift.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableOffShiftBands?: boolean | undefined;
+  /**
+   * The dialog that lists the items behind a "+more" chip.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableOverflowDialog?: boolean | undefined;
+  /**
+   * The button that returns the scroller to the top.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableScrollTopButton?: boolean | undefined;
+  /**
+   * The signal that tells the surrounding page to collapse its header while reading a shift.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableHeaderSignal?: boolean | undefined;
+  /**
+   * Tooltips on truncated card titles.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableTooltips?: boolean | undefined;
+  /**
+   * Transitions and animations. `reducedMotion` switches them off per reader; this switches them off
+   * for everyone.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableAnimations?: boolean | undefined;
+  /**
+   * Opening an item shows its detail view.
+   *
+   * @defaultValue true
+   * @category Features
+   */
   enableItemDetail?: boolean | undefined;
 }
 
+/**
+ * Every feature flag with its value filled in.
+ *
+ * @category Features
+ * @since 1.0.0
+ */
 export type ResolvedFlags = { [K in keyof SchedulerFlags]-?: boolean };
 
 const FLAG_NAMES: readonly (keyof SchedulerFlags)[] = [
@@ -138,45 +334,326 @@ const FLAG_NAMES: readonly (keyof SchedulerFlags)[] = [
 /** Everything the controller reads; the React props add render props, slots and styling. */
 export interface SchedulerOptions<TItem extends SchedulerItem, TEvent = unknown, TKeyEvent = TEvent>
   extends SchedulerEvents<TItem>, SchedulerFlags {
+  /**
+   * The items to place. Each needs an `id` and a `start`; an item without an `end` lasts
+   * `defaultDuration`.
+   *
+   * @category Data
+   * @since 1.0.0
+   */
   items?: readonly TItem[] | undefined;
+  /**
+   * Ready-made shift segments, for data that is already grouped. Given these, the scheduler does not
+   * bucket `items` itself.
+   *
+   * @category Data
+   * @since 1.0.0
+   */
   segments?: readonly SegmentInput<TItem>[] | undefined;
+  /**
+   * The day to render, controlled. Pair it with `onDateChange`.
+   *
+   * @category Date and time
+   * @since 1.0.0
+   */
   date?: DateInput | undefined;
+  /**
+   * The day to start on when `date` is not controlled.
+   *
+   * @defaultValue the current day
+   * @category Date and time
+   * @since 1.0.0
+   */
   defaultDate?: DateInput | undefined;
+  /**
+   * The moment the "now" indicator points at. Set it to freeze the clock, in a test or a demo.
+   *
+   * @defaultValue the current time
+   * @category Date and time
+   * @since 1.0.0
+   */
   now?: DateInput | undefined;
+  /**
+   * How often the clock advances, in milliseconds.
+   *
+   * @defaultValue 60000
+   * @min 1000
+   * @max 600000
+   * @step 1000
+   * @category Date and time
+   * @since 1.0.0
+   */
   nowTickInterval?: number | undefined;
+  /**
+   * Renders the loading state. With items already present, they stay on screen and the state is
+   * shown over them.
+   *
+   * @defaultValue false
+   * @category States
+   * @since 1.0.0
+   */
   loading?: boolean | undefined;
+  /**
+   * Renders the error state. Any value is accepted; the message comes from `localization`.
+   *
+   * @category States
+   * @since 1.0.0
+   */
   error?: unknown;
+  /**
+   * How long an item without an `end` lasts, in milliseconds.
+   *
+   * @defaultValue 7200000
+   * @min 900000
+   * @max 86400000
+   * @step 900000
+   * @category Data
+   * @since 1.0.0
+   */
   defaultDuration?: number | undefined;
+  /**
+   * The level scale: the ranks an item can have, with their colors and labels.
+   *
+   * @defaultValue classicLevels
+   * @category Levels and tags
+   * @since 1.0.0
+   */
   levels?: readonly LevelDefinition[] | undefined;
+  /**
+   * The tags an item can carry, with their labels.
+   *
+   * @defaultValue classicTags
+   * @category Levels and tags
+   * @since 1.0.0
+   */
   tags?: readonly TagDefinition[] | undefined;
+  /**
+   * The shift pattern of the day: how long a shift is, where it starts, and how many are rendered
+   * before and after the current one.
+   *
+   * @category Shifts
+   * @since 1.0.0
+   */
   shifts?: ShiftOptions | undefined;
+  /**
+   * Orders items inside a shift. The default order is by start, then by level, then by title.
+   *
+   * @category Data
+   * @since 1.0.0
+   */
   compareItems?: ((a: TItem, b: TItem) => number) | undefined;
+  /**
+   * The view to render, controlled. Pair it with `onViewChange`.
+   *
+   * @category View
+   * @since 1.0.0
+   */
   view?: ViewKind | undefined;
+  /**
+   * The view to start in when `view` is not controlled.
+   *
+   * @defaultValue 'list'
+   * @category View
+   * @since 1.0.0
+   */
   defaultView?: ViewKind | undefined;
+  /**
+   * Below this width, in pixels, only the list is offered. Leave it out to keep both views at every
+   * width.
+   *
+   * @min 320
+   * @max 1600
+   * @step 10
+   * @category View
+   * @since 1.0.0
+   */
   listOnlyBreakpoint?: number | undefined;
+  /**
+   * The list view's own options.
+   *
+   * @category List
+   * @since 1.0.0
+   */
   list?: ListOptions | undefined;
+  /**
+   * The timeline view's own options.
+   *
+   * @category Timeline
+   * @since 1.0.0
+   */
   timeline?: TimelineOptions | undefined;
+  /**
+   * Where items pin, and in which order the pinned strip shows them.
+   *
+   * @category Pinning
+   * @since 1.0.0
+   */
   pinning?: PinningOptions | undefined;
+  /**
+   * The compact layout: `'auto'` switches at `compactBreakpoint`, a boolean forces it.
+   *
+   * @defaultValue 'auto'
+   * @category Compact
+   * @since 1.0.0
+   */
   compact?: boolean | 'auto' | undefined;
+  /**
+   * The width, in pixels, below which `compact: 'auto'` turns compact on.
+   *
+   * @defaultValue 900
+   * @min 320
+   * @max 1600
+   * @step 10
+   * @category Compact
+   * @since 1.0.0
+   */
   compactBreakpoint?: number | undefined;
+  /**
+   * Motion: `'auto'` follows the reader's `prefers-reduced-motion`, a boolean forces it.
+   *
+   * @defaultValue 'auto'
+   * @category Motion
+   * @since 1.0.0
+   */
   reducedMotion?: boolean | 'auto' | undefined;
+  /**
+   * The spacing scale of the rendered parts.
+   *
+   * @defaultValue 'standard'
+   * @category Appearance
+   * @since 1.0.0
+   */
   density?: Density | undefined;
+  /**
+   * The header signal, controlled. Pair it with `onHeaderExpandedChange`.
+   *
+   * @category Header
+   * @since 1.0.0
+   */
   headerExpanded?: boolean | undefined;
+  /**
+   * The header signal's starting value when it is not controlled.
+   *
+   * @defaultValue true
+   * @category Header
+   * @since 1.0.0
+   */
   defaultHeaderExpanded?: boolean | undefined;
+  /**
+   * The open item, controlled by id. `null` closes the detail view.
+   *
+   * @category Item detail
+   * @since 1.0.0
+   */
   openItemId?: string | null | undefined;
+  /**
+   * The item open on first render when `openItemId` is not controlled.
+   *
+   * @defaultValue null
+   * @category Item detail
+   * @since 1.0.0
+   */
   defaultOpenItemId?: string | null | undefined;
+  /**
+   * The open overflow group, controlled by id.
+   *
+   * @category Overflow
+   * @since 1.0.0
+   */
   openOverflowId?: string | null | undefined;
+  /**
+   * The overflow group open on first render when `openOverflowId` is not controlled.
+   *
+   * @defaultValue null
+   * @category Overflow
+   * @since 1.0.0
+   */
   defaultOpenOverflowId?: string | null | undefined;
+  /**
+   * The columns of the overflow dialog's table, in order.
+   *
+   * @defaultValue defaultOverflowColumns
+   * @category Overflow
+   * @since 1.0.0
+   */
   overflowColumns?: readonly SortableColumn<TItem>[] | undefined;
+  /**
+   * Rows per page in the overflow dialog.
+   *
+   * @defaultValue 10
+   * @min 1
+   * @max 100
+   * @step 1
+   * @category Overflow
+   * @since 1.0.0
+   */
   overflowPageSize?: number | undefined;
+  /**
+   * The overflow dialog's sort, controlled.
+   *
+   * @category Overflow
+   * @since 1.0.0
+   */
   overflowSort?: OverflowSort | undefined;
+  /**
+   * The overflow dialog's sort on first open when it is not controlled.
+   *
+   * @category Overflow
+   * @since 1.0.0
+   */
   defaultOverflowSort?: OverflowSort | undefined;
+  /**
+   * The overflow dialog's page, controlled, counted from 1.
+   *
+   * @category Overflow
+   * @since 1.0.0
+   */
   overflowPage?: number | undefined;
+  /**
+   * The overflow dialog's page on first open when it is not controlled.
+   *
+   * @defaultValue 1
+   * @category Overflow
+   * @since 1.0.0
+   */
   defaultOverflowPage?: number | undefined;
+  /**
+   * Every string the component can show. Pass a whole locale pack, or only the entries to replace.
+   *
+   * @defaultValue enUS
+   * @category Localization
+   * @since 1.0.0
+   */
   localization?: DeepPartial<SchedulerLocalization> | undefined;
+  /**
+   * The BCP 47 locale used to format dates, times and numbers.
+   *
+   * @defaultValue the locale of the pack in `localization`
+   * @category Localization
+   * @since 1.0.0
+   */
   locale?: string | undefined;
+  /**
+   * Replaces single formatters, for a house format the locale does not produce.
+   *
+   * @category Localization
+   * @since 1.0.0
+   */
   formatters?: Partial<SchedulerFormatters> | undefined;
+  /**
+   * Writing direction. `'auto'` reads it from the surrounding document.
+   *
+   * @defaultValue 'auto'
+   * @category Localization
+   * @since 1.0.0
+   */
   dir?: 'ltr' | 'rtl' | 'auto' | undefined;
+  /**
+   * Middleware that runs before each interaction and can change or cancel it.
+   *
+   * @category Handlers
+   * @since 1.0.0
+   */
   handlers?: SchedulerHandlers<TItem, TEvent, TKeyEvent> | undefined;
 }
 
@@ -198,95 +675,179 @@ interface ViewState {
   pinnedIds: readonly string[];
 }
 
+/**
+ * The controller’s stored state: what the reader changed, before any option is applied.
+ *
+ * @category Headless
+ * @since 1.0.0
+ */
 export interface SchedulerStoreState {
   /** Uncontrolled values. */
   date: number;
+  /** The view being shown, when it is not controlled. */
   view: ViewKind;
+  /** The header signal, when it is not controlled. */
   headerExpanded: boolean;
+  /** The item whose detail is open, when it is not controlled. */
   openItemId: string | null;
+  /** What opened that item. */
   openSource: ActivationSource;
+  /** The overflow group whose dialog is open, when it is not controlled. */
   openOverflowId: string | null;
+  /** The sort of the overflow table, when it is not controlled. */
   overflowSort: OverflowSort;
+  /** The page of the overflow table, when it is not controlled. */
   overflowPage: number;
   /** Measured by the view layer. */
   width: number | null;
+  /** The current moment, as the internal clock last reported it. */
   clock: number;
+  /** Whether the reader's system asks for reduced motion. */
   prefersReducedMotion: boolean;
+  /** The writing direction the document is in. */
   documentDir: 'ltr' | 'rtl';
+  /** Per-view state: scroll facts, pinned ids and the header memory. */
   views: Readonly<Record<ViewKind, ViewState>>;
 }
 
+/**
+ * The resolved input: options, defaults and state merged into one shape the views read.
+ *
+ * @category Headless
+ * @since 1.0.0
+ */
 export interface SchedulerModel<TItem extends SchedulerItem> {
+  /** The locale pack in force, with every default filled in. */
   localization: SchedulerLocalization;
+  /** The formatters in force, already bound to the locale. */
   formatters: SchedulerFormatters;
+  /** The BCP 47 tag every format is produced with. */
   locale: string;
   /** Resolved direction; `explicitDir` is set on the root only when it did not come from the document. */
   dir: 'ltr' | 'rtl';
+  /** The direction to set on the root, when it did not come from the document. */
   explicitDir: 'ltr' | 'rtl' | undefined;
+  /** The level scale, resolved and keyed by level key. */
   levels: ReadonlyMap<string, ResolvedLevel>;
+  /** The tags an item may carry, keyed by tag key. */
   tags: ReadonlyMap<string, TagDefinition>;
+  /** The order of items inside a shift. */
   compare: (a: TItem, b: TItem) => number;
   /** Pinned-strip order: `pinning.compare`, else `compare`. */
   pinCompare: (a: TItem, b: TItem) => number;
+  /** The view to render. */
   view: ViewKind;
+  /** Whether the schedule is in compact mode. */
   compact: boolean;
   /** Pinned-chip width class from the root width: lg ≥ 900, md 600–899, sm < 600. */
   size: 'sm' | 'md' | 'lg';
+  /** Whether motion is being kept to a minimum. */
   reducedMotion: boolean;
   /** Smooth scrolling and entrance animations run. */
   animate: boolean;
+  /** The spacing scale in force. */
   density: Density;
+  /** Every feature flag, resolved. */
   flags: ResolvedFlags;
+  /** The list options, with every default filled in. */
   list: ResolvedListOptions;
+  /** The timeline options, with every default filled in. */
   timeline: ResolvedTimelineOptions;
+  /** The pin rule of each view, with every default filled in. */
   pinRules: { list: ResolvedPinRule; timeline: ResolvedPinRule };
+  /** The moment being read. */
   date: number;
+  /** The current moment. */
   now: number;
+  /** Whether the schedule is waiting for data. */
   loading: boolean;
+  /** The error to show instead of the content, if any. */
   error: unknown;
+  /** How long an item without an end lasts, in milliseconds. */
   defaultDuration: number;
+  /** The rendered shifts, in order. */
   shifts: readonly ShiftWindow[];
+  /** The rendered shifts with their items, in order. */
   segments: readonly ShiftSegment<TItem>[];
   /** -1 when no rendered shift has offset 0 (the views render only their root, LV-10). */
   currentIndex: number;
+  /** The current shift, or `null` when no rendered shift is the current one. */
   current: ShiftWindow | null;
+  /** Whether any rendered shift holds an item. */
   hasItems: boolean;
+  /** Every rendered item, by id. */
   itemsById: ReadonlyMap<string, TItem>;
+  /** The timeline's measurements: the range, the hour height and the anchors. */
   geometry: TimelineGeometry;
+  /** Whether the now indicator may be shown at all. */
   nowVisible: boolean;
+  /** How many items of the shifts already passed can still pin. */
   carriedOverCount: number;
+  /** The current value of the header signal. */
   headerExpanded: boolean;
+  /** The id of the item whose detail is open. */
   openItemId: string | null;
+  /** The item whose detail is open, when it is still in the data. */
   openItem: TItem | null;
+  /** What opened it. */
   openSource: ActivationSource;
   /** The open id names an item that is no longer in the data (B-03: the view closes). */
   openItemMissing: boolean;
+  /** The id of the overflow group whose dialog is open. */
   openOverflowId: string | null;
+  /** The sort of the overflow table. */
   overflowSort: OverflowSort;
+  /** The page of the overflow table. */
   overflowPage: number;
+  /** How many rows a page of the overflow table holds. */
   overflowPageSize: number;
 }
 
+/**
+ * Everything a view needs to render, derived from the model.
+ *
+ * @category Headless
+ * @since 1.0.0
+ */
 export interface SchedulerViewModel<TItem extends SchedulerItem> {
+  /** The view this model describes. */
   view: ViewKind;
+  /** What the last measurement of the scroller found. */
   facts: ScrollFacts;
+  /** The shift being read, or `null` before the first measurement. */
   activeShift: ShiftWindow | null;
   /** Pinned-strip ids in strip order (position-pinned plus `pinned: true` items). */
   pinnedIds: readonly string[];
+  /** The pinned items with their chips, in strip order. */
   pinned: readonly PinnedEntry<TItem>[];
+  /** What the two navigation buttons point at. */
   navigation: { top: NavState; bottom: NavState };
+  /** Whether the button back to the top is shown. */
   scrollTopVisible: boolean;
 }
 
+/**
+ * The framework-agnostic controller behind the components: state, actions and a subscription.
+ *
+ * @category Headless
+ * @since 1.0.0
+ */
 export interface SchedulerController<TItem extends SchedulerItem, TEvent = unknown, TKeyEvent = TEvent> {
   /** Replaces the options. Does not notify: the owner re-renders with the new options anyway. */
   setOptions(options: SchedulerOptions<TItem, TEvent, TKeyEvent>): void;
+  /** The options as they were last set. */
   getOptions(): SchedulerOptions<TItem, TEvent, TKeyEvent>;
+  /** The stored state: what the reader changed, before any option is applied. */
   getState: () => SchedulerStoreState;
+  /** Subscribes to state changes; the returned function unsubscribes. */
   subscribe: (listener: () => void) => () => void;
+  /** The resolved model the views read. */
   getModel(): SchedulerModel<TItem>;
+  /** Everything one view needs beyond the model. */
   getViewModel(view: ViewKind): SchedulerViewModel<TItem>;
+  /** The computed timeline layout, or `null` outside the timeline. */
   getLayout(): TimelineLayout<TItem> | null;
+  /** One overflow group by id, or `null` when there is none. */
   getOverflowGroup(id: string | null): OverflowGroup<TItem> | null;
   /** Marks the owner (un)mounted; an asynchronous `next()` after unmount is ignored (F-22). */
   setMounted(mounted: boolean): void;
@@ -294,10 +855,15 @@ export interface SchedulerController<TItem extends SchedulerItem, TEvent = unkno
   noteViewShown(view: ViewKind): boolean;
 
   // Measurements reported by the view layer.
+  /** Reports the root's width, which decides compact mode. */
   setWidth(width: number): void;
+  /** Reports the current moment, on every tick of the clock. */
   setClock(time: number): void;
+  /** Reports whether the system asks for reduced motion. */
   setPrefersReducedMotion(matches: boolean): void;
+  /** Reports the direction the document is in. */
   setDocumentDir(dir: 'ltr' | 'rtl'): void;
+  /** Reports what a measurement of the scroller found. */
   setScrollFacts(view: ViewKind, facts: ScrollFacts): void;
   /** Ids the view's pin engine pinned by position; `handlers.onPin` may veto each change. */
   setPinnedByPosition(view: ViewKind, ids: readonly string[]): void;
@@ -305,26 +871,39 @@ export interface SchedulerController<TItem extends SchedulerItem, TEvent = unkno
   flushPinned(view: ViewKind): void;
   /** Resets the per-view header memory, so the next signal is compared afresh (view enter). */
   resetHeader(view: ViewKind): void;
+  /** Reports a header signal from a view, which the middleware may veto. */
   signalHeader(view: ViewKind, expanded: boolean, reason: HeaderReason): void;
 
   // Actions.
+  /** Opens an item the way a card does: middleware first, then the state, then the event. */
   activateItem(item: TItem, source: ActivationSource, event?: TEvent): void;
   /** Imperative open (`api`): no middleware (F-26); disabled or unknown items do not open. */
   openItem(id: string): void;
+  /** Runs the key middleware for a card, then activates it when the key asks for that. */
   keyDownItem(item: TItem, event: TKeyEvent, activate: () => void): void;
+  /** Closes the open item detail, with the reason. */
   closeItem(reason: CloseReason): void;
   /** Closes the view of an item that left the data (B-03); no middleware, never reopens by itself. */
   reconcileOpenItem(): void;
+  /** Opens an overflow group the way its chip does. */
   activateMore(group: OverflowGroup<TItem>, event: TEvent): void;
+  /** Opens an overflow group by id, without middleware. */
   openOverflow(groupId: string): void;
+  /** Closes the overflow dialog, with the reason. */
   closeOverflow(reason: CloseReason): void;
+  /** Sorts the overflow table by a column, toggling the direction when it is already sorted by it. */
   sortOverflow(column: string, event: TEvent): void;
+  /** Moves the overflow table to a page. */
   setOverflowPage(page: number, event: TEvent): void;
+  /** Runs a navigation from one of the buttons: middleware, then the scroll the view performs. */
   navigate(view: ViewKind, position: NavPosition, event: TEvent, perform: (to: ShiftWindow) => void): void;
   /** Imperative navigation (`api`): no middleware (F-26). */
   navigateTo(view: ViewKind, to: ShiftWindow, perform: (to: ShiftWindow) => void): void;
+  /** Runs the scroll back to the top: middleware, then the scroll the view performs. */
   scrollToTop(event: TEvent, perform: () => void): void;
+  /** Switches the view, in the uncontrolled case. */
   setView(view: ViewKind): void;
+  /** Moves to another moment, in the uncontrolled case. */
   setDate(date: DateInput): void;
 }
 
@@ -383,6 +962,13 @@ function validTime(input: DateInput | undefined, fallback: number, name: string)
   return time;
 }
 
+/**
+ * Creates a controller. This is the whole library without React: feed it options, read the view model, call its actions.
+ *
+ * @category Headless
+ * @since 1.0.0
+ * @param initialOptions The options the controller starts with; `setOptions` replaces them later.
+ */
 export function createScheduler<TItem extends SchedulerItem, TEvent = unknown, TKeyEvent = TEvent>(
   initialOptions: SchedulerOptions<TItem, TEvent, TKeyEvent>,
 ): SchedulerController<TItem, TEvent, TKeyEvent> {

@@ -1,17 +1,58 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Detalle del elemento",
-    "description": "Detalle del elemento en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Qué se abre cuando quien lee activa un elemento, qué muestra el diálogo por defecto y cómo sustituirlo."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "your-own": "Un detalle propio",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "basic": "El detalle tal cual viene",
+    "custom": "El detalle, sustituido"
+  },
+  "basics": {
+    "intro": "Activar un elemento —una tarjeta, una píldora fijada, una fila de la tabla de adicionales— abre su detalle. Por defecto es un diálogo modal con el nivel y el título, la descripción, las píldoras, la hora y un botón de cierre. Qué elemento está abierto es <code>openItemId</code>, controlado o no como el resto del estado.",
+    "points": [
+      "La activación ejecuta primero <code>handlers.onItemActivate</code>, que puede cancelarla, luego fija el id y luego llama a <code>onItemOpen</code>.",
+      "Un elemento marcado como <code>disabled</code> no se abre.",
+      "Si el elemento abierto desaparece de <code>items</code>, el detalle se cierra con el motivo <code>itemRemoved</code> y no se vuelve a abrir solo.",
+      "Cerrar devuelve el foco a lo que lo abrió; cuando ese elemento ya no existe, el foco va al desplazador."
+    ]
+  },
+  "own": {
+    "intro": "<code>renderItemDetail</code> sustituye el diálogo por completo: por un cajón, un panel junto al horario o una ruta propia. Recibe el elemento, cómo se abrió y una función que lo cierra.",
+    "state": "Como <code>openItemId</code> es estado corriente, un detalle propio también puede abrirse desde fuera: fijas el id y el componente lo trata como una activación, que es como funciona un enlace directo a un elemento."
+  },
+  "accessibility": {
+    "points": [
+      "El detalle por defecto es un diálogo modal nativo: el navegador contiene el foco, <kbd>Escape</kbd> lo cierra y el fondo es un objetivo de clic.",
+      "Está etiquetado por su título, y su contenido se lee en el orden en que se dibuja.",
+      "El foco vuelve al activador al cerrar, que es lo que hace llevadero abrir y cerrar repetidamente con el teclado.",
+      "Un detalle propio es tuyo de hacer accesible: el componente solo te dice qué elemento mostrar y cuándo cerrar."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderItemDetail</code> para todo, o la parte <code>detailDialog</code> mediante <link to=\"/customization/slots/\">slots</link> para el diálogo en sí.",
+      "<code>localization.detail.close</code> es la etiqueta de cierre del diálogo por defecto.",
+      "<code>openItemId</code>, <code>defaultOpenItemId</code> y <code>onOpenItemIdChange</code> guardan el estado; <code>onItemOpen</code> y <code>onItemClose</code> lo informan.",
+      "El diálogo por defecto está en un fragmento perezoso, que se carga la primera vez que se abre un elemento."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un solo elemento está abierto a la vez.",
+      "El diálogo por defecto muestra los campos que tiene el modelo del elemento; cualquier otra cosa pertenece a un detalle propio.",
+      "No hay edición en el detalle: muestra, no cambia."
+    ]
   }
 }

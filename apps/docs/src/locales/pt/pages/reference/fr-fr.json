@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "frFR",
+    "description": "O pacote de idioma francês (França), passado a localization."
+  }
+}

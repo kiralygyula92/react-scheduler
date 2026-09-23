@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Variables CSS",
-    "description": "Variables CSS en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+    "description": "Cada token de diseño de React Scheduler, con su valor por defecto claro y oscuro, generado a partir de la hoja de estilos del paquete."
   },
   "sections": {
     "variables": "Variables"
+  },
+  "intro": "Cada valor visual del componente es una propiedad personalizada en su raíz. Son la forma más ligera de cambiar su aspecto: fija una donde la raíz herede, o pásala por la prop <code>tokens</code>, y todo lo construido a partir de ella lo sigue.",
+  "how": "Las tablas de abajo se generan a partir del <code>tokens.css</code> del paquete, así que no pueden quedarse atrás. Cada fila tiene su dirección: puedes enlazar a un token con <code>#css-color-now</code>, por ejemplo.",
+  "families": {
+    "color": {
+      "title": "Color",
+      "text": "Las superficies, el texto, las líneas y los acentos. Estos son los valores que reemplaza un esquema oscuro."
+    },
+    "typography": {
+      "title": "Tipografía",
+      "text": "Las dos familias y, para cada clase de texto que el componente dibuja, un tamaño, una altura de línea y un grosor."
+    },
+    "levels": {
+      "title": "Niveles",
+      "text": "Un color y un color de contraste por cada clave de nivel de la escala clásica, más el ángulo con que se dibuja la superficie de alerta. Una escala propia, con sus claves, toma los colores de sus propias definiciones."
+    },
+    "shape": {
+      "title": "Forma y profundidad",
+      "text": "Radios, sombras, el anillo de foco y el borde del diálogo."
+    },
+    "motion": {
+      "title": "Movimiento",
+      "text": "Las duraciones y las curvas de las dos cosas que se mueven. Con movimiento reducido no se usan en absoluto."
+    },
+    "layout": {
+      "title": "Disposición",
+      "text": "Las medidas que no son ni color ni tipografía: los anchos de las píldoras fijadas, el relleno de la rejilla, la altura de una píldora, el ancho del carril."
+    }
   }
 }

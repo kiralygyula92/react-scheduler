@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useCompact",
+    "description": "El modo compacto a partir del ancho de contenido del elemento; un booleano lo fuerza. Falso en el servidor."
+  }
+}

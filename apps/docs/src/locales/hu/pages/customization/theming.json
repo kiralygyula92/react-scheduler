@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Témák",
-    "description": "Témák a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+    "title": "Témázás",
+    "description": "Az előbeállítás, a színséma és a sűrűség, a mögöttük lévő tokenek, és hogyan működik a sötét mód."
   },
   "sections": {
     "tokens": "Tokenek",
     "dark-mode": "Sötét mód",
     "presets": "Előbeállítások"
+  },
+  "demos": {
+    "theming": "A három szabályzó"
+  },
+  "tokens": {
+    "intro": "Három prop dönti el, hogyan néz ki az ütemterv: a <code>preset</code> a formája, a <code>colorScheme</code> a palettája, a <code>density</code> a térközei. Egymástól függetlenek — mind a tizenkét kombináció érvényes, és mindegyik ki van dolgozva.",
+    "props": "E három alatt minden CSS változó. A <code>tokens</code> a komponens gyökerén állítja be őket, ez a legkisebb módja egyetlen érték megváltoztatásának saját stíluslap nélkül:"
+  },
+  "dark": {
+    "intro": "A sötét séma nem külön stíluslap: ugyanazok a tokenek más értékekkel, amelyeket a komponens által beállított adatattribútum választ ki. Ezért a sötét értékeket ugyanúgy írhatod felül, mint a világosakat:",
+    "system": "A <code>colorScheme=\"system\"</code> az olvasó beállítását követi a <code>prefers-color-scheme</code> révén, és frissül, ha az változik. Bármit választasz, az alapértelmezett előbeállítás kontrasztját az <link to=\"/discover-more/accessibility/\">akadálymentesség</link> oldal közli."
+  },
+  "presets": {
+    "intro": "Az előbeállítás a komponens formája, nem a színei.",
+    "points": [
+      "<code>'default'</code> — amit ez az oldal mutat: kerekebb kártyák, erősebb szintsáv, több levegő a sorok között.",
+      "<code>'classic'</code> — sűrűbb és laposabb, olyan képernyőhöz, amelynek egyszerre többet kell tartania.",
+      "Mindkettő működik mindkét színsémában és mindhárom sűrűségben, és mindkettőt lefedik a vizuális tesztek.",
+      "Az előbeállítás csak azt változtatja, amit a CSS változtathat; a szerkezet, a nevek és a viselkedés mindegyikben ugyanaz."
+    ]
   }
 }

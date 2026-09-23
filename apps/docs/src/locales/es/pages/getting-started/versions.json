@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Versiones",
@@ -12,5 +12,33 @@
     "versioning-policy": "Política de versionado",
     "older-versions": "Versiones anteriores",
     "related": "Relacionado"
+  },
+  "supported": {
+    "head": {
+      "version": "Versión",
+      "status": "Estado",
+      "docs": "Documentación"
+    },
+    "rows": [["<code>0.x</code>", "Actual, en desarrollo", "Este sitio"]]
+  },
+  "policy": {
+    "intro": "Las versiones siguen el versionado semántico, y cada cambio que llega a una versión lleva un changeset que dice qué parte del número mueve.",
+    "points": [
+      "<strong>Parche</strong> — un arreglo que deja la API y el marcado renderizado como estaban.",
+      "<strong>Menor</strong> — props nuevas, exportaciones nuevas, variables CSS nuevas. Nada de lo que ya pasas cambia de significado.",
+      "<strong>Mayor</strong> — una eliminación o un valor por defecto cambiado, con una nota de migración para cada uno.",
+      "<strong>Mientras la versión empiece por 0</strong>, una versión menor puede hacer lo que haría una mayor. Cada cambio así aparece en el registro de cambios con lo que hay que hacer."
+    ],
+    "optIn": "El comportamiento nuevo llega apagado. Una función que cambia lo que ve quien lee viene con un indicador o una prop, con el comportamiento anterior por defecto durante el resto del mayor."
+  },
+  "older": {
+    "text": "Cuando exista un segundo mayor, la píldora de versión de la cabecera abrirá la lista de mayores documentados, cada uno con su propia copia de este sitio en su propia URL. Por ahora solo hay un mayor, así que la píldora muestra una sola entrada."
+  },
+  "related": {
+    "points": [
+      "<link to=\"/discover-more/changelog/\">Registro de cambios</link> — qué cambió en cada versión.",
+      "<link to=\"/migration/\">Migración</link> — qué hacer cuando cambia un mayor.",
+      "<link to=\"/getting-started/support/\">Soporte</link> — durante cuánto tiempo se arregla una versión."
+    ]
   }
 }

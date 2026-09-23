@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vue chronologique",
-    "description": "Vue chronologique dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "La vue chronologique de React Scheduler : son comportement par défaut, ce qui se configure, son accessibilité et ses limites."
   },
   "sections": {
-    "basics": "Bases",
+    "basics": "Les bases",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Une journée sur la chronologie",
+    "columns": "Combien de colonnes une heure peut utiliser",
+    "columnPlacement": "Quel élément occupe la colonne de gauche",
+    "overflowWindow": "Jusqu’où un groupe « + plus » peut aller"
+  },
+  "basics": {
+    "intro": "La chronologie dessine les postes affichés comme une seule grille continue, du début du premier poste à la fin du dernier. Les éléments sont placés à la minute où ils commencent et sont aussi hauts qu’ils durent : un coup d’œil montre à quel point la journée est remplie, et pas seulement ce qu’elle contient. Utilisez <code>view=\"timeline\"</code>, ou laissez le lecteur changer de vue avec <code>defaultView</code>.",
+    "grid": "La grille fait <code>hourHeight</code> pixels par heure écoulée, avec une étiquette par heure et une ligne de limite à chaque changement de poste dans l’intervalle. Les heures en dehors du poste lu sont dessinées comme des bandes hors poste : une nuit qui passe minuit reste une seule grille, et non deux journées.",
+    "parts": [
+      "Un élément sans <code>end</code> reçoit <code>defaultDuration</code>, et un élément plus court que <code>minCardHeight</code> est dessiné à cette hauteur pour que son titre reste lisible.",
+      "Les éléments qui se chevauchent partagent la voie en colonnes, jusqu’à <code>maxColumns</code> d’entre elles.",
+      "Ce qui n’entre pas dans les colonnes est regroupé derrière un bouton <strong>+ plus</strong>, qui ouvre la boîte de dialogue des éléments supplémentaires."
+    ]
+  },
+  "accessibility": {
+    "intro": "La chronologie est une liste d’éléments dotés d’une position, pas une image de celle-ci. Tout ce que la grille dit visuellement est aussi dit en texte.",
+    "points": [
+      "Chaque carte est un bouton : elle est dans l’ordre de tabulation, et <kbd>Enter</kbd> ou <kbd>Space</kbd> ouvre son détail.",
+      "Le nom accessible d’une carte porte son niveau et son heure : la position dans la grille n’a jamais besoin d’être lue pour savoir ce qu’est un élément.",
+      "Les en-têtes de poste sont de vrais titres, et leur niveau suit <code>headingLevel</code> : la page garde un seul plan.",
+      "Le repère « maintenant » et les lignes de limite sont décoratifs ; l’heure qu’ils marquent figure dans les étiquettes d’heure et dans le nom de chaque carte.",
+      "La couleur n’est jamais le seul support : le niveau qu’elle représente est aussi écrit sur la carte."
+    ]
+  },
+  "customization": {
+    "intro": "Tout ce qui suit est un champ de <code>timeline</code>. Les valeurs par défaut sont celles des démonstrations ci-dessus ; celles-ci changent un champ à la fois.",
+    "placement": "<code>columnPlacement</code> décide de la colonne qu’un élément occupe lorsque plusieurs se chevauchent. <code>'priority'</code>, la valeur par défaut, regroupe les éléments qui se chevauchent, les ordonne avec <code>compareItems</code> et peut promouvoir un élément du groupe supplémentaire vers une colonne qui se libère. <code>'time'</code> conserve le simple ordre de début et saute cette promotion : l’élément commencé le premier garde sa colonne.",
+    "overflow": "<code>overflowMergeWindow</code> borne la durée qu’un seul groupe <strong>+ plus</strong> peut couvrir. Les heures consécutives ne fusionnent que tant que le groupe obtenu reste dans la fenêtre : une matinée chargée devient plusieurs groupes honnêtes plutôt qu’un seul couvrant tout le poste.",
+    "options": "La liste complète, générée à partir des déclarations du paquet :"
+  },
+  "limitations": {
+    "points": [
+      "La grille ne couvre que les postes affichés. Lire plus tôt ou plus tard, c’est naviguer entre les postes, pas défiler au-delà de la grille.",
+      "Les éléments sont placés par horodatage, dans le fuseau horaire du lecteur ; le paquet n’a pas encore de fuseau horaire propre (voir la feuille de route).",
+      "Les cartes qui se chevauchent partagent la voie en colonnes égales. Une colonne ne peut pas être élargie par rapport à ses voisines.",
+      "La chronologie ne virtualise pas ses lignes : un intervalle de quelques jours avec le <code>hourHeight</code> par défaut donne un document très haut.",
+      "Les éléments ne peuvent pas être déplacés ni redimensionnés ici. L’édition est prévue, pas livrée."
+    ]
   }
 }

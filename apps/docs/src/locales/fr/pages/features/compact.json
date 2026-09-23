@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Mode compact",
-    "description": "Mode compact dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Comment le planning s’adapte à la largeur qu’on lui donne — la sienne, pas celle de la fenêtre — et ce qui change alors."
   },
   "sections": {
     "basics": "Bases",
@@ -13,5 +13,38 @@
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "compact": "Le même planning, trois largeurs"
+  },
+  "basics": {
+    "intro": "Un planning dans une barre latérale et un planning qui remplit la page sont le même composant à deux largeurs. Le mode compact est mesuré depuis le conteneur du planning avec un <code>ResizeObserver</code>, jamais depuis la fenêtre ni depuis l’agent utilisateur : une boîte étroite dans une fenêtre large est compacte, et une boîte large dans un iframe de la taille d’un téléphone ne l’est pas.",
+    "points": [
+      "<code>compact</code> vaut <code>'auto'</code> par défaut : vrai sous <code>compactBreakpoint</code>, soit 900 pixels. Un booléen le force dans un sens ou dans l’autre.",
+      "Le mode compact resserre les cartes, ramène la chronologie à une colonne et rétrécit les pastilles épinglées — 436 pixels à partir de 900, 360 entre 600 et 899, et 90 % de la largeur en dessous.",
+      "<code>listOnlyBreakpoint</code> est distinct et plus fort : en dessous, la chronologie n’est même pas proposée.",
+      "Sur le serveur, le composant est rendu non compact, sauf si vous passez un booléen, et la première mesure après l’hydratation le corrige."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "En mode compact, rien n’est retiré : les mêmes éléments, les mêmes titres, les mêmes noms, en moins de pixels.",
+      "Les cibles tactiles restent d’au moins 24 sur 24 pixels, ce que demande WCAG 2.2.",
+      "La mesure porte sur le conteneur : un lecteur qui zoome à 200 % obtient la mise en page compacte, pas une page qui défile horizontalement."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>compactBreakpoint</code> et <code>listOnlyBreakpoint</code> fixent où se trouvent les deux seuils.",
+      "<code>density</code> est l’autre réglage d’espacement et il est indépendant du mode compact — voir <link to=\"/customization/theming/\">Thématisation</link>.",
+      "<code>useCompact</code> donne la même mesure à un balisage à vous."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Les seuils sont des largeurs en pixels, pas des requêtes de conteneur : une mise en page qui change de forme sans changer la largeur du planning ne change pas le mode compact.",
+      "Les largeurs des pastilles épinglées sont figées à leurs trois paliers et ne se règlent pas par application.",
+      "La première image rendue sur le serveur ne peut pas connaître la largeur : la mise en page compacte apparaît après l’hydratation, sauf si vous passez vous-même le booléen."
+    ]
   }
 }

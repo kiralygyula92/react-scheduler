@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftNavButton",
+    "description": "A gomb, amely az előző vagy a következő műszakra ugrik."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "El fijado al pasar para marcado propio: registras los sensores y lees las claves fijadas."
+  }
+}

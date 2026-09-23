@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Scheduler",
+    "description": "Az ütemező: a lista- vagy az idővonal nézet, a view alapján kiválasztva."
+  }
+}

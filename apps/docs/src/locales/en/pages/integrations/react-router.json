@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "React Router",
-    "description": "React Router: the goal, what you need before you start, the steps to follow, and how to check the result."
+    "description": "Framework mode: the loader holds the items, the route renders them, the URL carries the day."
   },
   "sections": {
     "goal": "Goal",
     "before-you-start": "Before you start",
     "steps": "Steps",
     "result": "Result",
-    "related": "Related"
+    "related": "Related",
+    "troubleshooting": "Troubleshooting"
+  },
+  "goal": "Render the schedule in a React Router application in framework mode, with the day in the URL and the items in a loader. This documentation site is built that way, so the pattern here is the one it uses.",
+  "before": {
+    "points": [
+      "A React Router 7 or 8 project in framework mode, with or without server rendering.",
+      "React 18.2 or 19.",
+      "A route to put the schedule on."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Install the package",
+      "text": "One dependency; the router stays yours."
+    },
+    "stylesheet": {
+      "title": "Import the stylesheet in the root route",
+      "text": "The root route’s module is loaded for every page, which makes it the right place for a global stylesheet. With server rendering on, the import is also what puts the CSS in the document rather than in a later chunk."
+    },
+    "route": {
+      "title": "Load the items, render the schedule",
+      "text": "The loader is where the fetching belongs. Returning the date alongside the items keeps the render deterministic: the same URL renders the same schedule on the server and in the browser."
+    },
+    "range": {
+      "title": "Follow the rendered range",
+      "text": "<code>onVisibleRangeChange</code> fires on mount and whenever the range moves. Writing that range back into the URL lets the loader refetch, which keeps the back button and a shared link honest."
+    }
+  },
+  "result": {
+    "text": "A route that renders the day in its URL, refetches when the reader moves to another shift, and survives a reload with the same schedule on screen."
+  },
+  "troubleshooting": {
+    "points": [
+      "A loop of fetches: the range change writes a URL that loads items that change the range. Write only the date, and only when it differs from the one already there.",
+      "The scroll position jumps on every navigation: pass <code>preventScrollReset</code>, as the snippet above does.",
+      "With <code>ssr: false</code> and prerendering, the schedule is rendered at build time; pass <code>now</code> so the prerendered frame and the browser agree."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Data modes and SSR</link> — fetching per rendered range.",
+      "<link to=\"/navigation/\">Navigation</link> — what moves the range, and what it emits.",
+      "<link to=\"/integrations/ssr/\">Server rendering</link> — the framework-independent rules."
+    ]
   }
 }

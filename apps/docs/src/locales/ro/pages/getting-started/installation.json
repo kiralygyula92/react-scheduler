@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Instalare",
-    "description": "Instalare pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+    "description": "Instalează React Scheduler, adaugă foaia de stil și randează primul program. Dependențele peer, stilurile și o verificare de cinci rânduri."
   },
   "sections": {
     "install": "Instalare",
@@ -13,5 +13,41 @@
     "stylesheet": "Foaie de stil",
     "verify": "Verificare",
     "next-steps": "Pașii următori"
+  },
+  "peers": {
+    "intro": "React Scheduler nu instalează nimic de la el. Cele două dependențe peer sunt React-ul pe care îl ai deja; orice alt pachet din arbore este o unealtă de dezvoltare a acestui depozit, nu a aplicației tale.",
+    "head": {
+      "package": "Pachet",
+      "range": "Interval",
+      "why": "De ce"
+    },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Hook-urile, contextul și randarea concurentă pe care sunt construite vizualizările."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Randarea în DOM și portalul în care se deschid dialogurile de suplimentare și de detaliu."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "Importă foaia de stil o singură dată, acolo unde pornește aplicația. Ea conține ambele preseturi, schema deschisă și cea închisă și cele trei densități; nimic nu se injectează la rulare.",
+    "unstyled": "Dacă vrei să stilizezi totul singur, importă în schimb <code>@react-schedulerkit/react-scheduler/base.css</code>: aceeași structură, fără culori, fără scară de spațiere și fără scară tipografică. <link to=\"/customization/\">Personalizarea</link> arată nivelurile dintre ele."
+  },
+  "verify": {
+    "intro": "Acesta este un fișier complet. Dacă randează un card într-o tură, pachetul, stilurile lui și dependențele peer sunt la locul lor.",
+    "calloutTitle": "Fără dată, fără ture?",
+    "callout": "Ambele sunt opționale. Fără <code>date</code>, programul arată ziua curentă, iar fără <code>shifts</code> folosește două ture de douăsprezece ore ancorate la 08:00."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Utilizare</link> — proprietățile pe care le setezi primele și cum se împarte starea cu aplicația ta.",
+      "<link to=\"/getting-started/requirements/\">Cerințe</link> — browsere, versiuni de React și TypeScript, dimensiunea pachetului.",
+      "<link to=\"/all-features/\">Toate funcționalitățile</link> — fiecare capabilitate, cu o demonstrație vie."
+    ]
   }
 }

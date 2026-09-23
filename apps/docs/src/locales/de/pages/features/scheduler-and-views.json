@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Scheduler und Ansichten",
-    "description": "Scheduler und Ansichten in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Die Komponente Scheduler und ihre zwei Ansichten: wofür jede da ist, wie der Leser wechselt und was die beiden Voreinstellungen ändern."
   },
   "sections": {
     "basics": "Grundlagen",
+    "presets": "Voreinstellungen",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "views": "Derselbe Tag, auf beide Arten",
+    "presets": "Standard und klassisch"
+  },
+  "basics": {
+    "intro": "<code>Scheduler</code> ist die ganze Komponente: sie liest die Einträge, teilt den Tag in Schichten und rendert eine der beiden Ansichten. Die Liste dient dem Lesen einer Schicht von oben nach unten, der Zeitstrahl dem Blick darauf, wie die Stunden gefüllt sind. Alles Weitere auf dieser Website ist ein Detail der einen oder der anderen.",
+    "switch": "Das Paket zeichnet keinen Ansichtsumschalter — das tut Ihre Seite, dort wo er in Ihr Layout passt. Übergeben Sie <code>defaultView</code>, um zu bestimmen, wo der Leser beginnt, oder <code>view</code> mit <code>onViewChange</code>, um die Wahl in Ihrem eigenen Zustand zu halten, etwa in einer URL, damit ein Link die geteilte Ansicht öffnet. Die Beschriftungen für einen solchen Umschalter stehen im Sprachpaket unter <code>views.list</code> und <code>views.timeline</code>.",
+    "points": [
+      "<code>ListView</code> und <code>TimelineView</code> werden einzeln exportiert, für eine Seite, die nur eine davon will.",
+      "<code>keepInactiveViewMounted</code> hält die andere Ansicht eingehängt, sodass das Zurückwechseln sofort geht und ihre Scrollposition erhalten bleibt.",
+      "Unterhalb von <code>listOnlyBreakpoint</code> entfällt der Zeitstrahl ganz: ein Telefon bekommt die Liste, was die Ansicht auch sagt."
+    ]
+  },
+  "presets": {
+    "intro": "Eine Voreinstellung ist die Form der Komponente, nicht ihre Farben: das Layout der Karte, die Stärke der Stufenleiste, wie viel Luft eine Zeile bekommt. <code>'default'</code> ist die, die diese Website nutzt; <code>'classic'</code> ist dichter und flacher. Beide funktionieren in beiden Farbschemata und in allen drei Dichten."
+  },
+  "accessibility": {
+    "points": [
+      "Die Komponente rendert nur die aktive Ansicht, also läuft die Tastatur nie durch eine versteckte. Mit <code>keepInactiveViewMounted</code> bleibt die andere im DOM, verborgen, mit pausierten Listenern und Timern.",
+      "Der Ansichtsumschalter gehört Ihnen: ein Paar Schaltflächen mit <code>aria-pressed</code> liest sich gut, und die Beschriftungen stehen im Sprachpaket.",
+      "Die Komponente ist eine einzige beschriftete Region, sodass ein Screenreader direkt dorthin springen kann.",
+      "Die Überschriftenränge darin beginnen bei <code>headingLevel</code>, standardmäßig <code>3</code>: passen Sie ihn an die Seite an, auf der sie steht."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> und <code>density</code> für das Aussehen — siehe <link to=\"/customization/theming/\">Gestaltung</link>.",
+      "<code>slots</code> und <code>slotProps</code>, um jeden Teil zu ersetzen oder zu ergänzen — siehe <link to=\"/customization/slots/\">Slots und Überschreibungen</link>.",
+      "<code>classNames</code> und <code>unstyled</code>, um vollständig eigenes CSS mitzubringen.",
+      "<code>localization</code> für jeden Text, den die Komponente zeigt — siehe <link to=\"/customization/localization/\">Lokalisierung</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Es gibt zwei Ansichten und keine Möglichkeit, eine dritte hinzuzufügen. Eine andere Darstellung ist Sache der <link to=\"/headless-api/\">Headless-API</link>, die dasselbe Modell ohne Markup liefert.",
+      "Die Ansichten lassen sich in einer Komponente nicht nebeneinander zeigen; rendern Sie zwei, wenn Sie das brauchen.",
+      "Der Wechsel behält das Datum und die angehefteten Einträge. Die Scrollposition der verlassenen Ansicht bleibt nur mit <code>keepInactiveViewMounted</code> erhalten; sonst landet die betretene Ansicht dort, wo <code>landing.onViewEnter</code> es sagt."
+    ]
   }
 }

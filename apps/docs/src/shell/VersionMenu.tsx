@@ -5,7 +5,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { useT } from '~/i18n/useT';
 import versions from '~/content/versions.json';
-import { useDismissOnOutside, useEscape } from './hooks';
+import { useDismissOnOutside, useEscape, useInertBehind } from './hooks';
 import { CheckIcon, ChevronDownIcon } from './icons';
 import { site } from './nav';
 
@@ -40,6 +40,7 @@ export function VersionMenu(): React.ReactElement {
     button.current?.focus();
   }, []);
   useEscape(open, close);
+  useInertBehind(open);
   const container = useDismissOnOutside(open, () => {
     setOpen(false);
   });
@@ -74,28 +75,38 @@ export function VersionMenu(): React.ReactElement {
         <ChevronDownIcon />
       </button>
       {open && (
-        <ul className="ds-menu" role="menu" aria-label={t('shell.version')}>
-          {entries.map((entry, index) => (
-            <li key={entry.href} role="none">
-              {/* Other majors live on their own deployments, so these are plain links. */}
-              <a
-                role="menuitem"
-                className="ds-menu__item"
-                ref={(node) => {
-                  items.current[index] = node;
-                }}
-                href={entry.href}
-                aria-current={entry.current === true ? 'true' : undefined}
-                onKeyDown={(event) => {
-                  onItemKeyDown(event, index);
-                }}
-              >
-                {labelOf(entry)}
-                {entry.current === true && <CheckIcon />}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <>
+          {/* Takes the outside click, and keeps the page from being a half-covered target (EXCEPTIONS.md #14). */}
+          <div
+            className="ds-menu-catcher"
+            aria-hidden="true"
+            onClick={() => {
+              setOpen(false);
+            }}
+          />
+          <ul className="ds-menu" role="menu" aria-label={t('shell.version')}>
+            {entries.map((entry, index) => (
+              <li key={entry.href} role="none">
+                {/* Other majors live on their own deployments, so these are plain links. */}
+                <a
+                  role="menuitem"
+                  className="ds-menu__item"
+                  ref={(node) => {
+                    items.current[index] = node;
+                  }}
+                  href={entry.href}
+                  aria-current={entry.current === true ? 'true' : undefined}
+                  onKeyDown={(event) => {
+                    onItemKeyDown(event, index);
+                  }}
+                >
+                  {labelOf(entry)}
+                  {entry.current === true && <CheckIcon />}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );

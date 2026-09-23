@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftModel",
+    "description": "As janelas de turno e os segmentos de uma data."
+  }
+}

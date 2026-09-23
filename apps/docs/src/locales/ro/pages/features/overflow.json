@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Elemente suplimentare",
-    "description": "Elemente suplimentare în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "title": "Suplimentare",
+    "description": "Ce se întâmplă cu elementele pe care o oră aglomerată nu le poate așeza: pastila „+ mai multe”, dialogul din spatele ei și tabelul pe care îl poți modela."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "columns": "Coloane și sortare",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "columns": "Un tabel propriu"
+  },
+  "basics": {
+    "intro": "Cronologia așază elementele în coloane, cel mult <code>maxColumns</code> dintre ele. Când o oră are mai multe decât încap, restul sunt strânse într-un grup, iar grupul devine o pastilă <strong>+ mai multe</strong> pe grilă. Deschiderea pastilei deschide un dialog cu tot grupul într-un tabel.",
+    "points": [
+      "Un grup acoperă ore consecutive doar cât timp rămâne în <code>overflowMergeWindow</code> — vezi <link to=\"/timeline-view/\">Vizualizarea cronologică</link>.",
+      "Numele accesibil al pastilei spune câte elemente conține și de la ce oră.",
+      "O pastilă este și o santinelă de fixare: elementele fixabile din interiorul ei se fixează când pastila trece pe lângă.",
+      "Dialogul este unul modal nativ, așa că browserul ține focalizarea înăuntru, <kbd>Escape</kbd> îl închide, iar fundalul este o țintă de clic."
+    ]
+  },
+  "columns": {
+    "intro": "Implicit, tabelul arată ora, nivelul, titlul, descrierea și o acțiune care deschide detaliul elementului. <code>overflowColumns</code> înlocuiește acel set cu al tău:",
+    "sorting": "O coloană se sortează dacă are <code>sortValue</code>; una fără el este inertă. Clic pe un antet sortabil sortează crescător, un al doilea clic inversează, iar schimbarea coloanei readuce la prima pagină. Egalitățile se rezolvă prin <code>compareItems</code>, în direcția sortării. Sortarea și pagina sunt controlate sau necontrolate ca orice altceva și se resetează la fiecare deschidere a dialogului, dacă nu le ții tu."
+  },
+  "accessibility": {
+    "points": [
+      "Dialogul este etichetat prin titlul lui, care poartă numărul de elemente din grup.",
+      "Tabelul este un tabel adevărat: antetele de coloană poartă <code>aria-sort</code>, iar un antet sortabil este un buton în celula de antet.",
+      "Deschiderea unui element dintr-un rând suprapune un al doilea dialog peste primul; închiderea lui întoarce focalizarea la acțiunea rândului.",
+      "Paginarea păstrează focalizarea în zona de paginare, iar lista de pagini este aceeași pe care o arată numerele vizibile."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>overflowColumns</code>, <code>overflowPageSize</code> și cele controlate <code>overflowSort</code> și <code>overflowPage</code>.",
+      "<code>renderMoreLabel</code> înlocuiește textul de pe pastilă; părțile <code>moreChip</code>, <code>overflowDialog</code>, <code>overflowTable</code> și <code>pagination</code> înlocuiesc markup-ul.",
+      "<code>localization.overflow</code> conține titlul, antetele de coloană și etichetele de închidere.",
+      "Dialogul și tabelul stau într-un fragment propriu, încărcat prima dată când se deschide o pastilă."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Suplimentarea este o idee a cronologiei; lista arată fiecare element și nu strânge niciodată vreunul.",
+      "Tabelul arată câte un grup deodată — cel a cărui pastilă a fost deschisă.",
+      "Coloanele nu pot fi redimensionate de cititor, iar lățimile lor sunt cele cerute de definițiile tale de coloană."
+    ]
   }
 }

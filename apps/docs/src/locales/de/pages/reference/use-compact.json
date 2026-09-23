@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useCompact",
+    "description": "Der Kompaktmodus aus der Inhaltsbreite des Elements; ein Boolescher Wert erzwingt ihn. Auf dem Server falsch."
+  }
+}

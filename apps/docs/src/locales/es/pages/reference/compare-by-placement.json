@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compareByPlacement",
+    "description": "El orden de colocación: inicio ascendente, luego rango de nivel ascendente (el más fuerte primero) y luego el id."
+  }
+}

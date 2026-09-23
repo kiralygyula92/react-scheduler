@@ -23,9 +23,14 @@ function kindsOf(code: string, lang: Language, text: string): (string | undefine
 const SAMPLES: Record<Language, string> = {
   tsx: `import { Scheduler } from '@react-schedulerkit/react-scheduler';\n\n// A day of shifts\nexport function App(): React.ReactElement {\n  const items = useItems(3);\n  return <Scheduler view="timeline" items={items} />;\n}\n`,
   ts: `export type View = 'list' | 'timeline';\nconst DEFAULT: View = 'list';\n`,
+  jsx: `export function App() {\n  return <Scheduler items={items} />;\n}\n`,
+  js: `const view = 'timeline';\nexport default view;\n`,
   bash: `# install\npnpm add @react-schedulerkit/react-scheduler --save-exact\n`,
   json: `{ "view": "timeline", "compact": true, "levels": 3 }`,
   css: `/* theme */\n.rs-root { --rs-gap: 8px; color: var(--rs-text); }`,
+  html: `<!-- shell -->\n<div id="root" class="app"></div>\n`,
+  md: `# Title\n\nSee [the docs](/react-scheduler/) and \`Scheduler\`.\n\n- one\n- two\n`,
+  text: `Plain output, shown as it is.\n`,
 };
 
 describe('every language', () => {
@@ -33,8 +38,28 @@ describe('every language', () => {
     expect(rendered(SAMPLES[lang], lang)).toBe(SAMPLES[lang]);
   });
 
-  it.each(Object.keys(SAMPLES) as Language[])('%s classifies something', (lang) => {
+  it.each((Object.keys(SAMPLES) as Language[]).filter((lang) => lang !== 'text'))('%s classifies something', (lang) => {
     expect(tokenize(SAMPLES[lang], lang).some((token) => token.kind !== undefined)).toBe(true);
+  });
+
+  it('leaves plain text unclassified', () => {
+    expect(tokenize(SAMPLES.text, 'text')).toEqual([{ text: SAMPLES.text }]);
+  });
+});
+
+describe('html and markdown', () => {
+  it('marks html tags, attributes and comments', () => {
+    expect(kindOf(SAMPLES.html, 'html', '<!-- shell -->')).toBe('comment');
+    expect(kindOf(SAMPLES.html, 'html', '<div')).toBe('tag');
+    expect(kindOf(SAMPLES.html, 'html', 'id')).toBe('attr');
+    expect(kindOf(SAMPLES.html, 'html', '"root"')).toBe('string');
+  });
+
+  it('marks markdown headings, links and inline code', () => {
+    expect(kindOf(SAMPLES.md, 'md', '# Title')).toBe('keyword');
+    expect(kindOf(SAMPLES.md, 'md', 'the docs')).toBe('tag');
+    expect(kindOf(SAMPLES.md, 'md', '/react-scheduler/')).toBe('property');
+    expect(kindOf(SAMPLES.md, 'md', '`Scheduler`')).toBe('string');
   });
 });
 

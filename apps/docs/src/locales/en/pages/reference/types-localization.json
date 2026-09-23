@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Localization types",
+    "description": "The shape of a locale pack and of the formatters, and the helpers around them."
+  }
+}

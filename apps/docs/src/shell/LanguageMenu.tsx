@@ -6,7 +6,7 @@ import { useCallback, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { buildPath, LOCALES, type Locale, parsePath } from '~/i18n/paths';
 import { useT } from '~/i18n/useT';
-import { useDismissOnOutside, useEscape } from './hooks';
+import { useDismissOnOutside, useEscape, useInertBehind } from './hooks';
 import { CheckIcon, GlobeIcon } from './icons';
 import { site } from './nav';
 
@@ -23,6 +23,7 @@ export function LanguageMenu(): React.ReactElement {
     button.current?.focus();
   }, []);
   useEscape(open, close);
+  useInertBehind(open);
   const container = useDismissOnOutside(open, () => {
     setOpen(false);
   });
@@ -67,32 +68,42 @@ export function LanguageMenu(): React.ReactElement {
         <span className="ds-icon-btn__code">{locale.toUpperCase()}</span>
       </button>
       {open && (
-        <ul className="ds-menu" style={{ right: 0 }} role="menu" aria-label={t('shell.language')}>
-          {LOCALES.map((code, index) => (
-            <li key={code} role="none">
-              <Link
-                role="menuitem"
-                className="ds-menu__item"
-                ref={(node) => {
-                  items.current[index] = node;
-                }}
-                to={`${buildPath(code, rest, site.pluginId)}${hash}`}
-                lang={code}
-                hrefLang={code}
-                aria-current={code === locale ? 'true' : undefined}
-                onKeyDown={(event) => {
-                  onItemKeyDown(event, index);
-                }}
-                onClick={() => {
-                  choose(code);
-                }}
-              >
-                {t(`localeNames.${code}`)}
-                {code === locale && <CheckIcon />}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <>
+          {/* Takes the outside click, and keeps the page from being a half-covered target (EXCEPTIONS.md #14). */}
+          <div
+            className="ds-menu-catcher"
+            aria-hidden="true"
+            onClick={() => {
+              setOpen(false);
+            }}
+          />
+          <ul className="ds-menu" style={{ right: 0 }} role="menu" aria-label={t('shell.language')}>
+            {LOCALES.map((code, index) => (
+              <li key={code} role="none">
+                <Link
+                  role="menuitem"
+                  className="ds-menu__item"
+                  ref={(node) => {
+                    items.current[index] = node;
+                  }}
+                  to={`${buildPath(code, rest, site.pluginId)}${hash}`}
+                  lang={code}
+                  hrefLang={code}
+                  aria-current={code === locale ? 'true' : undefined}
+                  onKeyDown={(event) => {
+                    onItemKeyDown(event, index);
+                  }}
+                  onClick={() => {
+                    choose(code);
+                  }}
+                >
+                  {t(`localeNames.${code}`)}
+                  {code === locale && <CheckIcon />}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );

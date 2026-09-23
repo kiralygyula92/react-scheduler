@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Prezentare generală",
-    "description": "Prezentare generală în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+    "description": "Cele șase feluri de a schimba React Scheduler, de la o variabilă CSS până la o randare proprie — cel mai ușor mai întâi."
   },
   "sections": {
     "css-variables": "Variabile CSS",
@@ -14,5 +14,24 @@
     "slots": "Sloturi",
     "handlers": "Handlere",
     "headless-hooks": "Hook-uri headless"
+  },
+  "scope": "Șase niveluri, de la cel mai ușor la cel mai greu. Fiecare costă mai mult de întreținut decât cel dinaintea lui, așa că ia-l pe primul care face ce ai nevoie — și oprește-te acolo.",
+  "variables": {
+    "text": "O valoare: o culoare, o rază, o înălțime. Setează un token pe componentă, în foaia ta de stil sau prin proprietatea <code>tokens</code>, și tot ce se construiește din el urmează. Nimic din structură nu se schimbă. Vezi <link to=\"/customization/css-variables/\">Variabile CSS</link>."
+  },
+  "classNames": {
+    "text": "Un cârlig pentru CSS-ul tău. <code>classNames</code> adaugă o clasă oricărei părți, lângă cea a bibliotecii, așa că regulile tale o pot ținti fără să depindă de numele de clase ale bibliotecii. Cu <code>unstyled</code>, ele sunt singurele clase care există."
+  },
+  "slotProps": {
+    "text": "Un atribut pe o parte: un titlu, un atribut de date, o clasă în plus, un ref. Partea rămâne a bibliotecii; tu doar adaugi la proprietățile ei. Forma de funcție primește starea de proprietar, așa că valoarea poate depinde de element sau de tură."
+  },
+  "slots": {
+    "text": "Partea însăși, înlocuită. Componenta ta primește proprietățile pe care le-ar fi avut cea încorporată — inclusiv ref-ul și handlerele — și randează ce vrea. Vezi <link to=\"/customization/slots/\">Sloturi și suprascrieri</link>."
+  },
+  "handlers": {
+    "text": "Comportament, nu markup. Un middleware rulează înainte ca componenta să acționeze și poate schimba rezultatul sau îl poate anula — o confirmare, o permisiune, o modificare nesalvată. Vezi <link to=\"/events-and-middleware/\">Evenimente și middleware</link>."
+  },
+  "hooks": {
+    "text": "Modelul fără markup. Când structura însăși trebuie să fie alta, ia starea și getterele de proprietăți și randează-ți propriul markup. Vezi <link to=\"/headless-api/\">API headless</link>."
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "MoreChip",
+    "description": "Indicatorul care ține locul elementelor pe care un grup aglomerat nu le-a putut plasa."
+  }
+}

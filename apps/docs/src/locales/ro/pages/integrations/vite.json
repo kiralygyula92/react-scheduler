@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vite",
-    "description": "Vite: obiectivul, ce îți trebuie înainte de a începe, pașii de urmat și cum verifici rezultatul."
+    "description": "De la o aplicație Vite + React goală la un program funcțional, în trei pași."
   },
   "sections": {
     "goal": "Obiectiv",
     "before-you-start": "Înainte de a începe",
     "steps": "Pași",
     "result": "Rezultat",
-    "related": "Legături conexe"
+    "related": "Legături conexe",
+    "troubleshooting": "Depanare"
+  },
+  "goal": "Randează programul într-o aplicație Vite, cu stiluri și cu elementele tale. Vite nu are nevoie de nicio configurare pentru asta: pachetul livrează ESM și un fișier CSS simplu, iar Vite le tratează pe amândouă așa cum sunt.",
+  "before": {
+    "points": [
+      "Un proiect Vite + React, JavaScript sau TypeScript. <code>npm create vite@latest</code> îți dă unul.",
+      "React 18.2 sau 19 și <code>react-dom</code>-ul potrivit. Sunt dependențe de tip peer, deci rămân ale tale.",
+      "Node 20 sau mai nou pentru build."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Instalează pachetul",
+      "text": "O singură dependență, nimic altceva. Tot ce îi trebuie este fie peer, fie deja în cutie."
+    },
+    "stylesheet": {
+      "title": "Importă foaia de stil o singură dată",
+      "text": "Foaia de stil este un fișier CSS obișnuit, importat acolo unde îți imporți CSS-ul global — de regulă modulul de intrare. Este singurul import care trebuie să se întâmple exact o dată."
+    },
+    "render": {
+      "title": "Randează un program",
+      "text": "Un element are nevoie de un id, un început și un titlu; nivelul este cel care îi dă culoarea și locul în ordine. Restul are valori implicite."
+    }
+  },
+  "result": {
+    "text": "Rulează <code>npm run dev</code>. Obții o tură în jurul orei curente, două elemente în ea și indicatorul „acum” unde este ceasul. De aici, <link to=\"/shifts-and-dates/\">Ture și date</link> schimbă forma zilei, iar <link to=\"/customization/theming/\">Tematizare</link> schimbă cum arată."
+  },
+  "troubleshooting": {
+    "points": [
+      "Programul apare nestilizat: lipsește importul foii de stil sau se află într-un modul care nu se încarcă niciodată. Trebuie importată, nu legată.",
+      "Un build care tratează importurile de CSS din dependențe ca eroare: păstrează importul în modulul tău de intrare, nu într-un pachet propriu partajat.",
+      "Doi React în bundle — de obicei un pachet local legat — produc eroarea de hook pe care o raportează React însuși. <code>npm ls react</code> îl găsește."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Instalare</link> — dependențele peer, foaia de stil și o primă randare.",
+      "<link to=\"/integrations/ssr/\">Randare pe server</link> — când aceeași aplicație capătă un server.",
+      "<link to=\"/customization/\">Personalizare</link> — cele șase niveluri de suprascriere, de la cel mai ușor."
+    ]
   }
 }

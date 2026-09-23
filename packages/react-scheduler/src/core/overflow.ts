@@ -6,6 +6,7 @@ import type { SchedulerItem, SortDirection } from './types';
 
 /** The part of an overflow column that sorting needs; `OverflowColumn` (React layer) extends it. */
 export interface SortableColumn<TItem> {
+  /** Identifies the column in a sort. */
   id: string;
   /** Omit to make the column unsortable. */
   sortValue?: ((item: TItem) => string | number) | undefined;
@@ -40,6 +41,11 @@ function compareValues(a: string | number, b: string | number): number {
 /**
  * Items sorted by the column's value; ties break by `compare`. The whole comparison, ties
  * included, follows the direction. An unsortable or unknown column sorts by `compare` alone.
+ *
+ * @param items The items of one overflow group.
+ * @param sort The column and the direction to sort by.
+ * @param columns The columns in force, which say how each one sorts.
+ * @param compare The order that breaks a tie.
  */
 export function sortOverflowItems<TItem>(
   items: readonly TItem[],
@@ -57,6 +63,9 @@ export function sortOverflowItems<TItem>(
 /**
  * Pages to show in the pager (0-based): every page when there are at most 7; otherwise the first
  * two, the last two and the current page ±1, with 'ellipsis' in each gap.
+ *
+ * @param currentPage The page being shown, counted from zero.
+ * @param totalPages How many pages there are.
  */
 export function pageList(currentPage: number, totalPages: number): readonly (number | 'ellipsis')[] {
   if (totalPages <= 7) return Array.from({ length: Math.max(0, totalPages) }, (_, page) => page);

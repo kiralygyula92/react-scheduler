@@ -6,7 +6,10 @@
   "repoUrl": "https://github.com/kiralygyula92/react-scheduler",
   "siteUrl": "https://react-schedulerkit.vercel.app",
   "locales": ["en", "ro", "hu", "es", "fr", "de", "pt"],
-  "playground": { "component": "Scheduler", "variant": "standard" },
+  "playground": {
+    "component": "Scheduler",
+    "variant": "standard"
+  },
   "sections": [
     {
       "id": "getting-started",
@@ -244,7 +247,13 @@
       "id": "demos",
       "labelKey": "nav.demos",
       "items": [
-        { "id": "demos", "labelKey": "nav.demosIndex", "path": "/demos/", "page": "demos/index", "template": "T7" },
+        {
+          "id": "demos",
+          "labelKey": "nav.demosIndex",
+          "path": "/demos/",
+          "page": "demos/index",
+          "template": "T7"
+        },
         {
           "id": "baseline-day",
           "labelKey": "nav.demos.baselineDay",
@@ -323,7 +332,520 @@
       "id": "reference",
       "labelKey": "nav.reference",
       "items": [
-        { "id": "api", "labelKey": "nav.apiIndex", "path": "/api/", "page": "reference/index", "template": "T10" }
+        {
+          "id": "api",
+          "labelKey": "nav.apiIndex",
+          "path": "/api/",
+          "page": "reference/index",
+          "template": "T10"
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.apiGroups.components",
+          "items": [
+            {
+              "id": "api-list-view",
+              "labelKey": "nav.api.list-view",
+              "path": "/api/list-view/",
+              "page": "reference/list-view",
+              "template": "T11"
+            },
+            {
+              "id": "api-scheduler",
+              "labelKey": "nav.api.scheduler",
+              "path": "/api/scheduler/",
+              "page": "reference/scheduler",
+              "template": "T11"
+            },
+            {
+              "id": "api-timeline-view",
+              "labelKey": "nav.api.timeline-view",
+              "path": "/api/timeline-view/",
+              "page": "reference/timeline-view",
+              "template": "T11"
+            },
+            {
+              "id": "api-list-card",
+              "labelKey": "nav.api.list-card",
+              "path": "/api/list-card/",
+              "page": "reference/list-card",
+              "template": "T11"
+            },
+            {
+              "id": "api-timeline-card",
+              "labelKey": "nav.api.timeline-card",
+              "path": "/api/timeline-card/",
+              "page": "reference/timeline-card",
+              "template": "T11"
+            },
+            {
+              "id": "api-diamond-icon",
+              "labelKey": "nav.api.diamond-icon",
+              "path": "/api/diamond-icon/",
+              "page": "reference/diamond-icon",
+              "template": "T11"
+            },
+            {
+              "id": "api-shift-header",
+              "labelKey": "nav.api.shift-header",
+              "path": "/api/shift-header/",
+              "page": "reference/shift-header",
+              "template": "T11"
+            },
+            {
+              "id": "api-shift-nav-button",
+              "labelKey": "nav.api.shift-nav-button",
+              "path": "/api/shift-nav-button/",
+              "page": "reference/shift-nav-button",
+              "template": "T11"
+            },
+            {
+              "id": "api-pinned-chip",
+              "labelKey": "nav.api.pinned-chip",
+              "path": "/api/pinned-chip/",
+              "page": "reference/pinned-chip",
+              "template": "T11"
+            },
+            {
+              "id": "api-pinned-strip",
+              "labelKey": "nav.api.pinned-strip",
+              "path": "/api/pinned-strip/",
+              "page": "reference/pinned-strip",
+              "template": "T11"
+            },
+            {
+              "id": "api-level-pill",
+              "labelKey": "nav.api.level-pill",
+              "path": "/api/level-pill/",
+              "page": "reference/level-pill",
+              "template": "T11"
+            },
+            {
+              "id": "api-reference-pill",
+              "labelKey": "nav.api.reference-pill",
+              "path": "/api/reference-pill/",
+              "page": "reference/reference-pill",
+              "template": "T11"
+            },
+            {
+              "id": "api-tag-pill",
+              "labelKey": "nav.api.tag-pill",
+              "path": "/api/tag-pill/",
+              "page": "reference/tag-pill",
+              "template": "T11"
+            },
+            {
+              "id": "api-empty-state",
+              "labelKey": "nav.api.empty-state",
+              "path": "/api/empty-state/",
+              "page": "reference/empty-state",
+              "template": "T11"
+            },
+            {
+              "id": "api-error-state",
+              "labelKey": "nav.api.error-state",
+              "path": "/api/error-state/",
+              "page": "reference/error-state",
+              "template": "T11"
+            },
+            {
+              "id": "api-loading-state",
+              "labelKey": "nav.api.loading-state",
+              "path": "/api/loading-state/",
+              "page": "reference/loading-state",
+              "template": "T11"
+            },
+            {
+              "id": "api-now-indicator",
+              "labelKey": "nav.api.now-indicator",
+              "path": "/api/now-indicator/",
+              "page": "reference/now-indicator",
+              "template": "T11"
+            },
+            {
+              "id": "api-scroll-top-button",
+              "labelKey": "nav.api.scroll-top-button",
+              "path": "/api/scroll-top-button/",
+              "page": "reference/scroll-top-button",
+              "template": "T11"
+            },
+            {
+              "id": "api-more-chip",
+              "labelKey": "nav.api.more-chip",
+              "path": "/api/more-chip/",
+              "page": "reference/more-chip",
+              "template": "T11"
+            },
+            {
+              "id": "api-time-grid",
+              "labelKey": "nav.api.time-grid",
+              "path": "/api/time-grid/",
+              "page": "reference/time-grid",
+              "template": "T11"
+            },
+            {
+              "id": "api-tooltip",
+              "labelKey": "nav.api.tooltip",
+              "path": "/api/tooltip/",
+              "page": "reference/tooltip",
+              "template": "T11"
+            },
+            {
+              "id": "api-default-item-detail",
+              "labelKey": "nav.api.default-item-detail",
+              "path": "/api/default-item-detail/",
+              "page": "reference/default-item-detail",
+              "template": "T11"
+            },
+            {
+              "id": "api-overflow-dialog",
+              "labelKey": "nav.api.overflow-dialog",
+              "path": "/api/overflow-dialog/",
+              "page": "reference/overflow-dialog",
+              "template": "T11"
+            },
+            {
+              "id": "api-overflow-table",
+              "labelKey": "nav.api.overflow-table",
+              "path": "/api/overflow-table/",
+              "page": "reference/overflow-table",
+              "template": "T11"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.apiGroups.hooks",
+          "items": [
+            {
+              "id": "api-use-compact",
+              "labelKey": "nav.api.use-compact",
+              "path": "/api/use-compact/",
+              "page": "reference/use-compact",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-controllable-state",
+              "labelKey": "nav.api.use-controllable-state",
+              "path": "/api/use-controllable-state/",
+              "page": "reference/use-controllable-state",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-now",
+              "labelKey": "nav.api.use-now",
+              "path": "/api/use-now/",
+              "page": "reference/use-now",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-pin-on-pass",
+              "labelKey": "nav.api.use-pin-on-pass",
+              "path": "/api/use-pin-on-pass/",
+              "page": "reference/use-pin-on-pass",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-scheduler",
+              "labelKey": "nav.api.use-scheduler",
+              "path": "/api/use-scheduler/",
+              "page": "reference/use-scheduler",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-shift-model",
+              "labelKey": "nav.api.use-shift-model",
+              "path": "/api/use-shift-model/",
+              "page": "reference/use-shift-model",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-shift-navigation",
+              "labelKey": "nav.api.use-shift-navigation",
+              "path": "/api/use-shift-navigation/",
+              "page": "reference/use-shift-navigation",
+              "template": "T11"
+            },
+            {
+              "id": "api-use-timeline-layout",
+              "labelKey": "nav.api.use-timeline-layout",
+              "path": "/api/use-timeline-layout/",
+              "page": "reference/use-timeline-layout",
+              "template": "T11"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.apiGroups.functions",
+          "items": [
+            {
+              "id": "api-carried-over-tag",
+              "labelKey": "nav.api.carried-over-tag",
+              "path": "/api/carried-over-tag/",
+              "page": "reference/carried-over-tag",
+              "template": "T11"
+            },
+            {
+              "id": "api-classic-levels",
+              "labelKey": "nav.api.classic-levels",
+              "path": "/api/classic-levels/",
+              "page": "reference/classic-levels",
+              "template": "T11"
+            },
+            {
+              "id": "api-classic-tags",
+              "labelKey": "nav.api.classic-tags",
+              "path": "/api/classic-tags/",
+              "page": "reference/classic-tags",
+              "template": "T11"
+            },
+            {
+              "id": "api-en-us",
+              "labelKey": "nav.api.en-us",
+              "path": "/api/en-us/",
+              "page": "reference/en-us",
+              "template": "T11"
+            },
+            {
+              "id": "api-default-overflow-columns",
+              "labelKey": "nav.api.default-overflow-columns",
+              "path": "/api/default-overflow-columns/",
+              "page": "reference/default-overflow-columns",
+              "template": "T11"
+            },
+            {
+              "id": "api-pagination",
+              "labelKey": "nav.api.pagination",
+              "path": "/api/pagination/",
+              "page": "reference/pagination",
+              "template": "T11"
+            },
+            {
+              "id": "api-bucket-items",
+              "labelKey": "nav.api.bucket-items",
+              "path": "/api/bucket-items/",
+              "page": "reference/bucket-items",
+              "template": "T11"
+            },
+            {
+              "id": "api-create-formatters",
+              "labelKey": "nav.api.create-formatters",
+              "path": "/api/create-formatters/",
+              "page": "reference/create-formatters",
+              "template": "T11"
+            },
+            {
+              "id": "api-compute-timeline-layout",
+              "labelKey": "nav.api.compute-timeline-layout",
+              "path": "/api/compute-timeline-layout/",
+              "page": "reference/compute-timeline-layout",
+              "template": "T11"
+            },
+            {
+              "id": "api-compare-by-placement",
+              "labelKey": "nav.api.compare-by-placement",
+              "path": "/api/compare-by-placement/",
+              "page": "reference/compare-by-placement",
+              "template": "T11"
+            },
+            {
+              "id": "api-resolve-levels",
+              "labelKey": "nav.api.resolve-levels",
+              "path": "/api/resolve-levels/",
+              "page": "reference/resolve-levels",
+              "template": "T11"
+            },
+            {
+              "id": "api-interpolate",
+              "labelKey": "nav.api.interpolate",
+              "path": "/api/interpolate/",
+              "page": "reference/interpolate",
+              "template": "T11"
+            },
+            {
+              "id": "api-page-list",
+              "labelKey": "nav.api.page-list",
+              "path": "/api/page-list/",
+              "page": "reference/page-list",
+              "template": "T11"
+            },
+            {
+              "id": "api-sort-overflow-items",
+              "labelKey": "nav.api.sort-overflow-items",
+              "path": "/api/sort-overflow-items/",
+              "page": "reference/sort-overflow-items",
+              "template": "T11"
+            },
+            {
+              "id": "api-get-shift-windows",
+              "labelKey": "nav.api.get-shift-windows",
+              "path": "/api/get-shift-windows/",
+              "page": "reference/get-shift-windows",
+              "template": "T11"
+            },
+            {
+              "id": "api-resolve-shift",
+              "labelKey": "nav.api.resolve-shift",
+              "path": "/api/resolve-shift/",
+              "page": "reference/resolve-shift",
+              "template": "T11"
+            },
+            {
+              "id": "api-resolve-end",
+              "labelKey": "nav.api.resolve-end",
+              "path": "/api/resolve-end/",
+              "page": "reference/resolve-end",
+              "template": "T11"
+            },
+            {
+              "id": "api-to-ms",
+              "labelKey": "nav.api.to-ms",
+              "path": "/api/to-ms/",
+              "page": "reference/to-ms",
+              "template": "T11"
+            },
+            {
+              "id": "api-resolve-time-label",
+              "labelKey": "nav.api.resolve-time-label",
+              "path": "/api/resolve-time-label/",
+              "page": "reference/resolve-time-label",
+              "template": "T11"
+            },
+            {
+              "id": "api-create-scheduler",
+              "labelKey": "nav.api.create-scheduler",
+              "path": "/api/create-scheduler/",
+              "page": "reference/create-scheduler",
+              "template": "T11"
+            },
+            {
+              "id": "api-create-navigator",
+              "labelKey": "nav.api.create-navigator",
+              "path": "/api/create-navigator/",
+              "page": "reference/create-navigator",
+              "template": "T11"
+            },
+            {
+              "id": "api-compensate-sticky-growth",
+              "labelKey": "nav.api.compensate-sticky-growth",
+              "path": "/api/compensate-sticky-growth/",
+              "page": "reference/compensate-sticky-growth",
+              "template": "T11"
+            },
+            {
+              "id": "api-observe-compact",
+              "labelKey": "nav.api.observe-compact",
+              "path": "/api/observe-compact/",
+              "page": "reference/observe-compact",
+              "template": "T11"
+            },
+            {
+              "id": "api-observe-width",
+              "labelKey": "nav.api.observe-width",
+              "path": "/api/observe-width/",
+              "page": "reference/observe-width",
+              "template": "T11"
+            },
+            {
+              "id": "api-prefers-reduced-motion",
+              "labelKey": "nav.api.prefers-reduced-motion",
+              "path": "/api/prefers-reduced-motion/",
+              "page": "reference/prefers-reduced-motion",
+              "template": "T11"
+            },
+            {
+              "id": "api-create-pin-engine",
+              "labelKey": "nav.api.create-pin-engine",
+              "path": "/api/create-pin-engine/",
+              "page": "reference/create-pin-engine",
+              "template": "T11"
+            },
+            {
+              "id": "api-de-de",
+              "labelKey": "nav.api.de-de",
+              "path": "/api/de-de/",
+              "page": "reference/de-de",
+              "template": "T11"
+            },
+            {
+              "id": "api-es-es",
+              "labelKey": "nav.api.es-es",
+              "path": "/api/es-es/",
+              "page": "reference/es-es",
+              "template": "T11"
+            },
+            {
+              "id": "api-fr-fr",
+              "labelKey": "nav.api.fr-fr",
+              "path": "/api/fr-fr/",
+              "page": "reference/fr-fr",
+              "template": "T11"
+            },
+            {
+              "id": "api-hu-hu",
+              "labelKey": "nav.api.hu-hu",
+              "path": "/api/hu-hu/",
+              "page": "reference/hu-hu",
+              "template": "T11"
+            },
+            {
+              "id": "api-pt-pt",
+              "labelKey": "nav.api.pt-pt",
+              "path": "/api/pt-pt/",
+              "page": "reference/pt-pt",
+              "template": "T11"
+            },
+            {
+              "id": "api-ro-ro",
+              "labelKey": "nav.api.ro-ro",
+              "path": "/api/ro-ro/",
+              "page": "reference/ro-ro",
+              "template": "T11"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "labelKey": "nav.apiGroups.types",
+          "items": [
+            {
+              "id": "api-types-events",
+              "labelKey": "nav.api.types-events",
+              "path": "/api/types-events/",
+              "page": "reference/types-events",
+              "template": "T16"
+            },
+            {
+              "id": "api-types-localization",
+              "labelKey": "nav.api.types-localization",
+              "path": "/api/types-localization/",
+              "page": "reference/types-localization",
+              "template": "T16"
+            },
+            {
+              "id": "api-types-model",
+              "labelKey": "nav.api.types-model",
+              "path": "/api/types-model/",
+              "page": "reference/types-model",
+              "template": "T16"
+            },
+            {
+              "id": "api-types-options",
+              "labelKey": "nav.api.types-options",
+              "path": "/api/types-options/",
+              "page": "reference/types-options",
+              "template": "T16"
+            },
+            {
+              "id": "api-types-slots",
+              "labelKey": "nav.api.types-slots",
+              "path": "/api/types-slots/",
+              "page": "reference/types-slots",
+              "template": "T16"
+            }
+          ]
+        }
       ]
     },
     {
@@ -371,7 +893,13 @@
       "id": "guides",
       "labelKey": "nav.guides",
       "items": [
-        { "id": "guides", "labelKey": "nav.guidesIndex", "path": "/guides/", "page": "guides/index", "template": "T16" }
+        {
+          "id": "guides",
+          "labelKey": "nav.guidesIndex",
+          "path": "/guides/",
+          "page": "guides/index",
+          "template": "T16"
+        }
       ]
     },
     {

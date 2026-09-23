@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Animación",
-    "description": "Animación en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "title": "Movimiento",
+    "description": "Qué movimientos se animan y cómo responde el horario a quien ha pedido menos movimiento."
   },
   "sections": {
     "basics": "Conceptos básicos",
@@ -13,5 +13,38 @@
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "motion": "Con y sin movimiento"
+  },
+  "basics": {
+    "intro": "Se mueven dos cosas: un salto entre turnos se desplaza suavemente y una píldora fijada entra deslizándose en vez de aparecer. Ambas se apagan cuando quien lee ha pedido movimiento reducido, y ambas se apagan cuando apagas tú el indicador de animación.",
+    "points": [
+      "<code>reducedMotion</code> es <code>'auto'</code> por defecto y sigue el <code>prefers-reduced-motion</code> del sistema.",
+      "Con movimiento reducido, cada transición CSS del componente se elimina, no se acorta: un salto aterriza de inmediato y nada se desvanece.",
+      "<code>enableAnimations</code> apaga el movimiento sin importar el ajuste del sistema, para una página deliberadamente quieta.",
+      "El desplazamiento a mano nunca se ve afectado: es del navegador, no del componente."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "El movimiento reducido se respeta sin un ajuste propio: la preferencia del sistema basta.",
+      "Nada depende de que termine una animación. Cada aterrizaje es correcto en el momento en que se pide, y el desplazamiento suave es solo cómo se llega.",
+      "Un salto mueve el foco al encabezado del turno, esté animado o no, así que quien usa el teclado acaba en el mismo sitio en ambos casos."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>reducedMotion</code> acepta <code>'auto'</code>, <code>true</code> o <code>false</code>.",
+      "<code>enableAnimations</code> quita la animación de entrada de las píldoras fijadas.",
+      "<code>prefersReducedMotion</code> de <code>/dom</code> da la misma lectura a un marcado propio."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Las duraciones están fijadas por la hoja de estilos; no hay una prop para cuánto dura una transición.",
+      "No hay animación entre las dos vistas: el cambio es inmediato por diseño.",
+      "El desplazamiento suave depende de que el navegador respete <code>scroll-behavior</code>; donde no lo hace, el salto es simplemente inmediato."
+    ]
   }
 }

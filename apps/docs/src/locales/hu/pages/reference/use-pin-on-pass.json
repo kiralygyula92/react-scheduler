@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "Elgördüléskori rögzítés saját jelölőnyelvhez: regisztrálod az érzékelőket, kiolvasod a rögzített kulcsokat."
+  }
+}

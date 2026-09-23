@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Server-side rendering",
-    "description": "Server-side rendering: the goal, what you need before you start, the steps to follow, and how to check the result."
+    "title": "Server rendering",
+    "description": "Rendering the schedule on a server and hydrating it without a warning, in any framework."
   },
   "sections": {
     "goal": "Goal",
     "before-you-start": "Before you start",
     "steps": "Steps",
     "result": "Result",
-    "related": "Related"
+    "related": "Related",
+    "troubleshooting": "Troubleshooting"
+  },
+  "goal": "Render the schedule on a server — any server, any framework — and have the browser take it over without a hydration warning. The component touches no DOM while rendering, so the only work is making sure both renders are given the same facts.",
+  "before": {
+    "points": [
+      "A React 18.2 or 19 application that renders on a server.",
+      "The stylesheet imported somewhere that reaches the server-rendered document.",
+      "A way to pass values from the server render to the client one — props, a loader, serialized data."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Decide the clock once",
+      "text": "Everything that moves in the schedule follows from one moment: which shift is current, where the now indicator sits, which items have passed. Read the clock once, on the server, and pass it down.",
+      "calloutTitle": "The one real source of mismatches",
+      "callout": "A schedule rendered without <code>now</code> takes the clock of whoever renders it. The server’s clock and the browser’s are never the same millisecond, and often not the same minute, which React reports as a hydration mismatch."
+    },
+    "firstFrame": {
+      "title": "Know what the first frame looks like",
+      "text": "The server render is deliberately the plain one. Everything that depends on the browser starts off, and settles after hydration:",
+      "points": [
+        "Compact mode is off unless you pass the boolean yourself — a container cannot be measured without a layout.",
+        "Nothing is pinned: pinning is a scroll position, and there is no scrolling yet.",
+        "The header signal starts expanded.",
+        "No animation runs on the first frame."
+      ]
+    },
+    "compact": {
+      "title": "Choose what compact does",
+      "text": "The default follows the container once the browser can measure it. If the first frame has to be narrow — an application that already knows it is serving a phone — decide it on the server instead."
+    },
+    "styles": {
+      "title": "Get the CSS into the first response",
+      "text": "The schedule’s stylesheet is one plain CSS file with no runtime behind it, so whatever your framework does with global CSS is what it needs. Import it where the framework collects global styles, not inside a lazily loaded component — otherwise the first frame is unstyled and flashes."
+    }
+  },
+  "result": {
+    "text": "The HTML response contains the schedule, with its headings, its items and its times. The console stays quiet through hydration, and the only visible change is the one you asked for: a container measured, a scroll position restored."
+  },
+  "troubleshooting": {
+    "points": [
+      "A mismatch on a time or a label: the clock differs. Pass <code>now</code>, and pass the same value to <code>date</code> if you also want the same day.",
+      "A mismatch on a class name: the schemes disagree. <code>colorScheme=\"system\"</code> resolves in the browser, so pass <code>'light'</code> or <code>'dark'</code> when the server render has to match exactly.",
+      "Dates as local strings without a zone, rendered on a server in another zone: use ISO strings with an offset, or timestamps.",
+      "<code>window</code> or <code>document</code> in a slot of yours — the schedule never touches either while rendering, but a replacement part can."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Data modes and SSR</link> — the capability page behind this guide.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — the same rules in the App Router.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — the same rules in framework mode."
+    ]
   }
 }

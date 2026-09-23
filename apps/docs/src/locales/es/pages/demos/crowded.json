@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Día concurrido",
-    "description": "Una demo de React Scheduler sobre el conjunto Día concurrido: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Día concurrido",
+    "description": "Siete elementos en las mismas dos horas: el tope de columnas, la promoción y el chip de elementos adicionales."
+  },
+  "demos": {
+    "board": "Siete elementos, una hora"
+  },
+  "scenario": "Cinco elementos empiezan a las 09:00 y llegan hasta las 10:30; otros dos se solapan con ellos; uno está solo por la tarde. Aquí una línea de tiempo tiene que decidir qué no puede dibujar, y la decisión es siempre la misma: tres columnas, el más fuerte primero, y el resto detrás de un chip.",
+  "look": [
+    "Tres columnas como mucho, que es el tope predeterminado; en modo compacto baja a una.",
+    "El elemento <code>critical</code> empieza media hora después de los cinco anteriores, así que las columnas ya están llenas cuando llega. Aun así se le promueve a una, y el más débil de ahí cede su sitio.",
+    "Lo que no cabe se agrupa en un chip <strong>Más</strong>. Al abrirlo aparece una tabla con esos elementos, el más fuerte primero, paginada cuando son muchos.",
+    "La vista de lista no tiene ningún tope: es la vista a la que acudir cuando todos los elementos tienen que verse a la vez."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Elementos adicionales</link> — el tope, la promoción y el diálogo detrás del chip.",
+    "<link to=\"/timeline-view/\">Vista de línea de tiempo</link> — las columnas y cómo se coloca un elemento en una.",
+    "<link to=\"/items-and-levels/\">Elementos y niveles</link> — qué elemento cuenta como el más fuerte.",
+    "<link to=\"/compact/\">Modo compacto</link> — la misma hora con una sola columna."
+  ]
 }

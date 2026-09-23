@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Context AI",
@@ -15,5 +15,57 @@
     "minimal-working-example": "Exemplu minim funcțional",
     "verify": "Verificare",
     "next-steps": "Pașii următori"
+  },
+  "prerequisites": {
+    "text": "O unealtă de programare agentică — Claude Code, Cursor, Codex sau alta — cu depozitul tău deschis. Nu se instalează nimic pentru asta: este un fișier Markdown și un rând de instrucțiune."
+  },
+  "install": {
+    "download": "Descarcă documentația în depozitul tău:",
+    "instruction": "Apoi adaugă un rând în fișierul pe care unealta ta îl citește la fiecare sesiune — <code>CLAUDE.md</code> pentru Claude Code, <code>AGENTS.md</code> pentru Codex, Cursor și majoritatea celorlalte:",
+    "url": "O unealtă care indexează documentația după URL poate primi în schimb <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code>. Descarcă fișierul din nou când actualizezi pachetul: este generat în același build ca acest site, așa că cele două nu pot fi în dezacord."
+  },
+  "what": {
+    "text": "Fiecare pagină a acestui site, în ordinea citirii, ca un singur document Markdown:",
+    "points": [
+      "textul fiecărei pagini, cu titlurile și tabelele ei;",
+      "sursa completă a fiecărui exemplu viu, exact așa cum rulează aici;",
+      "referința API, generată din declarațiile de tip ale pachetului — fiecare proprietate, tipul ei, valoarea implicită și descrierea."
+    ]
+  },
+  "which": {
+    "head": {
+      "file": "Fișier",
+      "holds": "Ce conține",
+      "when": "Folosește-l când"
+    },
+    "rows": [
+      [
+        "<code>llms-full.md</code>",
+        "Fiecare pagină și fiecare exemplu, ca Markdown",
+        "Unealta ta citește Markdown și fereastra de context îl încape"
+      ],
+      ["<code>llms-full.txt</code>", "Același conținut ca text simplu", "Unealta ta așteaptă <code>.txt</code>"],
+      [
+        "<code>llms.txt</code>",
+        "Un index de linkuri: fiecare pagină, cu descrierea ei de un rând",
+        "Fișierul complet este prea mare, sau unealta preia paginile la cerere"
+      ],
+      ["URL-ul unei pagini cu <code>.md</code>", "O singură pagină", "Știi care pagină răspunde la întrebare"]
+    ],
+    "context": "Fișierul complet are în jur de 240 kB, ceea ce încape în modelele actuale, dar înghesuie o fereastră de context mică. Dacă a ta este strâmtă, dă agentului <code>llms.txt</code> și lasă-l să ia pagina de care are nevoie — fiecare pagină a acestui site se obține adăugând <code>.md</code> la URL-ul ei."
+  },
+  "example": {
+    "text": "Un prompt care folosește fișierul. Agentul are proprietățile, valorile implicite și exemplele, deci nu trebuie să ghicească un API:"
+  },
+  "verify": {
+    "text": "Pune o întrebare la care răspunde numai documentația. Dacă agentul inventează un nume de proprietate plauzibil, nu a citit fișierul:",
+    "answer": "Răspunsul este <code>overflowMergeWindow</code>: orele consecutive se comasează într-un singur grup doar cât timp grupul rezultat rămâne în acea fereastră. Se află pe pagina <link to=\"/timeline-view/\">Vizualizarea cronologică</link>."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Instalare</link> — pachetul însuși.",
+      "<link to=\"/getting-started/usage/\">Utilizare</link> — un exemplu complet de dat agentului.",
+      "<link to=\"/api/\">Referința API</link> — aceleași date pe care le poartă fișierul, pagină cu pagină."
+    ]
   }
 }

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vite",
-    "description": "Vite: el objetivo, lo que necesitas antes de empezar, los pasos a seguir y cómo comprobar el resultado."
+    "description": "De una aplicación Vite + React vacía a un horario funcionando, en tres pasos."
   },
   "sections": {
     "goal": "Objetivo",
     "before-you-start": "Antes de empezar",
     "steps": "Pasos",
     "result": "Resultado",
-    "related": "Relacionado"
+    "related": "Relacionado",
+    "troubleshooting": "Resolución de problemas"
+  },
+  "goal": "Renderiza el horario en una aplicación Vite, con estilos y con elementos tuyos. Vite no necesita ninguna configuración para esto: el paquete entrega ESM y un archivo CSS normal, y Vite maneja ambos tal cual.",
+  "before": {
+    "points": [
+      "Un proyecto Vite + React, JavaScript o TypeScript. <code>npm create vite@latest</code> te da uno.",
+      "React 18.2 o 19, y el <code>react-dom</code> correspondiente. Son dependencias peer, así que siguen siendo tuyas.",
+      "Node 20 o posterior para compilar."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Instala el paquete",
+      "text": "Una sola dependencia, ninguna más. Todo lo que necesita es peer o ya viene dentro."
+    },
+    "stylesheet": {
+      "title": "Importa la hoja de estilos una vez",
+      "text": "La hoja de estilos es un archivo CSS normal, importado donde importas tu CSS global, normalmente el módulo de entrada. Es el único import que tiene que ocurrir exactamente una vez."
+    },
+    "render": {
+      "title": "Renderiza un horario",
+      "text": "Un elemento necesita un id, un inicio y un título; el nivel es lo que le da el color y el lugar en el orden. Todo lo demás tiene valor predeterminado."
+    }
+  },
+  "result": {
+    "text": "Ejecuta <code>npm run dev</code>. Obtienes un turno alrededor de la hora actual, dos elementos dentro y el indicador de «ahora» donde está el reloj. Desde ahí, <link to=\"/shifts-and-dates/\">Turnos y fechas</link> cambia la forma del día y <link to=\"/customization/theming/\">Tematización</link> cambia su aspecto."
+  },
+  "troubleshooting": {
+    "points": [
+      "El horario sale sin estilos: falta el import de la hoja de estilos, o está en un módulo que nunca se carga. Hay que importarla, no enlazarla.",
+      "Un build que trata los imports de CSS de dependencias como error: mantén el import en tu propio módulo de entrada, no en un paquete compartido tuyo.",
+      "Dos React en el bundle —normalmente un paquete local enlazado— producen el error de hooks que el propio React informa. <code>npm ls react</code> lo encuentra."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Instalación</link> — las dependencias peer, la hoja de estilos y un primer render.",
+      "<link to=\"/integrations/ssr/\">Renderizado en servidor</link> — cuando la misma aplicación adquiere un servidor.",
+      "<link to=\"/customization/\">Personalización</link> — los seis niveles de sustitución, del más ligero en adelante."
+    ]
   }
 }

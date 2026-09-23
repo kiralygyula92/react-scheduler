@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compareByPlacement",
+    "description": "L’ordre de placement : début croissant, puis rang du niveau croissant (le plus fort d’abord), puis l’identifiant."
+  }
+}

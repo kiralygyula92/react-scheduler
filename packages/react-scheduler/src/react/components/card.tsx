@@ -24,6 +24,7 @@ import { cardLevelStyle, describeItem, levelLabel, safeId, tagLabel, VISUALLY_HI
 const ACTIVATION_KEYS = new Set(['Enter', ' ']);
 
 export interface CardData<TItem extends SchedulerItem> {
+  /** The item the card renders. */
   item: TItem;
   variant: CardVariant;
   timeLabel: string;
@@ -240,10 +241,18 @@ function renderCard<TItem extends SchedulerItem>(
 }
 
 /** A list card (`li`) with its activator; `renderItem` replaces it entirely. */
-export const ListCard = memo(function ListCard<TItem extends SchedulerItem>({ item }: { item: TItem }): ReactNode {
+export const ListCard = memo(function ListCard<TItem extends SchedulerItem>({
+  item,
+}: {
+  /** The item the card renders. */
+  item: TItem;
+}): ReactNode {
   const env = useCardEnv<TItem>();
   return renderCard(env, cardData(env, item), 'listCard', undefined, {});
-}) as <TItem extends SchedulerItem>(props: { item: TItem }) => ReactNode;
+}) as <TItem extends SchedulerItem>(props: {
+  /** The item the card renders. */
+  item: TItem;
+}) => ReactNode;
 
 /**
  * Horizontal geometry of a timeline card: `n` columns sharing the lane with `gap` px between them.
@@ -271,7 +280,9 @@ export const TimelineCard = memo(
     placed,
     gap,
   }: {
+    /** The card as the layout placed it: its column and its geometry. */
     placed: PlacedCard<TItem>;
+    /** The gap between two columns, in pixels. */
     gap: number;
   }): ReactNode {
     const env = useCardEnv<TItem>();
@@ -283,4 +294,9 @@ export const TimelineCard = memo(
   // Any item change recomputes the layout with new placement objects; a card whose item and
   // geometry are unchanged does not render again (09 §3).
   (previous, next) => previous.gap === next.gap && shallowEqual(previous.placed, next.placed),
-) as <TItem extends SchedulerItem>(props: { placed: PlacedCard<TItem>; gap: number }) => ReactNode;
+) as <TItem extends SchedulerItem>(props: {
+  /** The card as the layout placed it: its column and its geometry. */
+  placed: PlacedCard<TItem>;
+  /** The gap between two columns, in pixels. */
+  gap: number;
+}) => ReactNode;

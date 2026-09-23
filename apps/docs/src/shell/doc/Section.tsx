@@ -8,17 +8,20 @@ export function Section({
   id,
   ns,
   titleKey,
+  title,
   level = 2,
   children,
 }: {
   id: string;
   ns: string;
   titleKey: string;
+  /** Generated headings pass their text; a symbol name is not a locale key. */
+  title?: string;
   level?: 2 | 3;
   children?: React.ReactNode;
 }): React.ReactElement {
   const t = useT(ns);
-  const text = t(titleKey);
+  const text = title ?? t(titleKey);
   useRegisterHeading({ id, text, depth: level });
 
   return (

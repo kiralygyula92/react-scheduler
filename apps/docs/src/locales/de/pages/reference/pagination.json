@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Pagination",
+    "description": "Der Seitenblätterer unter der Tabelle weiterer Elemente."
+  }
+}

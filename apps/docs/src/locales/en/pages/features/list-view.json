@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "List view",
-    "description": "List view in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "The list view: one section per shift, cards in time order, and the options that decide where a jump lands and when the navigation appears."
   },
   "sections": {
     "basics": "Basics",
+    "reading": "Reading a long list",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "basics": "A shift, read top to bottom",
+    "options": "When the navigation appears"
+  },
+  "basics": {
+    "intro": "The list is the view for reading: one section per rendered shift, the cards of that shift in time order, and the section heading sticking to the top while you are inside it. It is the default view, and the only one below <code>listOnlyBreakpoint</code>.",
+    "points": [
+      "A card carries the title, the level, the time and whatever optional fields the item has — a description, a reference, a tag, a suggestion.",
+      "The shift being read is the one the scroller sits in, and it is what the navigation buttons and the pinned strip work from.",
+      "When the current shift is the one holding now, a marker sits between the cards, before the first item that has not started yet."
+    ]
+  },
+  "reading": {
+    "intro": "Most of what <code>list</code> holds is about reading a long day: when the navigation buttons are worth showing, where a jump lands so the heading is not hidden under the sticky top, and how far you must scroll before the button back to the top appears.",
+    "options": "The full list, generated from the package's declarations:"
+  },
+  "accessibility": {
+    "points": [
+      "Each shift is a section with a heading, and the cards of a shift are a list, so a screen reader announces how many items it holds.",
+      "Every card is a button: <kbd>Tab</kbd> reaches it in time order and <kbd>Enter</kbd> or <kbd>Space</kbd> opens its detail.",
+      "The now marker is a separator with a label, so the boundary between what has passed and what has not is announced, not only drawn.",
+      "A jump lands with the shift heading in view, not under the sticky top, and moves focus there — <code>alignOffset</code> and <code>previousJumpExtraOffset</code> are what keep that true at any density."
+    ]
+  },
+  "customization": {
+    "points": [
+      "The parts <code>itemList</code>, <code>listCard</code>, <code>shiftSection</code> and <code>shiftHeader</code> are replaceable through <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderItem</code> replaces a card entirely, with <code>getItemProps</code> so yours keeps the behavior; <code>renderCardContent</code> keeps the card and replaces its inside.",
+      "<code>--rs-card-gap</code>, <code>--rs-list-gap</code> and the density scale set the spacing — see <link to=\"/customization/css-variables/\">CSS variables</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "The list does not virtualize: a shift with a thousand items renders a thousand cards.",
+      "Cards cannot be grouped inside a shift by anything but time; a grouping by level or by tag is a job for <link to=\"/headless-api/\">the headless API</link>.",
+      "There is no inline editing and no selection model — a card opens its detail, and that is the whole interaction."
+    ]
   }
 }

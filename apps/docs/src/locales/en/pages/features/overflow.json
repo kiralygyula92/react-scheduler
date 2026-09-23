@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Overflow",
-    "description": "Overflow in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "What happens to the items a crowded hour cannot place: the \"+ more\" chip, the dialog behind it, and the table you can shape."
   },
   "sections": {
     "basics": "Basics",
+    "columns": "Columns and sorting",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "columns": "A table of your own"
+  },
+  "basics": {
+    "intro": "The timeline places items in columns, up to <code>maxColumns</code> of them. When an hour holds more than fit, the rest are collected into a group, and the group becomes a <strong>+ more</strong> chip on the grid. Opening the chip opens a dialog with the whole group in a table.",
+    "points": [
+      "A group covers consecutive hours only while it stays inside <code>overflowMergeWindow</code> — see <link to=\"/timeline-view/\">Timeline view</link>.",
+      "The chip’s accessible name says how many items it holds and from what time.",
+      "A chip is also a pin sentinel: the pinnable items inside it pin when the chip scrolls past.",
+      "The dialog is a native modal, so the browser contains focus, <kbd>Escape</kbd> closes it, and the backdrop is a click target."
+    ]
+  },
+  "columns": {
+    "intro": "By default the table shows the time, the level, the title, the description and an action that opens the item’s detail. <code>overflowColumns</code> replaces that set with your own:",
+    "sorting": "A column sorts when it has a <code>sortValue</code>; one without is inert. Clicking a sortable header sorts ascending, clicking it again reverses, and changing the column returns to the first page. Ties break by <code>compareItems</code>, in the direction being sorted. Sort and page are controlled or uncontrolled like everything else, and reset each time the dialog opens unless you hold them."
+  },
+  "accessibility": {
+    "points": [
+      "The dialog is labelled by its title, which carries the number of items in the group.",
+      "The table is a real table: column headers carry <code>aria-sort</code>, and a sortable header is a button inside the header cell.",
+      "Opening an item from a row stacks a second dialog over the first; closing it returns focus to the row’s action.",
+      "Paging keeps focus in the pagination, and the page list is the same one the visible numbers show."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>overflowColumns</code>, <code>overflowPageSize</code>, and the controlled <code>overflowSort</code> and <code>overflowPage</code>.",
+      "<code>renderMoreLabel</code> replaces the text on the chip; the <code>moreChip</code>, <code>overflowDialog</code>, <code>overflowTable</code> and <code>pagination</code> parts replace the markup.",
+      "<code>localization.overflow</code> holds the title, the column headers and the close labels.",
+      "The dialog and the table live in a chunk of their own, loaded the first time a chip is opened."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Overflow is a timeline idea; the list shows every item and never collapses any of them.",
+      "The table shows one group at a time — the one whose chip was opened.",
+      "Columns are not resizable by the reader, and their widths are the ones your column definitions ask for."
+    ]
   }
 }

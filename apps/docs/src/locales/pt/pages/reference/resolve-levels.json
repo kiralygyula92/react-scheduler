@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveLevels",
+    "description": "As definições de nível indexadas por key, com rank (por omissão: o índice do array), variant e pinOnPass preenchidos."
+  }
+}

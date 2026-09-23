@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "defaultOverflowColumns",
+    "description": "Las columnas que muestra la tabla de elementos adicionales cuando no se indican otras."
+  }
+}

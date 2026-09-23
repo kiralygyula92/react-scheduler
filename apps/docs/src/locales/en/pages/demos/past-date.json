@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Past date",
-    "description": "A React Scheduler demo on the Past date fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Past date",
+    "description": "A day two days behind the clock: everything has happened, and there is no now indicator."
+  },
+  "demos": {
+    "board": "A day already over"
+  },
+  "scenario": "The schedule is showing a day two days before the current one. Every item has already happened, so the question the component has to answer is what a schedule means when none of it is ahead of you.",
+  "look": [
+    "No now indicator. It is drawn only in the shift that holds the current moment, and that shift is two days away.",
+    "Nothing is dimmed for being over. Only the <code>resolved</code> level is drawn muted, and that is true on any day.",
+    "The headings are still previous, current and next: they are relative to the date being shown, not to today.",
+    "Navigation and pinning behave exactly as they do on the current day."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Shifts and dates</link> — the selected date, and the shifts drawn around it.",
+    "<link to=\"/now-indicator/\">Now indicator</link> — the rule that keeps it off this page.",
+    "<link to=\"/pinning/\">Pinning</link> — carried-over items, on a day that is entirely behind."
+  ]
 }

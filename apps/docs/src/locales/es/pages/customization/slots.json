@@ -1,14 +1,29 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Slots y sobrescrituras",
-    "description": "Slots y sobrescrituras en React Scheduler: qué puedes cambiar, cómo cambiarlo y a qué afecta cada cambio."
+    "title": "Slots y sustituciones",
+    "description": "Cada parte reemplazable del componente, qué recibe un slot y un ejemplo trabajado."
   },
   "sections": {
     "slots": "Slots",
     "example": "Ejemplo"
+  },
+  "demos": {
+    "slots": "Dos partes, sustituidas"
+  },
+  "intro": "Un slot sustituye el componente de una parte conservando su sitio, sus props y su comportamiento. Tu componente recibe todo lo que habría tenido el integrado:",
+  "rules": [
+    "Esparce las props que recibes. Llevan los nombres de clase, el atributo de datos, los manejadores de eventos y el nombre accesible.",
+    "Adjunta la <code>ref</code> cuando la haya: la fijación, la medición y el foco dependen de ella.",
+    "<code>ownerState</code> dice para qué renderiza la parte —la vista, el esquema, el elemento, el turno—, así que un mismo slot puede comportarse distinto en la lista y en la línea de tiempo.",
+    "<code>Default</code> es el componente integrado, por si prefieres envolverlo en vez de sustituirlo.",
+    "Una prop de renderizado gana frente a un slot para el mismo contenido: <code>renderItem</code> sustituye toda la tarjeta, y entonces sus partes te toca dibujarlas a ti."
+  ],
+  "table": "Las partes, generadas a partir de las declaraciones del paquete:",
+  "example": {
+    "intro": "Aquí la píldora de nivel es un componente propio envuelto alrededor del integrado, y el chip <strong>+ más</strong> solo recibe un estilo adicional: las dos formas más ligeras de sustitución, una al lado de la otra."
   }
 }

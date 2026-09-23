@@ -96,6 +96,9 @@ function count(value: number | undefined, fallback: number): number {
 /**
  * The rendered shift windows around `date`, offsets `-before … +after`. The current window is
  * `[latest boundary ≤ date, next boundary)`; offsets walk boundaries across days.
+ *
+ * @param date The moment being read; the shift containing it is the current one.
+ * @param options The shift pattern and how many shifts to render around the current one.
  */
 export function getShiftWindows(date: DateInput, options: ShiftOptions = {}): readonly ShiftWindow[] {
   const time = toMs(date);
@@ -133,7 +136,12 @@ export function getShiftWindows(date: DateInput, options: ShiftOptions = {}): re
   return windows;
 }
 
-/** The current shift window (offset 0) for `date`. */
+/**
+ * The current shift window (offset 0) for `date`.
+ *
+ * @param date The moment to place.
+ * @param options The shift pattern the day is cut with.
+ */
 export function resolveShift(date: DateInput, options: ShiftOptions = {}): ShiftWindow {
   const [current] = getShiftWindows(date, { ...options, before: 0, after: 0 });
   // getShiftWindows always yields offset 0: the boundary list spans two days on each side.

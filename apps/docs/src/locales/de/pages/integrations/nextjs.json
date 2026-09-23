@@ -1,17 +1,64 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Next.js",
-    "description": "Next.js: das Ziel, die Voraussetzungen, die Schritte und wie du das Ergebnis überprüfst."
+    "description": "App Router: der Plan als Client-Komponente, die Daten auf dem Server geholt, eine Uhr für beide."
   },
   "sections": {
     "goal": "Ziel",
     "before-you-start": "Bevor du beginnst",
     "steps": "Schritte",
     "result": "Ergebnis",
-    "related": "Verwandt"
+    "related": "Verwandt",
+    "troubleshooting": "Fehlersuche"
+  },
+  "goal": "Den Plan in einer Next.js-Anwendung mit App Router rendern. Die Komponente ist interaktiv — sie scrollt, öffnet Dialoge, misst —, sie gehört also auf den Client; die Einträge, die sie zeigt, nicht.",
+  "before": {
+    "points": [
+      "Ein Next.js-Projekt mit App Router.",
+      "React 18.2 oder 19, das Next.js mitbringt.",
+      "Eine Quelle für die Einträge: ein Datenbankaufruf, eine API-Route, alles, was eine Server-Komponente erwarten kann."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Das Paket installieren",
+      "text": "Mehr braucht es nicht, und nichts muss transpiliert werden."
+    },
+    "stylesheet": {
+      "title": "Das Stylesheet im Root-Layout importieren",
+      "text": "Im App Router ist das Root-Layout der Ort für globales CSS, und das Stylesheet des Plans ist globales CSS. Dort importiert, steckt es auch schon in der ersten HTML-Antwort statt im Client-Bundle."
+    },
+    "client": {
+      "title": "Den Plan in eine Client-Komponente hüllen",
+      "text": "Das Paket bringt kein eigenes <code>'use client'</code>-Banner mit, die Direktive steht also am Anfang Ihres Moduls. Halten Sie dieses Modul klein: Es ist die Grenze, und alles, was es importiert, geht mit hinüber.",
+      "calloutTitle": "Warum die Direktive Ihre ist",
+      "callout": "Eine Bibliothek, die sich selbst als nur-Client markiert, zwingt jeden Verwender in eine Client-Grenze, auch die, die nur die Typen oder die Helfer aus <code>/core</code> wollen. Die Direktive in der eigenen Datei lässt die Wahl dort, wo sie getroffen werden kann."
+    },
+    "server": {
+      "title": "Auf dem Server holen, eine Uhr weiterreichen",
+      "text": "Die Server-Komponente holt die Daten und gibt sowohl die Einträge als auch einen einzigen Zeitstempel weiter. Ohne ihn rendert der Server ein „Jetzt“ und der Client ein anderes — genau die Hydratationsabweichung, vor der React warnt."
+    }
+  },
+  "result": {
+    "text": "Die erste Antwort bringt den Plan als HTML — Überschriften, Einträge, Zeiten —, und der Client übernimmt ihn bei der Hydratation. Wer noch kein JavaScript hat, sieht den Tag trotzdem."
+  },
+  "troubleshooting": {
+    "points": [
+      "<em>You’re importing a component that needs useState</em> — die Direktive <code>'use client'</code> fehlt in dem Modul, das den Plan rendert.",
+      "Eine Hydratationswarnung zum Textinhalt: Die beiden Renderings sind sich über die Zeit nicht einig. Übergeben Sie <code>now</code> vom Server.",
+      "Das Layout springt einmal nach der Hydratation: Das ist <code>compact=\"auto\"</code>, das den Container zum ersten Mal misst. Übergeben Sie einen Boolean, wenn das erste Bild endgültig sein muss.",
+      "Turbopack oder Webpack beschwert sich über CSS aus <code>node_modules</code>: Importieren Sie das Stylesheet im Root-Layout, dem einzigen Ort, den beide erlauben."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Datenmodi und SSR</link> — wie das erste Bild aussieht und warum.",
+      "<link to=\"/integrations/ssr/\">Rendern auf dem Server</link> — dieselben Regeln ohne Framework.",
+      "<link to=\"/states/\">Zustände</link> — Laden, Fehler und Leere, während die Daten unterwegs sind."
+    ]
   }
 }

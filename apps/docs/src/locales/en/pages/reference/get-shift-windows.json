@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "The rendered shift windows around date, offsets -before … +after. The current window is [latest boundary ≤ date, next boundary); offsets walk boundaries across days."
+  }
+}

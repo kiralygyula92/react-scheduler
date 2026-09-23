@@ -1,18 +1,14 @@
 // SPDX-License-Identifier: MIT
-// M4 stub: the page frame and the sections template T10 requires (docs pack 03 §3).
-// The prose, demos and tables arrive with M5.
-import { Page, Section } from '~/shell/doc';
+// The API index (T10). Every row comes from the generated API data; nothing here is written by hand
+// (C6). The tables live in `ApiIndex` so the page keeps the shape every other page has.
+import { ApiIndex, Page } from '~/shell/doc';
 
 const NS = 'pages/reference/index';
 
 export default function ReferenceIndex(): React.ReactElement {
   return (
     <Page ns={NS}>
-      <Section id="components" ns={NS} titleKey="sections.components" />
-      <Section id="hooks" ns={NS} titleKey="sections.hooks" />
-      <Section id="functions" ns={NS} titleKey="sections.functions" />
-      <Section id="types" ns={NS} titleKey="sections.types" />
-      <Section id="css-variables" ns={NS} titleKey="sections.css-variables" />
+      <ApiIndex ns={NS} />
     </Page>
   );
 }

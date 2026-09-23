@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Épinglage",
-    "description": "Épinglage dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Quels éléments restent visibles une fois défilés, ce qui le décide, et comment le bandeau des épinglés est ordonné."
   },
   "sections": {
     "basics": "Bases",
+    "rules": "Règles et réglages",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Des éléments qui restent visibles"
+  },
+  "basics": {
+    "intro": "Ce qui est important le reste même après avoir défilé hors de vue. L’épinglage garde ces éléments dans un bandeau en haut du défileur, dans l’ordre qu’ils auraient eu dans le poste, et les relâche quand ils reviennent à l’écran.",
+    "which": "Trois choses décident si un élément s’épingle :",
+    "points": [
+      "<code>item.pinned === true</code> l’épingle tant que son poste est rendu, quoi que fasse le lecteur.",
+      "<code>item.pinnable</code> laisse un seul élément entrer ou sortir.",
+      "Sinon c’est le niveau qui décide, via <code>pinOnPass</code> — un rang entier à la fois."
+    ]
+  },
+  "rules": {
+    "intro": "L’épinglage se produit quand le bord de l’élément franchit une ligne : le bas de la barre collée en haut dans la liste, le bord supérieur du défileur dans la chronologie. <code>epsilon</code> déplace cette ligne, et <code>hysteresis</code> dit de combien l’élément doit revenir avant d’être désépinglé, pour qu’un élément à la limite ne clignote pas.",
+    "carried": "Les éléments d’un poste déjà passé portent l’étiquette <code>carriedOver</code>, ajoutée à celles qu’ils ont déjà. C’est de cela que parle le compteur du bouton de navigation du haut, et il est calculé à partir des postes, jamais des ids."
+  },
+  "accessibility": {
+    "points": [
+      "Le bandeau est une région étiquetée contenant une liste : un lecteur d’écran dit combien d’éléments sont épinglés.",
+      "Les changements sont annoncés par une région live, et les annonces répétées sont limitées pour qu’un défilement rapide ne l’inonde pas.",
+      "Une pastille épinglée est un bouton qui ouvre le même détail que la carte et garde son nom accessible.",
+      "Le défileur désactive l’ancrage de défilement du navigateur et compense lui-même la hauteur du bandeau : rien ne saute sous les yeux du lecteur quand une pastille apparaît."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>pinning.list</code> et <code>pinning.timeline</code> règlent chaque vue séparément.",
+      "<code>pinning.compare</code> ordonne le bandeau ; par défaut c’est le même ordre de placement que le poste.",
+      "Les parties <code>pinnedStrip</code>, <code>pinnedStripTrack</code>, <code>pinnedChip</code> et <code>edgeFade</code> se remplacent par des <link to=\"/customization/slots/\">slots</link>, et <code>renderPinnedChip</code> remplace une pastille entièrement.",
+      "<code>handlers.onPin</code> peut refuser un épinglage avant qu’il ait lieu ; <code>onPinnedChange</code> signale l’ensemble ensuite, avec ce qui a été ajouté et retiré."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "L’ensemble des épinglés est remis à zéro quand <code>date</code> change : une nouvelle journée commence sans rien d’épinglé.",
+      "L’épinglage est par vue. Basculer le recalcule depuis l’endroit où cette vue est défilée : les deux bandeaux peuvent différer.",
+      "Il n’y a pas de limite au nombre d’éléments épinglés à la fois ; un poste où chaque élément s’épingle remplit le bandeau."
+    ]
   }
 }

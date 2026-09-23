@@ -12,11 +12,19 @@ import { EmptyState, NowIndicator } from './states';
 
 const HEADINGS = { 2: 'h2', 3: 'h3', 4: 'h4', 5: 'h5', 6: 'h6' } as const;
 
+/**
+ * The header row of one shift in the list view.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function ShiftHeader<TItem extends SchedulerItem>({
   segment,
   id,
 }: {
+  /** The shift the header belongs to, with its items. */
   segment: ShiftSegment<TItem>;
+  /** The id the section is labelled by. */
   id: string;
 }): ReactElement {
   const { model, props } = useSchedulerContext<TItem>();

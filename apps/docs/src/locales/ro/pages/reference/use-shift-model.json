@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftModel",
+    "description": "Ferestrele de tură și segmentele pentru o dată."
+  }
+}

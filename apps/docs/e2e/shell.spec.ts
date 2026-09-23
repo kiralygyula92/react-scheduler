@@ -98,7 +98,7 @@ test.describe('table of contents', () => {
   test('lists the page sections and links to them', async ({ page }) => {
     await open(page, PINNING);
     const toc = page.locator('aside.ds-toc');
-    await expect(toc.getByRole('link')).toHaveCount(5);
+    await expect(toc.getByRole('link')).toHaveCount(6);
     await toc.getByRole('link', { name: 'Limitations' }).click();
     await expect(page).toHaveURL(`${PINNING}#limitations`);
   });

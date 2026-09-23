@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftModel",
+    "description": "Shift windows and segments for a date."
+  }
+}

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Fixação",
-    "description": "Fixação no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "Que elementos ficam à vista depois de passarem, o que o decide, e como a faixa dos fixados é ordenada."
   },
   "sections": {
     "basics": "Noções básicas",
+    "rules": "Regras e afinação",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Elementos que ficam à vista"
+  },
+  "basics": {
+    "intro": "Algo importante que saiu de vista continua importante. A fixação mantém esses elementos numa faixa no topo do deslocador, pela ordem que teriam no turno, e larga-os quando voltam a ficar à vista.",
+    "which": "Três coisas decidem se um elemento fixa:",
+    "points": [
+      "<code>item.pinned === true</code> fixa-o enquanto o seu turno estiver apresentado, faça o que fizer quem lê.",
+      "<code>item.pinnable</code> deixa um único elemento entrar ou sair.",
+      "Caso contrário, decide o nível, através de <code>pinOnPass</code> — uma classificação inteira de cada vez."
+    ]
+  },
+  "rules": {
+    "intro": "A fixação acontece quando a margem do elemento atravessa uma linha: a parte de baixo da barra colada ao topo na lista, a margem superior do deslocador na cronologia. <code>epsilon</code> move essa linha, e <code>hysteresis</code> diz quanto o elemento tem de recuar antes de se soltar, para que um elemento no limite não pisque.",
+    "carried": "Os elementos de um turno já passado levam a etiqueta <code>carriedOver</code>, acrescentada às que já têm. É disso que trata a contagem no botão de navegação de cima, e é calculada a partir dos turnos, nunca dos ids."
+  },
+  "accessibility": {
+    "points": [
+      "A faixa é uma região etiquetada que contém uma lista, por isso um leitor de ecrã diz quantos elementos estão fixados.",
+      "As alterações são anunciadas por uma região em direto, e os anúncios repetidos são limitados para que um deslocamento rápido não a inunde.",
+      "Uma etiqueta fixada é um botão que abre o mesmo detalhe que o cartão e mantém o seu nome acessível.",
+      "O deslocador desliga a ancoragem de deslocamento do navegador e compensa ele próprio a altura da faixa, por isso nada salta sob o olhar de quem lê quando surge uma etiqueta."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>pinning.list</code> e <code>pinning.timeline</code> afinam cada vista em separado.",
+      "<code>pinning.compare</code> ordena a faixa; o valor por omissão é a mesma ordem de colocação que o turno usa.",
+      "As partes <code>pinnedStrip</code>, <code>pinnedStripTrack</code>, <code>pinnedChip</code> e <code>edgeFade</code> podem ser substituídas por <link to=\"/customization/slots/\">slots</link>, e <code>renderPinnedChip</code> substitui uma etiqueta por completo.",
+      "<code>handlers.onPin</code> pode vetar uma fixação antes de acontecer; <code>onPinnedChange</code> comunica o conjunto depois, com o que foi acrescentado e removido."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "O conjunto dos fixados é reposto quando <code>date</code> muda: um novo dia começa sem nada fixado.",
+      "A fixação é por vista. Alternar recalcula-a a partir de onde essa vista está deslocada, por isso as duas faixas podem diferir.",
+      "Não há limite de quantos elementos podem fixar ao mesmo tempo; um turno em que todos fixam enche a faixa."
+    ]
   }
 }

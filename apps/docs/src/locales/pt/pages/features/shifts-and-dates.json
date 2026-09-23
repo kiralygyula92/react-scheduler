@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Turnos e datas",
-    "description": "Turnos e datas no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "Como um dia é dividido em turnos — uma duração regular ou um padrão com nome — e quantos são apresentados em redor do que está a ser lido."
   },
   "sections": {
     "basics": "Noções básicas",
+    "patterns": "Padrões irregulares",
+    "how-many": "Quantos turnos são apresentados",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "regular": "Uma duração, uma âncora",
+    "pattern": "Cedo, tarde, noite",
+    "moreShifts": "Dois para trás, três para a frente"
+  },
+  "basics": {
+    "intro": "Um horário lê-se turno a turno, por isso a primeira coisa que o componente faz com os seus elementos é decidir em que turno cada um cai. Os turnos regulares precisam de dois números: quanto dura um turno e a que hora de relógio um deles começa. O resto do dia decorre daí — turnos de seis horas ancorados às 06:00 começam às 06:00, 12:00, 18:00 e 00:00.",
+    "day": "<code>date</code> escolhe o momento que está a ser lido, e o turno que contém esse momento é o atual. Um dia não é aqui um dia de calendário: um turno de noite das 22:00 às 06:00 é um só turno, não duas metades, e tanto a grelha como a lista o tratam como um."
+  },
+  "patterns": {
+    "intro": "Quando os turnos não têm todos a mesma duração, dê antes um <code>pattern</code>: as horas de início, por ordem, cada uma com a sua chave. Uma entrada termina onde a seguinte começa, e a última passa a meia-noite para a primeira. <code>durationHours</code>, <code>anchor</code> e <code>keys</code> são ignorados quando há um padrão."
+  },
+  "howMany": {
+    "intro": "<code>before</code> e <code>after</code> dizem quanto do dia à volta é apresentado. São o intervalo dentro do qual quem lê pode deslocar-se e navegar sem que a sua aplicação vá buscar nada: fora dele, avançar é uma mudança de data, que trata você.",
+    "options": "A lista completa, gerada a partir das declarações do pacote:"
+  },
+  "accessibility": {
+    "points": [
+      "Cada turno é uma secção com um título real, por isso um leitor de ecrã pode saltar de turno em turno pelos títulos.",
+      "O título de um turno diz o que ele é em relação a agora — anterior, atual, seguinte, ou a quantos turnos — e depois o seu intervalo, formatado no idioma de quem lê.",
+      "O intervalo do título é texto, não uma imagem nem um atributo <code>title</code>, por isso é lido e pode ser pesquisado.",
+      "Os turnos que não o atual não são escondidos da tecnologia de apoio: são as mesmas secções, na mesma ordem da grelha visível."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>formatters.shiftRange</code> formata o intervalo de um título, e <code>formatters.hourLabel</code> as etiquetas de hora da cronologia.",
+      "<code>localization.shiftHeader</code> contém as palavras para anterior, atual, seguinte, mais cedo e mais tarde.",
+      "As partes <code>shiftHeader</code>, <code>shiftHeaderTitle</code> e <code>shiftHeaderRange</code> podem ser substituídas por <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderShiftHeader</code> substitui todo o título pelo seu, mantendo a secção em redor."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "<code>durationHours</code> tem de dividir 24, por isso turnos de cinco ou sete horas são um padrão, não uma duração regular.",
+      "Um só padrão cobre todos os dias. Um padrão diferente entre dias úteis e fim de semana ainda não é exprimível; mudar <code>shifts</code> com a data é a alternativa.",
+      "Os turnos são colocados por marca temporal, no fuso horário de quem lê. Um horário lido em dois fusos mostra dois cortes diferentes dos mesmos elementos.",
+      "Não há forma de esconder um turno sem elementos; um turno vazio apresenta o seu estado vazio."
+    ]
   }
 }

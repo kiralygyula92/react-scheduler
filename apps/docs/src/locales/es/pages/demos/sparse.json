@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Día con pocos elementos",
-    "description": "Una demo de React Scheduler sobre el conjunto Día con pocos elementos: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Día tranquilo",
+    "description": "Un elemento por turno: un día tranquilo, por debajo del umbral en que aparecen los botones de navegación."
+  },
+  "demos": {
+    "board": "Un día tranquilo"
+  },
+  "scenario": "Tres elementos, uno en cada turno dibujado. Un día tranquilo merece diseñarse: así se ve una instalación nueva, y así son la mayoría de los días en un equipo pequeño.",
+  "look": [
+    "Ningún botón de navegación. Aparecen a partir de cinco elementos en un turno, y tres turnos de uno no se acercan.",
+    "La línea de tiempo conserva toda la altura del turno. Una hora es una hora, tenga algo dentro o no.",
+    "La vista de lista quita el tiempo vacío entre los elementos, que es la diferencia entre las dos vistas en un día tranquilo.",
+    "Un elemento lleva una etiqueta; los demás, ninguna."
+  ],
+  "uses": [
+    "<link to=\"/navigation/\">Navegación</link> — el umbral, y qué hacen los botones una vez aparecen.",
+    "<link to=\"/timeline-view/\">Vista de línea de tiempo</link> — el tiempo como distancia, horas vacías incluidas.",
+    "<link to=\"/list-view/\">Vista de lista</link> — los mismos elementos, sin el tiempo vacío."
+  ]
 }

@@ -1,13 +1,41 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "CSS-Variablen",
-    "description": "CSS-Variablen in React Scheduler: was sich ändern lässt, wie es geändert wird und was die Änderung betrifft."
+    "description": "Jedes Design-Token von React Scheduler, mit seinem hellen und dunklen Standardwert, erzeugt aus dem Stylesheet des Pakets."
   },
   "sections": {
     "variables": "Variablen"
+  },
+  "intro": "Jeder visuelle Wert der Komponente ist eine benutzerdefinierte Eigenschaft an ihrer Wurzel. Sie sind der leichteste Weg, ihr Aussehen zu ändern: setzen Sie eine dort, wo die Wurzel erbt, oder übergeben Sie sie über die <code>tokens</code>-Prop, und alles, was daraus gebaut ist, folgt.",
+  "how": "Die Tabellen unten werden aus der <code>tokens.css</code> des Pakets erzeugt und können ihr daher nicht nachhinken. Jede Zeile hat ihre Adresse — auf ein Token verweist man etwa mit <code>#css-color-now</code>.",
+  "families": {
+    "color": {
+      "title": "Farbe",
+      "text": "Die Flächen, der Text, die Linien und die Akzente. Das sind die Werte, die ein dunkles Schema ersetzt."
+    },
+    "typography": {
+      "title": "Typografie",
+      "text": "Die beiden Familien und je eine Größe, eine Zeilenhöhe und eine Stärke für jede Textart, die die Komponente zeichnet."
+    },
+    "levels": {
+      "title": "Stufen",
+      "text": "Je eine Farbe und eine Kontrastfarbe für jeden Stufenschlüssel der klassischen Skala, dazu der Winkel, in dem die Alarmfläche gezeichnet wird. Eine eigene Skala mit eigenen Schlüsseln nimmt ihre Farben aus ihren eigenen Definitionen."
+    },
+    "shape": {
+      "title": "Form und Tiefe",
+      "text": "Radien, Schatten, der Fokusring und der Rand des Dialogs."
+    },
+    "motion": {
+      "title": "Bewegung",
+      "text": "Die Dauern und Kurven der beiden Dinge, die sich bewegen. Bei reduzierter Bewegung werden sie gar nicht genutzt."
+    },
+    "layout": {
+      "title": "Layout",
+      "text": "Die Maße, die weder Farbe noch Typografie sind: die Breiten der angehefteten Chips, die Innenabstände der Fläche, die Höhe eines Chips, die Breite der Leiste."
+    }
   }
 }

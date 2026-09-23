@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveTimeLabel",
+    "description": "A etiqueta de hora de um cartão, na primeira correspondência: timeLabel tal como é dado; «{observed} {observedLabel}» quando observedLabel é uma cadeia não vazia; «{since} {timestamp}» para um since válido, ou apenas o prefixo se for inválido; caso contrário «{start} – {end}»."
+  }
+}

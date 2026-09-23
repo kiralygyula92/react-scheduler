@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Evenimente și middleware",
-    "description": "Evenimente și middleware în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Ce rulează înaintea unei interacțiuni și o poate anula, ce o raportează după și în ce ordine se întâmplă cele două."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "order": "Ordinea lucrurilor",
+    "middleware": "Fiecare middleware",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "middleware": "Întreabă înainte de a deschide"
+  },
+  "basics": {
+    "intro": "Există două feluri de callback. <code>handlers</code> sunt middleware: rulează <em>înainte</em> ca componenta să acționeze și decid dacă acționează. Proprietățile <code>onX</code> sunt evenimente: raportează ce s-a întâmplat deja. Orice trebuie să intervină — o confirmare, o modificare nesalvată, o permisiune — ține de primele; orice trebuie să înregistreze sau să reacționeze ține de celelalte.",
+    "next": "Un middleware primește contextul și o funcție <code>next</code>. Apelarea ei rulează comportamentul implicit și apoi evenimentele; neapelarea îl anulează pe amândouă. Contextul este doar pentru citire, iar <code>next</code> poate fi apelat și mai târziu — după un await, de pildă —, caz în care comportamentul implicit rulează atunci, dacă componenta este încă montată."
+  },
+  "order": {
+    "intro": "Pentru o interacțiune, în această ordine:",
+    "head": {
+      "step": "Pas",
+      "what": "Ce rulează"
+    },
+    "rows": [
+      ["1", "Middleware-ul acelei interacțiuni, dacă ai dat unul."],
+      ["2", "Comportamentul propriu al componentei, dacă middleware-ul a apelat <code>next</code>."],
+      [
+        "3",
+        "Callback-urile de stare: <code>onViewChange</code>, <code>onDateChange</code>, <code>onOpenItemIdChange</code> și cele de felul lor."
+      ],
+      [
+        "4",
+        "Evenimentele de domeniu: <code>onItemOpen</code>, <code>onNavigate</code>, <code>onOverflowOpen</code> și cele de felul lor."
+      ]
+    ],
+    "frames": "Evenimentele care vin din derulare — <code>onActiveShiftChange</code>, <code>onHeaderExpandedChange</code>, <code>onPinnedChange</code> — se declanșează cel mult o dată pe cadru de animație și numai când valoarea chiar s-a schimbat."
+  },
+  "middleware": {
+    "intro": "Cele unsprezece middleware, generate din declarațiile pachetului:"
+  },
+  "accessibility": {
+    "points": [
+      "O interacțiune anulată lasă focalizarea unde era: nimic nu se mișcă pentru că nu s-a întâmplat nimic.",
+      "Un middleware care deschide o confirmare proprie răspunde de focalizarea ei; componenta nu a mutat-o.",
+      "Pentru că evenimentele raportează, nu decid, un cititor de ecran nu aude niciodată despre ceva ce middleware-ul a anulat apoi."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>handlers</code> conține fiecare middleware; toate sunt opționale.",
+      "Interfața imperativă sare peste middleware intenționat: este apelul tău, nu al cititorului.",
+      "Evenimentele sunt proprietăți obișnuite, așa că se compun cu orice bibliotecă de stare folosești deja."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Contextul middleware-ului este doar pentru citire: nu poate schimba elementul, tura țintă sau sortarea. Ca să schimbi rezultatul, anulează și apoi acționează prin interfața imperativă.",
+      "Un <code>next</code> asincron care se rezolvă după demontarea componentei nu face nimic, în tăcere.",
+      "Nu există un singur eveniment care să se declanșeze pentru fiecare interacțiune; fiecare îl are pe al ei."
+    ]
   }
 }

@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Indicateur de l'heure actuelle",
-    "description": "Indicateur de l'heure actuelle dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "title": "Indicateur « maintenant »",
+    "description": "Le repère qui dit où tombe le moment présent, quand il est affiché et ce qui le fait avancer."
   },
   "sections": {
     "basics": "Bases",
+    "clock": "L’horloge",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "now": "Où tombe le moment présent"
+  },
+  "basics": {
+    "intro": "Un planning se lit par rapport au présent : ce qui est passé, ce qui est en cours, ce qui reste. L’indicateur « maintenant » dessine cette frontière — une ligne étiquetée sur la grille de la chronologie, un repère entre les cartes dans la liste.",
+    "when": "Il n’est affiché que si tout cela est vrai, afin de ne jamais revendiquer une position qu’il n’a pas :",
+    "points": [
+      "<code>enableNowIndicator</code> est activé, comme par défaut.",
+      "La journée lue n’est pas dans le passé.",
+      "Maintenant tombe dans le poste courant et dans l’intervalle rendu.",
+      "La journée lue est celle dans laquelle tombe maintenant."
+    ]
+  },
+  "clock": {
+    "intro": "Le composant tient sa propre horloge, qui bat toutes les <code>nowTickInterval</code> tant qu’il est monté et se met en pause tant que le document est masqué — un planning laissé ouvert dans un onglet d’arrière-plan ne coûte rien. Passez <code>now</code> pour reprendre l’horloge : un test, une capture ou un rejeu montre alors le moment que vous choisissez et non l’heure qu’il est."
+  },
+  "accessibility": {
+    "points": [
+      "Dans la liste, le repère est un séparateur étiqueté : la frontière est annoncée, pas seulement dessinée.",
+      "Dans la chronologie, la ligne est décorative : la même heure figure dans sa pastille et dans le nom de chaque carte.",
+      "Le repère ne déplace pas le focus et ne fait rien défiler ; l’endroit où une vue atterrit est une décision distincte."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Les parties <code>nowMarker</code> dans la liste et <code>nowLine</code> avec <code>nowLabel</code> dans la chronologie se remplacent par des <link to=\"/customization/slots/\">slots</link>.",
+      "<code>--rs-color-now</code> est la couleur de la ligne et de son libellé.",
+      "<code>localization.now.label</code> est le texte, et <code>formatters.clockTime</code> l’heure qu’il porte.",
+      "<code>enableNowIndicator</code> le désactive entièrement, pour un planning qui ne parle pas d’aujourd’hui."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un repère à la fois : seul le poste courant en reçoit un, même si plusieurs postes du même jour sont rendus.",
+      "L’horloge bat à intervalle fixe, pas exactement à la minute : le repère peut accuser un retard d’au plus un intervalle.",
+      "Il n’y a pas de « maintenant » dans un fuseau horaire autre que celui du lecteur."
+    ]
   }
 }

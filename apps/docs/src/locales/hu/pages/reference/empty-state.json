@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "EmptyState",
+    "description": "Amit egy nézet mutat, ha nincs mit elhelyeznie."
+  }
+}

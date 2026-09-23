@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "bucketItems",
+    "description": "Minden elemet abba az ablakba tesz, amelyre start ≤ item.start < end. Az egyetlen ablakba sem eső elemek nem jelennek meg; az érvénytelen kezdésűek kimaradnak; azonos azonosítók esetén az első előfordulás nyer."
+  }
+}

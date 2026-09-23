@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Elemente und Ebenen",
-    "description": "Elemente und Ebenen in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "title": "Einträge und Stufen",
+    "description": "Was ein Eintrag ist, wie die Stufenskala ihm Farbe und Rang gibt, und was die Reihenfolge in einer Schicht entscheidet."
   },
   "sections": {
     "basics": "Grundlagen",
+    "levels": "Die Stufenskala",
+    "order": "Reihenfolge",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "levels": "Eine eigene Skala",
+    "compare": "Nach Titel sortiert"
+  },
+  "basics": {
+    "intro": "Ein Eintrag ist ein einfaches Objekt. Vier Felder sind Pflicht — <code>id</code>, <code>start</code>, <code>level</code> und <code>title</code> — alles andere verfeinert, wie die Karte zu lesen ist. Einträge kommen nach ihrem Beginn in eine Schicht: einer außerhalb jeder gerenderten Schicht wird nicht gezeigt, und einer mit ungültigem Beginn wird verworfen und in der Entwicklung einmal gemeldet.",
+    "item": "Der vollständige Eintrag, erzeugt aus den Deklarationen des Pakets:"
+  },
+  "levels": {
+    "intro": "Eine Stufe ist ein Rang auf einer Skala, die Sie festlegen: wie er heißt, wie stark er ist, welche Farbe er trägt und ob Einträge dieses Rangs beim Vorbeiscrollen anheften. Das Paket liefert <code>classicLevels</code>, eine Skala mit neun Rängen, aber eine Skala aus vier Rängen mit Ihren Schlüsseln ist genauso gültig — und die Schlüssel fließen in den Eintragstyp, sodass ein Tippfehler ein Typfehler ist und kein stilles Übersehen.",
+    "points": [
+      "<code>rank</code> nimmt standardmäßig die Position im Array, ein gut geordnetes Array braucht also gar keine Ränge.",
+      "<code>color</code> und <code>onColor</code> nehmen standardmäßig die Tokens <code>--rs-level-{key}</code> und <code>--rs-level-{key}-on</code>, sodass ein Thema eine Skala umfärben kann, ohne die Daten anzufassen.",
+      "<code>variant</code> wählt die Kartenbehandlung: <code>'alert'</code> für den stärksten Rang, <code>'muted'</code> für Erledigtes.",
+      "<code>pinOnPass</code> lässt jeden Eintrag dieses Rangs anheften — siehe <link to=\"/pinning/\">Anheften</link>.",
+      "Die Beschriftung kommt aus <code>localization.levels[key]</code>, die Skala wird also mit dem Rest der Komponente übersetzt."
+    ]
+  },
+  "order": {
+    "intro": "Innerhalb einer Schicht folgen die Einträge <code>compareItems</code>. Der Standard ist die Platzierungsreihenfolge: Beginn, dann Stufenrang, dann Id. Ersetzt man sie, ändern sich Liste, Platzierungsfolge des Zeitstrahls und Band der angehefteten Einträge gemeinsam, sodass die drei sich nie widersprechen, welcher Eintrag zuerst kommt."
+  },
+  "accessibility": {
+    "points": [
+      "Der zugängliche Name einer Karte trägt Titel, Stufe und Uhrzeit, sodass die Farbe der Leiste nie das Einzige ist, was den Ernst eines Eintrags nennt.",
+      "Stufen- und Etikettenchips sind Text, keine Symbole, und gehören zum Namen der Karte.",
+      "Die Farbe einer Stufe ist nur eine Verstärkung: dieselbe Information steht in der Beschriftung daneben."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Die Teile <code>levelPill</code>, <code>tagPill</code> und <code>cardRail</code> lassen sich über <link to=\"/customization/slots/\">Slots</link> ersetzen.",
+      "Die Farben stecken in den Tokens <code>--rs-level-*</code> — siehe <link to=\"/customization/css-variables/\">CSS-Variablen</link>.",
+      "<code>tags</code> legt die Etiketten fest, die ein Eintrag tragen kann, jedes mit Beschriftung und Farben."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Ein Eintrag gehört zu genau einer Schicht, der, in die sein Beginn fällt. Ein Eintrag über zwei Schichten wird in der ersten gezeichnet und wiederholt sich nicht in der zweiten.",
+      "Doppelte Ids werden nicht zusammengeführt: das erste Vorkommen gewinnt, der Rest entfällt, mit einer Warnung in der Entwicklung.",
+      "Die Skala ist flach — es gibt keine Gruppierung von Stufen in Familien und keine Skala je Schicht."
+    ]
   }
 }

@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Stări",
-    "description": "Stări în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Ce arată programul cât timp așteaptă, când eșuează și când nu are ce arăta."
   },
   "sections": {
     "basics": "Noțiuni de bază",
@@ -13,5 +13,38 @@
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "states": "Încărcare, eroare, gol"
+  },
+  "basics": {
+    "intro": "Un program este rareori doar plin sau doar gol. <code>loading</code> și <code>error</code> sunt proprietăți pe care le ții tu, iar componenta decide ce înseamnă asta pentru fiecare vizualizare; stările goale decurg din elementele însele.",
+    "points": [
+      "<strong>Încărcare fără nimic încă:</strong> un indicator de așteptare, cu textul de încărcare pentru tehnologiile asistive.",
+      "<strong>Încărcare peste date:</strong> elementele rămân vizibile și estompate, iar regiunea este marcată <code>aria-busy</code> — o reîmprospătare nu golește niciodată ecranul.",
+      "<strong>Eroare:</strong> un titlu, mesajul pe care îl dai și un buton de reîncercare când <code>onRetry</code> este setat. Înlocuiește conținutul, pentru că un program parțial este mai rău decât niciunul.",
+      "<strong>Gol:</strong> un text când nicio tură randată nu conține vreun element și altul într-o tură goală când altele nu sunt. Cronologia își păstrează grila și centrează mesajul pe ea."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Starea de încărcare este anunțată o dată, nu la fiecare cadru, iar marcarea „ocupat” este cea care spune unui cititor de ecran că ce se vede este vechi, nu dispărut.",
+      "Starea de eroare este un titlu și un text, nu o alertă care fură focalizarea; butonul de reîncercare este un buton obișnuit din ordinea de tabulare.",
+      "O tură goală își păstrează secțiunea și titlul, așa că structura zilei nu se schimbă pe măsură ce sosesc elementele."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderEmpty</code>, <code>renderLoading</code> și <code>renderError</code> le înlocuiesc pe cele trei; părțile <code>emptyState</code>, <code>loadingState</code> și <code>errorState</code> le înlocuiesc markup-ul.",
+      "<code>localization.emptyAll</code>, <code>emptyShift</code>, <code>loading</code>, <code>errorTitle</code> și <code>retry</code> conțin fiecare cuvânt.",
+      "Stările nu au culoare proprie dincolo de tokenurile de text, așa că urmează tema fără să fie restilizate."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Există o singură eroare deodată pentru tot programul; o eroare per tură nu este modelată.",
+      "Componenta nu aduce niciodată date, deci nu decide singură că se încarcă: ambele proprietăți sunt ale tale.",
+      "Nu există carduri-schelet. Starea de încărcare este un indicator de așteptare, sau al tău prin <code>renderLoading</code>."
+    ]
   }
 }

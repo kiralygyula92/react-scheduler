@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useNow",
+    "description": "A now ezredmásodperce az epoch óta, vagy egy belső óra, amely interval ezredmásodpercenként lép, és szünetel, amíg a dokumentum rejtett."
+  }
+}

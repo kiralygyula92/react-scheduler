@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Slot- und Rendering-Typen",
+    "description": "Die Teile, ihr Owner State und was jeder Slot und jede Render-Prop erhält."
+  }
+}

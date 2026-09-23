@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftModel",
+    "description": "Egy dátumhoz tartozó műszakablakok és szakaszok."
+  }
+}

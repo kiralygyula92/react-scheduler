@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createPinEngine",
+    "description": "Crée le moteur d’épinglage d’une zone de défilement."
+  }
+}

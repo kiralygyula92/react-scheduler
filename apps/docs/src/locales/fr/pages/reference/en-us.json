@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "enUS",
+    "description": "Le pack de langue anglais, et celui par défaut quand localization n’est pas fourni."
+  }
+}

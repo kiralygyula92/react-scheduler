@@ -24,6 +24,10 @@ function comparator<TItem extends SchedulerItem>(options: BucketOptions<TItem>):
 /**
  * Puts each item into the window with `start ≤ item.start < end`. Items outside every window are
  * not shown; items with an invalid start are dropped; for duplicate ids the first occurrence wins.
+ *
+ * @param items The items to place, in any order.
+ * @param windows The rendered shifts, in order.
+ * @param options How to order the items inside a shift, and how long an item without an end lasts.
  */
 export function bucketItems<TItem extends SchedulerItem>(
   items: readonly TItem[],

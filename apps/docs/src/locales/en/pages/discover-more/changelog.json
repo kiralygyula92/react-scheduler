@@ -1,10 +1,25 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Changelog",
-    "description": "Every released version of React Scheduler and what changed in it. Entries are published in English."
+    "description": "Every released version and what changed in it, taken from the package’s own changelog."
+  },
+  "sections": {
+    "unreleased": "Not released yet",
+    "how-to-read-it": "How to read it"
+  },
+  "intro": "This page is generated from the changelog in the package repository, which is written release by release from the changesets that went into it. Nothing here is maintained by hand, so it cannot disagree with what was published.",
+  "english": {
+    "title": "Entries are in English",
+    "text": "The rest of this site is translated; these entries are not. They are written by whoever made the change and published in English on npm, and a translated copy would drift from the version people actually install."
+  },
+  "unreleased": {
+    "text": "There is no released version yet, so there is nothing to list. The first release will appear here and on npm at the same moment, and every one after it will be added to the top of this page."
+  },
+  "how": {
+    "text": "Versions follow semantic versioning: a major version for a change that can break a build, a minor one for a new capability, a patch for a fix. An entry that needs steps of its own links to a migration guide under <link to=\"/migration/\">Migration</link>."
   }
 }

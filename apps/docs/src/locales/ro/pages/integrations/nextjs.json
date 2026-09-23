@@ -1,17 +1,64 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Next.js",
-    "description": "Next.js: obiectivul, ce îți trebuie înainte de a începe, pașii de urmat și cum verifici rezultatul."
+    "description": "App Router: programul ca componentă client, datele aduse pe server, un singur ceas pentru amândouă."
   },
   "sections": {
     "goal": "Obiectiv",
     "before-you-start": "Înainte de a începe",
     "steps": "Pași",
     "result": "Rezultat",
-    "related": "Legături conexe"
+    "related": "Legături conexe",
+    "troubleshooting": "Depanare"
+  },
+  "goal": "Randează programul într-o aplicație Next.js cu App Router. Componenta este interactivă — derulează, deschide dialoguri, măsoară — deci locul ei este pe client; elementele pe care le arată nu trebuie să fie acolo.",
+  "before": {
+    "points": [
+      "Un proiect Next.js cu App Router.",
+      "React 18.2 sau 19, pe care Next.js le aduce cu el.",
+      "De unde să iei elementele: un apel la bază de date, o rută de API, orice poate aștepta o componentă de server."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Instalează pachetul",
+      "text": "Nu mai trebuie nimic altceva și nimic nu trebuie transpilat."
+    },
+    "stylesheet": {
+      "title": "Importă foaia de stil în layout-ul rădăcină",
+      "text": "În App Router, layout-ul rădăcină este locul CSS-ului global, iar foaia de stil a programului este CSS global. Importată acolo, ajunge și în primul răspuns HTML, nu odată cu bundle-ul de client."
+    },
+    "client": {
+      "title": "Învelește programul într-o componentă client",
+      "text": "Pachetul nu livrează un banner <code>'use client'</code> propriu, așa că directiva stă la începutul modulului tău. Ține modulul acela mic: el este granița, și tot ce importă trece odată cu el.",
+      "calloutTitle": "De ce directiva este a ta",
+      "callout": "O bibliotecă ce se marchează singură „doar client” împinge fiecare consumator într-o graniță de client, inclusiv pe cei care vor doar tipurile sau ajutoarele din <code>/core</code>. Directiva pusă în fișierul tău lasă alegerea acolo unde poate fi făcută."
+    },
+    "server": {
+      "title": "Adu datele pe server, dă mai departe un singur ceas",
+      "text": "Componenta de server face aducerea datelor și transmite atât elementele, cât și un singur moment de timp. Fără acel moment, serverul randează un „acum” și clientul altul, adică exact nepotrivirea de hidratare de care avertizează React."
+    }
+  },
+  "result": {
+    "text": "Primul răspuns aduce programul ca HTML — titluri, elemente, ore — iar clientul îl preia la hidratare. Un cititor al cărui JavaScript nu a ajuns încă vede totuși ziua."
+  },
+  "troubleshooting": {
+    "points": [
+      "<em>You’re importing a component that needs useState</em> — lipsește directiva <code>'use client'</code> din modulul care randează programul.",
+      "Un avertisment de hidratare despre conținutul text: cele două randări nu sunt de acord asupra orei. Transmite <code>now</code> de pe server.",
+      "Aranjarea sare o dată după hidratare: acolo <code>compact=\"auto\"</code> măsoară containerul pentru prima oară. Transmite un boolean dacă primul cadru trebuie să fie final.",
+      "Turbopack sau Webpack se plânge de CSS din <code>node_modules</code>: importă foaia de stil în layout-ul rădăcină, singurul loc pe care îl acceptă amândouă."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Moduri de date și SSR</link> — cum arată primul cadru și de ce.",
+      "<link to=\"/integrations/ssr/\">Randare pe server</link> — aceleași reguli, fără framework.",
+      "<link to=\"/states/\">Stări</link> — încărcare, eroare și gol cât timp datele sunt pe drum."
+    ]
   }
 }

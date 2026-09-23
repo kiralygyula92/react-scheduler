@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "States",
-    "description": "States in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "What the schedule shows while it waits, when it fails, and when there is nothing to show."
   },
   "sections": {
     "basics": "Basics",
@@ -13,5 +13,38 @@
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "states": "Loading, error, empty"
+  },
+  "basics": {
+    "intro": "A schedule is rarely only full or only empty. <code>loading</code> and <code>error</code> are props you hold, and the component decides what that means for each view; the empty states follow from the items themselves.",
+    "points": [
+      "<strong>Loading with nothing yet:</strong> a spinner, with the loading text for assistive technology.",
+      "<strong>Loading over data:</strong> the items stay visible and dimmed, and the region is marked <code>aria-busy</code> — a refresh never blanks the screen.",
+      "<strong>Error:</strong> a heading, the message you give, and a retry button when <code>onRetry</code> is set. It replaces the content, because a partial schedule is worse than none.",
+      "<strong>Empty:</strong> one text when no rendered shift holds an item, another inside a shift that is empty while others are not. The timeline keeps its grid and centers the message on it."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "The loading state is announced once, not on every frame, and the busy marking is what tells a screen reader that the content is stale rather than gone.",
+      "The error state is a heading and text, not an alert that steals focus; the retry button is an ordinary button in the tab order.",
+      "An empty shift keeps its section and its heading, so the outline of the day does not change as items arrive."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderEmpty</code>, <code>renderLoading</code> and <code>renderError</code> replace the three; the parts <code>emptyState</code>, <code>loadingState</code> and <code>errorState</code> replace their markup.",
+      "<code>localization.emptyAll</code>, <code>emptyShift</code>, <code>loading</code>, <code>errorTitle</code> and <code>retry</code> hold every word.",
+      "The states carry no color of their own beyond the text tokens, so they follow the theme without being restyled."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "There is one error at a time for the whole schedule; a per-shift error is not modelled.",
+      "The component never fetches, so it never decides on its own that it is loading: both props are yours.",
+      "Skeleton cards are not provided. The loading state is a spinner, or your own through <code>renderLoading</code>."
+    ]
   }
 }

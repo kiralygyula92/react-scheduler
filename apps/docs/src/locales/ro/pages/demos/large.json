@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Program mare",
-    "description": "O demonstrație React Scheduler pe setul Program mare: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Program mare",
+    "description": "240 de elemente pe trei ture: dimensiunea la care este măsurat bugetul de performanță al pachetului."
+  },
+  "demos": {
+    "board": "240 de elemente"
+  },
+  "scenario": "240 de elemente pe cele treizeci și șase de ore acoperite de cele trei ture. Este dimensiunea la care se măsoară pachetul și este dinadins mai mult decât ar citi un om: ce se arată aici este că la dimensiunea asta componenta se comportă în continuare, nu că o zi ar trebui să arate așa.",
+  "look": [
+    "Fiecare element este randat. Programul nu virtualizează, așa că ce derulezi chiar se află în pagină.",
+    "În orele aglomerate munca o face plafonul de coloane; fără el, cronologia ar deveni ilizibilă cu mult înainte de 240 de elemente.",
+    "Vizualizarea listă grupează aceleași 240 de elemente pe ture, ceea ce este calea mai rapidă de a citi o zi atât de plină.",
+    "Schimbarea vizualizării, a schemei sau a densității le reașază pe toate deodată."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Suplimentare</link> — ce ține lizibilă o oră aglomerată la dimensiunea asta.",
+    "<link to=\"/list-view/\">Vizualizare listă</link> — vizualizarea pentru o zi lungă.",
+    "<link to=\"/data-modes-and-ssr/\">Moduri de date și SSR</link> — de unde vin elementele și ce face componenta cât sunt pe drum."
+  ]
 }

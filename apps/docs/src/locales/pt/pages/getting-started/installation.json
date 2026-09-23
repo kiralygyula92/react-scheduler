@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Instalação",
-    "description": "Instalação do pacote React Scheduler: os passos por ordem, as versões envolvidas e o que verificar depois."
+    "description": "Instale o React Scheduler, adicione a sua folha de estilos e renderize o primeiro horário. As dependências peer, os estilos e uma verificação de cinco linhas."
   },
   "sections": {
     "install": "Instalação",
@@ -13,5 +13,41 @@
     "stylesheet": "Folha de estilos",
     "verify": "Verificação",
     "next-steps": "Próximos passos"
+  },
+  "peers": {
+    "intro": "O React Scheduler não instala nada de seu. Os seus dois peers são o React que já tem; qualquer outro pacote na árvore é uma ferramenta de desenvolvimento deste repositório, não da sua aplicação.",
+    "head": {
+      "package": "Pacote",
+      "range": "Intervalo",
+      "why": "Porquê"
+    },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Os hooks, o contexto e o renderizador concorrente sobre os quais as vistas são construídas."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "A renderização no DOM e o portal onde abrem as caixas de diálogo dos elementos adicionais e do detalhe."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "Importe a folha de estilos uma só vez, onde a sua aplicação arranca. Traz as duas predefinições, o esquema claro e o escuro e as três densidades; nada é injetado em tempo de execução.",
+    "unstyled": "Se quiser tratar dos estilos por si, importe antes <code>@react-schedulerkit/react-scheduler/base.css</code>: a mesma estrutura, sem cores, sem escala de espaçamento e sem escala tipográfica. <link to=\"/customization/\">Personalização</link> mostra os níveis intermédios."
+  },
+  "verify": {
+    "intro": "Este é um ficheiro completo. Se renderizar um cartão num turno, o pacote, os seus estilos e os seus peers estão no sítio.",
+    "calloutTitle": "Sem data, sem turnos?",
+    "callout": "Ambos são opcionais. Sem <code>date</code>, o horário mostra o dia atual, e sem <code>shifts</code> usa dois turnos de doze horas ancorados às 08:00."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Utilização</link> — as props que define primeiro e como o estado é partilhado com a sua aplicação.",
+      "<link to=\"/getting-started/requirements/\">Requisitos</link> — navegadores, versões de React e TypeScript, tamanho do pacote.",
+      "<link to=\"/all-features/\">Todas as funcionalidades</link> — cada capacidade, com uma demonstração viva."
+    ]
   }
 }

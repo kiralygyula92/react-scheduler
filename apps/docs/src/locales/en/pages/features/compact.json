@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Compact mode",
-    "description": "Compact mode in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "How the schedule adapts to the width it is given — its own width, not the viewport’s — and what changes when it does."
   },
   "sections": {
     "basics": "Basics",
@@ -13,5 +13,38 @@
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "compact": "The same schedule, three widths"
+  },
+  "basics": {
+    "intro": "A schedule in a sidebar and a schedule filling a page are the same component at two widths. Compact mode is measured from the schedule’s own container with a <code>ResizeObserver</code>, never from the viewport and never from the user agent, so a narrow box inside a wide window is compact and a wide box inside a phone-sized iframe is not.",
+    "points": [
+      "<code>compact</code> is <code>'auto'</code> by default: true below <code>compactBreakpoint</code>, which is 900 pixels. A boolean forces it either way.",
+      "Compact tightens the cards, drops the timeline to one column, and narrows the pinned chips — 436 pixels at 900 and above, 360 between 600 and 899, and 90% of the width below that.",
+      "<code>listOnlyBreakpoint</code> is separate and stronger: below it the timeline is not offered at all.",
+      "On the server the component renders as not compact unless you pass a boolean, and the first measurement after hydration corrects it."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Nothing is removed in compact mode: the same items, the same headings, the same names, in fewer pixels.",
+      "Touch targets stay at least 24 by 24 pixels, which is what WCAG 2.2 asks for.",
+      "The measurement is of the container, so a reader who zooms to 200% gets the compact layout rather than a horizontally scrolling page."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>compactBreakpoint</code> and <code>listOnlyBreakpoint</code> set where the two thresholds are.",
+      "<code>density</code> is the other spacing dial and is independent of compact mode — see <link to=\"/customization/theming/\">Theming</link>.",
+      "<code>useCompact</code> gives the same measurement to markup of your own."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "The thresholds are pixel widths, not container queries: a layout that changes shape without changing the schedule’s width does not change compact mode.",
+      "The pinned-chip widths are fixed at their three steps and cannot be set per application.",
+      "The first server-rendered frame cannot know the width, so a compact layout appears after hydration unless you pass the boolean yourself."
+    ]
   }
 }

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Ütemező és nézetek",
-    "description": "Ütemező és nézetek a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "A Scheduler komponens és a két nézete: mire való mindegyik, hogyan vált az olvasó, és mit változtat a két előbeállítás."
   },
   "sections": {
     "basics": "Alapok",
+    "presets": "Előbeállítások",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "views": "Ugyanaz a nap, mindkét módon",
+    "presets": "Alapértelmezett és klasszikus"
+  },
+  "basics": {
+    "intro": "A <code>Scheduler</code> maga a teljes komponens: beolvassa az elemeket, műszakokra osztja a napot, és a két nézet egyikét jeleníti meg. A lista arra való, hogy egy műszakot fentről lefelé elolvass; az idővonal arra, hogy lásd, mennyire telnek az órák. Ezen az oldalon minden más e kettő egyikének a részlete.",
+    "switch": "A csomag nem rajzol nézetváltót – az oldalad rajzolja, oda, ahová az elrendezésedbe illik. Add meg a <code>defaultView</code> propot, hogy eldöntsd, hol indul az olvasó, vagy a <code>view</code> propot az <code>onViewChange</code> mellé, hogy a választás a te állapotodban legyen – például egy URL-ben, így a link abban a nézetben nyílik meg, amelyikből megosztották. Egy ilyen vezérlő feliratai a nyelvi csomagban vannak, a <code>views.list</code> és a <code>views.timeline</code> kulcsokon.",
+    "points": [
+      "A <code>ListView</code> és a <code>TimelineView</code> külön is exportált, ha egy oldalnak csak az egyik kell.",
+      "A <code>keepInactiveViewMounted</code> a másik nézetet beillesztve tartja, így a visszaváltás azonnali, és a görgetési helyzete megmarad.",
+      "A <code>listOnlyBreakpoint</code> alatt az idővonal teljesen eltűnik: a telefon a listát kapja, bármit is mond a nézet."
+    ]
+  },
+  "presets": {
+    "intro": "Az előbeállítás a komponens formája, nem a színei: a kártya elrendezése, a szintsáv erőssége, mennyi levegőt kap egy sor. A <code>'default'</code> az, amelyet ez az oldal használ; a <code>'classic'</code> sűrűbb és laposabb. Mindkettő működik mindkét színsémában és mindhárom sűrűségben."
+  },
+  "accessibility": {
+    "points": [
+      "A komponens csak az aktív nézetet jeleníti meg, így a billentyűzet soha nem jár be egy rejtettet. A <code>keepInactiveViewMounted</code> mellett a másik a DOM-ban marad, rejtve, minden figyelője és időzítője szüneteltetve.",
+      "A nézetváltó a tiéd: egy <code>aria-pressed</code> attribútumú gombpár jól olvasható, a feliratok pedig a nyelvi csomagban vannak.",
+      "A komponens egyetlen felcímkézett régió, így a képernyőolvasó egyenesen odaugorhat.",
+      "A benne lévő címsorszintek a <code>headingLevel</code> értéktől indulnak, amely alapból <code>3</code>: állítsd az oldalhoz, amelyben áll."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> és <code>density</code> a megjelenéshez — lásd: <link to=\"/customization/theming/\">Témázás</link>.",
+      "<code>slots</code> és <code>slotProps</code> bármely rész cseréjéhez vagy kiegészítéséhez — lásd: <link to=\"/customization/slots/\">Slotok és felülírások</link>.",
+      "<code>classNames</code> és <code>unstyled</code>, ha teljesen a saját CSS-edet hoznád.",
+      "<code>localization</code> a komponens minden szövegéhez — lásd: <link to=\"/customization/localization/\">Lokalizáció</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Két nézet van, és nincs mód harmadikat hozzáadni. Egy másfajta megjelenítés a <link to=\"/headless-api/\">headless API</link> dolga, amely ugyanazt a modellt adja, markup nélkül.",
+      "A két nézet nem mutatható egymás mellett egyetlen komponensben; ehhez jelenítsd meg kétszer.",
+      "A váltás megtartja a dátumot és a rögzített elemeket. Az elhagyott nézet görgetési helyzete csak a <code>keepInactiveViewMounted</code> mellett marad meg; egyébként a belépett nézet ott áll meg, ahol a <code>landing.onViewEnter</code> mondja."
+    ]
   }
 }

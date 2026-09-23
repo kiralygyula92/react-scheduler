@@ -1,10 +1,12 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Migráció",
-    "description": "Hogyan állíts át egy meglévő beállítást a jelenlegi React Scheduler verzióra, és mi változott közben."
-  }
+    "title": "Átállás",
+    "description": "Átállás erre a komponensre a saját kezűleg írt beosztásról, és hogy hol vannak feljegyezve a verziók közti változások."
+  },
+  "scope": "Egyelőre egyetlen átállási útmutató van: a csapatod által épített műszaktábláról érkezni. Épp ez az a váltás, amiért a csomag készült.",
+  "versions": "A csomag verziói közti frissítéseket a <link to=\"/discover-more/changelog/\">Változásnapló</link> rögzíti. Amelyik kiadáshoz külön lépések kellenek, az itt kap saját oldalt, az őt bevezető bejegyzésből hivatkozva."
 }

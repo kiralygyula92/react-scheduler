@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accessibility and keyboard",
-    "description": "Accessibility and keyboard in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "The keyboard map, the roles and names the component gives its parts, and what it announces — in one place."
   },
   "sections": {
     "basics": "Basics",
+    "keyboard": "Keyboard",
+    "structure": "Roles and names",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "The whole schedule, by keyboard"
+  },
+  "basics": {
+    "intro": "Every capability page has an accessibility section of its own; this page is the summary. The target is WCAG 2.2 level AA, checked by axe in three engines on every change, and by hand with NVDA and VoiceOver before a release."
+  },
+  "keyboard": {
+    "intro": "The keys the component uses. Everything else is the browser’s.",
+    "head": {
+      "key": "Key",
+      "what": "What it does"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "Moves to the next control of the schedule, in reading order."],
+      ["<kbd>Enter</kbd> or <kbd>Space</kbd>", "Activates the focused card, chip or button."],
+      ["<kbd>Escape</kbd>", "Closes the topmost dialog and returns focus to whatever opened it."]
+    ],
+    "order": "The tab order is the reading order: the pinned chips, the top navigation, then the shifts in order with their cards and their <strong>+ more</strong> chips, then the bottom navigation, then the button back to the top. Focus is always visible — a two-pixel ring, offset by two."
+  },
+  "structure": {
+    "points": [
+      "The root is a region, named by <code>aria-label</code> or by your own header through <code>aria-labelledby</code>.",
+      "Each shift is a <code>section</code> labelled by its heading, and the heading level starts at <code>headingLevel</code>.",
+      "The cards of a shift are a list, so a screen reader announces how many there are.",
+      "A card is a button whose name is the item’s title and whose description carries the level and the time, plus any tags.",
+      "The pinned strip is a region with a list of chips, and a separate polite live region announces the count when it changes, at most once a second.",
+      "The now marker is a separator named after the time it marks."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Color is never the only carrier: a level shows as a color and as a label.",
+      "The default preset meets the contrast ratios of WCAG 2.2 AA; the classic preset reproduces the colors it is named after and documents where it falls short.",
+      "A disabled item is marked <code>aria-disabled</code> rather than removed from the tab order, so it can still be read.",
+      "Dialogs are native <code>&lt;dialog&gt;</code> elements: the browser contains focus and <kbd>Escape</kbd> closes them."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>aria-label</code> or a header slot names the region; <code>headingLevel</code> fits it into your page’s outline.",
+      "Every string and every announcement comes from <code>localization</code> — see <link to=\"/customization/localization/\">Localization</link>.",
+      "A card replaced through <code>renderItem</code> has to spread <code>getItemProps</code>, which is what carries the role, the name and the keyboard handling."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "There is no roving focus or arrow-key navigation between cards yet; <kbd>Tab</kbd> is the only movement. It is on the <link to=\"/discover-more/roadmap/\">roadmap</link>.",
+      "There are no keyboard shortcuts for the navigation buttons.",
+      "The classic preset has known contrast shortfalls, listed under <link to=\"/discover-more/accessibility/\">Accessibility</link>."
+    ]
   }
 }

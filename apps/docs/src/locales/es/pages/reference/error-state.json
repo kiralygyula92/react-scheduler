@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ErrorState",
+    "description": "Lo que muestra una vista cuando la carga falló, con la acción de reintentar si se proporciona."
+  }
+}

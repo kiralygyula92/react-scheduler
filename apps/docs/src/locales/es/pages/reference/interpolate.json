@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Rellena los marcadores {{name}}. Una plantilla de plural elige su forma para values.count con Intl.PluralRules(locale), recurriendo a other. Los números se formatean con Intl.NumberFormat. Un marcador desconocido se deja tal cual."
+  }
+}

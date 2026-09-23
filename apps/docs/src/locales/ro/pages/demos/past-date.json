@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Dată din trecut",
-    "description": "O demonstrație React Scheduler pe setul Dată din trecut: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Dată trecută",
+    "description": "O zi cu două zile în urma ceasului: totul s-a întâmplat deja și nu există indicator „acum”."
+  },
+  "demos": {
+    "board": "O zi deja încheiată"
+  },
+  "scenario": "Programul arată o zi cu două zile înaintea celei curente. Fiecare element s-a întâmplat deja, așa că întrebarea la care trebuie să răspundă componenta este ce înseamnă un program când nimic din el nu mai este înainte.",
+  "look": [
+    "Niciun indicator „acum”. Este desenat doar în tura care conține momentul curent, iar tura aceea este la două zile distanță.",
+    "Nimic nu este estompat pentru că a trecut. Doar nivelul <code>resolved</code> se desenează stins, iar asta este valabil în orice zi.",
+    "Titlurile sunt tot precedentă, curentă și următoare: sunt relative la data arătată, nu la ziua de azi.",
+    "Navigarea și fixarea se comportă exact ca în ziua curentă."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Ture și date</link> — data selectată și turele desenate în jurul ei.",
+    "<link to=\"/now-indicator/\">Indicatorul „acum”</link> — regula care îl ține departe de această pagină.",
+    "<link to=\"/pinning/\">Fixare</link> — elementele preluate, într-o zi care este în întregime în urmă."
+  ]
 }

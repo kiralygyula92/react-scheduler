@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useCompact",
+    "description": "Compact mode from the element's content width; a boolean forces it. False on the server."
+  }
+}

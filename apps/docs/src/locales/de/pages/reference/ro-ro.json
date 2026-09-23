@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "roRO",
+    "description": "Das rumänische Sprachpaket (Rumänien), das an localization übergeben wird."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Mantém o conteúdo visível parado quando o elemento fixo dentro da área de deslocamento muda de altura: a área move-se o mesmo, no mesmo fotograma, em todos os motores. A área define overflow-anchor: none, para que a ancoragem do navegador não acrescente um segundo desvio. Enquanto suspended() vigorar, a alteração é apenas registada."
+  }
+}

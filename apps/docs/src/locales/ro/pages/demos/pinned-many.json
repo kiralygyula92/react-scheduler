@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Multe elemente fixate",
-    "description": "O demonstrație React Scheduler pe setul Multe elemente fixate: funcționalitățile combinate și codul sursă complet."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenariu",
+    "what-to-look-for": "Ce merită urmărit",
     "what-it-uses": "Ce folosește",
-    "source": "Cod sursă"
-  }
+    "source": "Sursă"
+  },
+  "source": "Demonstrația de mai sus este un singur fișier, complet și rulabil. <strong>Arată codul</strong> îl deschide sub panou, <strong>Copiază</strong> îl ia, iar datele din spate sunt setul numit pe această pagină.",
+  "meta": {
+    "title": "Multe elemente fixate",
+    "description": "Șase elemente ale unui nivel care se fixează în tura încheiată, și ce face banda de fixare cu ele."
+  },
+  "demos": {
+    "board": "Șase elemente care se fixează"
+  },
+  "scenario": "Șase elemente <code>critical</code> în tura încheiată, șase <code>routine</code> în tura care rulează acum. <code>critical</code> este singurul nivel din scala clasică ce se fixează, deci acesta este setul care arată o bandă de fixare sub încărcare, nu cu un singur cip în ea.",
+  "look": [
+    "Derulează programul: elementele critice care ies pe sus se fixează, în ordinea în care au ieșit.",
+    "Elementele de rutină nu se fixează niciodată, oricât ai derula. Fixarea este o proprietate a nivelului, nu a elementului.",
+    "Banda este un singur rând. Când cipurile o depășesc, se derulează lateral, cu câte o estompare la fiecare capăt ca să se vadă, iar numărul celor fixate este anunțat discret pe măsură ce se schimbă.",
+    "Un element fixat rămâne la locul lui în program; cipul este o a doua vedere a lui, nu o mutare."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Fixare</link> — care niveluri se fixează, unde, și ce face banda când se umple.",
+    "<link to=\"/items-and-levels/\">Elemente și niveluri</link> — <code>pinOnPass</code> și restul unei definiții de nivel.",
+    "<link to=\"/timeline-view/\">Vizualizarea cronologică</link> — zona derulabilă din care ies elementele."
+  ]
 }

@@ -1,10 +1,23 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Guides",
-    "description": "Task-oriented guides for React Scheduler, each one ending in a working state you can build on."
+    "description": "Where the task-oriented pages are: the four integration guides, and the capability pages behind them."
+  },
+  "sections": {
+    "start-here": "Start here"
+  },
+  "scope": "The step-by-step guides of this site live under <link to=\"/integrations/\">Integrations</link>: each one starts from an empty project and ends in a schedule you can build on. This page is the map to them, and to the pages that answer the questions a guide would raise.",
+  "start": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Usage</link> — the shortest complete example, and what each prop in it is for.",
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/nextjs/\">Next.js</link>, <link to=\"/integrations/react-router/\">React Router</link> — the same schedule in three setups.",
+      "<link to=\"/integrations/ssr/\">Server rendering</link> — what to pass so that two renders agree.",
+      "<link to=\"/demos/\">Demos</link> — eight days of a schedule, each with its source.",
+      "<link to=\"/customization/\">Customization</link> — how far you can go without forking anything."
+    ]
   }
 }

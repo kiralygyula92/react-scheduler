@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Indicador de agora",
-    "description": "Indicador de agora no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "title": "Indicador de «agora»",
+    "description": "O marcador que diz onde cai o momento presente, quando é mostrado e o que o mantém em movimento."
   },
   "sections": {
     "basics": "Noções básicas",
+    "clock": "O relógio",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "now": "Onde cai o momento presente"
+  },
+  "basics": {
+    "intro": "Um horário lê-se em relação ao presente: o que passou, o que está a decorrer, o que falta. O indicador de «agora» desenha essa fronteira — uma linha com etiqueta sobre a grelha da cronologia, um marcador entre os cartões na lista.",
+    "when": "Só é mostrado quando tudo isto é verdade, para nunca reclamar uma posição que não tem:",
+    "points": [
+      "<code>enableNowIndicator</code> está ligado, como está por omissão.",
+      "O dia que está a ser lido não está no passado.",
+      "O agora cai dentro do turno atual e do intervalo apresentado.",
+      "O dia que está a ser lido é o dia em que o agora cai."
+    ]
+  },
+  "clock": {
+    "intro": "O componente mantém o seu próprio relógio, que bate a cada <code>nowTickInterval</code> enquanto está montado e faz pausa enquanto o documento está escondido — um horário deixado aberto num separador em segundo plano não custa nada. Passe <code>now</code> para assumir o relógio: um teste, uma captura ou uma repetição mostram então o momento que escolher e não a hora que é."
+  },
+  "accessibility": {
+    "points": [
+      "Na lista o marcador é um separador com etiqueta, por isso a fronteira é anunciada e não apenas desenhada.",
+      "Na cronologia a linha é decorativa: a mesma hora está na sua etiqueta e no nome de cada cartão.",
+      "O marcador não move o foco nem desloca nada; onde uma vista aterra é uma decisão à parte."
+    ]
+  },
+  "customization": {
+    "points": [
+      "As partes <code>nowMarker</code> na lista e <code>nowLine</code> com <code>nowLabel</code> na cronologia podem ser substituídas por <link to=\"/customization/slots/\">slots</link>.",
+      "<code>--rs-color-now</code> é a cor da linha e da sua etiqueta.",
+      "<code>localization.now.label</code> é o texto, e <code>formatters.clockTime</code> a hora que leva.",
+      "<code>enableNowIndicator</code> desliga-o por completo, para um horário que não é sobre hoje."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Um marcador de cada vez: só o turno atual o recebe, mesmo que vários turnos do mesmo dia sejam apresentados.",
+      "O relógio bate a um intervalo fixo, não exatamente ao minuto, por isso o marcador pode atrasar-se até um intervalo.",
+      "Não há um «agora» num fuso horário diferente do de quem lê."
+    ]
   }
 }

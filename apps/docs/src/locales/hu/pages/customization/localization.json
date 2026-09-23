@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Lokalizáció",
-    "description": "Lokalizáció a React Schedulerben: mit módosíthatsz, hogyan, és mire hat az egyes változtatás."
+    "description": "A hét beépített nyelvi csomag, hogyan írj felül egy üzenetet, és hogyan adj hozzá saját nyelvet."
   },
   "sections": {
     "built-in-locales": "Beépített nyelvek",
-    "custom-messages": "Egyéni üzenetek",
+    "custom-messages": "Saját üzenetek",
     "adding-a-language": "Nyelv hozzáadása"
+  },
+  "demos": {
+    "localization": "Két üzenet, lecserélve"
+  },
+  "packs": {
+    "intro": "Minden szöveg, amelyet a komponens mutat, és minden, amit bemond, egyetlen objektumból jön. Hét érkezik a csomaggal; azt importáld a saját alútvonaláról, amelyikre szükséged van, hogy a többi ne kerüljön a bundle-be:",
+    "head": {
+      "pack": "Csomag",
+      "language": "Nyelv",
+      "status": "Állapot"
+    },
+    "rows": [
+      ["<code>enUS</code>", "Angol (Egyesült Államok)", "Alapértelmezett"],
+      ["<code>roRO</code>", "Román (Románia)", "Vázlat, anyanyelvi lektorálás nélkül"],
+      ["<code>huHU</code>", "Magyar (Magyarország)", "Vázlat, anyanyelvi lektorálás nélkül"],
+      ["<code>esES</code>", "Spanyol (Spanyolország)", "Az újabb szövegek még nincsenek átnézve"],
+      ["<code>frFR</code>", "Francia (Franciaország)", "Vázlat, anyanyelvi lektorálás nélkül"],
+      ["<code>deDE</code>", "Német (Németország)", "Vázlat, anyanyelvi lektorálás nélkül"],
+      ["<code>ptPT</code>", "Portugál (Portugália)", "Vázlat, anyanyelvi lektorálás nélkül"]
+    ]
+  },
+  "messages": {
+    "intro": "A csomag egyszerű objektum, ezért egyetlen üzenet cseréje szétterítés. Semmit nem olvasztunk össze mélységben helyetted: a megérintett beágyazott csoportot is szét kell teríteni, és épp ez akadályozza meg, hogy egy elgépelés csendben kiürítsen egy csoportot.",
+    "points": [
+      "A darabszámok az <code>Intl.PluralRules</code> szabályain mennek át, ezért a számot tartalmazó üzenet többes alakok objektuma, nem szöveg.",
+      "A helyőrzők <code>{{name}}</code> alakúak, az értéket pedig a csomag nyelvén formázzuk.",
+      "A <code>locale</code> az a nyelv, amellyel minden dátum, idő és szám formázódik — állítsd be, amikor saját csomagot írsz.",
+      "A <code>dir: 'rtl'</code> megfordítja az egész elrendezést, második stíluslap nélkül."
+    ]
+  },
+  "adding": {
+    "intro": "A saját nyelv egyetlen objektum, amely megfelel a <code>SchedulerLocalization</code> típusnak. Indulj az angol csomagból, hogy a típus megmondja, mi hiányzik még:",
+    "formats": "A dátumokat, az időpontokat és az intervallumokat az <code>Intl</code> formázza a csomag <code>locale</code> értékéből, így az új nyelvhez nem kellenek formátumsztringek. A <code>formatters</code> azokra az esetekre van, amikor egy formátumnak el kell térnie attól, amit az <code>Intl</code> ad."
   }
 }

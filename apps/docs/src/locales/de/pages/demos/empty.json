@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Leerer Plan",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Leerer Plan: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Leerer Plan",
+    "description": "Kein einziger Eintrag: der leere Zustand, in der Sprache der Seite, und die Schaltflächen, die nicht gezeichnet werden."
+  },
+  "demos": {
+    "board": "Ein Tag ohne alles"
+  },
+  "scenario": "Derselbe Tag, dieselben Schichten und kein einziger Eintrag. Ein leerer Plan ist kein Fehler und keine Ladeanzeige — er ist die Form des Tages ohne Inhalt, und genau das muss die Leserin sehen, bevor der erste Eintrag kommt.",
+  "look": [
+    "Die Meldung kommt aus dem Sprachpaket, steht also in der Sprache dieser Seite. <link to=\"/customization/localization/\">Lokalisierung</link> zeigt, wie man sie ersetzt.",
+    "Es gibt keine Navigationsschaltflächen: Ohne Ziel wären sie nur deaktiviert.",
+    "Die beiden Ansichten gehen anders damit um: Der Zeitstrahl behält seine Stunden und legt die Meldung darüber, die Liste gibt ihre Abschnitte dafür auf.",
+    "Farbschema und Dichte gelten weiter. Ein leerer Plan ist immer noch ein gestalteter Plan."
+  ],
+  "uses": [
+    "<link to=\"/states/\">Zustände</link> — der leere Zustand, neben Laden und Fehler.",
+    "<link to=\"/customization/localization/\">Lokalisierung</link> — jeder Text hier, auch dieser, kommt aus dem Paket.",
+    "<link to=\"/navigation/\">Navigation</link> — die Schwelle, die die Schaltflächen fernhält."
+  ]
 }

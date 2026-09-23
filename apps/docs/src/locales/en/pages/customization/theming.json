@@ -1,15 +1,35 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Theming",
-    "description": "Theming in React Scheduler: what you can change, how to change it, and what each change affects."
+    "description": "The preset, the color scheme and the density, the tokens behind them, and how dark mode works."
   },
   "sections": {
     "tokens": "Tokens",
     "dark-mode": "Dark mode",
     "presets": "Presets"
+  },
+  "demos": {
+    "theming": "The three dials"
+  },
+  "tokens": {
+    "intro": "Three props decide how the schedule looks: <code>preset</code> is its shape, <code>colorScheme</code> its palette, <code>density</code> its spacing. They are independent — any of the twelve combinations is valid, and all of them are styled.",
+    "props": "Under those three, everything is a CSS variable. <code>tokens</code> sets them on the root of the component, which is the smallest way to change one value without a stylesheet of your own:"
+  },
+  "dark": {
+    "intro": "The dark scheme is not a separate stylesheet: it is the same tokens with other values, selected by a data attribute the component sets. That means you can override the dark values the same way you override the light ones:",
+    "system": "<code>colorScheme=\"system\"</code> follows the reader’s own setting through <code>prefers-color-scheme</code>, and updates when that changes. Whatever you choose, the contrast of the default preset is what the <link to=\"/discover-more/accessibility/\">accessibility</link> page reports."
+  },
+  "presets": {
+    "intro": "A preset is the shape of the component, not its colors.",
+    "points": [
+      "<code>'default'</code> — what this site shows: rounder cards, a stronger level rail, more air between the rows.",
+      "<code>'classic'</code> — denser and flatter, for a screen that has to hold more at once.",
+      "Both work in both color schemes and all three densities, and both are covered by the visual tests.",
+      "A preset changes only what CSS can change; the structure, the names and the behavior are the same in each."
+    ]
   }
 }

@@ -1,13 +1,64 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Ütemterv",
-    "description": "Mi a terv a React Schedulerhez az első stabil kiadás után. Dátumok és ígéretek nélkül."
+    "description": "Mi a terv az első stabil kiadás után — szándékok listája, dátumok nélkül."
   },
   "sections": {
-    "planned": "Tervezett"
+    "planned": "Tervezett",
+    "not-planned": "Nem tervezett",
+    "how-it-changes": "Hogyan változik ez a lista"
+  },
+  "intro": "Ezekkel kellene a csomagnak bővülnie 1.0 után. Nincs rajtuk dátum, és egyik sem ígéret: a sorrend az, ami ma ésszerű, és előbb az első kiadásnak kell megjönnie.",
+  "planned": {
+    "head": {
+      "item": "Tétel",
+      "status": "Állapot",
+      "what": "Mit jelentene"
+    },
+    "rows": [
+      [
+        "Húzva szerkesztés",
+        "Tervezett",
+        "Elemek mozgatása és átméretezése mutatóval és billentyűzettel, zárolható elemekkel."
+      ],
+      [
+        "Virtualizálás",
+        "Tervezett",
+        "Csak a látómező közelében lévők kirajzolása. A keretek nélküle is teljesülnek ma, ezért nincs benne az 1.0-ban."
+      ],
+      [
+        "Vándorló fókusz és gyorsbillentyűk",
+        "Tervezett",
+        "Nyilakkal mozgás a kártyák között, és gyorsbillentyűk a léptetőgombokhoz."
+      ],
+      [
+        "Kifejezett időzóna",
+        "Tervezett",
+        "Egy nap megjelenítése az olvasóétól eltérő zónában. Ma a komponens a helyi zónában dolgozik, és kezeli a nyári időszámítást."
+      ],
+      ["Dátumsáv", "Tervezett", "Beépített mód a nap kiválasztására. Ma a dátum a tiéd."],
+      [
+        "Megőrzés",
+        "Tervezett",
+        "A nézet, a görgetési pozíció és a rögzített elemek megjegyzése látogatások között, egy property mögött."
+      ],
+      ["Képességnyilvántartás", "Fontolgatjuk", "Képesség hozzáadása a csomagon kívülről, belső kapcsoló helyett."]
+    ]
+  },
+  "notPlanned": {
+    "intro": "Néhány dolog szándékosan kívül esik azon, amit a komponens csinál, és ezt kimondani is az útiterv része:",
+    "points": [
+      "Adatréteg. A komponens soha nem kér le adatot; az elemek a tieid, bárhol tartod is őket.",
+      "Állapotkezelő könyvtár. Az állapot React-állapot, vezérelt vagy vezéreletlen, és semmi más nem kell.",
+      "Stílus-futásidő. A kinézet CSS-változók és osztálynevek, amelyeket a böngésző old fel.",
+      "Naptár. Ez egyszerre egy nap beosztása, nem havi vagy éves nézet."
+    ]
+  },
+  "how": {
+    "text": "Egy tétel innen a <link to=\"/discover-more/changelog/\">Változásnapló</link> kerül, amikor elkészül, és eltűnik innen, ha úgy döntünk, hogy mégsem. Ha valami hiányzik neked, a <link to=\"/getting-started/support/\">Támogatás</link> az a hely, ahol elmondhatod."
   }
 }

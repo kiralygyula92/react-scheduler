@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createFormatters",
+    "description": "Construye los formateadores predeterminados de una configuración regional, que luego formatters puede sustituir uno a uno."
+  }
+}

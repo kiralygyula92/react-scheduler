@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accessibilité et clavier",
-    "description": "Accessibilité et clavier dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "La carte du clavier, les rôles et les noms que le composant donne à ses parties, et ce qu’il annonce — en un seul endroit."
   },
   "sections": {
     "basics": "Bases",
+    "keyboard": "Clavier",
+    "structure": "Rôles et noms",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "Tout le planning, au clavier"
+  },
+  "basics": {
+    "intro": "Chaque page de capacité a sa propre section d’accessibilité ; cette page est le résumé. La cible est WCAG 2.2 niveau AA, vérifiée par axe dans trois moteurs à chaque changement, et à la main avec NVDA et VoiceOver avant une publication."
+  },
+  "keyboard": {
+    "intro": "Les touches qu’utilise le composant. Le reste appartient au navigateur.",
+    "head": {
+      "key": "Touche",
+      "what": "Ce qu’elle fait"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "Passe au contrôle suivant du planning, dans l’ordre de lecture."],
+      ["<kbd>Enter</kbd> ou <kbd>Space</kbd>", "Active la carte, la pastille ou le bouton ayant le focus."],
+      ["<kbd>Escape</kbd>", "Ferme la boîte de dialogue du dessus et rend le focus à ce qui l’a ouverte."]
+    ],
+    "order": "L’ordre de tabulation est l’ordre de lecture : les pastilles épinglées, la navigation du haut, puis les postes dans l’ordre avec leurs cartes et leurs pastilles <strong>+ plus</strong>, puis la navigation du bas, puis le bouton de retour en haut. Le focus est toujours visible — un anneau de deux pixels, décalé de deux."
+  },
+  "structure": {
+    "points": [
+      "La racine est une région, nommée par <code>aria-label</code> ou par votre propre en-tête via <code>aria-labelledby</code>.",
+      "Chaque poste est un élément <code>section</code> étiqueté par son titre, et le niveau du titre part de <code>headingLevel</code>.",
+      "Les cartes d’un poste forment une liste : un lecteur d’écran annonce combien il y en a.",
+      "Une carte est un bouton dont le nom est le titre de l’élément et dont la description porte le niveau et l’heure, plus les étiquettes.",
+      "Le bandeau des épinglés est une région contenant une liste de pastilles, et une région live polie distincte annonce le compte quand il change, au plus une fois par seconde.",
+      "Le repère « maintenant » est un séparateur nommé d’après l’heure qu’il marque."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "La couleur n’est jamais le seul support : un niveau se montre comme couleur et comme libellé.",
+      "Le préréglage par défaut respecte les rapports de contraste de WCAG 2.2 AA ; le préréglage classique reproduit les couleurs dont il porte le nom et documente où il est insuffisant.",
+      "Un élément désactivé est marqué <code>aria-disabled</code> plutôt que retiré de l’ordre de tabulation : il reste lisible.",
+      "Les boîtes de dialogue sont des éléments <code>&lt;dialog&gt;</code> natifs : le navigateur contient le focus et <kbd>Escape</kbd> les ferme."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>aria-label</code> ou un slot d’en-tête nomme la région ; <code>headingLevel</code> l’insère dans le plan de votre page.",
+      "Chaque texte et chaque annonce viennent de <code>localization</code> — voir <link to=\"/customization/localization/\">Localisation</link>.",
+      "Une carte remplacée via <code>renderItem</code> doit répandre <code>getItemProps</code>, qui porte le rôle, le nom et la gestion du clavier."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Il n’y a pas encore de focus mobile ni de navigation aux flèches entre les cartes ; <kbd>Tab</kbd> est le seul déplacement. C’est sur la <link to=\"/discover-more/roadmap/\">feuille de route</link>.",
+      "Il n’y a pas de raccourcis clavier pour les boutons de navigation.",
+      "Le préréglage classique a des insuffisances de contraste connues, listées sur <link to=\"/discover-more/accessibility/\">Accessibilité</link>."
+    ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Überblick",
@@ -12,5 +12,49 @@
     "why": "Warum React Scheduler",
     "start-now": "Jetzt starten",
     "license": "Lizenz"
+  },
+  "introduction": {
+    "what": "React Scheduler zeigt einen Arbeitstag als Plan. Er bekommt eine flache Liste von Einträgen mit Beginn, Stufe und Titel, ordnet sie den Schichten des Tages zu und stellt sie entweder als <link to=\"/list-view/\">Liste</link> dar, die von oben nach unten gelesen wird, oder als <link to=\"/timeline-view/\">Zeitstrahl</link>, auf dem die Höhe eines Eintrags seine Dauer ist. Er ist eine React-Komponente, geschrieben in TypeScript, HTML und CSS, <strong>ohne Laufzeitabhängigkeiten</strong> außer React selbst.",
+    "controlled": "Alles wird von außen gesteuert. Props setzen die Daten, die Schichten und die Optionen; CSS-Variablen setzen Farben, Abstände und Dichte; Callbacks melden jede Änderung; <link to=\"/customization/slots/\">Slots</link> und Render-Props ersetzen jeden Teil des Markups. Der Zustand kann bei der Komponente bleiben oder Prop für Prop in Ihre Anwendung wandern.",
+    "not": "Er ist kein Kalender und kein Editor. Es gibt kein Monats- oder Jahresraster, kein Ziehen und Ablegen, keine Wiederholungen, keine eigene Zeitzone und keine Datenschicht: Er zeigt die Einträge, die Sie ihm geben, für den Tag, den Sie verlangen, und meldet, was der Leser tut."
+  },
+  "why": {
+    "points": [
+      "<strong>Barrierefrei von Grund auf:</strong> jede Karte ist eine Schaltfläche, jede Schicht eine Überschrift, jeder Dialog hält den Fokus, und das Ziel ist WCAG 2.2 AA — von axe geprüft, in den Browsertests des Pakets und auf den Seiten dieser Website.",
+      "<strong>Gestaltbar ohne UI-Kit:</strong> zwei Voreinstellungen, drei Dichten, ein helles und ein dunkles Schema und mehr als hundertfünfzig CSS-Variablen. Kein CSS-in-JS zur Laufzeit, keine Utility-Klassen-Bibliothek, nichts einzurichten vor dem ersten Rendern.",
+      "<strong>Keine Laufzeitabhängigkeiten:</strong> nur <code>react</code> und <code>react-dom</code> als Peers. Es wird nichts weiter mitinstalliert, also kann nichts weiter es brechen.",
+      "<strong>Sicher auf dem Server:</strong> Er rendert auf dem Server, ohne das DOM anzufassen, hydriert ohne Warnung und startet seine Observer erst nach dem Einhängen.",
+      "<strong>Klein und faul:</strong> rund 25 kB gzip für den Haupteinstieg, wobei der Dialog der weiteren Einträge und der Detaildialog als eigene Teile erst beim ersten Öffnen geladen werden.",
+      "<strong>Sieben Sprachen eingebaut:</strong> Englisch, Rumänisch, Ungarisch, Spanisch, Französisch, Deutsch und Portugiesisch, jede ein einfaches Objekt, das Sie erweitern oder ersetzen können."
+    ]
+  },
+  "cards": {
+    "installation": {
+      "title": "Installation",
+      "text": "Paket installieren, Stylesheet einbinden, das erste Rendern prüfen."
+    },
+    "usage": {
+      "title": "Verwendung",
+      "text": "Ein vollständiges Beispiel, dann die Props, zu denen Sie zuerst greifen."
+    },
+    "features": {
+      "title": "Alle Funktionen",
+      "text": "Jede Fähigkeit, je eine Seite, mit einer lebenden Demo."
+    },
+    "timeline": {
+      "title": "Zeitstrahlansicht",
+      "text": "Die Fläche, auf der die Höhe eines Eintrags seine Dauer ist."
+    },
+    "customization": {
+      "title": "Anpassung",
+      "text": "CSS-Variablen, Klassennamen, Slot-Props, Slots und Handler."
+    },
+    "api": {
+      "title": "API-Referenz",
+      "text": "Jeder Export, erzeugt aus den Deklarationen des Pakets."
+    }
+  },
+  "license": {
+    "text": "MIT, ohne kostenpflichtige Stufe und ohne gesperrte Funktionen. Alles, was diese Website dokumentiert, steckt im Paket, das Sie installieren."
   }
 }

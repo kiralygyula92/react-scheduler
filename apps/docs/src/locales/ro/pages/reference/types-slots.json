@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipuri pentru sloturi și randare",
+    "description": "Părțile, starea lor de proprietar și ce primește fiecare slot și fiecare proprietate de randare."
+  }
+}

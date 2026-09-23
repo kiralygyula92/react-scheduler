@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Scheduler",
+    "description": "Planificatorul: vizualizarea listă sau cronologică, selectată prin view."
+  }
+}

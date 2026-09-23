@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Contexto de IA",
@@ -15,5 +15,61 @@
     "minimal-working-example": "Exemplo mínimo funcional",
     "verify": "Verificação",
     "next-steps": "Próximos passos"
+  },
+  "prerequisites": {
+    "text": "Uma ferramenta de programação agêntica — Claude Code, Cursor, Codex ou outra — com o seu repositório aberto. Não se instala nada para isto: é um ficheiro Markdown e uma linha de instrução."
+  },
+  "install": {
+    "download": "Descarregue a documentação para o seu repositório:",
+    "instruction": "Depois acrescente uma linha ao ficheiro que a sua ferramenta lê em cada sessão — <code>CLAUDE.md</code> para o Claude Code, <code>AGENTS.md</code> para o Codex, o Cursor e a maioria das outras:",
+    "url": "Uma ferramenta que indexa documentação por URL pode receber <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code> em vez de uma cópia local. Volte a descarregá-lo quando atualizar o pacote: é gerado na mesma compilação que este site, por isso os dois não podem discordar."
+  },
+  "what": {
+    "text": "Cada página deste site, por ordem de leitura, num único documento Markdown:",
+    "points": [
+      "o texto de cada página, com os seus títulos e as suas tabelas;",
+      "o código completo de cada exemplo vivo, exatamente como corre aqui;",
+      "a referência da API, gerada a partir das declarações de tipos do pacote — cada prop, o seu tipo, o seu valor por omissão e a sua descrição."
+    ]
+  },
+  "which": {
+    "head": {
+      "file": "Ficheiro",
+      "holds": "O que contém",
+      "when": "Use-o quando"
+    },
+    "rows": [
+      [
+        "<code>llms-full.md</code>",
+        "Cada página e cada exemplo, em Markdown",
+        "A sua ferramenta lê Markdown e a janela de contexto o comporta"
+      ],
+      [
+        "<code>llms-full.txt</code>",
+        "O mesmo conteúdo como texto simples",
+        "A sua ferramenta espera <code>.txt</code>"
+      ],
+      [
+        "<code>llms.txt</code>",
+        "Um índice de ligações: cada página com a sua descrição de uma linha",
+        "O ficheiro completo é demasiado grande, ou a ferramenta obtém páginas a pedido"
+      ],
+      ["O URL de uma página com <code>.md</code>", "Uma única página", "Sabe que página responde à pergunta"]
+    ],
+    "context": "O ficheiro completo tem cerca de 240 kB, o que cabe nos modelos atuais mas enche uma janela de contexto pequena. Se a sua for apertada, dê ao agente o <code>llms.txt</code> e deixe-o ir buscar a página de que precisa — cada página deste site obtém-se acrescentando <code>.md</code> ao seu URL."
+  },
+  "example": {
+    "text": "Um prompt que usa o ficheiro. O agente tem as props, os valores por omissão e os exemplos, por isso não tem de adivinhar uma API:"
+  },
+  "verify": {
+    "text": "Faça uma pergunta a que só a documentação responde. Se o agente inventar um nome de prop plausível, não leu o ficheiro:",
+    "answer": "A resposta é <code>overflowMergeWindow</code>: as horas consecutivas só se fundem num grupo enquanto o grupo resultante ficar dentro dessa janela. Está na página <link to=\"/timeline-view/\">Vista cronológica</link>."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/installation/\">Instalação</link> — o próprio pacote.",
+      "<link to=\"/getting-started/usage/\">Utilização</link> — um exemplo completo para dar ao agente.",
+      "<link to=\"/api/\">Referência da API</link> — os mesmos dados que o ficheiro leva, página a página."
+    ]
   }
 }

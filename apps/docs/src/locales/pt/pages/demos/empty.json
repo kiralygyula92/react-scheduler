@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Horário vazio",
-    "description": "Uma demonstração do React Scheduler sobre o conjunto Horário vazio: as capacidades combinadas e o código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Cenário",
+    "what-to-look-for": "O que reparar",
     "what-it-uses": "O que utiliza",
     "source": "Código-fonte"
-  }
+  },
+  "source": "A demonstração acima é um único ficheiro, completo e executável. <strong>Mostrar código</strong> abre-o por baixo do quadro, <strong>Copiar</strong> leva-o, e os dados por detrás são o conjunto nomeado nesta página.",
+  "meta": {
+    "title": "Horário vazio",
+    "description": "Nenhum elemento: o estado vazio, no idioma da página, e os botões que não são desenhados."
+  },
+  "demos": {
+    "board": "Um dia sem nada"
+  },
+  "scenario": "O mesmo dia, os mesmos turnos e nem um elemento. Um horário vazio não é um erro nem um indicador de carregamento: é a forma do dia sem nada dentro, que é precisamente o que o leitor precisa de ver antes de chegar o primeiro elemento.",
+  "look": [
+    "A mensagem vem do pacote de idioma, por isso está no idioma desta página. <link to=\"/customization/localization/\">Localização</link> mostra como a substituir.",
+    "Não há botões de navegação: sem nada para onde saltar, estariam apenas desativados.",
+    "As duas vistas tratam-no de forma diferente: a cronologia mantém as suas horas e põe a mensagem por cima, e a lista cede-lhe as suas secções.",
+    "O esquema de cor e a densidade continuam a aplicar-se. Um horário vazio é na mesma um horário com tema."
+  ],
+  "uses": [
+    "<link to=\"/states/\">Estados</link> — o estado vazio, ao lado do carregamento e do erro.",
+    "<link to=\"/customization/localization/\">Localização</link> — cada texto aqui, incluindo este, vem do pacote.",
+    "<link to=\"/navigation/\">Navegação</link> — o limiar que mantém os botões de fora."
+  ]
 }

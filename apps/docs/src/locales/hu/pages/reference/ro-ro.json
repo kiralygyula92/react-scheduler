@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "roRO",
+    "description": "A román (Románia) nyelvi csomag, amelyet a localization kap meg."
+  }
+}

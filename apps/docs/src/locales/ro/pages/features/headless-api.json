@@ -1,17 +1,60 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "API headless",
-    "description": "API headless în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Același model fără markup: hook-urile și controlerul din spatele componentelor."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "layers": "Cele trei straturi",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "headless": "Un program cu markup propriu"
+  },
+  "basics": {
+    "intro": "Când sloturile și proprietățile de randare nu ajung — o structură diferită, nu un aspect diferit — ia modelul și lasă markup-ul. <code>useScheduler</code> returnează tot ce randează <code>&lt;Scheduler&gt;</code>: turele cu elementele lor, setul fixat, starea navigării, formatoarele și câte un getter pentru proprietățile fiecărui element.",
+    "points": [
+      "Răspândește <code>getRootProps</code>, <code>getScrollerProps</code> și <code>getSectionProps</code> și măsurătorile funcționează: modul compact, tura activă, navigarea.",
+      "Răspândește <code>getItemProps</code> pe orice faci card, iar activarea, tastatura și focalizarea funcționează ca în cel încorporat.",
+      "<code>getPinSentinelProps</code> este ceea ce face fixarea să funcționeze în markup-ul tău; fără el, elementele nu se fixează niciodată.",
+      "Starea este aceeași pe care o folosesc componentele, așa că nu lipsește nimic și nu se dublează nimic."
+    ]
+  },
+  "layers": {
+    "intro": "Pachetul are trei straturi și poți intra la oricare dintre ele:",
+    "points": [
+      "<code>@react-schedulerkit/react-scheduler</code> — componentele, hook-urile și tipurile.",
+      "<code>/core</code> — funcțiile pure din spatele lor: ture, grupare, aranjarea cronologiei, formatoarele. Fără React, fără DOM; rulează în Node simplu, și asta este testat.",
+      "<code>/dom</code> — motoarele de browser: observatorul de fixare, navigatorul, observatorii de lățime și de mișcare. DOM, fără React.",
+      "<code>/headless</code> — <code>createScheduler</code>, controlerul agnostic de framework, cu starea, acțiunile și un abonament."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Getterele poartă rolurile, numele și tratarea tastaturii. Le răspândești și accesibilitatea vine cu ele; le lași afară și rămâne în sarcina ta.",
+      "Regiunea live, anunțurile și întoarcerea focalizării fac parte din componente, nu din hook: o randare headless le aduce pe ale ei.",
+      "Ordinea în care randezi secțiunile și cardurile este ordinea în care citește un cititor de ecran, așa că păstreaz-o pe cea a zilei."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>useScheduler</code> pentru o randare React proprie; <code>createScheduler</code> pentru un cu totul alt framework.",
+      "<code>useShiftModel</code>, <code>useTimelineLayout</code>, <code>usePinOnPass</code>, <code>useShiftNavigation</code>, <code>useNow</code> și <code>useCompact</code> sunt piesele, dacă vrei doar una dintre ele.",
+      "Funcțiile pure din <code>/core</code> sunt utile pe un server: gruparea elementelor sau calculul unei aranjări nu au nevoie de browser."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Foaia de stil este scrisă pentru markup-ul încorporat. O randare headless își aduce propriul CSS sau folosește <code>base.css</code> ca punct de plecare.",
+      "Dialogul de suplimentare și cel de detaliu sunt componente, nu stare: o randare headless le deschide pe ale ei.",
+      "Hook-ul returnează un obiect de stare nou la fiecare schimbare relevantă; memorează ce construiești din el, dacă randarea ta este costisitoare."
+    ]
   }
 }

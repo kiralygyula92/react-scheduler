@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createFormatters",
+    "description": "Baut die Standardformatierer für eine Locale, die formatters danach einzeln ersetzen kann."
+  }
+}

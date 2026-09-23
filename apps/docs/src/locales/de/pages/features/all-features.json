@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Alle Funktionen",
     "description": "Alle Fähigkeiten von React Scheduler, gruppiert wie in der Seitenleiste, jeweils mit einer Zeile und einem Link."
-  }
+  },
+  "scope": "Alle Fähigkeiten von React Scheduler, in den Gruppen der Seitenleiste. Jede Seite beginnt mit einer lebenden Demo und sagt dann, was Sie ändern können, was Tastatur und Screenreader bekommen und wo die Funktion endet."
 }

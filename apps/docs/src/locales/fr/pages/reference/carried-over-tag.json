@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "CARRIED_OVER_TAG",
+    "description": "La clé d’étiquette que la bibliothèque ajoute aux éléments épinglés reportés."
+  }
+}

@@ -1,16 +1,28 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "FAQ",
-    "description": "FAQ for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+    "description": "The four questions asked most often about React Scheduler: the license, Next.js, using it without the default styles, and the built-in languages."
   },
   "sections": {
     "is-it-free": "Is it free?",
     "nextjs": "Does it work with Next.js?",
     "without-default-styles": "Can I use it without the default styles?",
     "built-in-languages": "Which languages are built in?"
+  },
+  "free": {
+    "text": "Yes. React Scheduler is MIT licensed, with no paid tier and no feature gating: the package you install is the whole thing, and everything on this site is in it. The full text is on the <link to=\"/discover-more/license/\">License</link> page."
+  },
+  "nextjs": {
+    "text": "Yes, in both routers. The schedule reads the viewport and listens for scrolling, so it is a client component: put <code>'use client'</code> at the top of the file that renders it, or of a wrapper around it. The server still renders its markup, and hydration is silent. <link to=\"/integrations/nextjs/\">Next.js</link> has the details."
+  },
+  "unstyled": {
+    "text": "Yes, at three levels. Keep <code>styles.css</code> and change the CSS variables; or import <code>base.css</code>, which carries the structure and nothing else; or pass <code>unstyled</code> and bring your own class names through <code>classNames</code>. <link to=\"/customization/\">Customization</link> shows what each level costs you."
+  },
+  "languages": {
+    "text": "Seven: English, Romanian, Hungarian, Spanish, French, German and Portuguese. Each is a plain object exported from <code>@react-schedulerkit/react-scheduler/locales</code>, so you can pass one, extend it, or write your own — dates, times and counts follow the pack's locale through <code>Intl</code>. See <link to=\"/customization/localization/\">Localization</link>."
   }
 }

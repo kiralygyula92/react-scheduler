@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Demos",
-    "description": "Scenario demos of React Scheduler, each built from several capabilities, plus the playground for trying props."
-  }
+    "description": "Eight days of a schedule, from an empty one to one with 240 items, and the playground for trying props."
+  },
+  "scope": "Each of these is one day, built from the same fixtures the package is tested against, with the view, the color scheme and the density under your control. They are meant to be read together with the capability pages: a scenario shows what several capabilities look like at once, a capability page explains one of them."
 }

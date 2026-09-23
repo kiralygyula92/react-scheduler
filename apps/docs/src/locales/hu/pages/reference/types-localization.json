@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Lokalizációs típusok",
+    "description": "Egy nyelvi csomag és a formázók felépítése, valamint a köréjük épülő segédtípusok."
+  }
+}

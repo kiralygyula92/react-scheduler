@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Nachtschicht",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Nachtschicht: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Nachtschicht",
+    "description": "Ein Plan, um 02:00 gelesen, dessen aktuelle Schicht am Vortag um 20:00 begann."
+  },
+  "demos": {
+    "board": "Eine Schicht über Mitternacht"
+  },
+  "scenario": "Es ist 02:00, die Schichten dauern zwölf Stunden und sind auf 08:00 verankert, die gelesene Schicht begann also gestern um 20:00 und endet heute um 08:00. Ein Plan, der den Tag von Mitternacht bis Mitternacht denkt, zerbricht hier; dieser nicht.",
+  "look": [
+    "Die aktuelle Schicht geht über Mitternacht: von 20:00 gestern bis 08:00 heute, und ihre Einträge liegen beiderseits des Datumswechsels.",
+    "Die „Jetzt“-Anzeige steht auf 02:00 — sechs Stunden in der Schicht, nicht zwei Stunden im Tag.",
+    "Die Überschriften bleiben relativ — vorige, aktuelle, nächste. Welche Schicht die aktuelle ist, sagt die Uhr, nicht der Kalender.",
+    "Nichts davon ist eine Einstellung für Nachtarbeit: Derselbe Anker und dieselbe Länge platzieren jede Schicht, zu jeder Stunde."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Schichten und Daten</link> — der Anker, die Länge, und welche Schicht als aktuelle gilt.",
+    "<link to=\"/now-indicator/\">„Jetzt“-Anzeige</link> — die Linie und die Schicht, in der sie gezeichnet wird.",
+    "<link to=\"/customization/localization/\">Lokalisierung</link> — die Daten und Uhrzeiten, formatiert mit der Sprache des Pakets."
+  ]
 }

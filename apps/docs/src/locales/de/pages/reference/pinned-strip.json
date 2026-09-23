@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedStrip",
+    "description": "Die Leiste angehefteter Elemente, die sichtbar bleibt, solange ihre Schicht auf dem Bildschirm ist."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "pageList",
+    "description": "Pages to show in the pager (0-based): every page when there are at most 7; otherwise the first two, the last two and the current page ±1, with 'ellipsis' in each gap."
+  }
+}

@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Localização",
-    "description": "Localização no React Scheduler: o que pode alterar, como alterar e o que cada alteração afeta."
+    "description": "Os sete pacotes de idioma incluídos, como substituir uma mensagem e como acrescentar um idioma seu."
   },
   "sections": {
     "built-in-locales": "Idiomas incluídos",
-    "custom-messages": "Mensagens personalizadas",
-    "adding-a-language": "Adicionar um idioma"
+    "custom-messages": "Mensagens suas",
+    "adding-a-language": "Acrescentar um idioma"
+  },
+  "demos": {
+    "localization": "Duas mensagens, substituídas"
+  },
+  "packs": {
+    "intro": "Cada texto que o componente mostra e cada texto que anuncia vêm de um único objeto. Sete são entregues com o pacote; importe o que precisa a partir do seu próprio subcaminho para que os outros não sejam empacotados:",
+    "head": {
+      "pack": "Pacote",
+      "language": "Idioma",
+      "status": "Estado"
+    },
+    "rows": [
+      ["<code>enUS</code>", "Inglês (Estados Unidos)", "A predefinição"],
+      ["<code>roRO</code>", "Romeno (Roménia)", "Rascunho, ainda não revisto por um falante nativo"],
+      ["<code>huHU</code>", "Húngaro (Hungria)", "Rascunho, ainda não revisto por um falante nativo"],
+      ["<code>esES</code>", "Espanhol (Espanha)", "Os textos mais recentes ainda não foram revistos"],
+      ["<code>frFR</code>", "Francês (França)", "Rascunho, ainda não revisto por um falante nativo"],
+      ["<code>deDE</code>", "Alemão (Alemanha)", "Rascunho, ainda não revisto por um falante nativo"],
+      ["<code>ptPT</code>", "Português (Portugal)", "Rascunho, ainda não revisto por um falante nativo"]
+    ]
+  },
+  "messages": {
+    "intro": "Um pacote é um objeto simples, por isso substituir uma mensagem é um spread. Nada é fundido em profundidade por si: um grupo aninhado em que toque tem de ser espalhado também, e é isso que impede que uma gralha esvazie um grupo em silêncio.",
+    "points": [
+      "As contagens passam pelo <code>Intl.PluralRules</code>, por isso uma mensagem com uma contagem é um objeto de formas de plural, não uma cadeia.",
+      "Os marcadores são <code>{{name}}</code>, e o valor é formatado no idioma do pacote.",
+      "<code>locale</code> é o idioma com que cada data, hora e número é formatado — defina-o quando escrever um pacote seu.",
+      "<code>dir: 'rtl'</code> vira toda a disposição, sem uma segunda folha de estilos."
+    ]
+  },
+  "adding": {
+    "intro": "Um idioma seu é um objeto que satisfaz <code>SchedulerLocalization</code>. Parta do pacote inglês para que o tipo lhe diga o que ainda falta:",
+    "formats": "As datas, as horas e os intervalos são formatados pelo <code>Intl</code> a partir do <code>locale</code> do pacote, por isso um idioma novo não precisa de cadeias de formato. <code>formatters</code> existe para os casos em que um formato tem de diferir do que o <code>Intl</code> dá."
   }
 }

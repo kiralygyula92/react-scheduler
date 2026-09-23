@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Installation",
-    "description": "Installation for the React Scheduler package: the steps in order, the versions involved, and what to check afterwards."
+    "description": "Install React Scheduler, add its stylesheet, and render the first schedule. Peer dependencies, the styles, and a five-line check."
   },
   "sections": {
     "install": "Install",
@@ -13,5 +13,37 @@
     "stylesheet": "Stylesheet",
     "verify": "Verify",
     "next-steps": "Next steps"
+  },
+  "peers": {
+    "intro": "React Scheduler installs nothing of its own. Its two peers are the React you already have; every other package in the tree is a development tool of this repository, not of your application.",
+    "head": { "package": "Package", "range": "Range", "why": "Why" },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Hooks, context and the concurrent renderer the views are built on."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "The DOM renderer, and the portal the overflow and detail dialogs open in."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "Import the stylesheet once, where your application starts. It carries both presets, the light and the dark scheme, and the three densities; nothing is injected at runtime.",
+    "unstyled": "If you want to style everything yourself, import <code>@react-schedulerkit/react-scheduler/base.css</code> instead: the same structure with no colors, no spacing scale and no type scale. See <link to=\"/customization/\">Customization</link> for the levels in between."
+  },
+  "verify": {
+    "intro": "This is a complete file. If it renders a card in one shift, the package, its styles and its peers are in place.",
+    "calloutTitle": "No date, no shifts?",
+    "callout": "Both are optional. Without <code>date</code> the schedule shows the current day, and without <code>shifts</code> it uses two twelve-hour shifts anchored at 08:00."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Usage</link> — the props you will set first, and how state is shared with your application.",
+      "<link to=\"/getting-started/requirements/\">Requirements</link> — browsers, React and TypeScript versions, bundle size.",
+      "<link to=\"/all-features/\">All features</link> — every capability with a live demo."
+    ]
   }
 }

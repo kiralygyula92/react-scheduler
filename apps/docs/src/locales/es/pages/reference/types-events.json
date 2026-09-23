@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipos de eventos y manejadores",
+    "description": "Los tipos de las retrollamadas y del middleware: qué recibe cada uno y qué puede devolver."
+  }
+}

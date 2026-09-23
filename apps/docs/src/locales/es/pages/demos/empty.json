@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Horario vacío",
-    "description": "Una demo de React Scheduler sobre el conjunto Horario vacío: las capacidades que combina y su código completo."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Escenario",
+    "what-to-look-for": "En qué fijarse",
     "what-it-uses": "Qué utiliza",
     "source": "Código fuente"
-  }
+  },
+  "source": "La demostración de arriba es un solo archivo, completo y ejecutable. <strong>Mostrar código</strong> lo abre bajo el tablero, <strong>Copiar</strong> se lo lleva, y los datos que hay detrás son el conjunto que nombra esta página.",
+  "meta": {
+    "title": "Horario vacío",
+    "description": "Ningún elemento: el estado vacío, en el idioma de la página, y los botones que no se dibujan."
+  },
+  "demos": {
+    "board": "Un día sin nada"
+  },
+  "scenario": "El mismo día, los mismos turnos y ni un elemento. Un horario vacío no es un error ni un indicador de carga: es la forma del día sin nada dentro, que es justo lo que el lector necesita ver antes de que llegue el primer elemento.",
+  "look": [
+    "El mensaje viene del paquete de idioma, así que está en el idioma de esta página. <link to=\"/customization/localization/\">Localización</link> enseña cómo sustituirlo.",
+    "No hay botones de navegación: sin nada a lo que saltar, solo estarían desactivados.",
+    "Las dos vistas lo tratan de forma distinta: la línea de tiempo conserva sus horas y pone el mensaje encima, y la lista le cede sus secciones.",
+    "El esquema de color y la densidad siguen aplicándose. Un horario vacío sigue siendo un horario con tema."
+  ],
+  "uses": [
+    "<link to=\"/states/\">Estados</link> — el estado vacío, junto al de carga y el de error.",
+    "<link to=\"/customization/localization/\">Localización</link> — cada texto de aquí, incluido este, viene del paquete.",
+    "<link to=\"/navigation/\">Navegación</link> — el umbral que mantiene los botones fuera."
+  ]
 }

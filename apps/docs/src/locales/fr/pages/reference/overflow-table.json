@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "OverflowTable",
+    "description": "Le tableau dans la boîte de dialogue des éléments supplémentaires."
+  }
+}

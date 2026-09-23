@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Baseline day",
-    "description": "A React Scheduler demo on the Baseline day fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Baseline day",
+    "description": "Seventeen items over three shifts, a busy hour in the middle and two levels that pin: an ordinary day."
+  },
+  "demos": {
+    "board": "An ordinary day"
+  },
+  "scenario": "Seventeen items spread over the shift that has passed, the shift running at 10:30 and the shift still to come. Five of them are <code>critical</code>, the level that pins once it scrolls past, and four start within half an hour of each other late in the morning. It is the day most of the package’s own tests are written against, which makes it the one to compare the others to.",
+  "look": [
+    "Three shifts are drawn: one before the current one, the current one, and one after it. The current one is the one that holds 10:30.",
+    "The now indicator sits at 10:30 in the timeline, between the items that have finished and the ones that have not started.",
+    "Both views place the items in the same order — by start time, then by level, then by id — so switching never reshuffles the day.",
+    "Compact does not drop anything: the cards narrow, the chips shorten and the timeline caps at one column."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Shifts and dates</link> — twelve-hour shifts anchored at 08:00, one before and one after the current shift.",
+    "<link to=\"/items-and-levels/\">Items and levels</link> — the nine-level classic scale, which decides the color, the order and the card treatment.",
+    "<link to=\"/now-indicator/\">Now indicator</link> — the line at 10:30, drawn only in the shift that holds it.",
+    "<link to=\"/scheduler-and-views/\">Scheduler and views</link> — the two views, and the switch this page builds for them."
+  ]
 }

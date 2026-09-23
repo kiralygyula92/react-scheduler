@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Retraso en la entrega",
+      "Reunión de turno",
+      "Recuento de inventario",
+      "Revisión de equipos",
+      "Inspección de seguridad",
+      "Llamada al proveedor",
+      "Revisión del informe",
+      "Ventana de mantenimiento",
+      "Sesión de formación",
+      "Registro nocturno",
+      "Actualización del sistema",
+      "Verificación de la copia de seguridad",
+      "Notas de traspaso",
+      "Ronda de limpieza"
+    ],
+    "description": "Descripción breve de {title}.",
+    "suggestion": "Siguiente paso sugerido."
+  },
+  "controls": {
+    "maxColumns": "Columnas como máximo",
+    "columnPlacement": "Colocación en columnas",
+    "placementPriority": "Por prioridad",
+    "placementTime": "Por hora de inicio",
+    "mergeWindow": "Ventana de fusión",
+    "minutes": "{count} minutos",
+    "hours": "{count, plural, one {# hora} other {# horas}}",
+    "unlimited": "Sin límite",
+    "view": "Vista",
+    "preset": "Ajuste preestablecido",
+    "presetDefault": "Predeterminado",
+    "presetClassic": "Clásico",
+    "shiftLength": "Duración del turno",
+    "navigationThreshold": "La navegación aparece a partir de",
+    "items": "{count, plural, one {# elemento} other {# elementos}}",
+    "sortByTitle": "Ordenar por título en vez de por hora",
+    "pinnedCount": "{count, plural, =0 {Nada fijado todavía} one {# elemento fijado} other {# elementos fijados}}",
+    "navigateIdle": "Usa los botones de encima y debajo de la lista.",
+    "navigated": "Salto al turno con desplazamiento {offset}.",
+    "clock": "La hora ahora es",
+    "containerWidth": "Ancho del contenedor",
+    "pixels": "{count} píxeles",
+    "state": "Estado",
+    "stateData": "Datos",
+    "stateLoading": "Cargando",
+    "stateError": "Error",
+    "stateEmpty": "Vacío",
+    "reducedMotion": "Pedir movimiento reducido",
+    "guardOpening": "Preguntar antes de abrir un elemento crítico",
+    "eventsIdle": "Abre un elemento para ver qué se ejecuta.",
+    "blocked": "La apertura de «{title}» fue cancelada por el middleware.",
+    "opened": "«{title}» se ha abierto.",
+    "scheduleLabel": "Panel de turnos",
+    "scheme": "Esquema de color",
+    "schemeLight": "Claro",
+    "schemeDark": "Oscuro",
+    "density": "Densidad",
+    "densityStandard": "Estándar",
+    "densityComfortable": "Cómoda",
+    "densityDense": "Compacta",
+    "compact": "Compacto"
+  },
+  "levels": {
+    "blocking": "Bloqueante",
+    "attention": "Requiere atención",
+    "planned": "Planificado",
+    "done": "Hecho"
+  },
+  "columns": {
+    "reference": "Referencia",
+    "title": "Título",
+    "level": "Nivel"
+  },
+  "detail": {
+    "reference": "Referencia {reference}",
+    "close": "Cerrar"
+  },
+  "localization": {
+    "emptyShift": "Todavía no hay nada programado en este turno.",
+    "pinnedLabel": "A la vista"
+  }
+}

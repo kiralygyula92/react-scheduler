@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Empty schedule",
-    "description": "A React Scheduler demo on the Empty schedule fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Empty schedule",
+    "description": "No items at all: the empty state, in the language of the page, and the buttons that are not drawn."
+  },
+  "demos": {
+    "board": "A day with nothing on it"
+  },
+  "scenario": "The same day, the same shifts, and not one item. An empty schedule is not an error and not a spinner — it is the shape of the day with nothing in it, which is what a reader needs to see before the first item arrives.",
+  "look": [
+    "The message comes from the locale pack, so it is in the language of this page. <link to=\"/customization/localization/\">Localization</link> shows how to replace it.",
+    "There are no navigation buttons: with nothing to jump to, they would only be disabled.",
+    "The two views handle it differently: the timeline keeps its hours and lays the message over them, the list gives up its sections for it.",
+    "The color scheme and the density still apply. An empty schedule is still a themed one."
+  ],
+  "uses": [
+    "<link to=\"/states/\">States</link> — the empty state, next to loading and error.",
+    "<link to=\"/customization/localization/\">Localization</link> — every string here, including this one, comes from the pack.",
+    "<link to=\"/navigation/\">Navigation</link> — the threshold that keeps the buttons away."
+  ]
 }

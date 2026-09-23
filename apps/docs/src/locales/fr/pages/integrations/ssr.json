@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Rendu côté serveur",
-    "description": "Rendu côté serveur : l’objectif, ce qu’il faut avant de commencer, les étapes à suivre et comment vérifier le résultat."
+    "description": "Rendre le planning sur un serveur et l’hydrater sans avertissement, quel que soit le framework."
   },
   "sections": {
     "goal": "Objectif",
     "before-you-start": "Avant de commencer",
     "steps": "Étapes",
     "result": "Résultat",
-    "related": "Voir aussi"
+    "related": "Voir aussi",
+    "troubleshooting": "Dépannage"
+  },
+  "goal": "Rendre le planning sur un serveur — n’importe lequel, n’importe quel framework — et laisser le navigateur le reprendre sans avertissement d’hydratation. Le composant ne touche pas au DOM pendant le rendu : il ne reste qu’à donner les mêmes faits aux deux rendus.",
+  "before": {
+    "points": [
+      "Une application React 18.2 ou 19 qui rend côté serveur.",
+      "La feuille de style importée quelque part qui atteigne le document rendu côté serveur.",
+      "Un moyen de faire passer des valeurs du rendu serveur au rendu client — des props, un loader, des données sérialisées."
+    ]
+  },
+  "steps": {
+    "clock": {
+      "title": "Fixez l’horloge une seule fois",
+      "text": "Tout ce qui bouge dans le planning découle d’un seul instant : quel poste est courant, où se place l’indicateur « maintenant », quels éléments sont passés. Lisez l’horloge une fois, sur le serveur, et transmettez-la.",
+      "calloutTitle": "La seule vraie source de décalages",
+      "callout": "Un planning rendu sans <code>now</code> prend l’horloge de qui le rend. L’horloge du serveur et celle du navigateur ne sont jamais à la même milliseconde, souvent pas à la même minute, et React le signale comme un décalage d’hydratation."
+    },
+    "firstFrame": {
+      "title": "Sachez à quoi ressemble la première image",
+      "text": "Le rendu serveur est délibérément le plus sobre. Tout ce qui dépend du navigateur commence éteint et se règle après l’hydratation :",
+      "points": [
+        "Le mode compact est éteint sauf si vous passez le booléen vous-même — un conteneur ne se mesure pas sans mise en page.",
+        "Rien n’est épinglé : l’épinglage est une position de défilement, et il n’y a pas encore de défilement.",
+        "Le signal d’en-tête démarre déplié.",
+        "Aucune animation ne tourne à la première image."
+      ]
+    },
+    "compact": {
+      "title": "Choisissez ce que fait le mode compact",
+      "text": "Par défaut il suit le conteneur dès que le navigateur peut le mesurer. Si la première image doit être étroite — une application qui sait déjà servir un téléphone — décidez-le côté serveur."
+    },
+    "styles": {
+      "title": "Mettez le CSS dans la première réponse",
+      "text": "La feuille de style du planning est un fichier CSS ordinaire, sans runtime derrière : il lui faut donc exactement ce que votre framework fait du CSS global. Importez-la là où le framework rassemble les styles globaux, pas dans un composant chargé paresseusement — sinon la première image est sans style et clignote."
+    }
+  },
+  "result": {
+    "text": "La réponse HTML contient le planning, avec ses titres, ses éléments et ses heures. La console reste muette pendant l’hydratation, et le seul changement visible est celui que vous avez demandé : un conteneur mesuré, une position de défilement restaurée."
+  },
+  "troubleshooting": {
+    "points": [
+      "Un décalage sur une heure ou un libellé : les horloges diffèrent. Passez <code>now</code>, et la même valeur à <code>date</code> si vous voulez aussi le même jour.",
+      "Un décalage sur un nom de classe : les schémas divergent. <code>colorScheme=\"system\"</code> se résout dans le navigateur ; passez <code>'light'</code> ou <code>'dark'</code> quand le rendu serveur doit correspondre exactement.",
+      "Des dates en chaînes locales sans fuseau, rendues sur un serveur d’un autre fuseau : utilisez des chaînes ISO avec décalage, ou des timestamps.",
+      "<code>window</code> ou <code>document</code> dans un slot à vous — le planning n’y touche pas pendant le rendu, mais une partie remplacée le peut."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modes de données et SSR</link> — la page de capacité derrière ce guide.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> — les mêmes règles dans l’App Router.",
+      "<link to=\"/integrations/react-router/\">React Router</link> — les mêmes règles en mode framework."
+    ]
   }
 }

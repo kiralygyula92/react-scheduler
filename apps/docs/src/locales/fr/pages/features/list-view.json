@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vue liste",
-    "description": "Vue liste dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "La vue liste : une section par poste, des cartes dans l’ordre du temps, et les options qui décident où atterrit un saut et quand la navigation apparaît."
   },
   "sections": {
     "basics": "Bases",
+    "reading": "Lire une longue liste",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Un poste, lu de haut en bas",
+    "options": "Quand la navigation apparaît"
+  },
+  "basics": {
+    "intro": "La liste est la vue de lecture : une section par poste rendu, les cartes de ce poste dans l’ordre du temps, et le titre de la section collé en haut tant que vous y êtes. C’est la vue par défaut, et la seule sous <code>listOnlyBreakpoint</code>.",
+    "points": [
+      "Une carte porte le titre, le niveau, l’heure et les champs facultatifs que l’élément possède — une description, une référence, une étiquette, une suggestion.",
+      "Le poste lu est celui dans lequel se trouve le défilement, et c’est de lui que partent les boutons de navigation et le bandeau des éléments épinglés.",
+      "Quand le poste courant est celui qui contient maintenant, un repère se place entre les cartes, avant le premier élément qui n’a pas commencé."
+    ]
+  },
+  "reading": {
+    "intro": "L’essentiel de ce que contient <code>list</code> concerne la lecture d’une longue journée : quand les boutons de navigation valent la peine d’être montrés, où atterrit un saut pour que le titre ne reste pas sous la barre collée en haut, et jusqu’où il faut défiler avant que le bouton de retour en haut apparaisse.",
+    "options": "La liste complète, générée à partir des déclarations du paquet :"
+  },
+  "accessibility": {
+    "points": [
+      "Chaque poste est une section avec un titre, et les cartes d’un poste forment une liste : un lecteur d’écran annonce combien d’éléments elle contient.",
+      "Chaque carte est un bouton : <kbd>Tab</kbd> l’atteint dans l’ordre du temps, et <kbd>Enter</kbd> ou <kbd>Space</kbd> ouvre son détail.",
+      "Le repère « maintenant » est un séparateur étiqueté : la frontière entre ce qui est passé et ce qui ne l’est pas est annoncée, pas seulement dessinée.",
+      "Un saut atterrit avec le titre du poste visible, pas sous la barre collée en haut, et y déplace le focus — <code>alignOffset</code> et <code>previousJumpExtraOffset</code> maintiennent cela à toute densité."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Les parties <code>itemList</code>, <code>listCard</code>, <code>shiftSection</code> et <code>shiftHeader</code> se remplacent par des <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderItem</code> remplace entièrement une carte, avec <code>getItemProps</code> pour que la vôtre garde le comportement ; <code>renderCardContent</code> garde la carte et en remplace l’intérieur.",
+      "<code>--rs-card-gap</code>, <code>--rs-list-gap</code> et l’échelle de densité fixent les espacements — voir <link to=\"/customization/css-variables/\">Variables CSS</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "La liste ne virtualise pas : un poste de mille éléments rend mille cartes.",
+      "Les cartes ne peuvent pas être regroupées dans un poste autrement que par le temps ; un regroupement par niveau ou par étiquette est l’affaire de <link to=\"/headless-api/\">l’API headless</link>.",
+      "Il n’y a ni édition sur place ni modèle de sélection — une carte ouvre son détail, et c’est toute l’interaction."
+    ]
   }
 }

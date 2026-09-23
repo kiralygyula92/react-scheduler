@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "L’épinglage au passage pour un balisage maison : vous enregistrez les capteurs et lisez les clés épinglées."
+  }
+}

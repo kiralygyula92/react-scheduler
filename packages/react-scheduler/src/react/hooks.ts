@@ -31,7 +31,13 @@ import type { ItemProps, PinSentinelProps, SchedulerProps, SchedulerState } from
 import { useSchedulerSetup } from './use-setup';
 import { useViewSetup } from './use-view';
 
-/** Controlled when `value` is given, otherwise internal state starting at `defaultValue`. */
+/**
+ * Controlled when `value` is given, otherwise internal state starting at `defaultValue`.
+ *
+ * @param value The controlled value, or `undefined` while the state is uncontrolled.
+ * @param defaultValue The value to start from while it is uncontrolled.
+ * @param onChange Called with every new value, in both cases.
+ */
 export function useControllableState<T>(
   value: T | undefined,
   defaultValue: T,
@@ -50,7 +56,11 @@ export function useControllableState<T>(
   return [current, set];
 }
 
-/** Epoch ms of `now`, or an internal clock ticking every `interval` ms, paused while the document is hidden. */
+/**
+ * Epoch ms of `now`, or an internal clock ticking every `interval` ms, paused while the document is hidden.
+ *
+ * @param input A fixed moment to use instead of the clock, or how often the clock ticks.
+ */
 export function useNow(input: { now?: DateInput; interval?: number } = {}): number {
   const fixed = input.now === undefined ? undefined : toMs(input.now);
   const interval = input.interval ?? 60_000;
@@ -83,7 +93,12 @@ export function useNow(input: { now?: DateInput; interval?: number } = {}): numb
   return fixed ?? clock;
 }
 
-/** Compact mode from the element's content width (B-16); a boolean forces it. False on the server. */
+/**
+ * Compact mode from the element's content width (B-16); a boolean forces it. False on the server.
+ *
+ * @param ref The element whose width decides compact mode.
+ * @param options The breakpoints, and a value that overrides the measurement.
+ */
 export function useCompact(
   ref: RefObject<HTMLElement | null>,
   options: { compact?: boolean | 'auto'; breakpoint?: number } = {},
@@ -99,7 +114,11 @@ export function useCompact(
   return setting === 'auto' ? measured : setting;
 }
 
-/** Shift windows and segments for a date (Feature Dossier 05 F-01, F-02). */
+/**
+ * Shift windows and segments for a date (Feature Dossier 05 F-01, F-02).
+ *
+ * @param input The moment being read and the shift pattern to cut the day with.
+ */
 export function useShiftModel<TItem extends SchedulerItem>(input: {
   items?: readonly TItem[];
   segments?: readonly SegmentInput<TItem>[];
@@ -123,7 +142,12 @@ export function useShiftModel<TItem extends SchedulerItem>(input: {
   }, [items, given, time, shiftOptions, levels, compareItems]);
 }
 
-/** The timeline layout of `items` (Feature Dossier 05 F-06), memoized on its inputs. */
+/**
+ * The timeline layout of `items` (Feature Dossier 05 F-06), memoized on its inputs.
+ *
+ * @param items The items of the rendered range.
+ * @param options The geometry and the caps the layout is computed with.
+ */
 export function useTimelineLayout<TItem extends SchedulerItem>(
   items: readonly TItem[],
   options: TimelineLayoutOptions<TItem>,
@@ -131,7 +155,11 @@ export function useTimelineLayout<TItem extends SchedulerItem>(
   return useMemo(() => computeTimelineLayout(items, options), [items, options]);
 }
 
-/** Pin-on-pass for custom markup (Feature Dossier 05 F-07): register sentinels, read the pinned keys. */
+/**
+ * Pin-on-pass for custom markup (Feature Dossier 05 F-07): register sentinels, read the pinned keys.
+ *
+ * @param options The scroller, the pin rule and the callback that reports the pinned ids.
+ */
 export function usePinOnPass(options: {
   scrollRef: RefObject<HTMLElement | null>;
   getLine: () => number;
@@ -206,7 +234,11 @@ export function usePinOnPass(options: {
   };
 }
 
-/** Programmatic shift navigation for custom markup (Feature Dossier 05 F-08). */
+/**
+ * Programmatic shift navigation for custom markup (Feature Dossier 05 F-08).
+ *
+ * @param options The scroller, the rendered shifts and where a jump should land.
+ */
 export function useShiftNavigation(options: {
   scrollRef: RefObject<HTMLElement | null>;
   /** Scroll position of a shift offset. */
@@ -258,7 +290,11 @@ export function useShiftNavigation(options: {
   };
 }
 
-/** Everything <Scheduler> uses, without markup (Feature Dossier 04 §7). */
+/**
+ * Everything <Scheduler> uses, without markup (Feature Dossier 04 §7).
+ *
+ * @param props The same props `<Scheduler>` takes.
+ */
 export function useScheduler<TItem extends SchedulerItem>(props: SchedulerProps<TItem>): SchedulerState<TItem> {
   const ctx = useSchedulerSetup(props);
   const { controller, model } = ctx;

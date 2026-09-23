@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Pagination",
+    "description": "O paginador por baixo da tabela de elementos adicionais."
+  }
+}

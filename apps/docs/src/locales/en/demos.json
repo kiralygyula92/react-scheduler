@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Delivery delay",
+      "Staff briefing",
+      "Inventory count",
+      "Equipment check",
+      "Safety inspection",
+      "Supplier call",
+      "Report review",
+      "Maintenance window",
+      "Training session",
+      "Night check-in",
+      "System update",
+      "Backup verification",
+      "Handover notes",
+      "Cleaning round"
+    ],
+    "description": "Short description for {title}.",
+    "suggestion": "Suggested next step."
+  },
+  "controls": {
+    "maxColumns": "Columns at most",
+    "columnPlacement": "Column placement",
+    "placementPriority": "By priority",
+    "placementTime": "By start time",
+    "mergeWindow": "Merge window",
+    "minutes": "{count} minutes",
+    "hours": "{count, plural, one {# hour} other {# hours}}",
+    "unlimited": "No limit",
+    "view": "View",
+    "preset": "Preset",
+    "presetDefault": "Default",
+    "presetClassic": "Classic",
+    "shiftLength": "Shift length",
+    "navigationThreshold": "Navigation appears from",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "sortByTitle": "Sort by title instead of time",
+    "pinnedCount": "{count, plural, =0 {Nothing pinned yet} one {# item pinned} other {# items pinned}}",
+    "navigateIdle": "Use the buttons above and below the list.",
+    "navigated": "Jumped to the shift at offset {offset}.",
+    "clock": "The time now is",
+    "containerWidth": "Container width",
+    "pixels": "{count} pixels",
+    "state": "State",
+    "stateData": "Data",
+    "stateLoading": "Loading",
+    "stateError": "Error",
+    "stateEmpty": "Empty",
+    "reducedMotion": "Ask for reduced motion",
+    "guardOpening": "Ask before opening a critical item",
+    "eventsIdle": "Open an item to see what runs.",
+    "blocked": "Opening {title} was cancelled by the middleware.",
+    "opened": "{title} was opened.",
+    "scheduleLabel": "Shift board",
+    "scheme": "Color scheme",
+    "schemeLight": "Light",
+    "schemeDark": "Dark",
+    "density": "Density",
+    "densityStandard": "Standard",
+    "densityComfortable": "Comfortable",
+    "densityDense": "Dense",
+    "compact": "Compact"
+  },
+  "levels": {
+    "blocking": "Blocking",
+    "attention": "Needs attention",
+    "planned": "Planned",
+    "done": "Done"
+  },
+  "columns": {
+    "reference": "Reference",
+    "title": "Title",
+    "level": "Level"
+  },
+  "detail": {
+    "reference": "Reference {reference}",
+    "close": "Close"
+  },
+  "localization": {
+    "emptyShift": "Nothing scheduled in this shift yet.",
+    "pinnedLabel": "Kept in view"
+  }
+}

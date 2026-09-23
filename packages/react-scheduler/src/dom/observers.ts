@@ -5,6 +5,9 @@
 /**
  * Calls `onWidth` with the element's content-box width now and whenever it changes. Compact mode and
  * `listOnlyBreakpoint` use the root's width, not the viewport or the user agent (B-16).
+ *
+ * @param element The element to measure.
+ * @param onWidth Called with the content-box width, on every change.
  */
 export function observeWidth(element: HTMLElement, onWidth: (width: number) => void): () => void {
   onWidth(element.clientWidth);
@@ -17,7 +20,12 @@ export function observeWidth(element: HTMLElement, onWidth: (width: number) => v
   return () => observer.disconnect();
 }
 
-/** `onChange(compact)` with compact = width below `breakpoint`, now and on every change. */
+/**
+ * `onChange(compact)` with compact = width below `breakpoint`, now and on every change.
+ *
+ * @param element The element whose width decides compact mode.
+ * @param options The breakpoints and the callback that receives the answer.
+ */
 export function observeCompact(
   element: HTMLElement,
   options: { breakpoint: number; onChange: (compact: boolean) => void },
@@ -31,12 +39,24 @@ export function observeCompact(
   });
 }
 
+/**
+ * Whether motion is reduced, and a way to subscribe to that changing.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface ReducedMotion {
+  /** Whether the system asks for reduced motion right now. */
   matches(): boolean;
+  /** Subscribes to changes; the returned function unsubscribes. */
   subscribe(listener: () => void): () => void;
 }
 
-/** The `prefers-reduced-motion: reduce` media query; false when media queries are unavailable. */
+/**
+ * The `prefers-reduced-motion: reduce` media query; false when media queries are unavailable.
+ *
+ * @param view The window to ask; passing one makes the helper testable.
+ */
 export function prefersReducedMotion(
   view: Window | null = typeof window === 'undefined' ? null : window,
 ): ReducedMotion {
@@ -56,6 +76,10 @@ export function prefersReducedMotion(
  * by the same amount in the same frame, in every engine (B-21). The scroller sets
  * `overflow-anchor: none`, so browser scroll anchoring never adds a second shift. While
  * `suspended()` holds (a programmatic scroll that corrects its own target), a change is only noted.
+ *
+ * @param scroller The scrolling element to adjust.
+ * @param sticky The element that sticks to its top and changes height.
+ * @param suspended Returns true while the adjustment should be skipped.
  */
 export function compensateStickyGrowth(
   scroller: HTMLElement,

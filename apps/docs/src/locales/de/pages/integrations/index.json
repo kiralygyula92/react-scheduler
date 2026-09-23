@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Integrationen",
-    "description": "Wie React Scheduler mit Vite, Next.js, React Router und serverseitigem Rendering verwendet wird."
-  }
+    "description": "Vier kurze Anleitungen: Vite, der App Router von Next.js, React Router im Framework-Modus und das Rendern auf dem Server."
+  },
+  "scope": "Die Komponente ist eine gewöhnliche React-Komponente ohne eigenes Framework, eine Integration ist also meist drei Zeilen: installieren, das Stylesheet einmal importieren, rendern. Diese Seiten sind die Einzelheiten — wohin das Stylesheet gehört, auf welcher Seite der Servergrenze der Plan lebt, und was ihm mitzugeben ist, damit beide Renderings übereinstimmen."
 }

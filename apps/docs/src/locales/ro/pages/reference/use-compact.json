@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useCompact",
+    "description": "Modul compact din lățimea de conținut a elementului; o valoare booleană îl impune. Fals pe server."
+  }
+}

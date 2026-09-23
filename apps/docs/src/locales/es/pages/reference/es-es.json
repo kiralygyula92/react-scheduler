@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "esES",
+    "description": "El paquete de idioma español (España), que se pasa a localization."
+  }
+}

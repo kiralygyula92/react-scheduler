@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Hält den sichtbaren Inhalt ruhig, wenn das fixierte Element im Scrollbereich seine Höhe ändert: der Bereich bewegt sich um denselben Betrag, im selben Frame, in jeder Engine. Der Bereich setzt overflow-anchor: none, damit die Scroll-Verankerung des Browsers keinen zweiten Versatz hinzufügt. Solange suspended() gilt, wird die Änderung nur vermerkt."
+  }
+}

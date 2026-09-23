@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "frFR",
+    "description": "Le pack de langue français (France), passé à localization."
+  }
+}

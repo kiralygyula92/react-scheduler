@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TagPill",
+    "description": "The pill that shows one of an item’s tags."
+  }
+}

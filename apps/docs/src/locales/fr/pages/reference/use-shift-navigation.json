@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftNavigation",
+    "description": "Navigation programmatique entre postes, pour un balisage maison."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createNavigator",
+    "description": "Crea el navegador de un área de desplazamiento."
+  }
+}

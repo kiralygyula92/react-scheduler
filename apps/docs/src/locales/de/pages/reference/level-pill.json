@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "LevelPill",
+    "description": "Die Pille, die die Stufe eines Elements zeigt."
+  }
+}

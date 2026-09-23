@@ -1,17 +1,60 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Headless API",
-    "description": "Headless API in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "The same model without the markup: the hooks and the controller behind the components."
   },
   "sections": {
     "basics": "Basics",
+    "layers": "The three layers",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "headless": "A schedule with markup of your own"
+  },
+  "basics": {
+    "intro": "When slots and render props are not enough — a different structure, not a different look — take the model and leave the markup. <code>useScheduler</code> returns everything <code>&lt;Scheduler&gt;</code> renders from: the shifts with their items, the pinned set, the navigation state, the formatters, and a getter for each element’s props.",
+    "points": [
+      "Spread <code>getRootProps</code>, <code>getScrollerProps</code> and <code>getSectionProps</code> and the measurements work: compact mode, the active shift, the navigation.",
+      "Spread <code>getItemProps</code> on whatever you make a card, and activation, the keyboard and focus work as they do in the built-in one.",
+      "<code>getPinSentinelProps</code> is what makes pinning work in your markup; without it, items never pin.",
+      "The state is the same one the components use, so nothing is missing and nothing is duplicated."
+    ]
+  },
+  "layers": {
+    "intro": "The package is three layers, and you can enter at any of them:",
+    "points": [
+      "<code>@react-schedulerkit/react-scheduler</code> — the components, the hooks and the types.",
+      "<code>/core</code> — the pure functions behind them: shifts, bucketing, the timeline layout, the formatters. No React, no DOM; it runs in plain Node, and that is tested.",
+      "<code>/dom</code> — the browser engines: the pin observer, the navigator, the width and motion observers. DOM, no React.",
+      "<code>/headless</code> — <code>createScheduler</code>, the framework-agnostic controller with the state, the actions and a subscription."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "The getters carry the roles, the names and the keyboard handling. Spread them and the accessibility comes with them; leave them out and it is yours to build.",
+      "The live region, the announcements and the focus return are part of the components, not of the hook: a headless rendering provides its own.",
+      "The order you render the sections and the cards in is the order a screen reader reads, so keep it the order of the day."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>useScheduler</code> for a React rendering of your own; <code>createScheduler</code> for another framework entirely.",
+      "<code>useShiftModel</code>, <code>useTimelineLayout</code>, <code>usePinOnPass</code>, <code>useShiftNavigation</code>, <code>useNow</code> and <code>useCompact</code> are the pieces, if you want only one of them.",
+      "The pure functions of <code>/core</code> are useful on a server: bucketing items or computing a layout needs no browser."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "The stylesheet is written for the built-in markup. A headless rendering brings its own CSS, or uses <code>base.css</code> as a starting point.",
+      "The overflow dialog and the detail dialog are components, not state: a headless rendering opens its own.",
+      "The hook returns a new state object on every relevant change; memoize what you build from it if your rendering is expensive."
+    ]
   }
 }

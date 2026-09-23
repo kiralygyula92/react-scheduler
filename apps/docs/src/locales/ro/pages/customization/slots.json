@@ -1,14 +1,29 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Sloturi și suprascrieri",
-    "description": "Sloturi și suprascrieri în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+    "description": "Fiecare parte înlocuibilă a componentei, ce primește un slot și un exemplu lucrat."
   },
   "sections": {
     "slots": "Sloturi",
     "example": "Exemplu"
+  },
+  "demos": {
+    "slots": "Două părți, înlocuite"
+  },
+  "intro": "Un slot înlocuiește componenta unei părți, păstrându-i locul, proprietățile și comportamentul. Componenta ta primește tot ce ar fi avut cea încorporată:",
+  "rules": [
+    "Răspândește proprietățile primite. Ele poartă numele de clase, atributul de date, handlerele de evenimente și numele accesibil.",
+    "Atașează <code>ref</code> când există: fixarea, măsurarea și focalizarea depind de el.",
+    "<code>ownerState</code> spune pentru ce randează partea — vizualizarea, schema, elementul, tura — așa că un singur slot se poate purta altfel în listă și în cronologie.",
+    "<code>Default</code> este componenta încorporată, dacă vrei să o împachetezi în loc să o înlocuiești.",
+    "O proprietate de randare câștigă în fața unui slot pentru același conținut: <code>renderItem</code> înlocuiește tot cardul, iar atunci părțile lui sunt ale tale de desenat."
+  ],
+  "table": "Părțile, generate din declarațiile pachetului:",
+  "example": {
+    "intro": "Aici pastila de nivel este o componentă proprie înfășurată în jurul celei încorporate, iar cipul <strong>+ încă</strong> primește doar un stil în plus — cele două feluri cele mai ușoare de suprascriere, una lângă alta."
   }
 }

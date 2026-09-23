@@ -1,16 +1,79 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Használat",
-    "description": "Használat a React Scheduler csomaghoz: a lépések sorrendben, az érintett verziók, és mit ellenőrizz utána."
+    "description": "Egy teljes React Scheduler példa, a vezérelt és a nem vezérelt állapot működése, és azok a propok, amelyeket az alkalmazások elsőként állítanak be."
   },
   "sections": {
     "minimal-example": "Minimális példa",
     "controlled-and-uncontrolled": "Vezérelt és nem vezérelt",
     "common-props": "Gyakori propok",
     "next-steps": "Következő lépések"
+  },
+  "demos": {
+    "minimal": "Elemek, egy nap, és semmi más"
+  },
+  "minimal": {
+    "intro": "Három prop visz el egy működő ütemtervet: az elemek, a megjelenítendő nap és a nyelvi csomag. A többinek van alapértéke. Nyisd meg a bemutató alatti forrást: az a fájl fut ezen az oldalon."
+  },
+  "controlled": {
+    "intro": "Minden állapot, amelyet a komponens tart, kétféle lehet: nem vezérelt, amikor a komponensé, és csak jelzi a változást, vagy vezérelt, amikor az alkalmazásodé. Alapból nem vezérelt: a kezdőértéket egy <code>default</code> propon adod át, és többet nem foglalkozol vele.",
+    "controlled": "Ha magát az értéket adod át, a komponens többé nem birtokolja. Onnantól azt jeleníti meg, amit adsz neki, és minden változásnál meghív, így az érték és a látvány nem csúszhat szét.",
+    "pairs": "A párok:",
+    "points": [
+      "<code>view</code> / <code>defaultView</code> és <code>onViewChange</code> — a lista vagy az idővonal.",
+      "<code>date</code> / <code>defaultDate</code> és <code>onDateChange</code> — az olvasott nap.",
+      "<code>openItemId</code> / <code>defaultOpenItemId</code> és <code>onOpenItemIdChange</code> — melyik elem részletei vannak nyitva.",
+      "<code>headerExpanded</code> / <code>defaultHeaderExpanded</code> és <code>onHeaderExpandedChange</code> — a saját oldalfejléced állapota.",
+      "<code>openOverflowId</code>, <code>overflowPage</code> és <code>overflowSort</code>, mindegyik a saját <code>default</code> formájával és visszahívásával — a további elemek párbeszédpanele."
+    ]
+  },
+  "common": {
+    "intro": "Azok a propok, amelyeket a legtöbb alkalmazás beállít. Mindegyik teljes leírása a <link to=\"/api/scheduler/\">Scheduler</link> oldalon van.",
+    "head": {
+      "prop": "Prop",
+      "what": "Mit csinál"
+    },
+    "rows": [
+      [
+        "<code>items</code>",
+        "Maga az ütemterv: elemek egyszerű tömbje <code>id</code>, <code>start</code>, <code>level</code> és <code>title</code> mezőkkel."
+      ],
+      ["<code>date</code>", "A megjelenítendő nap. Azok a műszakok jelennek meg, amelyek tartalmazzák."],
+      [
+        "<code>shifts</code>",
+        "Hogyan oszlik a nap műszakokra: szabályos hossz és rögzítési pont, vagy nevesített minta. Lásd: <link to=\"/shifts-and-dates/\">Műszakok és dátumok</link>."
+      ],
+      [
+        "<code>levels</code>",
+        "A súlyossági skála: a rangok, a színeik, és hogy melyik rögzít. Lásd: <link to=\"/items-and-levels/\">Elemek és szintek</link>."
+      ],
+      [
+        "<code>view</code>",
+        "<code>'list'</code> vagy <code>'timeline'</code>. Az olvasó válthat, hacsak nem te vezérled."
+      ],
+      [
+        "<code>localization</code>",
+        "Egy nyelvi csomag. Hét van beépítve; az objektum egyszerű, ezért részleges felülírás is elég."
+      ],
+      [
+        "<code>preset</code> și <code>colorScheme</code>",
+        "A megjelenés: <code>'default'</code> vagy <code>'classic'</code>, illetve <code>'light'</code>, <code>'dark'</code> vagy <code>'system'</code>."
+      ],
+      [
+        "<code>onItemOpen</code>",
+        "Akkor hívódik, amikor az olvasó megnyit egy elemet; megkapja az elemet és azt, mi aktiválta."
+      ]
+    ]
+  },
+  "next": {
+    "points": [
+      "<link to=\"/all-features/\">Minden képesség</link> — képességenként egy oldal, mindegyik bemutatóval kezdve.",
+      "<link to=\"/customization/\">Testreszabás</link> — egy CSS változótól egy lecserélt részig.",
+      "<link to=\"/api/\">API-referencia</link> — minden export, a deklarációkból előállítva."
+    ]
   }
 }

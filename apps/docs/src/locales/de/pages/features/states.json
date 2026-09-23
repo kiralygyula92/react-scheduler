@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Zustände",
-    "description": "Zustände in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Was der Plan zeigt, während er wartet, wenn er scheitert und wenn es nichts zu zeigen gibt."
   },
   "sections": {
     "basics": "Grundlagen",
@@ -13,5 +13,38 @@
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "states": "Laden, Fehler, leer"
+  },
+  "basics": {
+    "intro": "Ein Plan ist selten nur voll oder nur leer. <code>loading</code> und <code>error</code> sind Props, die Sie halten, und die Komponente entscheidet, was das für jede Ansicht bedeutet; die Leerzustände ergeben sich aus den Einträgen selbst.",
+    "points": [
+      "<strong>Laden ohne Inhalt:</strong> ein Warteindikator, mit dem Ladetext für assistive Technik.",
+      "<strong>Laden über vorhandenen Daten:</strong> die Einträge bleiben sichtbar und gedimmt, und die Region wird <code>aria-busy</code> markiert — eine Aktualisierung leert den Bildschirm nie.",
+      "<strong>Fehler:</strong> eine Überschrift, Ihre Meldung und eine Wiederholen-Schaltfläche, wenn <code>onRetry</code> gesetzt ist. Er ersetzt den Inhalt, denn ein halber Plan ist schlimmer als keiner.",
+      "<strong>Leer:</strong> ein Text, wenn keine gerenderte Schicht einen Eintrag hat, ein anderer in einer leeren Schicht, während andere gefüllt sind. Der Zeitstrahl behält seine Fläche und zentriert die Meldung darauf."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Der Ladezustand wird einmal angesagt, nicht in jedem Bild, und die „beschäftigt“-Markierung sagt einem Screenreader, dass der Inhalt veraltet und nicht verschwunden ist.",
+      "Der Fehlerzustand ist eine Überschrift und Text, keine Meldung, die den Fokus raubt; die Wiederholen-Schaltfläche ist eine gewöhnliche Schaltfläche in der Tabulatorreihenfolge.",
+      "Eine leere Schicht behält Abschnitt und Überschrift, sodass sich die Gliederung des Tages nicht ändert, während Einträge eintreffen."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderEmpty</code>, <code>renderLoading</code> und <code>renderError</code> ersetzen die drei; die Teile <code>emptyState</code>, <code>loadingState</code> und <code>errorState</code> ersetzen ihr Markup.",
+      "<code>localization.emptyAll</code>, <code>emptyShift</code>, <code>loading</code>, <code>errorTitle</code> und <code>retry</code> enthalten jedes Wort.",
+      "Die Zustände tragen über die Text-Tokens hinaus keine eigene Farbe, folgen also dem Thema, ohne neu gestaltet zu werden."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Es gibt einen Fehler zur Zeit für den ganzen Plan; ein Fehler je Schicht ist nicht vorgesehen.",
+      "Die Komponente holt nie Daten, entscheidet also nie selbst, dass sie lädt: beide Props gehören Ihnen.",
+      "Es gibt keine Skelettkarten. Der Ladezustand ist ein Warteindikator, oder Ihrer über <code>renderLoading</code>."
+    ]
   }
 }

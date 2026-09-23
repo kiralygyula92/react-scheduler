@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "computeTimelineLayout",
+    "description": "Place les éléments dans les colonnes de la chronologie et dans les groupes d’éléments supplémentaires : séquence de placement, colonnes gloutonnes, promotion depuis les supplémentaires, remplissage des trous, géométrie, groupes supplémentaires (bornés par overflowMergeWindow, mesuré depuis l’ancre de chaque groupe) et nombre de colonnes."
+  }
+}

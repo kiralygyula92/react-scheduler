@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "sortOverflowItems",
+    "description": "Items sorted by the column's value; ties break by compare. The whole comparison, ties included, follows the direction. An unsortable or unknown column sorts by compare alone."
+  }
+}

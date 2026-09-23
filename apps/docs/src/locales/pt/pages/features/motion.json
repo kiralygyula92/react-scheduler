@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Animação",
-    "description": "Animação no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "title": "Movimento",
+    "description": "Que movimentos são animados e como o horário responde a quem pediu menos movimento."
   },
   "sections": {
     "basics": "Noções básicas",
@@ -13,5 +13,38 @@
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "motion": "Com e sem movimento"
+  },
+  "basics": {
+    "intro": "Movem-se duas coisas: um salto entre turnos desloca suavemente, e uma etiqueta fixada entra a deslizar em vez de aparecer. Ambas se desligam quando quem lê pediu movimento reduzido, e ambas se desligam quando desliga o sinalizador de animação.",
+    "points": [
+      "<code>reducedMotion</code> é <code>'auto'</code> por omissão e segue o <code>prefers-reduced-motion</code> do sistema.",
+      "Com movimento reduzido, cada transição CSS do componente é removida, não encurtada — um salto aterra de imediato e nada se desvanece.",
+      "<code>enableAnimations</code> desliga o movimento independentemente da definição do sistema, para uma página deliberadamente quieta.",
+      "O deslocamento à mão nunca é afetado: é do navegador, não do componente."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "O movimento reduzido é respeitado sem uma definição própria: a preferência do sistema chega.",
+      "Nada depende de uma animação terminar. Cada aterragem está correta no momento em que é pedida, e o deslocamento suave é apenas como se lá chega.",
+      "Um salto move o foco para o título do turno, esteja animado ou não, por isso quem usa o teclado chega ao mesmo sítio nos dois casos."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>reducedMotion</code> aceita <code>'auto'</code>, <code>true</code> ou <code>false</code>.",
+      "<code>enableAnimations</code> remove a animação de entrada das etiquetas fixadas.",
+      "<code>prefersReducedMotion</code> de <code>/dom</code> dá a mesma leitura a uma marcação sua."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "As durações são fixadas pela folha de estilos; não há uma prop para quanto dura uma transição.",
+      "Não há animação entre as duas vistas — a mudança é imediata por desenho.",
+      "O deslocamento suave depende de o navegador respeitar <code>scroll-behavior</code>; onde não o faz, o salto é simplesmente imediato."
+    ]
   }
 }

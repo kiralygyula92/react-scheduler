@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Retard de livraison",
+      "Briefing d'équipe",
+      "Inventaire",
+      "Contrôle des équipements",
+      "Inspection de sécurité",
+      "Appel fournisseur",
+      "Revue du rapport",
+      "Fenêtre de maintenance",
+      "Session de formation",
+      "Pointage de nuit",
+      "Mise à jour du système",
+      "Vérification de la sauvegarde",
+      "Notes de passation",
+      "Tournée de nettoyage"
+    ],
+    "description": "Brève description pour {title}.",
+    "suggestion": "Prochaine étape suggérée."
+  },
+  "controls": {
+    "maxColumns": "Colonnes au maximum",
+    "columnPlacement": "Placement des colonnes",
+    "placementPriority": "Par priorité",
+    "placementTime": "Par heure de début",
+    "mergeWindow": "Fenêtre de fusion",
+    "minutes": "{count} minutes",
+    "hours": "{count, plural, one {# heure} other {# heures}}",
+    "unlimited": "Sans limite",
+    "view": "Vue",
+    "preset": "Préréglage",
+    "presetDefault": "Par défaut",
+    "presetClassic": "Classique",
+    "shiftLength": "Durée du poste",
+    "navigationThreshold": "La navigation apparaît à partir de",
+    "items": "{count, plural, one {# élément} other {# éléments}}",
+    "sortByTitle": "Trier par titre plutôt que par heure",
+    "pinnedCount": "{count, plural, =0 {Rien d’épinglé pour l’instant} one {# élément épinglé} other {# éléments épinglés}}",
+    "navigateIdle": "Utilisez les boutons au-dessus et en dessous de la liste.",
+    "navigated": "Saut vers le poste au décalage {offset}.",
+    "clock": "Il est maintenant",
+    "containerWidth": "Largeur du conteneur",
+    "pixels": "{count} pixels",
+    "state": "État",
+    "stateData": "Données",
+    "stateLoading": "Chargement",
+    "stateError": "Erreur",
+    "stateEmpty": "Vide",
+    "reducedMotion": "Demander un mouvement réduit",
+    "guardOpening": "Demander avant d’ouvrir un élément critique",
+    "eventsIdle": "Ouvrez un élément pour voir ce qui s’exécute.",
+    "blocked": "L’ouverture de « {title} » a été annulée par le middleware.",
+    "opened": "« {title} » a été ouvert.",
+    "scheduleLabel": "Tableau des postes",
+    "scheme": "Schéma de couleurs",
+    "schemeLight": "Clair",
+    "schemeDark": "Sombre",
+    "density": "Densité",
+    "densityStandard": "Standard",
+    "densityComfortable": "Confortable",
+    "densityDense": "Dense",
+    "compact": "Compact"
+  },
+  "levels": {
+    "blocking": "Bloquant",
+    "attention": "Demande attention",
+    "planned": "Planifié",
+    "done": "Terminé"
+  },
+  "columns": {
+    "reference": "Référence",
+    "title": "Titre",
+    "level": "Niveau"
+  },
+  "detail": {
+    "reference": "Référence {reference}",
+    "close": "Fermer"
+  },
+  "localization": {
+    "emptyShift": "Rien de prévu dans ce poste pour l’instant.",
+    "pinnedLabel": "Gardé en vue"
+  }
+}

@@ -6,12 +6,15 @@
   "description": "Documentation website for React Scheduler.",
   "scripts": {
     "dev": "react-router dev",
-    "build": "react-router build && node scripts/build-search-index.ts && node scripts/build-machine-surface.ts",
-    "typecheck": "react-router typegen && tsc --noEmit",
+    "build": "node scripts/extract-api.ts && node scripts/build-site.ts && node scripts/build-search-index.ts && node scripts/build-machine-surface.ts",
+    "api": "node scripts/extract-api.ts",
+    "typecheck": "node scripts/extract-api.ts && react-router typegen && tsc --noEmit",
+    "test": "vitest run --project docs",
     "i18n:check": "node scripts/check-i18n.ts",
     "conformance": "node scripts/check-conformance.ts",
     "shell:checksum": "node scripts/shell-checksum.ts",
-    "test": "vitest run --project docs"
+    "api:sources": "node scripts/record-api-sources.ts",
+    "check:links": "node scripts/check-links.ts"
   },
   "dependencies": {
     "@react-schedulerkit/react-scheduler": "workspace:*",
@@ -28,6 +31,8 @@
     "@types/react-dom": "19.3.0",
     "axe-core": "4.13.0",
     "jsdom": "30.1.1",
+    "prettier": "3.9.8",
+    "typescript-api": "npm:typescript@^6.0.3",
     "vite": "8.3.0"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftNavButton",
+    "description": "Die Schaltfläche, die zur vorherigen oder nächsten Schicht springt."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "deDE",
+    "description": "O pacote de idioma alemão (Alemanha), passado a localization."
+  }
+}

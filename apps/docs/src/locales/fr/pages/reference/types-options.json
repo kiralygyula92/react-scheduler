@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Types des options et des props",
+    "description": "Les options du contrôleur et les props des composants, sous forme de types."
+  }
+}

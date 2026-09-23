@@ -1,14 +1,29 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Slots et surcharges",
-    "description": "Slots et surcharges dans React Scheduler : ce que vous pouvez changer, comment le changer et ce que cela affecte."
+    "title": "Slots et remplacements",
+    "description": "Chaque partie remplaçable du composant, ce que reçoit un slot, et un exemple travaillé."
   },
   "sections": {
     "slots": "Slots",
     "example": "Exemple"
+  },
+  "demos": {
+    "slots": "Deux parties, remplacées"
+  },
+  "intro": "Un slot remplace le composant d’une partie en gardant sa place, ses props et son comportement. Votre composant reçoit tout ce qu’aurait eu celui d’origine :",
+  "rules": [
+    "Répandez les props reçues. Elles portent les noms de classe, l’attribut de données, les gestionnaires d’événements et le nom accessible.",
+    "Attachez la <code>ref</code> quand il y en a une : l’épinglage, la mesure et le focus en dépendent.",
+    "<code>ownerState</code> dit pour quoi la partie est rendue — la vue, le schéma, l’élément, le poste — : un même slot peut donc se comporter autrement en liste et en chronologie.",
+    "<code>Default</code> est le composant intégré, si vous préférez l’envelopper plutôt que le remplacer.",
+    "Une prop de rendu l’emporte sur un slot pour le même contenu : <code>renderItem</code> remplace toute la carte, et ses parties sont alors à vous de dessiner."
+  ],
+  "table": "Les parties, générées à partir des déclarations du paquet :",
+  "example": {
+    "intro": "Ici la pastille de niveau est un composant à vous enveloppant celui d’origine, et la puce <strong>+ autres</strong> ne reçoit qu’un style supplémentaire — les deux formes de remplacement les plus légères, côte à côte."
   }
 }

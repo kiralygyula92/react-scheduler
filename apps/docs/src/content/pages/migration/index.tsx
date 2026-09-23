@@ -1,10 +1,15 @@
 // SPDX-License-Identifier: MIT
-// M4 stub: the page frame and the sections template T16 requires (docs pack 03 §3).
-// The prose, demos and tables arrive with M5.
-import { Page } from '~/shell/doc';
+// Migration index (T16): what is here now, and the card that leads to it.
+import { P, Page, PageCards } from '~/shell/doc';
 
 const NS = 'pages/migration/index';
 
 export default function MigrationIndex(): React.ReactElement {
-  return <Page ns={NS} />;
+  return (
+    <Page ns={NS}>
+      <P k="scope" ns={NS} />
+      <PageCards section="migration" exclude="migration/index" />
+      <P k="versions" ns={NS} />
+    </Page>
+  );
 }

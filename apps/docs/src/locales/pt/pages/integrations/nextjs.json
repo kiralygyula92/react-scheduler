@@ -1,17 +1,64 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Next.js",
-    "description": "Next.js: o objetivo, o que precisa antes de começar, os passos a seguir e como verificar o resultado."
+    "description": "App Router: o horário como componente cliente, os dados obtidos no servidor, um único relógio para ambos."
   },
   "sections": {
     "goal": "Objetivo",
     "before-you-start": "Antes de começar",
     "steps": "Passos",
     "result": "Resultado",
-    "related": "Relacionado"
+    "related": "Relacionado",
+    "troubleshooting": "Resolução de problemas"
+  },
+  "goal": "Renderizar o horário numa aplicação Next.js com App Router. O componente é interativo — desloca, abre caixas de diálogo, mede —, por isso o seu lugar é no cliente; os elementos que mostra não têm de estar lá.",
+  "before": {
+    "points": [
+      "Um projeto Next.js com App Router.",
+      "React 18.2 ou 19, que o Next.js traz consigo.",
+      "Um sítio de onde obter os elementos: uma chamada à base de dados, uma rota de API, o que um componente de servidor possa aguardar."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Instale o pacote",
+      "text": "Não é preciso mais nada, e nada tem de ser transpilado."
+    },
+    "stylesheet": {
+      "title": "Importe a folha de estilos no layout raiz",
+      "text": "No App Router, o layout raiz é o lugar do CSS global, e a folha de estilos do horário é CSS global. Importá-la ali também a põe na primeira resposta HTML em vez de chegar com o bundle do cliente."
+    },
+    "client": {
+      "title": "Envolva o horário num componente cliente",
+      "text": "O pacote não traz um banner <code>'use client'</code> próprio, por isso a diretiva vai no topo do seu módulo. Mantenha-o pequeno: é a fronteira, e tudo o que importar atravessa-a com ele.",
+      "calloutTitle": "Porque é sua a diretiva",
+      "callout": "Uma biblioteca que se marca a si própria como só de cliente empurra todos os consumidores para uma fronteira de cliente, incluindo os que só querem os tipos ou os auxiliares de <code>/core</code>. Pôr a diretiva no seu ficheiro deixa a escolha onde ela pode ser feita."
+    },
+    "server": {
+      "title": "Obtenha os dados no servidor, passe um único relógio",
+      "text": "O componente de servidor faz a obtenção e passa tanto os elementos como uma única marca temporal. Sem ela, o servidor renderiza um «agora» e o cliente outro, que é exatamente a divergência de hidratação de que o React avisa."
+    }
+  },
+  "result": {
+    "text": "A primeira resposta traz o horário em HTML — títulos, elementos, horas — e o cliente assume-o na hidratação. Um leitor cujo JavaScript ainda não chegou vê na mesma o dia."
+  },
+  "troubleshooting": {
+    "points": [
+      "<em>You’re importing a component that needs useState</em> — falta a diretiva <code>'use client'</code> no módulo que renderiza o horário.",
+      "Um aviso de hidratação sobre o conteúdo de texto: as duas renderizações não concordam na hora. Passe <code>now</code> a partir do servidor.",
+      "A disposição salta uma vez depois da hidratação: é o <code>compact=\"auto\"</code> a medir o contentor pela primeira vez. Passe um booleano se o primeiro fotograma tiver de ser definitivo.",
+      "O Turbopack ou o Webpack queixa-se do CSS de <code>node_modules</code>: importe a folha de estilos no layout raiz, o único sítio que ambos permitem."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modos de dados e SSR</link> — como é o primeiro fotograma, e porquê.",
+      "<link to=\"/integrations/ssr/\">Renderização no servidor</link> — as mesmas regras sem o framework.",
+      "<link to=\"/states/\">Estados</link> — carregamento, erro e vazio enquanto os dados estão a caminho."
+    ]
   }
 }

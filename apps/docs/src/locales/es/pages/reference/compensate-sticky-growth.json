@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Mantiene quieto el contenido visible cuando el elemento fijo dentro del área de desplazamiento cambia de altura: el área se mueve lo mismo, en el mismo fotograma, en todos los motores. El área establece overflow-anchor: none, de modo que el anclaje del navegador no añade un segundo desplazamiento. Mientras suspended() esté activo, el cambio solo se anota."
+  }
+}

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Scheduler et vues",
-    "description": "Scheduler et vues dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Le composant Scheduler et ses deux vues : à quoi sert chacune, comment le lecteur bascule, et ce que changent les deux préréglages."
   },
   "sections": {
     "basics": "Bases",
+    "presets": "Préréglages",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "views": "La même journée, des deux façons",
+    "presets": "Par défaut et classique"
+  },
+  "basics": {
+    "intro": "<code>Scheduler</code> est le composant entier : il lit les éléments, découpe la journée en postes et affiche l’une des deux vues. La liste sert à lire un poste de haut en bas ; la chronologie, à voir comment les heures se remplissent. Tout le reste de ce site est un détail de l’une ou de l’autre.",
+    "switch": "Le paquet ne dessine pas de sélecteur de vue : c’est votre page qui le fait, là où il s’insère dans votre mise en page. Passez <code>defaultView</code> pour choisir où démarre le lecteur, ou <code>view</code> avec <code>onViewChange</code> pour garder le choix dans votre propre état — dans une URL par exemple —, afin qu’un lien ouvre la vue depuis laquelle il a été partagé. Les libellés d’un tel contrôle sont dans le pack de langue, sous <code>views.list</code> et <code>views.timeline</code>.",
+    "points": [
+      "<code>ListView</code> et <code>TimelineView</code> sont exportées séparément, pour une page qui ne veut que l’une des deux.",
+      "<code>keepInactiveViewMounted</code> garde l’autre vue montée : y revenir est immédiat et sa position de défilement est conservée.",
+      "Sous <code>listOnlyBreakpoint</code>, la chronologie disparaît entièrement : un téléphone reçoit la liste, quoi que dise la vue."
+    ]
+  },
+  "presets": {
+    "intro": "Un préréglage est la forme du composant, pas ses couleurs : la disposition de la carte, la force du rail de niveau, l’air laissé à une ligne. <code>'default'</code> est celui qu’utilise ce site ; <code>'classic'</code> est plus dense et plus plat. Les deux fonctionnent dans les deux schémas de couleur et dans les trois densités."
+  },
+  "accessibility": {
+    "points": [
+      "Le composant n’affiche que la vue active : le clavier ne traverse jamais une vue cachée. Avec <code>keepInactiveViewMounted</code>, l’autre reste dans le DOM, masquée, tous ses écouteurs et minuteurs en pause.",
+      "Le sélecteur de vue est à vous : une paire de boutons avec <code>aria-pressed</code> se lit bien, et les libellés sont dans le pack de langue.",
+      "Le composant est une seule région étiquetée : un lecteur d’écran peut y sauter directement.",
+      "Les niveaux de titre à l’intérieur commencent à <code>headingLevel</code>, <code>3</code> par défaut : réglez-le selon la page qui l’accueille."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> et <code>density</code> pour l’apparence — voir <link to=\"/customization/theming/\">Thématisation</link>.",
+      "<code>slots</code> et <code>slotProps</code> pour remplacer ou étendre n’importe quelle partie — voir <link to=\"/customization/slots/\">Slots et remplacements</link>.",
+      "<code>classNames</code> et <code>unstyled</code> pour apporter entièrement votre CSS.",
+      "<code>localization</code> pour chaque texte affiché par le composant — voir <link to=\"/customization/localization/\">Localisation</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Il y a deux vues et aucun moyen d’en ajouter une troisième. Un rendu différent est l’affaire de <link to=\"/headless-api/\">l’API headless</link>, qui donne le même modèle sans balisage.",
+      "Les vues ne peuvent pas être affichées côte à côte dans un seul composant ; rendez-en deux si nécessaire.",
+      "Basculer conserve la date et les éléments épinglés. La position de défilement de la vue quittée n’est conservée qu’avec <code>keepInactiveViewMounted</code> ; sinon, la vue où vous entrez atterrit là où l’indique <code>landing.onViewEnter</code>."
+    ]
   }
 }

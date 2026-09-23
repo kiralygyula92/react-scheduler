@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Cerințe",
-    "description": "Cerințe pentru pachetul React Scheduler: pașii în ordine, versiunile implicate și ce verifici la final."
+    "description": "Browsere, versiuni de React și TypeScript, framework-uri și randare pe server, dimensiunea pachetului și ținta de accesibilitate a React Scheduler."
   },
   "sections": {
     "browsers": "Browsere",
@@ -14,5 +14,63 @@
     "frameworks-and-ssr": "Framework-uri și SSR",
     "bundle-size": "Dimensiunea pachetului",
     "accessibility-target": "Obiectivul de accesibilitate"
+  },
+  "browsers": {
+    "intro": "Pachetul țintește browserele actuale și este testat în trei motoare la fiecare schimbare.",
+    "head": {
+      "target": "Țintă",
+      "versions": "Versiuni"
+    },
+    "rows": [
+      ["Chromium (Chrome, Edge)", "Ultimele două"],
+      ["Firefox", "Ultimele două și ESR-ul curent"],
+      ["Safari și WebKit (macOS, iOS)", "16.4 și mai nou"],
+      ["Android Chrome", "Cel curent"]
+    ],
+    "features": "Patru funcții ale platformei sunt folosite fără alternativă, pentru că orice browser din acea listă le are:",
+    "points": [
+      "<code>&lt;dialog&gt;</code> cu <code>showModal()</code>, pentru dialogurile de suplimentare și de detaliu.",
+      "<code>ResizeObserver</code> și <code>IntersectionObserver</code>, pentru modul compact și pentru fixare.",
+      "<code>Intl.DateTimeFormat</code> și <code>Intl.PluralRules</code>, pentru fiecare dată, oră și număr.",
+      "Proprietățile logice CSS și <code>:where()</code>, datorită cărora scrierea de la dreapta la stânga funcționează fără o a doua foaie de stil."
+    ]
+  },
+  "react": {
+    "intro": "React 18.2, 18.3 și 19.x. CI rulează întreaga suită de teste pe fiecare dintre ele, așa că o versiune nu poate trece cât timp una dintre ele este stricată.",
+    "strict": "Modul strict este suportat: fiecare efect pe care componenta îl pornește este idempotent și se curăță după el, așa că un efect invocat de două ori nu schimbă nimic."
+  },
+  "typescript": {
+    "intro": "TypeScript 5.0 sau mai nou. Declarațiile sunt generate din sursă și livrate cu pachetul; sunt verificate cu TypeScript 5.0, 5.9 și 7.0. Ceva mai vechi nu poate rezolva subcăile din <code>exports</code>.",
+    "generics": "Tipurile sunt generice peste datele tale: tipul elementului, cheile de nivel și cheile de etichetă circulă prin tot, așa că <code>renderItemDetail</code> primește elementul tău, nu unul lărgit. Vezi <link to=\"/api/types-model/\">Tipuri pentru model</link>."
+  },
+  "frameworks": {
+    "intro": "Orice aplicație React. Pachetul este publicat ca ESM și CommonJS, cu tipuri pentru amândouă, și nu atinge niciodată DOM-ul în timp ce randează.",
+    "points": [
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> și orice bundler care citește harta <code>exports</code>.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router și Pages Router: programul este o componentă de client.",
+      "<link to=\"/integrations/ssr/\">Randarea pe server</link> în general: primul randat este markup-ul serverului, iar observatorii pornesc după hidratare.",
+      "Node 20 sau mai nou, dacă randezi pe un server."
+    ]
+  },
+  "size": {
+    "intro": "Măsurat de <code>size-limit</code> la fiecare schimbare, minificat și gzip, cu React exclus. Un build care depășește un buget cade.",
+    "head": {
+      "entry": "Intrare",
+      "size": "Dimensiune",
+      "budget": "Buget"
+    },
+    "rows": [
+      ["Intrarea principală, partea încărcată imediat", "24,9 kB", "26 kB"],
+      ["Dialogul de suplimentare, tabelul și paginarea (leneș)", "2,6 kB", "5 kB"],
+      ["Dialogul de detaliu (leneș)", "0,9 kB", "3 kB"],
+      ["<code>/core</code>", "5,1 kB", "6 kB"],
+      ["<code>/dom</code>", "1,7 kB", "4 kB"],
+      ["<code>styles.css</code>", "6,6 kB", "8 kB"],
+      ["Un pachet de limbă", "Aproximativ 1,1 kB", "1,5 kB"]
+    ]
+  },
+  "a11y": {
+    "intro": "Ținta este WCAG 2.2, nivelul AA.",
+    "tested": "Verificările automate rulează axe cu regulile A și AA din WCAG 2.0, 2.1 și 2.2, în Chromium, Firefox și WebKit, și nu este permisă nicio încălcare serioasă sau critică. Lista de verificare de dinaintea unei versiuni adaugă o trecere manuală cu NVDA în Firefox și VoiceOver în Safari: titluri, numărul elementelor din liste, anunțurile cardurilor și focalizarea dialogurilor. Ce nu este încă acoperit se află la <link to=\"/discover-more/accessibility/\">Accesibilitate</link>."
   }
 }

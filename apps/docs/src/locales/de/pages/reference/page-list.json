@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "pageList",
+    "description": "Die Seiten für den Seitenblätterer (0-basiert): alle, wenn es höchstens sieben sind; sonst die ersten zwei, die letzten zwei und die aktuelle Seite ±1, mit „ellipsis“ in jeder Lücke."
+  }
+}

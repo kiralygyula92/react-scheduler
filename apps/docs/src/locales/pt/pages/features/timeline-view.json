@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vista cronológica",
-    "description": "Vista cronológica no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "A vista cronológica no React Scheduler: como se comporta por omissão, o que se pode configurar, a sua acessibilidade e os seus limites."
   },
   "sections": {
     "basics": "Noções básicas",
@@ -13,5 +13,45 @@
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Um dia na cronologia",
+    "columns": "Quantas colunas uma hora pode usar",
+    "columnPlacement": "Que elemento ocupa a coluna da esquerda",
+    "overflowWindow": "Até onde pode chegar um grupo «+ mais»"
+  },
+  "basics": {
+    "intro": "A cronologia desenha os turnos apresentados como uma única grelha contínua, do início do primeiro turno ao fim do último. Os elementos são colocados no minuto em que começam e têm a altura da sua duração, por isso um relance mostra o quão cheio está o dia, e não apenas o que contém. Defina <code>view=\"timeline\"</code>, ou deixe quem lê mudar de vista com <code>defaultView</code>.",
+    "grid": "A grelha tem <code>hourHeight</code> píxeis por cada hora decorrida, com uma etiqueta por hora e uma linha de fronteira em cada mudança de turno dentro do intervalo. As horas fora do turno que está a ser lido são desenhadas como faixas fora de turno, pelo que uma noite que passa da meia-noite continua a ser uma só grelha e não dois dias.",
+    "parts": [
+      "Um elemento sem <code>end</code> recebe <code>defaultDuration</code>, e um mais curto do que <code>minCardHeight</code> é desenhado com essa altura para que o título continue legível.",
+      "Os elementos que se sobrepõem partilham a faixa em colunas, até <code>maxColumns</code> delas.",
+      "O que não cabe nas colunas é reunido num grupo alcançado por um botão <strong>+ mais</strong>, que abre a caixa de diálogo dos elementos adicionais."
+    ]
+  },
+  "accessibility": {
+    "intro": "A cronologia é uma lista de elementos com uma posição, não uma imagem disso. Tudo o que a grelha diz visualmente é dito também em texto.",
+    "points": [
+      "Cada cartão é um botão: está na ordem de tabulação, e <kbd>Enter</kbd> ou <kbd>Space</kbd> abre o seu detalhe.",
+      "O nome acessível de um cartão inclui o seu nível e a sua hora, por isso nunca é preciso ler a posição na grelha para saber o que é um elemento.",
+      "Os cabeçalhos de turno são títulos reais e o seu nível segue <code>headingLevel</code>, pelo que a página mantém uma só estrutura.",
+      "O marcador de «agora» e as linhas de fronteira são decorativos; a hora que marcam está nas etiquetas de hora e no nome de cada cartão.",
+      "A cor nunca é o único portador: o nível que representa está também escrito no cartão."
+    ]
+  },
+  "customization": {
+    "intro": "Tudo o que se segue é um campo de <code>timeline</code>. Os valores por omissão são os que as demonstrações acima mostram; as daqui mudam um campo de cada vez.",
+    "placement": "<code>columnPlacement</code> decide que coluna um elemento ocupa quando vários se sobrepõem. <code>'priority'</code>, o valor por omissão, agrupa os elementos que se sobrepõem, ordena-os com <code>compareItems</code> e pode promover um do grupo de adicionais para uma coluna que fica livre. <code>'time'</code> mantém a ordem simples de início e salta essa promoção, por isso o elemento que começou mais cedo mantém a sua coluna.",
+    "overflow": "<code>overflowMergeWindow</code> limita quanto tempo um único grupo <strong>+ mais</strong> pode cobrir. As horas consecutivas só se fundem num grupo enquanto o grupo resultante ficar dentro da janela, por isso uma manhã cheia dá origem a vários grupos honestos em vez de um que cobre todo o turno.",
+    "options": "A lista completa, gerada a partir das declarações do pacote:"
+  },
+  "limitations": {
+    "points": [
+      "A grelha cobre apenas os turnos apresentados. Ler mais para trás ou para a frente é navegar entre turnos, e não deslocar para lá do fim da grelha.",
+      "Os elementos são colocados por marca temporal, no fuso horário de quem lê; o pacote ainda não tem um fuso horário próprio (ver o plano).",
+      "Os cartões que se sobrepõem partilham a faixa em colunas iguais. Uma coluna não pode ser mais larga do que as vizinhas.",
+      "A cronologia não virtualiza as suas linhas: um intervalo de vários dias com o <code>hourHeight</code> por omissão dá um documento alto.",
+      "Aqui os elementos não podem ser movidos nem redimensionados. A edição está planeada, não entregue."
+    ]
   }
 }

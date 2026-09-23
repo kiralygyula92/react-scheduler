@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Fixare",
-    "description": "Fixare în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Care elemente rămân la vedere după ce trec de ecran, ce decide asta și cum este ordonată banda de elemente fixate."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "rules": "Reguli și reglaje",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Elemente care rămân la vedere"
+  },
+  "basics": {
+    "intro": "Ceva important care a ieșit din câmpul vizual rămâne important. Fixarea ține astfel de elemente într-o bandă în partea de sus a zonei de derulare, în ordinea pe care ar fi avut-o în tură, și le lasă din nou când revin la vedere.",
+    "which": "Trei lucruri decid dacă un element se fixează:",
+    "points": [
+      "<code>item.pinned === true</code> îl fixează cât timp tura lui este randată, indiferent ce face cititorul.",
+      "<code>item.pinnable</code> lasă un singur element să intre sau să iasă.",
+      "Altfel decide nivelul, prin <code>pinOnPass</code> — un rang întreg deodată."
+    ]
+  },
+  "rules": {
+    "intro": "Fixarea se întâmplă când marginea elementului trece de o linie: partea de jos a zonei lipite sus în listă, marginea de sus a zonei de derulare în cronologie. <code>epsilon</code> mută acea linie, iar <code>hysteresis</code> spune cât trebuie să se întoarcă elementul până se desface, ca unul aflat la limită să nu pâlpâie.",
+    "carried": "Elementele dintr-o tură care a trecut deja poartă eticheta <code>carriedOver</code>, adăugată la etichetele pe care le au deja. Despre asta este numărul de pe butonul de navigare de sus, iar el este calculat din ture, niciodată din id-uri."
+  },
+  "accessibility": {
+    "points": [
+      "Banda este o regiune etichetată care conține o listă, așa că un cititor de ecran spune câte elemente sunt fixate.",
+      "Schimbările sunt anunțate printr-o regiune live, iar anunțurile repetate sunt temperate, ca o derulare rapidă să nu o inunde.",
+      "O pastilă fixată este un buton care deschide același detaliu ca și cardul și păstrează numele accesibil al cardului.",
+      "Zona de derulare oprește ancorarea de derulare a browserului și compensează singură înălțimea benzii, așa că nimic de sub ochiul cititorului nu sare când apare o pastilă."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>pinning.list</code> și <code>pinning.timeline</code> reglează fiecare vizualizare separat.",
+      "<code>pinning.compare</code> ordonează banda; valoarea implicită este aceeași ordine de așezare pe care o folosește tura.",
+      "Părțile <code>pinnedStrip</code>, <code>pinnedStripTrack</code>, <code>pinnedChip</code> și <code>edgeFade</code> pot fi înlocuite prin <link to=\"/customization/slots/\">sloturi</link>, iar <code>renderPinnedChip</code> înlocuiește o pastilă cu totul.",
+      "<code>handlers.onPin</code> poate refuza o fixare înainte să se întâmple; <code>onPinnedChange</code> raportează setul după aceea, cu ce s-a adăugat și ce s-a scos."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Setul de elemente fixate se resetează când se schimbă <code>date</code>: o zi nouă începe fără nimic fixat.",
+      "Fixarea este per vizualizare. Comutarea recalculează fixarea din locul în care este derulată acea vizualizare, așa că cele două benzi pot diferi.",
+      "Nu există o limită a numărului de elemente fixate deodată; o tură în care se fixează fiecare element umple banda."
+    ]
   }
 }

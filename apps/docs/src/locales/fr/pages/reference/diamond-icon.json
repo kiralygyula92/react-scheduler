@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "DiamondIcon",
+    "description": "Le repère de la pastille : un carré de 4 × 4 pivoté de −45° autour de (0 ; 2,828) dans une boîte de 6 × 6, rempli de la couleur de texte courante."
+  }
+}

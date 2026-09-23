@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "DiamondIcon",
+    "description": "The pill marker: a 4 × 4 square rotated −45° about (0, 2.828) inside a 6 × 6 box, filled with the current text color."
+  }
+}

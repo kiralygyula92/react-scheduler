@@ -2,6 +2,12 @@
 // Romanian (Romania) strings (Feature Dossier 06 §6.4). Draft: needs native review.
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The Romanian (Romania) locale pack, passed to `localization`.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const roRO: SchedulerLocalization = {
   locale: 'ro-RO',
   emptyAll: 'Nu există date în agendă.',

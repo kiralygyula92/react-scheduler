@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vista de lista",
-    "description": "Vista de lista no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "A vista de lista: uma secção por turno, cartões por ordem de tempo, e as opções que decidem onde aterra um salto e quando aparece a navegação."
   },
   "sections": {
     "basics": "Noções básicas",
+    "reading": "Ler uma lista longa",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Um turno, lido de cima para baixo",
+    "options": "Quando aparece a navegação"
+  },
+  "basics": {
+    "intro": "A lista é a vista para ler: uma secção por cada turno apresentado, os cartões desse turno por ordem de tempo, e o título da secção colado ao topo enquanto estiver lá dentro. É a vista por omissão e a única abaixo de <code>listOnlyBreakpoint</code>.",
+    "points": [
+      "Um cartão leva o título, o nível, a hora e os campos opcionais que o elemento tenha — uma descrição, uma referência, uma etiqueta, uma sugestão.",
+      "O turno que está a ser lido é aquele onde o deslocamento se encontra, e é dele que partem os botões de navegação e a faixa dos elementos fixados.",
+      "Quando o turno atual é o que contém o agora, um marcador fica entre os cartões, antes do primeiro elemento que ainda não começou."
+    ]
+  },
+  "reading": {
+    "intro": "A maior parte do que <code>list</code> contém diz respeito a ler um dia longo: quando vale a pena mostrar os botões de navegação, onde aterra um salto para que o título não fique debaixo da barra colada ao topo, e quanto é preciso deslocar antes de aparecer o botão para voltar ao início.",
+    "options": "A lista completa, gerada a partir das declarações do pacote:"
+  },
+  "accessibility": {
+    "points": [
+      "Cada turno é uma secção com título, e os cartões de um turno formam uma lista, por isso um leitor de ecrã anuncia quantos elementos contém.",
+      "Cada cartão é um botão: o <kbd>Tab</kbd> chega-lhe por ordem de tempo, e o <kbd>Enter</kbd> ou o <kbd>Space</kbd> abre o seu detalhe.",
+      "O marcador de «agora» é um separador com etiqueta, por isso a fronteira entre o que passou e o que não passou é anunciada, e não apenas desenhada.",
+      "Um salto aterra com o título do turno à vista, e não debaixo da barra colada ao topo, e leva para lá o foco — <code>alignOffset</code> e <code>previousJumpExtraOffset</code> são o que mantém isso em qualquer densidade."
+    ]
+  },
+  "customization": {
+    "points": [
+      "As partes <code>itemList</code>, <code>listCard</code>, <code>shiftSection</code> e <code>shiftHeader</code> podem ser substituídas por <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderItem</code> substitui um cartão por completo, com <code>getItemProps</code> para que o seu mantenha o comportamento; <code>renderCardContent</code> mantém o cartão e substitui o seu interior.",
+      "<code>--rs-card-gap</code>, <code>--rs-list-gap</code> e a escala de densidade definem o espaçamento — ver <link to=\"/customization/css-variables/\">Variáveis CSS</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A lista não virtualiza: um turno com mil elementos apresenta mil cartões.",
+      "Os cartões não podem ser agrupados dentro de um turno por outra coisa que não o tempo; agrupar por nível ou por etiqueta é tarefa da <link to=\"/headless-api/\">API headless</link>.",
+      "Não há edição no local nem modelo de seleção — um cartão abre o seu detalhe, e essa é toda a interação."
+    ]
   }
 }

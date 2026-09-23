@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Vergangenes Datum",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Vergangenes Datum: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Vergangenes Datum",
+    "description": "Ein Tag, zwei Tage hinter der Uhr: Alles ist schon geschehen, und es gibt keine „Jetzt“-Anzeige."
+  },
+  "demos": {
+    "board": "Ein Tag, der schon vorbei ist"
+  },
+  "scenario": "Der Plan zeigt einen Tag zwei Tage vor dem aktuellen. Jeder Eintrag ist schon geschehen, die Frage an die Komponente lautet also, was ein Plan bedeutet, von dem nichts mehr vor einem liegt.",
+  "look": [
+    "Keine „Jetzt“-Anzeige. Sie wird nur in der Schicht gezeichnet, die den aktuellen Moment enthält, und die liegt zwei Tage entfernt.",
+    "Nichts wird gedämpft, nur weil es vorbei ist. Allein die Stufe <code>resolved</code> wird gedämpft gezeichnet, und das gilt an jedem Tag.",
+    "Die Überschriften sind weiterhin vorige, aktuelle und nächste: Sie sind relativ zum gezeigten Datum, nicht zu heute.",
+    "Navigation und Anheften verhalten sich genau wie am aktuellen Tag."
+  ],
+  "uses": [
+    "<link to=\"/shifts-and-dates/\">Schichten und Daten</link> — das gewählte Datum und die Schichten darum herum.",
+    "<link to=\"/now-indicator/\">„Jetzt“-Anzeige</link> — die Regel, die sie von dieser Seite fernhält.",
+    "<link to=\"/pinning/\">Anheften</link> — übernommene Einträge an einem Tag, der ganz zurückliegt."
+  ]
 }

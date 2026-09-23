@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Data modes and SSR",
-    "description": "Data modes and SSR in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "Holding the items yourself, fetching them per rendered range, and rendering the schedule on a server without a hydration warning."
   },
   "sections": {
     "basics": "Basics",
@@ -14,5 +14,42 @@
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Fetching per rendered range"
+  },
+  "basics": {
+    "intro": "The component never fetches. You hold <code>items</code>, and it renders what you hold. That leaves two ways to work: give it everything you have, or give it what the rendered range needs and refill as the range moves.",
+    "range": "<code>onVisibleRangeChange</code> fires on mount and whenever the rendered range changes — a new date, a different shift pattern, more shifts before or after. It is the signal to fetch. While the answer is on its way, keep <code>loading</code> on: the items already on screen stay there, dimmed, instead of blanking."
+  },
+  "server": {
+    "intro": "The component renders on a server without touching the DOM, and hydrates without a warning in React 18 and 19. The first frame is deliberately the plain one:",
+    "points": [
+      "Compact mode is off unless you pass the boolean yourself — width cannot be measured on a server.",
+      "Nothing is pinned, because pinning is a scroll position.",
+      "The header signal starts expanded.",
+      "The clock starts from <code>now</code>, or from <code>defaultDate</code> when you give neither. Passing <code>now</code> is what makes the two renders agree exactly."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "The server-rendered markup is the same structure the client hydrates: a reader without JavaScript gets the schedule, its headings and its item names.",
+      "Nothing about the states is announced twice across hydration: the live regions start empty and only speak on a change.",
+      "A refresh that keeps the old items visible keeps the reading position too, which matters most for someone navigating by keyboard."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>onVisibleRangeChange</code> for fetching, <code>loading</code> and <code>error</code> for what the reader sees meanwhile — see <link to=\"/states/\">States</link>.",
+      "<code>now</code> makes the render deterministic, which is also what the visual tests of this package rely on.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> and <link to=\"/integrations/ssr/\">Server rendering</link> have the framework-specific parts."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "There is no built-in cache, no request deduplication and no retry: that is your data layer’s job.",
+      "The overflow dialog is not paged from a server; it shows the items of the group it already has.",
+      "A range change is reported after it happened, so a fetch always begins with the new range already rendered — empty, loading, or with the previous items."
+    ]
   }
 }

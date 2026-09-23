@@ -1,10 +1,23 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Anleitungen",
-    "description": "Aufgabenorientierte Anleitungen für React Scheduler, die jeweils in einem lauffähigen Stand enden."
+    "description": "Wo die aufgabenorientierten Seiten stehen: die vier Integrationsanleitungen und die Fähigkeitsseiten dahinter."
+  },
+  "sections": {
+    "start-here": "Hier anfangen"
+  },
+  "scope": "Die Schritt-für-Schritt-Anleitungen dieser Website stehen unter <link to=\"/integrations/\">Integrationen</link>: Jede beginnt bei einem leeren Projekt und endet bei einem Plan, auf dem sich aufbauen lässt. Diese Seite ist die Karte dorthin — und zu den Seiten, die die Fragen einer Anleitung beantworten.",
+  "start": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Verwendung</link> — das kürzeste vollständige Beispiel und wofür jede Prop darin da ist.",
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/nextjs/\">Next.js</link>, <link to=\"/integrations/react-router/\">React Router</link> — derselbe Plan in drei Aufbauten.",
+      "<link to=\"/integrations/ssr/\">Rendern auf dem Server</link> — was zu übergeben ist, damit zwei Renderings übereinstimmen.",
+      "<link to=\"/demos/\">Demos</link> — acht Tage eines Plans, jeder mit seinem Quelltext.",
+      "<link to=\"/customization/\">Anpassung</link> — wie weit man kommt, ohne irgendetwas zu forken."
+    ]
   }
 }

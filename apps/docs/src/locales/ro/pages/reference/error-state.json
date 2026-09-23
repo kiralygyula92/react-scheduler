@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ErrorState",
+    "description": "Ce afișează o vizualizare când încărcarea a eșuat, cu acțiunea de reîncercare dacă este furnizată."
+  }
+}

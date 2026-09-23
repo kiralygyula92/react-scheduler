@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "CARRIED_OVER_TAG",
+    "description": "Der Etikettenschlüssel, den die Bibliothek übernommenen angehefteten Elementen hinzufügt."
+  }
+}

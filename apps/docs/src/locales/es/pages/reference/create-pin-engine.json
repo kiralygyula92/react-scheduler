@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createPinEngine",
+    "description": "Crea el motor de fijado de un área de desplazamiento."
+  }
+}

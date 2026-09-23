@@ -16,9 +16,16 @@ import { cardLevelStyle, describeItem, levelLabel, safeId, tagLabel, VISUALLY_HI
 const ANNOUNCE_INTERVAL = 1000;
 const FADE_EPSILON = 2;
 
+/**
+ * One chip in the pinned strip.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export const PinnedChip = memo(function PinnedChip<TItem extends SchedulerItem>({
   entry,
 }: {
+  /** The pinned item and what the chip shows for it. */
   entry: PinnedEntry<TItem>;
 }): ReactNode {
   const env = useCardEnv<TItem>();
@@ -67,7 +74,10 @@ export const PinnedChip = memo(function PinnedChip<TItem extends SchedulerItem>(
       owner,
     );
   return props.renderPinnedChip ? props.renderPinnedChip(item, { carriedOver, defaultRender }) : defaultRender();
-}) as <TItem extends SchedulerItem>(props: { entry: PinnedEntry<TItem> }) => ReactNode;
+}) as <TItem extends SchedulerItem>(props: {
+  /** The pinned item and what the chip shows for it. */
+  entry: PinnedEntry<TItem>;
+}) => ReactNode;
 
 /** Edge fades show only while the track can scroll that way (BR-L09). */
 function useFades(track: HTMLElement | null, count: number): { start: boolean; end: boolean } {
@@ -110,6 +120,12 @@ function useAnnouncement(count: number, template: Parameters<typeof interpolate>
   return text;
 }
 
+/**
+ * The strip of pinned items that stays in view while their shift is on screen.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function PinnedStrip(): ReactElement {
   const { model } = useSchedulerContext();
   const { viewModel, custom } = useViewContext();

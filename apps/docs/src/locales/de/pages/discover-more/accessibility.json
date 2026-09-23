@@ -1,16 +1,55 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Barrierefreiheit",
-    "description": "Das Barrierefreiheitsziel von React Scheduler, was bei jeder Änderung geprüft wird und welche Lücken bleiben."
+    "description": "Das Ziel, was bei jeder Änderung geprüft wird, welche Lücken bleiben und wo man eine meldet."
   },
   "sections": {
     "target": "Ziel",
     "what-is-tested": "Was geprüft wird",
     "known-gaps": "Bekannte Lücken",
     "reporting": "Ein Problem melden"
+  },
+  "target": {
+    "intro": "Das Ziel ist WCAG 2.2 Stufe AA, für die Komponente und für diese Website. Es ist ein Ziel, das die Tests durchsetzen, keine Zertifizierung: Es wurde kein Audit beauftragt und keine Konformitätserklärung abgegeben.",
+    "points": [
+      "Die Standardvorgabe erfüllt die Kontrastanforderungen in beiden Farbschemata.",
+      "Alles, was mit dem Zeiger geht, geht auch mit der Tastatur, in der Lesereihenfolge der Seite.",
+      "Jeder Teil trägt eine Rolle und einen Namen; nichts hängt allein an der Farbe.",
+      "Unter <code>prefers-reduced-motion</code> bewegt sich nichts, und Bewegung trägt keine Information."
+    ]
+  },
+  "tested": {
+    "intro": "Jede Änderung durchläuft dieselben Prüfungen, und eine Veröffentlichung fügt die hinzu, die ein Mensch machen muss:",
+    "points": [
+      "axe-core über die gerenderte Komponente in Chromium, Firefox und WebKit, in beiden Vorgaben, beiden Farbschemata und jedem Zustand, mit eingeschalteten Kontrastregeln.",
+      "axe-core über die Seiten dieser Website, in jeder Sprache, ohne schwere oder kritische Verstöße.",
+      "Tastaturtests, die den ganzen Plan durchlaufen: die Karten, die angehefteten Chips, die Navigation, die Dialoge und die Rückkehr des Fokus.",
+      "Momentaufnahmen dessen, was ein Screenreader bekommt — die zugänglichen Namen, die Ansagen der Live-Regionen und deren Drosselung.",
+      "Rechts-nach-links-Aufnahmen gegen ihre Links-nach-rechts-Gegenstücke, damit ein gespiegeltes Layout ein Testfehler ist und keine Überraschung.",
+      "Vor einer Veröffentlichung die manuelle Liste: NVDA mit Firefox und VoiceOver mit Safari, die Demo-Aufgaben nur mit der Tastatur, 200 % Zoom bei 320 Pixeln Breite und der hohe Kontrast von Windows."
+    ]
+  },
+  "gaps": {
+    "intro": "Die bekannten Lücken und was dagegen getan wird:",
+    "points": [
+      "Zwischen den Karten gibt es noch kein wanderndes Fokussieren: <kbd>Tab</kbd> ist die einzige Bewegung, und eine volle Schicht sind viele Halte. Es steht auf dem <link to=\"/discover-more/roadmap/\">Roadmap</link>.",
+      "Die Navigationsschaltflächen haben keine Tastenkürzel.",
+      "Die Vorgabe <code>classic</code> behält absichtlich einige Kontrastmängel, aus pixelgenauer Treue zu dem Aussehen, das sie nachbildet: die Stufenplaketten, der Alarmton und drei weitere im hellen Schema. Die Standardvorgabe hat keinen, und die Testsuite erlaubt genau diese Liste und sonst nichts.",
+      "Eine Farbe dieser Dokumentationsseite — der Rahmen von Eingabefeldern und überfahrenen Karten — liegt unter den 3:1, die ihr eigenes Designsystem behauptet. Sie wird in einem Test gemessen, damit sie nicht schlechter werden kann, und gehört zur Hülle der Website, nicht zur Komponente.",
+      "Die manuelle Liste ist noch nicht durchlaufen worden, weil noch nichts veröffentlicht ist."
+    ]
+  },
+  "reporting": {
+    "intro": "Ein Barrierefreiheitsproblem ist ein Fehler und wird vor Funktionen bearbeitet. Wenn Sie eines melden:",
+    "points": [
+      "Nennen Sie assistive Technik und Browser mit Versionen — die Kombination zählt mehr als jedes für sich.",
+      "Sagen Sie, was Sie hören oder erreichen wollten und was stattdessen geschah.",
+      "Ein Link zu einer Reproduktion ist mehr wert als eine Beschreibung; die <link to=\"/demos/\">Demos</link> sind ein guter Ausgangspunkt.",
+      "<link to=\"/getting-started/support/\">Unterstützung</link> sagt, wo man es eröffnet und was sonst dazugehört."
+    ]
   }
 }

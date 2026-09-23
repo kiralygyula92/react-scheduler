@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Datenmodi und SSR",
-    "description": "Datenmodi und SSR in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Die Einträge selbst halten, sie je gerendertem Bereich holen und den Plan auf einem Server rendern, ohne Hydrationswarnung."
   },
   "sections": {
     "basics": "Grundlagen",
@@ -14,5 +14,42 @@
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "serverData": "Laden je gerendertem Bereich"
+  },
+  "basics": {
+    "intro": "Die Komponente holt nie Daten. Sie halten <code>items</code>, und sie rendert, was Sie halten. Damit bleiben zwei Arbeitsweisen: ihr alles geben, was Sie haben, oder ihr geben, was der gerenderte Bereich braucht, und nachfüllen, während der Bereich wandert.",
+    "range": "<code>onVisibleRangeChange</code> feuert beim Einhängen und immer, wenn sich der gerenderte Bereich ändert — ein neues Datum, ein anderes Schichtmuster, mehr Schichten davor oder danach. Das ist das Signal zum Laden. Während die Antwort unterwegs ist, lassen Sie <code>loading</code> an: die bereits sichtbaren Einträge bleiben gedimmt stehen, statt zu verschwinden."
+  },
+  "server": {
+    "intro": "Die Komponente rendert auf einem Server, ohne das DOM anzufassen, und hydriert in React 18 und 19 ohne Warnung. Das erste Bild ist bewusst das schlichte:",
+    "points": [
+      "Der kompakte Modus ist aus, sofern Sie den Booleschen Wert nicht selbst übergeben — die Breite lässt sich auf einem Server nicht messen.",
+      "Nichts ist angeheftet, denn Anheften ist eine Scrollposition.",
+      "Das Kopfzeilensignal startet ausgeklappt.",
+      "Die Uhr startet bei <code>now</code>, oder bei <code>defaultDate</code>, wenn Sie keines angeben. <code>now</code> zu übergeben ist es, was die beiden Renderings exakt übereinstimmen lässt."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Das auf dem Server gerenderte Markup ist dieselbe Struktur, die der Client hydriert: ein Leser ohne JavaScript bekommt den Plan, seine Überschriften und die Namen der Einträge.",
+      "Nichts an den Zuständen wird bei der Hydration doppelt angesagt: die Live-Regionen starten leer und sprechen nur bei einer Änderung.",
+      "Eine Aktualisierung, die die alten Einträge sichtbar lässt, bewahrt auch die Leseposition — das zählt am meisten für jemanden, der per Tastatur navigiert."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>onVisibleRangeChange</code> zum Laden, <code>loading</code> und <code>error</code> für das, was der Leser währenddessen sieht — siehe <link to=\"/states/\">Zustände</link>.",
+      "<code>now</code> macht das Rendern deterministisch, worauf auch die visuellen Tests dieses Pakets bauen.",
+      "<link to=\"/integrations/nextjs/\">Next.js</link> und <link to=\"/integrations/ssr/\">Server-Rendering</link> enthalten die frameworkspezifischen Teile."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Es gibt keinen eingebauten Cache, keine Anfragen-Deduplizierung und kein Wiederholen: das ist Sache Ihrer Datenschicht.",
+      "Der Dialog der weiteren Einträge wird nicht vom Server geblättert; er zeigt die Einträge der Gruppe, die er schon hat.",
+      "Ein Bereichswechsel wird gemeldet, nachdem er geschehen ist, deshalb beginnt ein Laden immer mit dem bereits gerenderten neuen Bereich — leer, ladend oder mit den vorherigen Einträgen."
+    ]
   }
 }

@@ -1,15 +1,48 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Localizare",
-    "description": "Localizare în React Scheduler: ce poți schimba, cum schimbi și ce afectează fiecare modificare."
+    "description": "Cele șapte pachete de limbă incluse, cum suprascrii un mesaj și cum adaugi o limbă proprie."
   },
   "sections": {
-    "built-in-locales": "Localizări incluse",
-    "custom-messages": "Mesaje personalizate",
+    "built-in-locales": "Limbi incluse",
+    "custom-messages": "Mesaje proprii",
     "adding-a-language": "Adăugarea unei limbi"
+  },
+  "demos": {
+    "localization": "Două mesaje, înlocuite"
+  },
+  "packs": {
+    "intro": "Fiecare text pe care îl arată componenta și fiecare text pe care îl anunță vine dintr-un singur obiect. Șapte sunt livrate cu pachetul; importă-l pe cel de care ai nevoie din subcalea lui, ca celelalte să nu ajungă în bundle:",
+    "head": {
+      "pack": "Pachet",
+      "language": "Limbă",
+      "status": "Stare"
+    },
+    "rows": [
+      ["<code>enUS</code>", "Engleză (Statele Unite)", "Implicit"],
+      ["<code>roRO</code>", "Română (România)", "Ciornă, nerevizuită încă de un vorbitor nativ"],
+      ["<code>huHU</code>", "Maghiară (Ungaria)", "Ciornă, nerevizuită încă de un vorbitor nativ"],
+      ["<code>esES</code>", "Spaniolă (Spania)", "Textele mai noi nu sunt încă revizuite"],
+      ["<code>frFR</code>", "Franceză (Franța)", "Ciornă, nerevizuită încă de un vorbitor nativ"],
+      ["<code>deDE</code>", "Germană (Germania)", "Ciornă, nerevizuită încă de un vorbitor nativ"],
+      ["<code>ptPT</code>", "Portugheză (Portugalia)", "Ciornă, nerevizuită încă de un vorbitor nativ"]
+    ]
+  },
+  "messages": {
+    "intro": "Un pachet este un obiect simplu, așa că înlocuirea unui mesaj este o răspândire. Nimic nu este îmbinat în adâncime pentru tine: un grup imbricat pe care îl atingi trebuie răspândit și el, ceea ce împiedică o greșeală de scriere să golească tăcut un grup.",
+    "points": [
+      "Numărările trec prin <code>Intl.PluralRules</code>, așa că un mesaj cu un număr este un obiect de forme de plural, nu un șir.",
+      "Substituenții sunt <code>{{name}}</code>, iar valoarea este formatată în limba pachetului.",
+      "<code>locale</code> este limba cu care se formatează fiecare dată, oră și număr — setează-o când scrii un pachet propriu.",
+      "<code>dir: 'rtl'</code> întoarce toată aranjarea, fără o a doua foaie de stil."
+    ]
+  },
+  "adding": {
+    "intro": "O limbă proprie este un obiect care satisface <code>SchedulerLocalization</code>. Pornește de la pachetul englez, ca tipul să îți spună ce lipsește încă:",
+    "formats": "Datele, orele și intervalele sunt formatate de <code>Intl</code> din <code>locale</code>-ul pachetului, așa că o limbă nouă nu are nevoie de șiruri de format. <code>formatters</code> există pentru cazurile în care un format trebuie să difere de ce dă <code>Intl</code>."
   }
 }

@@ -1,10 +1,23 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Útmutatók",
-    "description": "Feladatorientált útmutatók a React Schedulerhez, mindegyik működő állapottal zárul."
+    "description": "Hol vannak a feladatorientált oldalak: a négy integrációs útmutató és a mögöttük álló képességoldalak."
+  },
+  "sections": {
+    "start-here": "Kezdd itt"
+  },
+  "scope": "Ennek az oldalnak a lépésről lépésre útmutatói az <link to=\"/integrations/\">Integrációk</link> alatt vannak: mindegyik üres projektről indul, és működő beosztással zárul. Ez az oldal a hozzájuk vezető térkép, és azokhoz az oldalakhoz is, amelyek megválaszolják az útmutató közben felmerülő kérdéseket.",
+  "start": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Használat</link> — a legrövidebb teljes példa, és hogy mire való benne minden egyes property.",
+      "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/nextjs/\">Next.js</link>, <link to=\"/integrations/react-router/\">React Router</link> — ugyanaz a beosztás három felállásban.",
+      "<link to=\"/integrations/ssr/\">Szerveroldali renderelés</link> — mit kell átadni, hogy két renderelés egyetértsen.",
+      "<link to=\"/demos/\">Bemutatók</link> — nyolc beosztásnap, mindegyik a saját forrásával.",
+      "<link to=\"/customization/\">Testreszabás</link> — meddig juthatsz el anélkül, hogy bármit leforkolnál."
+    ]
   }
 }

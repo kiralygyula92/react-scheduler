@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "React Router",
-    "description": "React Router: obiectivul, ce îți trebuie înainte de a începe, pașii de urmat și cum verifici rezultatul."
+    "description": "Mod framework: loader-ul ține elementele, ruta le randează, URL-ul poartă ziua."
   },
   "sections": {
     "goal": "Obiectiv",
     "before-you-start": "Înainte de a începe",
     "steps": "Pași",
     "result": "Rezultat",
-    "related": "Legături conexe"
+    "related": "Legături conexe",
+    "troubleshooting": "Depanare"
+  },
+  "goal": "Randează programul într-o aplicație React Router în mod framework, cu ziua în URL și elementele într-un loader. Situl acesta de documentație este construit așa, deci tiparul de aici este chiar cel folosit de el.",
+  "before": {
+    "points": [
+      "Un proiect React Router 7 sau 8 în mod framework, cu sau fără randare pe server.",
+      "React 18.2 sau 19.",
+      "O rută pe care să pui programul."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Instalează pachetul",
+      "text": "O singură dependență; router-ul rămâne al tău."
+    },
+    "stylesheet": {
+      "title": "Importă foaia de stil în ruta rădăcină",
+      "text": "Modulul rutei rădăcină se încarcă pentru fiecare pagină, ceea ce îl face locul potrivit pentru o foaie de stil globală. Cu randarea pe server pornită, importul este și cel care pune CSS-ul în document, nu într-un chunk de mai târziu."
+    },
+    "route": {
+      "title": "Încarcă elementele, randează programul",
+      "text": "Loader-ul este locul aducerii datelor. Întoarcerea datei alături de elemente păstrează randarea deterministă: același URL randează același program pe server și în browser."
+    },
+    "range": {
+      "title": "Urmărește intervalul randat",
+      "text": "<code>onVisibleRangeChange</code> se declanșează la montare și ori de câte ori se mută intervalul. Scrierea acelui interval înapoi în URL lasă loader-ul să reîncarce, ceea ce ține cinstite butonul înapoi și un link trimis mai departe."
+    }
+  },
+  "result": {
+    "text": "O rută care randează ziua din URL-ul ei, reîncarcă datele când cititorul trece la altă tură și supraviețuiește unei reîncărcări cu același program pe ecran."
+  },
+  "troubleshooting": {
+    "points": [
+      "O buclă de cereri: schimbarea intervalului scrie un URL care încarcă elemente care schimbă intervalul. Scrie doar data, și numai când diferă de cea deja acolo.",
+      "Poziția de derulare sare la fiecare navigare: transmite <code>preventScrollReset</code>, cum face fragmentul de mai sus.",
+      "Cu <code>ssr: false</code> și prerandare, programul este randat la build; transmite <code>now</code> ca acel cadru prerandat și browserul să fie de acord."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Moduri de date și SSR</link> — aducerea datelor pentru intervalul randat.",
+      "<link to=\"/navigation/\">Navigare</link> — ce mută intervalul și ce emite.",
+      "<link to=\"/integrations/ssr/\">Randare pe server</link> — regulile independente de framework."
+    ]
   }
 }

@@ -22,7 +22,9 @@ import { site } from '~/shell/nav';
 export function Layout({ children }: { children: React.ReactNode }): React.ReactElement {
   const { locale } = parsePath(useLocation().pathname, site.pluginId);
   return (
-    <html lang={locale} data-theme="light">
+    // `data-theme` is the bootstrap script’s alone: rendering it here would let any re-render of
+    // this component put the light theme back over the reader’s choice.
+    <html lang={locale}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

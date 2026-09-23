@@ -1,17 +1,70 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Accesibilitate și tastatură",
-    "description": "Accesibilitate și tastatură în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Harta tastaturii, rolurile și numele pe care componenta le dă părților ei și ce anunță — într-un singur loc."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "keyboard": "Tastatură",
+    "structure": "Roluri și nume",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "keyboard": "Tot programul, de la tastatură"
+  },
+  "basics": {
+    "intro": "Fiecare pagină de capabilitate are secțiunea ei de accesibilitate; pagina aceasta este rezumatul. Ținta este WCAG 2.2 nivelul AA, verificată de axe în trei motoare la fiecare schimbare și manual, cu NVDA și VoiceOver, înaintea unei versiuni."
+  },
+  "keyboard": {
+    "intro": "Tastele pe care le folosește componenta. Restul sunt ale browserului.",
+    "head": {
+      "key": "Tastă",
+      "what": "Ce face"
+    },
+    "rows": [
+      ["<kbd>Tab</kbd>", "Trece la următorul control al programului, în ordinea citirii."],
+      ["<kbd>Enter</kbd> sau <kbd>Space</kbd>", "Activează cardul, pastila sau butonul focalizat."],
+      ["<kbd>Escape</kbd>", "Închide dialogul de deasupra și întoarce focalizarea la ce l-a deschis."]
+    ],
+    "order": "Ordinea de tabulare este ordinea citirii: pastilele fixate, navigarea de sus, apoi turele în ordine cu cardurile și pastilele lor <strong>+ mai multe</strong>, apoi navigarea de jos, apoi butonul de întoarcere la început. Focalizarea este mereu vizibilă — un inel de doi pixeli, decalat cu doi."
+  },
+  "structure": {
+    "points": [
+      "Rădăcina este o regiune, numită prin <code>aria-label</code> sau prin antetul tău, cu <code>aria-labelledby</code>.",
+      "Fiecare tură este un element <code>section</code> etichetat de titlul ei, iar nivelul titlului pornește de la <code>headingLevel</code>.",
+      "Cardurile unei ture formează o listă, așa că un cititor de ecran anunță câte sunt.",
+      "Un card este un buton al cărui nume este titlul elementului și a cărui descriere poartă nivelul și ora, plus etichetele.",
+      "Banda de elemente fixate este o regiune cu o listă de pastile, iar o regiune live politicoasă separată anunță numărul când se schimbă, cel mult o dată pe secundă.",
+      "Marcajul „acum” este un separator numit după ora pe care o marchează."
+    ]
+  },
+  "accessibility": {
+    "points": [
+      "Culoarea nu este niciodată singurul purtător: un nivel se arată ca o culoare și ca o etichetă.",
+      "Presetul implicit respectă rapoartele de contrast din WCAG 2.2 AA; presetul clasic reproduce culorile după care este numit și documentează unde nu ajunge.",
+      "Un element dezactivat este marcat <code>aria-disabled</code>, nu scos din ordinea de tabulare, așa că poate fi citit în continuare.",
+      "Dialogurile sunt elemente <code>&lt;dialog&gt;</code> native: browserul ține focalizarea înăuntru, iar <kbd>Escape</kbd> le închide."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>aria-label</code> sau un slot de antet numește regiunea; <code>headingLevel</code> o potrivește în structura paginii tale.",
+      "Fiecare text și fiecare anunț vin din <code>localization</code> — vezi <link to=\"/customization/localization/\">Localizare</link>.",
+      "Un card înlocuit prin <code>renderItem</code> trebuie să răspândească <code>getItemProps</code>, care poartă rolul, numele și tratarea tastaturii."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Nu există încă focalizare mobilă sau navigare cu săgeți între carduri; <kbd>Tab</kbd> este singura mișcare. Se află în <link to=\"/discover-more/roadmap/\">Plan de dezvoltare</link>.",
+      "Nu există scurtături de tastatură pentru butoanele de navigare.",
+      "Presetul clasic are neajunsuri de contrast cunoscute, listate la <link to=\"/discover-more/accessibility/\">Accesibilitate</link>."
+    ]
   }
 }

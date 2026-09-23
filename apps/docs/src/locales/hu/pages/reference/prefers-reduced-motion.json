@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "prefersReducedMotion",
+    "description": "A prefers-reduced-motion: reduce médialekérdezés; false, ha a médialekérdezések nem érhetők el."
+  }
+}

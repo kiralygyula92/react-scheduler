@@ -1,15 +1,33 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Voller Tag",
-    "description": "Eine React-Scheduler-Demo auf dem Datensatz Voller Tag: die kombinierten Fähigkeiten und der vollständige Quellcode."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Szenario",
+    "what-to-look-for": "Worauf zu achten ist",
     "what-it-uses": "Was es verwendet",
     "source": "Quellcode"
-  }
+  },
+  "source": "Die Demo oben ist eine einzige Datei, vollständig und lauffähig. <strong>Code anzeigen</strong> öffnet sie unter der Tafel, <strong>Kopieren</strong> nimmt sie mit, und die Daten dahinter sind der auf dieser Seite genannte Satz.",
+  "meta": {
+    "title": "Voller Tag",
+    "description": "Sieben Einträge über dieselben zwei Stunden: die Spaltengrenze, die Beförderung und der Chip für weitere Einträge."
+  },
+  "demos": {
+    "board": "Sieben Einträge, eine Stunde"
+  },
+  "scenario": "Fünf Einträge beginnen um 09:00 und laufen bis 10:30; zwei weitere überlappen sie; einer steht allein am Nachmittag. Hier muss ein Zeitstrahl entscheiden, was er nicht zeichnen kann, und die Entscheidung ist jedes Mal dieselbe: drei Spalten, der stärkste zuerst, der Rest hinter einem Chip.",
+  "look": [
+    "Höchstens drei Spalten, die voreingestellte Grenze; im kompakten Modus sinkt sie auf eine.",
+    "Der Eintrag <code>critical</code> beginnt eine halbe Stunde nach den fünf davor, die Spalten sind bei seiner Ankunft also voll. Er wird trotzdem in eine befördert, und der schwächste dort räumt seinen Platz.",
+    "Was nicht passt, klappt in einen Chip <strong>Mehr</strong>. Geöffnet gibt er eine Tabelle dieser Einträge, den stärksten zuerst, bei vielen mit Seiten.",
+    "Die Listenansicht hat gar keine Grenze — sie ist die Ansicht, wenn jeder Eintrag zugleich sichtbar sein muss."
+  ],
+  "uses": [
+    "<link to=\"/overflow/\">Weitere Einträge</link> — die Grenze, die Beförderung und der Dialog hinter dem Chip.",
+    "<link to=\"/timeline-view/\">Zeitstrahlansicht</link> — die Spalten, und wie ein Eintrag in eine gerät.",
+    "<link to=\"/items-and-levels/\">Einträge und Stufen</link> — welcher Eintrag als der stärkste gilt.",
+    "<link to=\"/compact/\">Kompakter Modus</link> — dieselbe Stunde mit einer einzigen Spalte."
+  ]
 }

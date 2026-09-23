@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "DefaultItemDetail",
+    "description": "Vizualizarea detaliată în care se deschide un element, așa cum o randează biblioteca."
+  }
+}

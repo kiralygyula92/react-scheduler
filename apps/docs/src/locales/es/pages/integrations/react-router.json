@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "React Router",
-    "description": "React Router: el objetivo, lo que necesitas antes de empezar, los pasos a seguir y cómo comprobar el resultado."
+    "description": "Modo framework: el loader tiene los elementos, la ruta los renderiza, la URL lleva el día."
   },
   "sections": {
     "goal": "Objetivo",
     "before-you-start": "Antes de empezar",
     "steps": "Pasos",
     "result": "Resultado",
-    "related": "Relacionado"
+    "related": "Relacionado",
+    "troubleshooting": "Resolución de problemas"
+  },
+  "goal": "Renderiza el horario en una aplicación React Router en modo framework, con el día en la URL y los elementos en un loader. Este sitio de documentación está hecho así, de modo que el patrón de aquí es el que usa.",
+  "before": {
+    "points": [
+      "Un proyecto React Router 7 u 8 en modo framework, con o sin renderizado en servidor.",
+      "React 18.2 o 19.",
+      "Una ruta donde poner el horario."
+    ]
+  },
+  "steps": {
+    "install": {
+      "title": "Instala el paquete",
+      "text": "Una sola dependencia; el router sigue siendo tuyo."
+    },
+    "stylesheet": {
+      "title": "Importa la hoja de estilos en la ruta raíz",
+      "text": "El módulo de la ruta raíz se carga en todas las páginas, lo que lo convierte en el sitio adecuado para una hoja de estilos global. Con el renderizado en servidor activo, el import es además lo que pone el CSS en el documento y no en un chunk posterior."
+    },
+    "route": {
+      "title": "Carga los elementos, renderiza el horario",
+      "text": "El loader es el sitio de la búsqueda de datos. Devolver la fecha junto a los elementos mantiene la renderización determinista: la misma URL renderiza el mismo horario en el servidor y en el navegador."
+    },
+    "range": {
+      "title": "Sigue el rango renderizado",
+      "text": "El <code>onVisibleRangeChange</code> se dispara al montar y cada vez que el rango se mueve. Escribir ese rango de vuelta en la URL permite al loader recargar, lo que mantiene honestos el botón atrás y un enlace compartido."
+    }
+  },
+  "result": {
+    "text": "Una ruta que renderiza el día de su URL, vuelve a pedir datos cuando el lector pasa a otro turno y sobrevive a una recarga con el mismo horario en pantalla."
+  },
+  "troubleshooting": {
+    "points": [
+      "Un bucle de peticiones: el cambio de rango escribe una URL que carga elementos que cambian el rango. Escribe solo la fecha, y solo cuando difiera de la que ya está.",
+      "La posición de desplazamiento salta en cada navegación: pasa <code>preventScrollReset</code>, como hace el fragmento de arriba.",
+      "Con <code>ssr: false</code> y prerenderizado, el horario se renderiza al compilar; pasa <code>now</code> para que ese fotograma y el navegador coincidan."
+    ]
+  },
+  "related": {
+    "points": [
+      "<link to=\"/data-modes-and-ssr/\">Modos de datos y SSR</link> — pedir datos para el rango renderizado.",
+      "<link to=\"/navigation/\">Navegación</link> — qué mueve el rango y qué emite.",
+      "<link to=\"/integrations/ssr/\">Renderizado en servidor</link> — las reglas independientes del framework."
+    ]
   }
 }

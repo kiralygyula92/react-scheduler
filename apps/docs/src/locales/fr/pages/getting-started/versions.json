@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Versions",
@@ -12,5 +12,33 @@
     "versioning-policy": "Politique de versionnage",
     "older-versions": "Versions antérieures",
     "related": "Voir aussi"
+  },
+  "supported": {
+    "head": {
+      "version": "Version",
+      "status": "Statut",
+      "docs": "Documentation"
+    },
+    "rows": [["<code>0.x</code>", "Actuelle, en développement", "Ce site"]]
+  },
+  "policy": {
+    "intro": "Les versions suivent le versionnage sémantique, et chaque changement qui arrive dans une version porte un changeset indiquant quelle partie du numéro il déplace.",
+    "points": [
+      "<strong>Correctif</strong> — une correction qui laisse l’API et le balisage rendu tels quels.",
+      "<strong>Mineure</strong> — de nouvelles props, de nouveaux exports, de nouvelles variables CSS. Rien de ce que vous passez déjà ne change de sens.",
+      "<strong>Majeure</strong> — une suppression ou une valeur par défaut modifiée, avec une note de migration pour chacune.",
+      "<strong>Tant que la version commence par 0</strong>, une version mineure peut faire ce que ferait une majeure. Chaque changement de ce type est listé dans le journal des modifications avec la marche à suivre."
+    ],
+    "optIn": "Le nouveau comportement arrive désactivé. Une fonctionnalité qui change ce que voit le lecteur arrive avec un drapeau ou une prop, par défaut sur l’ancien comportement pour le reste du majeur."
+  },
+  "older": {
+    "text": "Quand un second majeur existera, la pastille de version dans l’en-tête ouvrira la liste des majeurs documentés, chacun gardant sa propre copie de ce site à sa propre URL. Il n’y a qu’un majeur pour l’instant : la pastille affiche donc une seule entrée."
+  },
+  "related": {
+    "points": [
+      "<link to=\"/discover-more/changelog/\">Journal des modifications</link> — ce qui a changé dans chaque version.",
+      "<link to=\"/migration/\">Migration</link> — que faire quand un majeur change.",
+      "<link to=\"/getting-started/support/\">Assistance</link> — pendant combien de temps une version est corrigée."
+    ]
   }
 }

@@ -4,6 +4,12 @@
 // not calling it cancels both. `next(override)` alters the context the default receives (F-09:
 // "can alter or veto"; docs pack 09 §4.3); the context object itself is read-only.
 
+/**
+ * Runs before an interaction: it can inspect it, change it, or cancel it by not calling `next`.
+ *
+ * @category Handlers
+ * @since 1.0.0
+ */
 export type Middleware<C> = (ctx: C, next: (override?: Partial<C>) => void) => void | Promise<void>;
 
 /**

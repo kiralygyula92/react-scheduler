@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Slot and rendering types",
+    "description": "The parts, their owner state, and what every slot and render prop receives."
+  }
+}

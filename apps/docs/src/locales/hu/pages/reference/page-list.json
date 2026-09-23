@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "pageList",
+    "description": "A lapozóban megjelenítendő oldalak (0-tól számozva): mind, ha legfeljebb 7 van; egyébként az első kettő, az utolsó kettő és az aktuális oldal ±1, minden résben „ellipsis” jelöléssel."
+  }
+}

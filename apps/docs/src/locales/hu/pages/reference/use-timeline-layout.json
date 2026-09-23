@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useTimelineLayout",
+    "description": "Az items idővonal-elrendezése, a bemenetei alapján memoizálva."
+  }
+}

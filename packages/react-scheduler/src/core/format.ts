@@ -4,6 +4,12 @@
 // and falls back to en-US only when Intl does not support it.
 import { supportedLocale } from './localization';
 
+/**
+ * The functions that turn times, ranges and counts into text. Replace one to override a single format.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export interface SchedulerFormatters {
   /** "10:30 AM" */
   clockTime(date: Date): string;
@@ -19,6 +25,12 @@ export interface SchedulerFormatters {
   dateTime(date: Date): string;
 }
 
+/**
+ * What the formatters need to know: the locale and the strings around the values.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export interface FormatterOptions {
   /** 'compact' removes the space between the hour and a day period ("8AM"); 'locale' keeps Intl output. */
   hourLabelFormat?: 'compact' | 'locale';
@@ -56,11 +68,24 @@ function withoutDateTimeComma(parts: readonly Intl.DateTimeFormatPart[]): string
   );
 }
 
+/**
+ * Builds the default formatters for a locale, which `formatters` can then override one by one.
+ *
+ * @category Localization
+ * @since 1.0.0
+ * @param locale The BCP 47 tag every format is produced with.
+ * @param options Overrides for individual formats, such as the hour label.
+ */
 export function createFormatters(locale: string, options: FormatterOptions = {}): SchedulerFormatters {
   const resolved = supportedLocale(locale);
-  const clock = new Intl.DateTimeFormat(resolved, { hour: 'numeric', minute: '2-digit' });
-  const hour = new Intl.DateTimeFormat(resolved, { hour: 'numeric' });
-  const boundary = new Intl.DateTimeFormat(resolved, { month: 'short', day: 'numeric', hour: 'numeric' });
+  // Engines disagree about whether a `numeric` hour is padded in a 24-hour locale: Node prints
+  // `0:15` for Romanian and Firefox `00:15`, which makes a server-rendered schedule and its hydrated
+  // copy differ. Asking for the padding the locale's own convention uses is the same text in both.
+  const hourDigits = new Intl.DateTimeFormat(resolved, { hour: 'numeric' }).resolvedOptions().hourCycle;
+  const hourStyle = hourDigits === 'h23' || hourDigits === 'h24' ? '2-digit' : 'numeric';
+  const clock = new Intl.DateTimeFormat(resolved, { hour: hourStyle, minute: '2-digit' });
+  const hour = new Intl.DateTimeFormat(resolved, { hour: hourStyle });
+  const boundary = new Intl.DateTimeFormat(resolved, { month: 'short', day: 'numeric', hour: hourStyle });
   const timestamp = new Intl.DateTimeFormat(resolved, {
     year: 'numeric',
     month: '2-digit',

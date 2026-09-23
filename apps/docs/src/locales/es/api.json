@@ -1,0 +1,1246 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "table": {
+    "prop": "Prop",
+    "type": "Tipo",
+    "default": "Predeterminado",
+    "description": "Descripción",
+    "parameter": "Parámetro",
+    "returns": "Devuelve",
+    "slot": "Slot",
+    "propsType": "Tipo de props",
+    "variable": "Variable",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "class": "Clase",
+    "name": "Nombre",
+    "kind": "Tipo"
+  },
+  "sections": {
+    "import": "Importación",
+    "demos": "Dónde se usa",
+    "props": "Props",
+    "parameters": "Parámetros",
+    "returns": "Devuelve",
+    "slots": "Slots",
+    "cssVariables": "Variables CSS",
+    "classes": "Nombres de clase",
+    "source": "Código fuente"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Tipos de eventos y manejadores",
+      "description": "Los tipos de las retrollamadas y del middleware: qué recibe cada uno y qué puede devolver."
+    },
+    "localization": {
+      "title": "Tipos de localización",
+      "description": "La forma de un paquete de idioma y de los formateadores, y las utilidades que los rodean."
+    },
+    "model": {
+      "title": "Tipos del modelo",
+      "description": "Los datos que el scheduler coloca: elementos, niveles, etiquetas, turnos y la disposición que producen."
+    },
+    "options": {
+      "title": "Tipos de opciones y props",
+      "description": "Las opciones del controlador y las props de los componentes, como tipos."
+    },
+    "slots": {
+      "title": "Tipos de slots y renderizado",
+      "description": "Las partes, su owner state y lo que recibe cada slot y cada prop de renderizado."
+    }
+  },
+  "ActivationSource": {
+    "description": "Qué activó un elemento."
+  },
+  "BaseSlotProps": {
+    "description": "Lo que recibe cada slot: las props de la parte, su estado y el componente predeterminado.",
+    "props": {
+      "Default": "El elemento o componente predeterminado de la parte, para envolver o renderizar.",
+      "children": "El contenido propio de la parte, para renderizar dentro de lo que la sustituya.",
+      "className": "`rs-<part>` + las clases de la biblioteca + el className de `slotProps` + `classNames[part]`.",
+      "data-rs-part": "El nombre de la parte, sobre el que seleccionan la hoja de estilos y las pruebas.",
+      "ownerState": "Para qué renderiza la parte: la vista, el esquema, el elemento, el turno.",
+      "ref": "DEBE adjuntarse: el fijado, la medición y el foco dependen de él.",
+      "style": "Estilos en línea estructurales + el style de `slotProps` + `styles[part]`."
+    }
+  },
+  "CARRIED_OVER_TAG": {
+    "description": "La clave de etiqueta que la biblioteca añade a los elementos fijados que vienen arrastrados."
+  },
+  "CardContentContext": {
+    "description": "Lo que recibe `renderCardContent`: el elemento, su nivel y la etiqueta de hora calculada.",
+    "props": {
+      "compact": "Si el horario está en modo compacto.",
+      "defaultRender": "El contenido integrado, para envolverlo o ponerlo junto al tuyo.",
+      "item": "El elemento que se renderiza.",
+      "level": "El nivel del elemento, resuelto a partir de la escala.",
+      "timeLabel": "La hora tal como la muestra la tarjeta, a partir de los formateadores y de las etiquetas del propio elemento.",
+      "variant": "El tratamiento de tarjeta que pide el nivel.",
+      "view": "La vista en la que se renderiza la tarjeta."
+    }
+  },
+  "CardVariant": {
+    "description": "Cómo se dibuja una tarjeta: normal, como alerta o atenuada."
+  },
+  "ClassicLevelKey": {
+    "description": "Las claves de la escala de niveles clásica."
+  },
+  "ClassicTagKey": {
+    "description": "Las claves del conjunto de etiquetas clásico."
+  },
+  "CloseReason": {
+    "description": "Por qué se cerró una vista de detalle o el diálogo de elementos adicionales."
+  },
+  "ColorScheme": {
+    "description": "En qué esquema de color se renderiza el componente; `'system'` sigue el ajuste del lector."
+  },
+  "DateInput": {
+    "description": "Fecha, milisegundos desde la época o cadena ISO-8601 (una cadena sin desfase es hora local de reloj)."
+  },
+  "DeepPartial": {
+    "description": "La misma forma con cada miembro opcional, a cualquier profundidad."
+  },
+  "DefaultItemDetail": {
+    "description": "La vista de detalle en la que se abre un elemento, tal como la renderiza la biblioteca.",
+    "props": {
+      "item": "El elemento cuyo detalle se muestra."
+    }
+  },
+  "Density": {
+    "description": "La escala de espaciado de las partes renderizadas."
+  },
+  "DiamondIcon": {
+    "description": "La marca de la píldora: un cuadrado de 4 × 4 girado −45° alrededor de (0; 2,828) dentro de una caja de 6 × 6, relleno con el color de texto actual."
+  },
+  "ElementProps": {
+    "description": "Las props que un host headless aplica a uno de los elementos de la biblioteca.",
+    "props": {
+      "data-rs-part": "El nombre de la parte, sobre el que seleccionan la hoja de estilos y las pruebas.",
+      "ref": "Una ref de callback, para que las props puedan aplicarse a cualquier elemento."
+    }
+  },
+  "EmptyContext": {
+    "description": "Lo que recibe `renderEmpty`: si está vacío todo el día o solo un turno.",
+    "props": {
+      "scope": "Si está vacío todo el horario o solo un turno.",
+      "segment": "El turno vacío, cuando el alcance es un solo turno."
+    }
+  },
+  "EmptyState": {
+    "description": "Lo que muestra una vista cuando no hay nada que colocar.",
+    "props": {
+      "overlay": "Renderiza el estado sobre el contenido en vez de en su lugar.",
+      "scope": "Si está vacío todo el horario o solo un turno.",
+      "segment": "El turno vacío, cuando el alcance es un solo turno."
+    }
+  },
+  "ErrorState": {
+    "description": "Lo que muestra una vista cuando la carga falló, con la acción de reintentar si se proporciona."
+  },
+  "FormatterOptions": {
+    "description": "Lo que necesitan saber los formateadores: la configuración regional y los textos alrededor de los valores.",
+    "props": {
+      "hourLabelFormat": "«compact» elimina el espacio entre la hora y el indicador de día («8AM»); «locale» conserva la salida de Intl."
+    }
+  },
+  "HeaderContext": {
+    "description": "Lo que recibe `renderHeader`: la señal, la vista y los turnos renderizados.",
+    "props": {
+      "activeShift": "El turno que se lee, o `null` antes de la primera medición.",
+      "expanded": "El valor actual de la señal de cabecera.",
+      "segments": "Cada turno renderizado con sus elementos, en orden.",
+      "view": "La vista que se renderiza."
+    }
+  },
+  "HeaderReason": {
+    "description": "Por qué cambió el valor de expansión del encabezado."
+  },
+  "ItemDetailContext": {
+    "description": "Lo que recibe `renderItemDetail`: el elemento, cómo se abrió y una forma de cerrarlo.",
+    "props": {
+      "close": "Cierra el detalle y devuelve el foco a lo que lo abrió.",
+      "item": "El elemento cuyo detalle está abierto.",
+      "source": "Qué lo abrió: una tarjeta, una píldora fijada, una fila de elementos adicionales o el manejador imperativo."
+    }
+  },
+  "ItemOf": {
+    "description": "Utilidades para inferir los tipos de elemento a partir de las definiciones de niveles y etiquetas."
+  },
+  "ItemProps": {
+    "description": "Las props que una tarjeta personalizada aplica a su activador, para que la activación y el teclado funcionen.",
+    "props": {
+      "data-rs-part": "El nombre de la parte, sobre el que seleccionan la hoja de estilos y las pruebas.",
+      "ref": "DEBE adjuntarse: el foco y el desplazamiento hasta un elemento dependen de él."
+    }
+  },
+  "LandingTarget": {
+    "description": "Dónde aterriza una vista: en el inicio del turno, en la fecha, justo encima de ella o en ninguna parte."
+  },
+  "LevelDefinition": {
+    "description": "Un rango de la escala de niveles: cómo se llama, qué fuerza tiene y qué aspecto tienen sus elementos.",
+    "props": {
+      "color": "El color de acento, como cualquier color CSS.",
+      "key": "La clave con la que los elementos se refieren a este nivel.",
+      "label": "La etiqueta que se muestra en la píldora de nivel.",
+      "onColor": "El color del texto y del icono sobre ese acento.",
+      "pinOnPass": "Los elementos de este nivel se fijan en la banda una vez que pasan al desplazarse y cuentan como arrastrados.",
+      "rank": "La fuerza del nivel; cuanto menor, más fuerte.",
+      "variant": "Cómo se dibujan las tarjetas de este nivel."
+    }
+  },
+  "LevelPill": {
+    "description": "La píldora que muestra el nivel de un elemento.",
+    "props": {
+      "level": "La clave del nivel que representa la píldora."
+    }
+  },
+  "ListCard": {
+    "description": "Una tarjeta de lista (`li`) con su activador; `renderItem` la sustituye por completo.",
+    "props": {
+      "item": "El elemento que renderiza la tarjeta."
+    }
+  },
+  "ListOptions": {
+    "description": "Las opciones propias de la vista de lista: cuándo aparece la navegación, dónde aterriza un salto y cuándo se emite la señal de encabezado.",
+    "props": {
+      "alignOffset": "Espacio, en píxeles, entre la zona fija superior y el encabezado del turno donde aterrizó el salto.",
+      "collapseAfterCards": "La señal de encabezado se emite después de que hayan pasado esta cantidad de tarjetas del turno actual.",
+      "collapseMargin": "Histéresis, en píxeles, alrededor del punto donde la señal de encabezado vuelve atrás.",
+      "collapseMinItems": "La señal de encabezado solo puede emitirse si el turno actual tiene más elementos que esto.",
+      "landing": "Dónde aterriza la lista en el primer renderizado, al cambiar la fecha y al entrar en la vista.",
+      "navigationThreshold": "La navegación aparece solo si algún turno tiene al menos esta cantidad de elementos.",
+      "previousJumpExtraOffset": "Desplazamiento adicional, en píxeles, cuando el salto va a un turno anterior, para que sus últimos elementos sigan visibles.",
+      "scrollTopThreshold": "Desplazarse más allá de esta distancia, en píxeles, muestra el botón de volver arriba.",
+      "segmentEpsilon": "Tolerancia, en píxeles, para decidir en qué sección de turno está el área de desplazamiento."
+    }
+  },
+  "ListView": {
+    "description": "La vista de lista por sí sola."
+  },
+  "ListViewProps": {
+    "description": "Lo que acepta `<ListView>`: las props del scheduler, sin la selección de vista."
+  },
+  "LoadingState": {
+    "description": "Lo que muestra una vista mientras se cargan los elementos.",
+    "props": {
+      "overlay": "Renderiza el estado sobre el contenido en vez de en su lugar."
+    }
+  },
+  "Middleware": {
+    "description": "Se ejecuta antes de una interacción: puede inspeccionarla, cambiarla o cancelarla no llamando a `next`."
+  },
+  "MoreChip": {
+    "description": "La ficha que representa los elementos que un grupo aglomerado no pudo colocar.",
+    "props": {
+      "group": "Los elementos que representa la píldora.",
+      "top": "Dónde se sitúa la píldora en la rejilla, en píxeles desde el inicio del intervalo."
+    }
+  },
+  "NavLabelContext": {
+    "description": "Lo que recibe `renderNavLabel`: el turno de destino y el número de elementos arrastrados.",
+    "props": {
+      "carriedOverCount": "Cuántos elementos de los turnos ya pasados pueden fijarse todavía.",
+      "disabled": "Si el botón está deshabilitado.",
+      "position": "Cuál de los dos botones se está etiquetando.",
+      "target": "El turno al que iría el botón, o `null` cuando no hay ninguno."
+    }
+  },
+  "NavPosition": {
+    "description": "De qué botón de navegación vino un evento."
+  },
+  "NavState": {
+    "description": "Lo que muestra un botón de navegación: adónde lleva, si está deshabilitado y cuántos elementos se arrastraron.",
+    "props": {
+      "carriedOverCount": "Solo el botón superior.",
+      "disabled": "Si se renderiza pero no se puede pulsar.",
+      "hint": "Descripción emergente y descripción accesible.",
+      "label": "La etiqueta visible; también el nombre accesible.",
+      "target": "El turno al que iría, o `null` cuando no hay ninguno.",
+      "visible": "Si el botón llega a renderizarse."
+    }
+  },
+  "Navigator": {
+    "description": "Mueve una vista a un turno, un elemento o una hora, con la alineación que piden las opciones.",
+    "props": {
+      "cancel": "Detiene un movimiento en curso.",
+      "destroy": "Desconecta todos los escuchadores; llámalo cuando desaparezca el desplazador.",
+      "scrollTo": "Se desplaza a `target()`; suave a menos que `smooth` sea false. Una nueva llamada reemplaza a la pendiente."
+    }
+  },
+  "NavigatorHooks": {
+    "description": "El desplazamiento que realiza el navegador, para que un host pueda sustituirlo.",
+    "props": {
+      "onDone": "Se llama `resumeDelay` ms después de la corrección final (la lista reanuda el fijado).",
+      "onSettle": "Se llama cuando el desplazamiento se ha detenido, antes del fotograma de corrección final (fuerza un refresco del fijado).",
+      "onStart": "Se llama antes de que empiece una navegación (la lista pausa el fijado)."
+    }
+  },
+  "NavigatorOptions": {
+    "description": "Lo que necesita el navegador: el área de desplazamiento, los turnos y las reglas de aterrizaje.",
+    "props": {
+      "resumeDelay": "Cuánto esperar tras la corrección final antes de `onDone`, en milisegundos.",
+      "scroller": "El elemento que desplaza el navegador.",
+      "settleDelay": "Cuánto tiempo sin eventos de desplazamiento cuenta como detenido donde `scrollend` no está disponible, en milisegundos."
+    }
+  },
+  "NowIndicator": {
+    "description": "La marca de «ahora» de la lista: la hora en una píldora y después una línea."
+  },
+  "OverflowCellContext": {
+    "description": "Lo que recibe una celda de la tabla de elementos adicionales: los textos y una forma de abrir el elemento.",
+    "props": {
+      "localization": "El paquete de idioma vigente, para una celda que tiene palabras propias.",
+      "openItem": "Abre el elemento de la fila, como hace la columna de acciones integrada."
+    }
+  },
+  "OverflowColumn": {
+    "description": "Una columna de la tabla de elementos adicionales: su encabezado, su celda y cómo ordena.",
+    "props": {
+      "align": "Cómo se alinea el contenido de la columna en sus celdas.",
+      "header": "La celda de cabecera, o una función del paquete de idioma que la devuelve.",
+      "id": "Identifica la columna en `overflowSort` y es su clave de React.",
+      "maxWidth": "Igual a `minWidth`, la columna tiene ese ancho fijo y no recibe parte del espacio sobrante.",
+      "minWidth": "El ancho, en píxeles, que pide la columna antes de repartir el ancho sobrante.",
+      "renderCell": "Renderiza la celda de un elemento.",
+      "sortValue": "Omítelo para que la columna no se pueda ordenar."
+    }
+  },
+  "OverflowDialog": {
+    "description": "El diálogo que enumera los elementos detrás de una ficha «+more».",
+    "props": {
+      "group": "El grupo cuyos elementos lista el diálogo."
+    }
+  },
+  "OverflowGroup": {
+    "description": "Los elementos que representa una ficha «+more», con el intervalo que cubren.",
+    "props": {
+      "anchor": "El inicio más temprano del grupo, en milisegundos desde la época.",
+      "id": "Id estable: String(anchor).",
+      "items": "Por rango y luego por orden de colocación."
+    }
+  },
+  "OverflowSort": {
+    "description": "Por qué columna está ordenada la tabla de elementos adicionales y en qué dirección.",
+    "props": {
+      "column": "El id de la columna por la que se ordena.",
+      "direction": "Ascendente o descendente."
+    }
+  },
+  "OverflowTable": {
+    "description": "La tabla dentro del diálogo de elementos adicionales.",
+    "props": {
+      "columns": "Las columnas vigentes.",
+      "items": "Las filas de la tabla, ya ordenadas y paginadas."
+    }
+  },
+  "OwnerState": {
+    "description": "Para qué está renderizando una parte.",
+    "props": {
+      "active": "Si este es el activo de su tipo, como el turno que se lee.",
+      "carriedOver": "Si el elemento viene de un turno ya pasado.",
+      "colorScheme": "El esquema de color resuelto; `system` ya se ha resuelto a uno de los dos.",
+      "compact": "Si el horario está en modo compacto.",
+      "density": "La escala de espaciado vigente.",
+      "dir": "La dirección de escritura en la que se renderiza el horario.",
+      "disabled": "Si la parte está deshabilitada.",
+      "item": "El elemento al que pertenece la parte, en las partes de una tarjeta.",
+      "level": "El nivel del elemento, resuelto a partir de la escala.",
+      "pinned": "Si el elemento está fijado ahora mismo.",
+      "position": "Qué botón de navegación, en las partes de navegación.",
+      "preset": "El ajuste preestablecido vigente.",
+      "shift": "El turno al que pertenece la parte, en las partes de una sección.",
+      "variant": "El tratamiento de tarjeta que pide el nivel.",
+      "view": "La vista en la que se renderiza la parte."
+    }
+  },
+  "Pagination": {
+    "description": "El paginador debajo de la tabla de elementos adicionales."
+  },
+  "PartExtraProps": {
+    "description": "Extras específicos de una parte, más allá de los atributos del elemento.",
+    "props": {
+      "navButton": "El botón de navegación recibe también su estado: adónde apunta y si está deshabilitado."
+    }
+  },
+  "PinEngine": {
+    "description": "Observa el área de desplazamiento e informa de qué elementos están fijados por posición.",
+    "props": {
+      "destroy": "Desconecta el observador; llámalo cuando desaparezca el desplazador.",
+      "getPinnedIds": "Los ids fijados ahora mismo, en orden del documento.",
+      "pause": "Deja de observar, para una vista montada pero oculta.",
+      "refresh": "Vuelve a leer cada sensor una vez (tras desplazamientos programáticos, cambios de datos y montajes). Se omite mientras está en pausa salvo que se use `force`.",
+      "register": "Registra un sensor para `ids` bajo la clave `key`; devuelve una callback de ref.",
+      "relayout": "Vuelve a crear los observadores después de que la línea de fijado se haya movido (por ejemplo, la zona fija superior cambió de tamaño).",
+      "reset": "Desfija todo (cambió la fecha seleccionada).",
+      "resume": "Vuelve a observar tras una pausa."
+    }
+  },
+  "PinEngineOptions": {
+    "description": "Lo que necesita el motor de fijado: el área de desplazamiento, la regla y los elementos que puede fijar.",
+    "props": {
+      "epsilon": "Mueve la línea de fijación, en píxeles; un valor positivo fija antes.",
+      "getLine": "La línea de fijado en coordenadas de la ventana. Lista: el borde inferior de la zona fija superior; línea de tiempo: el borde superior del área de desplazamiento.",
+      "hysteresis": "Cuánto debe retroceder un elemento, en píxeles, antes de dejar de estar fijado.",
+      "onChange": "Se llama con los ids fijados cada vez que cambian.",
+      "scroller": "El elemento desde cuyo borde superior se mide la línea de fijación."
+    }
+  },
+  "PinSentinelProps": {
+    "description": "Las props que una tarjeta personalizada aplica a su sensor de fijado, para que el fijado pueda observarlo.",
+    "props": {
+      "data-rs-edge": "En qué borde de la tarjeta se sitúa el centinela, según la regla de fijación de la vista.",
+      "data-rs-part": "El nombre de la parte, sobre el que seleccionan la hoja de estilos y las pruebas.",
+      "ref": "DEBE adjuntarse: el observador de fijación vigila este elemento."
+    }
+  },
+  "PinnedChip": {
+    "description": "Una ficha de la banda de fijados.",
+    "props": {
+      "entry": "El elemento fijado y lo que la píldora muestra de él."
+    }
+  },
+  "PinnedStrip": {
+    "description": "La banda de elementos fijados que permanece a la vista mientras su turno está en pantalla."
+  },
+  "PinningOptions": {
+    "description": "Dónde se fijan los elementos en cada vista y en qué orden los enumera la banda de fijados.",
+    "props": {
+      "compare": "Ordena la banda de fijados. De forma predeterminada sigue el orden en que se fijaron.",
+      "list": "La regla con la que fija la vista de lista.",
+      "timeline": "La regla con la que fija la vista de línea de tiempo."
+    }
+  },
+  "PlacedCard": {
+    "description": "Una tarjeta colocada en la línea de tiempo: su elemento, su columna y su geometría.",
+    "props": {
+      "column": "La columna que ocupa, contada desde el borde inicial.",
+      "columns": "En cuántas columnas comparte el carril su grupo de solapamiento.",
+      "end": "Milisegundos desde la época (resueltos).",
+      "height": "Píxeles.",
+      "item": "El elemento que representa esta tarjeta.",
+      "start": "Milisegundos desde la época.",
+      "top": "Píxeles desde el inicio del intervalo."
+    }
+  },
+  "PluralForms": {
+    "description": "Las formas de plural de un mensaje, elegidas con `Intl.PluralRules` para la configuración regional activa.",
+    "props": {
+      "other": "La forma que se usa cuando ninguna otra categoría de plural encaja; todos los paquetes la tienen."
+    }
+  },
+  "PresetName": {
+    "description": "Los aspectos incluidos: el propio de la biblioteca o el clásico que reproduce."
+  },
+  "ReducedMotion": {
+    "description": "Si el movimiento está reducido y una forma de suscribirse a ese cambio.",
+    "props": {
+      "matches": "Si el sistema pide ahora mismo movimiento reducido.",
+      "subscribe": "Se suscribe a los cambios; la función devuelta cancela la suscripción."
+    }
+  },
+  "ReferencePill": {
+    "description": "La píldora que muestra el número de referencia de un elemento.",
+    "props": {
+      "reference": "El número de referencia que se muestra."
+    }
+  },
+  "RenderItemContext": {
+    "description": "Lo que recibe `renderItem`, incluidas las props que una tarjeta personalizada debe aplicar.",
+    "props": {
+      "compact": "Si el horario está en modo compacto.",
+      "defaultRender": "La tarjeta integrada.",
+      "getItemProps": "Las props del activador; aplicarlas es obligatorio.",
+      "getPinSentinelProps": "Las props del sensor de fijado de un elemento fijable (el fijado las necesita).",
+      "item": "El elemento que renderizar.",
+      "style": "Línea de tiempo: la geometría estructural de la tarjeta (posición absoluta y tamaño).",
+      "variant": "El tratamiento de tarjeta que pide el nivel.",
+      "view": "La vista en la que se renderiza la tarjeta."
+    }
+  },
+  "ResolvedFlags": {
+    "description": "Cada interruptor de funcionalidad con su valor ya resuelto."
+  },
+  "ResolvedLevel": {
+    "description": "Un nivel con su rango, colores y etiqueta ya resueltos."
+  },
+  "Scheduler": {
+    "description": "El scheduler: la vista de lista o de línea de tiempo, seleccionada con `view`."
+  },
+  "SchedulerController": {
+    "description": "El controlador agnóstico del framework detrás de los componentes: estado, acciones y una suscripción.",
+    "props": {
+      "activateItem": "Abre un elemento como lo hace una tarjeta: primero el middleware, luego el estado, luego el evento.",
+      "activateMore": "Abre un grupo de elementos adicionales como lo hace su píldora.",
+      "closeItem": "Cierra el detalle abierto del elemento, con el motivo.",
+      "closeOverflow": "Cierra el diálogo de elementos adicionales, con el motivo.",
+      "flushPinned": "Emite `onPinnedChange` cuando los ids de la banda difieren de la última emisión de esa vista.",
+      "getLayout": "La disposición calculada de la línea de tiempo, o `null` fuera de ella.",
+      "getModel": "El modelo resuelto que leen las vistas.",
+      "getOptions": "Las opciones tal como se fijaron por última vez.",
+      "getOverflowGroup": "Un grupo de elementos adicionales por id, o `null` cuando no hay ninguno.",
+      "getState": "El estado almacenado: lo que cambió quien lee, antes de aplicar ninguna opción.",
+      "getViewModel": "Todo lo que una vista necesita además del modelo.",
+      "keyDownItem": "Ejecuta el middleware de teclas de una tarjeta y luego la activa si la tecla lo pide.",
+      "navigate": "Ejecuta una navegación desde uno de los botones: el middleware y después el desplazamiento que hace la vista.",
+      "navigateTo": "Navegación imperativa (`api`): sin middleware.",
+      "noteViewShown": "Registra que `view` está mostrada; true si antes se mostraba otra vista (un cambio de vista).",
+      "openItem": "Apertura imperativa (`api`): sin middleware; los elementos deshabilitados o desconocidos no se abren.",
+      "openOverflow": "Abre un grupo de elementos adicionales por id, sin middleware.",
+      "reconcileOpenItem": "Cierra la vista de un elemento que salió de los datos; sin middleware, nunca se reabre solo.",
+      "resetHeader": "Restablece la memoria del encabezado por vista, para que la siguiente señal se compare desde cero (entrada en la vista).",
+      "scrollToTop": "Ejecuta el desplazamiento de vuelta arriba: el middleware y después el desplazamiento que hace la vista.",
+      "setClock": "Informa del momento actual en cada tic del reloj.",
+      "setDate": "Se mueve a otro momento, en el caso no controlado.",
+      "setDocumentDir": "Informa de la dirección en la que está el documento.",
+      "setMounted": "Marca al propietario como montado o desmontado; un `next()` asíncrono tras el desmontaje se ignora.",
+      "setOptions": "Sustituye las opciones. No notifica: el propietario se vuelve a renderizar con las nuevas opciones de todos modos.",
+      "setOverflowPage": "Lleva la tabla de elementos adicionales a una página.",
+      "setPinnedByPosition": "Los ids que el motor de fijado de la vista fijó por posición; `handlers.onPin` puede vetar cada cambio.",
+      "setPrefersReducedMotion": "Informa de si el sistema pide movimiento reducido.",
+      "setScrollFacts": "Informa de lo que encontró una medición del desplazador.",
+      "setView": "Cambia de vista, en el caso no controlado.",
+      "setWidth": "Informa del ancho de la raíz, que decide el modo compacto.",
+      "signalHeader": "Informa de una señal de cabecera de una vista, que el middleware puede vetar.",
+      "sortOverflow": "Ordena la tabla de elementos adicionales por una columna, invirtiendo la dirección si ya está ordenada por ella.",
+      "subscribe": "Se suscribe a los cambios de estado; la función devuelta cancela la suscripción."
+    }
+  },
+  "SchedulerEvents": {
+    "description": "Llamadas de estado y eventos de dominio. Informan de lo que ocurrió; para intervenir antes, usa `handlers`.",
+    "props": {
+      "onActiveShiftChange": "El turno que mira el lector cambió, por desplazamiento o por navegación.",
+      "onDateChange": "La fecha renderizada cambió, en el caso no controlado.",
+      "onHeaderExpandedChange": "La señal de encabezado cambió. `reason` dice qué la provocó, para que una página pueda ignorar las causas que no le importan.",
+      "onItemClose": "El elemento abierto se cerró, con el motivo del cierre.",
+      "onItemOpen": "Se abrió un elemento. `source` dice si vino del puntero, del teclado o de la API.",
+      "onLayout": "La línea de tiempo recalculó su disposición, con la colocación de cada tarjeta.",
+      "onNavigate": "Un salto a otro turno terminó. `position` es `'api'` cuando se llamó al handle.",
+      "onOpenItemIdChange": "El elemento abierto cambió, en el caso no controlado. `null` significa que la vista de detalle se cerró.",
+      "onOpenOverflowIdChange": "El grupo de elementos adicionales abierto cambió, en el caso no controlado.",
+      "onOverflowClose": "Se cerró un grupo de elementos adicionales.",
+      "onOverflowOpen": "Se abrió un grupo de elementos adicionales.",
+      "onOverflowPageChange": "La página del diálogo de elementos adicionales cambió, en el caso no controlado.",
+      "onOverflowSortChange": "La ordenación del diálogo de elementos adicionales cambió, en el caso no controlado.",
+      "onPinnedChange": "El conjunto de elementos fijados cambió, con lo que entró y lo que salió.",
+      "onScrollTop": "Se usó el botón de volver arriba.",
+      "onViewChange": "La vista cambió, ya sea por el lector, por el punto de ruptura o a través de la API.",
+      "onVisibleRangeChange": "El intervalo de tiempo en pantalla cambió. Este es el punto de enganche para cargar los elementos de un día bajo demanda."
+    }
+  },
+  "SchedulerFlags": {
+    "description": "Interruptores de funcionalidades. Apagar uno elimina la funcionalidad y todo lo que muestra; nada más cambia.",
+    "props": {
+      "enableAnimations": "Transiciones y animaciones. `reducedMotion` las desactiva por lector; esto las desactiva para todos.",
+      "enableCarriedOverCount": "El número de elementos arrastrados de turnos anteriores, mostrado en el botón de navegación.",
+      "enableHeaderSignal": "La señal que indica a la página circundante que contraiga su encabezado mientras se lee un turno.",
+      "enableItemDetail": "Abrir un elemento muestra su vista de detalle.",
+      "enableNavigation": "Los botones que saltan al turno anterior y al siguiente.",
+      "enableNowIndicator": "La marca de la hora actual en la lista y la línea en la línea de tiempo.",
+      "enableOffShiftBands": "Las bandas sombreadas que la línea de tiempo dibuja fuera del turno activo.",
+      "enableOverflowDialog": "El diálogo que enumera los elementos detrás de una ficha «+more».",
+      "enablePinning": "Los elementos pueden fijarse al borde del área de desplazamiento y aparecer en la banda de fijados.",
+      "enableScrollTopButton": "El botón que devuelve el área de desplazamiento al principio.",
+      "enableTooltips": "Descripciones emergentes en los títulos de tarjeta truncados."
+    }
+  },
+  "SchedulerFormatters": {
+    "description": "Las funciones que convierten horas, intervalos y recuentos en texto. Sustituye una para cambiar un solo formato.",
+    "props": {
+      "clockTime": "La hora del reloj, por ejemplo «10:30 AM».",
+      "dateTime": "La columna de hora de la tabla de elementos adicionales.",
+      "hourLabel": "La etiqueta de hora del eje, por ejemplo «8AM».",
+      "shiftRange": "El intervalo de un turno, por ejemplo «Mar 12, 8 AM - Mar 12, 8 PM».",
+      "sinceTimestamp": "El momento desde el que dura un elemento, por ejemplo «03/12/2031 07:45 AM» en en-US.",
+      "timeRange": "El intervalo de un elemento, por ejemplo «9:00 AM – 10:30 AM»."
+    }
+  },
+  "SchedulerHandle": {
+    "description": "El handle imperativo: desplazamiento, apertura y cierre, y lectura del estado actual.",
+    "props": {
+      "closeItem": "Cierra el detalle abierto, si lo hay.",
+      "closeOverflow": "Cierra el diálogo de elementos adicionales, si está abierto.",
+      "focusItem": "Lleva el foco a la tarjeta de un elemento.",
+      "getActiveShift": "El turno que se lee, o `null` antes de la primera medición.",
+      "getLayout": "La disposición calculada de la línea de tiempo, o `null` en la vista de lista.",
+      "getPinnedIds": "Los ids de los elementos fijados ahora mismo, en el orden de la franja.",
+      "getScrollElement": "El elemento que se desplaza, para una medición propia.",
+      "openItem": "Abre el detalle de un elemento, como haría activar su tarjeta.",
+      "openOverflow": "Abre el diálogo de elementos adicionales de un grupo.",
+      "refreshPinning": "Vuelve a medir los centinelas de fijación, tras un cambio de diseño que el componente no ve.",
+      "scrollToItem": "Se desplaza hasta un elemento, si está en el intervalo renderizado.",
+      "scrollToShift": "Se desplaza hasta un turno, por desplazamiento respecto al actual o por rol.",
+      "scrollToTime": "Se desplaza hasta un momento dentro del intervalo renderizado."
+    }
+  },
+  "SchedulerHandlers": {
+    "description": "Middleware de interacción, con los eventos de React.",
+    "props": {
+      "onDetailClose": "Se ejecuta antes de que se cierre el detalle de un elemento, con lo que lo pidió.",
+      "onHeaderSignal": "Se ejecuta antes de que cambie la señal de cabecera, con lo que la causó.",
+      "onItemActivate": "Se ejecuta antes de que se abra un elemento; si no llamas a `next`, sigue cerrado.",
+      "onItemKeyDown": "Se ejecuta con cada tecla pulsada en una tarjeta, antes del manejo integrado.",
+      "onMoreActivate": "Se ejecuta antes de que se abra un grupo de elementos adicionales.",
+      "onNavigate": "Se ejecuta antes de un salto entre turnos; si no llamas a `next`, se cancela.",
+      "onOverflowClose": "Se ejecuta antes de que se cierre el diálogo de elementos adicionales, con lo que lo pidió.",
+      "onOverflowPage": "Se ejecuta antes de que la tabla de elementos adicionales cambie de página.",
+      "onOverflowSort": "Se ejecuta antes de que se ordene la tabla de elementos adicionales y puede cambiar el orden que se aplica.",
+      "onPin": "Se ejecuta antes de que un elemento se fije o se suelte; si no llamas a `next`, la franja queda como estaba.",
+      "onScrollTop": "Se ejecuta antes del desplazamiento de vuelta arriba."
+    }
+  },
+  "SchedulerItem": {
+    "description": "Una cosa del horario. Solo `id`, `start`, `level` y `title` son obligatorios; el resto afina cómo se lee la tarjeta.",
+    "props": {
+      "data": "Carga opaca para el renderizado del detalle.",
+      "description": "La segunda línea de la tarjeta.",
+      "disabled": "No activable: se renderiza con aria-disabled y los manejadores de activación lo ignoran.",
+      "end": "Cuándo termina. Un final anterior al inicio cuenta como duración cero.",
+      "id": "Estable, único, la biblioteca nunca lo modifica.",
+      "level": "La `key` de uno de los niveles de la escala.",
+      "observedLabel": "La etiqueta de hora «{timeLabel.observed} {observedLabel}». Tiene prioridad sobre `since`.",
+      "pinnable": "Sustituye el `pinOnPass` del nivel para este elemento.",
+      "pinned": "Siempre en la banda de fijados mientras su turno se renderiza.",
+      "reference": "Se muestra como píldora de referencia: «{localization.referenceLabel} {reference}».",
+      "since": "La etiqueta de hora «{timeLabel.since} {formatters.sinceTimestamp(since)}».",
+      "start": "Cuándo empieza.",
+      "suggestion": "La línea inferior de las tarjetas de la línea de tiempo.",
+      "tags": "Las claves de las etiquetas que lleva este elemento.",
+      "timeLabel": "Sustituye por completo la etiqueta de hora calculada.",
+      "title": "La primera línea de la tarjeta."
+    }
+  },
+  "SchedulerLocalization": {
+    "description": "Todos los textos que puede mostrar el componente. Un paquete de idioma es justamente esto.",
+    "props": {
+      "card": "El patrón de la descripción accesible de una tarjeta: su nivel y su hora.",
+      "detail": "La etiqueta de cierre del detalle del elemento.",
+      "dir": "La dirección de escritura de este idioma; `rtl` invierte todo el diseño.",
+      "emptyAll": "Se muestra cuando ningún turno renderizado contiene elementos.",
+      "emptyShift": "Se muestra en un turno que no contiene ningún elemento.",
+      "errorTitle": "El encabezado del estado de error.",
+      "levels": "Una etiqueta por clave de nivel; una clave sin etiqueta recurre a la clave misma.",
+      "loading": "Se anuncia mientras el horario espera datos.",
+      "locale": "BCP 47, usado para Intl.",
+      "more": "La píldora «+ más»: qué muestra y cómo se llama.",
+      "nav": "Todas las etiquetas y pistas de los dos botones de navegación.",
+      "now": "La etiqueta del marcador de «ahora», con su hora.",
+      "overflow": "El diálogo de elementos adicionales: su título, sus columnas y sus etiquetas de cierre.",
+      "pagination": "La paginación de la tabla de elementos adicionales.",
+      "pinnedStrip": "La franja de elementos fijados: su etiqueta y lo que anuncia cuando cambia el conjunto.",
+      "referenceLabel": "La etiqueta que se lee antes de un número de referencia.",
+      "retry": "La etiqueta del botón de reintento del estado de error.",
+      "scrollTop": "La etiqueta del botón que desplaza de vuelta arriba.",
+      "shiftHeader": "Las palabras que usa el encabezado de un turno para su lugar respecto al turno actual.",
+      "tags": "Una etiqueta por clave de etiqueta; una clave sin ella recurre a la clave misma.",
+      "timeLabel": "Cómo se escribe en una tarjeta una hora sin final.",
+      "views": "Los nombres de las dos vistas, para un selector propio."
+    }
+  },
+  "SchedulerModel": {
+    "description": "La entrada resuelta: opciones, valores predeterminados y estado fundidos en una sola forma que leen las vistas.",
+    "props": {
+      "animate": "El desplazamiento suave y las animaciones de entrada se ejecutan.",
+      "carriedOverCount": "Cuántos elementos de los turnos ya pasados pueden fijarse todavía.",
+      "compact": "Si el horario está en modo compacto.",
+      "compare": "El orden de los elementos dentro de un turno.",
+      "current": "El turno actual, o `null` cuando ningún turno renderizado es el actual.",
+      "currentIndex": "-1 cuando ningún turno renderizado tiene desplazamiento 0.",
+      "date": "El momento que se lee.",
+      "defaultDuration": "Cuánto dura un elemento sin final, en milisegundos.",
+      "density": "La escala de espaciado vigente.",
+      "dir": "La dirección resuelta; `explicitDir` se establece en la raíz solo si no vino del documento.",
+      "error": "El error que mostrar en lugar del contenido, si lo hay.",
+      "explicitDir": "La dirección que fijar en la raíz, cuando no vino del documento.",
+      "flags": "Todos los indicadores de función, resueltos.",
+      "formatters": "Los formateadores vigentes, ya ligados al idioma.",
+      "geometry": "Las medidas de la línea de tiempo: el intervalo, la altura de la hora y los anclajes.",
+      "hasItems": "Si algún turno renderizado contiene algún elemento.",
+      "headerExpanded": "El valor actual de la señal de cabecera.",
+      "itemsById": "Cada elemento renderizado, por id.",
+      "levels": "La escala de niveles, resuelta e indexada por clave de nivel.",
+      "list": "Las opciones de la lista, con todos los valores por defecto rellenados.",
+      "loading": "Si el horario está esperando datos.",
+      "locale": "La etiqueta BCP 47 con la que se produce cada formato.",
+      "localization": "El paquete de idioma vigente, con todos los valores por defecto rellenados.",
+      "now": "El momento actual.",
+      "nowVisible": "Si el indicador de «ahora» puede mostrarse siquiera.",
+      "openItem": "El elemento cuyo detalle está abierto, mientras siga en los datos.",
+      "openItemId": "El id del elemento cuyo detalle está abierto.",
+      "openItemMissing": "El id abierto apunta a un elemento que ya no está en los datos.",
+      "openOverflowId": "El id del grupo de elementos adicionales cuyo diálogo está abierto.",
+      "openSource": "Qué lo abrió.",
+      "overflowPage": "La página de la tabla de elementos adicionales.",
+      "overflowPageSize": "Cuántas filas tiene una página de la tabla de elementos adicionales.",
+      "overflowSort": "El orden de la tabla de elementos adicionales.",
+      "pinCompare": "El orden de la banda de fijados: `pinning.compare`, si no `compare`.",
+      "pinRules": "La regla de fijación de cada vista, con todos los valores por defecto rellenados.",
+      "reducedMotion": "Si el movimiento se mantiene al mínimo.",
+      "segments": "Los turnos renderizados con sus elementos, en orden.",
+      "shifts": "Los turnos renderizados, en orden.",
+      "size": "La clase de ancho de las fichas fijadas, según el ancho de la raíz: lg ≥ 900, md 600–899, sm < 600.",
+      "tags": "Las etiquetas que puede llevar un elemento, indexadas por clave de etiqueta.",
+      "timeline": "Las opciones de la línea de tiempo, con todos los valores por defecto rellenados.",
+      "view": "La vista que renderizar."
+    }
+  },
+  "SchedulerOptions": {
+    "description": "Todo lo que lee el controlador; las props de React añaden renderizado, slots y estilos.",
+    "props": {
+      "compact": "El diseño compacto: `'auto'` cambia en `compactBreakpoint`, un booleano lo fuerza.",
+      "compactBreakpoint": "El ancho, en píxeles, por debajo del cual `compact: 'auto'` activa el modo compacto.",
+      "compareItems": "Ordena los elementos dentro de un turno. El orden predeterminado es por inicio, luego por nivel y luego por título.",
+      "date": "El día que se renderiza, controlado. Úsalo junto con `onDateChange`.",
+      "defaultDate": "El día inicial cuando `date` no está controlado.",
+      "defaultDuration": "Cuánto dura, en milisegundos, un elemento sin `end`.",
+      "defaultHeaderExpanded": "El valor inicial de la señal de encabezado cuando no está controlada.",
+      "defaultOpenItemId": "El elemento abierto en el primer renderizado cuando `openItemId` no está controlado.",
+      "defaultOpenOverflowId": "El grupo de elementos adicionales abierto en el primer renderizado cuando `openOverflowId` no está controlado.",
+      "defaultOverflowPage": "La página del diálogo de elementos adicionales en la primera apertura, cuando no está controlada.",
+      "defaultOverflowSort": "La ordenación del diálogo de elementos adicionales en la primera apertura, cuando no está controlada.",
+      "defaultView": "La vista inicial cuando `view` no está controlada.",
+      "density": "La escala de espaciado de las partes renderizadas.",
+      "dir": "La dirección de escritura. `'auto'` la lee del documento circundante.",
+      "error": "Muestra el estado de error. Se acepta cualquier valor; el mensaje viene de `localization`.",
+      "formatters": "Sustituye formateadores concretos, para un formato propio que la configuración regional no produce.",
+      "handlers": "Middleware que se ejecuta antes de cada interacción y puede cambiarla o cancelarla.",
+      "headerExpanded": "La señal de encabezado, controlada. Úsala junto con `onHeaderExpandedChange`.",
+      "items": "Los elementos que se colocan. Cada uno necesita `id` y `start`; un elemento sin `end` dura `defaultDuration`.",
+      "levels": "La escala de niveles: los rangos que puede tener un elemento, con sus colores y etiquetas.",
+      "list": "Las opciones propias de la vista de lista.",
+      "listOnlyBreakpoint": "Por debajo de este ancho, en píxeles, solo se ofrece la lista. Omítelo para mantener ambas vistas en todos los anchos.",
+      "loading": "Muestra el estado de carga. Si ya hay elementos, permanecen en pantalla y el estado se muestra sobre ellos.",
+      "locale": "La configuración regional BCP 47 usada para formatear fechas, horas y números.",
+      "localization": "Todos los textos que puede mostrar el componente. Pasa un paquete completo o solo las entradas que quieras sustituir.",
+      "now": "El momento al que apunta el indicador de «ahora». Defínelo para congelar el reloj, en una prueba o una demo.",
+      "nowTickInterval": "Con qué frecuencia avanza el reloj, en milisegundos.",
+      "openItemId": "El elemento abierto, controlado por id. `null` cierra la vista de detalle.",
+      "openOverflowId": "El grupo de elementos adicionales abierto, controlado por id.",
+      "overflowColumns": "Las columnas de la tabla del diálogo de elementos adicionales, en orden.",
+      "overflowPage": "La página del diálogo de elementos adicionales, controlada, contada desde 1.",
+      "overflowPageSize": "Filas por página en el diálogo de elementos adicionales.",
+      "overflowSort": "La ordenación del diálogo de elementos adicionales, controlada.",
+      "pinning": "Dónde se fijan los elementos y en qué orden los muestra la banda de fijados.",
+      "reducedMotion": "El movimiento: `'auto'` sigue el `prefers-reduced-motion` del lector, un booleano lo fuerza.",
+      "segments": "Segmentos de turno ya preparados, para datos ya agrupados. Con ellos, el scheduler no agrupa `items` por su cuenta.",
+      "shifts": "El patrón de turnos del día: cuánto dura un turno, dónde empieza y cuántos se renderizan antes y después del actual.",
+      "tags": "Las etiquetas que puede llevar un elemento, con sus textos.",
+      "timeline": "Las opciones propias de la vista de línea de tiempo.",
+      "view": "La vista que se renderiza, controlada. Úsala junto con `onViewChange`."
+    }
+  },
+  "SchedulerPart": {
+    "description": "Cada parte visible."
+  },
+  "SchedulerProps": {
+    "description": "Todo lo que acepta `<Scheduler>`: las opciones del controlador más el renderizado, los slots y los estilos.",
+    "props": {
+      "aria-label": "El nombre accesible de la región del scheduler.",
+      "className": "La clase del elemento raíz.",
+      "classNames": "Una clase por parte, añadida a las propias de la biblioteca.",
+      "colorScheme": "Claro u oscuro; `'system'` sigue el ajuste del lector.",
+      "handlers": "Middleware que se ejecuta antes de cada interacción y puede cambiarla o cancelarla.",
+      "headingLevel": "El nivel de encabezado que usan las cabeceras de turno, para encajar en el esquema de la página.",
+      "id": "El prefijo de los ids de los elementos renderizados.",
+      "keepInactiveViewMounted": "Solo `<Scheduler>`: la vista que no se muestra permanece montada pero en pausa, así volver a ella es instantáneo y conserva su posición de desplazamiento.",
+      "onRetry": "Muestra la acción de reintentar en el estado de error y se llama cuando se usa.",
+      "overflowColumns": "Las columnas de la tabla del diálogo de elementos adicionales, en orden.",
+      "preset": "Qué aspecto incluido se renderiza: el propio de la biblioteca o el clásico que reproduce.",
+      "renderCardContent": "Sustituye el interior de una tarjeta conservando su marco, su activación y su fijado.",
+      "renderEmpty": "Sustituye el estado vacío. `ctx.scope` dice si está vacío todo el día o solo un turno.",
+      "renderError": "Sustituye el estado de error.",
+      "renderHeader": "Sustituye la zona fija por encima de los elementos, que contiene la banda de fijados y la navegación.",
+      "renderItem": "Sustituye la tarjeta entera. `ctx.defaultRender()` devuelve la integrada.",
+      "renderItemDetail": "Sustituye la vista de detalle de un elemento abierto.",
+      "renderLoading": "Sustituye el estado de carga.",
+      "renderMoreLabel": "Sustituye la etiqueta de una ficha «+more».",
+      "renderNavLabel": "Sustituye la etiqueta de un botón de navegación.",
+      "renderPinnedChip": "Sustituye una ficha de la banda de fijados.",
+      "renderShiftHeader": "Sustituye la fila de encabezado de un turno.",
+      "renderTimeLabel": "Sustituye la etiqueta de hora de una tarjeta.",
+      "slotProps": "Props adicionales para una parte, fijas o calculadas a partir del estado que la rodea.",
+      "slots": "Sustituye el componente que renderiza una parte, conservando su lugar y sus props.",
+      "style": "Estilo en línea para el elemento raíz.",
+      "styles": "Un estilo en línea por parte.",
+      "tokens": "Sustituye tokens de diseño concretos en el elemento raíz.",
+      "unstyled": "Renderiza la estructura sin el aspecto de la hoja de estilos, para un diseño propio construido sobre `classNames`."
+    }
+  },
+  "SchedulerSlotProps": {
+    "description": "Props adicionales para cada parte, fijas o calculadas a partir del estado que la rodea."
+  },
+  "SchedulerSlots": {
+    "description": "El componente de cada parte, que sustituye al propio de la biblioteca."
+  },
+  "SchedulerState": {
+    "description": "Todo lo que usa `<Scheduler>`, sin marcado.",
+    "props": {
+      "actions": "Las mismas acciones imperativas que el componente expone a través de su ref.",
+      "activeShift": "El turno que se lee, o `null` antes de la primera medición.",
+      "carriedOverCount": "Cuántos elementos de los turnos ya pasados pueden fijarse todavía.",
+      "compact": "Si el horario está en modo compacto.",
+      "formatters": "Los formateadores vigentes, ya ligados al idioma.",
+      "getItemProps": "Props para el activador de un elemento, para que la activación y el teclado funcionen.",
+      "getMoreChipProps": "Props para la píldora que abre un grupo de elementos adicionales.",
+      "getNavButtonProps": "Props para uno de los dos botones de navegación, con su etiqueta y su estado.",
+      "getPinSentinelProps": "Props para el centinela de fijación de un elemento fijable.",
+      "getPinnedChipProps": "Props para la píldora de un elemento fijado.",
+      "getRootProps": "Props para el elemento más externo de tu propio renderizado.",
+      "getScrollTopButtonProps": "Props para el botón que desplaza de vuelta arriba.",
+      "getScrollerProps": "Props para el elemento que se desplaza; la fijación y la navegación lo miden.",
+      "getSectionProps": "Props para el elemento de sección de un turno.",
+      "getStickyTopProps": "Props para el elemento que se pega arriba del desplazador.",
+      "headerExpanded": "El valor actual de la señal de cabecera.",
+      "layout": "Solo línea de tiempo.",
+      "localization": "El paquete de idioma vigente.",
+      "navigation": "A qué apuntan ahora mismo los dos botones de navegación.",
+      "now": "El momento actual, tal como lo da el reloj interno o la prop `now`.",
+      "nowVisible": "Si el indicador de «ahora» puede mostrarse siquiera.",
+      "openItem": "El elemento cuyo detalle está abierto, o `null`.",
+      "openOverflow": "El grupo de elementos adicionales cuyo diálogo está abierto, o `null`.",
+      "pinned": "Los elementos fijados, en el orden de la franja.",
+      "segments": "Los turnos renderizados con sus elementos, en orden.",
+      "shifts": "Los turnos renderizados, en orden.",
+      "view": "La vista que describe el estado."
+    }
+  },
+  "SchedulerStoreState": {
+    "description": "El estado almacenado del controlador: lo que cambió el lector, antes de aplicar ninguna opción.",
+    "props": {
+      "clock": "El momento actual, tal como lo informó por última vez el reloj interno.",
+      "date": "Valores no controlados.",
+      "documentDir": "La dirección de escritura en la que está el documento.",
+      "headerExpanded": "La señal de cabecera, cuando no está controlada.",
+      "openItemId": "El elemento cuyo detalle está abierto, cuando no está controlado.",
+      "openOverflowId": "El grupo de elementos adicionales cuyo diálogo está abierto, cuando no está controlado.",
+      "openSource": "Qué abrió ese elemento.",
+      "overflowPage": "La página de la tabla de elementos adicionales, cuando no está controlada.",
+      "overflowSort": "El orden de la tabla de elementos adicionales, cuando no está controlado.",
+      "prefersReducedMotion": "Si el sistema de quien lee pide movimiento reducido.",
+      "view": "La vista que se muestra, cuando no está controlada.",
+      "views": "Estado por vista: los datos de desplazamiento, los ids fijados y la memoria de la cabecera.",
+      "width": "Medido por la capa de vista."
+    }
+  },
+  "SchedulerViewModel": {
+    "description": "Todo lo que una vista necesita para renderizar, derivado del modelo.",
+    "props": {
+      "activeShift": "El turno que se lee, o `null` antes de la primera medición.",
+      "facts": "Lo que encontró la última medición del desplazador.",
+      "navigation": "A qué apuntan los dos botones de navegación.",
+      "pinned": "Los elementos fijados con sus píldoras, en el orden de la franja.",
+      "pinnedIds": "Los ids de la banda de fijados, en el orden de la banda (los fijados por posición más los elementos con `pinned: true`).",
+      "scrollTopVisible": "Si se muestra el botón de vuelta arriba.",
+      "view": "La vista que describe este modelo."
+    }
+  },
+  "ScrollFacts": {
+    "description": "Lo que una vista midió en su último fotograma de desplazamiento.",
+    "props": {
+      "activeIndex": "El índice del turno activo en `shifts`.",
+      "atStart": "La vista está al inicio del turno activo.",
+      "nextVisible": "Solo lista: la sección del turno con desplazamiento +1 es visible bajo el pliegue.",
+      "pastScrollTopThreshold": "Solo lista: se ha desplazado más allá de `list.scrollTopThreshold`."
+    }
+  },
+  "ScrollTopButton": {
+    "description": "El botón que devuelve el área de desplazamiento al principio."
+  },
+  "SegmentInput": {
+    "description": "Entrada de paridad: segmentos ya agrupados, listos para la forma de datos existente.",
+    "props": {
+      "end": "Cuándo termina el segmento; exclusivo.",
+      "items": "Los elementos de este segmento; se ordenan por ti.",
+      "key": "Una clave propia para el turno; el valor por defecto viene del rol.",
+      "offset": "Predeterminado: -1 / 0 / 1 según el rol.",
+      "role": "Si el segmento está antes, en o después del turno actual.",
+      "start": "Cuándo empieza el segmento."
+    }
+  },
+  "ShiftHeader": {
+    "description": "La fila de encabezado de un turno en la vista de lista.",
+    "props": {
+      "id": "El id por el que se etiqueta la sección.",
+      "segment": "El turno al que pertenece la cabecera, con sus elementos."
+    }
+  },
+  "ShiftNavButton": {
+    "description": "El botón que salta al turno anterior o al siguiente.",
+    "props": {
+      "position": "Cuál de los dos botones es este."
+    }
+  },
+  "ShiftOptions": {
+    "description": "El patrón de turnos de un día. Turnos regulares de una misma duración, o un `pattern` irregular de turnos con nombre.",
+    "props": {
+      "after": "Cuántos turnos se renderizan después del actual.",
+      "anchor": "La hora de reloj en la que empieza un turno regular; los demás se derivan de ella.",
+      "before": "Cuántos turnos se renderizan antes del actual.",
+      "durationHours": "La duración de un turno regular, en horas. Debe dividir 24.",
+      "keys": "Las claves de los turnos regulares, asignadas por turno desde el ancla.",
+      "pattern": "Un patrón diario irregular, como horas de inicio en orden. Sustituye a `durationHours`, `anchor` y `keys`."
+    }
+  },
+  "ShiftPatternEntry": {
+    "description": "Un turno de un patrón diario irregular: cuándo empieza y cómo se llama.",
+    "props": {
+      "key": "La clave del turno, del patrón o de las claves regulares.",
+      "label": "Una etiqueta propia para el turno, en vez de la generada.",
+      "start": "La hora de reloj en la que empieza. La entrada termina donde empieza la siguiente, cíclicamente."
+    }
+  },
+  "ShiftRole": {
+    "description": "El signo del desplazamiento de un turno respecto al turno actual."
+  },
+  "ShiftSegment": {
+    "description": "Un turno con los elementos que le corresponden, en el orden en que se renderizan.",
+    "props": {
+      "items": "Los elementos cuyo inicio está en [shift.start, shift.end), en orden de colocación.",
+      "shift": "El turno que renderiza este segmento."
+    }
+  },
+  "ShiftWindow": {
+    "description": "Un turno renderizado: su desplazamiento respecto al actual, su clave y sus límites.",
+    "props": {
+      "end": "El final del turno, en milisegundos epoch; exclusivo.",
+      "key": "La clave del turno, del patrón o de las claves regulares.",
+      "label": "Una etiqueta propia para el turno, en vez de la generada.",
+      "offset": "0 = actual; negativo = anterior.",
+      "role": "El signo del desplazamiento.",
+      "start": "Milisegundos desde la época en los límites de reloj de pared (a prueba del horario de verano)."
+    }
+  },
+  "SlotProps": {
+    "description": "Las props que recibe un componente de slot: los atributos del elemento más las props base del slot."
+  },
+  "SortDirection": {
+    "description": "La dirección de ordenación de la tabla de elementos adicionales."
+  },
+  "SortableColumn": {
+    "description": "La parte de una columna de elementos adicionales que necesita la ordenación; `OverflowColumn` la extiende.",
+    "props": {
+      "id": "Identifica la columna en un orden.",
+      "sortValue": "Omítelo para que la columna no se pueda ordenar."
+    }
+  },
+  "TagDefinition": {
+    "description": "Una etiqueta que puede llevar un elemento, con su texto y sus colores.",
+    "props": {
+      "background": "El fondo de la píldora.",
+      "color": "El color del texto de la píldora.",
+      "key": "La clave con la que los elementos se refieren a esta etiqueta.",
+      "label": "El texto que se muestra en la píldora de etiqueta."
+    }
+  },
+  "TagPill": {
+    "description": "La píldora que muestra una de las etiquetas de un elemento.",
+    "props": {
+      "tag": "La clave de la etiqueta que representa la píldora."
+    }
+  },
+  "TimeGrid": {
+    "description": "La cuadrícula de horas de la línea de tiempo, con las tarjetas colocadas en ella."
+  },
+  "TimelineCard": {
+    "description": "Una tarjeta de línea de tiempo, posicionada de forma absoluta a partir de la salida del motor de disposición.",
+    "props": {
+      "gap": "El espacio entre dos columnas, en píxeles.",
+      "placed": "La tarjeta tal como la colocó la disposición: su columna y su geometría."
+    }
+  },
+  "TimelineLayout": {
+    "description": "La línea de tiempo calculada: cada tarjeta colocada, cada grupo de elementos adicionales y la geometría alrededor.",
+    "props": {
+      "cards": "Cada tarjeta colocada, en orden de colocación.",
+      "height": "Las horas del intervalo × `hourHeight`, con un mínimo de `hourHeight`.",
+      "overflow": "Los grupos que la colocación no pudo encajar, cada uno tras una píldora «+ más».",
+      "rangeEnd": "El último momento que cubre la rejilla, en milisegundos epoch.",
+      "rangeStart": "El primer momento que cubre la rejilla, en milisegundos epoch."
+    }
+  },
+  "TimelineLayoutOptions": {
+    "description": "Lo que necesita el motor de disposición además de los elementos: el tamaño de una hora, los límites de columnas y la ventana de fusión.",
+    "props": {
+      "cardGap": "El espacio entre dos columnas, en píxeles.",
+      "columnPlacement": "Qué columna ocupa un elemento cuando varios se solapan.",
+      "compact": "Si se aplican los topes compactos en vez de los habituales.",
+      "compareItems": "El orden que sigue la secuencia de colocación.",
+      "defaultDuration": "Cuánto dura un elemento sin final, en milisegundos.",
+      "hourHeight": "La altura de una hora, en píxeles.",
+      "levels": "La escala de niveles resuelta, que da a cada elemento su rango.",
+      "maxColumns": "En cuántas columnas pueden compartir el carril los elementos que se solapan.",
+      "maxColumnsCompact": "El tope que se aplica en modo compacto.",
+      "maxColumnsCrowded": "El tope que se aplica donde la jornada está concurrida.",
+      "minCardHeight": "Lo más corta que puede dibujarse una tarjeta, en píxeles.",
+      "overflowMergeWindow": "A qué distancia, en milisegundos, pueden estar dos grupos concurridos y aun así fusionarse.",
+      "rangeEnd": "El último momento que cubre la rejilla, en milisegundos epoch.",
+      "rangeStart": "El primer momento que cubre la rejilla, en milisegundos epoch."
+    }
+  },
+  "TimelineOptions": {
+    "description": "Las opciones propias de la vista de línea de tiempo: el tamaño de una hora, cuántas columnas pueden usar los elementos solapados y cuándo se agrupan en una ficha «+more».",
+    "props": {
+      "cardGap": "El espacio entre dos tarjetas, en píxeles.",
+      "columnPlacement": "Qué columna ocupa un elemento: por su nivel (`'priority'`) o por la columna que se libera antes (`'time'`).",
+      "hourHeight": "La altura de una hora, en píxeles. La escala de densidad ajusta el valor predeterminado.",
+      "hourLabelFormat": "Las etiquetas de hora del eje: cortas («8AM» en en-US) o el formato de hora propio de la configuración regional.",
+      "landing": "Dónde aterriza la línea de tiempo en el primer renderizado, al cambiar la fecha y al entrar en la vista.",
+      "leadMinutes": "Cuánto tiempo, en minutos, dejan el aterrizaje y la navegación por encima del objetivo.",
+      "maxColumns": "Sobre cuántas columnas pueden repartirse los elementos solapados.",
+      "maxColumnsCompact": "El límite de aglomeración en el diseño compacto.",
+      "maxColumnsCrowded": "El límite cuando se solapan más elementos que `maxColumns`; el resto va a la ficha «+more».",
+      "minCardHeight": "Qué altura mínima puede tener una tarjeta, en píxeles, por corto que sea el elemento.",
+      "nearBottomGutterMinutes": "Cuánto tiempo, en minutos, deja por debajo del objetivo un aterrizaje «cerca del final».",
+      "overflowMergeWindow": "A qué distancia, en milisegundos, pueden estar dos grupos aglomerados y aun así unirse en una sola ficha «+more». `Infinity` une toda la cadena.",
+      "viewEnterRealignDelay": "Cuánto espera la línea de tiempo, en milisegundos, tras entrar en la vista antes de realinearse."
+    }
+  },
+  "TimelineView": {
+    "description": "La vista de línea de tiempo por sí sola."
+  },
+  "TimelineViewProps": {
+    "description": "Lo que acepta `<TimelineView>`: las props del scheduler, sin la selección de vista."
+  },
+  "TokenName": {
+    "description": "Un token de diseño de `styles.css`."
+  },
+  "Tooltip": {
+    "description": "La parte de la descripción emergente; `position` viene de `useTooltip` (null mientras está cerrada).",
+    "props": {
+      "children": "El texto de la ayuda emergente.",
+      "id": "El id al que apunta el elemento descrito.",
+      "position": "Dónde está anclada la ayuda emergente, o `null` mientras no se muestra."
+    }
+  },
+  "ViewKind": {
+    "description": "Las dos vistas: una lista desplazable de tarjetas o un eje de tiempo con tarjetas colocadas."
+  },
+  "WallClock": {
+    "description": "Hora de reloj de pared en formato de 24 horas, «HH:mm»."
+  },
+  "bucketItems": {
+    "description": "Coloca cada elemento en la ventana con `start ≤ item.start < end`. Los elementos fuera de toda ventana no se muestran; los que tienen un inicio inválido se descartan; con ids duplicados gana la primera aparición.",
+    "props": {
+      "items": "Los elementos que colocar, en cualquier orden.",
+      "options": "Cómo ordenar los elementos dentro de un turno y cuánto dura un elemento sin final.",
+      "windows": "Los turnos renderizados, en orden."
+    }
+  },
+  "classicLevels": {
+    "description": "Los 9 niveles de paridad, del más fuerte al más débil."
+  },
+  "classicTags": {
+    "description": "El conjunto de etiquetas clásico: las dos etiquetas que renderiza el aspecto clásico."
+  },
+  "compareByPlacement": {
+    "description": "El orden de colocación: inicio ascendente, luego rango de nivel ascendente (el más fuerte primero) y luego el id.",
+    "props": {
+      "levels": "La escala de niveles resuelta, que da a cada elemento su rango."
+    }
+  },
+  "compensateStickyGrowth": {
+    "description": "Mantiene quieto el contenido visible cuando el elemento fijo dentro del área de desplazamiento cambia de altura: el área se mueve lo mismo, en el mismo fotograma, en todos los motores. El área establece `overflow-anchor: none`, de modo que el anclaje del navegador no añade un segundo desplazamiento. Mientras `suspended()` esté activo, el cambio solo se anota.",
+    "props": {
+      "scroller": "El elemento que se desplaza y hay que ajustar.",
+      "sticky": "El elemento que se pega a su parte superior y cambia de altura.",
+      "suspended": "Devuelve verdadero mientras deba omitirse el ajuste."
+    }
+  },
+  "computeTimelineLayout": {
+    "description": "Coloca los elementos en las columnas de la línea de tiempo y en los grupos de elementos adicionales: la secuencia de colocación, las columnas voraces, la promoción desde los adicionales, el relleno de huecos, la geometría, los grupos adicionales (limitados por `overflowMergeWindow`, medido desde el ancla de cada grupo) y el número de columnas.",
+    "props": {
+      "items": "Los elementos del intervalo renderizado, en cualquier orden.",
+      "options": "La geometría y los topes: la altura de la hora, las columnas, la ventana de fusión."
+    }
+  },
+  "createFormatters": {
+    "description": "Construye los formateadores predeterminados de una configuración regional, que luego `formatters` puede sustituir uno a uno.",
+    "props": {
+      "locale": "La etiqueta BCP 47 con la que se produce cada formato.",
+      "options": "Sustituciones para formatos concretos, como la etiqueta de hora."
+    }
+  },
+  "createNavigator": {
+    "description": "Crea el navegador de un área de desplazamiento.",
+    "props": {
+      "options": "El desplazador que mover y las retrollamadas que informan del movimiento."
+    }
+  },
+  "createPinEngine": {
+    "description": "Crea el motor de fijado de un área de desplazamiento.",
+    "props": {
+      "options": "El desplazador, la línea de fijación y la retrollamada que informa de los ids fijados."
+    }
+  },
+  "createScheduler": {
+    "description": "Crea un controlador. Esta es toda la biblioteca sin React: le das opciones, lees el modelo de vista y llamas a sus acciones.",
+    "props": {
+      "initialOptions": "Las opciones con las que arranca el controlador; `setOptions` las sustituye después."
+    }
+  },
+  "deDE": {
+    "description": "El paquete de idioma alemán (Alemania), que se pasa a `localization`."
+  },
+  "defaultOverflowColumns": {
+    "description": "Las columnas que muestra la tabla de elementos adicionales cuando no se indican otras."
+  },
+  "enUS": {
+    "description": "El paquete de idioma inglés, y el predeterminado cuando no se pasa `localization`."
+  },
+  "esES": {
+    "description": "El paquete de idioma español (España), que se pasa a `localization`."
+  },
+  "frFR": {
+    "description": "El paquete de idioma francés (Francia), que se pasa a `localization`."
+  },
+  "getShiftWindows": {
+    "description": "Las ventanas de turno renderizadas alrededor de `date`, con desplazamientos `-before … +after`. La ventana actual es `[último límite ≤ date, siguiente límite)`; los desplazamientos recorren los límites a través de los días.",
+    "props": {
+      "date": "El momento que se lee; el turno que lo contiene es el actual.",
+      "options": "El patrón de turnos y cuántos turnos renderizar alrededor del actual."
+    }
+  },
+  "huHU": {
+    "description": "El paquete de idioma húngaro (Hungría), que se pasa a `localization`."
+  },
+  "interpolate": {
+    "description": "Rellena los marcadores `{{name}}`. Una plantilla de plural elige su forma para `values.count` con `Intl.PluralRules(locale)`, recurriendo a `other`. Los números se formatean con `Intl.NumberFormat`. Un marcador desconocido se deja tal cual.",
+    "props": {
+      "locale": "El idioma con el que se formatean los números.",
+      "template": "Un mensaje con marcadores `{{name}}`.",
+      "values": "Qué poner en lugar de cada marcador."
+    }
+  },
+  "observeCompact": {
+    "description": "`onChange(compact)` con compact = el ancho por debajo de `breakpoint`, ahora y en cada cambio.",
+    "props": {
+      "element": "El elemento cuyo ancho decide el modo compacto.",
+      "options": "Los puntos de ruptura y la retrollamada que recibe la respuesta."
+    }
+  },
+  "observeWidth": {
+    "description": "Llama a `onWidth` con el ancho de la caja de contenido del elemento, ahora y cada vez que cambia. El modo compacto y `listOnlyBreakpoint` usan el ancho de la raíz, no el de la ventana ni el del navegador.",
+    "props": {
+      "element": "El elemento que medir.",
+      "onWidth": "Se llama con el ancho de la caja de contenido, en cada cambio."
+    }
+  },
+  "pageList": {
+    "description": "Las páginas que mostrar en el paginador (base 0): todas cuando hay siete o menos; si no, las dos primeras, las dos últimas y la página actual ±1, con «ellipsis» en cada hueco.",
+    "props": {
+      "currentPage": "La página que se muestra, contada desde cero.",
+      "totalPages": "Cuántas páginas hay."
+    }
+  },
+  "prefersReducedMotion": {
+    "description": "La consulta de medios `prefers-reduced-motion: reduce`; false cuando las consultas de medios no están disponibles.",
+    "props": {
+      "view": "La ventana a la que preguntar; pasarla hace comprobable el ayudante."
+    }
+  },
+  "ptPT": {
+    "description": "El paquete de idioma portugués (Portugal), que se pasa a `localization`."
+  },
+  "resolveEnd": {
+    "description": "El final resuelto de un elemento: `start + defaultDuration` cuando falta `end` o no es válido; un final anterior al inicio cuenta como duración cero.",
+    "props": {
+      "defaultDuration": "Cuánto dura cuando no tiene final, en milisegundos.",
+      "end": "Su final, cuando lo tiene.",
+      "start": "El inicio del elemento."
+    }
+  },
+  "resolveLevels": {
+    "description": "Las definiciones de nivel indexadas por `key`, con `rank` (predeterminado: el índice del array), `variant` y `pinOnPass` ya resueltos.",
+    "props": {
+      "levels": "La escala tal como se dio, con sus huecos aún por rellenar."
+    }
+  },
+  "resolveShift": {
+    "description": "La ventana del turno actual (desplazamiento 0) para `date`.",
+    "props": {
+      "date": "El momento que colocar.",
+      "options": "El patrón de turnos con el que se divide el día."
+    }
+  },
+  "resolveTimeLabel": {
+    "description": "La etiqueta de hora de una tarjeta, la primera coincidencia: `timeLabel` tal como se da; «{observed} {observedLabel}» cuando `observedLabel` es una cadena no vacía; «{since} {timestamp}» para un `since` válido, o solo el prefijo si no lo es; en caso contrario «{start} – {end}».",
+    "props": {
+      "defaultDuration": "Cuánto dura un elemento sin final, en milisegundos.",
+      "formatters": "Los formateadores, para la hora en sí.",
+      "item": "El elemento cuya hora se escribe; su propio `timeLabel` gana cuando lo tiene.",
+      "localization": "El paquete de idioma, para las palabras alrededor de la hora."
+    }
+  },
+  "roRO": {
+    "description": "El paquete de idioma rumano (Rumanía), que se pasa a `localization`."
+  },
+  "sortOverflowItems": {
+    "description": "Los elementos ordenados por el valor de la columna; los empates se resuelven con `compare`. Toda la comparación, empates incluidos, sigue la dirección. Una columna no ordenable o desconocida ordena solo con `compare`.",
+    "props": {
+      "columns": "Las columnas vigentes, que dicen cómo ordena cada una.",
+      "compare": "El orden que rompe un empate.",
+      "items": "Los elementos de un grupo de elementos adicionales.",
+      "sort": "La columna y la dirección por las que ordenar."
+    }
+  },
+  "toMs": {
+    "description": "Los milisegundos desde la época de una entrada de fecha; `NaN` cuando no es válida. Una cadena sin desfase es hora local de reloj, incluidas las cadenas de solo fecha (que `Date` por sí solo leería como UTC).",
+    "props": {
+      "input": "Un `Date`, milisegundos epoch, o una cadena que `Date` pueda interpretar."
+    }
+  },
+  "useCompact": {
+    "description": "El modo compacto a partir del ancho de contenido del elemento; un booleano lo fuerza. Falso en el servidor.",
+    "props": {
+      "options": "Los puntos de ruptura y un valor que sustituye a la medición.",
+      "ref": "El elemento cuyo ancho decide el modo compacto."
+    }
+  },
+  "useControllableState": {
+    "description": "Controlado cuando se pasa `value`; si no, estado interno que empieza en `defaultValue`.",
+    "props": {
+      "defaultValue": "El valor del que partir mientras no está controlado.",
+      "onChange": "Se llama con cada valor nuevo, en ambos casos.",
+      "value": "El valor controlado, o `undefined` mientras el estado no está controlado."
+    }
+  },
+  "useNow": {
+    "description": "Los milisegundos desde la época de `now`, o un reloj interno que avanza cada `interval` ms, en pausa mientras el documento está oculto.",
+    "props": {
+      "input": "Un momento fijo que usar en vez del reloj, o cada cuánto tictaquea el reloj."
+    }
+  },
+  "usePinOnPass": {
+    "description": "El fijado al pasar para marcado propio: registras los sensores y lees las claves fijadas.",
+    "props": {
+      "options": "El desplazador, la regla de fijación y la retrollamada que informa de los ids fijados."
+    }
+  },
+  "useScheduler": {
+    "description": "Todo lo que usa `<Scheduler>`, sin marcado.",
+    "props": {
+      "props": "Las mismas props que recibe `<Scheduler>`."
+    }
+  },
+  "useShiftModel": {
+    "description": "Las ventanas de turno y los segmentos de una fecha.",
+    "props": {
+      "input": "El momento que se lee y el patrón de turnos con el que dividir el día."
+    }
+  },
+  "useShiftNavigation": {
+    "description": "Navegación programática entre turnos, para marcado propio.",
+    "props": {
+      "options": "El desplazador, los turnos renderizados y dónde debe aterrizar un salto."
+    }
+  },
+  "useTimelineLayout": {
+    "description": "La disposición de línea de tiempo de `items`, memorizada según sus entradas.",
+    "props": {
+      "items": "Los elementos del intervalo renderizado.",
+      "options": "La geometría y los topes con los que se calcula la disposición."
+    }
+  }
+}

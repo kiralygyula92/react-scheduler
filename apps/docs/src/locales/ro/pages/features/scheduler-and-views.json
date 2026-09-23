@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Scheduler și vizualizări",
-    "description": "Scheduler și vizualizări în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Componenta Scheduler și cele două vizualizări ale ei: la ce e bună fiecare, cum comută cititorul și ce schimbă cele două preseturi."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "presets": "Preseturi",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "views": "Aceeași zi, în ambele feluri",
+    "presets": "Implicit și clasic"
+  },
+  "basics": {
+    "intro": "<code>Scheduler</code> este componenta întreagă: citește elementele, taie ziua în ture și randează una dintre cele două vizualizări. Lista este pentru citit o tură de sus în jos; cronologia este pentru a vedea cum sunt umplute orele. Tot restul acestui site este un detaliu al uneia dintre ele.",
+    "switch": "Pachetul nu desenează un comutator de vizualizare — pagina ta o face, acolo unde se potrivește aranjării tale. Dă <code>defaultView</code> ca să alegi unde pornește cititorul, sau <code>view</code> cu <code>onViewChange</code> ca să ții alegerea în starea ta, de pildă într-un URL, așa încât un link să deschidă vizualizarea din care a fost trimis. Etichetele pentru un astfel de control sunt în pachetul de limbă, la <code>views.list</code> și <code>views.timeline</code>.",
+    "points": [
+      "<code>ListView</code> și <code>TimelineView</code> sunt exportate și separat, pentru o pagină care vrea doar una dintre ele.",
+      "<code>keepInactiveViewMounted</code> ține cealaltă vizualizare montată, așa că revenirea este imediată și poziția ei de derulare se păstrează.",
+      "Sub <code>listOnlyBreakpoint</code> cronologia dispare cu totul: un telefon primește lista, indiferent ce spune vizualizarea."
+    ]
+  },
+  "presets": {
+    "intro": "Un preset este forma componentei, nu culorile ei: aranjarea cardului, cât de puternică este bara de nivel, cât aer primește un rând. <code>'default'</code> este cel folosit de acest site; <code>'classic'</code> este mai dens și mai plat. Amândouă merg în ambele scheme de culoare și în toate cele trei densități."
+  },
+  "accessibility": {
+    "points": [
+      "Componenta randează doar vizualizarea activă, așa că tastatura nu trece niciodată printr-una ascunsă. Cu <code>keepInactiveViewMounted</code>, cealaltă rămâne în DOM, ascunsă, cu toți ascultătorii și temporizatoarele oprite.",
+      "Comutatorul de vizualizare este al tău: o pereche de butoane cu <code>aria-pressed</code> se citește bine, iar etichetele sunt în pachetul de limbă.",
+      "Componenta este o singură regiune etichetată, așa că un cititor de ecran poate sări direct la ea.",
+      "Nivelurile de titlu din interior pornesc de la <code>headingLevel</code>, implicit <code>3</code>: potrivește-l cu pagina în care stă."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> și <code>density</code> pentru aspect — vezi <link to=\"/customization/theming/\">Teme</link>.",
+      "<code>slots</code> și <code>slotProps</code> pentru a înlocui sau extinde orice parte — vezi <link to=\"/customization/slots/\">Sloturi și suprascrieri</link>.",
+      "<code>classNames</code> și <code>unstyled</code> ca să aduci în întregime CSS-ul tău.",
+      "<code>localization</code> pentru fiecare text pe care îl arată componenta — vezi <link to=\"/customization/localization/\">Localizare</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Există două vizualizări și niciun fel de a adăuga a treia. O randare diferită este treaba <link to=\"/headless-api/\">API-ului headless</link>, care îți dă același model, fără markup.",
+      "Vizualizările nu pot fi arătate una lângă alta într-o singură componentă; randează două, dacă ai nevoie de asta.",
+      "Comutarea păstrează data și elementele fixate. Poziția de derulare a vizualizării părăsite se păstrează doar cu <code>keepInactiveViewMounted</code>; altfel, vizualizarea în care intri aterizează acolo unde spune <code>landing.onViewEnter</code>."
+    ]
   }
 }

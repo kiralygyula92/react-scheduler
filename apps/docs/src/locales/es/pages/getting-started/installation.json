@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Instalación",
-    "description": "Instalación del paquete React Scheduler: los pasos en orden, las versiones implicadas y qué comprobar después."
+    "description": "Instala React Scheduler, añade su hoja de estilos y renderiza el primer horario. Las dependencias peer, los estilos y una comprobación de cinco líneas."
   },
   "sections": {
     "install": "Instalación",
@@ -13,5 +13,41 @@
     "stylesheet": "Hoja de estilos",
     "verify": "Verificación",
     "next-steps": "Siguientes pasos"
+  },
+  "peers": {
+    "intro": "React Scheduler no instala nada propio. Sus dos peers son el React que ya tienes; cualquier otro paquete del árbol es una herramienta de desarrollo de este repositorio, no de tu aplicación.",
+    "head": {
+      "package": "Paquete",
+      "range": "Rango",
+      "why": "Por qué"
+    },
+    "rows": [
+      [
+        "<code>react</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "Los hooks, el contexto y el renderizador concurrente sobre los que se construyen las vistas."
+      ],
+      [
+        "<code>react-dom</code>",
+        "<code>^18.2.0 || ^19.0.0</code>",
+        "El renderizador del DOM y el portal en el que se abren los diálogos de elementos adicionales y de detalle."
+      ]
+    ]
+  },
+  "stylesheet": {
+    "intro": "Importa la hoja de estilos una sola vez, donde arranca tu aplicación. Lleva los dos ajustes preestablecidos, el esquema claro y el oscuro y las tres densidades; no se inyecta nada en tiempo de ejecución.",
+    "unstyled": "Si prefieres darle estilo tú mismo, importa <code>@react-schedulerkit/react-scheduler/base.css</code>: la misma estructura, sin colores, sin escala de espaciado y sin escala tipográfica. <link to=\"/customization/\">Personalización</link> muestra los niveles intermedios."
+  },
+  "verify": {
+    "intro": "Este es un archivo completo. Si renderiza una tarjeta en un turno, el paquete, sus estilos y sus peers están en su sitio.",
+    "calloutTitle": "¿Sin fecha, sin turnos?",
+    "callout": "Ambos son opcionales. Sin <code>date</code>, el horario muestra el día actual, y sin <code>shifts</code> usa dos turnos de doce horas anclados a las 08:00."
+  },
+  "next": {
+    "points": [
+      "<link to=\"/getting-started/usage/\">Uso</link> — las props que fijarás primero y cómo se comparte el estado con tu aplicación.",
+      "<link to=\"/getting-started/requirements/\">Requisitos</link> — navegadores, versiones de React y TypeScript, tamaño del paquete.",
+      "<link to=\"/all-features/\">Todas las funciones</link> — cada capacidad, con una demostración en vivo."
+    ]
   }
 }

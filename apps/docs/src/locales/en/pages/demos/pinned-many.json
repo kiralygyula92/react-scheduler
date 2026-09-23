@@ -1,15 +1,32 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
-  },
-  "meta": {
-    "title": "Many pinned items",
-    "description": "A React Scheduler demo on the Many pinned items fixture: the capabilities it combines and its complete source."
+    "source": "M5"
   },
   "sections": {
     "scenario": "Scenario",
+    "what-to-look-for": "What to look for",
     "what-it-uses": "What it uses",
     "source": "Source"
-  }
+  },
+  "source": "The demo above is one file, complete and runnable. <strong>Show code</strong> opens it under the board, <strong>Copy</strong> takes it, and the data behind it is the fixture named on this page.",
+  "meta": {
+    "title": "Many pinned items",
+    "description": "Six items of a pinning level in the shift that has passed, and what the pinned strip does with them."
+  },
+  "demos": {
+    "board": "Six items that pin"
+  },
+  "scenario": "Six <code>critical</code> items in the shift that has passed, six <code>routine</code> ones in the shift running now. <code>critical</code> is the one level of the classic scale that pins, so this is the fixture that shows a pinned strip under load rather than with a single chip in it.",
+  "look": [
+    "Scroll the schedule: the critical items that leave the top of the scroller pin, in the order they left it.",
+    "The routine items never pin, however far you scroll. Pinning is a property of the level, not of the item.",
+    "The strip is one line. When the chips outgrow it, it scrolls sideways, with a fade at each edge to say so, and the number pinned is announced quietly as it changes.",
+    "A pinned item is still in its place in the schedule; the chip is a second view of it, not a move."
+  ],
+  "uses": [
+    "<link to=\"/pinning/\">Pinning</link> — which levels pin, where, and what the strip does when it fills.",
+    "<link to=\"/items-and-levels/\">Items and levels</link> — <code>pinOnPass</code>, and the rest of a level definition.",
+    "<link to=\"/timeline-view/\">Timeline view</link> — the scroller the items pass out of."
+  ]
 }

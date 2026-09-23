@@ -15,6 +15,12 @@ export const classicLevels: readonly LevelDefinition<ClassicLevelKey>[] = Object
   { key: 'resolved', rank: 8, variant: 'muted', pinOnPass: false },
 ]);
 
+/**
+ * The classic tag set: the two tags the classic preset renders.
+ *
+ * @category Levels and tags
+ * @since 1.0.0
+ */
 export const classicTags: readonly TagDefinition<ClassicTagKey>[] = Object.freeze([
   { key: 'impactsNextShift' },
   { key: 'carriedOver' },
@@ -23,9 +29,19 @@ export const classicTags: readonly TagDefinition<ClassicTagKey>[] = Object.freez
 /** Tag key the library adds to carried-over pinned items. */
 export const CARRIED_OVER_TAG = 'carriedOver';
 
+/**
+ * A level with its rank, colors and label filled in.
+ *
+ * @category Levels and tags
+ * @since 1.0.0
+ */
 export type ResolvedLevel = LevelDefinition & Required<Pick<LevelDefinition, 'key' | 'rank' | 'variant' | 'pinOnPass'>>;
 
-/** Level definitions keyed by `key`, with `rank` (default: array index), `variant` and `pinOnPass` filled in. */
+/**
+ * Level definitions keyed by `key`, with `rank` (default: array index), `variant` and `pinOnPass` filled in.
+ *
+ * @param levels The scale as it was given, with its gaps still to fill.
+ */
 export function resolveLevels(levels: readonly LevelDefinition[]): ReadonlyMap<string, ResolvedLevel> {
   const resolved = new Map<string, ResolvedLevel>();
   levels.forEach((level, index) => {
@@ -44,7 +60,11 @@ export function rankOf(levels: ReadonlyMap<string, { rank: number }>, key: strin
   return levels.get(key)?.rank ?? Number.MAX_SAFE_INTEGER;
 }
 
-/** Placement order: start ascending, then level rank ascending (stronger first), then id. */
+/**
+ * Placement order: start ascending, then level rank ascending (stronger first), then id.
+ *
+ * @param levels The resolved level scale, which gives each item its rank.
+ */
 export function compareByPlacement(
   levels: ReadonlyMap<string, { rank: number }>,
 ): (a: SchedulerItem, b: SchedulerItem) => number {

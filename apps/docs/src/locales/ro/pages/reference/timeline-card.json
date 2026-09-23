@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineCard",
+    "description": "Un card de cronologie, poziționat absolut din rezultatul motorului de aranjare."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "MoreChip",
+    "description": "La puce qui représente les éléments qu’un groupe encombré n’a pas pu placer."
+  }
+}
