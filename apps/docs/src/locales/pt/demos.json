@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Atraso na entrega",
+      "Reunião de turno",
+      "Contagem de inventário",
+      "Verificação de equipamento",
+      "Inspeção de segurança",
+      "Chamada ao fornecedor",
+      "Revisão do relatório",
+      "Janela de manutenção",
+      "Sessão de formação",
+      "Registo noturno",
+      "Atualização do sistema",
+      "Verificação da cópia de segurança",
+      "Notas de passagem de turno",
+      "Ronda de limpeza"
+    ],
+    "description": "Breve descrição para {title}.",
+    "suggestion": "Próximo passo sugerido."
+  },
+  "controls": {
+    "maxColumns": "No máximo estas colunas",
+    "columnPlacement": "Colocação em colunas",
+    "placementPriority": "Por prioridade",
+    "placementTime": "Por hora de início",
+    "mergeWindow": "Janela de fusão",
+    "minutes": "{count} minutos",
+    "hours": "{count, plural, one {# hora} other {# horas}}",
+    "unlimited": "Sem limite"
+  }
+}

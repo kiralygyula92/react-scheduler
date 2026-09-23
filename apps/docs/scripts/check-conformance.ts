@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-// The conformance gate (docs pack 07 §6). Enforced here: C1–C4, C6, C8–C11 and C15. C5, C7, C13 and
-// C14 arrive with the content and the Playground and report as pending, so the list always shows
-// what is and is not being enforced yet.
+// The conformance gate (docs pack 07 §6). Enforced here: C1–C4, C6, C8–C11 and C13–C15. C5 waits
+// for the last capability page and C7 for the Playground; both report as pending, so the list always
+// shows what is and is not being enforced yet.
 //
 // Usage: node scripts/check-conformance.ts   (after `pnpm --filter docs build` for C3, C4 and C11)
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
@@ -364,6 +364,56 @@ function c6(): void {
   record('C6', 'the reference is generated from the declarations', problems);
 }
 
+// C13 — every demo is shown by exactly one page, and that page shows the file itself (docs pack 04
+// §1: "never maintain a second copy of demo code").
+function c13(): void {
+  const problems: string[] = [];
+  const demosDir = resolve(src, 'demos');
+  const demos = files(demosDir, '.tsx');
+  const raw = new Map<string, number>();
+  const plain = new Map<string, number>();
+
+  for (const file of files(resolve(src, 'content/pages'), '.tsx')) {
+    const body = readFileSync(file, 'utf8');
+    for (const match of body.matchAll(/from '~\/demos\/([^']+?)(\?raw)?';/g)) {
+      const specifier = (match[1] as string).replace(/\.tsx$/, '');
+      const counter = match[2] === undefined ? plain : raw;
+      counter.set(specifier, (counter.get(specifier) ?? 0) + 1);
+    }
+  }
+
+  for (const file of demos) {
+    const specifier = relative(demosDir, file)
+      .replaceAll('\\', '/')
+      .replace(/\.tsx$/, '');
+    if (specifier.startsWith('_shared/')) continue;
+    const times = raw.get(specifier) ?? 0;
+    if (times === 0) problems.push(`${specifier}: no page imports it as ?raw`);
+    else if (times > 1) problems.push(`${specifier}: ${String(times)} pages import it as ?raw`);
+    if ((plain.get(specifier) ?? 0) === 0) problems.push(`${specifier}: no page renders it`);
+  }
+  record('C13', 'every demo source is imported once as ?raw', problems);
+}
+
+// C14 — every file under `public/samples/` is accounted for in `SOURCES.md` (docs pack 04 §1).
+function c14(): void {
+  const samples = resolve(app, 'public', 'samples');
+  if (!existsSync(samples)) {
+    record('C14', 'sample assets are listed in SOURCES.md', []);
+    return;
+  }
+  const sources = resolve(samples, 'SOURCES.md');
+  if (!existsSync(sources)) {
+    record('C14', 'sample assets are listed in SOURCES.md', ['public/samples/ exists without SOURCES.md']);
+    return;
+  }
+  const listed = readFileSync(sources, 'utf8');
+  const problems = readdirSync(samples)
+    .filter((entry) => entry !== 'SOURCES.md' && !listed.includes(entry))
+    .map((entry) => `${entry} is not in SOURCES.md`);
+  record('C14', 'sample assets are listed in SOURCES.md', problems);
+}
+
 function pending(id: string, title: string, milestone: string): void {
   results.push({ id, title, status: 'pending', notes: [`arrives with ${milestone}`] });
 }
@@ -381,8 +431,8 @@ function main(): number {
   c10();
   c11();
   pending('C12', 'zero-reference scan of apps/docs', 'the repository-wide `pnpm check:zero-reference`');
-  pending('C13', 'every demo source is imported once as ?raw', 'M5');
-  pending('C14', 'sample assets are listed in SOURCES.md', 'M5');
+  c13();
+  c14();
   c15();
 
   let failed = 0;

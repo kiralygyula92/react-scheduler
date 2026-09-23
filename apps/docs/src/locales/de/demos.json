@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Lieferverzug",
+      "Schichtbesprechung",
+      "Inventur",
+      "Gerätekontrolle",
+      "Sicherheitsbegehung",
+      "Lieferantengespräch",
+      "Berichtsprüfung",
+      "Wartungsfenster",
+      "Schulung",
+      "Nachtmeldung",
+      "Systemaktualisierung",
+      "Sicherungsprüfung",
+      "Übergabenotizen",
+      "Reinigungsrunde"
+    ],
+    "description": "Kurze Beschreibung für {title}.",
+    "suggestion": "Vorgeschlagener nächster Schritt."
+  },
+  "controls": {
+    "maxColumns": "Höchstens so viele Spalten",
+    "columnPlacement": "Spaltenverteilung",
+    "placementPriority": "Nach Priorität",
+    "placementTime": "Nach Startzeit",
+    "mergeWindow": "Zusammenfassungsfenster",
+    "minutes": "{count} Minuten",
+    "hours": "{count, plural, one {# Stunde} other {# Stunden}}",
+    "unlimited": "Ohne Grenze"
+  }
+}

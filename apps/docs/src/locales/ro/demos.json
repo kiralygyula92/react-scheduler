@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Întârziere la livrare",
+      "Ședință de tură",
+      "Inventariere",
+      "Verificarea echipamentelor",
+      "Inspecție de siguranță",
+      "Apel către furnizor",
+      "Analiza raportului",
+      "Fereastră de mentenanță",
+      "Sesiune de instruire",
+      "Raportare de noapte",
+      "Actualizare de sistem",
+      "Verificarea copiei de rezervă",
+      "Note de predare",
+      "Rundă de curățenie"
+    ],
+    "description": "Scurtă descriere pentru {title}.",
+    "suggestion": "Următorul pas sugerat."
+  },
+  "controls": {
+    "maxColumns": "Cel mult atâtea coloane",
+    "columnPlacement": "Așezarea pe coloane",
+    "placementPriority": "După prioritate",
+    "placementTime": "După ora de început",
+    "mergeWindow": "Fereastră de comasare",
+    "minutes": "{count} minute",
+    "hours": "{count, plural, one {# oră} few {# ore} other {# de ore}}",
+    "unlimited": "Fără limită"
+  }
+}

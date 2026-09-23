@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Szállítási késés",
+      "Műszakeligazítás",
+      "Leltározás",
+      "Eszközellenőrzés",
+      "Biztonsági szemle",
+      "Beszállítói hívás",
+      "Jelentés átnézése",
+      "Karbantartási ablak",
+      "Oktatás",
+      "Éjszakai jelentkezés",
+      "Rendszerfrissítés",
+      "Mentés ellenőrzése",
+      "Átadási feljegyzések",
+      "Takarítási kör"
+    ],
+    "description": "Rövid leírás ehhez: {title}.",
+    "suggestion": "Javasolt következő lépés."
+  },
+  "controls": {
+    "maxColumns": "Legfeljebb ennyi oszlop",
+    "columnPlacement": "Oszlopba rendezés",
+    "placementPriority": "Prioritás szerint",
+    "placementTime": "Kezdés szerint",
+    "mergeWindow": "Összevonási ablak",
+    "minutes": "{count} perc",
+    "hours": "{count, plural, one {# óra} other {# óra}}",
+    "unlimited": "Nincs korlát"
+  }
+}

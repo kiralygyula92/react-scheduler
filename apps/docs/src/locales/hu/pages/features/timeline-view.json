@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Idővonal nézet",
-    "description": "Idővonal nézet a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Az idővonal nézet a React Schedulerben: hogyan viselkedik alapból, mit lehet beállítani, milyen az akadálymentessége és hol vannak a korlátai."
   },
   "sections": {
     "basics": "Alapok",
@@ -13,5 +13,45 @@
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Egy nap az idővonalon",
+    "columns": "Hány oszlopot használhat egy óra",
+    "columnPlacement": "Melyik elem kapja a bal oldali oszlopot",
+    "overflowWindow": "Meddig érhet el egy „+ továbbiak” csoport"
+  },
+  "basics": {
+    "intro": "Az idővonal a megjelenített műszakokat egyetlen folytonos rácsként rajzolja ki, az első műszak kezdetétől az utolsó végéig. Az elemek abban a percben kerülnek a rácsra, amikor kezdődnek, és olyan magasak, amilyen hosszúak, így egy pillantás megmutatja, mennyire telt a nap, nem csak azt, mi van benne. Állítsd be a <code>view=\"timeline\"</code> értéket, vagy engedd, hogy az olvasó a <code>defaultView</code> segítségével váltson nézetet.",
+    "grid": "A rács óránként <code>hourHeight</code> képpont magas, óránként egy felirattal és az intervallumon belüli minden műszakváltásnál egy határvonallal. Az olvasott műszakon kívüli órák műszakon kívüli sávként jelennek meg, így az éjfélen átnyúló éjszaka egyetlen rács marad, nem két nap.",
+    "parts": [
+      "Az <code>end</code> nélküli elem a <code>defaultDuration</code> hosszt kapja, a <code>minCardHeight</code> értéknél rövidebb pedig azzal a magassággal jelenik meg, hogy a címe olvasható maradjon.",
+      "Az egymást átfedő elemek oszlopokra osztva osztoznak a sávon, legfeljebb <code>maxColumns</code> darabon.",
+      "Ami nem fér el az oszlopokban, egy csoportba kerül, amelyet a <strong>+ továbbiak</strong> gomb nyit meg a további elemek párbeszédpaneljében."
+    ]
+  },
+  "accessibility": {
+    "intro": "Az idővonal helyzettel rendelkező elemek listája, nem pedig annak képe. Amit a rács vizuálisan elmond, azt szövegesen is elmondja.",
+    "points": [
+      "Minden kártya egy gomb: benne van a tabulátorsorrendben, és az <kbd>Enter</kbd> vagy a <kbd>Space</kbd> megnyitja a részleteit.",
+      "A kártya akadálymentes neve tartalmazza a szintjét és az idejét, így soha nem kell a rácsbeli helyzetét leolvasni ahhoz, hogy tudjuk, mi az elem.",
+      "A műszakfejlécek valódi címsorok, a szintjük a <code>headingLevel</code> értéket követi, így az oldal egyetlen vázlatot tart meg.",
+      "A „most” jelölő és a határvonalak dekoratívak; az általuk jelölt idő az óracímkékben és minden kártya nevében is ott van.",
+      "A szín soha nem az egyetlen hordozó: az általa jelölt szint a kártyán szövegesen is ott van."
+    ]
+  },
+  "customization": {
+    "intro": "Minden alábbi a <code>timeline</code> egy-egy mezője. Az alapértékeket a fenti bemutatók mutatják; az ittiek egyszerre egy mezőt változtatnak.",
+    "placement": "A <code>columnPlacement</code> dönti el, melyik oszlopot kapja egy elem, ha több is átfedi egymást. A <code>'priority'</code>, az alapérték, csoportba fogja az átfedő elemeket, a <code>compareItems</code> szerint rendezi őket, és a további elemek csoportjából előléptethet egyet egy felszabaduló oszlopba. A <code>'time'</code> a kezdések egyszerű sorrendjét tartja, és kihagyja ezt az előléptetést, így a korábban kezdődő elem megtartja az oszlopát.",
+    "overflow": "Az <code>overflowMergeWindow</code> korlátozza, mennyi időt fedhet le egyetlen <strong>+ továbbiak</strong> csoport. Az egymást követő órák csak addig olvadnak egy csoportba, amíg az összevont csoport az ablakon belül marad, így a zsúfolt reggelből több őszinte csoport lesz, nem egy, amely az egész műszakot átfogja.",
+    "options": "A teljes lista, a csomag deklarációiból előállítva:"
+  },
+  "limitations": {
+    "points": [
+      "A rács csak a megjelenített műszakokat fedi le. A korábbi vagy későbbi időszak olvasása műszakok közti léptetés, nem a rács végén túli görgetés.",
+      "Az elemek időbélyeg szerint, az olvasó saját időzónájában kerülnek a helyükre; a csomagnak még nincs saját időzónája (lásd az ütemtervet).",
+      "Az egymást átfedő kártyák egyenlő oszlopokban osztoznak a sávon. Egy oszlop nem tehető szélesebbé a szomszédainál.",
+      "Az idővonal nem virtualizálja a sorait: néhány napnyi intervallum az alapértelmezett <code>hourHeight</code> mellett magas dokumentum.",
+      "Az elemek itt nem mozgathatók és nem méretezhetők át. A szerkesztés tervezett, de még nem elérhető."
+    ]
   }
 }

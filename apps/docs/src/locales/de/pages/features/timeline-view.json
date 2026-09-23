@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Zeitstrahlansicht",
-    "description": "Zeitstrahlansicht in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Die Zeitstrahlansicht in React Scheduler: wie sie sich standardmäßig verhält, was sich einstellen lässt, ihre Barrierefreiheit und ihre Grenzen."
   },
   "sections": {
     "basics": "Grundlagen",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
-    "limitations": "Einschränkungen",
+    "limitations": "Grenzen",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Ein Tag auf dem Zeitstrahl",
+    "columns": "Wie viele Spalten eine Stunde nutzen darf",
+    "columnPlacement": "Welcher Eintrag die linke Spalte bekommt",
+    "overflowWindow": "Wie weit eine „+ mehr“-Gruppe reichen darf"
+  },
+  "basics": {
+    "intro": "Der Zeitstrahl zeichnet die angezeigten Schichten als eine durchgehende Fläche, vom Beginn der ersten bis zum Ende der letzten Schicht. Einträge stehen an der Minute, in der sie beginnen, und sind so hoch, wie sie dauern: ein Blick zeigt, wie voll der Tag ist, nicht nur was darin steht. Setzen Sie <code>view=\"timeline\"</code>, oder lassen Sie den Leser die Ansicht über <code>defaultView</code> wechseln.",
+    "grid": "Die Fläche ist <code>hourHeight</code> Pixel je vergangener Stunde hoch, mit einer Beschriftung pro Stunde und einer Grenzlinie an jedem Schichtwechsel im Bereich. Stunden außerhalb der gelesenen Schicht erscheinen als Bänder außerhalb der Schicht, sodass eine Nacht über Mitternacht hinaus eine Fläche bleibt und nicht zwei Tage wird.",
+    "parts": [
+      "Ein Eintrag ohne <code>end</code> erhält <code>defaultDuration</code>, und ein Eintrag, der kürzer als <code>minCardHeight</code> ist, wird in dieser Höhe gezeichnet, damit sein Titel lesbar bleibt.",
+      "Einträge, die sich überschneiden, teilen sich die Spur in Spalten, höchstens <code>maxColumns</code> davon.",
+      "Was nicht in die Spalten passt, wird zu einer Gruppe zusammengefasst, die über eine <strong>+ mehr</strong>-Schaltfläche den Dialog der weiteren Einträge öffnet."
+    ]
+  },
+  "accessibility": {
+    "intro": "Der Zeitstrahl ist eine Liste von Einträgen mit einer Position, kein Bild davon. Alles, was die Fläche visuell sagt, steht auch im Text.",
+    "points": [
+      "Jede Karte ist eine Schaltfläche: sie liegt in der Tabulatorreihenfolge, und <kbd>Enter</kbd> oder <kbd>Space</kbd> öffnet ihre Detailansicht.",
+      "Der zugängliche Name einer Karte trägt ihre Stufe und ihre Uhrzeit, sodass die Position in der Fläche nie gelesen werden muss, um zu wissen, was ein Eintrag ist.",
+      "Schichtüberschriften sind echte Überschriften, ihr Rang folgt <code>headingLevel</code>, sodass die Seite eine einzige Gliederung behält.",
+      "Die „Jetzt“-Markierung und die Grenzlinien sind dekorativ; die Uhrzeit, die sie markieren, steht in den Stundenbeschriftungen und im Namen jeder Karte.",
+      "Farbe ist nie der einzige Träger: die Stufe, für die sie steht, ist auch auf der Karte geschrieben."
+    ]
+  },
+  "customization": {
+    "intro": "Alles Folgende ist ein Feld von <code>timeline</code>. Die Standardwerte zeigen die Demos oben; die hier ändern jeweils ein Feld.",
+    "placement": "<code>columnPlacement</code> entscheidet, welche Spalte ein Eintrag bekommt, wenn sich mehrere überschneiden. <code>'priority'</code>, der Standard, fasst die überschneidenden Einträge zusammen, ordnet sie mit <code>compareItems</code> und kann einen Eintrag aus der Gruppe der weiteren Einträge in eine frei werdende Spalte nachrücken lassen. <code>'time'</code> behält die schlichte Startreihenfolge und überspringt dieses Nachrücken, sodass der früher begonnene Eintrag seine Spalte behält.",
+    "overflow": "<code>overflowMergeWindow</code> begrenzt, wie viel Zeit eine einzelne <strong>+ mehr</strong>-Gruppe umfassen darf. Aufeinanderfolgende Stunden werden nur so lange zu einer Gruppe, wie die entstehende Gruppe im Fenster bleibt: aus einem vollen Vormittag werden mehrere ehrliche Gruppen statt einer über die ganze Schicht.",
+    "options": "Die vollständige Liste, erzeugt aus den Deklarationen des Pakets:"
+  },
+  "limitations": {
+    "points": [
+      "Die Fläche umfasst nur die angezeigten Schichten. Weiter zurück oder nach vorn zu lesen heißt, zwischen Schichten zu wechseln, nicht über das Ende der Fläche hinauszuscrollen.",
+      "Einträge werden nach Zeitstempel in der Zeitzone des Lesers platziert; das Paket hat noch keine eigene Zeitzone (siehe Roadmap).",
+      "Karten, die sich überschneiden, teilen sich die Spur in gleich breite Spalten. Eine Spalte lässt sich nicht breiter machen als ihre Nachbarn.",
+      "Der Zeitstrahl virtualisiert seine Zeilen nicht: ein Bereich von einigen Tagen bei der Vorgabe von <code>hourHeight</code> ergibt ein hohes Dokument.",
+      "Einträge lassen sich hier nicht verschieben oder in der Größe ändern. Das Bearbeiten ist geplant, nicht ausgeliefert."
+    ]
   }
 }

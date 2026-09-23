@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M5"
+  },
+  "sample": {
+    "titles": [
+      "Delivery delay",
+      "Staff briefing",
+      "Inventory count",
+      "Equipment check",
+      "Safety inspection",
+      "Supplier call",
+      "Report review",
+      "Maintenance window",
+      "Training session",
+      "Night check-in",
+      "System update",
+      "Backup verification",
+      "Handover notes",
+      "Cleaning round"
+    ],
+    "description": "Short description for {title}.",
+    "suggestion": "Suggested next step."
+  },
+  "controls": {
+    "maxColumns": "Columns at most",
+    "columnPlacement": "Column placement",
+    "placementPriority": "By priority",
+    "placementTime": "By start time",
+    "mergeWindow": "Merge window",
+    "minutes": "{count} minutes",
+    "hours": "{count, plural, one {# hour} other {# hours}}",
+    "unlimited": "No limit"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Timeline view",
@@ -13,5 +13,45 @@
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "basics": "A day on the timeline",
+    "columns": "How many columns an hour may use",
+    "columnPlacement": "Which item takes the left column",
+    "overflowWindow": "How far a \"+ more\" group may reach"
+  },
+  "basics": {
+    "intro": "The timeline draws the rendered shifts as one continuous grid, from the first shift's start to the last one's end. Items are placed at the minute they start and are as tall as they last, so a glance shows how a day is filled rather than only what is in it. Set <code>view=\"timeline\"</code>, or let the reader switch views with <code>defaultView</code>.",
+    "grid": "The grid is <code>hourHeight</code> pixels per elapsed hour, with one label per hour and a boundary line at every shift change inside the range. Hours outside the shift being read are drawn as off-shift bands, so a night that runs past midnight stays one grid instead of two days.",
+    "parts": [
+      "An item without an <code>end</code> is given <code>defaultDuration</code>, and one shorter than <code>minCardHeight</code> is drawn at that height so its title stays readable.",
+      "Items that overlap share the lane in columns, up to <code>maxColumns</code> of them.",
+      "What does not fit the columns is collected into a group reached through a <strong>+ more</strong> chip, which opens the overflow dialog."
+    ]
+  },
+  "accessibility": {
+    "intro": "The timeline is a list of items with a position, not a picture of one. Everything the grid says visually is also said in text.",
+    "points": [
+      "Each card is a button: it is in the tab order, and <kbd>Enter</kbd> or <kbd>Space</kbd> opens its detail.",
+      "A card's accessible name carries its level and its time, so the position in the grid never has to be read to know what an item is.",
+      "Shift headers are real headings, and their level follows <code>headingLevel</code>, so the page keeps one outline.",
+      "The now marker and the boundary lines are decorative; the time they mark is in the hour labels and in each card's name.",
+      "Color is never the only carrier: the level a color stands for is also written on the card."
+    ]
+  },
+  "customization": {
+    "intro": "Everything below is a field of <code>timeline</code>. The defaults are what the demos above show; the demos here change one field at a time.",
+    "placement": "<code>columnPlacement</code> decides which column an item takes when several overlap. <code>'priority'</code>, the default, groups the items that overlap, orders them with <code>compareItems</code>, and may promote an item out of the overflow group into a column that frees up. <code>'time'</code> keeps plain start order and skips that promotion, so an item that started earlier keeps its column.",
+    "overflow": "<code>overflowMergeWindow</code> bounds how much time one <strong>+ more</strong> group may cover. Consecutive hours merge into one group only while the merged group stays inside the window, so a busy morning becomes several honest groups rather than one that spans the shift.",
+    "options": "The full list, generated from the package's declarations:"
+  },
+  "limitations": {
+    "points": [
+      "The grid covers the rendered shifts only. Reading further back or forward is navigation between shifts, not scrolling past the end of the grid.",
+      "Items are placed by timestamp in the reader's own time zone; the package does not take a time zone of its own yet (see the roadmap).",
+      "Cards that overlap share the lane in equal columns. A column cannot be made wider than its neighbours.",
+      "The timeline does not virtualize its rows: a range of a few days at the default <code>hourHeight</code> is a tall document.",
+      "Items cannot be moved or resized here. Editing is planned, not shipped."
+    ]
   }
 }

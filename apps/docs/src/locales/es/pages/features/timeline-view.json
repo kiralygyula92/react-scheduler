@@ -1,11 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vista de línea de tiempo",
-    "description": "Vista de línea de tiempo en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "La vista de línea de tiempo en React Scheduler: cómo se comporta por defecto, qué se puede configurar, su accesibilidad y sus límites."
   },
   "sections": {
     "basics": "Conceptos básicos",
@@ -13,5 +13,45 @@
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Un día en la línea de tiempo",
+    "columns": "Cuántas columnas puede usar una hora",
+    "columnPlacement": "Qué elemento ocupa la columna izquierda",
+    "overflowWindow": "Hasta dónde puede llegar un grupo «+ más»"
+  },
+  "basics": {
+    "intro": "La línea de tiempo dibuja los turnos mostrados como una sola rejilla continua, desde el inicio del primer turno hasta el final del último. Los elementos se colocan en el minuto en que empiezan y son tan altos como duran, de modo que una mirada muestra cuán llena está la jornada, no solo lo que contiene. Usa <code>view=\"timeline\"</code> o deja que quien lee cambie de vista con <code>defaultView</code>.",
+    "grid": "La rejilla mide <code>hourHeight</code> píxeles por cada hora transcurrida, con una etiqueta por hora y una línea de límite en cada cambio de turno dentro del intervalo. Las horas fuera del turno que se lee se dibujan como bandas fuera de turno, así que una noche que pasa de medianoche sigue siendo una sola rejilla y no dos días.",
+    "parts": [
+      "Un elemento sin <code>end</code> recibe <code>defaultDuration</code>, y uno más corto que <code>minCardHeight</code> se dibuja con esa altura para que su título siga siendo legible.",
+      "Los elementos que se solapan comparten el carril en columnas, hasta <code>maxColumns</code> de ellas.",
+      "Lo que no cabe en las columnas se recoge en un grupo al que se llega con un botón <strong>+ más</strong>, que abre el diálogo de elementos adicionales."
+    ]
+  },
+  "accessibility": {
+    "intro": "La línea de tiempo es una lista de elementos con una posición, no una imagen de una. Todo lo que la rejilla dice visualmente se dice también en texto.",
+    "points": [
+      "Cada tarjeta es un botón: está en el orden de tabulación y <kbd>Enter</kbd> o <kbd>Space</kbd> abre su detalle.",
+      "El nombre accesible de una tarjeta lleva su nivel y su hora, así que nunca hace falta leer la posición en la rejilla para saber qué es un elemento.",
+      "Las cabeceras de turno son encabezados reales y su nivel sigue a <code>headingLevel</code>, de modo que la página conserva un único esquema.",
+      "El marcador de «ahora» y las líneas de límite son decorativos; la hora que marcan está en las etiquetas de hora y en el nombre de cada tarjeta.",
+      "El color nunca es el único portador: el nivel que representa también está escrito en la tarjeta."
+    ]
+  },
+  "customization": {
+    "intro": "Todo lo que sigue es un campo de <code>timeline</code>. Los valores por defecto son los que muestran las demostraciones anteriores; las de aquí cambian un campo cada vez.",
+    "placement": "<code>columnPlacement</code> decide qué columna toma un elemento cuando varios se solapan. <code>'priority'</code>, el valor por defecto, agrupa los elementos que se solapan, los ordena con <code>compareItems</code> y puede promover uno del grupo de adicionales a una columna que queda libre. <code>'time'</code> mantiene el orden simple de inicio y omite esa promoción, así que el elemento que empezó antes conserva su columna.",
+    "overflow": "<code>overflowMergeWindow</code> limita cuánto tiempo puede abarcar un solo grupo <strong>+ más</strong>. Las horas consecutivas se fusionan en un grupo solo mientras el grupo resultante quepa en la ventana, así que una mañana concurrida se convierte en varios grupos honestos en lugar de uno que abarca todo el turno.",
+    "options": "La lista completa, generada a partir de las declaraciones del paquete:"
+  },
+  "limitations": {
+    "points": [
+      "La rejilla cubre solo los turnos mostrados. Leer más atrás o más adelante es navegar entre turnos, no desplazarse más allá del final de la rejilla.",
+      "Los elementos se colocan por marca de tiempo en la zona horaria de quien lee; el paquete todavía no tiene una zona horaria propia (véase la hoja de ruta).",
+      "Las tarjetas que se solapan comparten el carril en columnas iguales. Una columna no puede hacerse más ancha que sus vecinas.",
+      "La línea de tiempo no virtualiza sus filas: un intervalo de varios días con el <code>hourHeight</code> por defecto es un documento alto.",
+      "Aquí los elementos no se pueden mover ni redimensionar. La edición está planificada, no entregada."
+    ]
   }
 }

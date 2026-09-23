@@ -37,7 +37,9 @@ function pageUrl(url: string): string {
 export async function loader({ request }: { request: Request }): Promise<PageData> {
   const { locale, rest } = parsePath(pageUrl(request.url), site.pluginId);
   const item = itemByPath(rest);
-  const namespaces = ['common', 'nav', ...(item === undefined ? [] : [`pages/${item.page}`])];
+  // `demos` carries the sample data every demo shows, `api` the generated reference strings; both
+  // are read by components a page may hold, not by the page's own namespace.
+  const namespaces = ['common', 'nav', 'demos', ...(item === undefined ? [] : [`pages/${item.page}`])];
   if (hasBundle(locale, 'api')) namespaces.push('api');
   return {
     locale,
