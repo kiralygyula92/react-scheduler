@@ -9,6 +9,12 @@ import { renderPart } from '../parts';
 import { ChevronUpIcon, Spinner } from './icons';
 import { Tooltip, useTooltip } from './tooltip';
 
+/**
+ * What a view shows when there is nothing to place.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function EmptyState<TItem extends SchedulerItem>({
   scope,
   segment,
@@ -28,6 +34,12 @@ export function EmptyState<TItem extends SchedulerItem>({
   return renderPart(custom, 'emptyState', 'div', { 'data-rs-overlay': overlay ? '' : undefined, children: content });
 }
 
+/**
+ * What a view shows while items are being loaded.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function LoadingState({ overlay = false }: { overlay?: boolean }): ReactElement {
   const { model, props } = useSchedulerContext();
   const { custom } = useViewContext();
@@ -39,6 +51,12 @@ export function LoadingState({ overlay = false }: { overlay?: boolean }): ReactE
   });
 }
 
+/**
+ * What a view shows when loading failed, with the retry action when one is given.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function ErrorState(): ReactElement {
   const { model, props } = useSchedulerContext();
   const { custom } = useViewContext();
@@ -70,6 +88,12 @@ export function NowIndicator(): ReactElement {
   });
 }
 
+/**
+ * The button that returns the scroller to the top.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function ScrollTopButton(): ReactElement | null {
   const { model, baseId } = useSchedulerContext();
   const { viewModel, runtime, custom, kind } = useViewContext();

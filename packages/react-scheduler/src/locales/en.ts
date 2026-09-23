@@ -2,6 +2,12 @@
 // Default English (United States) strings, bundled with the package (Feature Dossier 06 §6.2).
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The English locale pack, and the default when no `localization` is given.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const enUS: SchedulerLocalization = {
   locale: 'en-US',
   emptyAll: 'No agenda data available.',

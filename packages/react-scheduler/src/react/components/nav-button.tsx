@@ -9,6 +9,12 @@ import { useSchedulerContext, useViewContext } from '../context';
 import { renderPart } from '../parts';
 import { Tooltip, useTooltip } from './tooltip';
 
+/**
+ * The button that jumps to the previous or the next shift.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function ShiftNavButton({ position }: { position: NavPosition }): ReactElement | null {
   const { model, props, baseId } = useSchedulerContext();
   const { viewModel, runtime, custom, kind } = useViewContext();

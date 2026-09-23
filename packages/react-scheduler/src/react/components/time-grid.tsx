@@ -14,6 +14,12 @@ import { TimelineCard } from './card';
 
 const HOUR_LABEL_OFFSET = 6;
 
+/**
+ * The chip that stands for the items a crowded group could not place.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export const MoreChip = memo(function MoreChip<TItem extends SchedulerItem>({
   group,
   top,
@@ -160,6 +166,12 @@ const Lane = memo(function Lane({
   );
 });
 
+/**
+ * The timeline’s hour grid, with the placed cards on it.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function TimeGrid(): ReactElement | null {
   const { model, controller } = useSchedulerContext();
   const { custom } = useViewContext();

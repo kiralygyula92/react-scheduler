@@ -31,6 +31,12 @@ export function observeCompact(
   });
 }
 
+/**
+ * Whether motion is reduced, and a way to subscribe to that changing.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface ReducedMotion {
   matches(): boolean;
   subscribe(listener: () => void): () => void;

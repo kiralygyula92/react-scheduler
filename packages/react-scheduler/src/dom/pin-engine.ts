@@ -5,6 +5,12 @@
 // observers are created once per line position, not per render (B-13).
 import { nextPinned } from '../core/pinning';
 
+/**
+ * What the pin engine needs: the scroller, the rule and the items it may pin.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface PinEngineOptions {
   scroller: HTMLElement;
   /** The pin line in viewport coordinates. List: the sticky top's bottom; timeline: the scroller's top (B-05). */
@@ -15,6 +21,12 @@ export interface PinEngineOptions {
   onChange: (ids: readonly string[]) => void;
 }
 
+/**
+ * Watches the scroller and reports which items are pinned by position.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export interface PinEngine {
   /** Registers a sentinel for `ids` under `key`; returns a ref callback. */
   register(key: string, ids: readonly string[]): (node: HTMLElement | null) => void;
@@ -42,6 +54,12 @@ interface Sentinel {
 /** How far below the viewport the observed root extends (px). */
 const BELOW = 100_000;
 
+/**
+ * Creates the pin engine for one scroller.
+ *
+ * @category DOM
+ * @since 1.0.0
+ */
 export function createPinEngine(options: PinEngineOptions): PinEngine {
   const { scroller, getLine, epsilon, hysteresis, onChange } = options;
   const sentinels = new Map<string, Sentinel>();

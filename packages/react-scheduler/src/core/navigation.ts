@@ -6,6 +6,12 @@ import { isPinnable } from './pinning';
 import { interpolate, type SchedulerLocalization } from './localization';
 import type { LevelDefinition, SchedulerItem, ShiftSegment, ShiftWindow, ViewKind } from './types';
 
+/**
+ * What one navigation button shows: where it goes, whether it is disabled, and how many items were carried over.
+ *
+ * @category Navigation
+ * @since 1.0.0
+ */
 export interface NavState {
   visible: boolean;
   disabled: boolean;

@@ -4,6 +4,12 @@
 // and falls back to en-US only when Intl does not support it.
 import { supportedLocale } from './localization';
 
+/**
+ * The functions that turn times, ranges and counts into text. Replace one to override a single format.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export interface SchedulerFormatters {
   /** "10:30 AM" */
   clockTime(date: Date): string;
@@ -19,6 +25,12 @@ export interface SchedulerFormatters {
   dateTime(date: Date): string;
 }
 
+/**
+ * What the formatters need to know: the locale and the strings around the values.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export interface FormatterOptions {
   /** 'compact' removes the space between the hour and a day period ("8AM"); 'locale' keeps Intl output. */
   hourLabelFormat?: 'compact' | 'locale';
@@ -56,6 +68,12 @@ function withoutDateTimeComma(parts: readonly Intl.DateTimeFormatPart[]): string
   );
 }
 
+/**
+ * Builds the default formatters for a locale, which `formatters` can then override one by one.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export function createFormatters(locale: string, options: FormatterOptions = {}): SchedulerFormatters {
   const resolved = supportedLocale(locale);
   const clock = new Intl.DateTimeFormat(resolved, { hour: 'numeric', minute: '2-digit' });

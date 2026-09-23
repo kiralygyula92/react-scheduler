@@ -2,8 +2,20 @@
 // Localization (Feature Dossier 06 §6, 05 F-12): every user-visible and assistive-technology string
 // is a key of SchedulerLocalization; placeholders are `{{name}}`; plurals use Intl.PluralRules.
 
+/**
+ * The plural forms of one message, selected with `Intl.PluralRules` for the active locale.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export type PluralForms = { other: string } & Partial<Record<'zero' | 'one' | 'two' | 'few' | 'many', string>>;
 
+/**
+ * Every string the component can show. A locale pack is one of these.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export interface SchedulerLocalization {
   /** BCP 47, used for Intl. */
   locale: string;
@@ -52,6 +64,12 @@ export interface SchedulerLocalization {
   card: { description: string };
 }
 
+/**
+ * The same shape with every member optional, at every depth.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export type DeepPartial<T> = T extends object ? { [K in keyof T]?: DeepPartial<T[K]> | undefined } : T;
 
 const pluralRules = new Map<string, Intl.PluralRules>();

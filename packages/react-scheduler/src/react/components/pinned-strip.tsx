@@ -16,6 +16,12 @@ import { cardLevelStyle, describeItem, levelLabel, safeId, tagLabel, VISUALLY_HI
 const ANNOUNCE_INTERVAL = 1000;
 const FADE_EPSILON = 2;
 
+/**
+ * One chip in the pinned strip.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export const PinnedChip = memo(function PinnedChip<TItem extends SchedulerItem>({
   entry,
 }: {
@@ -110,6 +116,12 @@ function useAnnouncement(count: number, template: Parameters<typeof interpolate>
   return text;
 }
 
+/**
+ * The strip of pinned items that stays in view while their shift is on screen.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function PinnedStrip(): ReactElement {
   const { model } = useSchedulerContext();
   const { viewModel, custom } = useViewContext();

@@ -4,66 +4,296 @@
 import { HOUR } from './time';
 import type { LandingTarget, SchedulerItem } from './types';
 
+/**
+ * The list view's own options: when navigation appears, where a jump lands, and when the header
+ * signal fires.
+ *
+ * @category List
+ * @since 1.0.0
+ */
 export interface ListOptions {
-  /** Navigation shows only if some shift has ≥ N items. Default 5. */
+  /**
+   * Navigation appears only when some shift holds at least this many items.
+   *
+   * @defaultValue 5
+   * @min 0
+   * @max 50
+   * @step 1
+   * @category List
+   */
   navigationThreshold?: number;
-  /** Gap between the sticky top and a landed shift header. Default 8. */
+  /**
+   * Gap, in pixels, between the sticky top and the shift header a jump landed on.
+   *
+   * @defaultValue 8
+   * @min 0
+   * @max 200
+   * @step 1
+   * @category List
+   */
   alignOffset?: number;
-  /** Extra offset when jumping to an earlier shift. Default 104. */
+  /**
+   * Extra offset, in pixels, when the jump goes to an earlier shift, so its last items stay in view.
+   *
+   * @defaultValue 104
+   * @min 0
+   * @max 400
+   * @step 1
+   * @category List
+   */
   previousJumpExtraOffset?: number;
-  /** Default 8. */
+  /**
+   * Tolerance, in pixels, for deciding which shift section the scroller sits in.
+   *
+   * @defaultValue 8
+   * @min 0
+   * @max 100
+   * @step 1
+   * @category List
+   */
   segmentEpsilon?: number;
-  /** The header may collapse only if the current shift has more items than this. Default 3. */
+  /**
+   * The header signal may fire only when the current shift holds more items than this.
+   *
+   * @defaultValue 3
+   * @min 0
+   * @max 50
+   * @step 1
+   * @category List
+   */
   collapseMinItems?: number;
-  /** Collapse after the Nth card of the current shift. Default 3. */
+  /**
+   * The header signal fires after this many cards of the current shift have scrolled past.
+   *
+   * @defaultValue 3
+   * @min 0
+   * @max 50
+   * @step 1
+   * @category List
+   */
   collapseAfterCards?: number;
-  /** Default 32. */
+  /**
+   * Hysteresis, in pixels, around the point where the header signal flips back.
+   *
+   * @defaultValue 32
+   * @min 0
+   * @max 200
+   * @step 1
+   * @category List
+   */
   collapseMargin?: number;
-  /** Default 96. */
+  /**
+   * Scrolling further than this, in pixels, shows the scroll-to-top button.
+   *
+   * @defaultValue 96
+   * @min 0
+   * @max 1000
+   * @step 1
+   * @category List
+   */
   scrollTopThreshold?: number;
+  /**
+   * Where the list lands on first render, on a date change and when the view is entered.
+   *
+   * @defaultValue { initial: 'shiftStart', onDateChange: 'shiftStart', onViewEnter: 'none' }
+   * @category List
+   */
   landing?: { initial?: LandingTarget; onDateChange?: LandingTarget; onViewEnter?: LandingTarget };
 }
 
+/**
+ * The timeline view's own options: the size of an hour, how many columns overlapping items may use,
+ * and when they collapse into a "+more" chip.
+ *
+ * @category Timeline
+ * @since 1.0.0
+ */
 export interface TimelineOptions {
-  /** Default 172 (density may change the default). */
+  /**
+   * The height of one hour, in pixels. The density scale adjusts the default.
+   *
+   * @defaultValue 172
+   * @min 40
+   * @max 400
+   * @step 4
+   * @category Timeline
+   */
   hourHeight?: number;
-  /** Default 3. */
+  /**
+   * How many columns overlapping items may spread over.
+   *
+   * @defaultValue 3
+   * @min 1
+   * @max 10
+   * @step 1
+   * @category Timeline
+   */
   maxColumns?: number;
-  /** Cap when more than maxColumns items overlap. Default 3. */
+  /**
+   * The cap once more items overlap than `maxColumns`; the rest go to the "+more" chip.
+   *
+   * @defaultValue 3
+   * @min 1
+   * @max 10
+   * @step 1
+   * @category Timeline
+   */
   maxColumnsCrowded?: number;
-  /** Crowded cap in compact mode. Default 1. */
+  /**
+   * The crowded cap in the compact layout.
+   *
+   * @defaultValue 1
+   * @min 1
+   * @max 10
+   * @step 1
+   * @category Timeline
+   */
   maxColumnsCompact?: number;
-  /** Default 80. */
+  /**
+   * The shortest a card may be drawn, in pixels, however short the item is.
+   *
+   * @defaultValue 80
+   * @min 20
+   * @max 200
+   * @step 4
+   * @category Timeline
+   */
   minCardHeight?: number;
-  /** Default 4. */
+  /**
+   * The gap between two cards, in pixels.
+   *
+   * @defaultValue 4
+   * @min 0
+   * @max 24
+   * @step 1
+   * @category Timeline
+   */
   cardGap?: number;
-  /** Default 'priority'. */
+  /**
+   * Which column an item takes: by its level (`'priority'`) or by the column that frees up first
+   * (`'time'`).
+   *
+   * @defaultValue 'priority'
+   * @category Timeline
+   */
   columnPlacement?: 'priority' | 'time';
-  /** Default 7 200 000 (2 h). `Infinity` reproduces the source's chain merge (B-10). */
+  /**
+   * How far apart, in milliseconds, two crowded groups may be and still merge into one "+more" chip.
+   * `Infinity` merges the whole chain.
+   *
+   * @defaultValue 7200000
+   * @min 0
+   * @max 21600000
+   * @step 900000
+   * @category Timeline
+   */
   overflowMergeWindow?: number;
-  /** Landing and navigation leave this much time above the target. Default 30. */
+  /**
+   * How much time, in minutes, landing and navigation leave above the target.
+   *
+   * @defaultValue 30
+   * @min 0
+   * @max 240
+   * @step 5
+   * @category Timeline
+   */
   leadMinutes?: number;
-  /** Default 30. */
+  /**
+   * How much time, in minutes, a "near bottom" landing leaves below the target.
+   *
+   * @defaultValue 30
+   * @min 0
+   * @max 240
+   * @step 5
+   * @category Timeline
+   */
   nearBottomGutterMinutes?: number;
-  /** ms. Default 280. */
+  /**
+   * How long, in milliseconds, the timeline waits after the view is entered before it realigns.
+   *
+   * @defaultValue 280
+   * @min 0
+   * @max 2000
+   * @step 20
+   * @category Timeline
+   */
   viewEnterRealignDelay?: number;
-  /** Default 'compact' ("8AM" in en-US). */
+  /**
+   * The hour labels down the axis: short (`"8AM"` in en-US) or the locale's own time format.
+   *
+   * @defaultValue 'compact'
+   * @category Timeline
+   */
   hourLabelFormat?: 'compact' | 'locale';
+  /**
+   * Where the timeline lands on first render, on a date change and when the view is entered.
+   *
+   * @defaultValue { initial: 'shiftStart', onDateChange: 'dateNearBottom', onViewEnter: 'dateNearBottom' }
+   * @category Timeline
+   */
   landing?: { initial?: LandingTarget; onDateChange?: LandingTarget; onViewEnter?: LandingTarget };
 }
 
+/**
+ * When an item counts as pinned in one view: which edge of the scroller it has to pass, and how much
+ * movement is ignored around that edge.
+ *
+ * @category Pinning
+ * @since 1.0.0
+ */
 export interface PinRule {
+  /**
+   * The edge an item pins against.
+   *
+   * @category Pinning
+   */
   edge?: 'top' | 'bottom';
+  /**
+   * Tolerance, in pixels, for reaching the edge.
+   *
+   * @min 0
+   * @max 50
+   * @step 1
+   * @category Pinning
+   */
   epsilon?: number;
+  /**
+   * How far back, in pixels, an item has to travel before it unpins again.
+   *
+   * @min 0
+   * @max 200
+   * @step 1
+   * @category Pinning
+   */
   hysteresis?: number;
 }
 
+/**
+ * Where items pin in each view, and in which order the pinned strip lists them.
+ *
+ * @category Pinning
+ * @since 1.0.0
+ */
 export interface PinningOptions {
-  /** Default { edge: 'top', epsilon: 2, hysteresis: 24 }. */
+  /**
+   * The rule the list view pins by.
+   *
+   * @defaultValue { edge: 'top', epsilon: 2, hysteresis: 24 }
+   * @category Pinning
+   */
   list?: PinRule;
-  /** Default { edge: 'bottom', epsilon: 0, hysteresis: 0 }. */
+  /**
+   * The rule the timeline view pins by.
+   *
+   * @defaultValue { edge: 'bottom', epsilon: 0, hysteresis: 0 }
+   * @category Pinning
+   */
   timeline?: PinRule;
-  /** Pinned-strip order. Default: placement order. */
+  /**
+   * Orders the pinned strip. By default it follows the order the items pinned in.
+   *
+   * @category Pinning
+   */
   compare?: (a: SchedulerItem, b: SchedulerItem) => number;
 }
 

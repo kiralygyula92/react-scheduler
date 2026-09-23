@@ -15,6 +15,12 @@ function label(text: ReactNode): ReactElement {
   return <span className="rs-pill__label">{text}</span>;
 }
 
+/**
+ * The pill that shows an item’s level.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export const LevelPill: NamedExoticComponent<{ level: string }> = memo(function LevelPill({
   level,
 }: {
@@ -44,6 +50,12 @@ export const LevelPill: NamedExoticComponent<{ level: string }> = memo(function 
   );
 });
 
+/**
+ * The pill that shows one of an item’s tags.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export const TagPill: NamedExoticComponent<{ tag: string }> = memo(function TagPill({
   tag,
 }: {
@@ -67,6 +79,12 @@ export const TagPill: NamedExoticComponent<{ tag: string }> = memo(function TagP
   });
 });
 
+/**
+ * The pill that shows an item’s reference number.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export const ReferencePill: NamedExoticComponent<{ reference: string }> = memo(function ReferencePill({
   reference,
 }: {

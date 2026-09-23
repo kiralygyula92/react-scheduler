@@ -10,6 +10,12 @@ import { useModal } from './modal';
 import { Pills } from './pills';
 import { cardLevelStyle, safeId } from './shared';
 
+/**
+ * The detail view an item opens into, as the library renders it.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function DefaultItemDetail<TItem extends SchedulerItem>({ item }: { item: TItem }): ReactElement {
   const { controller, baseId } = useSchedulerContext<TItem>();
   const { custom, kind } = useViewContext<TItem>();

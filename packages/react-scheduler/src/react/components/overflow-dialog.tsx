@@ -52,6 +52,12 @@ function cellStyle<TItem>(column: OverflowColumn<TItem>): CSSProperties {
   };
 }
 
+/**
+ * The table inside the overflow dialog.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function OverflowTable<TItem extends SchedulerItem>({
   items,
   columns,
@@ -122,6 +128,12 @@ export function OverflowTable<TItem extends SchedulerItem>({
   });
 }
 
+/**
+ * The pager under the overflow table.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function Pagination({ page, pages }: { page: number; pages: number }): ReactElement {
   const { model, controller } = useSchedulerContext();
   const { custom } = useViewContext();
@@ -169,6 +181,12 @@ export function Pagination({ page, pages }: { page: number; pages: number }): Re
   });
 }
 
+/**
+ * The dialog that lists the items behind a "+more" chip.
+ *
+ * @category Components
+ * @since 1.0.0
+ */
 export function OverflowDialog<TItem extends SchedulerItem>({ group }: { group: OverflowGroup<TItem> }): ReactElement {
   const { model, controller, props, baseId, preset } = useSchedulerContext<TItem>();
   const { custom, kind } = useViewContext<TItem>();
