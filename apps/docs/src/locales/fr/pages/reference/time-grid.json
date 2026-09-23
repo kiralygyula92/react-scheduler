@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimeGrid",
+    "description": "La grille horaire de la chronologie, avec les cartes placées dessus."
+  }
+}

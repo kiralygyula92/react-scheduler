@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tooltip",
+    "description": "Der Kurzinfo-Teil; position kommt von useTooltip (null, solange sie geschlossen ist)."
+  }
+}

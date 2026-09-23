@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createPinEngine",
+    "description": "Creează motorul de fixare pentru o zonă de derulare."
+  }
+}

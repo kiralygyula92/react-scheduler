@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createScheduler",
+    "description": "Crea un controlador. Esta es toda la biblioteca sin React: le das opciones, lees el modelo de vista y llamas a sus acciones."
+  }
+}

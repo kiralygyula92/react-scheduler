@@ -19,6 +19,39 @@
     "name": "Name",
     "kind": "Art"
   },
+  "sections": {
+    "import": "Import",
+    "demos": "Wo es verwendet wird",
+    "props": "Props",
+    "parameters": "Parameter",
+    "returns": "Rückgabe",
+    "slots": "Slots",
+    "cssVariables": "CSS-Variablen",
+    "classes": "Klassennamen",
+    "source": "Quellcode"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Ereignis- und Handler-Typen",
+      "description": "Die Typen der Callbacks und der Middleware: was jeder erhält und was er zurückgeben darf."
+    },
+    "localization": {
+      "title": "Lokalisierungstypen",
+      "description": "Der Aufbau eines Sprachpakets und der Formatierer sowie die Helfer darum herum."
+    },
+    "model": {
+      "title": "Modelltypen",
+      "description": "Die Daten, die der Scheduler platziert: Elemente, Stufen, Etiketten, Schichten und das Layout daraus."
+    },
+    "options": {
+      "title": "Options- und Props-Typen",
+      "description": "Die Optionen des Controllers und die Props der Komponenten, als Typen."
+    },
+    "slots": {
+      "title": "Slot- und Rendering-Typen",
+      "description": "Die Teile, ihr Owner State und was jeder Slot und jede Render-Prop erhält."
+    }
+  },
   "ActivationSource": {
     "description": "Was ein Element aktiviert hat."
   },
@@ -676,14 +709,26 @@
   "createScheduler": {
     "description": "Erzeugt einen Controller. Das ist die ganze Bibliothek ohne React: Optionen hineingeben, das View-Modell lesen, die Aktionen aufrufen."
   },
+  "deDE": {
+    "description": "Das deutsche Sprachpaket (Deutschland), das an `localization` übergeben wird."
+  },
   "defaultOverflowColumns": {
     "description": "Die Spalten, die die Tabelle weiterer Elemente zeigt, wenn keine angegeben sind."
   },
   "enUS": {
     "description": "Das englische Sprachpaket und der Standard, wenn kein `localization` übergeben wird."
   },
+  "esES": {
+    "description": "Das spanische Sprachpaket (Spanien), das an `localization` übergeben wird."
+  },
+  "frFR": {
+    "description": "Das französische Sprachpaket (Frankreich), das an `localization` übergeben wird."
+  },
   "getShiftWindows": {
     "description": "Die dargestellten Schichtfenster um `date`, mit den Versätzen `-before … +after`. Das aktuelle Fenster ist `[letzte Grenze ≤ date, nächste Grenze)`; die Versätze laufen über Tagesgrenzen hinweg."
+  },
+  "huHU": {
+    "description": "Das ungarische Sprachpaket (Ungarn), das an `localization` übergeben wird."
   },
   "interpolate": {
     "description": "Füllt die Platzhalter `{{name}}`. Eine Pluralvorlage wählt ihre Form für `values.count` mit `Intl.PluralRules(locale)` und fällt auf `other` zurück. Zahlen werden mit `Intl.NumberFormat` formatiert. Ein unbekannter Platzhalter bleibt, wie er geschrieben ist."
@@ -700,6 +745,9 @@
   "prefersReducedMotion": {
     "description": "Die Media-Query `prefers-reduced-motion: reduce`; false, wenn Media-Queries nicht verfügbar sind."
   },
+  "ptPT": {
+    "description": "Das portugiesische Sprachpaket (Portugal), das an `localization` übergeben wird."
+  },
   "resolveEnd": {
     "description": "Das aufgelöste Ende eines Elements: `start + defaultDuration`, wenn `end` fehlt oder ungültig ist; ein Ende vor dem Beginn zählt als Dauer null."
   },
@@ -711,6 +759,9 @@
   },
   "resolveTimeLabel": {
     "description": "Das Zeitlabel einer Karte, erster Treffer: `timeLabel` wie angegeben; „{observed} {observedLabel}“, wenn `observedLabel` eine nichtleere Zeichenkette ist; „{since} {timestamp}“ bei gültigem `since`, sonst nur das Präfix; andernfalls „{start} – {end}“."
+  },
+  "roRO": {
+    "description": "Das rumänische Sprachpaket (Rumänien), das an `localization` übergeben wird."
   },
   "sortOverflowItems": {
     "description": "Die Elemente nach dem Spaltenwert sortiert; Gleichstände entscheidet `compare`. Der gesamte Vergleich, samt Gleichständen, folgt der Richtung. Eine nicht sortierbare oder unbekannte Spalte sortiert allein nach `compare`."

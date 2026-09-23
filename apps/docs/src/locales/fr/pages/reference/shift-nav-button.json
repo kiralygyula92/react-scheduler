@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftNavButton",
+    "description": "Le bouton qui saute au poste précédent ou suivant."
+  }
+}

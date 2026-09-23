@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Types du modèle",
+    "description": "Les données que le scheduler place : éléments, niveaux, étiquettes, postes et la disposition qui en résulte."
+  }
+}

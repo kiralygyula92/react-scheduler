@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "LevelPill",
+    "description": "A pirula, amely egy elem szintjét mutatja."
+  }
+}

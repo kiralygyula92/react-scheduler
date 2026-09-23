@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "prefersReducedMotion",
+    "description": "A consulta de media prefers-reduced-motion: reduce; false quando as consultas de media não estão disponíveis."
+  }
+}

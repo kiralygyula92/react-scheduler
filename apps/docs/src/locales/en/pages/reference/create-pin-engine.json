@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createPinEngine",
+    "description": "Creates the pin engine for one scroller."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Egy dátumbemenet ezredmásodperce az epoch óta; NaN, ha érvénytelen. Az eltolás nélküli szöveg helyi falióra szerinti idő, a csak dátumot tartalmazó szövegeket is beleértve (amelyeket a Date önmagában UTC-ként olvasna)."
+  }
+}

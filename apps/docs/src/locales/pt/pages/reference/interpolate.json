@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Preenche os marcadores {{name}}. Um modelo de plural escolhe a sua forma para values.count com Intl.PluralRules(locale), recorrendo a other. Os números são formatados com Intl.NumberFormat. Um marcador desconhecido fica tal como está escrito."
+  }
+}

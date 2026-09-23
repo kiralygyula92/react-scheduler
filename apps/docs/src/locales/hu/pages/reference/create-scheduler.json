@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createScheduler",
+    "description": "Létrehoz egy vezérlőt. Ez a teljes könyvtár React nélkül: beállításokat adsz neki, kiolvasod a nézetmodellt, meghívod a műveleteit."
+  }
+}

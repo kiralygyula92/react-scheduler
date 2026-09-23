@@ -2,6 +2,12 @@
 // French (France) strings (Feature Dossier 06 §6.6). Draft: needs native review. A narrow no-break space (U+202F) precedes ":", as 06 §6.6 asks.
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The French (France) locale pack, passed to `localization`.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const frFR: SchedulerLocalization = {
   locale: 'fr-FR',
   emptyAll: "Aucune donnée d'agenda disponible.",

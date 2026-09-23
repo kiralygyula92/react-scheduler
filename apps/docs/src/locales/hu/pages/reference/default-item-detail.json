@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "DefaultItemDetail",
+    "description": "A részletes nézet, amelybe egy elem megnyílik, ahogy a könyvtár megjeleníti."
+  }
+}

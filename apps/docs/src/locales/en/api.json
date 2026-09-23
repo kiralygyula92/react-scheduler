@@ -19,6 +19,39 @@
     "name": "Name",
     "kind": "Kind"
   },
+  "sections": {
+    "import": "Import",
+    "demos": "Where it is used",
+    "props": "Props",
+    "parameters": "Parameters",
+    "returns": "Returns",
+    "slots": "Slots",
+    "cssVariables": "CSS variables",
+    "classes": "Class names",
+    "source": "Source"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Event and handler types",
+      "description": "The types of the callbacks and of the middleware: what each one receives and what it may return."
+    },
+    "localization": {
+      "title": "Localization types",
+      "description": "The shape of a locale pack and of the formatters, and the helpers around them."
+    },
+    "model": {
+      "title": "Model types",
+      "description": "The data the scheduler places: items, levels, tags, shifts and the layout they produce."
+    },
+    "options": {
+      "title": "Options and props types",
+      "description": "The options of the controller and the props of the components, as types."
+    },
+    "slots": {
+      "title": "Slot and rendering types",
+      "description": "The parts, their owner state, and what every slot and render prop receives."
+    }
+  },
   "ActivationSource": {
     "description": "What activated an item."
   },
@@ -676,14 +709,26 @@
   "createScheduler": {
     "description": "Creates a controller. This is the whole library without React: feed it options, read the view model, call its actions."
   },
+  "deDE": {
+    "description": "The German (Germany) locale pack, passed to `localization`."
+  },
   "defaultOverflowColumns": {
     "description": "The columns the overflow table shows when none are given."
   },
   "enUS": {
     "description": "The English locale pack, and the default when no `localization` is given."
   },
+  "esES": {
+    "description": "The Spanish (Spain) locale pack, passed to `localization`."
+  },
+  "frFR": {
+    "description": "The French (France) locale pack, passed to `localization`."
+  },
   "getShiftWindows": {
     "description": "The rendered shift windows around `date`, offsets `-before … +after`. The current window is `[latest boundary ≤ date, next boundary)`; offsets walk boundaries across days."
+  },
+  "huHU": {
+    "description": "The Hungarian (Hungary) locale pack, passed to `localization`."
   },
   "interpolate": {
     "description": "Fills `{{name}}` placeholders. A plural template picks its form for `values.count` with `Intl.PluralRules(locale)`, falling back to `other`. Numbers are formatted with `Intl.NumberFormat`. An unknown placeholder is left as written."
@@ -700,6 +745,9 @@
   "prefersReducedMotion": {
     "description": "The `prefers-reduced-motion: reduce` media query; false when media queries are unavailable."
   },
+  "ptPT": {
+    "description": "The Portuguese (Portugal) locale pack, passed to `localization`."
+  },
   "resolveEnd": {
     "description": "The resolved end of an item: `start + defaultDuration` when `end` is missing or invalid; an end before the start counts as zero duration."
   },
@@ -711,6 +759,9 @@
   },
   "resolveTimeLabel": {
     "description": "The time label of a card, first match: `timeLabel` as given; \"{observed} {observedLabel}\" when `observedLabel` is a non-empty string; \"{since} {timestamp}\" for a valid `since`, or the bare prefix for an invalid one; otherwise \"{start} – {end}\"."
+  },
+  "roRO": {
+    "description": "The Romanian (Romania) locale pack, passed to `localization`."
   },
   "sortOverflowItems": {
     "description": "Items sorted by the column's value; ties break by `compare`. The whole comparison, ties included, follows the direction. An unsortable or unknown column sorts by `compare` alone."

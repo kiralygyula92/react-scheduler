@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeWidth",
+    "description": "Appelle onWidth avec la largeur de la boîte de contenu de l’élément, maintenant et à chaque changement. Le mode compact et listOnlyBreakpoint utilisent la largeur de la racine, pas celle de la fenêtre ni du navigateur."
+  }
+}

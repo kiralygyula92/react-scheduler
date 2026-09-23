@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "huHU",
+    "description": "The Hungarian (Hungary) locale pack, passed to localization."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimeGrid",
+    "description": "A grelha de horas da cronologia, com os cartões colocados nela."
+  }
+}

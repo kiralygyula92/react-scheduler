@@ -19,6 +19,39 @@
     "name": "Nom",
     "kind": "Nature"
   },
+  "sections": {
+    "import": "Import",
+    "demos": "Où il est utilisé",
+    "props": "Props",
+    "parameters": "Paramètres",
+    "returns": "Retour",
+    "slots": "Slots",
+    "cssVariables": "Variables CSS",
+    "classes": "Noms de classe",
+    "source": "Code source"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Types d'événements et de gestionnaires",
+      "description": "Les types des rappels et du middleware : ce que chacun reçoit et ce qu’il peut renvoyer."
+    },
+    "localization": {
+      "title": "Types de localisation",
+      "description": "La forme d’un pack de langue et des formateurs, ainsi que les utilitaires associés."
+    },
+    "model": {
+      "title": "Types du modèle",
+      "description": "Les données que le scheduler place : éléments, niveaux, étiquettes, postes et la disposition qui en résulte."
+    },
+    "options": {
+      "title": "Types des options et des props",
+      "description": "Les options du contrôleur et les props des composants, sous forme de types."
+    },
+    "slots": {
+      "title": "Types des slots et du rendu",
+      "description": "Les parties, leur owner state et ce que reçoivent chaque slot et chaque prop de rendu."
+    }
+  },
   "ActivationSource": {
     "description": "Ce qui a activé un élément."
   },
@@ -676,14 +709,26 @@
   "createScheduler": {
     "description": "Crée un contrôleur. C’est toute la bibliothèque sans React : vous lui donnez des options, lisez le modèle de vue et appelez ses actions."
   },
+  "deDE": {
+    "description": "Le pack de langue allemand (Allemagne), passé à `localization`."
+  },
   "defaultOverflowColumns": {
     "description": "Les colonnes qu’affiche le tableau des éléments supplémentaires quand aucune n’est fournie."
   },
   "enUS": {
     "description": "Le pack de langue anglais, et celui par défaut quand `localization` n’est pas fourni."
   },
+  "esES": {
+    "description": "Le pack de langue espagnol (Espagne), passé à `localization`."
+  },
+  "frFR": {
+    "description": "Le pack de langue français (France), passé à `localization`."
+  },
   "getShiftWindows": {
     "description": "Les fenêtres de poste rendues autour de `date`, avec les décalages `-before … +after`. La fenêtre courante est `[dernière limite ≤ date, limite suivante)` ; les décalages parcourent les limites au fil des jours."
+  },
+  "huHU": {
+    "description": "Le pack de langue hongrois (Hongrie), passé à `localization`."
   },
   "interpolate": {
     "description": "Remplit les substituts `{{name}}`. Un modèle pluriel choisit sa forme pour `values.count` avec `Intl.PluralRules(locale)`, en repliant sur `other`. Les nombres sont formatés avec `Intl.NumberFormat`. Un substitut inconnu est laissé tel quel."
@@ -700,6 +745,9 @@
   "prefersReducedMotion": {
     "description": "La requête média `prefers-reduced-motion: reduce` ; false lorsque les requêtes média ne sont pas disponibles."
   },
+  "ptPT": {
+    "description": "Le pack de langue portugais (Portugal), passé à `localization`."
+  },
   "resolveEnd": {
     "description": "La fin résolue d’un élément : `start + defaultDuration` lorsque `end` manque ou est invalide ; une fin antérieure au début compte comme une durée nulle."
   },
@@ -711,6 +759,9 @@
   },
   "resolveTimeLabel": {
     "description": "Le libellé horaire d’une carte, première correspondance : `timeLabel` tel qu’il est donné ; « {observed} {observedLabel} » quand `observedLabel` est une chaîne non vide ; « {since} {timestamp} » pour un `since` valide, ou le seul préfixe sinon ; sinon « {start} – {end} »."
+  },
+  "roRO": {
+    "description": "Le pack de langue roumain (Roumanie), passé à `localization`."
   },
   "sortOverflowItems": {
     "description": "Les éléments triés par la valeur de la colonne ; les égalités sont départagées par `compare`. Toute la comparaison, égalités comprises, suit le sens. Une colonne non triable ou inconnue trie uniquement par `compare`."

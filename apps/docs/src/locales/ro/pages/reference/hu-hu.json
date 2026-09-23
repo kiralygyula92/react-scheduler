@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "huHU",
+    "description": "Pachetul de limbă maghiară (Ungaria), transmis lui localization."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipos de localização",
+    "description": "A forma de um pacote de idioma e dos formatadores, e os auxiliares em seu redor."
+  }
+}

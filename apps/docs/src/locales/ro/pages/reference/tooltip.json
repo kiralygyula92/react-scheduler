@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tooltip",
+    "description": "Partea de indiciu; position vine din useTooltip (null cât timp este închis)."
+  }
+}

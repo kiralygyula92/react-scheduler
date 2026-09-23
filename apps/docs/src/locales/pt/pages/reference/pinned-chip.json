@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedChip",
+    "description": "Uma etiqueta da faixa de fixados."
+  }
+}

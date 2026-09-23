@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicTags",
+    "description": "A klasszikus címkekészlet: a két címke, amelyet a klasszikus megjelenés megjelenít."
+  }
+}

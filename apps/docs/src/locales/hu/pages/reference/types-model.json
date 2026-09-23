@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Modelltípusok",
+    "description": "Az adatok, amelyeket az ütemező elhelyez: elemek, szintek, címkék, műszakok és az ezekből adódó elrendezés."
+  }
+}

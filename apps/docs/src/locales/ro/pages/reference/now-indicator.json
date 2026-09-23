@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "NowIndicator",
+    "description": "Marcajul „acum” al listei: ora într-o pastilă, apoi o linie."
+  }
+}

@@ -64,6 +64,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | Build everything                    | `pnpm build`                                                                                  |
 | Lint / typecheck / test             | `pnpm lint` · `pnpm typecheck` · `pnpm test`                                                  |
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
+| Link check / API translation hashes | `pnpm --filter docs check:links` · `pnpm --filter docs api:sources`                           |
 | E2E                                 | `pnpm e2e`                                                                                    |
 | Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
 | Size / dead code / package files    | `pnpm --filter @react-schedulerkit/react-scheduler size` · `pnpm knip` · `pnpm check:pack`    |

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Completează substituenții {{name}}. Un șablon de plural își alege forma pentru values.count cu Intl.PluralRules(locale), revenind la other. Numerele se formatează cu Intl.NumberFormat. Un substituent necunoscut rămâne așa cum este scris."
+  }
+}

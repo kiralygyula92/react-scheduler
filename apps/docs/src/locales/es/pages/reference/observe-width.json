@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeWidth",
+    "description": "Llama a onWidth con el ancho de la caja de contenido del elemento, ahora y cada vez que cambia. El modo compacto y listOnlyBreakpoint usan el ancho de la raíz, no el de la ventana ni el del navegador."
+  }
+}

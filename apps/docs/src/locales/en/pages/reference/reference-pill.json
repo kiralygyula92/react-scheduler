@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ReferencePill",
+    "description": "The pill that shows an item’s reference number."
+  }
+}

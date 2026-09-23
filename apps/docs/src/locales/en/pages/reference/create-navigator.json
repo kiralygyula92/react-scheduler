@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createNavigator",
+    "description": "Creates the navigator for one scroller."
+  }
+}

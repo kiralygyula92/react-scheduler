@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipuri pentru localizare",
+    "description": "Forma unui pachet de limbă și a formatoarelor, împreună cu utilitarele din jurul lor."
+  }
+}

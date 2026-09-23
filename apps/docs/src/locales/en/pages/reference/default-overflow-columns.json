@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "defaultOverflowColumns",
+    "description": "The columns the overflow table shows when none are given."
+  }
+}

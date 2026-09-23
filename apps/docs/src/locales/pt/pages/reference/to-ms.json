@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Os milissegundos desde a época de uma entrada de data; NaN quando é inválida. Uma cadeia sem desvio é hora local de relógio, incluindo cadeias só com data (que o Date sozinho leria como UTC)."
+  }
+}

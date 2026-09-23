@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createFormatters",
+    "description": "Felépíti egy nyelvhez az alapértelmezett formázókat, amelyeket a formatters utána egyenként lecserélhet."
+  }
+}

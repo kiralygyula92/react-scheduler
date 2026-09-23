@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compareByPlacement",
+    "description": "Ordinea de plasare: începutul crescător, apoi rangul nivelului crescător (cel mai puternic întâi), apoi id-ul."
+  }
+}

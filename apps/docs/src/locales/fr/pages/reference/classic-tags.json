@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicTags",
+    "description": "Le jeu d’étiquettes classique : les deux étiquettes que rend l’apparence classique."
+  }
+}

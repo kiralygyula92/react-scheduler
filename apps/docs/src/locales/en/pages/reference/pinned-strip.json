@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedStrip",
+    "description": "The strip of pinned items that stays in view while their shift is on screen."
+  }
+}

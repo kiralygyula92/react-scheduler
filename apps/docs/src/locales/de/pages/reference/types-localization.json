@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Lokalisierungstypen",
+    "description": "Der Aufbau eines Sprachpakets und der Formatierer sowie die Helfer darum herum."
+  }
+}

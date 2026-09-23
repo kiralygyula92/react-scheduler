@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "computeTimelineLayout",
+    "description": "Az elemeket az idővonal oszlopaiba és a további-elem csoportokba helyezi: elhelyezési sorrend, mohó oszlopkiosztás, előléptetés a további elemek közül, réskitöltés, geometria, további-elem csoportok (az overflowMergeWindow által határolva, az egyes csoportok horgonyától mérve) és oszlopszámok."
+  }
+}

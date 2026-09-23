@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Options- und Props-Typen",
+    "description": "Die Optionen des Controllers und die Props der Komponenten, als Typen."
+  }
+}

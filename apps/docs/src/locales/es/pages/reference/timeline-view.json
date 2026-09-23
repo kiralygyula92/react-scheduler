@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineView",
+    "description": "La vista de línea de tiempo por sí sola."
+  }
+}

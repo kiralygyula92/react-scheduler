@@ -12,6 +12,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { resolve } from 'node:path';
 import ts from 'typescript-api';
 import { nav, pages } from './lib/nav.ts';
+import { writeReference } from './lib/reference.ts';
 
 const packageRoot = resolve(import.meta.dirname, '..', '..', '..', 'packages', 'react-scheduler');
 const outputDir = resolve(import.meta.dirname, '..', 'src', 'content', 'api');
@@ -62,8 +63,10 @@ interface ApiSymbolData {
   descriptionKey: string;
   props?: ApiProp[];
   params?: ApiProp[];
+  /** The members of a string-literal union, which the reference lists instead of an empty table. */
+  literals?: string[];
   returns?: string | null;
-  slots?: { name: string; propsType: string; descriptionKey: string }[];
+  slots?: { name: string; propsType: string }[];
   cssVars?: ApiCssVar[];
   classes?: { name: string; descriptionKey: string }[];
   usedBy: string[];
@@ -250,7 +253,7 @@ function program(): ts.Program {
   });
 }
 
-function main(): number {
+async function main(): Promise<number> {
   const compiled = program();
   const checker = compiled.getTypeChecker();
   const symbols: ApiSymbolData[] = [];
@@ -310,6 +313,8 @@ function main(): number {
         const declared = checker.getDeclaredTypeOfSymbol(symbol);
         const members = membersOf(declared, checker, name);
         if (members.length > 0) data.props = members;
+        const literals = literalsOf(declared);
+        if (literals.length > 0) data.literals = literals;
       }
 
       symbols.push(data);
@@ -321,11 +326,12 @@ function main(): number {
   const main_ = symbols.find((symbol) => symbol.name === 'Scheduler');
   if (main_ !== undefined) {
     main_.cssVars = cssVariables();
+    // `SchedulerPart` is the package's slot map (09 §4.3): a union of the part names, each of which
+    // `SchedulerSlots` maps to a component taking `SlotProps<part>`.
     const parts = symbols.find((symbol) => symbol.name === 'SchedulerPart');
-    main_.slots = (parts?.props ?? []).map((part) => ({
-      name: part.name,
-      propsType: `SlotProps<'${part.name}', TItem>`,
-      descriptionKey: `slots.${part.name}`,
+    main_.slots = (parts?.literals ?? []).map((part) => ({
+      name: part,
+      propsType: `SlotProps<'${part}', TItem>`,
     }));
   }
 
@@ -361,23 +367,74 @@ function main(): number {
 
   const englishPath = resolve(localesDir, 'en', 'api.json');
   const english = existsSync(englishPath) ? (JSON.parse(readFileSync(englishPath, 'utf8')) as Bundle) : {};
-  const merged: Bundle = { _meta: { status: 'draft', source: 'extract-api' }, table: TABLE_HEADERS };
+  const merged: Bundle = {
+    _meta: { status: 'draft', source: 'extract-api' },
+    table: TABLE_HEADERS,
+    sections: SECTION_HEADINGS,
+    typeGroups: TYPE_GROUPS,
+  };
   let added = 0;
   for (const [key, value] of [...strings].sort()) {
     const existing = read(english, key);
     if (existing === undefined) added += 1;
     write(merged, key, existing ?? value);
   }
-  const removed = keysOf(english).filter((key) => !key.startsWith('table.') && !strings.has(key)).length;
+  const removed = keysOf(english).filter(
+    (key) =>
+      !key.startsWith('table.') && !key.startsWith('sections.') && !key.startsWith('typeGroups.') && !strings.has(key),
+  ).length;
   writeFileSync(englishPath, `${JSON.stringify(merged, null, 2)}\n`);
+
+  const reference = await writeReference(
+    symbols.map(({ name, kind }) => ({ name, kind })),
+    main_?.cssVars ?? [],
+  );
 
   console.log(
     `api: ${String(symbols.length)} symbols, ${String(strings.size)} descriptions (${String(added)} added, ${String(removed)} dropped)`,
   );
+  console.log(`api: ${String(reference.pages)} reference pages`);
   return 0;
 }
 
 type Bundle = Record<string, unknown>;
+
+/** The grouped type pages: their titles and leads (see lib/reference.ts for the grouping). */
+const TYPE_GROUPS = {
+  events: {
+    title: 'Event and handler types',
+    description: 'The types of the callbacks and of the middleware: what each one receives and what it may return.',
+  },
+  localization: {
+    title: 'Localization types',
+    description: 'The shape of a locale pack and of the formatters, and the helpers around them.',
+  },
+  model: {
+    title: 'Model types',
+    description: 'The data the scheduler places: items, levels, tags, shifts and the layout they produce.',
+  },
+  options: {
+    title: 'Options and props types',
+    description: 'The options of the controller and the props of the components, as types.',
+  },
+  slots: {
+    title: 'Slot and rendering types',
+    description: 'The parts, their owner state, and what every slot and render prop receives.',
+  },
+};
+
+/** The sections of a symbol page (05 §4), in the order they are rendered. */
+const SECTION_HEADINGS = {
+  import: 'Import',
+  demos: 'Where it is used',
+  props: 'Props',
+  parameters: 'Parameters',
+  returns: 'Returns',
+  slots: 'Slots',
+  cssVariables: 'CSS variables',
+  classes: 'Class names',
+  source: 'Source',
+};
 
 /** The column headers of the generated tables; they are prose, so they live with the strings. */
 const TABLE_HEADERS = {
@@ -427,4 +484,4 @@ function keysOf(bundle: Bundle, prefix = ''): string[] {
   return keys;
 }
 
-process.exitCode = main();
+process.exitCode = await main();

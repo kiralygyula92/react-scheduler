@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createFormatters",
+    "description": "Builds the default formatters for a locale, which formatters can then override one by one."
+  }
+}

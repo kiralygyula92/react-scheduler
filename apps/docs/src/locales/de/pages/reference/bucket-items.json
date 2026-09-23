@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "bucketItems",
+    "description": "Ordnet jedes Element dem Fenster mit start ≤ item.start < end zu. Elemente außerhalb jedes Fensters werden nicht gezeigt; Elemente mit ungültigem Beginn entfallen; bei doppelten ids gewinnt das erste Vorkommen."
+  }
+}

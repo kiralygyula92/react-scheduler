@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "deDE",
+    "description": "The German (Germany) locale pack, passed to localization."
+  }
+}

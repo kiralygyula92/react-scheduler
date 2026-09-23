@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "computeTimelineLayout",
+    "description": "Coloca los elementos en las columnas de la línea de tiempo y en los grupos de elementos adicionales: la secuencia de colocación, las columnas voraces, la promoción desde los adicionales, el relleno de huecos, la geometría, los grupos adicionales (limitados por overflowMergeWindow, medido desde el ancla de cada grupo) y el número de columnas."
+  }
+}

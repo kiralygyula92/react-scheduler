@@ -19,6 +19,39 @@
     "name": "Név",
     "kind": "Fajta"
   },
+  "sections": {
+    "import": "Import",
+    "demos": "Hol használjuk",
+    "props": "Propok",
+    "parameters": "Paraméterek",
+    "returns": "Visszatérési érték",
+    "slots": "Slotok",
+    "cssVariables": "CSS változók",
+    "classes": "Osztálynevek",
+    "source": "Forráskód"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Esemény- és kezelőtípusok",
+      "description": "A visszahívások és a middleware típusai: mit kap meg és mit adhat vissza mindegyik."
+    },
+    "localization": {
+      "title": "Lokalizációs típusok",
+      "description": "Egy nyelvi csomag és a formázók felépítése, valamint a köréjük épülő segédtípusok."
+    },
+    "model": {
+      "title": "Modelltípusok",
+      "description": "Az adatok, amelyeket az ütemező elhelyez: elemek, szintek, címkék, műszakok és az ezekből adódó elrendezés."
+    },
+    "options": {
+      "title": "Beállítás- és proptípusok",
+      "description": "A vezérlő beállításai és a komponensek propjai, típusként."
+    },
+    "slots": {
+      "title": "Slot- és megjelenítési típusok",
+      "description": "A részek, a hozzájuk tartozó owner state, és hogy mit kap minden slot és minden render prop."
+    }
+  },
   "ActivationSource": {
     "description": "Mi aktivált egy elemet."
   },
@@ -676,14 +709,26 @@
   "createScheduler": {
     "description": "Létrehoz egy vezérlőt. Ez a teljes könyvtár React nélkül: beállításokat adsz neki, kiolvasod a nézetmodellt, meghívod a műveleteit."
   },
+  "deDE": {
+    "description": "A német (Németország) nyelvi csomag, amelyet a `localization` kap meg."
+  },
   "defaultOverflowColumns": {
     "description": "Az oszlopok, amelyeket a további elemek táblázata mutat, ha nincs megadva más."
   },
   "enUS": {
     "description": "Az angol nyelvi csomag, egyben az alapértelmezés, ha nincs `localization`."
   },
+  "esES": {
+    "description": "A spanyol (Spanyolország) nyelvi csomag, amelyet a `localization` kap meg."
+  },
+  "frFR": {
+    "description": "A francia (Franciaország) nyelvi csomag, amelyet a `localization` kap meg."
+  },
   "getShiftWindows": {
     "description": "A `date` körül megjelenített műszakablakok, `-before … +after` eltolásokkal. Az aktuális ablak: `[a legutolsó ≤ date határ, a következő határ)`; az eltolások napokon át lépkednek a határokon."
+  },
+  "huHU": {
+    "description": "A magyar (Magyarország) nyelvi csomag, amelyet a `localization` kap meg."
   },
   "interpolate": {
     "description": "Kitölti a `{{name}}` helyőrzőket. A többes számú sablon a `values.count` értékhez az `Intl.PluralRules(locale)` alapján választ alakot, szükség esetén az `other` alakra esve vissza. A számokat az `Intl.NumberFormat` formázza. Az ismeretlen helyőrző úgy marad, ahogy le van írva."
@@ -700,6 +745,9 @@
   "prefersReducedMotion": {
     "description": "A `prefers-reduced-motion: reduce` médialekérdezés; false, ha a médialekérdezések nem érhetők el."
   },
+  "ptPT": {
+    "description": "A portugál (Portugália) nyelvi csomag, amelyet a `localization` kap meg."
+  },
   "resolveEnd": {
     "description": "Egy elem feloldott befejezése: `start + defaultDuration`, ha az `end` hiányzik vagy érvénytelen; a kezdés előtti befejezés nulla hosszúságnak számít."
   },
@@ -711,6 +759,9 @@
   },
   "resolveTimeLabel": {
     "description": "Egy kártya időcímkéje, az első találat szerint: a megadott `timeLabel`; „{observed} {observedLabel}”, ha az `observedLabel` nem üres szöveg; „{since} {timestamp}” érvényes `since` esetén, érvénytelennél csak az előtag; egyébként „{start} – {end}”."
+  },
+  "roRO": {
+    "description": "A román (Románia) nyelvi csomag, amelyet a `localization` kap meg."
   },
   "sortOverflowItems": {
     "description": "Az elemek az oszlop értéke szerint rendezve; az egyezéseket a `compare` dönti el. A teljes összehasonlítás, az egyezésekkel együtt, követi az irányt. A nem rendezhető vagy ismeretlen oszlop csak a `compare` szerint rendez."

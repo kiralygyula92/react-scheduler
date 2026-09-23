@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compareByPlacement",
+    "description": "Elhelyezési sorrend: kezdés növekvően, majd a szint rangja növekvően (a legerősebb elöl), majd az azonosító."
+  }
+}

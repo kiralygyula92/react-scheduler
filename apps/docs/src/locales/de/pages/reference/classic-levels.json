@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicLevels",
+    "description": "Die 9 Paritätsstufen, beginnend mit der stärksten."
+  }
+}

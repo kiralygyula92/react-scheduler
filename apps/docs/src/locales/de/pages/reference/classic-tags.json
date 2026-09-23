@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicTags",
+    "description": "Der klassische Etikettensatz: die zwei Etiketten, die der klassische Look darstellt."
+  }
+}

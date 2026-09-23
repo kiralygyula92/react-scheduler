@@ -2,6 +2,12 @@
 // Hungarian (Hungary) strings (Feature Dossier 06 §6.5). Draft: needs native review.
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The Hungarian (Hungary) locale pack, passed to `localization`.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const huHU: SchedulerLocalization = {
   locale: 'hu-HU',
   emptyAll: 'Nincs elérhető napirendi adat.',

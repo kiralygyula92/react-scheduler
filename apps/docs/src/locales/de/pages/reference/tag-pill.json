@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TagPill",
+    "description": "Die Pille, die eines der Etiketten eines Elements zeigt."
+  }
+}

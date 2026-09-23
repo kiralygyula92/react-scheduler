@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "EmptyState",
+    "description": "What a view shows when there is nothing to place."
+  }
+}

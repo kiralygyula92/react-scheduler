@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-// The conformance gate (docs pack 07 §6). This milestone covers the structural checks: C1–C4, C8–C11
-// and C15. C5–C7, C13 and C14 arrive with the content and API milestones and report as pending, so
-// the list always shows what is and is not being enforced yet.
+// The conformance gate (docs pack 07 §6). Enforced here: C1–C4, C6, C8–C11 and C15. C5, C7, C13 and
+// C14 arrive with the content and the Playground and report as pending, so the list always shows
+// what is and is not being enforced yet.
 //
 // Usage: node scripts/check-conformance.ts   (after `pnpm --filter docs build` for C3, C4 and C11)
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
@@ -297,6 +297,73 @@ function c15(): void {
   record('C15', 'no rule matches /_vercel/', problems);
 }
 
+// C6 — the reference is generated: every exported symbol is reachable, every description exists in
+// every locale, and no page writes a table of its own (docs pack 05 §6).
+function c6(): void {
+  const problems: string[] = [];
+  const apiDir = resolve(src, 'content/api');
+  if (!existsSync(resolve(apiDir, 'index.json'))) {
+    record('C6', 'the reference is generated from the declarations', ['run `pnpm --filter docs api` first']);
+    return;
+  }
+  const symbols = JSON.parse(readFileSync(resolve(apiDir, 'index.json'), 'utf8')) as {
+    name: string;
+    kind: string;
+    descriptionKey: string;
+  }[];
+  const entries = (
+    JSON.parse(readFileSync(resolve(apiDir, 'reference.json'), 'utf8')) as { symbols: { name: string; path: string }[] }
+  ).symbols;
+  const pages = new Set(flat().map((item) => item.path));
+
+  // Every exported symbol has its data, and a page that documents it — its own, or, for a type, the
+  // grouped page it is a section of (EXCEPTIONS.md #11).
+  for (const symbol of symbols) {
+    if (!existsSync(resolve(apiDir, `${symbol.name}.json`))) problems.push(`${symbol.name}: no API data`);
+    const entry = entries.find((candidate) => candidate.name === symbol.name);
+    if (entry === undefined) {
+      problems.push(`${symbol.name}: not in the reference index`);
+      continue;
+    }
+    const [path] = entry.path.split('#');
+    if (path !== undefined && !pages.has(path)) problems.push(`${symbol.name}: ${path} is not a page in nav.json`);
+  }
+
+  // Every description reaches a reader, in every locale.
+  const bundles = new Map<Locale, Record<string, unknown>>(
+    LOCALES.map((locale) => [
+      locale,
+      JSON.parse(readFileSync(resolve(src, `locales/${locale}/api.json`), 'utf8')) as Record<string, unknown>,
+    ]),
+  );
+  const valueAt = (bundle: Record<string, unknown>, key: string): unknown =>
+    key
+      .split('.')
+      .reduce<unknown>(
+        (node, part) =>
+          typeof node === 'object' && node !== null ? (node as Record<string, unknown>)[part] : undefined,
+        bundle,
+      );
+  for (const symbol of symbols) {
+    for (const locale of LOCALES) {
+      const value = valueAt(bundles.get(locale) ?? {}, symbol.descriptionKey);
+      if (typeof value !== 'string' || value.trim() === '') {
+        problems.push(`${locale}: ${symbol.descriptionKey} is missing or empty`);
+      }
+    }
+  }
+
+  // No page writes a table of its own; the generated components are the only ones that may.
+  for (const file of files(resolve(src, 'content/pages'), '.tsx')) {
+    const body = readFileSync(file, 'utf8');
+    const where = relative(app, file).replaceAll('\\', '/');
+    if (/<table\b/.test(body)) problems.push(`${where}: writes a <table> by hand`);
+    if (/<PropsTable[^>]*members=\{\[/.test(body)) problems.push(`${where}: passes literal rows to <PropsTable>`);
+  }
+
+  record('C6', 'the reference is generated from the declarations', problems);
+}
+
 function pending(id: string, title: string, milestone: string): void {
   results.push({ id, title, status: 'pending', notes: [`arrives with ${milestone}`] });
 }
@@ -307,7 +374,7 @@ function main(): number {
   c3();
   c4();
   pending('C5', 'capability pages have a demo, limitations and api', 'M5');
-  pending('C6', 'no hand-written props tables', 'M6');
+  c6();
   pending('C7', 'every public prop is in the Playground', 'M6');
   c8();
   c9();

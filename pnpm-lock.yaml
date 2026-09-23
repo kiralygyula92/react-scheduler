@@ -101,6 +101,9 @@ importers:
       jsdom:
         specifier: 30.1.1
         version: 30.1.1
+      prettier:
+        specifier: 3.9.8
+        version: 3.9.8
       typescript-api:
         specifier: npm:typescript@^6.0.3
         version: typescript@6.0.3

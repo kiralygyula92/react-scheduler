@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useTimelineLayout",
+    "description": "Das Zeitstrahl-Layout von items, anhand seiner Eingaben gemerkt."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Model types",
+    "description": "The data the scheduler places: items, levels, tags, shifts and the layout they produce."
+  }
+}

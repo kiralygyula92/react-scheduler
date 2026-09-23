@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicLevels",
+    "description": "Les 9 niveaux de parité, du plus fort au plus faible."
+  }
+}

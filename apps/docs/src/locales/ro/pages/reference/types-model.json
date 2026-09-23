@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipuri pentru model",
+    "description": "Datele pe care planificatorul le așază: elemente, niveluri, etichete, ture și aranjarea rezultată."
+  }
+}

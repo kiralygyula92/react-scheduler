@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Helyben tartja a látható tartalmat, amikor a görgethető területen belüli rögzített elem magassága változik: a terület ugyanannyit mozdul, ugyanabban a képkockában, minden motorban. A görgethető terület overflow-anchor: none értéket kap, így a böngésző görgetéshorgonyzása nem ad hozzá második eltolást. Amíg a suspended() érvényben van, a változás csak feljegyzésre kerül."
+  }
+}

@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 // Props tables are generated from the API data (`src/content/api/`, docs pack 05 §4); no page writes
-// one by hand (C6). Descriptions are translated in `locales/{lng}/api.json`, keyed by symbol and
+// one by hand (C6). The rows arrive as data, statically imported by the page, so the table is in the
+// prerendered HTML. Descriptions are translated in `locales/{lng}/api.json`, keyed by symbol and
 // member; a missing entry stays visible so `check-i18n` can fail on it. Rows keep the order of the
 // source, so related props stay together, and each row is addressable as `#prop-{name}`.
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useT } from '~/i18n/useT';
+import { Inline } from './Inline';
 
 export interface ApiProp {
   readonly name: string;
@@ -16,17 +18,13 @@ export interface ApiProp {
   readonly descriptionKey: string;
 }
 
-export interface ApiSymbol {
-  readonly name: string;
-  readonly props?: readonly ApiProp[];
-}
-
 /** Longer than this, a type is folded away so it cannot push the other columns out of view. */
 const LONG_TYPE = 48;
 
-const modules = import.meta.glob('/src/content/api/*.json') as Readonly<
-  Record<string, () => Promise<{ default: ApiSymbol }>>
->;
+/** `` `start` plus `defaultDuration` `` → `start plus defaultDuration`: the cell is already code. */
+function plain(text: string): string {
+  return text.replaceAll('`', '');
+}
 
 function TypeCell({ type }: { type: string }): React.ReactElement {
   const t = useT('common');
@@ -58,39 +56,31 @@ function TypeCell({ type }: { type: string }): React.ReactElement {
   );
 }
 
-export function PropsTable({ symbol }: { symbol: string }): React.ReactElement | null {
+export function PropsTable({
+  members,
+  nameHeader,
+}: {
+  members: readonly ApiProp[];
+  /** `Prop` for a component, `Parameter` for a hook or a function; the default is `Prop`. */
+  nameHeader?: string;
+}): React.ReactElement | null {
   const t = useT('common');
   const api = useT('api');
-  const [data, setData] = useState<ApiSymbol | null>(null);
-
-  useEffect(() => {
-    const load = modules[`/src/content/api/${symbol}.json`];
-    if (load === undefined) return;
-    let cancelled = false;
-    void load().then((module) => {
-      if (!cancelled) setData(module.default);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [symbol]);
-
-  const props = data?.props ?? [];
-  if (props.length === 0) return null;
+  if (members.length === 0) return null;
 
   return (
     <div className="ds-table-wrap">
       <table className="ds-table">
         <thead>
           <tr>
-            <th scope="col">{api('table.prop')}</th>
+            <th scope="col">{nameHeader ?? api('table.prop')}</th>
             <th scope="col">{api('table.type')}</th>
             <th scope="col">{api('table.default')}</th>
             <th scope="col">{api('table.description')}</th>
           </tr>
         </thead>
         <tbody>
-          {props.map((prop) => (
+          {members.map((prop) => (
             <tr key={prop.name} id={`prop-${prop.name}`}>
               <th scope="row">
                 {prop.deprecated == null ? (
@@ -110,9 +100,9 @@ export function PropsTable({ symbol }: { symbol: string }): React.ReactElement |
               <td>
                 <TypeCell type={prop.type} />
               </td>
-              <td>{prop.default === undefined ? '' : <code>{prop.default}</code>}</td>
+              <td>{prop.default === undefined ? '' : <code>{plain(prop.default)}</code>}</td>
               <td>
-                {api(prop.descriptionKey)}
+                <Inline text={api(prop.descriptionKey)} />
                 {prop.deprecated != null && <> {prop.deprecated}</>}
               </td>
             </tr>

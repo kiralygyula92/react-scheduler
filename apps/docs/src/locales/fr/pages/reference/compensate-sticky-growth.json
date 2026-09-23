@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Maintient le contenu visible en place quand l’élément fixe à l’intérieur de la zone de défilement change de hauteur : la zone se déplace d’autant, dans la même image, dans tous les moteurs. La zone pose overflow-anchor: none, afin que l’ancrage du navigateur n’ajoute pas un second décalage. Tant que suspended() est actif, le changement est seulement noté."
+  }
+}

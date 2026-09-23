@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeCompact",
+    "description": "onChange(compact) avec compact = la largeur en dessous de breakpoint, maintenant et à chaque changement."
+  }
+}

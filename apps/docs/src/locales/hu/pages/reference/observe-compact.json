@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeCompact",
+    "description": "onChange(compact), ahol a compact azt jelenti, hogy a szélesség a breakpoint alatt van, most és minden változáskor."
+  }
+}

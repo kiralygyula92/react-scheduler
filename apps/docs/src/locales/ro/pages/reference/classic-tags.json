@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicTags",
+    "description": "Setul de etichete clasic: cele două etichete pe care le randează aspectul clasic."
+  }
+}

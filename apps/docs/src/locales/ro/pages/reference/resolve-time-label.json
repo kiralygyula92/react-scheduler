@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveTimeLabel",
+    "description": "Eticheta de timp a unui card, prima potrivire: timeLabel așa cum este dat; „{observed} {observedLabel}” când observedLabel este un șir nevid; „{since} {timestamp}” pentru un since valid, sau doar prefixul pentru unul invalid; altfel „{start} – {end}”."
+  }
+}

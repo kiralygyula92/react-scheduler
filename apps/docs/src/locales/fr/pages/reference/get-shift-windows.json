@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "Les fenêtres de poste rendues autour de date, avec les décalages -before … +after. La fenêtre courante est [dernière limite ≤ date, limite suivante) ; les décalages parcourent les limites au fil des jours."
+  }
+}

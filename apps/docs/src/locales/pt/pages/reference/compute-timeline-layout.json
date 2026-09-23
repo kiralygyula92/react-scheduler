@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "computeTimelineLayout",
+    "description": "Coloca os elementos nas colunas da cronologia e nos grupos de elementos adicionais: a sequência de colocação, as colunas gananciosas, a promoção a partir dos adicionais, o preenchimento de lacunas, a geometria, os grupos adicionais (limitados por overflowMergeWindow, medido a partir da âncora de cada grupo) e o número de colunas."
+  }
+}

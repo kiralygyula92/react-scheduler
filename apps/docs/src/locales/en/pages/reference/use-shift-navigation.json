@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftNavigation",
+    "description": "Programmatic shift navigation for custom markup."
+  }
+}

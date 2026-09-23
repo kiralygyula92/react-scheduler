@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ReferencePill",
+    "description": "Pastila care arată numărul de referință al unui element."
+  }
+}

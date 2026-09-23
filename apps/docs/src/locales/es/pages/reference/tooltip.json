@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tooltip",
+    "description": "La parte de la descripción emergente; position viene de useTooltip (null mientras está cerrada)."
+  }
+}

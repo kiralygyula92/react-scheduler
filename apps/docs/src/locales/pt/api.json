@@ -19,6 +19,39 @@
     "name": "Nome",
     "kind": "Tipo"
   },
+  "sections": {
+    "import": "Importação",
+    "demos": "Onde é usado",
+    "props": "Props",
+    "parameters": "Parâmetros",
+    "returns": "Devolve",
+    "slots": "Slots",
+    "cssVariables": "Variáveis CSS",
+    "classes": "Nomes de classe",
+    "source": "Código-fonte"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Tipos de eventos e handlers",
+      "description": "Os tipos dos callbacks e do middleware: o que cada um recebe e o que pode devolver."
+    },
+    "localization": {
+      "title": "Tipos de localização",
+      "description": "A forma de um pacote de idioma e dos formatadores, e os auxiliares em seu redor."
+    },
+    "model": {
+      "title": "Tipos do modelo",
+      "description": "Os dados que o scheduler coloca: elementos, níveis, etiquetas, turnos e a disposição que produzem."
+    },
+    "options": {
+      "title": "Tipos de opções e props",
+      "description": "As opções do controlador e as props dos componentes, como tipos."
+    },
+    "slots": {
+      "title": "Tipos de slots e de renderização",
+      "description": "As partes, o seu owner state e o que cada slot e cada prop de renderização recebe."
+    }
+  },
   "ActivationSource": {
     "description": "O que ativou um elemento."
   },
@@ -676,14 +709,26 @@
   "createScheduler": {
     "description": "Cria um controlador. Esta é a biblioteca inteira sem React: dá-lhe opções, lê o modelo de vista e chama as suas ações."
   },
+  "deDE": {
+    "description": "O pacote de idioma alemão (Alemanha), passado a `localization`."
+  },
   "defaultOverflowColumns": {
     "description": "As colunas que a tabela de elementos adicionais mostra quando não são indicadas outras."
   },
   "enUS": {
     "description": "O pacote de idioma inglês, e o predefinido quando não é dado `localization`."
   },
+  "esES": {
+    "description": "O pacote de idioma espanhol (Espanha), passado a `localization`."
+  },
+  "frFR": {
+    "description": "O pacote de idioma francês (França), passado a `localization`."
+  },
   "getShiftWindows": {
     "description": "As janelas de turno apresentadas em torno de `date`, com os deslocamentos `-before … +after`. A janela atual é `[último limite ≤ date, limite seguinte)`; os deslocamentos percorrem os limites ao longo dos dias."
+  },
+  "huHU": {
+    "description": "O pacote de idioma húngaro (Hungria), passado a `localization`."
   },
   "interpolate": {
     "description": "Preenche os marcadores `{{name}}`. Um modelo de plural escolhe a sua forma para `values.count` com `Intl.PluralRules(locale)`, recorrendo a `other`. Os números são formatados com `Intl.NumberFormat`. Um marcador desconhecido fica tal como está escrito."
@@ -700,6 +745,9 @@
   "prefersReducedMotion": {
     "description": "A consulta de media `prefers-reduced-motion: reduce`; false quando as consultas de media não estão disponíveis."
   },
+  "ptPT": {
+    "description": "O pacote de idioma português (Portugal), passado a `localization`."
+  },
   "resolveEnd": {
     "description": "O fim resolvido de um elemento: `start + defaultDuration` quando falta `end` ou é inválido; um fim anterior ao início conta como duração zero."
   },
@@ -711,6 +759,9 @@
   },
   "resolveTimeLabel": {
     "description": "A etiqueta de hora de um cartão, na primeira correspondência: `timeLabel` tal como é dado; «{observed} {observedLabel}» quando `observedLabel` é uma cadeia não vazia; «{since} {timestamp}» para um `since` válido, ou apenas o prefixo se for inválido; caso contrário «{start} – {end}»."
+  },
+  "roRO": {
+    "description": "O pacote de idioma romeno (Roménia), passado a `localization`."
   },
   "sortOverflowItems": {
     "description": "Os elementos ordenados pelo valor da coluna; os empates são desfeitos por `compare`. Toda a comparação, empates incluídos, segue a direção. Uma coluna não ordenável ou desconhecida ordena apenas por `compare`."

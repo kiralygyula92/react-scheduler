@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineCard",
+    "description": "A timeline card, absolutely positioned from the layout engine's output."
+  }
+}

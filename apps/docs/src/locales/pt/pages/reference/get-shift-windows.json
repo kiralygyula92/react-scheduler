@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "As janelas de turno apresentadas em torno de date, com os deslocamentos -before … +after. A janela atual é [último limite ≤ date, limite seguinte); os deslocamentos percorrem os limites ao longo dos dias."
+  }
+}

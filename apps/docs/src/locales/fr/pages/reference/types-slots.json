@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Types des slots et du rendu",
+    "description": "Les parties, leur owner state et ce que reçoivent chaque slot et chaque prop de rendu."
+  }
+}

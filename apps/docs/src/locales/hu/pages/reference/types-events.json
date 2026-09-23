@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Esemény- és kezelőtípusok",
+    "description": "A visszahívások és a middleware típusai: mit kap meg és mit adhat vissza mindegyik."
+  }
+}

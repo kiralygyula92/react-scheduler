@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeWidth",
+    "description": "Ruft onWidth mit der Content-Box-Breite des Elements auf, jetzt und bei jeder Änderung. Kompaktmodus und listOnlyBreakpoint nutzen die Breite der Wurzel, nicht die des Viewports oder des Browsers."
+  }
+}

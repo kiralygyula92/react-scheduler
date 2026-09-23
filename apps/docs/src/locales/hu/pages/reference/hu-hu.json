@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "huHU",
+    "description": "A magyar (Magyarország) nyelvi csomag, amelyet a localization kap meg."
+  }
+}

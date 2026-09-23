@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "deDE",
+    "description": "Pachetul de limbă germană (Germania), transmis lui localization."
+  }
+}

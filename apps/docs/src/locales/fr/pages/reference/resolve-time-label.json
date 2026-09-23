@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveTimeLabel",
+    "description": "Le libellé horaire d’une carte, première correspondance : timeLabel tel qu’il est donné ; « {observed} {observedLabel} » quand observedLabel est une chaîne non vide ; « {since} {timestamp} » pour un since valide, ou le seul préfixe sinon ; sinon « {start} – {end} »."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "sortOverflowItems",
+    "description": "Az elemek az oszlop értéke szerint rendezve; az egyezéseket a compare dönti el. A teljes összehasonlítás, az egyezésekkel együtt, követi az irányt. A nem rendezhető vagy ismeretlen oszlop csak a compare szerint rendez."
+  }
+}

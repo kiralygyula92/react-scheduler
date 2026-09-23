@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveTimeLabel",
+    "description": "Das Zeitlabel einer Karte, erster Treffer: timeLabel wie angegeben; „{observed} {observedLabel}“, wenn observedLabel eine nichtleere Zeichenkette ist; „{since} {timestamp}“ bei gültigem since, sonst nur das Präfix; andernfalls „{start} – {end}“."
+  }
+}

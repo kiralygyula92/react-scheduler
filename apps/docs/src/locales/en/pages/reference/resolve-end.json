@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveEnd",
+    "description": "The resolved end of an item: start + defaultDuration when end is missing or invalid; an end before the start counts as zero duration."
+  }
+}

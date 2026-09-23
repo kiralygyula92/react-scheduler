@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Pagination",
+    "description": "Paginatorul de sub tabelul de elemente suplimentare."
+  }
+}

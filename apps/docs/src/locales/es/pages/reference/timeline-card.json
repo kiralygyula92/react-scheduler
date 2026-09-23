@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineCard",
+    "description": "Una tarjeta de línea de tiempo, posicionada de forma absoluta a partir de la salida del motor de disposición."
+  }
+}

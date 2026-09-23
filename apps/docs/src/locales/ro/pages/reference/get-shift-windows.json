@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "Ferestrele de tură randate în jurul valorii date, cu decalajele -before … +after. Fereastra curentă este [ultima limită ≤ date, limita următoare); decalajele parcurg limitele peste zile."
+  }
+}

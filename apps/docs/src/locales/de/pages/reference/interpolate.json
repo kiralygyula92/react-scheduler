@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Füllt die Platzhalter {{name}}. Eine Pluralvorlage wählt ihre Form für values.count mit Intl.PluralRules(locale) und fällt auf other zurück. Zahlen werden mit Intl.NumberFormat formatiert. Ein unbekannter Platzhalter bleibt, wie er geschrieben ist."
+  }
+}

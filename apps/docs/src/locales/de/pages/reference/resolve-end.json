@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveEnd",
+    "description": "Das aufgelöste Ende eines Elements: start + defaultDuration, wenn end fehlt oder ungültig ist; ein Ende vor dem Beginn zählt als Dauer null."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Options and props types",
+    "description": "The options of the controller and the props of the components, as types."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Les millisecondes depuis l’époque d’une entrée de date ; NaN si elle est invalide. Une chaîne sans décalage est l’heure locale d’horloge, y compris les chaînes de date seule (que Date lirait comme UTC)."
+  }
+}

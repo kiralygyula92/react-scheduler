@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useCompact",
+    "description": "A kompakt mód az elem tartalomszélességéből; a logikai érték kényszeríti. A szerveren hamis."
+  }
+}

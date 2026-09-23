@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "pageList",
+    "description": "Les pages à afficher dans la pagination (base 0) : toutes s’il y en a au plus sept ; sinon les deux premières, les deux dernières et la page courante ±1, avec « ellipsis » dans chaque intervalle."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveShift",
+    "description": "A janela do turno atual (deslocamento 0) para date."
+  }
+}

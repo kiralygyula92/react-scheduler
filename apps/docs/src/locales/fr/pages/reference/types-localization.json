@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Types de localisation",
+    "description": "La forme d’un pack de langue et des formateurs, ainsi que les utilitaires associés."
+  }
+}

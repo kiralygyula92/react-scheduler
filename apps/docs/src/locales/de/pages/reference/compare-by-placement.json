@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compareByPlacement",
+    "description": "Die Platzierungsreihenfolge: Beginn aufsteigend, dann Stufenrang aufsteigend (stärkste zuerst), dann id."
+  }
+}

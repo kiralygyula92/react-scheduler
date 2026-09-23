@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveTimeLabel",
+    "description": "The time label of a card, first match: timeLabel as given; \"{observed} {observedLabel}\" when observedLabel is a non-empty string; \"{since} {timestamp}\" for a valid since, or the bare prefix for an invalid one; otherwise \"{start} – {end}\"."
+  }
+}

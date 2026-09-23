@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Beállítás- és proptípusok",
+    "description": "A vezérlő beállításai és a komponensek propjai, típusként."
+  }
+}

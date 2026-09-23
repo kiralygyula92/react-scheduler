@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ErrorState",
+    "description": "O que uma vista mostra quando o carregamento falhou, com a ação de repetir se for fornecida."
+  }
+}

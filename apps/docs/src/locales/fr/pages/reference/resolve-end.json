@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveEnd",
+    "description": "La fin résolue d’un élément : start + defaultDuration lorsque end manque ou est invalide ; une fin antérieure au début compte comme une durée nulle."
+  }
+}

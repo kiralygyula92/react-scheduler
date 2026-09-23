@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ScrollTopButton",
+    "description": "The button that returns the scroller to the top."
+  }
+}

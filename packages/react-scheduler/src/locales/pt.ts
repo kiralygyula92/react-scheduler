@@ -2,6 +2,12 @@
 // Portuguese (Portugal) strings (Feature Dossier 06 §6.8). Draft: needs native review.
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The Portuguese (Portugal) locale pack, passed to `localization`.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const ptPT: SchedulerLocalization = {
   locale: 'pt-PT',
   emptyAll: 'Não existem dados de agenda disponíveis.',

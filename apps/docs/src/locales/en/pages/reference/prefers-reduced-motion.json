@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "prefersReducedMotion",
+    "description": "The prefers-reduced-motion: reduce media query; false when media queries are unavailable."
+  }
+}

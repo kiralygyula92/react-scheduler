@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "CARRIED_OVER_TAG",
+    "description": "La clave de etiqueta que la biblioteca añade a los elementos fijados que vienen arrastrados."
+  }
+}

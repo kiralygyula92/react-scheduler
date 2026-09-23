@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ErrorState",
+    "description": "Ce qu’affiche une vue quand le chargement a échoué, avec l’action de réessai si elle est fournie."
+  }
+}

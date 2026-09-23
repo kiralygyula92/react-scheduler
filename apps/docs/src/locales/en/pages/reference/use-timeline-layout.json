@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useTimelineLayout",
+    "description": "The timeline layout of items, memoized on its inputs."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimeGrid",
+    "description": "Grila de ore a cronologiei, cu cardurile plasate pe ea."
+  }
+}

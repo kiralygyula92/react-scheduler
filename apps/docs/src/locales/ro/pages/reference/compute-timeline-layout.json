@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "computeTimelineLayout",
+    "description": "Plasează elementele în coloanele cronologiei și în grupurile de elemente suplimentare: secvența de plasare, coloanele lacome, promovarea din suplimentare, umplerea golurilor, geometria, grupurile suplimentare (mărginite de overflowMergeWindow, măsurat din ancora fiecărui grup) și numărul de coloane."
+  }
+}

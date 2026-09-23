@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "pageList",
+    "description": "Paginile de afișat în paginator (numerotate de la 0): toate, când sunt cel mult 7; altfel primele două, ultimele două și pagina curentă ±1, cu „ellipsis” în fiecare gol."
+  }
+}

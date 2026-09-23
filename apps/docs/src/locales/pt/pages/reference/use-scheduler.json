@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useScheduler",
+    "description": "Tudo o que <Scheduler> usa, sem marcação."
+  }
+}

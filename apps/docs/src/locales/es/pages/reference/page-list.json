@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "pageList",
+    "description": "Las páginas que mostrar en el paginador (base 0): todas cuando hay siete o menos; si no, las dos primeras, las dos últimas y la página actual ±1, con «ellipsis» en cada hueco."
+  }
+}

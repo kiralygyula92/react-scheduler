@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicTags",
+    "description": "El conjunto de etiquetas clásico: las dos etiquetas que renderiza el aspecto clásico."
+  }
+}

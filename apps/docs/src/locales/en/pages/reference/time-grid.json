@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimeGrid",
+    "description": "The timeline’s hour grid, with the placed cards on it."
+  }
+}

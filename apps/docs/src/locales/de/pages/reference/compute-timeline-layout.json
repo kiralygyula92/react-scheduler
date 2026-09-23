@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "computeTimelineLayout",
+    "description": "Platziert die Elemente in den Spalten des Zeitstrahls und in den Gruppen weiterer Elemente: Platzierungsreihenfolge, gierige Spalten, Beförderung aus den weiteren Elementen, Lückenfüllung, Geometrie, Gruppen weiterer Elemente (begrenzt durch overflowMergeWindow, gemessen ab dem Anker jeder Gruppe) und Spaltenzahlen."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "MoreChip",
+    "description": "A jelölés, amely a zsúfolt csoportban el nem helyezett elemeket helyettesíti."
+  }
+}

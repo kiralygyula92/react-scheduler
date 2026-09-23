@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "sortOverflowItems",
+    "description": "Elementele sortate după valoarea coloanei; egalitățile se departajează prin compare. Întreaga comparație, inclusiv departajarea, urmează direcția. O coloană nesortabilă sau necunoscută sortează doar prin compare."
+  }
+}

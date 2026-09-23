@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "PinnedChip",
+    "description": "One chip in the pinned strip."
+  }
+}

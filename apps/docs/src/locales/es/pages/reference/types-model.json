@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipos del modelo",
+    "description": "Los datos que el scheduler coloca: elementos, niveles, etiquetas, turnos y la disposición que producen."
+  }
+}

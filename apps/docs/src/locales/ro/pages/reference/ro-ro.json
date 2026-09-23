@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "roRO",
+    "description": "Pachetul de limbă română (România), transmis lui localization."
+  }
+}

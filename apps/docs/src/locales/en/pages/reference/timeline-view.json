@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineView",
+    "description": "The timeline view on its own."
+  }
+}

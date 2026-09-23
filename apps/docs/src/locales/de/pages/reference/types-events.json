@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Ereignis- und Handler-Typen",
+    "description": "Die Typen der Callbacks und der Middleware: was jeder erhält und was er zurückgeben darf."
+  }
+}

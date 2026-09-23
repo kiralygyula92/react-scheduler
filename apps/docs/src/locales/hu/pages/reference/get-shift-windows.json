@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "getShiftWindows",
+    "description": "A date körül megjelenített műszakablakok, -before … +after eltolásokkal. Az aktuális ablak: [a legutolsó ≤ date határ, a következő határ); az eltolások napokon át lépkednek a határokon."
+  }
+}

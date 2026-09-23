@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "Anheften beim Vorbeiscrollen für eigenes Markup: Sensoren registrieren, angeheftete Schlüssel lesen."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "interpolate",
+    "description": "Fills {{name}} placeholders. A plural template picks its form for values.count with Intl.PluralRules(locale), falling back to other. Numbers are formatted with Intl.NumberFormat. An unknown placeholder is left as written."
+  }
+}

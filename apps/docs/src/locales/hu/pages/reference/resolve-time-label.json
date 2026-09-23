@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveTimeLabel",
+    "description": "Egy kártya időcímkéje, az első találat szerint: a megadott timeLabel; „{observed} {observedLabel}”, ha az observedLabel nem üres szöveg; „{since} {timestamp}” érvényes since esetén, érvénytelennél csak az előtag; egyébként „{start} – {end}”."
+  }
+}

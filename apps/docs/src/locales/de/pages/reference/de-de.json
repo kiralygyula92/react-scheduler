@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "deDE",
+    "description": "Das deutsche Sprachpaket (Deutschland), das an localization übergeben wird."
+  }
+}

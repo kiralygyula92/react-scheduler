@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "OverflowDialog",
+    "description": "A caixa de diálogo que lista os elementos por trás de uma etiqueta «+more»."
+  }
+}

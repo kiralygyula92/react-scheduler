@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "sortOverflowItems",
+    "description": "Los elementos ordenados por el valor de la columna; los empates se resuelven con compare. Toda la comparación, empates incluidos, sigue la dirección. Una columna no ordenable o desconocida ordena solo con compare."
+  }
+}

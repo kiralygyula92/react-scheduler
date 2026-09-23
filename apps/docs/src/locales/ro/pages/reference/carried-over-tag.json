@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "CARRIED_OVER_TAG",
+    "description": "Cheia de etichetă pe care biblioteca o adaugă elementelor fixate preluate din tura anterioară."
+  }
+}

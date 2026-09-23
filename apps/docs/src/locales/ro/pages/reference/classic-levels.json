@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicLevels",
+    "description": "Cele 9 niveluri de paritate, de la cel mai puternic."
+  }
+}

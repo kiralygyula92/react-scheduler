@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "compensateStickyGrowth",
+    "description": "Menține conținutul vizibil pe loc când elementul fixat din zona de derulare își schimbă înălțimea: zona se mută cu aceeași valoare, în același cadru, în orice motor. Zona de derulare setează overflow-anchor: none, așa că ancorarea din browser nu adaugă o a doua deplasare. Cât timp suspended() este activ, schimbarea este doar consemnată."
+  }
+}

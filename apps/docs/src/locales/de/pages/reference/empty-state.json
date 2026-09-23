@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "EmptyState",
+    "description": "Was eine Ansicht zeigt, wenn es nichts zu platzieren gibt."
+  }
+}

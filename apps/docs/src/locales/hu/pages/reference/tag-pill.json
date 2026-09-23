@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TagPill",
+    "description": "A pirula, amely egy elem egyik címkéjét mutatja."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveShift",
+    "description": "La fenêtre du poste courant (décalage 0) pour date."
+  }
+}

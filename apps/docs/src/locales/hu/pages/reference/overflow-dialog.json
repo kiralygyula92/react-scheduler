@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "OverflowDialog",
+    "description": "A párbeszédablak, amely felsorolja a „+more” jelölés mögötti elemeket."
+  }
+}

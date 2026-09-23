@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "enUS",
+    "description": "Az angol nyelvi csomag, egyben az alapértelmezés, ha nincs localization."
+  }
+}

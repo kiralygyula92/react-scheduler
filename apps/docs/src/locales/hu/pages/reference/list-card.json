@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ListCard",
+    "description": "Egy listakártya (li) az aktivátorával; a renderItem teljesen lecseréli."
+  }
+}

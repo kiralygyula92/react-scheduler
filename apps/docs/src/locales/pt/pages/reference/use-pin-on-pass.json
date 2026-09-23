@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "usePinOnPass",
+    "description": "A fixação ao passar para marcação própria: regista os sensores e lê as chaves fixadas."
+  }
+}

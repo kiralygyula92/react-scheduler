@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicTags",
+    "description": "The classic tag set: the two tags the classic preset renders."
+  }
+}

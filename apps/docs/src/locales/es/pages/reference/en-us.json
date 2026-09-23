@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "enUS",
+    "description": "El paquete de idioma inglés, y el predeterminado cuando no se pasa localization."
+  }
+}

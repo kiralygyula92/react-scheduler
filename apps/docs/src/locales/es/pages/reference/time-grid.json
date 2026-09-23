@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimeGrid",
+    "description": "La cuadrícula de horas de la línea de tiempo, con las tarjetas colocadas en ella."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Modelltypen",
+    "description": "Die Daten, die der Scheduler platziert: Elemente, Stufen, Etiketten, Schichten und das Layout daraus."
+  }
+}

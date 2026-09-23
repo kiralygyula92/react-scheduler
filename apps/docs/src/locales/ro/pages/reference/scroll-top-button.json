@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ScrollTopButton",
+    "description": "Butonul care readuce zona de derulare în partea de sus."
+  }
+}

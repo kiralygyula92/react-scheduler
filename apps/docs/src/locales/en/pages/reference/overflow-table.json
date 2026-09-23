@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "OverflowTable",
+    "description": "The table inside the overflow dialog."
+  }
+}

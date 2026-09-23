@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "TimelineCard",
+    "description": "Eine Zeitstrahlkarte, absolut positioniert aus der Ausgabe der Layout-Engine."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "sortOverflowItems",
+    "description": "Die Elemente nach dem Spaltenwert sortiert; Gleichstände entscheidet compare. Der gesamte Vergleich, samt Gleichständen, folgt der Richtung. Eine nicht sortierbare oder unbekannte Spalte sortiert allein nach compare."
+  }
+}

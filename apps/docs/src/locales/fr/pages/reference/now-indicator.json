@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "NowIndicator",
+    "description": "Le repère « maintenant » de la liste : l’heure dans une pastille, puis une ligne."
+  }
+}

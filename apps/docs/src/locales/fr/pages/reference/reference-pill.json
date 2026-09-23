@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ReferencePill",
+    "description": "La pastille qui montre le numéro de référence d’un élément."
+  }
+}

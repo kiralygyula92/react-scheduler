@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "classicLevels",
+    "description": "The 9 parity levels, strongest first."
+  }
+}

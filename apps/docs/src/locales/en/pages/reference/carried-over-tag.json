@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "CARRIED_OVER_TAG",
+    "description": "Tag key the library adds to carried-over pinned items."
+  }
+}

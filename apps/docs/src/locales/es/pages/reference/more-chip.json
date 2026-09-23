@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "MoreChip",
+    "description": "La ficha que representa los elementos que un grupo aglomerado no pudo colocar."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Tipuri pentru evenimente și handlere",
+    "description": "Tipurile callback-urilor și ale middleware-ului: ce primește fiecare și ce poate returna."
+  }
+}

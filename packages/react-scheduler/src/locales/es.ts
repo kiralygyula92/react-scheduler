@@ -2,6 +2,12 @@
 // Spanish (Spain) strings (Feature Dossier 06 §6.3). The parity keys come from the source; the new keys are drafts that need native review.
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The Spanish (Spain) locale pack, passed to `localization`.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const esES: SchedulerLocalization = {
   locale: 'es-ES',
   emptyAll: 'No hay datos de agenda disponibles.',

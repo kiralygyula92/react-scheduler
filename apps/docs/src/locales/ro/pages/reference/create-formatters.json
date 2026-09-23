@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "createFormatters",
+    "description": "Construiește formatatoarele implicite pentru o localizare, pe care formatters le poate apoi înlocui una câte una."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "toMs",
+    "description": "Die Millisekunden seit der Epoche einer Datumseingabe; NaN, wenn sie ungültig ist. Eine Zeichenkette ohne Offset ist lokale Uhrzeit, auch reine Datumsangaben (die Date allein als UTC läse)."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ScrollTopButton",
+    "description": "El botón que devuelve el área de desplazamiento al principio."
+  }
+}

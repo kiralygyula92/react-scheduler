@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "EmptyState",
+    "description": "Ce qu’affiche une vue quand il n’y a rien à placer."
+  }
+}

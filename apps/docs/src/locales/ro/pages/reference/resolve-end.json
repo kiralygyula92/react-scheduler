@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "resolveEnd",
+    "description": "Sfârșitul rezolvat al unui element: start + defaultDuration când end lipsește sau este invalid; un final dinaintea începutului contează ca durată zero."
+  }
+}

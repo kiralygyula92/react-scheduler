@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Scheduler",
+    "description": "Der Scheduler: die Listen- oder Zeitstrahlansicht, über view gewählt."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftHeader",
+    "description": "Rândul de antet al unei ture în vizualizarea listă."
+  }
+}

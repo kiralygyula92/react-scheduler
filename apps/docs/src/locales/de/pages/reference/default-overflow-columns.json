@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "defaultOverflowColumns",
+    "description": "Die Spalten, die die Tabelle weiterer Elemente zeigt, wenn keine angegeben sind."
+  }
+}

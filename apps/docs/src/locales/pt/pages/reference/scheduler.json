@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "Scheduler",
+    "description": "O scheduler: a vista de lista ou cronológica, selecionada por view."
+  }
+}

@@ -2,6 +2,12 @@
 // German (Germany) strings (Feature Dossier 06 §6.7). Draft: needs native review.
 import type { SchedulerLocalization } from '../core/localization';
 
+/**
+ * The German (Germany) locale pack, passed to `localization`.
+ *
+ * @category Localization
+ * @since 1.0.0
+ */
 export const deDE: SchedulerLocalization = {
   locale: 'de-DE',
   emptyAll: 'Keine Agendadaten verfügbar.',

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useNow",
+    "description": "Os milissegundos desde a época de now, ou um relógio interno que avança a cada interval ms, em pausa enquanto o documento está oculto."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ShiftNavButton",
+    "description": "El botón que salta al turno anterior o al siguiente."
+  }
+}

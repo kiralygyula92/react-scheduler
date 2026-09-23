@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ListView",
+    "description": "La vista de lista por sí sola."
+  }
+}

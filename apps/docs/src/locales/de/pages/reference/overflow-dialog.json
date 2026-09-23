@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "OverflowDialog",
+    "description": "Der Dialog, der die Elemente hinter einem „+more“-Chip auflistet."
+  }
+}

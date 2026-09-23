@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "NowIndicator",
+    "description": "La marca de «ahora» de la lista: la hora en una píldora y después una línea."
+  }
+}

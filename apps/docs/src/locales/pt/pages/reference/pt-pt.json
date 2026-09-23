@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "ptPT",
+    "description": "O pacote de idioma português (Portugal), passado a localization."
+  }
+}

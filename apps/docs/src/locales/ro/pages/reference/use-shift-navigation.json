@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "useShiftNavigation",
+    "description": "Navigare programatică între ture, pentru marcaj propriu."
+  }
+}

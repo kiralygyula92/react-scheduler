@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "observeWidth",
+    "description": "Apelează onWidth cu lățimea casetei de conținut a elementului, acum și ori de câte ori se schimbă. Modul compact și listOnlyBreakpoint folosesc lățimea rădăcinii, nu a ferestrei sau a browserului."
+  }
+}

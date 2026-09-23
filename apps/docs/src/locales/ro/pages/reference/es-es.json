@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "meta": {
+    "title": "esES",
+    "description": "Pachetul de limbă spaniolă (Spania), transmis lui localization."
+  }
+}

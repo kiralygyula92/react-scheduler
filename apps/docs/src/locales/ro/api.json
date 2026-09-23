@@ -19,6 +19,39 @@
     "name": "Nume",
     "kind": "Fel"
   },
+  "sections": {
+    "import": "Import",
+    "demos": "Unde este folosit",
+    "props": "Proprietăți",
+    "parameters": "Parametri",
+    "returns": "Returnează",
+    "slots": "Sloturi",
+    "cssVariables": "Variabile CSS",
+    "classes": "Nume de clase",
+    "source": "Cod sursă"
+  },
+  "typeGroups": {
+    "events": {
+      "title": "Tipuri pentru evenimente și handlere",
+      "description": "Tipurile callback-urilor și ale middleware-ului: ce primește fiecare și ce poate returna."
+    },
+    "localization": {
+      "title": "Tipuri pentru localizare",
+      "description": "Forma unui pachet de limbă și a formatoarelor, împreună cu utilitarele din jurul lor."
+    },
+    "model": {
+      "title": "Tipuri pentru model",
+      "description": "Datele pe care planificatorul le așază: elemente, niveluri, etichete, ture și aranjarea rezultată."
+    },
+    "options": {
+      "title": "Tipuri pentru opțiuni și proprietăți",
+      "description": "Opțiunile controlerului și proprietățile componentelor, ca tipuri."
+    },
+    "slots": {
+      "title": "Tipuri pentru sloturi și randare",
+      "description": "Părțile, starea lor de proprietar și ce primește fiecare slot și fiecare proprietate de randare."
+    }
+  },
   "ActivationSource": {
     "description": "Ce a activat un element."
   },
@@ -676,14 +709,26 @@
   "createScheduler": {
     "description": "Creează un controler. Aceasta este biblioteca întreagă fără React: îi dai opțiuni, citești modelul de vizualizare, îi apelezi acțiunile."
   },
+  "deDE": {
+    "description": "Pachetul de limbă germană (Germania), transmis lui `localization`."
+  },
   "defaultOverflowColumns": {
     "description": "Coloanele pe care le afișează tabelul de elemente suplimentare când nu se dau altele."
   },
   "enUS": {
     "description": "Pachetul de limbă engleză, folosit implicit când nu se dă `localization`."
   },
+  "esES": {
+    "description": "Pachetul de limbă spaniolă (Spania), transmis lui `localization`."
+  },
+  "frFR": {
+    "description": "Pachetul de limbă franceză (Franța), transmis lui `localization`."
+  },
   "getShiftWindows": {
     "description": "Ferestrele de tură randate în jurul valorii `date`, cu decalajele `-before … +after`. Fereastra curentă este `[ultima limită ≤ date, limita următoare)`; decalajele parcurg limitele peste zile."
+  },
+  "huHU": {
+    "description": "Pachetul de limbă maghiară (Ungaria), transmis lui `localization`."
   },
   "interpolate": {
     "description": "Completează substituenții `{{name}}`. Un șablon de plural își alege forma pentru `values.count` cu `Intl.PluralRules(locale)`, revenind la `other`. Numerele se formatează cu `Intl.NumberFormat`. Un substituent necunoscut rămâne așa cum este scris."
@@ -700,6 +745,9 @@
   "prefersReducedMotion": {
     "description": "Interogarea media `prefers-reduced-motion: reduce`; false când interogările media nu sunt disponibile."
   },
+  "ptPT": {
+    "description": "Pachetul de limbă portugheză (Portugalia), transmis lui `localization`."
+  },
   "resolveEnd": {
     "description": "Sfârșitul rezolvat al unui element: `start + defaultDuration` când `end` lipsește sau este invalid; un final dinaintea începutului contează ca durată zero."
   },
@@ -711,6 +759,9 @@
   },
   "resolveTimeLabel": {
     "description": "Eticheta de timp a unui card, prima potrivire: `timeLabel` așa cum este dat; „{observed} {observedLabel}” când `observedLabel` este un șir nevid; „{since} {timestamp}” pentru un `since` valid, sau doar prefixul pentru unul invalid; altfel „{start} – {end}”."
+  },
+  "roRO": {
+    "description": "Pachetul de limbă română (România), transmis lui `localization`."
   },
   "sortOverflowItems": {
     "description": "Elementele sortate după valoarea coloanei; egalitățile se departajează prin `compare`. Întreaga comparație, inclusiv departajarea, urmează direcția. O coloană nesortabilă sau necunoscută sortează doar prin `compare`."
