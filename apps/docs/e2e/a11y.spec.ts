@@ -32,6 +32,8 @@ const PAGES = [
   '/react-scheduler/all-features/',
   '/react-scheduler/pinning/',
   '/react-scheduler/demos/',
+  '/react-scheduler/demos/playground/',
+  '/react-scheduler/demos/theme-editor/',
   '/react-scheduler/api/',
   '/react-scheduler/api/scheduler/',
   '/react-scheduler/api/types-model/',

@@ -62,6 +62,7 @@
     "discover-more/changelog": [],
     "discover-more/roadmap": ["planned"],
     "discover-more/accessibility": ["target", "what-is-tested", "known-gaps", "reporting"],
-    "discover-more/license": ["summary", "full-text"]
+    "discover-more/license": ["summary", "full-text"],
+    "demos/theme-editor": ["tokens", "css"]
   }
 }

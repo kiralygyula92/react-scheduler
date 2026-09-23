@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "meta": {
+    "title": "Editor de tema",
+    "description": "Cada token de design do componente, editável, com o CSS do que alterou."
+  },
+  "sections": {
+    "tokens": "Tokens",
+    "css": "CSS"
+  },
+  "intro": "Cada valor abaixo é uma propriedade personalizada que o componente lê em tempo de execução, gerada a partir da sua própria folha de estilos. Altere uma e o horário por baixo do painel segue-a; quando terminar, o bloco no fim é o CSS para colar na sua aplicação. Nada é guardado — um recarregamento traz de volta os valores predefinidos.",
+  "families": {
+    "color": "Cor",
+    "typography": "Tipografia",
+    "levels": "Níveis",
+    "shape": "Forma e profundidade",
+    "motion": "Movimento",
+    "layout": "Disposição"
+  },
+  "tokens": {
+    "count": "{count, plural, one {# token} other {# tokens}}",
+    "changed": "{count, plural, =0 {nada alterado} one {# alterado} other {# alterados}}",
+    "filter": "Filtrar tokens",
+    "scheme": "A editar",
+    "schemeLight": "Claro",
+    "schemeDark": "Escuro",
+    "reset": "Repor",
+    "resetAll": "Repor tudo",
+    "color": "Seletor de cor para {name}"
+  },
+  "stage": {
+    "error": "O navegador não consegue usar esse valor. Reponha o token que alterou por último, ou recomece com «Repor tudo»."
+  },
+  "css": {
+    "intro": "Cole isto onde a sua folha de estilos é carregada, depois da do pacote. Aqui está apenas o que alterou.",
+    "empty": "Altere um token e o seu CSS aparece aqui, pronto a copiar."
+  }
+}

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-// The conformance gate (docs pack 07 §6). Enforced here: C1–C6, C8–C11 and C13–C15. C7 waits for the
-// Playground and reports as pending, so the list always shows what is and is not being enforced yet.
+// The conformance gate (docs pack 07 §6). Enforced here: C1–C11 and C13–C15; C12 is the repository-
+// wide zero-reference scan and reports as pending here, so the list always shows what is enforced.
 //
 // Usage: node scripts/check-conformance.ts   (after `pnpm --filter docs build` for C3, C4 and C11)
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
@@ -322,6 +322,31 @@ function c15(): void {
 
 // C6 — the reference is generated: every exported symbol is reachable, every description exists in
 // every locale, and no page writes a table of its own (docs pack 05 §6).
+// C7 — every public prop of the main component is in the Playground (docs pack 04 §4.5).
+function c7(): void {
+  const problems: string[] = [];
+  const apiFile = resolve(src, 'content/api/Scheduler.json');
+  const html = pageFile('en', '/demos/playground/', 'index.html');
+  if (!existsSync(apiFile) || !existsSync(html)) {
+    record('C7', 'every public prop is in the Playground', [
+      'run `pnpm --filter docs api` and `pnpm --filter docs build` first',
+    ]);
+    return;
+  }
+  const api = JSON.parse(readFileSync(apiFile, 'utf8')) as { props: { name: string }[] };
+  // Every control card and every listed prop carries `data-prop`; nothing else on the page does.
+  const shown = new Set(
+    [...readFileSync(html, 'utf8').matchAll(/data-prop="([^"]+)"/g)].map((match) => match[1] as string),
+  );
+  for (const prop of api.props) {
+    if (!shown.has(prop.name)) problems.push(`${prop.name} has no control and is not listed`);
+  }
+  for (const name of shown) {
+    if (!api.props.some((prop) => prop.name === name)) problems.push(`${name} is on the page but not in the API`);
+  }
+  record('C7', 'every public prop is in the Playground', problems);
+}
+
 function c6(): void {
   const problems: string[] = [];
   const apiDir = resolve(src, 'content/api');
@@ -455,7 +480,7 @@ function main(): number {
   c4();
   c5();
   c6();
-  pending('C7', 'every public prop is in the Playground', 'M6');
+  c7();
   c8();
   c9();
   c10();

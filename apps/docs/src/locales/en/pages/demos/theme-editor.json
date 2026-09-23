@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "status": "draft",
+    "source": "M6"
+  },
+  "meta": {
+    "title": "Theme editor",
+    "description": "Every design token of the component, editable, with the CSS for what you changed."
+  },
+  "sections": {
+    "tokens": "Tokens",
+    "css": "CSS"
+  },
+  "intro": "Every value below is a custom property the component reads at run time, generated from its own stylesheet. Change one and the schedule under the panel follows; when you are done, the block at the bottom is the CSS to paste into your application. Nothing here is stored — a reload brings the defaults back.",
+  "families": {
+    "color": "Color",
+    "typography": "Typography",
+    "levels": "Levels",
+    "shape": "Shape and depth",
+    "motion": "Motion",
+    "layout": "Layout"
+  },
+  "tokens": {
+    "count": "{count, plural, one {# token} other {# tokens}}",
+    "changed": "{count, plural, =0 {nothing changed} one {# changed} other {# changed}}",
+    "filter": "Filter tokens",
+    "scheme": "Editing",
+    "schemeLight": "Light",
+    "schemeDark": "Dark",
+    "reset": "Reset",
+    "resetAll": "Reset all",
+    "color": "Color picker for {name}"
+  },
+  "stage": {
+    "error": "That value is one the browser cannot use. Reset the token you changed last, or start again with Reset all."
+  },
+  "css": {
+    "intro": "Paste this where your own stylesheet loads, after the package’s. Only what you changed is here.",
+    "empty": "Change a token and its CSS appears here, ready to copy."
+  }
+}

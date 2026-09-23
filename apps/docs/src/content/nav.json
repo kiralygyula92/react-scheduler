@@ -325,6 +325,14 @@
           "page": "demos/playground",
           "template": "T9",
           "layout": "wide"
+        },
+        {
+          "id": "theme-editor",
+          "labelKey": "nav.themeEditor",
+          "path": "/demos/theme-editor/",
+          "page": "demos/theme-editor",
+          "template": "T16",
+          "layout": "wide"
         }
       ]
     },

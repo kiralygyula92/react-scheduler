@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Playground",
-    "description": "Încearcă React Scheduler cu toate proprietățile publice, vezi evenimentele emise și copiază JSX-ul configurației tale."
+    "description": "Fiecare proprietate a componentei, cu un control acolo unde se poate, codul pentru ce ai schimbat și evenimentele pe care le emite."
   },
   "sections": {
-    "setup": "Configurare",
+    "setup": "Pregătire",
     "props": "Proprietăți",
     "code": "Cod",
     "event-log": "Jurnal de evenimente"
+  },
+  "intro": "Fiecare control de mai jos este generat din declarațiile componentei, așa că pagina nu poate rămâne în urma ei: o proprietate care există are aici un control sau o linie în <strong>Doar din cod</strong>. Ce schimbi ajunge în bara de adrese, deci linkul din browser este chiar configurația pe care o privești.",
+  "controls": {
+    "resetAll": "Resetează tot"
+  },
+  "setup": {
+    "dataset": "Date",
+    "count": "Elemente în mostră",
+    "language": "Limbă"
+  },
+  "datasets": {
+    "baseline-day": "O zi obișnuită",
+    "empty": "Nimic programat",
+    "sparse": "Un element pe tură",
+    "crowded": "Șapte elemente, o oră",
+    "night-shift": "O tură peste miezul nopții",
+    "past-date": "O zi deja încheiată",
+    "pinned-many": "Șase elemente care se fixează",
+    "large": "240 de elemente",
+    "sample": "Mostră generată"
+  },
+  "languages": {
+    "en": "Engleză",
+    "ro": "Română",
+    "hu": "Maghiară",
+    "es": "Spaniolă",
+    "fr": "Franceză",
+    "de": "Germană",
+    "pt": "Portugheză"
+  },
+  "props": {
+    "title": "Proprietăți {count}",
+    "changed": "{count, plural, =0 {nimic schimbat} one {# schimbată} few {# schimbate} other {# schimbate}}",
+    "count": "{count, plural, one {# proprietate} few {# proprietăți} other {# de proprietăți}}",
+    "filter": "Filtrează proprietățile",
+    "changedOnly": "Doar cele schimbate",
+    "reset": "Resetează",
+    "defaultOption": "implicit ({value})",
+    "eventsTitle": "Evenimente",
+    "codeOnlyTitle": "Doar din cod"
+  },
+  "stage": {
+    "error": "Componenta refuză această combinație. Resetează proprietatea schimbată ultima dată sau ia-o de la capăt cu „Resetează tot”."
+  },
+  "log": {
+    "title": "Jurnal de evenimente",
+    "count": "{count, plural, =0 {încă nimic} one {# apel} few {# apeluri} other {# de apeluri}}",
+    "clear": "Golește",
+    "empty": "Încă nimic. Deschide un element, schimbă vizualizarea sau derulează programul, iar apelurile apar aici."
   }
 }

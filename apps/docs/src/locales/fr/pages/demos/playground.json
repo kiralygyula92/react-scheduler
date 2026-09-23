@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Bac à sable",
-    "description": "Essayez React Scheduler avec toutes les props publiques, observez ses événements et copiez le JSX obtenu."
+    "title": "Playground",
+    "description": "Chaque prop du composant, avec un contrôle quand c’est possible, le code de ce que vous avez changé et les événements émis."
   },
   "sections": {
-    "setup": "Configuration",
+    "setup": "Préparation",
     "props": "Props",
     "code": "Code",
     "event-log": "Journal des événements"
+  },
+  "intro": "Chaque contrôle ci-dessous est généré à partir des déclarations du composant : cette page ne peut donc pas prendre de retard sur lui — une prop qui existe a ici un contrôle, ou une ligne dans <strong>Code seul</strong>. Ce que vous changez passe dans la barre d’adresse : le lien de votre navigateur est exactement la configuration affichée.",
+  "controls": {
+    "resetAll": "Tout réinitialiser"
+  },
+  "setup": {
+    "dataset": "Données",
+    "count": "Éléments dans l’échantillon",
+    "language": "Langue"
+  },
+  "datasets": {
+    "baseline-day": "Une journée ordinaire",
+    "empty": "Rien de prévu",
+    "sparse": "Un élément par poste",
+    "crowded": "Sept éléments, une heure",
+    "night-shift": "Un poste à cheval sur minuit",
+    "past-date": "Une journée déjà finie",
+    "pinned-many": "Six éléments qui s’épinglent",
+    "large": "240 éléments",
+    "sample": "Échantillon généré"
+  },
+  "languages": {
+    "en": "Anglais",
+    "ro": "Roumain",
+    "hu": "Hongrois",
+    "es": "Espagnol",
+    "fr": "Français",
+    "de": "Allemand",
+    "pt": "Portugais"
+  },
+  "props": {
+    "title": "Props {count}",
+    "changed": "{count, plural, =0 {rien de changé} one {# changée} other {# changées}}",
+    "count": "{count, plural, one {# prop} other {# props}}",
+    "filter": "Filtrer les props",
+    "changedOnly": "Seulement les changées",
+    "reset": "Réinitialiser",
+    "defaultOption": "par défaut ({value})",
+    "eventsTitle": "Événements",
+    "codeOnlyTitle": "Code seul"
+  },
+  "stage": {
+    "error": "Le composant refuse cette combinaison. Réinitialisez la prop changée en dernier, ou repartez de zéro avec « Tout réinitialiser »."
+  },
+  "log": {
+    "title": "Journal des événements",
+    "count": "{count, plural, =0 {rien pour l’instant} one {# appel} other {# appels}}",
+    "clear": "Vider",
+    "empty": "Rien pour l’instant. Ouvrez un élément, changez de vue ou faites défiler le planning, et les appels apparaîtront ici."
   }
 }

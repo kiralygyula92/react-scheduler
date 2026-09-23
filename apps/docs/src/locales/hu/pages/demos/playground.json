@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Kísérletező felület",
-    "description": "Próbáld ki a React Schedulert minden publikus proppal, figyeld az eseményeket, és másold ki a beállításod JSX-ét."
+    "title": "Playground",
+    "description": "A komponens minden property-je, ahol lehet, vezérlővel, a kód arról, amit módosítottál, és az általa kibocsátott események."
   },
   "sections": {
     "setup": "Beállítás",
-    "props": "Propok",
+    "props": "Property-k",
     "code": "Kód",
     "event-log": "Eseménynapló"
+  },
+  "intro": "Az alábbi vezérlők mind a komponens saját deklarációiból készülnek, így ez az oldal nem maradhat le tőle: amelyik property létezik, annak itt vezérlője van, vagy sora a <strong>Csak kódból</strong> listában. Amit módosítasz, bekerül a címsorba, tehát a böngésződben lévő hivatkozás pontosan az a beállítás, amit látsz.",
+  "controls": {
+    "resetAll": "Mindent alaphelyzetbe"
+  },
+  "setup": {
+    "dataset": "Adatok",
+    "count": "Elemek a mintában",
+    "language": "Nyelv"
+  },
+  "datasets": {
+    "baseline-day": "Egy átlagos nap",
+    "empty": "Semmi nincs beosztva",
+    "sparse": "Műszakonként egy elem",
+    "crowded": "Hét elem, egy óra",
+    "night-shift": "Műszak éjfélen át",
+    "past-date": "Egy már lezárult nap",
+    "pinned-many": "Hat elem, amely rögzül",
+    "large": "240 elem",
+    "sample": "Generált minta"
+  },
+  "languages": {
+    "en": "Angol",
+    "ro": "Román",
+    "hu": "Magyar",
+    "es": "Spanyol",
+    "fr": "Francia",
+    "de": "Német",
+    "pt": "Portugál"
+  },
+  "props": {
+    "title": "Property-k: {count}",
+    "changed": "{count, plural, =0 {semmi nem változott} other {# módosítva}}",
+    "count": "{count, plural, other {# property}}",
+    "filter": "Property-k szűrése",
+    "changedOnly": "Csak a módosítottak",
+    "reset": "Alaphelyzet",
+    "defaultOption": "alapértelmezett ({value})",
+    "eventsTitle": "Események",
+    "codeOnlyTitle": "Csak kódból"
+  },
+  "stage": {
+    "error": "Ezt a kombinációt a komponens visszautasítja. Állítsd vissza az utoljára módosított property-t, vagy kezdd elölről a „Mindent alaphelyzetbe” gombbal."
+  },
+  "log": {
+    "title": "Eseménynapló",
+    "count": "{count, plural, =0 {még semmi} other {# hívás}}",
+    "clear": "Ürítés",
+    "empty": "Még semmi. Nyiss meg egy elemet, válts nézetet vagy görgesd a beosztást, és a hívások itt jelennek meg."
   }
 }
