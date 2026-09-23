@@ -33,6 +33,8 @@ export interface Demo {
   /** The strings of `locales/{lng}/demos.json`. */
   readonly t: ReturnType<typeof useT>;
   readonly localization: SchedulerLocalization;
+  /** Every pack by site language, for the one page that lets the reader switch it: the Playground. */
+  readonly packs: Readonly<Record<string, SchedulerLocalization>>;
   /** The moment the scheduler shows: the shift that holds it is the one rendered. */
   readonly date: Date;
   readonly now: Date;
@@ -49,6 +51,7 @@ export function useDemo(): Demo {
     () => ({
       t,
       localization: PACKS[locale] ?? enUS,
+      packs: PACKS,
       date: DEMO_NOW,
       now: DEMO_NOW,
       at: (hour: number) => DEMO_DAY.getTime() + hour * 3_600_000,

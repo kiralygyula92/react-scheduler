@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "meta": {
+    "title": "Themen-Editor",
+    "description": "Jeder Design-Token der Komponente, änderbar, mit dem CSS für das Geänderte."
+  },
+  "sections": {
+    "tokens": "Tokens",
+    "css": "CSS"
+  },
+  "intro": "Jeder Wert unten ist eine benutzerdefinierte Eigenschaft, die die Komponente zur Laufzeit liest und die aus ihrem eigenen Stylesheet stammt. Ändern Sie eine, und der Plan unter dem Panel folgt; am Ende ist der Block unten das CSS zum Einfügen in Ihre Anwendung. Nichts wird gespeichert — ein Neuladen bringt die Standardwerte zurück.",
+  "families": {
+    "color": "Farbe",
+    "typography": "Typografie",
+    "levels": "Stufen",
+    "shape": "Form und Tiefe",
+    "motion": "Bewegung",
+    "layout": "Layout"
+  },
+  "tokens": {
+    "count": "{count, plural, one {# Token} other {# Tokens}}",
+    "changed": "{count, plural, =0 {nichts geändert} one {# geändert} other {# geändert}}",
+    "filter": "Tokens filtern",
+    "scheme": "Bearbeitet wird",
+    "schemeLight": "Hell",
+    "schemeDark": "Dunkel",
+    "reset": "Zurücksetzen",
+    "resetAll": "Alles zurücksetzen",
+    "color": "Farbwähler für {name}"
+  },
+  "stage": {
+    "error": "Diesen Wert kann der Browser nicht verwenden. Setzen Sie den zuletzt geänderten Token zurück oder beginnen Sie mit „Alles zurücksetzen“ neu."
+  },
+  "css": {
+    "intro": "Fügen Sie das dort ein, wo Ihr eigenes Stylesheet geladen wird, nach dem des Pakets. Hier steht nur das Geänderte.",
+    "empty": "Ändern Sie einen Token, und sein CSS erscheint hier, bereit zum Kopieren."
+  }
+}

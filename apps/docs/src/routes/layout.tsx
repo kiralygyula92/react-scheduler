@@ -44,7 +44,12 @@ export async function loader({ request }: { request: Request }): Promise<PageDat
   const namespaces = ['common', 'nav', 'demos', ...(item === undefined ? [] : [`pages/${item.page}`])];
   const showsApi =
     item !== undefined &&
-    (item.page.startsWith('reference/') || item.page.startsWith('customization/') || item.symbols !== undefined);
+    (item.page.startsWith('reference/') ||
+      item.page.startsWith('customization/') ||
+      // The Playground and the theme editor describe every prop and every token they offer.
+      item.page === 'demos/playground' ||
+      item.page === 'demos/theme-editor' ||
+      item.symbols !== undefined);
   if (showsApi && hasBundle(locale, 'api')) namespaces.push('api');
   // An index page lists its children with each child's own description; `summaries` holds those and
   // is loaded only where one is shown (docs pack 03 §3.5).

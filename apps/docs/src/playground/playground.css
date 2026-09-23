@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Playground and theme editor — page styles, not shell styles.
+
+   `shell.css` ships the `.ds-pg*` rule set of docs pack 04 §4 verbatim. The
+   few things it does not name live here rather than in the shell, so the
+   shell's checksum stays where it is: the headings the page template requires
+   inside the panel's rows, the help text under a control, the slider, the
+   event log and the token grid of the theme editor. Tokens only — no colours
+   and no durations of their own (conformance C9).
+   ========================================================================== */
+
+.ds-pg h2 {
+  display: inline;
+  margin: 0;
+  font-size: var(--ds-fs-md);
+  font-weight: 600;
+}
+
+.ds-pg__help {
+  margin: var(--ds-space-2) 0 0;
+  color: var(--ds-text-secondary);
+  font-size: var(--ds-fs-xs);
+}
+
+.ds-pg__range {
+  width: 100%;
+  margin-bottom: var(--ds-space-2);
+}
+
+.ds-pg__listed {
+  margin: var(--ds-space-3) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--ds-space-2);
+  font-size: var(--ds-fs-sm);
+}
+
+.ds-pg__log {
+  margin: var(--ds-space-3) 0 0;
+  padding-inline-start: var(--ds-space-5);
+  display: grid;
+  gap: var(--ds-space-1);
+  font-size: var(--ds-fs-sm);
+}
+
+.ds-pg__log code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* The theme editor: one row per token, wide enough for the name and both inputs. */
+.ds-pg__tokens {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--ds-space-3);
+  margin-top: var(--ds-space-3);
+}
+
+.ds-pg__token {
+  display: grid;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-3);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-bg-muted);
+}
+
+.ds-pg__token-name {
+  font-family: var(--ds-font-mono);
+  font-size: var(--ds-fs-xs);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.ds-pg__token-inputs {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+}
+
+.ds-pg__token-inputs .ds-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-pg__swatch {
+  inline-size: 36px;
+  block-size: 32px;
+  padding: 0;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-sm);
+  background: none;
+}

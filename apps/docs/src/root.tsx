@@ -15,6 +15,7 @@ import { themeBootstrap } from '~/shell/theme-bootstrap';
 import '~/shell/tokens.css';
 import '~/shell/shell.css';
 import '~/shell/shell-overrides.css';
+import '~/playground/playground.css';
 import { site } from '~/shell/nav';
 
 // The document shell (docs pack 01 §5, 10 §3.3). The theme script runs before any stylesheet, so the

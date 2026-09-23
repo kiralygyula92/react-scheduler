@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Playground",
-    "description": "Experimente o React Scheduler com todas as props públicas, veja os eventos emitidos e copie o JSX resultante."
+    "description": "Cada prop do componente, com um controlo onde é possível, o código do que alterou e os eventos que emite."
   },
   "sections": {
-    "setup": "Configuração",
+    "setup": "Preparação",
     "props": "Props",
     "code": "Código",
     "event-log": "Registo de eventos"
+  },
+  "intro": "Cada controlo abaixo é gerado a partir das declarações do próprio componente, por isso esta página não pode ficar para trás dele: uma prop que existe tem aqui um controlo ou uma linha em <strong>Só código</strong>. O que altera vai para a barra de endereços, por isso a ligação no seu navegador é a configuração que está a ver.",
+  "controls": {
+    "resetAll": "Repor tudo"
+  },
+  "setup": {
+    "dataset": "Dados",
+    "count": "Elementos na amostra",
+    "language": "Idioma"
+  },
+  "datasets": {
+    "baseline-day": "Um dia vulgar",
+    "empty": "Nada agendado",
+    "sparse": "Um elemento por turno",
+    "crowded": "Sete elementos, uma hora",
+    "night-shift": "Um turno através da meia-noite",
+    "past-date": "Um dia já terminado",
+    "pinned-many": "Seis elementos que fixam",
+    "large": "240 elementos",
+    "sample": "Amostra gerada"
+  },
+  "languages": {
+    "en": "Inglês",
+    "ro": "Romeno",
+    "hu": "Húngaro",
+    "es": "Espanhol",
+    "fr": "Francês",
+    "de": "Alemão",
+    "pt": "Português"
+  },
+  "props": {
+    "title": "Props {count}",
+    "changed": "{count, plural, =0 {nada alterado} one {# alterada} other {# alteradas}}",
+    "count": "{count, plural, one {# prop} other {# props}}",
+    "filter": "Filtrar props",
+    "changedOnly": "Só as alteradas",
+    "reset": "Repor",
+    "defaultOption": "predefinido ({value})",
+    "eventsTitle": "Eventos",
+    "codeOnlyTitle": "Só código"
+  },
+  "stage": {
+    "error": "O componente recusa essa combinação. Reponha a prop que alterou por último, ou recomece com «Repor tudo»."
+  },
+  "log": {
+    "title": "Registo de eventos",
+    "count": "{count, plural, =0 {ainda nada} one {# chamada} other {# chamadas}}",
+    "clear": "Limpar",
+    "empty": "Ainda nada. Abra um elemento, mude de vista ou desloque o horário, e as chamadas aparecem aqui."
   }
 }

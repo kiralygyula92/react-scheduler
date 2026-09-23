@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "meta": {
+    "title": "Témaszerkesztő",
+    "description": "A komponens minden dizájntokenje szerkeszthetően, és a CSS arról, amit módosítottál."
+  },
+  "sections": {
+    "tokens": "Tokenek",
+    "css": "CSS"
+  },
+  "intro": "Minden alábbi érték egy egyéni tulajdonság, amelyet a komponens futásidőben olvas, és amely a saját stíluslapjából származik. Változtass meg egyet, és a panel alatti beosztás követi; ha kész vagy, az alul lévő blokk az a CSS, amelyet az alkalmazásodba illeszthetsz. Semmi nem mentődik — újratöltésre visszajönnek az alapértékek.",
+  "families": {
+    "color": "Szín",
+    "typography": "Tipográfia",
+    "levels": "Szintek",
+    "shape": "Forma és mélység",
+    "motion": "Mozgás",
+    "layout": "Elrendezés"
+  },
+  "tokens": {
+    "count": "{count, plural, other {# token}}",
+    "changed": "{count, plural, =0 {semmi nem változott} other {# módosítva}}",
+    "filter": "Tokenek szűrése",
+    "scheme": "Szerkesztés alatt",
+    "schemeLight": "Világos",
+    "schemeDark": "Sötét",
+    "reset": "Alaphelyzet",
+    "resetAll": "Mindent alaphelyzetbe",
+    "color": "Színválasztó ehhez: {name}"
+  },
+  "stage": {
+    "error": "Ezt az értéket a böngésző nem tudja használni. Állítsd vissza az utoljára módosított tokent, vagy kezdd elölről a „Mindent alaphelyzetbe” gombbal."
+  },
+  "css": {
+    "intro": "Ezt oda illeszd, ahol a saját stíluslapod betöltődik, a csomagé után. Csak az van benne, amit módosítottál.",
+    "empty": "Módosíts egy tokent, és a hozzá tartozó CSS itt jelenik meg, másolásra készen."
+  }
+}

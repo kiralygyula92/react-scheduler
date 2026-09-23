@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "meta": {
+    "title": "Éditeur de thème",
+    "description": "Chaque jeton de design du composant, modifiable, avec le CSS de ce que vous avez changé."
+  },
+  "sections": {
+    "tokens": "Jetons",
+    "css": "CSS"
+  },
+  "intro": "Chaque valeur ci-dessous est une propriété personnalisée que le composant lit à l’exécution, générée depuis sa propre feuille de style. Changez-en une et le planning sous le panneau suit ; une fois terminé, le bloc du bas est le CSS à coller dans votre application. Rien n’est enregistré : un rechargement ramène les valeurs par défaut.",
+  "families": {
+    "color": "Couleur",
+    "typography": "Typographie",
+    "levels": "Niveaux",
+    "shape": "Forme et profondeur",
+    "motion": "Mouvement",
+    "layout": "Mise en page"
+  },
+  "tokens": {
+    "count": "{count, plural, one {# jeton} other {# jetons}}",
+    "changed": "{count, plural, =0 {rien de changé} one {# changé} other {# changés}}",
+    "filter": "Filtrer les jetons",
+    "scheme": "Édition de",
+    "schemeLight": "Clair",
+    "schemeDark": "Sombre",
+    "reset": "Réinitialiser",
+    "resetAll": "Tout réinitialiser",
+    "color": "Sélecteur de couleur pour {name}"
+  },
+  "stage": {
+    "error": "Le navigateur ne peut pas utiliser cette valeur. Réinitialisez le jeton changé en dernier, ou repartez de zéro avec « Tout réinitialiser »."
+  },
+  "css": {
+    "intro": "Collez ceci là où votre feuille de style se charge, après celle du paquet. Il n’y a ici que ce que vous avez changé.",
+    "empty": "Changez un jeton et son CSS apparaît ici, prêt à copier."
+  }
+}

@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Playground",
-    "description": "Try React Scheduler with every public prop, watch the events it emits, and copy the JSX for the setup you built."
+    "description": "Every prop of the component, with a control where one is possible, the code for what you changed, and the events it emits."
   },
   "sections": {
     "setup": "Setup",
     "props": "Props",
     "code": "Code",
     "event-log": "Event log"
+  },
+  "intro": "Every control below is generated from the component’s own declarations, so this page cannot fall behind it: a prop that exists has a control here or a line in <strong>Code only</strong>. What you change goes into the address bar, so the link in your browser is the configuration you are looking at.",
+  "controls": {
+    "resetAll": "Reset all"
+  },
+  "setup": {
+    "dataset": "Data",
+    "count": "Items in the sample",
+    "language": "Language"
+  },
+  "datasets": {
+    "baseline-day": "An ordinary day",
+    "empty": "Nothing scheduled",
+    "sparse": "One item per shift",
+    "crowded": "Seven items, one hour",
+    "night-shift": "A shift across midnight",
+    "past-date": "A day already over",
+    "pinned-many": "Six items that pin",
+    "large": "240 items",
+    "sample": "Generated sample"
+  },
+  "languages": {
+    "en": "English",
+    "ro": "Romanian",
+    "hu": "Hungarian",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "pt": "Portuguese"
+  },
+  "props": {
+    "title": "Props {count}",
+    "changed": "{count, plural, =0 {nothing changed} one {# changed} other {# changed}}",
+    "count": "{count, plural, one {# prop} other {# props}}",
+    "filter": "Filter props",
+    "changedOnly": "Changed only",
+    "reset": "Reset",
+    "defaultOption": "default ({value})",
+    "eventsTitle": "Events",
+    "codeOnlyTitle": "Code only"
+  },
+  "stage": {
+    "error": "That combination is one the component refuses. Reset the prop you changed last, or start again with Reset all."
+  },
+  "log": {
+    "title": "Event log",
+    "count": "{count, plural, =0 {nothing yet} one {# call} other {# calls}}",
+    "clear": "Clear",
+    "empty": "Nothing yet. Open an item, switch a view or scroll the schedule, and the calls appear here."
   }
 }

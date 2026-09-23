@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Playground",
-    "description": "Probiere React Scheduler mit allen öffentlichen Props aus, beobachte die Ereignisse und kopiere das fertige JSX."
+    "description": "Jede Prop der Komponente, mit einem Bedienelement, wo es geht, dem Code für das Geänderte und den Ereignissen, die sie auslöst."
   },
   "sections": {
-    "setup": "Einrichtung",
+    "setup": "Vorbereitung",
     "props": "Props",
     "code": "Code",
     "event-log": "Ereignisprotokoll"
+  },
+  "intro": "Jedes Bedienelement unten wird aus den Deklarationen der Komponente erzeugt, diese Seite kann ihr also nicht hinterherhinken: Eine Prop, die es gibt, hat hier ein Bedienelement oder eine Zeile unter <strong>Nur im Code</strong>. Was Sie ändern, wandert in die Adresszeile — der Link im Browser ist genau die Konfiguration, die Sie sehen.",
+  "controls": {
+    "resetAll": "Alles zurücksetzen"
+  },
+  "setup": {
+    "dataset": "Daten",
+    "count": "Einträge im Beispiel",
+    "language": "Sprache"
+  },
+  "datasets": {
+    "baseline-day": "Ein gewöhnlicher Tag",
+    "empty": "Nichts eingeplant",
+    "sparse": "Ein Eintrag je Schicht",
+    "crowded": "Sieben Einträge, eine Stunde",
+    "night-shift": "Eine Schicht über Mitternacht",
+    "past-date": "Ein Tag, der schon vorbei ist",
+    "pinned-many": "Sechs Einträge, die anheften",
+    "large": "240 Einträge",
+    "sample": "Erzeugtes Beispiel"
+  },
+  "languages": {
+    "en": "Englisch",
+    "ro": "Rumänisch",
+    "hu": "Ungarisch",
+    "es": "Spanisch",
+    "fr": "Französisch",
+    "de": "Deutsch",
+    "pt": "Portugiesisch"
+  },
+  "props": {
+    "title": "Props {count}",
+    "changed": "{count, plural, =0 {nichts geändert} one {# geändert} other {# geändert}}",
+    "count": "{count, plural, one {# Prop} other {# Props}}",
+    "filter": "Props filtern",
+    "changedOnly": "Nur geänderte",
+    "reset": "Zurücksetzen",
+    "defaultOption": "Standard ({value})",
+    "eventsTitle": "Ereignisse",
+    "codeOnlyTitle": "Nur im Code"
+  },
+  "stage": {
+    "error": "Diese Kombination lehnt die Komponente ab. Setzen Sie die zuletzt geänderte Prop zurück oder beginnen Sie mit „Alles zurücksetzen“ neu."
+  },
+  "log": {
+    "title": "Ereignisprotokoll",
+    "count": "{count, plural, =0 {noch nichts} one {# Aufruf} other {# Aufrufe}}",
+    "clear": "Leeren",
+    "empty": "Noch nichts. Öffnen Sie einen Eintrag, wechseln Sie die Ansicht oder scrollen Sie den Plan — die Aufrufe erscheinen hier."
   }
 }

@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "M5"
+  },
+  "meta": {
+    "title": "Editor de temă",
+    "description": "Fiecare token de design al componentei, editabil, cu CSS-ul pentru ce ai schimbat."
+  },
+  "sections": {
+    "tokens": "Token-uri",
+    "css": "CSS"
+  },
+  "intro": "Fiecare valoare de mai jos este o proprietate personalizată pe care componenta o citește la execuție, generată din foaia ei de stil. Schimbă una și programul de sub panou o urmează; când ai terminat, blocul de la final este CSS-ul de lipit în aplicația ta. Nimic nu se salvează — o reîncărcare aduce înapoi valorile implicite.",
+  "families": {
+    "color": "Culoare",
+    "typography": "Tipografie",
+    "levels": "Niveluri",
+    "shape": "Formă și adâncime",
+    "motion": "Mișcare",
+    "layout": "Aranjare"
+  },
+  "tokens": {
+    "count": "{count, plural, one {# token} few {# token-uri} other {# de token-uri}}",
+    "changed": "{count, plural, =0 {nimic schimbat} one {# schimbat} few {# schimbate} other {# schimbate}}",
+    "filter": "Filtrează token-urile",
+    "scheme": "Se editează",
+    "schemeLight": "Deschisă",
+    "schemeDark": "Întunecată",
+    "reset": "Resetează",
+    "resetAll": "Resetează tot",
+    "color": "Selector de culoare pentru {name}"
+  },
+  "stage": {
+    "error": "Browserul nu poate folosi această valoare. Resetează token-ul schimbat ultima dată sau ia-o de la capăt cu „Resetează tot”."
+  },
+  "css": {
+    "intro": "Lipește asta acolo unde se încarcă foaia ta de stil, după cea a pachetului. Aici este doar ce ai schimbat.",
+    "empty": "Schimbă un token și CSS-ul lui apare aici, gata de copiat."
+  }
+}

@@ -1,16 +1,65 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Área de pruebas",
-    "description": "Prueba React Scheduler con todas las props públicas, observa sus eventos y copia el JSX de la configuración."
+    "title": "Playground",
+    "description": "Cada prop del componente, con un control donde es posible, el código de lo que cambiaste y los eventos que emite."
   },
   "sections": {
-    "setup": "Configuración",
+    "setup": "Preparación",
     "props": "Props",
     "code": "Código",
     "event-log": "Registro de eventos"
+  },
+  "intro": "Cada control de abajo se genera a partir de las propias declaraciones del componente, así que esta página no puede quedarse atrás: una prop que existe tiene aquí un control o una línea en <strong>Solo código</strong>. Lo que cambias va a la barra de direcciones, así que el enlace de tu navegador es la configuración que estás viendo.",
+  "controls": {
+    "resetAll": "Restablecer todo"
+  },
+  "setup": {
+    "dataset": "Datos",
+    "count": "Elementos de la muestra",
+    "language": "Idioma"
+  },
+  "datasets": {
+    "baseline-day": "Un día corriente",
+    "empty": "Nada programado",
+    "sparse": "Un elemento por turno",
+    "crowded": "Siete elementos, una hora",
+    "night-shift": "Un turno a través de la medianoche",
+    "past-date": "Un día ya terminado",
+    "pinned-many": "Seis elementos que se fijan",
+    "large": "240 elementos",
+    "sample": "Muestra generada"
+  },
+  "languages": {
+    "en": "Inglés",
+    "ro": "Rumano",
+    "hu": "Húngaro",
+    "es": "Español",
+    "fr": "Francés",
+    "de": "Alemán",
+    "pt": "Portugués"
+  },
+  "props": {
+    "title": "Props {count}",
+    "changed": "{count, plural, =0 {nada cambiado} one {# cambiada} other {# cambiadas}}",
+    "count": "{count, plural, one {# prop} other {# props}}",
+    "filter": "Filtrar props",
+    "changedOnly": "Solo las cambiadas",
+    "reset": "Restablecer",
+    "defaultOption": "predeterminado ({value})",
+    "eventsTitle": "Eventos",
+    "codeOnlyTitle": "Solo código"
+  },
+  "stage": {
+    "error": "El componente rechaza esa combinación. Restablece la prop que cambiaste al final, o empieza de nuevo con «Restablecer todo»."
+  },
+  "log": {
+    "title": "Registro de eventos",
+    "count": "{count, plural, =0 {nada todavía} one {# llamada} other {# llamadas}}",
+    "clear": "Vaciar",
+    "empty": "Nada todavía. Abre un elemento, cambia de vista o desplaza el horario, y las llamadas aparecen aquí."
   }
 }

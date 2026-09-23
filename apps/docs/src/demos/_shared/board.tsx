@@ -12,26 +12,13 @@ import {
   type ViewKind,
   type WallClock,
 } from '@react-schedulerkit/react-scheduler';
+import { type FixtureData, fixtureItems, fixtureMoment } from './fixture';
 import { useDemo } from './useDemo';
 
-/** One fixture as `scripts/lib/fixtures.ts` writes it: minutes from midnight of the selected day. */
-export interface FixtureData {
-  readonly id: string;
-  readonly date: number;
-  readonly now: number;
-  readonly shiftHours: number;
-  readonly anchorHour: number;
-  readonly items: readonly {
-    readonly start: number;
-    readonly end: number | null;
-    readonly level: string;
-    readonly tags: readonly string[];
-  }[];
-}
+export type { FixtureData };
 
 const VIEWS: readonly ViewKind[] = ['list', 'timeline'];
 const SCHEMES: readonly ColorScheme[] = ['light', 'dark'];
-const MINUTE = 60_000;
 
 export function FixtureBoard({ fixture }: { fixture: FixtureData }): React.ReactElement {
   const demo = useDemo();
@@ -44,20 +31,9 @@ export function FixtureBoard({ fixture }: { fixture: FixtureData }): React.React
   // site and the prerendered schedule agrees with the hydrated one.
   const midnight = demo.at(0);
   const anchor: WallClock = `${fixture.anchorHour}:00`;
-  const titles = demo.t.list('sample.titles');
-  const items: SchedulerItem[] = fixture.items.map(({ start, end, level, tags }, index) => {
-    const title = titles[index % titles.length] ?? '';
-    const suffix = index < titles.length ? '' : ` ${String(Math.floor(index / titles.length) + 1)}`;
-    const item: SchedulerItem = {
-      id: `${fixture.id}-${String(index).padStart(3, '0')}`,
-      start: midnight + start * MINUTE,
-      level,
-      title: `${title}${suffix}`,
-      description: demo.t('sample.description', { title }),
-    };
-    if (end !== null) item.end = midnight + end * MINUTE;
-    if (tags.length > 0) item.tags = [...tags];
-    return item;
+  const items: SchedulerItem[] = fixtureItems(fixture, midnight, {
+    titles: demo.t.list('sample.titles'),
+    describe: (title) => demo.t('sample.description', { title }),
   });
 
   return (
@@ -111,8 +87,8 @@ export function FixtureBoard({ fixture }: { fixture: FixtureData }): React.React
           before: 1,
           after: 1,
         }}
-        date={midnight + fixture.date * MINUTE}
-        now={midnight + fixture.now * MINUTE}
+        date={fixtureMoment(fixture, midnight, 'date')}
+        now={fixtureMoment(fixture, midnight, 'now')}
         view={view}
         onViewChange={setView}
         colorScheme={scheme}
