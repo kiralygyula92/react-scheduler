@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Indicator pentru momentul curent",
-    "description": "Indicator pentru momentul curent în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "title": "Indicatorul „acum”",
+    "description": "Marcajul care spune unde cade momentul prezent, când este arătat și ce îl ține în mișcare."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "clock": "Ceasul",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "now": "Unde cade momentul prezent"
+  },
+  "basics": {
+    "intro": "Un program se citește în raport cu prezentul: ce a trecut, ce este în desfășurare, ce mai urmează. Indicatorul „acum” desenează acea graniță — o linie cu etichetă peste grila cronologiei, un marcaj între carduri în listă.",
+    "when": "Este arătat doar când toate acestea sunt adevărate, ca să nu pretindă niciodată o poziție pe care nu o are:",
+    "points": [
+      "<code>enableNowIndicator</code> este pornit, cum este implicit.",
+      "Ziua citită nu este în trecut.",
+      "Acum cade în tura curentă și în intervalul randat.",
+      "Ziua citită este ziua în care cade acum."
+    ]
+  },
+  "clock": {
+    "intro": "Componenta își ține propriul ceas, care bate la fiecare <code>nowTickInterval</code> cât timp este montată și se oprește cât timp documentul este ascuns — un program lăsat deschis într-o filă din fundal nu costă nimic. Dă <code>now</code> ca să preiei ceasul: un test, o captură sau o reluare arată atunci momentul ales de tine, nu momentul în care este."
+  },
+  "accessibility": {
+    "points": [
+      "În listă marcajul este un separator cu etichetă, așa că granița este anunțată, nu doar desenată.",
+      "În cronologie linia este decorativă: aceeași oră se află în pastila ei de etichetă și în numele fiecărui card.",
+      "Marcajul nu mută focalizarea și nu derulează nimic; unde aterizează o vizualizare este o decizie separată."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Părțile <code>nowMarker</code> în listă și <code>nowLine</code> cu <code>nowLabel</code> în cronologie pot fi înlocuite prin <link to=\"/customization/slots/\">sloturi</link>.",
+      "<code>--rs-color-now</code> este culoarea liniei și a etichetei ei.",
+      "<code>localization.now.label</code> este textul, iar <code>formatters.clockTime</code> ora din el.",
+      "<code>enableNowIndicator</code> îl oprește cu totul, pentru un program care nu este despre ziua de azi."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un singur marcaj deodată: doar tura curentă îl primește, chiar dacă sunt randate mai multe ture din aceeași zi.",
+      "Ceasul bate la un interval fix, nu exact la minut, așa că marcajul poate rămâne în urmă cu cel mult un interval.",
+      "Nu există un „acum” într-un alt fus orar decât al cititorului."
+    ]
   }
 }

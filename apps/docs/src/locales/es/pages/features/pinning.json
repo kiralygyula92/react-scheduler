@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Fijado",
-    "description": "Fijado en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "title": "Fijación",
+    "description": "Qué elementos siguen a la vista una vez que pasan, qué lo decide y cómo se ordena la franja de fijados."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "rules": "Reglas y ajustes",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Elementos que siguen a la vista"
+  },
+  "basics": {
+    "intro": "Algo importante que se ha ido de la vista sigue siendo importante. La fijación mantiene esos elementos en una franja en la parte superior del desplazador, en el orden que habrían tenido en el turno, y los suelta cuando vuelven a verse.",
+    "which": "Tres cosas deciden si un elemento se fija:",
+    "points": [
+      "<code>item.pinned === true</code> lo fija mientras su turno esté renderizado, haga lo que haga quien lee.",
+      "<code>item.pinnable</code> deja que un solo elemento entre o salga.",
+      "Si no, decide el nivel, mediante <code>pinOnPass</code>: un rango entero a la vez."
+    ]
+  },
+  "rules": {
+    "intro": "La fijación ocurre cuando el borde del elemento cruza una línea: la parte inferior de la barra pegada arriba en la lista, el borde superior del desplazador en la línea de tiempo. <code>epsilon</code> mueve esa línea y <code>hysteresis</code> dice cuánto debe retroceder el elemento antes de soltarse, para que uno en el límite no parpadee.",
+    "carried": "Los elementos de un turno ya pasado llevan la etiqueta <code>carriedOver</code>, añadida a las que ya tienen. De eso trata el recuento del botón de navegación superior, y se calcula a partir de los turnos, nunca de los ids."
+  },
+  "accessibility": {
+    "points": [
+      "La franja es una región etiquetada que contiene una lista, así que un lector de pantalla dice cuántos elementos están fijados.",
+      "Los cambios se anuncian mediante una región en vivo, y los anuncios repetidos se limitan para que un desplazamiento rápido no la inunde.",
+      "Una píldora fijada es un botón que abre el mismo detalle que la tarjeta y conserva su nombre accesible.",
+      "El desplazador desactiva el anclaje de desplazamiento del navegador y compensa por sí mismo la altura de la franja, así que nada salta bajo la mirada de quien lee cuando aparece una píldora."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>pinning.list</code> y <code>pinning.timeline</code> ajustan cada vista por separado.",
+      "<code>pinning.compare</code> ordena la franja; el valor por defecto es el mismo orden de colocación que usa el turno.",
+      "Las partes <code>pinnedStrip</code>, <code>pinnedStripTrack</code>, <code>pinnedChip</code> y <code>edgeFade</code> se pueden sustituir con <link to=\"/customization/slots/\">slots</link>, y <code>renderPinnedChip</code> reemplaza una píldora por completo.",
+      "<code>handlers.onPin</code> puede vetar una fijación antes de que ocurra; <code>onPinnedChange</code> informa del conjunto después, con lo que se añadió y lo que se quitó."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "El conjunto de fijados se reinicia cuando cambia <code>date</code>: un día nuevo empieza sin nada fijado.",
+      "La fijación es por vista. Cambiar de vista la recalcula desde donde está desplazada esa vista, así que las dos franjas pueden diferir.",
+      "No hay límite de cuántos elementos pueden fijarse a la vez; un turno en el que se fija cada elemento llena la franja."
+    ]
   }
 }

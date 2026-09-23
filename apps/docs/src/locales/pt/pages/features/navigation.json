@@ -1,17 +1,69 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Navegação",
-    "description": "Navegação no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "Os dois botões que movem entre turnos: para onde cada um aponta, como se chama, e o que significa o número que leva."
   },
   "sections": {
     "basics": "Noções básicas",
+    "targets": "Para onde aponta cada botão",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Mover entre turnos"
+  },
+  "basics": {
+    "intro": "Dois botões ficam acima e abaixo do horário, e movem sempre um turno. Qual é depende de onde quem lê já está: o botão de cima volta ao início do turno atual enquanto estiver dentro dele, e só depois ao turno anterior.",
+    "where": "É essa regra que torna os botões previsíveis durante a leitura: a primeira pressão nunca salta o turno a meio do qual está."
+  },
+  "targets": {
+    "intro": "Escrito por extenso, com <strong>A</strong> como o turno que está a ser lido:",
+    "head": {
+      "when": "Onde quem lê está",
+      "top": "O botão de cima vai para",
+      "bottom": "O botão de baixo vai para"
+    },
+    "rows": [
+      ["Num turno posterior (A depois do atual)", "O turno atual", "O turno seguinte"],
+      ["Dentro do turno atual, mas não no seu início", "O início do turno atual", "O turno seguinte"],
+      ["No início do turno atual", "O turno anterior", "O turno seguinte"],
+      ["Num turno anterior, mas não no seu início", "O início desse turno", "O turno a seguir a ele"],
+      [
+        "No início do turno apresentado mais antigo",
+        "A lado nenhum: escondido na lista, desativado na cronologia",
+        "O turno a seguir a ele"
+      ]
+    ],
+    "count": "Quando o botão de cima aponta para um turno anterior, leva também uma contagem: quantos elementos dos turnos já passados ainda podem fixar. É esse número que diz a quem lê se vale a pena voltar."
+  },
+  "accessibility": {
+    "points": [
+      "A etiqueta visível é o nome acessível — nenhum nome escondido diz algo diferente do que o botão mostra.",
+      "A dica («Não há turno anterior») é uma sugestão e a descrição do botão, não o seu nome.",
+      "Na lista os botões desaparecem quando não há para onde ir; na cronologia ficam, desativados, para que a grelha não se mova sob quem lê.",
+      "Um salto é suave, a não ser que quem lê peça movimento reduzido, e aterra com o título do turno à vista.",
+      "Na lista os botões só aparecem quando algum turno tem pelo menos <code>navigationThreshold</code> elementos, para que um dia curto não fique cheio de controlos que não fazem nada."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>localization.nav</code> contém cada etiqueta e cada dica, incluindo a contagem dos elementos transitados.",
+      "<code>renderNavLabel</code> substitui o que um botão diz; as partes <code>navButton</code> e <code>carriedOverCount</code> substituem o seu aspeto.",
+      "<code>handlers.onNavigate</code> pode cancelar um salto — por exemplo, por uma alteração não guardada — e <code>onNavigate</code> comunica os que acontecem.",
+      "<code>list.navigationThreshold</code> decide quando a lista mostra os botões."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A navegação move-se apenas entre os turnos apresentados. Para lá deles, avançar é uma mudança de data que a sua aplicação executa.",
+      "Não há salto para um turno arbitrário: os botões movem um passo de cada vez.",
+      "Os botões fazem parte do componente e não podem ser movidos para outro sítio da página; um controlo seu pode pedir os mesmos movimentos através do handle imperativo."
+    ]
   }
 }

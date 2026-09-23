@@ -38,6 +38,26 @@
     "presetClassic": "Clásico",
     "shiftLength": "Duración del turno",
     "navigationThreshold": "La navegación aparece a partir de",
-    "items": "{count, plural, one {# elemento} other {# elementos}}"
+    "items": "{count, plural, one {# elemento} other {# elementos}}",
+    "sortByTitle": "Ordenar por título en vez de por hora",
+    "pinnedCount": "{count, plural, =0 {Nada fijado todavía} one {# elemento fijado} other {# elementos fijados}}",
+    "navigateIdle": "Usa los botones de encima y debajo de la lista.",
+    "navigated": "Salto al turno con desplazamiento {offset}.",
+    "clock": "La hora ahora es"
+  },
+  "levels": {
+    "blocking": "Bloqueante",
+    "attention": "Requiere atención",
+    "planned": "Planificado",
+    "done": "Hecho"
+  },
+  "columns": {
+    "reference": "Referencia",
+    "title": "Título",
+    "level": "Nivel"
+  },
+  "detail": {
+    "reference": "Referencia {reference}",
+    "close": "Cerrar"
   }
 }

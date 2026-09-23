@@ -59,7 +59,10 @@
     "description": "Was jeder Slot erhält: die Props des Teils, sein Zustand und die Standardkomponente.",
     "props": {
       "Default": "Das Standardelement oder die Standardkomponente des Teils, zum Umschließen oder Rendern.",
+      "children": "Der eigene Inhalt des Teils, um ihn in dem zu rendern, was es ersetzt.",
       "className": "`rs-<part>` + die Klassen der Bibliothek + der className aus `slotProps` + `classNames[part]`.",
+      "data-rs-part": "Der Name des Teils, auf den Stylesheet und Tests selektieren.",
+      "ownerState": "Wofür der Teil gerendert wird: die Ansicht, das Schema, der Eintrag, die Schicht.",
       "ref": "MUSS gesetzt werden: Anheften, Messen und Fokus hängen davon ab.",
       "style": "Strukturelle Inline-Styles + der style aus `slotProps` + `styles[part]`."
     }
@@ -68,7 +71,16 @@
     "description": "Der Etikettenschlüssel, den die Bibliothek übernommenen angehefteten Elementen hinzufügt."
   },
   "CardContentContext": {
-    "description": "Was `renderCardContent` erhält: das Element, seine Stufe und das berechnete Zeitlabel."
+    "description": "Was `renderCardContent` erhält: das Element, seine Stufe und das berechnete Zeitlabel.",
+    "props": {
+      "compact": "Ob der Plan im kompakten Modus ist.",
+      "defaultRender": "Der eingebaute Inhalt, zum Umschließen oder neben den eigenen zu stellen.",
+      "item": "Der Eintrag, der gerendert wird.",
+      "level": "Die Stufe des Eintrags, aus der Skala aufgelöst.",
+      "timeLabel": "Die Uhrzeit, wie die Karte sie zeigt, aus den Formatierern und den eigenen Beschriftungen des Eintrags.",
+      "variant": "Die Kartenbehandlung, die die Stufe verlangt.",
+      "view": "Die Ansicht, in der die Karte gerendert wird."
+    }
   },
   "CardVariant": {
     "description": "Wie eine Karte gezeichnet wird: normal, als Warnung oder gedämpft."
@@ -92,7 +104,10 @@
     "description": "Dieselbe Struktur mit jedem Mitglied optional, in jeder Tiefe."
   },
   "DefaultItemDetail": {
-    "description": "Die Detailansicht, in der ein Element geöffnet wird, wie die Bibliothek sie darstellt."
+    "description": "Die Detailansicht, in der ein Element geöffnet wird, wie die Bibliothek sie darstellt.",
+    "props": {
+      "item": "Der Eintrag, dessen Detail gezeigt wird."
+    }
   },
   "Density": {
     "description": "Die Abstandsskala der dargestellten Teile."
@@ -103,14 +118,24 @@
   "ElementProps": {
     "description": "Die Props, die ein Headless-Host auf eines der Elemente der Bibliothek anwendet.",
     "props": {
+      "data-rs-part": "Der Name des Teils, auf den Stylesheet und Tests selektieren.",
       "ref": "Eine Callback-Ref, damit sich die Props auf jedes Element anwenden lassen."
     }
   },
   "EmptyContext": {
-    "description": "Was `renderEmpty` erhält: ob der ganze Tag leer ist oder nur eine Schicht."
+    "description": "Was `renderEmpty` erhält: ob der ganze Tag leer ist oder nur eine Schicht.",
+    "props": {
+      "scope": "Ob der ganze Plan leer ist oder nur eine Schicht.",
+      "segment": "Die leere Schicht, wenn der Bereich eine Schicht ist."
+    }
   },
   "EmptyState": {
-    "description": "Was eine Ansicht zeigt, wenn es nichts zu platzieren gibt."
+    "description": "Was eine Ansicht zeigt, wenn es nichts zu platzieren gibt.",
+    "props": {
+      "overlay": "Rendert den Zustand über dem Inhalt statt an seiner Stelle.",
+      "scope": "Ob der ganze Plan leer ist oder nur eine Schicht.",
+      "segment": "Die leere Schicht, wenn der Bereich eine Schicht ist."
+    }
   },
   "ErrorState": {
     "description": "Was eine Ansicht zeigt, wenn das Laden fehlschlug, mit der Wiederholaktion, falls vorhanden."
@@ -122,19 +147,34 @@
     }
   },
   "HeaderContext": {
-    "description": "Was `renderHeader` erhält: das Signal, die Ansicht und die dargestellten Schichten."
+    "description": "Was `renderHeader` erhält: das Signal, die Ansicht und die dargestellten Schichten.",
+    "props": {
+      "activeShift": "Die gelesene Schicht, oder `null` vor der ersten Messung.",
+      "expanded": "Der aktuelle Wert des Kopfzeilensignals.",
+      "segments": "Jede gerenderte Schicht mit ihren Einträgen, der Reihe nach.",
+      "view": "Die Ansicht, die gerendert wird."
+    }
   },
   "HeaderReason": {
     "description": "Warum sich der Ausklappwert der Kopfzeile geändert hat."
   },
   "ItemDetailContext": {
-    "description": "Was `renderItemDetail` erhält: das Element, wie es geöffnet wurde und einen Weg, es zu schließen."
+    "description": "Was `renderItemDetail` erhält: das Element, wie es geöffnet wurde und einen Weg, es zu schließen.",
+    "props": {
+      "close": "Schließt das Detail und gibt den Fokus zurück an das, was es geöffnet hat.",
+      "item": "Der Eintrag, dessen Detail offen ist.",
+      "source": "Was es geöffnet hat: eine Karte, ein angehefteter Chip, eine Zeile der weiteren Einträge oder der imperative Handle."
+    }
   },
   "ItemOf": {
     "description": "Hilfstypen, um Elementtypen aus den Stufen- und Etikettendefinitionen abzuleiten."
   },
   "ItemProps": {
-    "description": "Die Props, die eine eigene Karte auf ihren Aktivator anwendet, damit Aktivierung und Tastatur funktionieren."
+    "description": "Die Props, die eine eigene Karte auf ihren Aktivator anwendet, damit Aktivierung und Tastatur funktionieren.",
+    "props": {
+      "data-rs-part": "Der Name des Teils, auf den Stylesheet und Tests selektieren.",
+      "ref": "MUSS gesetzt werden: Fokus und Scrollen zu einem Eintrag hängen davon ab."
+    }
   },
   "LandingTarget": {
     "description": "Wo eine Ansicht landet: am Schichtbeginn, auf dem Datum, knapp darüber oder nirgends."
@@ -152,10 +192,16 @@
     }
   },
   "LevelPill": {
-    "description": "Die Pille, die die Stufe eines Elements zeigt."
+    "description": "Die Pille, die die Stufe eines Elements zeigt.",
+    "props": {
+      "level": "Der Schlüssel der Stufe, für die der Chip steht."
+    }
   },
   "ListCard": {
-    "description": "Eine Listenkarte (`li`) mit ihrem Aktivator; `renderItem` ersetzt sie vollständig."
+    "description": "Eine Listenkarte (`li`) mit ihrem Aktivator; `renderItem` ersetzt sie vollständig.",
+    "props": {
+      "item": "Der Eintrag, den die Karte rendert."
+    }
   },
   "ListOptions": {
     "description": "Die eigenen Optionen der Listenansicht: wann die Navigation erscheint, wo ein Sprung landet und wann das Kopfzeilensignal ausgelöst wird.",
@@ -178,16 +224,29 @@
     "description": "Was `<ListView>` akzeptiert: die Props des Schedulers, ohne die Ansichtswahl."
   },
   "LoadingState": {
-    "description": "Was eine Ansicht zeigt, während Elemente geladen werden."
+    "description": "Was eine Ansicht zeigt, während Elemente geladen werden.",
+    "props": {
+      "overlay": "Rendert den Zustand über dem Inhalt statt an seiner Stelle."
+    }
   },
   "Middleware": {
     "description": "Läuft vor einer Interaktion: kann sie prüfen, ändern oder abbrechen, indem `next` nicht aufgerufen wird."
   },
   "MoreChip": {
-    "description": "Der Chip, der für die Elemente steht, die eine gedrängte Gruppe nicht platzieren konnte."
+    "description": "Der Chip, der für die Elemente steht, die eine gedrängte Gruppe nicht platzieren konnte.",
+    "props": {
+      "group": "Die Einträge, für die der Chip steht.",
+      "top": "Wo der Chip auf der Fläche sitzt, in Pixeln vom Bereichsanfang."
+    }
   },
   "NavLabelContext": {
-    "description": "Was `renderNavLabel` erhält: die Zielschicht und die Anzahl übernommener Elemente."
+    "description": "Was `renderNavLabel` erhält: die Zielschicht und die Anzahl übernommener Elemente.",
+    "props": {
+      "carriedOverCount": "Wie viele Einträge der bereits vergangenen Schichten noch anheften können.",
+      "disabled": "Ob die Schaltfläche deaktiviert ist.",
+      "position": "Welche der beiden Schaltflächen beschriftet wird.",
+      "target": "Die Schicht, zu der die Schaltfläche ginge, oder `null`, wenn es keine gibt."
+    }
   },
   "NavPosition": {
     "description": "Von welcher Navigationsschaltfläche ein Ereignis kam."
@@ -196,13 +255,18 @@
     "description": "Was eine Navigationsschaltfläche zeigt: wohin sie führt, ob sie deaktiviert ist und wie viele Elemente übernommen wurden.",
     "props": {
       "carriedOverCount": "Nur die obere Schaltfläche.",
+      "disabled": "Ob sie gerendert wird, aber nicht gedrückt werden kann.",
       "hint": "Kurzinfo und barrierefreie Beschreibung.",
-      "label": "Die sichtbare Beschriftung; zugleich der zugängliche Name."
+      "label": "Die sichtbare Beschriftung; zugleich der zugängliche Name.",
+      "target": "Die Schicht, zu der sie ginge, oder `null`, wenn es keine gibt.",
+      "visible": "Ob die Schaltfläche überhaupt gerendert wird."
     }
   },
   "Navigator": {
     "description": "Bewegt eine Ansicht zu einer Schicht, einem Element oder einer Zeit, mit der Ausrichtung aus den Optionen.",
     "props": {
+      "cancel": "Stoppt eine laufende Bewegung.",
+      "destroy": "Löst alle Listener; rufen Sie es auf, wenn der Scroller verschwindet.",
       "scrollTo": "Scrollt zu `target()`; weich, sofern `smooth` nicht false ist. Ein neuer Aufruf ersetzt den wartenden."
     }
   },
@@ -218,6 +282,7 @@
     "description": "Was der Navigator braucht: den Scrollbereich, die Schichten und die Landeregeln.",
     "props": {
       "resumeDelay": "Wie lange nach der letzten Korrektur bis `onDone` gewartet wird, in Millisekunden.",
+      "scroller": "Das Element, das der Navigator scrollt.",
       "settleDelay": "Wie viel Zeit ohne Scroll-Ereignisse als Stillstand gilt, wo `scrollend` nicht unterstützt wird, in Millisekunden."
     }
   },
@@ -225,17 +290,29 @@
     "description": "Die Jetzt-Markierung der Liste: die Uhrzeit in einer Pille, dann eine Linie."
   },
   "OverflowCellContext": {
-    "description": "Was eine Zelle der Tabelle weiterer Elemente erhält: die Texte und einen Weg, das Element zu öffnen."
+    "description": "Was eine Zelle der Tabelle weiterer Elemente erhält: die Texte und einen Weg, das Element zu öffnen.",
+    "props": {
+      "localization": "Das geltende Sprachpaket, für eine Zelle mit eigenen Wörtern.",
+      "openItem": "Öffnet den Eintrag der Zeile, wie es die eingebaute Aktionsspalte tut."
+    }
   },
   "OverflowColumn": {
     "description": "Eine Spalte der Tabelle weiterer Elemente: ihre Kopfzeile, ihre Zelle und ihre Sortierung.",
     "props": {
+      "align": "Wie der Inhalt der Spalte in ihren Zellen ausgerichtet ist.",
+      "header": "Die Kopfzelle, oder eine Funktion des Sprachpakets, die sie liefert.",
+      "id": "Bezeichnet die Spalte in `overflowSort` und ist ihr React-Schlüssel.",
       "maxWidth": "Gleich `minWidth` hat die Spalte diese feste Breite und erhält keinen Anteil am freien Raum.",
+      "minWidth": "Die Breite in Pixeln, die die Spalte verlangt, bevor die Restbreite verteilt wird.",
+      "renderCell": "Rendert die Zelle eines Eintrags.",
       "sortValue": "Weglassen, damit die Spalte nicht sortierbar ist."
     }
   },
   "OverflowDialog": {
-    "description": "Der Dialog, der die Elemente hinter einem „+more“-Chip auflistet."
+    "description": "Der Dialog, der die Elemente hinter einem „+more“-Chip auflistet.",
+    "props": {
+      "group": "Die Gruppe, deren Einträge der Dialog auflistet."
+    }
   },
   "OverflowGroup": {
     "description": "Die Elemente, für die ein „+more“-Chip steht, mit dem Zeitraum, den sie abdecken.",
@@ -246,41 +323,84 @@
     }
   },
   "OverflowSort": {
-    "description": "Nach welcher Spalte die Tabelle weiterer Elemente sortiert ist und in welcher Richtung."
+    "description": "Nach welcher Spalte die Tabelle weiterer Elemente sortiert ist und in welcher Richtung.",
+    "props": {
+      "column": "Die Id der Spalte, nach der sortiert wird.",
+      "direction": "Aufsteigend oder absteigend."
+    }
   },
   "OverflowTable": {
-    "description": "Die Tabelle im Dialog für weitere Elemente."
+    "description": "Die Tabelle im Dialog für weitere Elemente.",
+    "props": {
+      "columns": "Die geltenden Spalten.",
+      "items": "Die Zeilen der Tabelle, bereits sortiert und seitenweise."
+    }
   },
   "OwnerState": {
-    "description": "Wofür ein Teil gerade rendert."
+    "description": "Wofür ein Teil gerade rendert.",
+    "props": {
+      "active": "Ob dies das aktive seiner Art ist, etwa die gelesene Schicht.",
+      "carriedOver": "Ob der Eintrag aus einer bereits vergangenen Schicht stammt.",
+      "colorScheme": "Das aufgelöste Farbschema; `system` wurde bereits zu einem der beiden aufgelöst.",
+      "compact": "Ob der Plan im kompakten Modus ist.",
+      "density": "Die geltende Abstandsskala.",
+      "dir": "Die Schreibrichtung, in der der Plan gerendert wird.",
+      "disabled": "Ob der Teil deaktiviert ist.",
+      "item": "Der Eintrag, zu dem der Teil gehört, bei den Teilen einer Karte.",
+      "level": "Die Stufe des Eintrags, aus der Skala aufgelöst.",
+      "pinned": "Ob der Eintrag gerade angeheftet ist.",
+      "position": "Welche Navigationsschaltfläche, bei den Navigationsteilen.",
+      "preset": "Die geltende Voreinstellung.",
+      "shift": "Die Schicht, zu der der Teil gehört, bei den Teilen eines Abschnitts.",
+      "variant": "Die Kartenbehandlung, die die Stufe verlangt.",
+      "view": "Die Ansicht, in der der Teil gerendert wird."
+    }
   },
   "Pagination": {
     "description": "Der Seitenblätterer unter der Tabelle weiterer Elemente."
   },
   "PartExtraProps": {
-    "description": "Teilspezifische Extras über die Elementattribute hinaus."
+    "description": "Teilspezifische Extras über die Elementattribute hinaus.",
+    "props": {
+      "navButton": "Die Navigationsschaltfläche erhält auch ihren Zustand: wohin sie zeigt und ob sie deaktiviert ist."
+    }
   },
   "PinEngine": {
     "description": "Beobachtet den Scrollbereich und meldet, welche Elemente nach Position angeheftet sind.",
     "props": {
+      "destroy": "Löst den Observer; rufen Sie es auf, wenn der Scroller verschwindet.",
+      "getPinnedIds": "Die gerade angehefteten Ids, in Dokumentreihenfolge.",
+      "pause": "Beendet das Beobachten, für eine eingehängte, aber verborgene Ansicht.",
       "refresh": "Liest jeden Sensor einmal neu (nach programmatischem Scrollen, Datenänderungen und Mounts). Wird im pausierten Zustand übersprungen, außer mit `force`.",
       "register": "Registriert einen Sensor für `ids` unter dem Schlüssel `key`; gibt eine Ref-Callback zurück.",
       "relayout": "Erstellt die Beobachter neu, nachdem sich die Anheftlinie bewegt hat (etwa weil der obere fixierte Bereich seine Größe änderte).",
-      "reset": "Löst alles (das gewählte Datum hat sich geändert)."
+      "reset": "Löst alles (das gewählte Datum hat sich geändert).",
+      "resume": "Nimmt das Beobachten nach einer Pause wieder auf."
     }
   },
   "PinEngineOptions": {
     "description": "Was die Anheft-Engine braucht: den Scrollbereich, die Regel und die Elemente, die sie anheften darf.",
     "props": {
+      "epsilon": "Verschiebt die Anheftlinie in Pixeln; ein positiver Wert heftet früher an.",
       "getLine": "Die Anheftlinie in Viewport-Koordinaten. Liste: die Unterkante des oberen fixierten Bereichs; Zeitstrahl: die Oberkante des Scrollbereichs.",
-      "onChange": "Wird mit den angehefteten ids aufgerufen, sobald sie sich ändern."
+      "hysteresis": "Wie weit ein Eintrag in Pixeln zurückwandern muss, bevor er sich löst.",
+      "onChange": "Wird mit den angehefteten ids aufgerufen, sobald sie sich ändern.",
+      "scroller": "Das Element, von dessen Oberkante die Anheftlinie gemessen wird."
     }
   },
   "PinSentinelProps": {
-    "description": "Die Props, die eine eigene Karte auf ihren Anheft-Sensor anwendet, damit das Anheften ihn beobachten kann."
+    "description": "Die Props, die eine eigene Karte auf ihren Anheft-Sensor anwendet, damit das Anheften ihn beobachten kann.",
+    "props": {
+      "data-rs-edge": "An welcher Kante der Karte der Wächter sitzt, gemäß der Anheftregel der Ansicht.",
+      "data-rs-part": "Der Name des Teils, auf den Stylesheet und Tests selektieren.",
+      "ref": "MUSS gesetzt werden: der Anheft-Observer beobachtet dieses Element."
+    }
   },
   "PinnedChip": {
-    "description": "Ein Chip in der Leiste der angehefteten Elemente."
+    "description": "Ein Chip in der Leiste der angehefteten Elemente.",
+    "props": {
+      "entry": "Der angeheftete Eintrag und was der Chip davon zeigt."
+    }
   },
   "PinnedStrip": {
     "description": "Die Leiste angehefteter Elemente, die sichtbar bleibt, solange ihre Schicht auf dem Bildschirm ist."
@@ -296,31 +416,48 @@
   "PlacedCard": {
     "description": "Eine auf dem Zeitstrahl platzierte Karte: ihr Element, ihre Spalte und ihre Geometrie.",
     "props": {
+      "column": "Die Spalte, die er einnimmt, von der Startkante gezählt.",
+      "columns": "In wie vielen Spalten seine Überschneidungsgruppe sich die Spur teilt.",
       "end": "Millisekunden seit der Epoche (aufgelöst).",
       "height": "Pixel.",
+      "item": "Der Eintrag, für den diese Karte steht.",
       "start": "Millisekunden seit der Epoche.",
       "top": "Pixel ab dem Beginn des Zeitraums."
     }
   },
   "PluralForms": {
-    "description": "Die Pluralformen einer Nachricht, mit `Intl.PluralRules` für die aktive Locale gewählt."
+    "description": "Die Pluralformen einer Nachricht, mit `Intl.PluralRules` für die aktive Locale gewählt.",
+    "props": {
+      "other": "Die Form, die gilt, wenn keine andere Pluralkategorie passt; jedes Paket hat sie."
+    }
   },
   "PresetName": {
     "description": "Die mitgelieferten Looks: der eigene der Bibliothek oder der klassische, den sie nachbildet."
   },
   "ReducedMotion": {
-    "description": "Ob Bewegung reduziert ist, und ein Weg, diese Änderung zu abonnieren."
+    "description": "Ob Bewegung reduziert ist, und ein Weg, diese Änderung zu abonnieren.",
+    "props": {
+      "matches": "Ob das System gerade reduzierte Bewegung verlangt.",
+      "subscribe": "Abonniert Änderungen; die zurückgegebene Funktion kündigt das Abo."
+    }
   },
   "ReferencePill": {
-    "description": "Die Pille, die die Referenznummer eines Elements zeigt."
+    "description": "Die Pille, die die Referenznummer eines Elements zeigt.",
+    "props": {
+      "reference": "Die anzuzeigende Referenznummer."
+    }
   },
   "RenderItemContext": {
     "description": "Was `renderItem` erhält, samt der Props, die eine eigene Karte setzen muss.",
     "props": {
+      "compact": "Ob der Plan im kompakten Modus ist.",
       "defaultRender": "Die eingebaute Karte.",
       "getItemProps": "Die Props des Aktivators; sie zu setzen ist Pflicht.",
       "getPinSentinelProps": "Die Props des Anheft-Sensors eines anheftbaren Elements (das Anheften braucht sie).",
-      "style": "Zeitstrahl: die strukturelle Geometrie der Karte (absolute Position und Größe)."
+      "item": "Der zu rendernde Eintrag.",
+      "style": "Zeitstrahl: die strukturelle Geometrie der Karte (absolute Position und Größe).",
+      "variant": "Die Kartenbehandlung, die die Stufe verlangt.",
+      "view": "Die Ansicht, in der die Karte gerendert wird."
     }
   },
   "ResolvedFlags": {
@@ -335,15 +472,40 @@
   "SchedulerController": {
     "description": "Der framework-unabhängige Controller hinter den Komponenten: Zustand, Aktionen und ein Abonnement.",
     "props": {
+      "activateItem": "Öffnet einen Eintrag wie eine Karte: zuerst die Middleware, dann der Zustand, dann das Ereignis.",
+      "activateMore": "Öffnet eine Gruppe weiterer Einträge, wie es ihr Chip tut.",
+      "closeItem": "Schließt das offene Eintragsdetail, mit dem Grund.",
+      "closeOverflow": "Schließt den Dialog der weiteren Einträge, mit dem Grund.",
       "flushPinned": "Löst `onPinnedChange` aus, wenn die ids der Leiste von der letzten Ausgabe dieser Ansicht abweichen.",
+      "getLayout": "Das berechnete Zeitstrahl-Layout, oder `null` außerhalb des Zeitstrahls.",
+      "getModel": "Das aufgelöste Modell, das die Ansichten lesen.",
+      "getOptions": "Die Optionen, wie sie zuletzt gesetzt wurden.",
+      "getOverflowGroup": "Eine Gruppe weiterer Einträge nach Id, oder `null`, wenn es keine gibt.",
+      "getState": "Der gespeicherte Zustand: was der Leser geändert hat, bevor eine Option angewendet wird.",
+      "getViewModel": "Alles, was eine Ansicht über das Modell hinaus braucht.",
+      "keyDownItem": "Führt die Tasten-Middleware einer Karte aus und aktiviert sie, wenn die Taste das verlangt.",
+      "navigate": "Führt eine Navigation von einer der Schaltflächen aus: die Middleware, dann das Scrollen der Ansicht.",
       "navigateTo": "Imperative Navigation (`api`): ohne Middleware.",
       "noteViewShown": "Hält fest, dass `view` gezeigt wird; true, wenn zuvor eine andere Ansicht gezeigt wurde (ein Ansichtswechsel).",
       "openItem": "Imperatives Öffnen (`api`): ohne Middleware; deaktivierte oder unbekannte Elemente öffnen nicht.",
+      "openOverflow": "Öffnet eine Gruppe weiterer Einträge nach Id, ohne Middleware.",
       "reconcileOpenItem": "Schließt die Ansicht eines Elements, das aus den Daten verschwunden ist; ohne Middleware, öffnet nie von selbst erneut.",
       "resetHeader": "Setzt den Kopfzeilenspeicher je Ansicht zurück, damit das nächste Signal neu verglichen wird (Betreten der Ansicht).",
+      "scrollToTop": "Führt das Zurückscrollen nach oben aus: die Middleware, dann das Scrollen der Ansicht.",
+      "setClock": "Meldet den aktuellen Moment, bei jedem Takt der Uhr.",
+      "setDate": "Wechselt zu einem anderen Moment, im unkontrollierten Fall.",
+      "setDocumentDir": "Meldet die Richtung, in der das Dokument steht.",
       "setMounted": "Markiert den Besitzer als eingehängt oder ausgehängt; ein asynchrones `next()` nach dem Aushängen wird ignoriert.",
       "setOptions": "Ersetzt die Optionen. Benachrichtigt nicht: der Besitzer rendert ohnehin mit den neuen Optionen neu.",
-      "setPinnedByPosition": "Die ids, die die Anheft-Engine der Ansicht nach Position angeheftet hat; `handlers.onPin` kann jede Änderung ablehnen."
+      "setOverflowPage": "Bringt die Tabelle der weiteren Einträge auf eine Seite.",
+      "setPinnedByPosition": "Die ids, die die Anheft-Engine der Ansicht nach Position angeheftet hat; `handlers.onPin` kann jede Änderung ablehnen.",
+      "setPrefersReducedMotion": "Meldet, ob das System reduzierte Bewegung verlangt.",
+      "setScrollFacts": "Meldet, was eine Messung des Scrollers ergeben hat.",
+      "setView": "Wechselt die Ansicht, im unkontrollierten Fall.",
+      "setWidth": "Meldet die Breite der Wurzel, die den kompakten Modus entscheidet.",
+      "signalHeader": "Meldet ein Kopfzeilensignal aus einer Ansicht, das die Middleware ablehnen kann.",
+      "sortOverflow": "Sortiert die Tabelle der weiteren Einträge nach einer Spalte und dreht die Richtung, wenn sie es schon ist.",
+      "subscribe": "Abonniert Zustandsänderungen; die zurückgegebene Funktion kündigt das Abo."
     }
   },
   "SchedulerEvents": {
@@ -396,10 +558,38 @@
     }
   },
   "SchedulerHandle": {
-    "description": "Der imperative Handle: Scrollen, Öffnen und Schließen sowie das Lesen des aktuellen Zustands."
+    "description": "Der imperative Handle: Scrollen, Öffnen und Schließen sowie das Lesen des aktuellen Zustands.",
+    "props": {
+      "closeItem": "Schließt das offene Detail, falls es eines gibt.",
+      "closeOverflow": "Schließt den Dialog der weiteren Einträge, falls er offen ist.",
+      "focusItem": "Setzt den Fokus auf die Karte eines Eintrags.",
+      "getActiveShift": "Die gelesene Schicht, oder `null` vor der ersten Messung.",
+      "getLayout": "Das berechnete Zeitstrahl-Layout, oder `null` in der Listenansicht.",
+      "getPinnedIds": "Die Ids der gerade angehefteten Einträge, in der Reihenfolge des Bandes.",
+      "getScrollElement": "Das scrollende Element, für eine eigene Messung.",
+      "openItem": "Öffnet das Detail eines Eintrags, als würde man seine Karte aktivieren.",
+      "openOverflow": "Öffnet den Dialog der weiteren Einträge einer Gruppe.",
+      "refreshPinning": "Misst die Anheft-Wächter erneut, nach einer Layoutänderung, die die Komponente nicht sieht.",
+      "scrollToItem": "Scrollt zu einem Eintrag, wenn er im gerenderten Bereich liegt.",
+      "scrollToShift": "Scrollt zu einer Schicht, nach Abstand zur aktuellen oder nach Rolle.",
+      "scrollToTime": "Scrollt zu einem Moment im gerenderten Bereich."
+    }
   },
   "SchedulerHandlers": {
-    "description": "Interaktions-Middleware mit React-Ereignissen."
+    "description": "Interaktions-Middleware mit React-Ereignissen.",
+    "props": {
+      "onDetailClose": "Läuft, bevor ein Eintragsdetail schließt, mit dem, was es verlangt hat.",
+      "onHeaderSignal": "Läuft, bevor sich das Kopfzeilensignal ändert, mit dem, was es ausgelöst hat.",
+      "onItemActivate": "Läuft, bevor ein Eintrag öffnet; ohne Aufruf von `next` bleibt er geschlossen.",
+      "onItemKeyDown": "Läuft bei jeder auf einer Karte gedrückten Taste, vor der eingebauten Behandlung.",
+      "onMoreActivate": "Läuft, bevor eine Gruppe weiterer Einträge öffnet.",
+      "onNavigate": "Läuft vor einem Sprung zwischen Schichten; ohne Aufruf von `next` entfällt er.",
+      "onOverflowClose": "Läuft, bevor der Dialog der weiteren Einträge schließt, mit dem, was es verlangt hat.",
+      "onOverflowPage": "Läuft, bevor die Tabelle der weiteren Einträge die Seite wechselt.",
+      "onOverflowSort": "Läuft, bevor die Tabelle der weiteren Einträge sortiert wird, und kann die angewandte Sortierung ändern.",
+      "onPin": "Läuft, bevor ein Eintrag anheftet oder sich löst; ohne Aufruf von `next` bleibt das Band, wie es war.",
+      "onScrollTop": "Läuft vor dem Zurückscrollen nach oben."
+    }
   },
   "SchedulerItem": {
     "description": "Ein Eintrag im Plan. Nur `id`, `start`, `level` und `title` sind erforderlich; alles andere verfeinert, wie die Karte zu lesen ist.",
@@ -425,18 +615,75 @@
   "SchedulerLocalization": {
     "description": "Alle Texte, die die Komponente zeigen kann. Ein Sprachpaket ist genau das.",
     "props": {
-      "locale": "BCP 47, für Intl verwendet."
+      "card": "Das Muster der zugänglichen Beschreibung einer Karte: ihre Stufe und ihre Uhrzeit.",
+      "detail": "Die Schließbeschriftung des Eintragsdetails.",
+      "dir": "Die Schreibrichtung dieser Sprache; `rtl` spiegelt das ganze Layout.",
+      "emptyAll": "Wird gezeigt, wenn keine gerenderte Schicht einen Eintrag hat.",
+      "emptyShift": "Wird in einer Schicht ohne Eintrag gezeigt.",
+      "errorTitle": "Die Überschrift des Fehlerzustands.",
+      "levels": "Eine Beschriftung je Stufenschlüssel; ein Schlüssel ohne sie fällt auf sich selbst zurück.",
+      "loading": "Wird angesagt, während der Plan auf Daten wartet.",
+      "locale": "BCP 47, für Intl verwendet.",
+      "more": "Der „+ mehr“-Chip: was er zeigt und wie er heißt.",
+      "nav": "Alle Beschriftungen und Hinweise der beiden Navigationsschaltflächen.",
+      "now": "Die Beschriftung der „Jetzt“-Markierung, mit ihrer Uhrzeit.",
+      "overflow": "Der Dialog der weiteren Einträge: sein Titel, seine Spalten und seine Schließbeschriftungen.",
+      "pagination": "Der Seitenwechsel der Tabelle der weiteren Einträge.",
+      "pinnedStrip": "Das Band der angehefteten Einträge: seine Beschriftung und was es bei einer Änderung ansagt.",
+      "referenceLabel": "Die Beschriftung, die vor einer Referenznummer gelesen wird.",
+      "retry": "Die Beschriftung der Wiederholen-Schaltfläche des Fehlerzustands.",
+      "scrollTop": "Die Beschriftung der Schaltfläche, die nach oben zurückscrollt.",
+      "shiftHeader": "Die Wörter, die eine Schichtüberschrift für ihren Platz relativ zur aktuellen Schicht nutzt.",
+      "tags": "Eine Beschriftung je Etikettenschlüssel; ein Schlüssel ohne sie fällt auf sich selbst zurück.",
+      "timeLabel": "Wie eine Uhrzeit ohne Ende auf einer Karte geschrieben wird.",
+      "views": "Die Namen der beiden Ansichten, für einen eigenen Umschalter."
     }
   },
   "SchedulerModel": {
     "description": "Die aufgelöste Eingabe: Optionen, Standardwerte und Zustand in einer Form, die die Ansichten lesen.",
     "props": {
       "animate": "Sanftes Scrollen und Eintrittsanimationen laufen.",
+      "carriedOverCount": "Wie viele Einträge der bereits vergangenen Schichten noch anheften können.",
+      "compact": "Ob der Plan im kompakten Modus ist.",
+      "compare": "Die Reihenfolge der Einträge innerhalb einer Schicht.",
+      "current": "Die aktuelle Schicht, oder `null`, wenn keine gerenderte Schicht die aktuelle ist.",
       "currentIndex": "-1, wenn keine dargestellte Schicht den Versatz 0 hat.",
+      "date": "Der gelesene Moment.",
+      "defaultDuration": "Wie lange ein Eintrag ohne Ende dauert, in Millisekunden.",
+      "density": "Die geltende Abstandsskala.",
       "dir": "Die aufgelöste Richtung; `explicitDir` wird nur dann auf der Wurzel gesetzt, wenn sie nicht aus dem Dokument kam.",
+      "error": "Der Fehler, der statt des Inhalts gezeigt wird, falls vorhanden.",
+      "explicitDir": "Die Richtung, die auf die Wurzel gesetzt wird, wenn sie nicht vom Dokument kam.",
+      "flags": "Alle Funktionsschalter, aufgelöst.",
+      "formatters": "Die geltenden Formatierer, bereits an die Sprache gebunden.",
+      "geometry": "Die Maße des Zeitstrahls: der Bereich, die Stundenhöhe und die Anker.",
+      "hasItems": "Ob irgendeine gerenderte Schicht einen Eintrag hat.",
+      "headerExpanded": "Der aktuelle Wert des Kopfzeilensignals.",
+      "itemsById": "Jeder gerenderte Eintrag, nach Id.",
+      "levels": "Die Stufenskala, aufgelöst und nach Stufenschlüssel abgelegt.",
+      "list": "Die Listenoptionen, mit allen Standardwerten gefüllt.",
+      "loading": "Ob der Plan auf Daten wartet.",
+      "locale": "Das BCP-47-Tag, mit dem jedes Format erzeugt wird.",
+      "localization": "Das geltende Sprachpaket, mit allen Standardwerten gefüllt.",
+      "now": "Der aktuelle Moment.",
+      "nowVisible": "Ob die „Jetzt“-Anzeige überhaupt gezeigt werden darf.",
+      "openItem": "Der Eintrag, dessen Detail offen ist, solange er noch in den Daten steht.",
+      "openItemId": "Die Id des Eintrags, dessen Detail offen ist.",
       "openItemMissing": "Die geöffnete id verweist auf ein Element, das nicht mehr in den Daten ist.",
+      "openOverflowId": "Die Id der Gruppe weiterer Einträge, deren Dialog offen ist.",
+      "openSource": "Was es geöffnet hat.",
+      "overflowPage": "Die Seite der Tabelle der weiteren Einträge.",
+      "overflowPageSize": "Wie viele Zeilen eine Seite der Tabelle der weiteren Einträge fasst.",
+      "overflowSort": "Die Sortierung der Tabelle der weiteren Einträge.",
       "pinCompare": "Die Reihenfolge der Leiste: `pinning.compare`, sonst `compare`.",
-      "size": "Die Breitenklasse der angehefteten Chips aus der Wurzelbreite: lg ≥ 900, md 600–899, sm < 600."
+      "pinRules": "Die Anheftregel jeder Ansicht, mit allen Standardwerten gefüllt.",
+      "reducedMotion": "Ob Bewegung auf ein Minimum beschränkt wird.",
+      "segments": "Die gerenderten Schichten mit ihren Einträgen, der Reihe nach.",
+      "shifts": "Die gerenderten Schichten, der Reihe nach.",
+      "size": "Die Breitenklasse der angehefteten Chips aus der Wurzelbreite: lg ≥ 900, md 600–899, sm < 600.",
+      "tags": "Die Etiketten, die ein Eintrag tragen kann, nach Etikettenschlüssel abgelegt.",
+      "timeline": "Die Zeitstrahloptionen, mit allen Standardwerten gefüllt.",
+      "view": "Die zu rendernde Ansicht."
     }
   },
   "SchedulerOptions": {
@@ -530,20 +777,63 @@
   "SchedulerState": {
     "description": "Alles, was `<Scheduler>` nutzt, ohne Markup.",
     "props": {
-      "layout": "Nur Zeitstrahl."
+      "actions": "Dieselben imperativen Aktionen, die die Komponente über ihre Ref bereitstellt.",
+      "activeShift": "Die gelesene Schicht, oder `null` vor der ersten Messung.",
+      "carriedOverCount": "Wie viele Einträge der bereits vergangenen Schichten noch anheften können.",
+      "compact": "Ob der Plan im kompakten Modus ist.",
+      "formatters": "Die geltenden Formatierer, bereits an die Sprache gebunden.",
+      "getItemProps": "Props für den Aktivator eines Eintrags, damit Aktivierung und Tastatur funktionieren.",
+      "getMoreChipProps": "Props für den Chip, der eine Gruppe weiterer Einträge öffnet.",
+      "getNavButtonProps": "Props für eine der beiden Navigationsschaltflächen, samt Beschriftung und Zustand.",
+      "getPinSentinelProps": "Props für den Anheft-Wächter eines anheftbaren Eintrags.",
+      "getPinnedChipProps": "Props für den Chip eines angehefteten Eintrags.",
+      "getRootProps": "Props für das äußerste Element Ihrer eigenen Darstellung.",
+      "getScrollTopButtonProps": "Props für die Schaltfläche, die nach oben zurückscrollt.",
+      "getScrollerProps": "Props für das scrollende Element; Anheften und Navigation messen es.",
+      "getSectionProps": "Props für das Abschnittselement einer Schicht.",
+      "getStickyTopProps": "Props für das Element, das oben am Scroller klebt.",
+      "headerExpanded": "Der aktuelle Wert des Kopfzeilensignals.",
+      "layout": "Nur Zeitstrahl.",
+      "localization": "Das geltende Sprachpaket.",
+      "navigation": "Worauf die beiden Navigationsschaltflächen gerade zeigen.",
+      "now": "Der aktuelle Moment, wie ihn die interne Uhr oder die Prop `now` liefert.",
+      "nowVisible": "Ob die „Jetzt“-Anzeige überhaupt gezeigt werden darf.",
+      "openItem": "Der Eintrag, dessen Detail offen ist, oder `null`.",
+      "openOverflow": "Die Gruppe weiterer Einträge, deren Dialog offen ist, oder `null`.",
+      "pinned": "Die angehefteten Einträge, in der Reihenfolge des Bandes.",
+      "segments": "Die gerenderten Schichten mit ihren Einträgen, der Reihe nach.",
+      "shifts": "Die gerenderten Schichten, der Reihe nach.",
+      "view": "Die Ansicht, die der Zustand beschreibt."
     }
   },
   "SchedulerStoreState": {
     "description": "Der gespeicherte Zustand des Controllers: was der Leser geändert hat, bevor eine Option greift.",
     "props": {
+      "clock": "Der aktuelle Moment, wie ihn die interne Uhr zuletzt gemeldet hat.",
       "date": "Unkontrollierte Werte.",
+      "documentDir": "Die Schreibrichtung, in der das Dokument steht.",
+      "headerExpanded": "Das Kopfzeilensignal, wenn es nicht kontrolliert wird.",
+      "openItemId": "Der Eintrag, dessen Detail offen ist, wenn es nicht kontrolliert wird.",
+      "openOverflowId": "Die Gruppe weiterer Einträge, deren Dialog offen ist, wenn es nicht kontrolliert wird.",
+      "openSource": "Was diesen Eintrag geöffnet hat.",
+      "overflowPage": "Die Seite der Tabelle der weiteren Einträge, wenn sie nicht kontrolliert wird.",
+      "overflowSort": "Die Sortierung der Tabelle der weiteren Einträge, wenn sie nicht kontrolliert wird.",
+      "prefersReducedMotion": "Ob das System des Lesers reduzierte Bewegung verlangt.",
+      "view": "Die gezeigte Ansicht, wenn sie nicht kontrolliert wird.",
+      "views": "Zustand je Ansicht: die Scrolldaten, die angehefteten Ids und das Gedächtnis der Kopfzeile.",
       "width": "Von der Ansichtsschicht gemessen."
     }
   },
   "SchedulerViewModel": {
     "description": "Alles, was eine Ansicht zum Rendern braucht, aus dem Modell abgeleitet.",
     "props": {
-      "pinnedIds": "Die ids der Leiste in Leistenreihenfolge (die nach Position angehefteten plus Elemente mit `pinned: true`)."
+      "activeShift": "Die gelesene Schicht, oder `null` vor der ersten Messung.",
+      "facts": "Was die letzte Messung des Scrollers ergeben hat.",
+      "navigation": "Worauf die beiden Navigationsschaltflächen zeigen.",
+      "pinned": "Die angehefteten Einträge mit ihren Chips, in der Reihenfolge des Bandes.",
+      "pinnedIds": "Die ids der Leiste in Leistenreihenfolge (die nach Position angehefteten plus Elemente mit `pinned: true`).",
+      "scrollTopVisible": "Ob die Schaltfläche nach oben gezeigt wird.",
+      "view": "Die Ansicht, die dieses Modell beschreibt."
     }
   },
   "ScrollFacts": {
@@ -561,14 +851,26 @@
   "SegmentInput": {
     "description": "Paritätseingabe: bereits gruppierte Abschnitte, passend zur vorhandenen Datenform.",
     "props": {
-      "offset": "Standard: -1 / 0 / 1 je nach Rolle."
+      "end": "Wann das Segment endet; ausschließlich.",
+      "items": "Die Einträge dieses Segments; sie werden für Sie sortiert.",
+      "key": "Ein eigener Schlüssel für die Schicht; der Standard kommt aus der Rolle.",
+      "offset": "Standard: -1 / 0 / 1 je nach Rolle.",
+      "role": "Ob das Segment vor, bei oder nach der aktuellen Schicht liegt.",
+      "start": "Wann das Segment beginnt."
     }
   },
   "ShiftHeader": {
-    "description": "Die Kopfzeile einer Schicht in der Listenansicht."
+    "description": "Die Kopfzeile einer Schicht in der Listenansicht.",
+    "props": {
+      "id": "Die Id, mit der der Abschnitt beschriftet ist.",
+      "segment": "Die Schicht, zu der die Kopfzeile gehört, mit ihren Einträgen."
+    }
   },
   "ShiftNavButton": {
-    "description": "Die Schaltfläche, die zur vorherigen oder nächsten Schicht springt."
+    "description": "Die Schaltfläche, die zur vorherigen oder nächsten Schicht springt.",
+    "props": {
+      "position": "Welche der beiden Schaltflächen dies ist."
+    }
   },
   "ShiftOptions": {
     "description": "Das Schichtmuster eines Tages. Entweder regelmäßige Schichten einer Länge oder ein unregelmäßiges `pattern` benannter Schichten.",
@@ -584,6 +886,8 @@
   "ShiftPatternEntry": {
     "description": "Eine Schicht eines unregelmäßigen Tagesmusters: wann sie beginnt und wie sie heißt.",
     "props": {
+      "key": "Der Schlüssel der Schicht, aus dem Muster oder den regelmäßigen Schlüsseln.",
+      "label": "Eine eigene Beschriftung für die Schicht statt der erzeugten.",
       "start": "Die Uhrzeit des Beginns. Der Eintrag endet dort, wo der nächste beginnt, zyklisch."
     }
   },
@@ -593,12 +897,16 @@
   "ShiftSegment": {
     "description": "Eine Schicht mit den Elementen, die auf sie fallen, in der Reihenfolge der Darstellung.",
     "props": {
-      "items": "Die Elemente, deren Beginn in [shift.start, shift.end) liegt, in Platzierungsreihenfolge."
+      "items": "Die Elemente, deren Beginn in [shift.start, shift.end) liegt, in Platzierungsreihenfolge.",
+      "shift": "Die Schicht, die dieses Segment rendert."
     }
   },
   "ShiftWindow": {
     "description": "Eine dargestellte Schicht: ihr Versatz zur aktuellen, ihr Schlüssel und ihre Grenzen.",
     "props": {
+      "end": "Das Ende der Schicht, in Epoch-Millisekunden; ausschließlich.",
+      "key": "Der Schlüssel der Schicht, aus dem Muster oder den regelmäßigen Schlüsseln.",
+      "label": "Eine eigene Beschriftung für die Schicht statt der erzeugten.",
       "offset": "0 = aktuell; negativ = früher.",
       "role": "Das Vorzeichen des Versatzes.",
       "start": "Millisekunden seit der Epoche an den Uhrzeitgrenzen (sommerzeitsicher)."
@@ -613,6 +921,7 @@
   "SortableColumn": {
     "description": "Der Teil einer Spalte weiterer Elemente, den die Sortierung braucht; `OverflowColumn` erweitert ihn.",
     "props": {
+      "id": "Bezeichnet die Spalte in einer Sortierung.",
       "sortValue": "Weglassen, damit die Spalte nicht sortierbar ist."
     }
   },
@@ -626,22 +935,49 @@
     }
   },
   "TagPill": {
-    "description": "Die Pille, die eines der Etiketten eines Elements zeigt."
+    "description": "Die Pille, die eines der Etiketten eines Elements zeigt.",
+    "props": {
+      "tag": "Der Schlüssel des Etiketts, für das der Chip steht."
+    }
   },
   "TimeGrid": {
     "description": "Das Stundenraster des Zeitstrahls mit den darauf platzierten Karten."
   },
   "TimelineCard": {
-    "description": "Eine Zeitstrahlkarte, absolut positioniert aus der Ausgabe der Layout-Engine."
+    "description": "Eine Zeitstrahlkarte, absolut positioniert aus der Ausgabe der Layout-Engine.",
+    "props": {
+      "gap": "Der Abstand zwischen zwei Spalten, in Pixeln.",
+      "placed": "Die Karte, wie das Layout sie platziert hat: ihre Spalte und ihre Geometrie."
+    }
   },
   "TimelineLayout": {
     "description": "Der berechnete Zeitstrahl: jede platzierte Karte, jede Gruppe weiterer Elemente und die Geometrie darum.",
     "props": {
-      "height": "Die Stunden des Zeitraums × `hourHeight`, mindestens `hourHeight`."
+      "cards": "Jede platzierte Karte, in der Platzierungsreihenfolge.",
+      "height": "Die Stunden des Zeitraums × `hourHeight`, mindestens `hourHeight`.",
+      "overflow": "Die Gruppen, die die Platzierung nicht unterbrachte, jede hinter einem „+ mehr“-Chip.",
+      "rangeEnd": "Der letzte Moment, den die Fläche abdeckt, in Epoch-Millisekunden.",
+      "rangeStart": "Der erste Moment, den die Fläche abdeckt, in Epoch-Millisekunden."
     }
   },
   "TimelineLayoutOptions": {
-    "description": "Was die Layout-Engine neben den Elementen braucht: die Stundengröße, die Spaltengrenzen und das Verschmelzungsfenster."
+    "description": "Was die Layout-Engine neben den Elementen braucht: die Stundengröße, die Spaltengrenzen und das Verschmelzungsfenster.",
+    "props": {
+      "cardGap": "Der Abstand zwischen zwei Spalten, in Pixeln.",
+      "columnPlacement": "Welche Spalte ein Eintrag bekommt, wenn sich mehrere überschneiden.",
+      "compact": "Ob die kompakten Obergrenzen statt der üblichen gelten.",
+      "compareItems": "Die Reihenfolge, der die Platzierungsfolge folgt.",
+      "defaultDuration": "Wie lange ein Eintrag ohne Ende dauert, in Millisekunden.",
+      "hourHeight": "Die Höhe einer Stunde, in Pixeln.",
+      "levels": "Die aufgelöste Stufenskala, die jedem Eintrag seinen Rang gibt.",
+      "maxColumns": "In wie vielen Spalten sich überschneidende Einträge die Spur teilen dürfen.",
+      "maxColumnsCompact": "Die Obergrenze, die im kompakten Modus gilt.",
+      "maxColumnsCrowded": "Die Obergrenze, die dort gilt, wo der Tag voll ist.",
+      "minCardHeight": "Wie kurz eine Karte höchstens gezeichnet werden darf, in Pixeln.",
+      "overflowMergeWindow": "Wie weit zwei volle Gruppen in Millisekunden auseinanderliegen dürfen und dennoch verschmelzen.",
+      "rangeEnd": "Der letzte Moment, den die Fläche abdeckt, in Epoch-Millisekunden.",
+      "rangeStart": "Der erste Moment, den die Fläche abdeckt, in Epoch-Millisekunden."
+    }
   },
   "TimelineOptions": {
     "description": "Die eigenen Optionen der Zeitstrahlansicht: die Größe einer Stunde, wie viele Spalten überlappende Elemente nutzen dürfen und wann sie zu einem „+more“-Chip zusammenfallen.",
@@ -671,7 +1007,12 @@
     "description": "Ein Design-Token aus `styles.css`."
   },
   "Tooltip": {
-    "description": "Der Kurzinfo-Teil; `position` kommt von `useTooltip` (null, solange sie geschlossen ist)."
+    "description": "Der Kurzinfo-Teil; `position` kommt von `useTooltip` (null, solange sie geschlossen ist).",
+    "props": {
+      "children": "Der Text des Tooltips.",
+      "id": "Die Id, auf die das beschriebene Element zeigt.",
+      "position": "Wo der Tooltip verankert ist, oder `null`, solange er nicht gezeigt wird."
+    }
   },
   "ViewKind": {
     "description": "Die zwei Ansichten: eine scrollbare Kartenliste oder eine Zeitachse mit platzierten Karten."
@@ -680,7 +1021,12 @@
     "description": "Uhrzeit im 24-Stunden-Format, „HH:mm“."
   },
   "bucketItems": {
-    "description": "Ordnet jedes Element dem Fenster mit `start ≤ item.start < end` zu. Elemente außerhalb jedes Fensters werden nicht gezeigt; Elemente mit ungültigem Beginn entfallen; bei doppelten ids gewinnt das erste Vorkommen."
+    "description": "Ordnet jedes Element dem Fenster mit `start ≤ item.start < end` zu. Elemente außerhalb jedes Fensters werden nicht gezeigt; Elemente mit ungültigem Beginn entfallen; bei doppelten ids gewinnt das erste Vorkommen.",
+    "props": {
+      "items": "Die zu platzierenden Einträge, in beliebiger Reihenfolge.",
+      "options": "Wie die Einträge innerhalb einer Schicht geordnet werden und wie lange ein Eintrag ohne Ende dauert.",
+      "windows": "Die gerenderten Schichten, der Reihe nach."
+    }
   },
   "classicLevels": {
     "description": "Die 9 Paritätsstufen, beginnend mit der stärksten."
@@ -689,25 +1035,50 @@
     "description": "Der klassische Etikettensatz: die zwei Etiketten, die der klassische Look darstellt."
   },
   "compareByPlacement": {
-    "description": "Die Platzierungsreihenfolge: Beginn aufsteigend, dann Stufenrang aufsteigend (stärkste zuerst), dann id."
+    "description": "Die Platzierungsreihenfolge: Beginn aufsteigend, dann Stufenrang aufsteigend (stärkste zuerst), dann id.",
+    "props": {
+      "levels": "Die aufgelöste Stufenskala, die jedem Eintrag seinen Rang gibt."
+    }
   },
   "compensateStickyGrowth": {
-    "description": "Hält den sichtbaren Inhalt ruhig, wenn das fixierte Element im Scrollbereich seine Höhe ändert: der Bereich bewegt sich um denselben Betrag, im selben Frame, in jeder Engine. Der Bereich setzt `overflow-anchor: none`, damit die Scroll-Verankerung des Browsers keinen zweiten Versatz hinzufügt. Solange `suspended()` gilt, wird die Änderung nur vermerkt."
+    "description": "Hält den sichtbaren Inhalt ruhig, wenn das fixierte Element im Scrollbereich seine Höhe ändert: der Bereich bewegt sich um denselben Betrag, im selben Frame, in jeder Engine. Der Bereich setzt `overflow-anchor: none`, damit die Scroll-Verankerung des Browsers keinen zweiten Versatz hinzufügt. Solange `suspended()` gilt, wird die Änderung nur vermerkt.",
+    "props": {
+      "scroller": "Das scrollende Element, das angepasst wird.",
+      "sticky": "Das Element, das oben klebt und seine Höhe ändert.",
+      "suspended": "Gibt true zurück, solange die Anpassung übersprungen werden soll."
+    }
   },
   "computeTimelineLayout": {
-    "description": "Platziert die Elemente in den Spalten des Zeitstrahls und in den Gruppen weiterer Elemente: Platzierungsreihenfolge, gierige Spalten, Beförderung aus den weiteren Elementen, Lückenfüllung, Geometrie, Gruppen weiterer Elemente (begrenzt durch `overflowMergeWindow`, gemessen ab dem Anker jeder Gruppe) und Spaltenzahlen."
+    "description": "Platziert die Elemente in den Spalten des Zeitstrahls und in den Gruppen weiterer Elemente: Platzierungsreihenfolge, gierige Spalten, Beförderung aus den weiteren Elementen, Lückenfüllung, Geometrie, Gruppen weiterer Elemente (begrenzt durch `overflowMergeWindow`, gemessen ab dem Anker jeder Gruppe) und Spaltenzahlen.",
+    "props": {
+      "items": "Die Einträge des gerenderten Bereichs, in beliebiger Reihenfolge.",
+      "options": "Die Geometrie und die Obergrenzen: Stundenhöhe, Spalten, Zusammenfassungsfenster."
+    }
   },
   "createFormatters": {
-    "description": "Baut die Standardformatierer für eine Locale, die `formatters` danach einzeln ersetzen kann."
+    "description": "Baut die Standardformatierer für eine Locale, die `formatters` danach einzeln ersetzen kann.",
+    "props": {
+      "locale": "Das BCP-47-Tag, mit dem jedes Format erzeugt wird.",
+      "options": "Überschreibungen einzelner Formate, etwa der Stundenbeschriftung."
+    }
   },
   "createNavigator": {
-    "description": "Erzeugt den Navigator für einen Scrollbereich."
+    "description": "Erzeugt den Navigator für einen Scrollbereich.",
+    "props": {
+      "options": "Der zu bewegende Scroller und die Callbacks, die die Bewegung melden."
+    }
   },
   "createPinEngine": {
-    "description": "Erzeugt die Anheft-Engine für einen Scrollbereich."
+    "description": "Erzeugt die Anheft-Engine für einen Scrollbereich.",
+    "props": {
+      "options": "Der Scroller, die Anheftlinie und der Callback, der die angehefteten Ids meldet."
+    }
   },
   "createScheduler": {
-    "description": "Erzeugt einen Controller. Das ist die ganze Bibliothek ohne React: Optionen hineingeben, das View-Modell lesen, die Aktionen aufrufen."
+    "description": "Erzeugt einen Controller. Das ist die ganze Bibliothek ohne React: Optionen hineingeben, das View-Modell lesen, die Aktionen aufrufen.",
+    "props": {
+      "initialOptions": "Die Optionen, mit denen der Controller startet; `setOptions` ersetzt sie später."
+    }
   },
   "deDE": {
     "description": "Das deutsche Sprachpaket (Deutschland), das an `localization` übergeben wird."
@@ -725,72 +1096,151 @@
     "description": "Das französische Sprachpaket (Frankreich), das an `localization` übergeben wird."
   },
   "getShiftWindows": {
-    "description": "Die dargestellten Schichtfenster um `date`, mit den Versätzen `-before … +after`. Das aktuelle Fenster ist `[letzte Grenze ≤ date, nächste Grenze)`; die Versätze laufen über Tagesgrenzen hinweg."
+    "description": "Die dargestellten Schichtfenster um `date`, mit den Versätzen `-before … +after`. Das aktuelle Fenster ist `[letzte Grenze ≤ date, nächste Grenze)`; die Versätze laufen über Tagesgrenzen hinweg.",
+    "props": {
+      "date": "Der gelesene Moment; die Schicht, die ihn enthält, ist die aktuelle.",
+      "options": "Das Schichtmuster und wie viele Schichten um die aktuelle gerendert werden."
+    }
   },
   "huHU": {
     "description": "Das ungarische Sprachpaket (Ungarn), das an `localization` übergeben wird."
   },
   "interpolate": {
-    "description": "Füllt die Platzhalter `{{name}}`. Eine Pluralvorlage wählt ihre Form für `values.count` mit `Intl.PluralRules(locale)` und fällt auf `other` zurück. Zahlen werden mit `Intl.NumberFormat` formatiert. Ein unbekannter Platzhalter bleibt, wie er geschrieben ist."
+    "description": "Füllt die Platzhalter `{{name}}`. Eine Pluralvorlage wählt ihre Form für `values.count` mit `Intl.PluralRules(locale)` und fällt auf `other` zurück. Zahlen werden mit `Intl.NumberFormat` formatiert. Ein unbekannter Platzhalter bleibt, wie er geschrieben ist.",
+    "props": {
+      "locale": "Die Sprache, mit der die Zahlen formatiert werden.",
+      "template": "Eine Nachricht mit `{{name}}`-Platzhaltern.",
+      "values": "Was an die Stelle jedes Platzhalters kommt."
+    }
   },
   "observeCompact": {
-    "description": "`onChange(compact)` mit compact = Breite unterhalb von `breakpoint`, jetzt und bei jeder Änderung."
+    "description": "`onChange(compact)` mit compact = Breite unterhalb von `breakpoint`, jetzt und bei jeder Änderung.",
+    "props": {
+      "element": "Das Element, dessen Breite den kompakten Modus entscheidet.",
+      "options": "Die Breakpoints und der Callback, der die Antwort erhält."
+    }
   },
   "observeWidth": {
-    "description": "Ruft `onWidth` mit der Content-Box-Breite des Elements auf, jetzt und bei jeder Änderung. Kompaktmodus und `listOnlyBreakpoint` nutzen die Breite der Wurzel, nicht die des Viewports oder des Browsers."
+    "description": "Ruft `onWidth` mit der Content-Box-Breite des Elements auf, jetzt und bei jeder Änderung. Kompaktmodus und `listOnlyBreakpoint` nutzen die Breite der Wurzel, nicht die des Viewports oder des Browsers.",
+    "props": {
+      "element": "Das zu messende Element.",
+      "onWidth": "Wird mit der Content-Box-Breite aufgerufen, bei jeder Änderung."
+    }
   },
   "pageList": {
-    "description": "Die Seiten für den Seitenblätterer (0-basiert): alle, wenn es höchstens sieben sind; sonst die ersten zwei, die letzten zwei und die aktuelle Seite ±1, mit „ellipsis“ in jeder Lücke."
+    "description": "Die Seiten für den Seitenblätterer (0-basiert): alle, wenn es höchstens sieben sind; sonst die ersten zwei, die letzten zwei und die aktuelle Seite ±1, mit „ellipsis“ in jeder Lücke.",
+    "props": {
+      "currentPage": "Die gezeigte Seite, ab null gezählt.",
+      "totalPages": "Wie viele Seiten es gibt."
+    }
   },
   "prefersReducedMotion": {
-    "description": "Die Media-Query `prefers-reduced-motion: reduce`; false, wenn Media-Queries nicht verfügbar sind."
+    "description": "Die Media-Query `prefers-reduced-motion: reduce`; false, wenn Media-Queries nicht verfügbar sind.",
+    "props": {
+      "view": "Das zu befragende Fenster; wird eines übergeben, ist der Helfer testbar."
+    }
   },
   "ptPT": {
     "description": "Das portugiesische Sprachpaket (Portugal), das an `localization` übergeben wird."
   },
   "resolveEnd": {
-    "description": "Das aufgelöste Ende eines Elements: `start + defaultDuration`, wenn `end` fehlt oder ungültig ist; ein Ende vor dem Beginn zählt als Dauer null."
+    "description": "Das aufgelöste Ende eines Elements: `start + defaultDuration`, wenn `end` fehlt oder ungültig ist; ein Ende vor dem Beginn zählt als Dauer null.",
+    "props": {
+      "defaultDuration": "Wie lange er dauert, wenn er kein Ende hat, in Millisekunden.",
+      "end": "Sein Ende, wenn es eines hat.",
+      "start": "Der Beginn des Eintrags."
+    }
   },
   "resolveLevels": {
-    "description": "Die Stufendefinitionen nach `key` indiziert, mit ausgefülltem `rank` (Standard: der Array-Index), `variant` und `pinOnPass`."
+    "description": "Die Stufendefinitionen nach `key` indiziert, mit ausgefülltem `rank` (Standard: der Array-Index), `variant` und `pinOnPass`.",
+    "props": {
+      "levels": "Die Skala, wie sie gegeben wurde, mit ihren noch zu füllenden Lücken."
+    }
   },
   "resolveShift": {
-    "description": "Das Fenster der aktuellen Schicht (Versatz 0) für `date`."
+    "description": "Das Fenster der aktuellen Schicht (Versatz 0) für `date`.",
+    "props": {
+      "date": "Der zu platzierende Moment.",
+      "options": "Das Schichtmuster, mit dem der Tag zerteilt wird."
+    }
   },
   "resolveTimeLabel": {
-    "description": "Das Zeitlabel einer Karte, erster Treffer: `timeLabel` wie angegeben; „{observed} {observedLabel}“, wenn `observedLabel` eine nichtleere Zeichenkette ist; „{since} {timestamp}“ bei gültigem `since`, sonst nur das Präfix; andernfalls „{start} – {end}“."
+    "description": "Das Zeitlabel einer Karte, erster Treffer: `timeLabel` wie angegeben; „{observed} {observedLabel}“, wenn `observedLabel` eine nichtleere Zeichenkette ist; „{since} {timestamp}“ bei gültigem `since`, sonst nur das Präfix; andernfalls „{start} – {end}“.",
+    "props": {
+      "defaultDuration": "Wie lange ein Eintrag ohne Ende dauert, in Millisekunden.",
+      "formatters": "Die Formatierer, für die Uhrzeit selbst.",
+      "item": "Der Eintrag, dessen Uhrzeit geschrieben wird; sein eigenes `timeLabel` gewinnt, wenn er eines hat.",
+      "localization": "Das Sprachpaket, für die Wörter rund um die Uhrzeit."
+    }
   },
   "roRO": {
     "description": "Das rumänische Sprachpaket (Rumänien), das an `localization` übergeben wird."
   },
   "sortOverflowItems": {
-    "description": "Die Elemente nach dem Spaltenwert sortiert; Gleichstände entscheidet `compare`. Der gesamte Vergleich, samt Gleichständen, folgt der Richtung. Eine nicht sortierbare oder unbekannte Spalte sortiert allein nach `compare`."
+    "description": "Die Elemente nach dem Spaltenwert sortiert; Gleichstände entscheidet `compare`. Der gesamte Vergleich, samt Gleichständen, folgt der Richtung. Eine nicht sortierbare oder unbekannte Spalte sortiert allein nach `compare`.",
+    "props": {
+      "columns": "Die geltenden Spalten, die sagen, wie jede sortiert.",
+      "compare": "Die Reihenfolge, die einen Gleichstand auflöst.",
+      "items": "Die Einträge einer Gruppe weiterer Einträge.",
+      "sort": "Die Spalte und die Richtung, nach denen sortiert wird."
+    }
   },
   "toMs": {
-    "description": "Die Millisekunden seit der Epoche einer Datumseingabe; `NaN`, wenn sie ungültig ist. Eine Zeichenkette ohne Offset ist lokale Uhrzeit, auch reine Datumsangaben (die `Date` allein als UTC läse)."
+    "description": "Die Millisekunden seit der Epoche einer Datumseingabe; `NaN`, wenn sie ungültig ist. Eine Zeichenkette ohne Offset ist lokale Uhrzeit, auch reine Datumsangaben (die `Date` allein als UTC läse).",
+    "props": {
+      "input": "Ein `Date`, Epoch-Millisekunden oder eine Zeichenkette, die `Date` lesen kann."
+    }
   },
   "useCompact": {
-    "description": "Der Kompaktmodus aus der Inhaltsbreite des Elements; ein Boolescher Wert erzwingt ihn. Auf dem Server falsch."
+    "description": "Der Kompaktmodus aus der Inhaltsbreite des Elements; ein Boolescher Wert erzwingt ihn. Auf dem Server falsch.",
+    "props": {
+      "options": "Die Breakpoints und ein Wert, der die Messung überschreibt.",
+      "ref": "Das Element, dessen Breite den kompakten Modus entscheidet."
+    }
   },
   "useControllableState": {
-    "description": "Kontrolliert, wenn `value` übergeben wird, sonst interner Zustand ab `defaultValue`."
+    "description": "Kontrolliert, wenn `value` übergeben wird, sonst interner Zustand ab `defaultValue`.",
+    "props": {
+      "defaultValue": "Der Startwert, solange er unkontrolliert ist.",
+      "onChange": "Wird mit jedem neuen Wert aufgerufen, in beiden Fällen.",
+      "value": "Der kontrollierte Wert, oder `undefined`, solange der Zustand unkontrolliert ist."
+    }
   },
   "useNow": {
-    "description": "Die Millisekunden seit der Epoche von `now` oder eine interne Uhr, die alle `interval` ms weiterläuft und pausiert, solange das Dokument verborgen ist."
+    "description": "Die Millisekunden seit der Epoche von `now` oder eine interne Uhr, die alle `interval` ms weiterläuft und pausiert, solange das Dokument verborgen ist.",
+    "props": {
+      "input": "Ein fester Moment statt der Uhr, oder wie oft die Uhr tickt."
+    }
   },
   "usePinOnPass": {
-    "description": "Anheften beim Vorbeiscrollen für eigenes Markup: Sensoren registrieren, angeheftete Schlüssel lesen."
+    "description": "Anheften beim Vorbeiscrollen für eigenes Markup: Sensoren registrieren, angeheftete Schlüssel lesen.",
+    "props": {
+      "options": "Der Scroller, die Anheftregel und der Callback, der die angehefteten Ids meldet."
+    }
   },
   "useScheduler": {
-    "description": "Alles, was `<Scheduler>` nutzt, ohne Markup."
+    "description": "Alles, was `<Scheduler>` nutzt, ohne Markup.",
+    "props": {
+      "props": "Dieselben Props, die `<Scheduler>` nimmt."
+    }
   },
   "useShiftModel": {
-    "description": "Die Schichtfenster und Abschnitte für ein Datum."
+    "description": "Die Schichtfenster und Abschnitte für ein Datum.",
+    "props": {
+      "input": "Der gelesene Moment und das Schichtmuster, mit dem der Tag zerteilt wird."
+    }
   },
   "useShiftNavigation": {
-    "description": "Programmatische Schichtnavigation für eigenes Markup."
+    "description": "Programmatische Schichtnavigation für eigenes Markup.",
+    "props": {
+      "options": "Der Scroller, die gerenderten Schichten und wo ein Sprung landen soll."
+    }
   },
   "useTimelineLayout": {
-    "description": "Das Zeitstrahl-Layout von `items`, anhand seiner Eingaben gemerkt."
+    "description": "Das Zeitstrahl-Layout von `items`, anhand seiner Eingaben gemerkt.",
+    "props": {
+      "items": "Die Einträge des gerenderten Bereichs.",
+      "options": "Die Geometrie und die Obergrenzen, mit denen das Layout berechnet wird."
+    }
   }
 }

@@ -1,17 +1,69 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Navigare",
-    "description": "Navigare în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Cele două butoane care mută între ture: ce țintește fiecare, cum se numește și ce înseamnă numărul de pe el."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "targets": "Ce țintește fiecare buton",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Mutarea între ture"
+  },
+  "basics": {
+    "intro": "Două butoane stau deasupra și dedesubtul programului și mută mereu cu o tură. Care tură este depinde de unde se află deja cititorul: butonul de sus se întoarce la începutul turei curente cât timp ești în interiorul ei și abia apoi la tura dinaintea ei.",
+    "where": "Această regulă face butoanele previzibile în timpul citirii: prima apăsare nu sare niciodată peste tura în mijlocul căreia te afli."
+  },
+  "targets": {
+    "intro": "Scris pe larg, cu <strong>A</strong> pentru tura citită:",
+    "head": {
+      "when": "Unde se află cititorul",
+      "top": "Butonul de sus merge la",
+      "bottom": "Butonul de jos merge la"
+    },
+    "rows": [
+      ["Într-o tură mai târzie (A după cea curentă)", "Tura curentă", "Tura următoare"],
+      ["În tura curentă, dar nu la începutul ei", "Începutul turei curente", "Tura următoare"],
+      ["La începutul turei curente", "Tura anterioară", "Tura următoare"],
+      ["Într-o tură anterioară, dar nu la începutul ei", "Începutul acelei ture", "Tura de după ea"],
+      [
+        "La începutul celei mai vechi ture randate",
+        "Nicăieri: ascuns în listă, dezactivat în cronologie",
+        "Tura de după ea"
+      ]
+    ],
+    "count": "Când butonul de sus arată spre o tură anterioară, poartă și un număr: câte elemente din turele deja trecute se mai pot fixa. Acel număr îi spune cititorului dacă merită să se întoarcă."
+  },
+  "accessibility": {
+    "points": [
+      "Eticheta vizibilă este numele accesibil — niciun nume ascuns nu spune altceva decât ce arată butonul.",
+      "Indiciul („Nu există tură anterioară”) este un tooltip și descrierea butonului, nu numele lui.",
+      "În listă butoanele dispar când nu există unde să meargă; în cronologie rămân, dezactivate, ca grila să nu se miște sub cititor.",
+      "Un salt este lin, dacă cititorul nu a cerut mișcare redusă, și aterizează cu titlul turei la vedere.",
+      "În listă butoanele apar abia când vreo tură are cel puțin <code>navigationThreshold</code> elemente, ca o zi scurtă să nu fie aglomerată de comenzi care nu fac nimic."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>localization.nav</code> conține fiecare etichetă și indiciu, inclusiv numărul de elemente rămase.",
+      "<code>renderNavLabel</code> înlocuiește ce spune un buton; părțile <code>navButton</code> și <code>carriedOverCount</code> îi înlocuiesc aspectul.",
+      "<code>handlers.onNavigate</code> poate anula un salt — de pildă pentru o modificare nesalvată — iar <code>onNavigate</code> le raportează pe cele care se întâmplă.",
+      "<code>list.navigationThreshold</code> decide când lista arată butoanele."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Navigarea se mișcă doar între turele randate. Dincolo de ele, mersul mai departe este o schimbare de dată, pe care o face aplicația ta.",
+      "Nu există salt la o tură oarecare: butoanele mută câte un pas.",
+      "Butoanele fac parte din componentă și nu pot fi mutate în altă parte a paginii; un control propriu poate cere aceleași mișcări prin interfața imperativă."
+    ]
   }
 }

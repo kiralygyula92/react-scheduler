@@ -38,6 +38,26 @@
     "presetClassic": "Klasszikus",
     "shiftLength": "Műszak hossza",
     "navigationThreshold": "A léptetés ennyitől jelenik meg",
-    "items": "{count, plural, one {# elem} other {# elem}}"
+    "items": "{count, plural, one {# elem} other {# elem}}",
+    "sortByTitle": "Cím szerint rendezz, ne idő szerint",
+    "pinnedCount": "{count, plural, =0 {Még semmi nincs rögzítve} other {# elem rögzítve}}",
+    "navigateIdle": "Használd a lista fölötti és alatti gombokat.",
+    "navigated": "Ugrás a(z) {offset} eltolású műszakra.",
+    "clock": "Az idő most"
+  },
+  "levels": {
+    "blocking": "Blokkoló",
+    "attention": "Figyelmet igényel",
+    "planned": "Tervezett",
+    "done": "Kész"
+  },
+  "columns": {
+    "reference": "Hivatkozás",
+    "title": "Cím",
+    "level": "Szint"
+  },
+  "detail": {
+    "reference": "{reference} hivatkozás",
+    "close": "Bezárás"
   }
 }

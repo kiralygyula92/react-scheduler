@@ -59,7 +59,10 @@
     "description": "Ce primește fiecare slot: proprietățile părții, starea ei și componenta implicită.",
     "props": {
       "Default": "Elementul sau componenta implicită a părții, de învelit sau de randat.",
+      "children": "Conținutul propriu al părții, de randat în interiorul a ceea ce o înlocuiește.",
       "className": "`rs-<part>` + clasele bibliotecii + className din `slotProps` + `classNames[part]`.",
+      "data-rs-part": "Numele părții, pe care foaia de stil și testele îl selectează.",
+      "ownerState": "Pentru ce randează partea: vizualizarea, schema, elementul, tura.",
       "ref": "TREBUIE atașat: fixarea, măsurarea și focalizarea depind de el.",
       "style": "Stiluri inline structurale + style din `slotProps` + `styles[part]`."
     }
@@ -68,7 +71,16 @@
     "description": "Cheia de etichetă pe care biblioteca o adaugă elementelor fixate preluate din tura anterioară."
   },
   "CardContentContext": {
-    "description": "Ce primește `renderCardContent`: elementul, nivelul său și eticheta de timp calculată."
+    "description": "Ce primește `renderCardContent`: elementul, nivelul său și eticheta de timp calculată.",
+    "props": {
+      "compact": "Dacă programul este în modul compact.",
+      "defaultRender": "Conținutul încorporat, de împachetat sau de pus lângă al tău.",
+      "item": "Elementul care se randează.",
+      "level": "Nivelul elementului, rezolvat din scară.",
+      "timeLabel": "Ora așa cum o arată cardul, din formatoare și din etichetele proprii ale elementului.",
+      "variant": "Tratamentul de card pe care îl cere nivelul.",
+      "view": "Vizualizarea în care se randează cardul."
+    }
   },
   "CardVariant": {
     "description": "Cum se desenează un card: normal, ca alertă sau estompat."
@@ -92,7 +104,10 @@
     "description": "Aceeași structură, cu fiecare membru opțional, pe orice nivel."
   },
   "DefaultItemDetail": {
-    "description": "Vizualizarea detaliată în care se deschide un element, așa cum o randează biblioteca."
+    "description": "Vizualizarea detaliată în care se deschide un element, așa cum o randează biblioteca.",
+    "props": {
+      "item": "Elementul al cărui detaliu este arătat."
+    }
   },
   "Density": {
     "description": "Scara de spațiere a părților randate."
@@ -103,14 +118,24 @@
   "ElementProps": {
     "description": "Proprietățile pe care o gazdă headless le aplică pe unul dintre elementele bibliotecii.",
     "props": {
+      "data-rs-part": "Numele părții, pe care foaia de stil și testele îl selectează.",
       "ref": "Un ref de tip callback, ca proprietățile să se poată aplica pe orice element."
     }
   },
   "EmptyContext": {
-    "description": "Ce primește `renderEmpty`: dacă e goală ziua întreagă sau doar o tură."
+    "description": "Ce primește `renderEmpty`: dacă e goală ziua întreagă sau doar o tură.",
+    "props": {
+      "scope": "Dacă este gol tot programul sau doar o tură.",
+      "segment": "Tura goală, când domeniul este o singură tură."
+    }
   },
   "EmptyState": {
-    "description": "Ce afișează o vizualizare când nu are nimic de plasat."
+    "description": "Ce afișează o vizualizare când nu are nimic de plasat.",
+    "props": {
+      "overlay": "Randează starea peste conținut, nu în locul lui.",
+      "scope": "Dacă este gol tot programul sau doar o tură.",
+      "segment": "Tura goală, când domeniul este o singură tură."
+    }
   },
   "ErrorState": {
     "description": "Ce afișează o vizualizare când încărcarea a eșuat, cu acțiunea de reîncercare dacă este furnizată."
@@ -122,19 +147,34 @@
     }
   },
   "HeaderContext": {
-    "description": "Ce primește `renderHeader`: semnalul, vizualizarea și turele randate."
+    "description": "Ce primește `renderHeader`: semnalul, vizualizarea și turele randate.",
+    "props": {
+      "activeShift": "Tura citită, sau `null` înainte de prima măsurătoare.",
+      "expanded": "Valoarea curentă a semnalului de antet.",
+      "segments": "Fiecare tură randată cu elementele ei, în ordine.",
+      "view": "Vizualizarea care se randează."
+    }
   },
   "HeaderReason": {
     "description": "De ce s-a schimbat valoarea de extindere a antetului."
   },
   "ItemDetailContext": {
-    "description": "Ce primește `renderItemDetail`: elementul, cum a fost deschis și o cale de a-l închide."
+    "description": "Ce primește `renderItemDetail`: elementul, cum a fost deschis și o cale de a-l închide.",
+    "props": {
+      "close": "Închide detaliul și întoarce focalizarea la ce l-a deschis.",
+      "item": "Elementul al cărui detaliu este deschis.",
+      "source": "Ce l-a deschis: un card, o pastilă fixată, un rând din dialogul de suplimentare sau interfața imperativă."
+    }
   },
   "ItemOf": {
     "description": "Ajutoare pentru a deduce tipurile de elemente din definițiile de niveluri și etichete."
   },
   "ItemProps": {
-    "description": "Proprietățile pe care un card personalizat le aplică pe activatorul său, ca activarea și tastatura să funcționeze."
+    "description": "Proprietățile pe care un card personalizat le aplică pe activatorul său, ca activarea și tastatura să funcționeze.",
+    "props": {
+      "data-rs-part": "Numele părții, pe care foaia de stil și testele îl selectează.",
+      "ref": "TREBUIE atașat: focalizarea și derularea până la un element depind de el."
+    }
   },
   "LandingTarget": {
     "description": "Unde aterizează o vizualizare: la începutul turei, pe dată, chiar deasupra ei sau nicăieri."
@@ -152,10 +192,16 @@
     }
   },
   "LevelPill": {
-    "description": "Pastila care arată nivelul unui element."
+    "description": "Pastila care arată nivelul unui element.",
+    "props": {
+      "level": "Cheia nivelului pe care îl reprezintă pastila."
+    }
   },
   "ListCard": {
-    "description": "Un card de listă (`li`) cu activatorul său; `renderItem` îl înlocuiește complet."
+    "description": "Un card de listă (`li`) cu activatorul său; `renderItem` îl înlocuiește complet.",
+    "props": {
+      "item": "Elementul pe care îl randează cardul."
+    }
   },
   "ListOptions": {
     "description": "Opțiunile proprii vizualizării listă: când apare navigarea, unde aterizează un salt și când se declanșează semnalul de antet.",
@@ -178,16 +224,29 @@
     "description": "Ce acceptă `<ListView>`: proprietățile planificatorului, fără selecția vizualizării."
   },
   "LoadingState": {
-    "description": "Ce afișează o vizualizare în timp ce elementele se încarcă."
+    "description": "Ce afișează o vizualizare în timp ce elementele se încarcă.",
+    "props": {
+      "overlay": "Randează starea peste conținut, nu în locul lui."
+    }
   },
   "Middleware": {
     "description": "Rulează înaintea unei interacțiuni: o poate inspecta, modifica sau anula prin neapelarea lui `next`."
   },
   "MoreChip": {
-    "description": "Indicatorul care ține locul elementelor pe care un grup aglomerat nu le-a putut plasa."
+    "description": "Indicatorul care ține locul elementelor pe care un grup aglomerat nu le-a putut plasa.",
+    "props": {
+      "group": "Elementele pe care le reprezintă pastila.",
+      "top": "Unde stă pastila pe grilă, în pixeli de la începutul intervalului."
+    }
   },
   "NavLabelContext": {
-    "description": "Ce primește `renderNavLabel`: tura țintă și numărul elementelor preluate."
+    "description": "Ce primește `renderNavLabel`: tura țintă și numărul elementelor preluate.",
+    "props": {
+      "carriedOverCount": "Câte elemente din turele deja trecute mai pot fi fixate.",
+      "disabled": "Dacă butonul este dezactivat.",
+      "position": "Care dintre cele două butoane primește eticheta.",
+      "target": "Tura la care ar merge butonul, sau `null` când nu există niciuna."
+    }
   },
   "NavPosition": {
     "description": "De la ce buton de navigare a venit un eveniment."
@@ -196,13 +255,18 @@
     "description": "Ce arată un buton de navigare: unde duce, dacă este dezactivat și câte elemente au fost preluate.",
     "props": {
       "carriedOverCount": "Doar butonul de sus.",
+      "disabled": "Dacă este randat, dar nu poate fi apăsat.",
       "hint": "Indiciu și descriere accesibilă.",
-      "label": "Eticheta vizibilă; totodată numele accesibil."
+      "label": "Eticheta vizibilă; totodată numele accesibil.",
+      "target": "Tura la care ar merge, sau `null` când nu există niciuna.",
+      "visible": "Dacă butonul este randat deloc."
     }
   },
   "Navigator": {
     "description": "Mută o vizualizare la o tură, un element sau un moment, cu alinierea cerută de opțiuni.",
     "props": {
+      "cancel": "Oprește o mișcare în curs.",
+      "destroy": "Desprinde toți ascultătorii; apelează-l când dispare zona de derulare.",
       "scrollTo": "Derulează la `target()`; lin, dacă `smooth` nu este false. Un apel nou îl înlocuiește pe cel în așteptare."
     }
   },
@@ -218,6 +282,7 @@
     "description": "Ce îi trebuie navigatorului: zona de derulare, turele și regulile de aterizare.",
     "props": {
       "resumeDelay": "Cât se așteaptă după corecția finală până la `onDone`, în milisecunde.",
+      "scroller": "Elementul pe care îl derulează navigatorul.",
       "settleDelay": "Cât timp fără evenimente de derulare contează ca oprit acolo unde `scrollend` nu este acceptat, în milisecunde."
     }
   },
@@ -225,17 +290,29 @@
     "description": "Marcajul „acum” al listei: ora într-o pastilă, apoi o linie."
   },
   "OverflowCellContext": {
-    "description": "Ce primește o celulă din tabelul de elemente suplimentare: textele și o cale de a deschide elementul."
+    "description": "Ce primește o celulă din tabelul de elemente suplimentare: textele și o cale de a deschide elementul.",
+    "props": {
+      "localization": "Pachetul de limbă în vigoare, pentru o celulă care are cuvintele ei.",
+      "openItem": "Deschide elementul rândului, la fel ca coloana de acțiuni încorporată."
+    }
   },
   "OverflowColumn": {
     "description": "O coloană a tabelului de elemente suplimentare: antetul, celula și modul de sortare.",
     "props": {
+      "align": "Cum este aliniat conținutul coloanei în celulele ei.",
+      "header": "Celula de antet, sau o funcție de pachetul de limbă care o returnează.",
+      "id": "Identifică coloana în `overflowSort` și îi este cheie React.",
       "maxWidth": "Egal cu `minWidth`, coloana are acea lățime fixă și nu primește nimic din spațiul liber.",
+      "minWidth": "Lățimea, în pixeli, pe care o cere coloana înainte de împărțirea lățimii rămase.",
+      "renderCell": "Randează celula unui element.",
       "sortValue": "Omite-l pentru ca acea coloană să nu poată fi sortată."
     }
   },
   "OverflowDialog": {
-    "description": "Dialogul care enumeră elementele din spatele unui indicator „+more”."
+    "description": "Dialogul care enumeră elementele din spatele unui indicator „+more”.",
+    "props": {
+      "group": "Grupul ale cărui elemente le listează dialogul."
+    }
   },
   "OverflowGroup": {
     "description": "Elementele pe care le reprezintă un indicator „+more”, cu intervalul pe care îl acoperă.",
@@ -246,41 +323,84 @@
     }
   },
   "OverflowSort": {
-    "description": "După ce coloană este sortat tabelul de elemente suplimentare și în ce direcție."
+    "description": "După ce coloană este sortat tabelul de elemente suplimentare și în ce direcție.",
+    "props": {
+      "column": "Id-ul coloanei după care se sortează.",
+      "direction": "Crescător sau descrescător."
+    }
   },
   "OverflowTable": {
-    "description": "Tabelul din dialogul cu elemente suplimentare."
+    "description": "Tabelul din dialogul cu elemente suplimentare.",
+    "props": {
+      "columns": "Coloanele în vigoare.",
+      "items": "Rândurile tabelului, deja sortate și paginate."
+    }
   },
   "OwnerState": {
-    "description": "Pentru ce randează o parte."
+    "description": "Pentru ce randează o parte.",
+    "props": {
+      "active": "Dacă acesta este cel activ din categoria lui, cum ar fi tura citită.",
+      "carriedOver": "Dacă elementul vine dintr-o tură deja trecută.",
+      "colorScheme": "Schema de culoare rezolvată; `system` a fost deja rezolvat la una dintre cele două.",
+      "compact": "Dacă programul este în modul compact.",
+      "density": "Scara de spațiere în vigoare.",
+      "dir": "Direcția de scriere în care se randează programul.",
+      "disabled": "Dacă partea este dezactivată.",
+      "item": "Elementul căruia îi aparține partea, pe părțile unui card.",
+      "level": "Nivelul elementului, rezolvat din scară.",
+      "pinned": "Dacă elementul este fixat acum.",
+      "position": "Care buton de navigare, pe părțile de navigare.",
+      "preset": "Presetul în vigoare.",
+      "shift": "Tura căreia îi aparține partea, pe părțile unei secțiuni.",
+      "variant": "Tratamentul de card pe care îl cere nivelul.",
+      "view": "Vizualizarea în care se randează partea."
+    }
   },
   "Pagination": {
     "description": "Paginatorul de sub tabelul de elemente suplimentare."
   },
   "PartExtraProps": {
-    "description": "Extra specifice unei părți, dincolo de atributele elementului."
+    "description": "Extra specifice unei părți, dincolo de atributele elementului.",
+    "props": {
+      "navButton": "Butonul de navigare primește și starea lui: unde arată și dacă este dezactivat."
+    }
   },
   "PinEngine": {
     "description": "Urmărește zona de derulare și raportează ce elemente sunt fixate după poziție.",
     "props": {
+      "destroy": "Desprinde observatorul; apelează-l când dispare zona de derulare.",
+      "getPinnedIds": "Id-urile fixate acum, în ordinea din document.",
+      "pause": "Oprește observarea, pentru o vizualizare montată, dar ascunsă.",
       "refresh": "Recitește o dată fiecare senzor (după derulări programatice, schimbări de date și montări). Se sare peste el cât timp este suspendat, dacă nu se folosește `force`.",
       "register": "Înregistrează un senzor pentru `ids` sub cheia `key`; returnează un callback de tip ref.",
       "relayout": "Recreează observatorii după ce linia de fixare s-a mutat (de exemplu, s-a redimensionat zona fixată sus).",
-      "reset": "Defixează totul (s-a schimbat data selectată)."
+      "reset": "Defixează totul (s-a schimbat data selectată).",
+      "resume": "Reia observarea după o pauză."
     }
   },
   "PinEngineOptions": {
     "description": "Ce îi trebuie motorului de fixare: zona de derulare, regula și elementele pe care le poate fixa.",
     "props": {
+      "epsilon": "Mută linia de fixare, în pixeli; o valoare pozitivă fixează mai devreme.",
       "getLine": "Linia de fixare în coordonatele ferestrei. Listă: marginea de jos a zonei fixate sus; cronologie: marginea de sus a zonei de derulare.",
-      "onChange": "Apelat cu id-urile fixate ori de câte ori acestea se schimbă."
+      "hysteresis": "Cât de mult trebuie să se întoarcă un element, în pixeli, până se desface.",
+      "onChange": "Apelat cu id-urile fixate ori de câte ori acestea se schimbă.",
+      "scroller": "Elementul de la a cărui margine de sus se măsoară linia de fixare."
     }
   },
   "PinSentinelProps": {
-    "description": "Proprietățile pe care un card personalizat le aplică pe senzorul său de fixare, ca fixarea să îl poată observa."
+    "description": "Proprietățile pe care un card personalizat le aplică pe senzorul său de fixare, ca fixarea să îl poată observa.",
+    "props": {
+      "data-rs-edge": "La ce margine a cardului stă santinela, după regula de fixare a vizualizării.",
+      "data-rs-part": "Numele părții, pe care foaia de stil și testele îl selectează.",
+      "ref": "TREBUIE atașat: observatorul de fixare urmărește acest element."
+    }
   },
   "PinnedChip": {
-    "description": "Un indicator din banda de elemente fixate."
+    "description": "Un indicator din banda de elemente fixate.",
+    "props": {
+      "entry": "Elementul fixat și ce arată pastila pentru el."
+    }
   },
   "PinnedStrip": {
     "description": "Banda cu elementele fixate, care rămâne vizibilă cât timp tura lor este pe ecran."
@@ -296,31 +416,48 @@
   "PlacedCard": {
     "description": "Un card plasat pe cronologie: elementul său, coloana și geometria.",
     "props": {
+      "column": "Coloana pe care o ocupă, numărată de la marginea de start.",
+      "columns": "În câte coloane își împarte banda grupul lui de suprapuneri.",
       "end": "Milisecunde de la epocă (rezolvate).",
       "height": "Pixeli.",
+      "item": "Elementul pe care îl reprezintă acest card.",
       "start": "Milisecunde de la epocă.",
       "top": "Pixeli de la începutul intervalului."
     }
   },
   "PluralForms": {
-    "description": "Formele de plural ale unui mesaj, alese cu `Intl.PluralRules` pentru localizarea activă."
+    "description": "Formele de plural ale unui mesaj, alese cu `Intl.PluralRules` pentru localizarea activă.",
+    "props": {
+      "other": "Forma folosită când nicio altă categorie de plural nu se potrivește; orice pachet o are."
+    }
   },
   "PresetName": {
     "description": "Aspectele incluse: cel propriu bibliotecii sau cel clasic pe care îl reproduce."
   },
   "ReducedMotion": {
-    "description": "Dacă mișcarea este redusă și o cale de a te abona la schimbarea acestei setări."
+    "description": "Dacă mișcarea este redusă și o cale de a te abona la schimbarea acestei setări.",
+    "props": {
+      "matches": "Dacă sistemul cere acum mișcare redusă.",
+      "subscribe": "Se abonează la schimbări; funcția returnată dezabonează."
+    }
   },
   "ReferencePill": {
-    "description": "Pastila care arată numărul de referință al unui element."
+    "description": "Pastila care arată numărul de referință al unui element.",
+    "props": {
+      "reference": "Numărul de referință de arătat."
+    }
   },
   "RenderItemContext": {
     "description": "Ce primește `renderItem`, inclusiv proprietățile pe care un card personalizat trebuie să le aplice.",
     "props": {
+      "compact": "Dacă programul este în modul compact.",
       "defaultRender": "Cardul încorporat.",
       "getItemProps": "Proprietățile pentru activator; aplicarea lor este obligatorie.",
       "getPinSentinelProps": "Proprietățile senzorului de fixare al unui element fixabil (fixarea are nevoie de ele).",
-      "style": "Cronologie: geometria structurală a cardului (poziție absolută și dimensiune)."
+      "item": "Elementul de randat.",
+      "style": "Cronologie: geometria structurală a cardului (poziție absolută și dimensiune).",
+      "variant": "Tratamentul de card pe care îl cere nivelul.",
+      "view": "Vizualizarea în care se randează cardul."
     }
   },
   "ResolvedFlags": {
@@ -335,15 +472,40 @@
   "SchedulerController": {
     "description": "Controlerul agnostic de framework din spatele componentelor: stare, acțiuni și un abonament.",
     "props": {
+      "activateItem": "Deschide un element așa cum o face un card: întâi middleware-ul, apoi starea, apoi evenimentul.",
+      "activateMore": "Deschide un grup de suplimentare așa cum o face pastila lui.",
+      "closeItem": "Închide detaliul deschis al elementului, cu motivul.",
+      "closeOverflow": "Închide dialogul de suplimentare, cu motivul.",
       "flushPinned": "Emite `onPinnedChange` când id-urile din bandă diferă de ultima emisie pentru acea vizualizare.",
+      "getLayout": "Aranjarea calculată a cronologiei, sau `null` în afara cronologiei.",
+      "getModel": "Modelul rezolvat pe care îl citesc vizualizările.",
+      "getOptions": "Opțiunile așa cum au fost setate ultima dată.",
+      "getOverflowGroup": "Un grup de suplimentare după id, sau `null` când nu există.",
+      "getState": "Starea stocată: ce a schimbat cititorul, înainte de aplicarea oricărei opțiuni.",
+      "getViewModel": "Tot ce îi trebuie unei vizualizări dincolo de model.",
+      "keyDownItem": "Rulează middleware-ul de taste pentru un card, apoi îl activează dacă tasta cere asta.",
+      "navigate": "Rulează o navigare de la unul dintre butoane: middleware-ul, apoi derularea pe care o face vizualizarea.",
       "navigateTo": "Navigare imperativă (`api`): fără middleware.",
       "noteViewShown": "Consemnează că `view` este afișată; true dacă înainte era afișată altă vizualizare (o comutare de vizualizare).",
       "openItem": "Deschidere imperativă (`api`): fără middleware; elementele dezactivate sau necunoscute nu se deschid.",
+      "openOverflow": "Deschide un grup de suplimentare după id, fără middleware.",
       "reconcileOpenItem": "Închide vizualizarea unui element care a dispărut din date; fără middleware, nu se redeschide singur.",
       "resetHeader": "Resetează memoria antetului pentru vizualizare, ca semnalul următor să fie comparat de la zero (intrarea în vizualizare).",
+      "scrollToTop": "Rulează derularea înapoi la început: middleware-ul, apoi derularea pe care o face vizualizarea.",
+      "setClock": "Raportează momentul curent, la fiecare bătaie a ceasului.",
+      "setDate": "Se mută la alt moment, în cazul necontrolat.",
+      "setDocumentDir": "Raportează direcția în care este documentul.",
       "setMounted": "Marchează proprietarul ca montat sau demontat; un `next()` asincron după demontare este ignorat.",
       "setOptions": "Înlocuiește opțiunile. Nu notifică: proprietarul se re-randează oricum cu noile opțiuni.",
-      "setPinnedByPosition": "Id-urile pe care motorul de fixare al vizualizării le-a fixat după poziție; `handlers.onPin` poate respinge fiecare schimbare."
+      "setOverflowPage": "Mută tabelul de suplimentare la o pagină.",
+      "setPinnedByPosition": "Id-urile pe care motorul de fixare al vizualizării le-a fixat după poziție; `handlers.onPin` poate respinge fiecare schimbare.",
+      "setPrefersReducedMotion": "Raportează dacă sistemul cere mișcare redusă.",
+      "setScrollFacts": "Raportează ce a găsit o măsurătoare a zonei de derulare.",
+      "setView": "Comută vizualizarea, în cazul necontrolat.",
+      "setWidth": "Raportează lățimea rădăcinii, care decide modul compact.",
+      "signalHeader": "Raportează un semnal de antet dintr-o vizualizare, pe care middleware-ul îl poate refuza.",
+      "sortOverflow": "Sortează tabelul de suplimentare după o coloană, inversând direcția dacă este deja sortat după ea.",
+      "subscribe": "Se abonează la schimbările de stare; funcția returnată dezabonează."
     }
   },
   "SchedulerEvents": {
@@ -396,10 +558,38 @@
     }
   },
   "SchedulerHandle": {
-    "description": "Handle-ul imperativ: derulare, deschidere și închidere, plus citirea stării curente."
+    "description": "Handle-ul imperativ: derulare, deschidere și închidere, plus citirea stării curente.",
+    "props": {
+      "closeItem": "Închide detaliul deschis, dacă există unul.",
+      "closeOverflow": "Închide dialogul de suplimentare, dacă este deschis.",
+      "focusItem": "Mută focalizarea pe cardul unui element.",
+      "getActiveShift": "Tura citită, sau `null` înainte de prima măsurătoare.",
+      "getLayout": "Aranjarea calculată a cronologiei, sau `null` în vizualizarea listă.",
+      "getPinnedIds": "Id-urile elementelor fixate acum, în ordinea din bandă.",
+      "getScrollElement": "Elementul care derulează, pentru o măsurătoare proprie.",
+      "openItem": "Deschide detaliul unui element, ca și cum i-ai activa cardul.",
+      "openOverflow": "Deschide dialogul de suplimentare al unui grup.",
+      "refreshPinning": "Măsoară din nou santinelele de fixare, după o schimbare de aranjare pe care componenta nu o vede.",
+      "scrollToItem": "Derulează până la un element, dacă este în intervalul randat.",
+      "scrollToShift": "Derulează până la o tură, după decalajul față de cea curentă sau după rol.",
+      "scrollToTime": "Derulează până la un moment din intervalul randat."
+    }
   },
   "SchedulerHandlers": {
-    "description": "Middleware de interacțiune, cu evenimentele React."
+    "description": "Middleware de interacțiune, cu evenimentele React.",
+    "props": {
+      "onDetailClose": "Rulează înainte ca detaliul unui element să se închidă, cu ce a cerut asta.",
+      "onHeaderSignal": "Rulează înainte ca semnalul de antet să se schimbe, cu ce l-a provocat.",
+      "onItemActivate": "Rulează înainte ca un element să se deschidă; dacă nu apelezi `next`, rămâne închis.",
+      "onItemKeyDown": "Rulează la fiecare tastă apăsată pe un card, înaintea tratării încorporate.",
+      "onMoreActivate": "Rulează înainte ca un grup de suplimentare să se deschidă.",
+      "onNavigate": "Rulează înainte de un salt între ture; dacă nu apelezi `next`, saltul este anulat.",
+      "onOverflowClose": "Rulează înainte ca dialogul de suplimentare să se închidă, cu ce a cerut asta.",
+      "onOverflowPage": "Rulează înainte ca tabelul de suplimentare să schimbe pagina.",
+      "onOverflowSort": "Rulează înainte ca tabelul de suplimentare să fie sortat și poate schimba sortarea aplicată.",
+      "onPin": "Rulează înainte ca un element să se fixeze sau să se desfacă; dacă nu apelezi `next`, banda rămâne cum era.",
+      "onScrollTop": "Rulează înainte de derularea înapoi la început."
+    }
   },
   "SchedulerItem": {
     "description": "Un lucru din program. Doar `id`, `start`, `level` și `title` sunt obligatorii; restul rafinează felul în care se citește cardul.",
@@ -425,18 +615,75 @@
   "SchedulerLocalization": {
     "description": "Toate textele pe care le poate afișa componenta. Un pachet de limbă este exact aceasta.",
     "props": {
-      "locale": "BCP 47, folosit pentru Intl."
+      "card": "Tiparul descrierii accesibile a unui card: nivelul și ora lui.",
+      "detail": "Eticheta de închidere a detaliului elementului.",
+      "dir": "Direcția de scriere a acestei limbi; `rtl` oglindește toată aranjarea.",
+      "emptyAll": "Afișat când nicio tură randată nu conține vreun element.",
+      "emptyShift": "Afișat într-o tură fără niciun element.",
+      "errorTitle": "Titlul stării de eroare.",
+      "levels": "Câte o etichetă pentru fiecare cheie de nivel; o cheie fără etichetă revine la cheia însăși.",
+      "loading": "Anunțat cât timp programul așteaptă date.",
+      "locale": "BCP 47, folosit pentru Intl.",
+      "more": "Pastila „+ mai multe”: ce arată și cum se numește.",
+      "nav": "Toate etichetele și indiciile celor două butoane de navigare.",
+      "now": "Eticheta marcajului „acum”, cu ora lui.",
+      "overflow": "Dialogul de suplimentare: titlul, coloanele și etichetele de închidere.",
+      "pagination": "Paginarea tabelului de suplimentare.",
+      "pinnedStrip": "Banda de elemente fixate: eticheta ei și ce anunță când setul se schimbă.",
+      "referenceLabel": "Eticheta citită înaintea unui număr de referință.",
+      "retry": "Eticheta butonului de reîncercare din starea de eroare.",
+      "scrollTop": "Eticheta butonului care derulează înapoi la început.",
+      "shiftHeader": "Cuvintele pe care titlul unei ture le folosește pentru locul ei față de tura curentă.",
+      "tags": "Câte o etichetă pentru fiecare cheie de etichetă; o cheie fără etichetă revine la cheia însăși.",
+      "timeLabel": "Cum este scrisă pe card o oră fără sfârșit.",
+      "views": "Numele celor două vizualizări, pentru un comutator propriu."
     }
   },
   "SchedulerModel": {
     "description": "Intrarea rezolvată: opțiunile, valorile implicite și starea, îmbinate într-o singură formă pe care o citesc vizualizările.",
     "props": {
       "animate": "Derularea lină și animațiile de intrare rulează.",
+      "carriedOverCount": "Câte elemente din turele deja trecute mai pot fi fixate.",
+      "compact": "Dacă programul este în modul compact.",
+      "compare": "Ordinea elementelor într-o tură.",
+      "current": "Tura curentă, sau `null` când nicio tură randată nu este cea curentă.",
       "currentIndex": "-1 când nicio tură randată nu are decalajul 0.",
+      "date": "Momentul citit.",
+      "defaultDuration": "Cât durează un element fără sfârșit, în milisecunde.",
+      "density": "Scara de spațiere în vigoare.",
       "dir": "Direcția rezolvată; `explicitDir` se setează pe rădăcină doar dacă nu a venit din document.",
+      "error": "Eroarea de arătat în locul conținutului, dacă există.",
+      "explicitDir": "Direcția de pus pe rădăcină, când nu a venit din document.",
+      "flags": "Toate flagurile de funcționalitate, rezolvate.",
+      "formatters": "Formatoarele în vigoare, deja legate de limbă.",
+      "geometry": "Măsurătorile cronologiei: intervalul, înălțimea orei și ancorele.",
+      "hasItems": "Dacă vreo tură randată conține vreun element.",
+      "headerExpanded": "Valoarea curentă a semnalului de antet.",
+      "itemsById": "Fiecare element randat, după id.",
+      "levels": "Scara de niveluri, rezolvată și indexată după cheia de nivel.",
+      "list": "Opțiunile listei, cu toate valorile implicite completate.",
+      "loading": "Dacă programul așteaptă date.",
+      "locale": "Eticheta BCP 47 cu care este produs fiecare format.",
+      "localization": "Pachetul de limbă în vigoare, cu toate valorile implicite completate.",
+      "now": "Momentul curent.",
+      "nowVisible": "Dacă indicatorul „acum” poate fi arătat deloc.",
+      "openItem": "Elementul al cărui detaliu este deschis, cât timp mai există în date.",
+      "openItemId": "Id-ul elementului al cărui detaliu este deschis.",
       "openItemMissing": "Id-ul deschis indică un element care nu mai există în date.",
+      "openOverflowId": "Id-ul grupului de suplimentare al cărui dialog este deschis.",
+      "openSource": "Ce l-a deschis.",
+      "overflowPage": "Pagina tabelului de suplimentare.",
+      "overflowPageSize": "Câte rânduri are o pagină a tabelului de suplimentare.",
+      "overflowSort": "Sortarea tabelului de suplimentare.",
       "pinCompare": "Ordinea benzii de elemente fixate: `pinning.compare`, altfel `compare`.",
-      "size": "Clasa de lățime a indicatorilor fixați, din lățimea rădăcinii: lg ≥ 900, md 600–899, sm < 600."
+      "pinRules": "Regula de fixare a fiecărei vizualizări, cu toate valorile implicite completate.",
+      "reducedMotion": "Dacă mișcarea este ținută la minimum.",
+      "segments": "Turele randate cu elementele lor, în ordine.",
+      "shifts": "Turele randate, în ordine.",
+      "size": "Clasa de lățime a indicatorilor fixați, din lățimea rădăcinii: lg ≥ 900, md 600–899, sm < 600.",
+      "tags": "Etichetele pe care le poate purta un element, indexate după cheia de etichetă.",
+      "timeline": "Opțiunile cronologiei, cu toate valorile implicite completate.",
+      "view": "Vizualizarea de randat."
     }
   },
   "SchedulerOptions": {
@@ -530,20 +777,63 @@
   "SchedulerState": {
     "description": "Tot ce folosește `<Scheduler>`, fără marcaj.",
     "props": {
-      "layout": "Doar cronologie."
+      "actions": "Aceleași acțiuni imperative pe care componenta le expune prin ref-ul ei.",
+      "activeShift": "Tura citită, sau `null` înainte de prima măsurătoare.",
+      "carriedOverCount": "Câte elemente din turele deja trecute mai pot fi fixate.",
+      "compact": "Dacă programul este în modul compact.",
+      "formatters": "Formatoarele în vigoare, deja legate de limbă.",
+      "getItemProps": "Proprietăți pentru activatorul unui element, ca activarea și tastatura să funcționeze.",
+      "getMoreChipProps": "Proprietăți pentru pastila care deschide un grup de suplimentare.",
+      "getNavButtonProps": "Proprietăți pentru unul dintre cele două butoane de navigare, inclusiv eticheta și starea lui.",
+      "getPinSentinelProps": "Proprietăți pentru santinela de fixare a unui element fixabil.",
+      "getPinnedChipProps": "Proprietăți pentru pastila unui element fixat.",
+      "getRootProps": "Proprietăți pentru elementul cel mai din afară al randării tale.",
+      "getScrollTopButtonProps": "Proprietăți pentru butonul care derulează înapoi la început.",
+      "getScrollerProps": "Proprietăți pentru elementul care derulează; fixarea și navigarea îl măsoară.",
+      "getSectionProps": "Proprietăți pentru elementul de secțiune al unei ture.",
+      "getStickyTopProps": "Proprietăți pentru elementul lipit de marginea de sus a zonei de derulare.",
+      "headerExpanded": "Valoarea curentă a semnalului de antet.",
+      "layout": "Doar cronologie.",
+      "localization": "Pachetul de limbă în vigoare.",
+      "navigation": "La ce arată acum cele două butoane de navigare.",
+      "now": "Momentul curent, așa cum îl dă ceasul intern sau proprietatea `now`.",
+      "nowVisible": "Dacă indicatorul „acum” poate fi arătat deloc.",
+      "openItem": "Elementul al cărui detaliu este deschis, sau `null`.",
+      "openOverflow": "Grupul de suplimentare al cărui dialog este deschis, sau `null`.",
+      "pinned": "Elementele fixate, în ordinea din bandă.",
+      "segments": "Turele randate cu elementele lor, în ordine.",
+      "shifts": "Turele randate, în ordine.",
+      "view": "Vizualizarea pe care o descrie starea."
     }
   },
   "SchedulerStoreState": {
     "description": "Starea stocată a controlerului: ce a schimbat cititorul, înainte de aplicarea vreunei opțiuni.",
     "props": {
+      "clock": "Momentul curent, așa cum l-a raportat ultima dată ceasul intern.",
       "date": "Valori necontrolate.",
+      "documentDir": "Direcția de scriere în care este documentul.",
+      "headerExpanded": "Semnalul de antet, când nu este controlat.",
+      "openItemId": "Elementul al cărui detaliu este deschis, când nu este controlat.",
+      "openOverflowId": "Grupul de suplimentare al cărui dialog este deschis, când nu este controlat.",
+      "openSource": "Ce a deschis acel element.",
+      "overflowPage": "Pagina tabelului de suplimentare, când nu este controlată.",
+      "overflowSort": "Sortarea tabelului de suplimentare, când nu este controlată.",
+      "prefersReducedMotion": "Dacă sistemul cititorului cere mișcare redusă.",
+      "view": "Vizualizarea arătată, când nu este controlată.",
+      "views": "Stare pe vizualizare: datele de derulare, id-urile fixate și memoria antetului.",
       "width": "Măsurată de stratul de vizualizare."
     }
   },
   "SchedulerViewModel": {
     "description": "Tot ce îi trebuie unei vizualizări pentru a randa, derivat din model.",
     "props": {
-      "pinnedIds": "Id-urile din banda de elemente fixate, în ordinea benzii (cele fixate prin poziție plus elementele cu `pinned: true`)."
+      "activeShift": "Tura citită, sau `null` înainte de prima măsurătoare.",
+      "facts": "Ce a găsit ultima măsurătoare a zonei de derulare.",
+      "navigation": "La ce arată cele două butoane de navigare.",
+      "pinned": "Elementele fixate cu pastilele lor, în ordinea din bandă.",
+      "pinnedIds": "Id-urile din banda de elemente fixate, în ordinea benzii (cele fixate prin poziție plus elementele cu `pinned: true`).",
+      "scrollTopVisible": "Dacă butonul de întoarcere la început este arătat.",
+      "view": "Vizualizarea pe care o descrie acest model."
     }
   },
   "ScrollFacts": {
@@ -561,14 +851,26 @@
   "SegmentInput": {
     "description": "Intrare de paritate: segmente deja grupate, gata de folosit cu forma datelor existente.",
     "props": {
-      "offset": "Implicit: -1 / 0 / 1 în funcție de rol."
+      "end": "Când se termină segmentul; exclusiv.",
+      "items": "Elementele acestui segment; sunt sortate pentru tine.",
+      "key": "O cheie proprie pentru tură; valoarea implicită vine din rol.",
+      "offset": "Implicit: -1 / 0 / 1 în funcție de rol.",
+      "role": "Dacă segmentul este înainte, la sau după tura curentă.",
+      "start": "Când începe segmentul."
     }
   },
   "ShiftHeader": {
-    "description": "Rândul de antet al unei ture în vizualizarea listă."
+    "description": "Rândul de antet al unei ture în vizualizarea listă.",
+    "props": {
+      "id": "Id-ul după care este etichetată secțiunea.",
+      "segment": "Tura căreia îi aparține antetul, cu elementele ei."
+    }
   },
   "ShiftNavButton": {
-    "description": "Butonul care sare la tura anterioară sau la cea următoare."
+    "description": "Butonul care sare la tura anterioară sau la cea următoare.",
+    "props": {
+      "position": "Care dintre cele două butoane este acesta."
+    }
   },
   "ShiftOptions": {
     "description": "Tiparul de ture al unei zile. Fie ture regulate de aceeași durată, fie un `pattern` neregulat de ture denumite.",
@@ -584,6 +886,8 @@
   "ShiftPatternEntry": {
     "description": "O tură dintr-un tipar zilnic neregulat: când începe și cum se numește.",
     "props": {
+      "key": "Cheia turei, din tipar sau din cheile regulate.",
+      "label": "O etichetă proprie pentru tură, în locul celei generate.",
       "start": "Ora de perete la care începe. Intrarea se termină acolo unde începe următoarea, ciclic."
     }
   },
@@ -593,12 +897,16 @@
   "ShiftSegment": {
     "description": "O tură cu elementele care îi revin, în ordinea în care sunt randate.",
     "props": {
-      "items": "Elementele al căror început se află în [shift.start, shift.end), în ordinea plasării."
+      "items": "Elementele al căror început se află în [shift.start, shift.end), în ordinea plasării.",
+      "shift": "Tura pe care o randează acest segment."
     }
   },
   "ShiftWindow": {
     "description": "O tură randată: decalajul față de cea curentă, cheia și limitele ei.",
     "props": {
+      "end": "Sfârșitul turei, în milisecunde epoch; exclusiv.",
+      "key": "Cheia turei, din tipar sau din cheile regulate.",
+      "label": "O etichetă proprie pentru tură, în locul celei generate.",
       "offset": "0 = curentă; negativ = anterioară.",
       "role": "Semnul decalajului.",
       "start": "Milisecunde de la epocă, la limitele de pe ceasul de perete (sigure la trecerea la ora de vară)."
@@ -613,6 +921,7 @@
   "SortableColumn": {
     "description": "Partea dintr-o coloană de elemente suplimentare de care are nevoie sortarea; `OverflowColumn` o extinde.",
     "props": {
+      "id": "Identifică coloana într-o sortare.",
       "sortValue": "Omite-l pentru ca acea coloană să nu poată fi sortată."
     }
   },
@@ -626,22 +935,49 @@
     }
   },
   "TagPill": {
-    "description": "Pastila care arată una dintre etichetele unui element."
+    "description": "Pastila care arată una dintre etichetele unui element.",
+    "props": {
+      "tag": "Cheia etichetei pe care o reprezintă pastila."
+    }
   },
   "TimeGrid": {
     "description": "Grila de ore a cronologiei, cu cardurile plasate pe ea."
   },
   "TimelineCard": {
-    "description": "Un card de cronologie, poziționat absolut din rezultatul motorului de aranjare."
+    "description": "Un card de cronologie, poziționat absolut din rezultatul motorului de aranjare.",
+    "props": {
+      "gap": "Spațiul dintre două coloane, în pixeli.",
+      "placed": "Cardul așa cum l-a așezat aranjarea: coloana și geometria lui."
+    }
   },
   "TimelineLayout": {
     "description": "Cronologia calculată: fiecare card plasat, fiecare grup de elemente suplimentare și geometria din jurul lor.",
     "props": {
-      "height": "Orele intervalului × `hourHeight`, cu minimul `hourHeight`."
+      "cards": "Fiecare card așezat, în ordinea așezării.",
+      "height": "Orele intervalului × `hourHeight`, cu minimul `hourHeight`.",
+      "overflow": "Grupurile pe care așezarea nu le-a putut încadra, fiecare în spatele unei pastile „+ mai multe”.",
+      "rangeEnd": "Ultimul moment acoperit de grilă, în milisecunde epoch.",
+      "rangeStart": "Primul moment acoperit de grilă, în milisecunde epoch."
     }
   },
   "TimelineLayoutOptions": {
-    "description": "Ce îi trebuie motorului de aranjare în afară de elemente: dimensiunea unei ore, limitele de coloane și fereastra de unire."
+    "description": "Ce îi trebuie motorului de aranjare în afară de elemente: dimensiunea unei ore, limitele de coloane și fereastra de unire.",
+    "props": {
+      "cardGap": "Spațiul dintre două coloane, în pixeli.",
+      "columnPlacement": "Ce coloană ocupă un element când mai multe se suprapun.",
+      "compact": "Dacă se aplică plafoanele compacte în locul celor obișnuite.",
+      "compareItems": "Ordinea pe care o urmează secvența de așezare.",
+      "defaultDuration": "Cât durează un element fără sfârșit, în milisecunde.",
+      "hourHeight": "Înălțimea unei ore, în pixeli.",
+      "levels": "Scara de niveluri rezolvată, care dă fiecărui element rangul lui.",
+      "maxColumns": "În câte coloane își pot împărți banda elementele care se suprapun.",
+      "maxColumnsCompact": "Plafonul care se aplică în modul compact.",
+      "maxColumnsCrowded": "Plafonul care se aplică acolo unde ziua este aglomerată.",
+      "minCardHeight": "Cât de scurt poate fi desenat un card, în pixeli.",
+      "overflowMergeWindow": "Cât de departe pot fi două grupuri aglomerate, în milisecunde, și totuși să se comaseze.",
+      "rangeEnd": "Ultimul moment acoperit de grilă, în milisecunde epoch.",
+      "rangeStart": "Primul moment acoperit de grilă, în milisecunde epoch."
+    }
   },
   "TimelineOptions": {
     "description": "Opțiunile proprii vizualizării cronologice: dimensiunea unei ore, câte coloane pot folosi elementele suprapuse și când se strâng într-un indicator „+more”.",
@@ -671,7 +1007,12 @@
     "description": "Un token de design din `styles.css`."
   },
   "Tooltip": {
-    "description": "Partea de indiciu; `position` vine din `useTooltip` (null cât timp este închis)."
+    "description": "Partea de indiciu; `position` vine din `useTooltip` (null cât timp este închis).",
+    "props": {
+      "children": "Textul indiciului.",
+      "id": "Id-ul la care arată elementul descris.",
+      "position": "Unde este ancorat indiciul, sau `null` cât timp nu este arătat."
+    }
   },
   "ViewKind": {
     "description": "Cele două vizualizări: o listă derulabilă de carduri sau o axă de timp cu carduri plasate."
@@ -680,7 +1021,12 @@
     "description": "Ora de perete în format de 24 de ore, „HH:mm”."
   },
   "bucketItems": {
-    "description": "Pune fiecare element în fereastra cu `start ≤ item.start < end`. Elementele din afara oricărei ferestre nu se afișează; cele cu un început invalid se elimină; la id-uri duplicate câștigă prima apariție."
+    "description": "Pune fiecare element în fereastra cu `start ≤ item.start < end`. Elementele din afara oricărei ferestre nu se afișează; cele cu un început invalid se elimină; la id-uri duplicate câștigă prima apariție.",
+    "props": {
+      "items": "Elementele de așezat, în orice ordine.",
+      "options": "Cum se ordonează elementele într-o tură și cât durează un element fără sfârșit.",
+      "windows": "Turele randate, în ordine."
+    }
   },
   "classicLevels": {
     "description": "Cele 9 niveluri de paritate, de la cel mai puternic."
@@ -689,25 +1035,50 @@
     "description": "Setul de etichete clasic: cele două etichete pe care le randează aspectul clasic."
   },
   "compareByPlacement": {
-    "description": "Ordinea de plasare: începutul crescător, apoi rangul nivelului crescător (cel mai puternic întâi), apoi id-ul."
+    "description": "Ordinea de plasare: începutul crescător, apoi rangul nivelului crescător (cel mai puternic întâi), apoi id-ul.",
+    "props": {
+      "levels": "Scara de niveluri rezolvată, care dă fiecărui element rangul lui."
+    }
   },
   "compensateStickyGrowth": {
-    "description": "Menține conținutul vizibil pe loc când elementul fixat din zona de derulare își schimbă înălțimea: zona se mută cu aceeași valoare, în același cadru, în orice motor. Zona de derulare setează `overflow-anchor: none`, așa că ancorarea din browser nu adaugă o a doua deplasare. Cât timp `suspended()` este activ, schimbarea este doar consemnată."
+    "description": "Menține conținutul vizibil pe loc când elementul fixat din zona de derulare își schimbă înălțimea: zona se mută cu aceeași valoare, în același cadru, în orice motor. Zona de derulare setează `overflow-anchor: none`, așa că ancorarea din browser nu adaugă o a doua deplasare. Cât timp `suspended()` este activ, schimbarea este doar consemnată.",
+    "props": {
+      "scroller": "Elementul care derulează, de ajustat.",
+      "sticky": "Elementul care se lipește de marginea lui de sus și își schimbă înălțimea.",
+      "suspended": "Returnează adevărat cât timp ajustarea trebuie sărită."
+    }
   },
   "computeTimelineLayout": {
-    "description": "Plasează elementele în coloanele cronologiei și în grupurile de elemente suplimentare: secvența de plasare, coloanele lacome, promovarea din suplimentare, umplerea golurilor, geometria, grupurile suplimentare (mărginite de `overflowMergeWindow`, măsurat din ancora fiecărui grup) și numărul de coloane."
+    "description": "Plasează elementele în coloanele cronologiei și în grupurile de elemente suplimentare: secvența de plasare, coloanele lacome, promovarea din suplimentare, umplerea golurilor, geometria, grupurile suplimentare (mărginite de `overflowMergeWindow`, măsurat din ancora fiecărui grup) și numărul de coloane.",
+    "props": {
+      "items": "Elementele intervalului randat, în orice ordine.",
+      "options": "Geometria și plafoanele: înălțimea orei, coloanele, fereastra de comasare."
+    }
   },
   "createFormatters": {
-    "description": "Construiește formatatoarele implicite pentru o localizare, pe care `formatters` le poate apoi înlocui una câte una."
+    "description": "Construiește formatatoarele implicite pentru o localizare, pe care `formatters` le poate apoi înlocui una câte una.",
+    "props": {
+      "locale": "Eticheta BCP 47 cu care este produs fiecare format.",
+      "options": "Suprascrieri pentru formate individuale, cum ar fi eticheta de oră."
+    }
   },
   "createNavigator": {
-    "description": "Creează navigatorul pentru o zonă de derulare."
+    "description": "Creează navigatorul pentru o zonă de derulare.",
+    "props": {
+      "options": "Zona de derulare de mișcat și callback-urile care raportează mișcarea."
+    }
   },
   "createPinEngine": {
-    "description": "Creează motorul de fixare pentru o zonă de derulare."
+    "description": "Creează motorul de fixare pentru o zonă de derulare.",
+    "props": {
+      "options": "Zona de derulare, linia de fixare și callback-ul care raportează id-urile fixate."
+    }
   },
   "createScheduler": {
-    "description": "Creează un controler. Aceasta este biblioteca întreagă fără React: îi dai opțiuni, citești modelul de vizualizare, îi apelezi acțiunile."
+    "description": "Creează un controler. Aceasta este biblioteca întreagă fără React: îi dai opțiuni, citești modelul de vizualizare, îi apelezi acțiunile.",
+    "props": {
+      "initialOptions": "Opțiunile cu care pornește controlerul; `setOptions` le înlocuiește mai târziu."
+    }
   },
   "deDE": {
     "description": "Pachetul de limbă germană (Germania), transmis lui `localization`."
@@ -725,72 +1096,151 @@
     "description": "Pachetul de limbă franceză (Franța), transmis lui `localization`."
   },
   "getShiftWindows": {
-    "description": "Ferestrele de tură randate în jurul valorii `date`, cu decalajele `-before … +after`. Fereastra curentă este `[ultima limită ≤ date, limita următoare)`; decalajele parcurg limitele peste zile."
+    "description": "Ferestrele de tură randate în jurul valorii `date`, cu decalajele `-before … +after`. Fereastra curentă este `[ultima limită ≤ date, limita următoare)`; decalajele parcurg limitele peste zile.",
+    "props": {
+      "date": "Momentul citit; tura care îl conține este cea curentă.",
+      "options": "Tiparul de ture și câte ture să fie randate în jurul celei curente."
+    }
   },
   "huHU": {
     "description": "Pachetul de limbă maghiară (Ungaria), transmis lui `localization`."
   },
   "interpolate": {
-    "description": "Completează substituenții `{{name}}`. Un șablon de plural își alege forma pentru `values.count` cu `Intl.PluralRules(locale)`, revenind la `other`. Numerele se formatează cu `Intl.NumberFormat`. Un substituent necunoscut rămâne așa cum este scris."
+    "description": "Completează substituenții `{{name}}`. Un șablon de plural își alege forma pentru `values.count` cu `Intl.PluralRules(locale)`, revenind la `other`. Numerele se formatează cu `Intl.NumberFormat`. Un substituent necunoscut rămâne așa cum este scris.",
+    "props": {
+      "locale": "Limba cu care sunt formatate numerele.",
+      "template": "Un mesaj cu substituenți `{{name}}`.",
+      "values": "Ce se pune în locul fiecărui substituent."
+    }
   },
   "observeCompact": {
-    "description": "`onChange(compact)` cu compact = lățimea sub `breakpoint`, acum și la fiecare schimbare."
+    "description": "`onChange(compact)` cu compact = lățimea sub `breakpoint`, acum și la fiecare schimbare.",
+    "props": {
+      "element": "Elementul a cărui lățime decide modul compact.",
+      "options": "Pragurile și callback-ul care primește răspunsul."
+    }
   },
   "observeWidth": {
-    "description": "Apelează `onWidth` cu lățimea casetei de conținut a elementului, acum și ori de câte ori se schimbă. Modul compact și `listOnlyBreakpoint` folosesc lățimea rădăcinii, nu a ferestrei sau a browserului."
+    "description": "Apelează `onWidth` cu lățimea casetei de conținut a elementului, acum și ori de câte ori se schimbă. Modul compact și `listOnlyBreakpoint` folosesc lățimea rădăcinii, nu a ferestrei sau a browserului.",
+    "props": {
+      "element": "Elementul de măsurat.",
+      "onWidth": "Apelat cu lățimea casetei de conținut, la fiecare schimbare."
+    }
   },
   "pageList": {
-    "description": "Paginile de afișat în paginator (numerotate de la 0): toate, când sunt cel mult 7; altfel primele două, ultimele două și pagina curentă ±1, cu „ellipsis” în fiecare gol."
+    "description": "Paginile de afișat în paginator (numerotate de la 0): toate, când sunt cel mult 7; altfel primele două, ultimele două și pagina curentă ±1, cu „ellipsis” în fiecare gol.",
+    "props": {
+      "currentPage": "Pagina arătată, numărată de la zero.",
+      "totalPages": "Câte pagini există."
+    }
   },
   "prefersReducedMotion": {
-    "description": "Interogarea media `prefers-reduced-motion: reduce`; false când interogările media nu sunt disponibile."
+    "description": "Interogarea media `prefers-reduced-motion: reduce`; false când interogările media nu sunt disponibile.",
+    "props": {
+      "view": "Fereastra de întrebat; dacă i-o dai, utilitarul devine testabil."
+    }
   },
   "ptPT": {
     "description": "Pachetul de limbă portugheză (Portugalia), transmis lui `localization`."
   },
   "resolveEnd": {
-    "description": "Sfârșitul rezolvat al unui element: `start + defaultDuration` când `end` lipsește sau este invalid; un final dinaintea începutului contează ca durată zero."
+    "description": "Sfârșitul rezolvat al unui element: `start + defaultDuration` când `end` lipsește sau este invalid; un final dinaintea începutului contează ca durată zero.",
+    "props": {
+      "defaultDuration": "Cât durează când nu are sfârșit, în milisecunde.",
+      "end": "Sfârșitul lui, când există.",
+      "start": "Începutul elementului."
+    }
   },
   "resolveLevels": {
-    "description": "Definițiile de niveluri indexate după `key`, cu `rank` (implicit: indexul din tablou), `variant` și `pinOnPass` completate."
+    "description": "Definițiile de niveluri indexate după `key`, cu `rank` (implicit: indexul din tablou), `variant` și `pinOnPass` completate.",
+    "props": {
+      "levels": "Scara așa cum a fost dată, cu golurile ei încă de completat."
+    }
   },
   "resolveShift": {
-    "description": "Fereastra turei curente (decalaj 0) pentru `date`."
+    "description": "Fereastra turei curente (decalaj 0) pentru `date`.",
+    "props": {
+      "date": "Momentul de așezat.",
+      "options": "Tiparul de ture cu care este tăiată ziua."
+    }
   },
   "resolveTimeLabel": {
-    "description": "Eticheta de timp a unui card, prima potrivire: `timeLabel` așa cum este dat; „{observed} {observedLabel}” când `observedLabel` este un șir nevid; „{since} {timestamp}” pentru un `since` valid, sau doar prefixul pentru unul invalid; altfel „{start} – {end}”."
+    "description": "Eticheta de timp a unui card, prima potrivire: `timeLabel` așa cum este dat; „{observed} {observedLabel}” când `observedLabel` este un șir nevid; „{since} {timestamp}” pentru un `since` valid, sau doar prefixul pentru unul invalid; altfel „{start} – {end}”.",
+    "props": {
+      "defaultDuration": "Cât durează un element fără sfârșit, în milisecunde.",
+      "formatters": "Formatoarele, pentru ora însăși.",
+      "item": "Elementul a cărui oră este scrisă; propriul `timeLabel` câștigă, dacă există.",
+      "localization": "Pachetul de limbă, pentru cuvintele din jurul orei."
+    }
   },
   "roRO": {
     "description": "Pachetul de limbă română (România), transmis lui `localization`."
   },
   "sortOverflowItems": {
-    "description": "Elementele sortate după valoarea coloanei; egalitățile se departajează prin `compare`. Întreaga comparație, inclusiv departajarea, urmează direcția. O coloană nesortabilă sau necunoscută sortează doar prin `compare`."
+    "description": "Elementele sortate după valoarea coloanei; egalitățile se departajează prin `compare`. Întreaga comparație, inclusiv departajarea, urmează direcția. O coloană nesortabilă sau necunoscută sortează doar prin `compare`.",
+    "props": {
+      "columns": "Coloanele în vigoare, care spun cum se sortează fiecare.",
+      "compare": "Ordinea care rezolvă o egalitate.",
+      "items": "Elementele unui grup de suplimentare.",
+      "sort": "Coloana și direcția după care se sortează."
+    }
   },
   "toMs": {
-    "description": "Milisecundele de la epocă ale unei intrări de dată; `NaN` când este invalidă. Un șir fără decalaj este ora locală de perete, inclusiv șirurile cu dată simplă (pe care `Date` singur le-ar citi ca UTC)."
+    "description": "Milisecundele de la epocă ale unei intrări de dată; `NaN` când este invalidă. Un șir fără decalaj este ora locală de perete, inclusiv șirurile cu dată simplă (pe care `Date` singur le-ar citi ca UTC).",
+    "props": {
+      "input": "Un `Date`, milisecunde epoch, sau un șir pe care `Date` îl poate interpreta."
+    }
   },
   "useCompact": {
-    "description": "Modul compact din lățimea de conținut a elementului; o valoare booleană îl impune. Fals pe server."
+    "description": "Modul compact din lățimea de conținut a elementului; o valoare booleană îl impune. Fals pe server.",
+    "props": {
+      "options": "Pragurile și o valoare care suprascrie măsurătoarea.",
+      "ref": "Elementul a cărui lățime decide modul compact."
+    }
   },
   "useControllableState": {
-    "description": "Controlat când se dă `value`, altfel stare internă pornind de la `defaultValue`."
+    "description": "Controlat când se dă `value`, altfel stare internă pornind de la `defaultValue`.",
+    "props": {
+      "defaultValue": "Valoarea de la care se pornește cât timp este necontrolată.",
+      "onChange": "Apelat cu fiecare valoare nouă, în ambele cazuri.",
+      "value": "Valoarea controlată, sau `undefined` cât timp starea este necontrolată."
+    }
   },
   "useNow": {
-    "description": "Milisecundele de la epocă ale lui `now`, sau un ceas intern care avansează la fiecare `interval` ms, suspendat cât timp documentul este ascuns."
+    "description": "Milisecundele de la epocă ale lui `now`, sau un ceas intern care avansează la fiecare `interval` ms, suspendat cât timp documentul este ascuns.",
+    "props": {
+      "input": "Un moment fix de folosit în locul ceasului, sau cât de des bate ceasul."
+    }
   },
   "usePinOnPass": {
-    "description": "Fixarea la trecere pentru marcaj propriu: înregistrezi senzorii, citești cheile fixate."
+    "description": "Fixarea la trecere pentru marcaj propriu: înregistrezi senzorii, citești cheile fixate.",
+    "props": {
+      "options": "Zona de derulare, regula de fixare și callback-ul care raportează id-urile fixate."
+    }
   },
   "useScheduler": {
-    "description": "Tot ce folosește `<Scheduler>`, fără marcaj."
+    "description": "Tot ce folosește `<Scheduler>`, fără marcaj.",
+    "props": {
+      "props": "Aceleași proprietăți pe care le primește `<Scheduler>`."
+    }
   },
   "useShiftModel": {
-    "description": "Ferestrele de tură și segmentele pentru o dată."
+    "description": "Ferestrele de tură și segmentele pentru o dată.",
+    "props": {
+      "input": "Momentul citit și tiparul de ture cu care se taie ziua."
+    }
   },
   "useShiftNavigation": {
-    "description": "Navigare programatică între ture, pentru marcaj propriu."
+    "description": "Navigare programatică între ture, pentru marcaj propriu.",
+    "props": {
+      "options": "Zona de derulare, turele randate și unde ar trebui să aterizeze un salt."
+    }
   },
   "useTimelineLayout": {
-    "description": "Aranjarea cronologică a elementelor `items`, memorată pe intrările ei."
+    "description": "Aranjarea cronologică a elementelor `items`, memorată pe intrările ei.",
+    "props": {
+      "items": "Elementele intervalului randat.",
+      "options": "Geometria și plafoanele cu care este calculată aranjarea."
+    }
   }
 }

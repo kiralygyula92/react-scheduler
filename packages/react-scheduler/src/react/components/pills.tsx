@@ -21,9 +21,13 @@ function label(text: ReactNode): ReactElement {
  * @category Components
  * @since 1.0.0
  */
-export const LevelPill: NamedExoticComponent<{ level: string }> = memo(function LevelPill({
+export const LevelPill: NamedExoticComponent<{
+  /** The key of the level the pill stands for. */
+  level: string;
+}> = memo(function LevelPill({
   level,
 }: {
+  /** The key of the level the pill stands for. */
   level: string;
 }): ReactElement {
   const env = useCardEnv();
@@ -56,9 +60,13 @@ export const LevelPill: NamedExoticComponent<{ level: string }> = memo(function 
  * @category Components
  * @since 1.0.0
  */
-export const TagPill: NamedExoticComponent<{ tag: string }> = memo(function TagPill({
+export const TagPill: NamedExoticComponent<{
+  /** The key of the tag the pill stands for. */
+  tag: string;
+}> = memo(function TagPill({
   tag,
 }: {
+  /** The key of the tag the pill stands for. */
   tag: string;
 }): ReactElement {
   const env = useCardEnv();
@@ -85,9 +93,13 @@ export const TagPill: NamedExoticComponent<{ tag: string }> = memo(function TagP
  * @category Components
  * @since 1.0.0
  */
-export const ReferencePill: NamedExoticComponent<{ reference: string }> = memo(function ReferencePill({
+export const ReferencePill: NamedExoticComponent<{
+  /** The reference number to show. */
+  reference: string;
+}> = memo(function ReferencePill({
   reference,
 }: {
+  /** The reference number to show. */
   reference: string;
 }): ReactElement {
   const env = useCardEnv();

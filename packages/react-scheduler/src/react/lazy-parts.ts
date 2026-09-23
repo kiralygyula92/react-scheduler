@@ -13,7 +13,10 @@ import type { OverflowColumn } from './types';
  */
 export const OverflowDialog = lazy(() =>
   import('./components/overflow-dialog').then((module) => ({ default: module.OverflowDialog })),
-) as unknown as <TItem extends SchedulerItem>(props: { group: OverflowGroup<TItem> }) => ReactElement;
+) as unknown as <TItem extends SchedulerItem>(props: {
+  /** The group whose items the dialog lists. */
+  group: OverflowGroup<TItem>;
+}) => ReactElement;
 
 /**
  * The table inside the overflow dialog.
@@ -24,7 +27,9 @@ export const OverflowDialog = lazy(() =>
 export const OverflowTable = lazy(() =>
   import('./components/overflow-dialog').then((module) => ({ default: module.OverflowTable })),
 ) as unknown as <TItem extends SchedulerItem>(props: {
+  /** The rows of the table, already sorted and paged. */
   items: readonly TItem[];
+  /** The columns in force. */
   columns: readonly OverflowColumn<TItem>[];
 }) => ReactElement;
 
@@ -46,4 +51,7 @@ export const Pagination: ComponentType<{ page: number; pages: number }> = lazy((
  */
 export const DefaultItemDetail = lazy(() =>
   import('./components/detail-dialog').then((module) => ({ default: module.DefaultItemDetail })),
-) as unknown as <TItem extends SchedulerItem>(props: { item: TItem }) => ReactElement;
+) as unknown as <TItem extends SchedulerItem>(props: {
+  /** The item whose detail is shown. */
+  item: TItem;
+}) => ReactElement;

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Elem részletei",
-    "description": "Elem részletei a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Mi nyílik meg, amikor az olvasó aktivál egy elemet, mit mutat az alapértelmezett párbeszédpanel, és hogyan cserélhető le."
   },
   "sections": {
     "basics": "Alapok",
+    "your-own": "Saját részletnézet",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "custom": "A részletnézet lecserélve"
+  },
+  "basics": {
+    "intro": "Egy elem aktiválása — kártya, rögzített jelvény, a további elemek táblázatának sora — megnyitja a részleteit. Alapból ez egy modális párbeszédpanel a szinttel és a címmel, a leírással, a jelvényekkel, az idővel és egy bezáró gombbal. Hogy melyik elem van nyitva, azt az <code>openItemId</code> mondja meg, vezérelten vagy nem vezérelten, mint az állapot többi része.",
+    "points": [
+      "Az aktiválás először a <code>handlers.onItemActivate</code> middleware-t futtatja, amely megszakíthatja, majd beállítja az azonosítót, végül meghívja az <code>onItemOpen</code> eseményt.",
+      "A <code>disabled</code> jelölésű elem nem nyílik meg.",
+      "Ha a megnyitott elem eltűnik az <code>items</code> tömbből, a részletnézet <code>itemRemoved</code> okkal bezárul, és magától nem nyílik újra.",
+      "A bezárás visszaadja a fókuszt annak, ami megnyitotta; ha az az elem már nincs meg, a fókusz a görgetőre kerül."
+    ]
+  },
+  "own": {
+    "intro": "A <code>renderItemDetail</code> teljesen lecseréli a párbeszédpanelt — fiókra, az ütemterv melletti panelre vagy saját útvonalra. Megkapja az elemet, azt, hogyan nyílt meg, és egy függvényt, amely bezárja.",
+    "state": "Mivel az <code>openItemId</code> szokásos állapot, a saját részletnézet kívülről is megnyitható: beállítod az azonosítót, és a komponens aktiválásként kezeli — így működik az egy elemre mutató közvetlen hivatkozás."
+  },
+  "accessibility": {
+    "points": [
+      "Az alapértelmezett részletnézet natív modális párbeszédpanel: a böngésző tartja bent a fókuszt, az <kbd>Escape</kbd> bezárja, a háttér pedig kattintható.",
+      "A címe címkézi, a tartalmát pedig abban a sorrendben olvassa fel, ahogy megjelenik.",
+      "Bezáráskor a fókusz visszatér az aktiválóhoz, ettől lesz elviselhető a billentyűzettel való ismételt nyitogatás.",
+      "A saját részletnézet akadálymentessége a te dolgod: a komponens csak azt mondja meg, melyik elemet mutasd, és mikor zárd be."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>renderItemDetail</code> az egészhez, vagy a <code>detailDialog</code> rész <link to=\"/customization/slots/\">slotokon</link> át magához a párbeszédpanelhez.",
+      "A <code>localization.detail.close</code> az alapértelmezett párbeszédpanel bezárásának felirata.",
+      "Az <code>openItemId</code>, a <code>defaultOpenItemId</code> és az <code>onOpenItemIdChange</code> tartja az állapotot; az <code>onItemOpen</code> és az <code>onItemClose</code> jelenti.",
+      "Az alapértelmezett párbeszédpanel lusta darabban van, amely az első elemnyitáskor töltődik be."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Egyszerre egy elem van nyitva.",
+      "Az alapértelmezett párbeszédpanel az elemmodell mezőit mutatja; minden más a saját részletnézetedbe való.",
+      "A részletnézetben nincs szerkesztés — megmutat, nem változtat."
+    ]
   }
 }

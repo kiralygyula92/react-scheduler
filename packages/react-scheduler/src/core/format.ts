@@ -73,6 +73,8 @@ function withoutDateTimeComma(parts: readonly Intl.DateTimeFormatPart[]): string
  *
  * @category Localization
  * @since 1.0.0
+ * @param locale The BCP 47 tag every format is produced with.
+ * @param options Overrides for individual formats, such as the hour label.
  */
 export function createFormatters(locale: string, options: FormatterOptions = {}): SchedulerFormatters {
   const resolved = supportedLocale(locale);

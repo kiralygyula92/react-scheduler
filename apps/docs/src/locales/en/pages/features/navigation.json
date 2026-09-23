@@ -1,17 +1,69 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Navigation",
-    "description": "Navigation in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "The two buttons that move between shifts: what each one targets, what it is called, and what the count on it means."
   },
   "sections": {
     "basics": "Basics",
+    "targets": "What each button targets",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Moving between shifts"
+  },
+  "basics": {
+    "intro": "Two buttons sit above and below the schedule, and they always move by one shift. Which shift that is depends on where the reader already is: the top button goes back to the start of the current shift while you are inside it, and only then to the shift before it.",
+    "where": "That rule is what makes the buttons predictable while reading: the first press never skips the shift you are in the middle of."
+  },
+  "targets": {
+    "intro": "Written out, with <strong>A</strong> for the shift being read:",
+    "head": {
+      "when": "Where the reader is",
+      "top": "The top button goes to",
+      "bottom": "The bottom button goes to"
+    },
+    "rows": [
+      ["Inside a later shift (A above the current one)", "The current shift", "The next shift"],
+      ["Inside the current shift, not at its start", "The start of the current shift", "The next shift"],
+      ["At the start of the current shift", "The previous shift", "The next shift"],
+      ["Inside an earlier shift, not at its start", "The start of that shift", "The shift after it"],
+      [
+        "At the start of the earliest rendered shift",
+        "Nothing: hidden in the list, disabled in the timeline",
+        "The shift after it"
+      ]
+    ],
+    "count": "When the top button points at an earlier shift, it also carries a count: how many items in the shifts already passed can still pin. That number is what tells a reader whether going back is worth it."
+  },
+  "accessibility": {
+    "points": [
+      "The visible label is the accessible name — no hidden name says something different from what the button shows.",
+      "The hint (\"No previous shift available\") is a tooltip and the button’s description, not its name.",
+      "In the list the buttons disappear when there is nowhere to go; in the timeline they stay, disabled, so the grid does not shift under the reader.",
+      "A jump is smooth unless the reader asked for reduced motion, and lands with the shift heading in view.",
+      "In the list the buttons appear only once some shift holds at least <code>navigationThreshold</code> items, so a short day is not cluttered by controls that do nothing."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>localization.nav</code> holds every label and hint, including the carried-over count.",
+      "<code>renderNavLabel</code> replaces what a button says; the <code>navButton</code> and <code>carriedOverCount</code> parts replace how it looks.",
+      "<code>handlers.onNavigate</code> can cancel a jump — for an unsaved change, for instance — and <code>onNavigate</code> reports the ones that happen.",
+      "<code>list.navigationThreshold</code> decides when the list shows the buttons at all."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Navigation moves within the rendered shifts only. Going beyond them is a date change, which your application performs.",
+      "There is no jump to an arbitrary shift: the buttons move one step at a time.",
+      "The buttons are part of the component and cannot be moved elsewhere on the page; a control of your own can call the same movements through the imperative handle."
+    ]
   }
 }

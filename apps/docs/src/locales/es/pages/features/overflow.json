@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Elementos adicionales",
-    "description": "Elementos adicionales en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Qué ocurre con los elementos que una hora concurrida no puede colocar: la píldora «+ más», el diálogo que hay detrás y la tabla que puedes moldear."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "columns": "Columnas y ordenación",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "columns": "Una tabla propia"
+  },
+  "basics": {
+    "intro": "La línea de tiempo coloca los elementos en columnas, hasta <code>maxColumns</code> de ellas. Cuando una hora tiene más de los que caben, el resto se recoge en un grupo, y el grupo se convierte en una píldora <strong>+ más</strong> sobre la rejilla. Abrirla abre un diálogo con todo el grupo en una tabla.",
+    "points": [
+      "Un grupo abarca horas consecutivas solo mientras quepa en <code>overflowMergeWindow</code> — véase <link to=\"/timeline-view/\">Vista de línea de tiempo</link>.",
+      "El nombre accesible de la píldora dice cuántos elementos contiene y desde qué hora.",
+      "Una píldora es también un centinela de fijación: los elementos fijables de su interior se fijan cuando la píldora pasa.",
+      "El diálogo es un modal nativo, así que el navegador contiene el foco, <kbd>Escape</kbd> lo cierra y el fondo es un objetivo de clic."
+    ]
+  },
+  "columns": {
+    "intro": "Por defecto, la tabla muestra la hora, el nivel, el título, la descripción y una acción que abre el detalle del elemento. <code>overflowColumns</code> sustituye ese conjunto por el tuyo:",
+    "sorting": "Una columna ordena cuando tiene <code>sortValue</code>; sin él es inerte. Pulsar una cabecera ordenable ordena ascendente, pulsarla otra vez invierte, y cambiar de columna vuelve a la primera página. Los empates se resuelven con <code>compareItems</code>, en el sentido de la ordenación. El orden y la página son controlados o no controlados como todo lo demás y se reinician cada vez que se abre el diálogo, salvo que los guardes tú."
+  },
+  "accessibility": {
+    "points": [
+      "El diálogo está etiquetado por su título, que lleva el número de elementos del grupo.",
+      "La tabla es una tabla de verdad: las cabeceras de columna llevan <code>aria-sort</code> y una cabecera ordenable es un botón dentro de la celda.",
+      "Abrir un elemento desde una fila apila un segundo diálogo sobre el primero; cerrarlo devuelve el foco a la acción de la fila.",
+      "La paginación mantiene el foco en la paginación, y la lista de páginas es la misma que muestran los números visibles."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>overflowColumns</code>, <code>overflowPageSize</code> y los controlados <code>overflowSort</code> y <code>overflowPage</code>.",
+      "<code>renderMoreLabel</code> sustituye el texto de la píldora; las partes <code>moreChip</code>, <code>overflowDialog</code>, <code>overflowTable</code> y <code>pagination</code> sustituyen el marcado.",
+      "<code>localization.overflow</code> contiene el título, las cabeceras de columna y las etiquetas de cierre.",
+      "El diálogo y la tabla viven en un fragmento propio, que se carga la primera vez que se abre una píldora."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Los elementos adicionales son una idea de la línea de tiempo; la lista muestra cada elemento y nunca agrupa ninguno.",
+      "La tabla muestra un grupo cada vez: aquel cuya píldora se abrió.",
+      "Las columnas no puede redimensionarlas quien lee, y sus anchos son los que piden tus definiciones de columna."
+    ]
   }
 }

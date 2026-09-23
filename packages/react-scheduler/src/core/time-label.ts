@@ -9,6 +9,11 @@ import type { SchedulerItem } from './types';
  * `timeLabel` as given; "{observed} {observedLabel}" when `observedLabel` is a non-empty string
  * (the source printed "undefined" for a missing one, B-24); "{since} {timestamp}" for a valid
  * `since`, or the bare prefix for an invalid one; otherwise "{start} – {end}".
+ *
+ * @param item The item whose time is being written; its own `timeLabel` wins when it has one.
+ * @param localization The locale pack, for the words around the time.
+ * @param formatters The formatters, for the time itself.
+ * @param defaultDuration How long an item without an end lasts, in milliseconds.
  */
 export function resolveTimeLabel(
   item: SchedulerItem,

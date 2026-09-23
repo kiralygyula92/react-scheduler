@@ -24,6 +24,7 @@ export interface NavigatorHooks {
  * @since 1.0.0
  */
 export interface NavigatorOptions extends NavigatorHooks {
+  /** The element the navigator scrolls. */
   scroller: HTMLElement;
   /**
    * How long to wait after the final correction before `onDone`, in milliseconds.
@@ -49,7 +50,9 @@ export interface NavigatorOptions extends NavigatorHooks {
 export interface Navigator {
   /** Scrolls to `target()`; smooth unless `smooth` is false. A new call replaces a pending one. */
   scrollTo(target: () => number, options?: { smooth?: boolean }): void;
+  /** Stops a movement that is under way. */
   cancel(): void;
+  /** Detaches every listener; call it when the scroller goes away. */
   destroy(): void;
 }
 
@@ -60,6 +63,7 @@ const CORRECTION_TOLERANCE = 1;
  *
  * @category DOM
  * @since 1.0.0
+ * @param options The scroller to move and the callbacks that report the movement.
  */
 export function createNavigator(options: NavigatorOptions): Navigator {
   const { scroller, onStart, onSettle, onDone } = options;

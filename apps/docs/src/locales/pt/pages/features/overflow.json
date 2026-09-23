@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Elementos adicionais",
-    "description": "Elementos adicionais no React Scheduler: como se comporta por omissão, o que pode configurar, acessibilidade e limites."
+    "description": "O que acontece aos elementos que uma hora cheia não consegue colocar: a etiqueta «+ mais», a caixa de diálogo por trás dela e a tabela que pode moldar."
   },
   "sections": {
     "basics": "Noções básicas",
+    "columns": "Colunas e ordenação",
     "accessibility": "Acessibilidade",
     "customization": "Personalização",
     "limitations": "Limitações",
     "api": "API"
+  },
+  "demos": {
+    "columns": "Uma tabela sua"
+  },
+  "basics": {
+    "intro": "A cronologia coloca os elementos em colunas, no máximo <code>maxColumns</code> delas. Quando uma hora tem mais do que cabem, o resto é reunido num grupo, e o grupo torna-se uma etiqueta <strong>+ mais</strong> na grelha. Abri-la abre uma caixa de diálogo com o grupo inteiro numa tabela.",
+    "points": [
+      "Um grupo cobre horas consecutivas apenas enquanto ficar dentro de <code>overflowMergeWindow</code> — ver <link to=\"/timeline-view/\">Vista cronológica</link>.",
+      "O nome acessível da etiqueta diz quantos elementos contém e a partir de que hora.",
+      "Uma etiqueta é também uma sentinela de fixação: os elementos fixáveis lá dentro fixam quando a etiqueta passa.",
+      "A caixa de diálogo é um modal nativo, por isso o navegador contém o foco, o <kbd>Escape</kbd> fecha-a, e o fundo é um alvo de clique."
+    ]
+  },
+  "columns": {
+    "intro": "Por omissão, a tabela mostra a hora, o nível, o título, a descrição e uma ação que abre o detalhe do elemento. <code>overflowColumns</code> substitui esse conjunto pelo seu:",
+    "sorting": "Uma coluna ordena quando tem <code>sortValue</code>; sem ele é inerte. Clicar num cabeçalho ordenável ordena de forma ascendente, clicar outra vez inverte, e mudar de coluna volta à primeira página. Os empates são resolvidos por <code>compareItems</code>, no sentido da ordenação. A ordenação e a página são controladas ou não controladas como tudo o resto e repõem-se sempre que a caixa de diálogo abre, a não ser que as guarde."
+  },
+  "accessibility": {
+    "points": [
+      "A caixa de diálogo é etiquetada pelo seu título, que leva o número de elementos do grupo.",
+      "A tabela é uma tabela a sério: os cabeçalhos de coluna levam <code>aria-sort</code>, e um cabeçalho ordenável é um botão dentro da célula.",
+      "Abrir um elemento a partir de uma linha empilha uma segunda caixa de diálogo sobre a primeira; fechá-la devolve o foco à ação da linha.",
+      "A paginação mantém o foco na paginação, e a lista de páginas é a mesma que os números visíveis mostram."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>overflowColumns</code>, <code>overflowPageSize</code> e os controlados <code>overflowSort</code> e <code>overflowPage</code>.",
+      "<code>renderMoreLabel</code> substitui o texto da etiqueta; as partes <code>moreChip</code>, <code>overflowDialog</code>, <code>overflowTable</code> e <code>pagination</code> substituem a marcação.",
+      "<code>localization.overflow</code> contém o título, os cabeçalhos de coluna e as etiquetas de fecho.",
+      "A caixa de diálogo e a tabela vivem num pedaço próprio, carregado na primeira vez que uma etiqueta é aberta."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Os elementos adicionais são uma ideia da cronologia; a lista mostra todos os elementos e nunca recolhe nenhum.",
+      "A tabela mostra um grupo de cada vez — aquele cuja etiqueta foi aberta.",
+      "As colunas não podem ser redimensionadas por quem lê, e as suas larguras são as que as suas definições pedem."
+    ]
   }
 }

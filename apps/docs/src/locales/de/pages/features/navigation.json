@@ -1,17 +1,73 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Navigation",
-    "description": "Navigation in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Die zwei Schaltflächen, die zwischen Schichten wechseln: worauf jede zielt, wie sie heißt und was ihre Zahl bedeutet."
   },
   "sections": {
     "basics": "Grundlagen",
+    "targets": "Worauf jede Schaltfläche zielt",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Zwischen Schichten wechseln"
+  },
+  "basics": {
+    "intro": "Zwei Schaltflächen stehen über und unter dem Plan und bewegen immer um eine Schicht. Welche das ist, hängt davon ab, wo der Leser schon ist: die obere führt zum Beginn der aktuellen Schicht zurück, solange man darin ist, und erst danach zur Schicht davor.",
+    "where": "Diese Regel macht die Schaltflächen beim Lesen berechenbar: der erste Druck überspringt nie die Schicht, in deren Mitte man steht."
+  },
+  "targets": {
+    "intro": "Ausgeschrieben, mit <strong>A</strong> für die gelesene Schicht:",
+    "head": {
+      "when": "Wo der Leser ist",
+      "top": "Die obere Schaltfläche geht zu",
+      "bottom": "Die untere Schaltfläche geht zu"
+    },
+    "rows": [
+      ["In einer späteren Schicht (A nach der aktuellen)", "Die aktuelle Schicht", "Die nächste Schicht"],
+      [
+        "In der aktuellen Schicht, aber nicht an ihrem Beginn",
+        "Der Beginn der aktuellen Schicht",
+        "Die nächste Schicht"
+      ],
+      ["Am Beginn der aktuellen Schicht", "Die vorherige Schicht", "Die nächste Schicht"],
+      ["In einer früheren Schicht, aber nicht an ihrem Beginn", "Der Beginn dieser Schicht", "Die Schicht danach"],
+      [
+        "Am Beginn der frühesten gerenderten Schicht",
+        "Nirgends: in der Liste verborgen, im Zeitstrahl deaktiviert",
+        "Die Schicht danach"
+      ]
+    ],
+    "count": "Zeigt die obere Schaltfläche auf eine frühere Schicht, trägt sie zusätzlich eine Zahl: wie viele Einträge der bereits vergangenen Schichten noch anheften können. Diese Zahl sagt dem Leser, ob das Zurückgehen lohnt."
+  },
+  "accessibility": {
+    "points": [
+      "Die sichtbare Beschriftung ist der zugängliche Name — kein verborgener Name sagt etwas anderes als die Schaltfläche.",
+      "Der Hinweis („Keine vorherige Schicht“) ist ein Tooltip und die Beschreibung der Schaltfläche, nicht ihr Name.",
+      "In der Liste verschwinden die Schaltflächen, wenn es nirgends hingeht; im Zeitstrahl bleiben sie deaktiviert stehen, damit die Fläche nicht unter dem Leser verrutscht.",
+      "Ein Sprung ist weich, sofern der Leser nicht reduzierte Bewegung verlangt, und landet mit der Schichtüberschrift im Blick.",
+      "In der Liste erscheinen die Schaltflächen erst, wenn eine Schicht mindestens <code>navigationThreshold</code> Einträge hat, damit ein kurzer Tag nicht mit wirkungslosen Bedienelementen zugestellt wird."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>localization.nav</code> enthält jede Beschriftung und jeden Hinweis, auch die Zahl der übernommenen Einträge.",
+      "<code>renderNavLabel</code> ersetzt, was eine Schaltfläche sagt; die Teile <code>navButton</code> und <code>carriedOverCount</code> ihr Aussehen.",
+      "<code>handlers.onNavigate</code> kann einen Sprung abbrechen — etwa bei einer ungespeicherten Änderung — und <code>onNavigate</code> meldet die, die stattfinden.",
+      "<code>list.navigationThreshold</code> entscheidet, wann die Liste die Schaltflächen zeigt."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Die Navigation bewegt sich nur zwischen den gerenderten Schichten. Darüber hinaus ist Weitergehen ein Datumswechsel, den Ihre Anwendung ausführt.",
+      "Es gibt keinen Sprung zu einer beliebigen Schicht: die Schaltflächen bewegen sich schrittweise.",
+      "Die Schaltflächen gehören zur Komponente und lassen sich nicht anderswo auf der Seite platzieren; ein eigenes Bedienelement kann dieselben Bewegungen über den imperativen Handle auslösen."
+    ]
   }
 }

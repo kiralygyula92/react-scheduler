@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Elemek és szintek",
-    "description": "Elemek és szintek a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Mi az elem, hogyan adja meg neki a szintskála a színét és a rangját, és mi dönti el a műszakon belüli sorrendet."
   },
   "sections": {
     "basics": "Alapok",
+    "levels": "A szintskála",
+    "order": "Sorrend",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "levels": "Saját skála",
+    "compare": "Cím szerint rendezve"
+  },
+  "basics": {
+    "intro": "Az elem egyszerű objektum. Négy mező kötelező — az <code>id</code>, a <code>start</code>, a <code>level</code> és a <code>title</code> —, a többi azt finomítja, hogyan olvasható a kártya. Az elemek a kezdetük szerint kerülnek műszakba: amelyik minden megjelenített műszakon kívülre esik, nem jelenik meg, amelyiknek pedig érvénytelen a kezdete, kimarad, és fejlesztéskor egyszer jelezzük.",
+    "item": "A teljes elem, a csomag deklarációiból előállítva:"
+  },
+  "levels": {
+    "intro": "A szint egy rang egy általad meghatározott skálán: hogyan hívják, mennyire erős, milyen színt visel, és rögzülnek-e az adott rangú elemek, amikor elgörögnek. A csomag hozza a <code>classicLevels</code> kilencrangú skálát, de a saját kulcsaiddal készült négyrangú skála ugyanolyan érvényes – a kulcsok pedig bekerülnek az elem típusába, így az elgépelés típushiba lesz, nem néma tévedés.",
+    "points": [
+      "A <code>rank</code> alapból a tömbbeli helyet veszi fel, így a jól sorba rendezett tömbhöz nem kell rang.",
+      "A <code>color</code> és az <code>onColor</code> alapból a <code>--rs-level-{key}</code> és a <code>--rs-level-{key}-on</code> tokent veszi, így a téma az adatok érintése nélkül színezheti át a skálát.",
+      "A <code>variant</code> választja a kártyamegjelenítést: <code>'alert'</code> a legerősebb rangnak, <code>'muted'</code> annak, ami már lezárult.",
+      "A <code>pinOnPass</code> hatására az adott rang minden eleme rögzül — lásd: <link to=\"/pinning/\">Rögzítés</link>.",
+      "A felirat a <code>localization.levels[key]</code> értékből jön, így a skála a komponens többi részével együtt fordul."
+    ]
+  },
+  "order": {
+    "intro": "A műszakon belül az elemek a <code>compareItems</code> szerint követik egymást. Az alapérték az elhelyezési sorrend: a kezdés, majd a szintrang, majd az azonosító. A lecserélése egyszerre változtatja a listát, az idővonal elhelyezési sorozatát és a rögzített elemek sávját, így a három soha nem mond mást arról, melyik elem az első."
+  },
+  "accessibility": {
+    "points": [
+      "A kártya akadálymentes neve tartalmazza a címét, a szintjét és az idejét, így a sáv színe soha nem az egyetlen, ami elárulja, mennyire súlyos egy elem.",
+      "A szint- és címkejelvények szövegek, nem ikonok, és a kártya nevének részei.",
+      "A szint színe csak megerősítés: ugyanaz az információ ott van a mellette lévő feliratban."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>levelPill</code>, a <code>tagPill</code> és a <code>cardRail</code> részek <link to=\"/customization/slots/\">slotokkal</link> cserélhetők.",
+      "A színek a <code>--rs-level-*</code> tokenekben vannak — lásd: <link to=\"/customization/css-variables/\">CSS változók</link>.",
+      "A <code>tags</code> határozza meg, milyen címkéket viselhet egy elem, mindegyiket saját felirattal és színekkel."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Egy elem pontosan egy műszakhoz tartozik: ahhoz, amelybe a kezdete esik. A két műszakon átnyúló elem az elsőben jelenik meg, és a másodikban nem ismétlődik.",
+      "Az ismétlődő azonosítókat nem olvasztjuk össze: az első előfordulás nyer, a többi kimarad, fejlesztéskor figyelmeztetéssel.",
+      "A skála lapos — nincs szintcsaládokba rendezés, és nincs műszakonkénti skála."
+    ]
   }
 }

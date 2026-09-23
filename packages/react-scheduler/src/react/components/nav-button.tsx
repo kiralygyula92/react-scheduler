@@ -15,7 +15,12 @@ import { Tooltip, useTooltip } from './tooltip';
  * @category Components
  * @since 1.0.0
  */
-export function ShiftNavButton({ position }: { position: NavPosition }): ReactElement | null {
+export function ShiftNavButton({
+  position,
+}: {
+  /** Which of the two buttons this is. */
+  position: NavPosition;
+}): ReactElement | null {
   const { model, props, baseId } = useSchedulerContext();
   const { viewModel, runtime, custom, kind } = useViewContext();
   const nav = viewModel.navigation[position];

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Rögzítés",
-    "description": "Rögzítés a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Mely elemek maradnak láthatók, miután elgörögtek, mi dönti ezt el, és hogyan rendeződik a rögzített elemek sávja."
   },
   "sections": {
     "basics": "Alapok",
+    "rules": "Szabályok és hangolás",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Elemek, amelyek láthatók maradnak"
+  },
+  "basics": {
+    "intro": "Ami fontos, attól még nem lesz kevésbé fontos, hogy elgörgött. A rögzítés az ilyen elemeket a görgető tetején lévő sávban tartja, abban a sorrendben, amelyet a műszakban kaptak volna, és elengedi őket, amint újra láthatóvá válnak.",
+    "which": "Három dolog dönti el, hogy egy elem rögzül-e:",
+    "points": [
+      "Az <code>item.pinned === true</code> addig rögzíti, amíg a műszaka megjelenik, bármit is tesz az olvasó.",
+      "Az <code>item.pinnable</code> egyetlen elemnek engedi, hogy be- vagy kilépjen.",
+      "Egyébként a szint dönt a <code>pinOnPass</code> révén — egyszerre egy egész rang."
+    ]
+  },
+  "rules": {
+    "intro": "A rögzítés akkor történik, amikor az elem széle átlép egy vonalat: a listában a felül ragadt sáv alját, az idővonalon a görgető felső szélét. Az <code>epsilon</code> mozdítja ezt a vonalat, a <code>hysteresis</code> pedig megmondja, mennyit kell visszahaladnia az elemnek, mielőtt leválik, hogy a határon álló ne villogjon.",
+    "carried": "A már elmúlt műszakból származó elemek a <code>carriedOver</code> címkét viselik, a meglévő címkéik mellé fűzve. Erről szól a felső léptetőgombon lévő szám, és ezt a műszakokból számoljuk, soha nem az azonosítókból."
+  },
+  "accessibility": {
+    "points": [
+      "A sáv egy felcímkézett régió, amely listát tartalmaz, így a képernyőolvasó bemondja, hány elem van rögzítve.",
+      "A változásokat élő régió jelenti be, az ismétlődő bejelentéseket pedig visszafogjuk, hogy a gyors görgetés ne árassza el.",
+      "A rögzített jelvény olyan gomb, amely ugyanazt a részletet nyitja meg, mint a kártya, és megtartja a kártya akadálymentes nevét.",
+      "A görgető kikapcsolja a böngésző görgetéshorgonyzását, és maga egyenlíti ki a sáv magasságát, így semmi nem ugrik meg az olvasó szeme előtt, amikor megjelenik egy jelvény."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>pinning.list</code> és a <code>pinning.timeline</code> külön-külön hangolja a két nézetet.",
+      "A <code>pinning.compare</code> rendezi a sávot; az alapérték ugyanaz az elhelyezési sorrend, amelyet a műszak használ.",
+      "A <code>pinnedStrip</code>, a <code>pinnedStripTrack</code>, a <code>pinnedChip</code> és az <code>edgeFade</code> részek <link to=\"/customization/slots/\">slotokkal</link> cserélhetők, a <code>renderPinnedChip</code> pedig teljesen lecseréli a jelvényt.",
+      "A <code>handlers.onPin</code> megvétózhatja a rögzítést, mielőtt megtörténik; az <code>onPinnedChange</code> utána jelenti a halmazt, azzal együtt, mi került bele és mi került ki."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A rögzített elemek halmaza nullázódik a <code>date</code> változásakor: az új nap semmivel sem indul rögzítve.",
+      "A rögzítés nézetenként történik. A váltás újraszámolja onnan, ahol az adott nézet áll, így a két sáv eltérhet.",
+      "Nincs korlát arra, hány elem rögzülhet egyszerre; az a műszak, amelyben minden elem rögzül, megtölti a sávot."
+    ]
   }
 }

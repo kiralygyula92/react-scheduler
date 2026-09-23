@@ -1,17 +1,69 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Navigáció",
-    "description": "Navigáció a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "title": "Léptetés",
+    "description": "A két gomb, amely a műszakok között mozgat: mire céloz mindegyik, hogyan hívják, és mit jelent a rajta lévő szám."
   },
   "sections": {
     "basics": "Alapok",
+    "targets": "Mire céloz az egyes gombok",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Mozgás a műszakok között"
+  },
+  "basics": {
+    "intro": "Két gomb áll az ütemterv fölött és alatt, és mindig egy műszakkal lépnek. Hogy melyikre, az attól függ, hol jár az olvasó: a felső gomb előbb az aktuális műszak elejére visz vissza, amíg abban vagy, és csak azután az előzőre.",
+    "where": "Ez a szabály teszi a gombokat kiszámíthatóvá olvasás közben: az első lenyomás soha nem ugorja át azt a műszakot, amelynek a közepén jársz."
+  },
+  "targets": {
+    "intro": "Kifejtve, ahol <strong>A</strong> az olvasott műszak:",
+    "head": {
+      "when": "Hol tart az olvasó",
+      "top": "A felső gomb ide visz",
+      "bottom": "Az alsó gomb ide visz"
+    },
+    "rows": [
+      ["Egy későbbi műszakban (A az aktuális után)", "Az aktuális műszak", "A következő műszak"],
+      ["Az aktuális műszakban, de nem az elején", "Az aktuális műszak eleje", "A következő műszak"],
+      ["Az aktuális műszak elején", "Az előző műszak", "A következő műszak"],
+      ["Egy korábbi műszakban, de nem az elején", "Annak a műszaknak az eleje", "Az utána következő műszak"],
+      [
+        "A legkorábbi megjelenített műszak elején",
+        "Sehová: a listában rejtve, az idővonalon letiltva",
+        "Az utána következő műszak"
+      ]
+    ],
+    "count": "Ha a felső gomb egy korábbi műszakra mutat, számot is visz: hány elem rögzülhet még a már elmúlt műszakokból. Ez a szám mondja meg az olvasónak, megéri-e visszamenni."
+  },
+  "accessibility": {
+    "points": [
+      "A látható felirat egyben az akadálymentes név is — semmilyen rejtett név nem mond mást, mint amit a gomb mutat.",
+      "A súgószöveg („Nincs korábbi műszak”) buboréksúgó és a gomb leírása, nem a neve.",
+      "A listában a gombok eltűnnek, ha nincs hová menni; az idővonalon maradnak, letiltva, hogy a rács ne mozduljon el az olvasó alatt.",
+      "Az ugrás sima, hacsak az olvasó nem kért csökkentett mozgást, és úgy áll meg, hogy a műszak címe látszik.",
+      "A listában a gombok csak akkor jelennek meg, ha valamelyik műszakban legalább <code>navigationThreshold</code> elem van, hogy a rövid napot ne zsúfolják tele tétlen vezérlők."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>localization.nav</code> tartalmaz minden feliratot és súgószöveget, az áthozott elemek számát is beleértve.",
+      "A <code>renderNavLabel</code> lecseréli, mit mond a gomb; a <code>navButton</code> és a <code>carriedOverCount</code> részek a kinézetét.",
+      "A <code>handlers.onNavigate</code> megszakíthat egy ugrást — például mentetlen módosítás miatt —, az <code>onNavigate</code> pedig jelenti a megtörtént ugrásokat.",
+      "A <code>list.navigationThreshold</code> dönti el, mikor mutatja a lista a gombokat."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A léptetés csak a megjelenített műszakok között mozog. Ezen túl a továbblépés dátumváltás, amelyet az alkalmazásod végez.",
+      "Nincs ugrás tetszőleges műszakra: a gombok egyesével lépnek.",
+      "A gombok a komponens részei, és nem helyezhetők máshová az oldalon; saját vezérlő ugyanezeket a mozgásokat az imperatív kezelőn keresztül kérheti."
+    ]
   }
 }

@@ -1,17 +1,69 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Navegación",
-    "description": "Navegación en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Los dos botones que mueven entre turnos: a qué apunta cada uno, cómo se llama y qué significa el número que lleva."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "targets": "A qué apunta cada botón",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Moverse entre turnos"
+  },
+  "basics": {
+    "intro": "Dos botones están encima y debajo del horario, y siempre mueven un turno. Cuál sea depende de dónde esté ya quien lee: el botón superior vuelve al inicio del turno actual mientras estás dentro de él, y solo después al turno anterior.",
+    "where": "Esa regla es lo que hace predecibles los botones mientras se lee: la primera pulsación nunca se salta el turno en mitad del cual estás."
+  },
+  "targets": {
+    "intro": "Escrito en detalle, con <strong>A</strong> como el turno que se lee:",
+    "head": {
+      "when": "Dónde está quien lee",
+      "top": "El botón superior va a",
+      "bottom": "El botón inferior va a"
+    },
+    "rows": [
+      ["En un turno posterior (A por encima del actual)", "El turno actual", "El turno siguiente"],
+      ["Dentro del turno actual, no en su inicio", "El inicio del turno actual", "El turno siguiente"],
+      ["En el inicio del turno actual", "El turno anterior", "El turno siguiente"],
+      ["En un turno anterior, no en su inicio", "El inicio de ese turno", "El turno posterior a él"],
+      [
+        "En el inicio del turno renderizado más antiguo",
+        "A ninguna parte: oculto en la lista, deshabilitado en la línea de tiempo",
+        "El turno posterior a él"
+      ]
+    ],
+    "count": "Cuando el botón superior apunta a un turno anterior, lleva además un recuento: cuántos elementos de los turnos ya pasados pueden fijarse todavía. Ese número es lo que dice si merece la pena volver."
+  },
+  "accessibility": {
+    "points": [
+      "La etiqueta visible es el nombre accesible: ningún nombre oculto dice algo distinto de lo que muestra el botón.",
+      "La pista («No hay turno anterior») es una ayuda emergente y la descripción del botón, no su nombre.",
+      "En la lista los botones desaparecen cuando no hay adónde ir; en la línea de tiempo se quedan, deshabilitados, para que la rejilla no se mueva bajo quien lee.",
+      "Un salto es suave, salvo que quien lee pida movimiento reducido, y aterriza con el encabezado del turno a la vista.",
+      "En la lista los botones aparecen solo cuando algún turno tiene al menos <code>navigationThreshold</code> elementos, para que una jornada corta no se llene de controles que no hacen nada."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>localization.nav</code> contiene cada etiqueta y cada pista, incluido el recuento de elementos arrastrados.",
+      "<code>renderNavLabel</code> sustituye lo que dice un botón; las partes <code>navButton</code> y <code>carriedOverCount</code> sustituyen su aspecto.",
+      "<code>handlers.onNavigate</code> puede cancelar un salto —por ejemplo, por un cambio sin guardar— y <code>onNavigate</code> informa de los que ocurren.",
+      "<code>list.navigationThreshold</code> decide cuándo muestra la lista los botones."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "La navegación se mueve solo entre los turnos renderizados. Más allá, avanzar es un cambio de fecha que realiza tu aplicación.",
+      "No hay salto a un turno arbitrario: los botones mueven de uno en uno.",
+      "Los botones forman parte del componente y no pueden moverse a otro sitio de la página; un control propio puede pedir los mismos movimientos mediante el manejador imperativo."
+    ]
   }
 }

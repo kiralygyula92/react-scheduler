@@ -8,7 +8,10 @@
  * @category Localization
  * @since 1.0.0
  */
-export type PluralForms = { other: string } & Partial<Record<'zero' | 'one' | 'two' | 'few' | 'many', string>>;
+export type PluralForms = {
+  /** The form used when no other plural category matches; every pack has it. */
+  other: string;
+} & Partial<Record<'zero' | 'one' | 'two' | 'few' | 'many', string>>;
 
 /**
  * Every string the component can show. A locale pack is one of these.
@@ -19,13 +22,21 @@ export type PluralForms = { other: string } & Partial<Record<'zero' | 'one' | 't
 export interface SchedulerLocalization {
   /** BCP 47, used for Intl. */
   locale: string;
+  /** The writing direction of this language; `rtl` flips the whole layout. */
   dir?: 'ltr' | 'rtl';
+  /** Shown when no rendered shift holds an item. */
   emptyAll: string;
+  /** Shown in a shift that holds no item. */
   emptyShift: string;
+  /** Announced while the schedule waits for data. */
   loading: string;
+  /** The heading of the error state. */
   errorTitle: string;
+  /** The label of the retry button of the error state. */
   retry: string;
+  /** The words a shift heading uses for its place relative to the current shift. */
   shiftHeader: { previous: string; current: string; next: string; earlier: PluralForms; later: PluralForms };
+  /** Every label and hint of the two navigation buttons. */
   nav: {
     viewPrevious: string;
     viewCurrent: string;
@@ -41,10 +52,15 @@ export interface SchedulerLocalization {
     noNext: string;
     carriedOverCount: PluralForms;
   };
+  /** The label of the button that scrolls back to the top. */
   scrollTop: string;
+  /** How an open-ended time is written on a card. */
   timeLabel: { observed: string; since: string };
+  /** The label read before a reference number. */
   referenceLabel: string;
+  /** The "+ more" chip: what it shows and what it is called. */
   more: { label: string; ariaLabel: PluralForms };
+  /** The overflow dialog: its title, its columns and its close labels. */
   overflow: {
     title: PluralForms;
     empty: string;
@@ -54,13 +70,21 @@ export interface SchedulerLocalization {
     viewDetails: string;
     column: { time: string; level: string; title: string; description: string; actions: string };
   };
+  /** The pagination of the overflow table. */
   pagination: { label: string; previous: string; next: string; page: string };
+  /** A label per level key; a key without one falls back to the key itself. */
   levels: Record<string, string>;
+  /** A label per tag key; a key without one falls back to the key itself. */
   tags: Record<string, string>;
+  /** The pinned strip: its label and what it announces when the set changes. */
   pinnedStrip: { label: string; announcement: PluralForms };
+  /** The label of the now marker, with its time. */
   now: { label: string };
+  /** The names of the two views, for a switch of your own. */
   views: { list: string; timeline: string };
+  /** The close label of the item detail. */
   detail: { close: string };
+  /** The pattern of a card's accessible description: its level and its time. */
   card: { description: string };
 }
 
@@ -97,6 +121,10 @@ function cached<T>(cache: Map<string, T>, locale: string, create: (locale: strin
  * Fills `{{name}}` placeholders. A plural template picks its form for `values.count` with
  * `Intl.PluralRules(locale)`, falling back to `other`. Numbers are formatted with `Intl.NumberFormat`.
  * An unknown placeholder is left as written.
+ *
+ * @param template A message with `{{name}}` placeholders.
+ * @param values What to put in place of each placeholder.
+ * @param locale The locale the numbers are formatted with.
  */
 export function interpolate(
   template: string | PluralForms,

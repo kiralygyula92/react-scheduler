@@ -329,7 +329,16 @@ function c6(): void {
     if (path !== undefined && !pages.has(path)) problems.push(`${symbol.name}: ${path} is not a page in nav.json`);
   }
 
-  // Every description reaches a reader, in every locale.
+  // Every description reaches a reader, in every locale — the symbols' own, and every member's.
+  const keys = new Set(symbols.map((symbol) => symbol.descriptionKey));
+  for (const symbol of symbols) {
+    const data = JSON.parse(readFileSync(resolve(apiDir, `${symbol.name}.json`), 'utf8')) as {
+      props?: { descriptionKey: string }[];
+      params?: { descriptionKey: string }[];
+    };
+    for (const member of [...(data.props ?? []), ...(data.params ?? [])]) keys.add(member.descriptionKey);
+  }
+
   const bundles = new Map<Locale, Record<string, unknown>>(
     LOCALES.map((locale) => [
       locale,
@@ -344,12 +353,10 @@ function c6(): void {
           typeof node === 'object' && node !== null ? (node as Record<string, unknown>)[part] : undefined,
         bundle,
       );
-  for (const symbol of symbols) {
+  for (const key of keys) {
     for (const locale of LOCALES) {
-      const value = valueAt(bundles.get(locale) ?? {}, symbol.descriptionKey);
-      if (typeof value !== 'string' || value.trim() === '') {
-        problems.push(`${locale}: ${symbol.descriptionKey} is missing or empty`);
-      }
+      const value = valueAt(bundles.get(locale) ?? {}, key);
+      if (typeof value !== 'string' || value.trim() === '') problems.push(`${locale}: ${key} is missing or empty`);
     }
   }
 

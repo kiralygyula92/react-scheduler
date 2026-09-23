@@ -37,7 +37,11 @@ export const CARRIED_OVER_TAG = 'carriedOver';
  */
 export type ResolvedLevel = LevelDefinition & Required<Pick<LevelDefinition, 'key' | 'rank' | 'variant' | 'pinOnPass'>>;
 
-/** Level definitions keyed by `key`, with `rank` (default: array index), `variant` and `pinOnPass` filled in. */
+/**
+ * Level definitions keyed by `key`, with `rank` (default: array index), `variant` and `pinOnPass` filled in.
+ *
+ * @param levels The scale as it was given, with its gaps still to fill.
+ */
 export function resolveLevels(levels: readonly LevelDefinition[]): ReadonlyMap<string, ResolvedLevel> {
   const resolved = new Map<string, ResolvedLevel>();
   levels.forEach((level, index) => {
@@ -56,7 +60,11 @@ export function rankOf(levels: ReadonlyMap<string, { rank: number }>, key: strin
   return levels.get(key)?.rank ?? Number.MAX_SAFE_INTEGER;
 }
 
-/** Placement order: start ascending, then level rank ascending (stronger first), then id. */
+/**
+ * Placement order: start ascending, then level rank ascending (stronger first), then id.
+ *
+ * @param levels The resolved level scale, which gives each item its rank.
+ */
 export function compareByPlacement(
   levels: ReadonlyMap<string, { rank: number }>,
 ): (a: SchedulerItem, b: SchedulerItem) => number {

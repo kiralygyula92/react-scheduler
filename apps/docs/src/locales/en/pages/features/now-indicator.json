@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Now indicator",
-    "description": "Now indicator in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "The marker that says where the present moment falls, when it is shown, and what keeps it moving."
   },
   "sections": {
     "basics": "Basics",
+    "clock": "The clock",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "now": "Where the present moment falls"
+  },
+  "basics": {
+    "intro": "A schedule is read against the present: what has passed, what is running, what is still ahead. The now indicator draws that boundary — a labelled line across the timeline grid, a marker between the cards in the list.",
+    "when": "It is shown only when all of these hold, so it never claims a position it does not have:",
+    "points": [
+      "<code>enableNowIndicator</code> is on, which it is by default.",
+      "The day being read is not in the past.",
+      "Now falls inside the current shift, and inside the rendered range.",
+      "The day being read is the day now falls in."
+    ]
+  },
+  "clock": {
+    "intro": "The component keeps its own clock, ticking every <code>nowTickInterval</code> while it is mounted and pausing while the document is hidden — a schedule left open in a background tab costs nothing. Pass <code>now</code> to take the clock over: a test, a screenshot or a replay then shows the moment you choose instead of the moment it is."
+  },
+  "accessibility": {
+    "points": [
+      "In the list the marker is a separator with a label, so the boundary is announced and not only drawn.",
+      "In the timeline the line is decorative: the same time is in its label pill and in every card’s name.",
+      "The marker does not move focus and does not scroll anything; where a view lands is <link to=\"/navigation/\">landing</link>, a separate decision."
+    ]
+  },
+  "customization": {
+    "points": [
+      "The parts <code>nowMarker</code> in the list and <code>nowLine</code> with <code>nowLabel</code> in the timeline are replaceable through <link to=\"/customization/slots/\">slots</link>.",
+      "<code>--rs-color-now</code> is the color of the line and of its label.",
+      "<code>localization.now.label</code> is the text, and <code>formatters.clockTime</code> the time in it.",
+      "<code>enableNowIndicator</code> turns it off entirely, for a schedule that is not about today."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "One marker at a time: only the current shift gets one, even when several shifts of the same day are rendered.",
+      "The clock ticks at a fixed interval rather than exactly on the minute, so the marker can lag by up to one interval.",
+      "There is no \"now\" in a time zone other than the reader’s."
+    ]
   }
 }

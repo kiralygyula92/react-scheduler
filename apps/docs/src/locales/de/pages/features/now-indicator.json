@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Jetzt-Markierung",
-    "description": "Jetzt-Markierung in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "title": "„Jetzt“-Anzeige",
+    "description": "Die Markierung, die sagt, wo der gegenwärtige Moment liegt, wann sie gezeigt wird und was sie in Bewegung hält."
   },
   "sections": {
     "basics": "Grundlagen",
+    "clock": "Die Uhr",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "now": "Wo der gegenwärtige Moment liegt"
+  },
+  "basics": {
+    "intro": "Ein Plan wird gegen die Gegenwart gelesen: was vorbei ist, was läuft, was noch kommt. Die „Jetzt“-Anzeige zeichnet diese Grenze — eine beschriftete Linie über der Fläche des Zeitstrahls, eine Markierung zwischen den Karten in der Liste.",
+    "when": "Sie wird nur gezeigt, wenn all dies gilt, damit sie nie eine Position behauptet, die sie nicht hat:",
+    "points": [
+      "<code>enableNowIndicator</code> ist an, wie standardmäßig.",
+      "Der gelesene Tag liegt nicht in der Vergangenheit.",
+      "Das Jetzt fällt in die aktuelle Schicht und in den gerenderten Bereich.",
+      "Der gelesene Tag ist der Tag, in den das Jetzt fällt."
+    ]
+  },
+  "clock": {
+    "intro": "Die Komponente führt ihre eigene Uhr, die alle <code>nowTickInterval</code> tickt, solange sie eingehängt ist, und pausiert, solange das Dokument verborgen ist — ein im Hintergrundtab offener Plan kostet nichts. Übergeben Sie <code>now</code>, um die Uhr zu übernehmen: ein Test, ein Screenshot oder eine Wiedergabe zeigt dann den gewählten Moment statt der aktuellen Zeit."
+  },
+  "accessibility": {
+    "points": [
+      "In der Liste ist die Markierung ein beschrifteter Trenner, sodass die Grenze angesagt und nicht nur gezeichnet wird.",
+      "Im Zeitstrahl ist die Linie dekorativ: dieselbe Uhrzeit steht in ihrem Beschriftungschip und im Namen jeder Karte.",
+      "Die Markierung verschiebt den Fokus nicht und scrollt nichts; wo eine Ansicht landet, ist eine eigene Entscheidung."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Die Teile <code>nowMarker</code> in der Liste und <code>nowLine</code> mit <code>nowLabel</code> im Zeitstrahl lassen sich über <link to=\"/customization/slots/\">Slots</link> ersetzen.",
+      "<code>--rs-color-now</code> ist die Farbe der Linie und ihrer Beschriftung.",
+      "<code>localization.now.label</code> ist der Text, und <code>formatters.clockTime</code> die Uhrzeit darin.",
+      "<code>enableNowIndicator</code> schaltet sie ganz ab, für einen Plan, der nicht von heute handelt."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Eine Markierung zur Zeit: nur die aktuelle Schicht bekommt sie, auch wenn mehrere Schichten desselben Tages gerendert werden.",
+      "Die Uhr tickt in festem Abstand, nicht exakt zur Minute, deshalb kann die Markierung um bis zu einen Takt nachhinken.",
+      "Es gibt kein „Jetzt“ in einer anderen Zeitzone als der des Lesers."
+    ]
   }
 }

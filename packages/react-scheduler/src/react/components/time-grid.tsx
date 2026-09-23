@@ -24,7 +24,9 @@ export const MoreChip = memo(function MoreChip<TItem extends SchedulerItem>({
   group,
   top,
 }: {
+  /** The items the chip stands for. */
   group: OverflowGroup<TItem>;
+  /** Where the chip sits on the grid, in pixels from the range start. */
   top: number;
 }): ReactElement {
   const env = useCardEnv<TItem>();
@@ -52,7 +54,12 @@ export const MoreChip = memo(function MoreChip<TItem extends SchedulerItem>({
       </span>
     ),
   });
-}) as <TItem extends SchedulerItem>(props: { group: OverflowGroup<TItem>; top: number }) => ReactElement;
+}) as <TItem extends SchedulerItem>(props: {
+  /** The items the chip stands for. */
+  group: OverflowGroup<TItem>;
+  /** Where the chip sits on the grid, in pixels from the range start. */
+  top: number;
+}) => ReactElement;
 
 /** Consecutive off-shift rows merged into bands. */
 function bandRuns(rows: readonly number[]): { start: number; count: number }[] {

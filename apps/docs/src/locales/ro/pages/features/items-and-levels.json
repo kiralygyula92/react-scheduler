@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Elemente și niveluri",
-    "description": "Elemente și niveluri în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Ce este un element, cum îi dă scara de niveluri culoarea și rangul și ce decide ordinea dintr-o tură."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "levels": "Scara de niveluri",
+    "order": "Ordine",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "levels": "O scară proprie",
+    "compare": "Sortat după titlu"
+  },
+  "basics": {
+    "intro": "Un element este un obiect simplu. Patru câmpuri sunt obligatorii — <code>id</code>, <code>start</code>, <code>level</code> și <code>title</code> — iar restul rafinează felul în care se citește cardul. Elementele sunt așezate în ture după momentul lor de început: unul care cade în afara oricărei ture randate nu este arătat, iar unul cu un început invalid este eliminat și raportat o dată în dezvoltare.",
+    "item": "Elementul complet, generat din declarațiile pachetului:"
+  },
+  "levels": {
+    "intro": "Un nivel este un rang pe o scară definită de tine: cum se numește, cât de puternic este, ce culoare poartă și dacă elementele acelui rang se fixează când trec pe lângă. Pachetul aduce <code>classicLevels</code>, o scară de nouă ranguri, dar o scară de patru ranguri cu cheile tale este la fel de validă — iar cheile intră în tipul elementului, așa că o greșeală de scriere este o eroare de tip, nu o omisiune tăcută.",
+    "points": [
+      "<code>rank</code> ia implicit poziția din tablou, așa că un tablou bine ordonat nu are nevoie de ranguri deloc.",
+      "<code>color</code> și <code>onColor</code> iau implicit tokenurile <code>--rs-level-{key}</code> și <code>--rs-level-{key}-on</code>, așa că o temă poate recolora o scară fără să atingă datele.",
+      "<code>variant</code> alege tratamentul cardului: <code>'alert'</code> pentru rangul cel mai puternic, <code>'muted'</code> pentru ce este încheiat.",
+      "<code>pinOnPass</code> face ca fiecare element al acelui rang să se fixeze — vezi <link to=\"/pinning/\">Fixare</link>.",
+      "Eticheta vine din <code>localization.levels[key]</code>, așa că scara este tradusă odată cu restul componentei."
+    ]
+  },
+  "order": {
+    "intro": "Într-o tură, elementele urmează <code>compareItems</code>. Valoarea implicită este ordinea de așezare: începutul, apoi rangul de nivel, apoi id-ul. Înlocuirea ei schimbă deodată lista, secvența de așezare a cronologiei și banda de elemente fixate, așa că cele trei nu se contrazic niciodată despre care element vine primul."
+  },
+  "accessibility": {
+    "points": [
+      "Numele accesibil al unui card cuprinde titlul, nivelul și ora lui, așa că culoarea barei nu este niciodată singurul lucru care spune cât de serios este un element.",
+      "Pastilele de nivel și de etichetă sunt text, nu pictograme, și fac parte din numele cardului.",
+      "Culoarea unui nivel este doar o întărire: aceeași informație se află în eticheta de lângă ea."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Părțile <code>levelPill</code>, <code>tagPill</code> și <code>cardRail</code> pot fi înlocuite prin <link to=\"/customization/slots/\">sloturi</link>.",
+      "Culorile stau în tokenurile <code>--rs-level-*</code> — vezi <link to=\"/customization/css-variables/\">Variabile CSS</link>.",
+      "<code>tags</code> definește etichetele pe care le poate purta un element, fiecare cu eticheta și culorile ei."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un element aparține exact unei ture, cea în care cade începutul lui. Un element care se întinde peste două ture este desenat în prima și nu se repetă în a doua.",
+      "Id-urile duplicate nu sunt îmbinate: prima apariție câștigă, restul sunt eliminate, cu un avertisment în dezvoltare.",
+      "Scara este plată — nu există grupare a nivelurilor în familii și nici scară pe tură."
+    ]
   }
 }

@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Aktuális idő jelzése",
-    "description": "Aktuális idő jelzése a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "title": "„Most” jelző",
+    "description": "A jelölő, amely megmutatja, hová esik a jelen pillanat, mikor látszik, és mi tartja mozgásban."
   },
   "sections": {
     "basics": "Alapok",
+    "clock": "Az óra",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "now": "Hová esik a jelen pillanat"
+  },
+  "basics": {
+    "intro": "Az ütemtervet a jelenhez mérten olvassuk: mi múlt el, mi tart éppen, mi van még hátra. A „most” jelző ezt a határt rajzolja meg — feliratos vonalként az idővonal rácsán, jelölőként a lista kártyái között.",
+    "when": "Csak akkor jelenik meg, ha mindezek igazak, hogy soha ne állítson olyan helyzetet, amilyen nincs:",
+    "points": [
+      "Az <code>enableNowIndicator</code> be van kapcsolva, ahogy alapból van.",
+      "Az olvasott nap nem a múltban van.",
+      "A most az aktuális műszakba és a megjelenített tartományba esik.",
+      "Az olvasott nap az a nap, amelybe a most esik."
+    ]
+  },
+  "clock": {
+    "intro": "A komponens saját órát tart: <code>nowTickInterval</code> időnként üt, amíg be van illesztve, és megáll, amíg a dokumentum rejtve van — a háttérlapon nyitva hagyott ütemterv semmibe sem kerül. Add meg a <code>now</code> propot, hogy átvedd az órát: a teszt, a képernyőkép vagy a visszajátszás így az általad választott pillanatot mutatja, nem azt, amennyi az idő."
+  },
+  "accessibility": {
+    "points": [
+      "A listában a jelölő felcímkézett elválasztó, így a határ nemcsak látszik, hanem el is hangzik.",
+      "Az idővonalon a vonal dekoratív: ugyanaz az idő ott van a feliratán és minden kártya nevében.",
+      "A jelölő nem viszi el a fókuszt, és nem görget semmit; hogy hol áll meg egy nézet, külön döntés."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A listában a <code>nowMarker</code>, az idővonalon a <code>nowLine</code> és a <code>nowLabel</code> részek <link to=\"/customization/slots/\">slotokkal</link> cserélhetők.",
+      "A <code>--rs-color-now</code> a vonal és a felirata színe.",
+      "A <code>localization.now.label</code> a szöveg, a <code>formatters.clockTime</code> pedig a benne lévő idő.",
+      "Az <code>enableNowIndicator</code> teljesen kikapcsolja, olyan ütemtervhez, amely nem a mai napról szól."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Egyszerre egy jelölő: csak az aktuális műszak kapja meg, még ha ugyanannak a napnak több műszaka is megjelenik.",
+      "Az óra rögzített időközönként üt, nem pontosan percre, így a jelölő legfeljebb egy időközzel maradhat le.",
+      "Nincs „most” az olvasóétól eltérő időzónában."
+    ]
   }
 }

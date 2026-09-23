@@ -176,9 +176,11 @@ export type ItemOf<
  * @since 1.0.0
  */
 export interface ShiftPatternEntry {
+  /** The key of the shift, from the pattern or from the regular keys. */
   key: string;
   /** Start wall-clock time. The entry ends where the next entry (cyclically) starts. */
   start: WallClock;
+  /** A label of your own for the shift, instead of the generated one. */
   label?: string;
 }
 
@@ -254,10 +256,13 @@ export interface ShiftWindow {
   offset: number;
   /** Sign of offset. */
   role: ShiftRole;
+  /** The key of the shift, from the pattern or from the regular keys. */
   key: string;
+  /** A label of your own for the shift, instead of the generated one. */
   label?: string;
   /** Epoch ms at the wall-clock boundaries (DST-safe). */
   start: number;
+  /** The end of the shift, in epoch milliseconds; exclusive. */
   end: number;
 }
 
@@ -268,6 +273,7 @@ export interface ShiftWindow {
  * @since 1.0.0
  */
 export interface ShiftSegment<TItem> {
+  /** The shift this segment renders. */
   shift: ShiftWindow;
   /** Items whose start is in [shift.start, shift.end), in placement order. */
   items: readonly TItem[];
@@ -275,12 +281,17 @@ export interface ShiftSegment<TItem> {
 
 /** Parity input: pre-bucketed segments (drop-in for the source data shape). */
 export interface SegmentInput<TItem> {
+  /** Whether the segment is before, at or after the current shift. */
   role: ShiftRole;
   /** Default: -1 / 0 / 1 from role. */
   offset?: number;
+  /** A key of your own for the shift; the default comes from the role. */
   key?: string;
+  /** When the segment starts. */
   start: DateInput;
+  /** When the segment ends; exclusive. */
   end: DateInput;
+  /** The items of this segment; they are sorted for you. */
   items: readonly TItem[];
 }
 
@@ -291,8 +302,11 @@ export interface SegmentInput<TItem> {
  * @since 1.0.0
  */
 export interface PlacedCard<TItem> {
+  /** The item this card stands for. */
   item: TItem;
+  /** The column it takes, counted from the start edge. */
   column: number;
+  /** How many columns its overlap group is sharing the lane in. */
   columns: number;
   /** px from range start */
   top: number;
@@ -326,9 +340,13 @@ export interface OverflowGroup<TItem> {
  * @since 1.0.0
  */
 export interface TimelineLayout<TItem> {
+  /** Every placed card, in placement order. */
   cards: readonly PlacedCard<TItem>[];
+  /** The groups the placement could not fit, each behind a "+ more" chip. */
   overflow: readonly OverflowGroup<TItem>[];
+  /** The first moment the grid covers, in epoch milliseconds. */
   rangeStart: number;
+  /** The last moment the grid covers, in epoch milliseconds. */
   rangeEnd: number;
   /** hours(range) × hourHeight, minimum hourHeight. */
   height: number;
@@ -341,19 +359,33 @@ export interface TimelineLayout<TItem> {
  * @since 1.0.0
  */
 export interface TimelineLayoutOptions<TItem> {
+  /** The first moment the grid covers, in epoch milliseconds. */
   rangeStart: number;
+  /** The last moment the grid covers, in epoch milliseconds. */
   rangeEnd: number;
+  /** The resolved level scale, which gives each item its rank. */
   levels: ReadonlyMap<string, { rank: number }>;
+  /** Whether the compact caps apply instead of the usual ones. */
   compact: boolean;
+  /** The height of one hour, in pixels. */
   hourHeight: number;
+  /** How many columns overlapping items may share the lane in. */
   maxColumns: number;
+  /** The cap that applies where the day is crowded. */
   maxColumnsCrowded: number;
+  /** The cap that applies in compact mode. */
   maxColumnsCompact: number;
+  /** The shortest a card may be drawn, in pixels. */
   minCardHeight: number;
+  /** The gap between two columns, in pixels. */
   cardGap: number;
+  /** Which column an item takes when several overlap. */
   columnPlacement: 'priority' | 'time';
+  /** How far apart, in milliseconds, two crowded groups may be and still merge. */
   overflowMergeWindow: number;
+  /** How long an item without an end lasts, in milliseconds. */
   defaultDuration: number;
+  /** The order the placement sequence follows. */
   compareItems?: (a: TItem, b: TItem) => number;
 }
 

@@ -59,7 +59,10 @@
     "description": "What every slot receives: the part’s own props, its owner state and the default component.",
     "props": {
       "Default": "The default element or component of the part, to wrap or render.",
+      "children": "The part's own content, to render inside whatever replaces it.",
       "className": "`rs-<part>` + library classes + `slotProps` className + `classNames[part]`.",
+      "data-rs-part": "The name of the part, which the stylesheet and the tests select on.",
+      "ownerState": "What the part is rendering for: the view, the scheme, the item, the shift.",
       "ref": "MUST be attached: pinning, measuring and focus depend on it.",
       "style": "Structural inline styles + `slotProps` style + `styles[part]`."
     }
@@ -68,7 +71,16 @@
     "description": "Tag key the library adds to carried-over pinned items."
   },
   "CardContentContext": {
-    "description": "What `renderCardContent` receives: the item, its level and the computed time label."
+    "description": "What `renderCardContent` receives: the item, its level and the computed time label.",
+    "props": {
+      "compact": "Whether the schedule is in compact mode.",
+      "defaultRender": "The built-in content, to wrap or to place beside your own.",
+      "item": "The item being rendered.",
+      "level": "The item's level, resolved from the scale.",
+      "timeLabel": "The time as the card shows it, from the formatters and the item's own labels.",
+      "variant": "The card treatment the level asks for.",
+      "view": "The view the card is being rendered in."
+    }
   },
   "CardVariant": {
     "description": "How a card is drawn: normally, as an alert, or muted."
@@ -92,7 +104,10 @@
     "description": "The same shape with every member optional, at every depth."
   },
   "DefaultItemDetail": {
-    "description": "The detail view an item opens into, as the library renders it."
+    "description": "The detail view an item opens into, as the library renders it.",
+    "props": {
+      "item": "The item whose detail is shown."
+    }
   },
   "Density": {
     "description": "The spacing scale of the rendered parts."
@@ -103,14 +118,24 @@
   "ElementProps": {
     "description": "Props a headless host spreads onto one of the library’s elements.",
     "props": {
+      "data-rs-part": "The name of the part, which the stylesheet and the tests select on.",
       "ref": "A callback ref, so the props spread onto any element."
     }
   },
   "EmptyContext": {
-    "description": "What `renderEmpty` receives: whether the whole day or one shift is empty."
+    "description": "What `renderEmpty` receives: whether the whole day or one shift is empty.",
+    "props": {
+      "scope": "Whether the whole schedule is empty or only one shift.",
+      "segment": "The empty shift, when the scope is one shift."
+    }
   },
   "EmptyState": {
-    "description": "What a view shows when there is nothing to place."
+    "description": "What a view shows when there is nothing to place.",
+    "props": {
+      "overlay": "Renders the state over the content instead of in place of it.",
+      "scope": "Whether the whole schedule is empty or only one shift.",
+      "segment": "The empty shift, when the scope is one shift."
+    }
   },
   "ErrorState": {
     "description": "What a view shows when loading failed, with the retry action when one is given."
@@ -122,19 +147,34 @@
     }
   },
   "HeaderContext": {
-    "description": "What `renderHeader` receives: the signal, the view and the rendered shifts."
+    "description": "What `renderHeader` receives: the signal, the view and the rendered shifts.",
+    "props": {
+      "activeShift": "The shift being read, or `null` before the first measurement.",
+      "expanded": "The current value of the header signal.",
+      "segments": "Every rendered shift with its items, in order.",
+      "view": "The view being rendered."
+    }
   },
   "HeaderReason": {
     "description": "Why the header-expanded value changed."
   },
   "ItemDetailContext": {
-    "description": "What `renderItemDetail` receives: the item, how it was opened and a way to close it."
+    "description": "What `renderItemDetail` receives: the item, how it was opened and a way to close it.",
+    "props": {
+      "close": "Closes the detail and returns focus to whatever opened it.",
+      "item": "The item whose detail is open.",
+      "source": "What opened it: a card, a pinned chip, an overflow row or the imperative handle."
+    }
   },
   "ItemOf": {
     "description": "Helpers to infer item types from level/tag definitions."
   },
   "ItemProps": {
-    "description": "Props a custom card spreads onto its activator, so activation and keyboard work."
+    "description": "Props a custom card spreads onto its activator, so activation and keyboard work.",
+    "props": {
+      "data-rs-part": "The name of the part, which the stylesheet and the tests select on.",
+      "ref": "MUST be attached: focus and scrolling to an item depend on it."
+    }
   },
   "LandingTarget": {
     "description": "Where a view lands: on the shift's start, on the date, just above it, or nowhere."
@@ -152,10 +192,16 @@
     }
   },
   "LevelPill": {
-    "description": "The pill that shows an item’s level."
+    "description": "The pill that shows an item’s level.",
+    "props": {
+      "level": "The key of the level the pill stands for."
+    }
   },
   "ListCard": {
-    "description": "A list card (`li`) with its activator; `renderItem` replaces it entirely."
+    "description": "A list card (`li`) with its activator; `renderItem` replaces it entirely.",
+    "props": {
+      "item": "The item the card renders."
+    }
   },
   "ListOptions": {
     "description": "The list view's own options: when navigation appears, where a jump lands, and when the header signal fires.",
@@ -178,16 +224,29 @@
     "description": "What `<ListView>` accepts: the scheduler props without the view selection."
   },
   "LoadingState": {
-    "description": "What a view shows while items are being loaded."
+    "description": "What a view shows while items are being loaded.",
+    "props": {
+      "overlay": "Renders the state over the content instead of in place of it."
+    }
   },
   "Middleware": {
     "description": "Runs before an interaction: it can inspect it, change it, or cancel it by not calling `next`."
   },
   "MoreChip": {
-    "description": "The chip that stands for the items a crowded group could not place."
+    "description": "The chip that stands for the items a crowded group could not place.",
+    "props": {
+      "group": "The items the chip stands for.",
+      "top": "Where the chip sits on the grid, in pixels from the range start."
+    }
   },
   "NavLabelContext": {
-    "description": "What `renderNavLabel` receives: the target shift and the carried-over count."
+    "description": "What `renderNavLabel` receives: the target shift and the carried-over count.",
+    "props": {
+      "carriedOverCount": "How many items of the shifts already passed can still pin.",
+      "disabled": "Whether the button is disabled.",
+      "position": "Which of the two buttons is being labelled.",
+      "target": "The shift the button would go to, or `null` when there is none."
+    }
   },
   "NavPosition": {
     "description": "Which navigation button an event came from."
@@ -196,13 +255,18 @@
     "description": "What one navigation button shows: where it goes, whether it is disabled, and how many items were carried over.",
     "props": {
       "carriedOverCount": "Top button only.",
+      "disabled": "Whether it is rendered but cannot be pressed.",
       "hint": "Tooltip and accessible description.",
-      "label": "Visible label; also the accessible name."
+      "label": "Visible label; also the accessible name.",
+      "target": "The shift it would go to, or `null` when there is none.",
+      "visible": "Whether the button is rendered at all."
     }
   },
   "Navigator": {
     "description": "Moves a view to a shift, an item or a time, with the alignment the options ask for.",
     "props": {
+      "cancel": "Stops a movement that is under way.",
+      "destroy": "Detaches every listener; call it when the scroller goes away.",
       "scrollTo": "Scrolls to `target()`; smooth unless `smooth` is false. A new call replaces a pending one."
     }
   },
@@ -218,6 +282,7 @@
     "description": "What the navigator needs: the scroller, the shifts and the landing rules.",
     "props": {
       "resumeDelay": "How long to wait after the final correction before `onDone`, in milliseconds.",
+      "scroller": "The element the navigator scrolls.",
       "settleDelay": "How long without scroll events counts as settled where `scrollend` is not supported, in milliseconds."
     }
   },
@@ -225,17 +290,29 @@
     "description": "The list's now marker: the clock time in a pill, then a line."
   },
   "OverflowCellContext": {
-    "description": "What an overflow cell receives: the strings and a way to open the item."
+    "description": "What an overflow cell receives: the strings and a way to open the item.",
+    "props": {
+      "localization": "The locale pack in force, for a cell that has words of its own.",
+      "openItem": "Opens the row's item, as the built-in action column does."
+    }
   },
   "OverflowColumn": {
     "description": "One column of the overflow table: its header, its cell and how it sorts.",
     "props": {
+      "align": "How the column's content is aligned in its cells.",
+      "header": "The header cell, or a function of the locale pack that returns it.",
+      "id": "Identifies the column in `overflowSort`, and is its React key.",
       "maxWidth": "Equal to `minWidth`, the column has that fixed width and takes no share of the spare width.",
+      "minWidth": "The width, in pixels, the column asks for before the spare width is shared.",
+      "renderCell": "Renders the cell of one item.",
       "sortValue": "Omit to make the column unsortable."
     }
   },
   "OverflowDialog": {
-    "description": "The dialog that lists the items behind a \"+more\" chip."
+    "description": "The dialog that lists the items behind a \"+more\" chip.",
+    "props": {
+      "group": "The group whose items the dialog lists."
+    }
   },
   "OverflowGroup": {
     "description": "The items a \"+more\" chip stands for, with the range they cover.",
@@ -246,41 +323,84 @@
     }
   },
   "OverflowSort": {
-    "description": "Which column the overflow table is sorted by, and in which direction."
+    "description": "Which column the overflow table is sorted by, and in which direction.",
+    "props": {
+      "column": "The id of the column being sorted by.",
+      "direction": "Ascending or descending."
+    }
   },
   "OverflowTable": {
-    "description": "The table inside the overflow dialog."
+    "description": "The table inside the overflow dialog.",
+    "props": {
+      "columns": "The columns in force.",
+      "items": "The rows of the table, already sorted and paged."
+    }
   },
   "OwnerState": {
-    "description": "What a part is rendering for."
+    "description": "What a part is rendering for.",
+    "props": {
+      "active": "Whether this is the active one of its kind, such as the shift being read.",
+      "carriedOver": "Whether the item comes from a shift that has already passed.",
+      "colorScheme": "The resolved color scheme; `system` has already been resolved to one of the two.",
+      "compact": "Whether the schedule is in compact mode.",
+      "density": "The spacing scale in force.",
+      "dir": "The writing direction the schedule renders in.",
+      "disabled": "Whether the part is disabled.",
+      "item": "The item the part belongs to, on the parts of a card.",
+      "level": "The item's level, resolved from the scale.",
+      "pinned": "Whether the item is currently pinned.",
+      "position": "Which navigation button, on the navigation parts.",
+      "preset": "The preset in force.",
+      "shift": "The shift the part belongs to, on the parts of a section.",
+      "variant": "The card treatment the level asks for.",
+      "view": "The view the part is being rendered in."
+    }
   },
   "Pagination": {
     "description": "The pager under the overflow table."
   },
   "PartExtraProps": {
-    "description": "Part-specific extras beyond the element attributes."
+    "description": "Part-specific extras beyond the element attributes.",
+    "props": {
+      "navButton": "The navigation button also receives its state: where it points and whether it is disabled."
+    }
   },
   "PinEngine": {
     "description": "Watches the scroller and reports which items are pinned by position.",
     "props": {
+      "destroy": "Detaches the observer; call it when the scroller goes away.",
+      "getPinnedIds": "The ids pinned right now, in document order.",
+      "pause": "Stops observing, for a view that is mounted but hidden.",
       "refresh": "Re-reads every sentinel once (after programmatic scrolls, data changes and mounts). Skipped while paused unless `force` is set.",
       "register": "Registers a sentinel for `ids` under `key`; returns a ref callback.",
       "relayout": "Re-creates the observers after the pin line moved (for example, the sticky top resized).",
-      "reset": "Unpins everything (the selected date changed)."
+      "reset": "Unpins everything (the selected date changed).",
+      "resume": "Starts observing again after a pause."
     }
   },
   "PinEngineOptions": {
     "description": "What the pin engine needs: the scroller, the rule and the items it may pin.",
     "props": {
+      "epsilon": "Moves the pin line, in pixels; a positive value pins earlier.",
       "getLine": "The pin line in viewport coordinates. List: the sticky top's bottom; timeline: the scroller's top.",
-      "onChange": "Called with the pinned ids whenever they change."
+      "hysteresis": "How far back, in pixels, an item must travel before it unpins.",
+      "onChange": "Called with the pinned ids whenever they change.",
+      "scroller": "The element whose top edge the pin line is measured from."
     }
   },
   "PinSentinelProps": {
-    "description": "Props a custom card spreads onto its pin sentinel, so pinning can observe it."
+    "description": "Props a custom card spreads onto its pin sentinel, so pinning can observe it.",
+    "props": {
+      "data-rs-edge": "Which edge of the card the sentinel sits at, from the view's pin rule.",
+      "data-rs-part": "The name of the part, which the stylesheet and the tests select on.",
+      "ref": "MUST be attached: the pin observer watches this element."
+    }
   },
   "PinnedChip": {
-    "description": "One chip in the pinned strip."
+    "description": "One chip in the pinned strip.",
+    "props": {
+      "entry": "The pinned item and what the chip shows for it."
+    }
   },
   "PinnedStrip": {
     "description": "The strip of pinned items that stays in view while their shift is on screen."
@@ -296,31 +416,48 @@
   "PlacedCard": {
     "description": "One card placed on the timeline: its item, its column and its geometry.",
     "props": {
+      "column": "The column it takes, counted from the start edge.",
+      "columns": "How many columns its overlap group is sharing the lane in.",
       "end": "epoch ms (resolved)",
       "height": "px",
+      "item": "The item this card stands for.",
       "start": "epoch ms",
       "top": "px from range start"
     }
   },
   "PluralForms": {
-    "description": "The plural forms of one message, selected with `Intl.PluralRules` for the active locale."
+    "description": "The plural forms of one message, selected with `Intl.PluralRules` for the active locale.",
+    "props": {
+      "other": "The form used when no other plural category matches; every pack has it."
+    }
   },
   "PresetName": {
     "description": "The bundled looks: the library's own, or the classic one it reproduces."
   },
   "ReducedMotion": {
-    "description": "Whether motion is reduced, and a way to subscribe to that changing."
+    "description": "Whether motion is reduced, and a way to subscribe to that changing.",
+    "props": {
+      "matches": "Whether the system asks for reduced motion right now.",
+      "subscribe": "Subscribes to changes; the returned function unsubscribes."
+    }
   },
   "ReferencePill": {
-    "description": "The pill that shows an item’s reference number."
+    "description": "The pill that shows an item’s reference number.",
+    "props": {
+      "reference": "The reference number to show."
+    }
   },
   "RenderItemContext": {
     "description": "What `renderItem` receives, including the props a custom card has to spread.",
     "props": {
+      "compact": "Whether the schedule is in compact mode.",
       "defaultRender": "The built-in card.",
       "getItemProps": "Props for the activator; spreading them is required.",
       "getPinSentinelProps": "Props for the pin sentinel of a pinnable item (pinning needs it).",
-      "style": "Timeline: the card's structural geometry (absolute position and size)."
+      "item": "The item to render.",
+      "style": "Timeline: the card's structural geometry (absolute position and size).",
+      "variant": "The card treatment the level asks for.",
+      "view": "The view the card is being rendered in."
     }
   },
   "ResolvedFlags": {
@@ -335,15 +472,40 @@
   "SchedulerController": {
     "description": "The framework-agnostic controller behind the components: state, actions and a subscription.",
     "props": {
+      "activateItem": "Opens an item the way a card does: middleware first, then the state, then the event.",
+      "activateMore": "Opens an overflow group the way its chip does.",
+      "closeItem": "Closes the open item detail, with the reason.",
+      "closeOverflow": "Closes the overflow dialog, with the reason.",
       "flushPinned": "Emits `onPinnedChange` when the strip's ids differ from the last emission for the view.",
+      "getLayout": "The computed timeline layout, or `null` outside the timeline.",
+      "getModel": "The resolved model the views read.",
+      "getOptions": "The options as they were last set.",
+      "getOverflowGroup": "One overflow group by id, or `null` when there is none.",
+      "getState": "The stored state: what the reader changed, before any option is applied.",
+      "getViewModel": "Everything one view needs beyond the model.",
+      "keyDownItem": "Runs the key middleware for a card, then activates it when the key asks for that.",
+      "navigate": "Runs a navigation from one of the buttons: middleware, then the scroll the view performs.",
       "navigateTo": "Imperative navigation (`api`): no middleware.",
       "noteViewShown": "Records that `view` is shown; true when another view was shown before (a view switch).",
       "openItem": "Imperative open (`api`): no middleware; disabled or unknown items do not open.",
+      "openOverflow": "Opens an overflow group by id, without middleware.",
       "reconcileOpenItem": "Closes the view of an item that left the data; no middleware, never reopens by itself.",
       "resetHeader": "Resets the per-view header memory, so the next signal is compared afresh (view enter).",
+      "scrollToTop": "Runs the scroll back to the top: middleware, then the scroll the view performs.",
+      "setClock": "Reports the current moment, on every tick of the clock.",
+      "setDate": "Moves to another moment, in the uncontrolled case.",
+      "setDocumentDir": "Reports the direction the document is in.",
       "setMounted": "Marks the owner (un)mounted; an asynchronous `next()` after unmount is ignored.",
       "setOptions": "Replaces the options. Does not notify: the owner re-renders with the new options anyway.",
-      "setPinnedByPosition": "Ids the view's pin engine pinned by position; `handlers.onPin` may veto each change."
+      "setOverflowPage": "Moves the overflow table to a page.",
+      "setPinnedByPosition": "Ids the view's pin engine pinned by position; `handlers.onPin` may veto each change.",
+      "setPrefersReducedMotion": "Reports whether the system asks for reduced motion.",
+      "setScrollFacts": "Reports what a measurement of the scroller found.",
+      "setView": "Switches the view, in the uncontrolled case.",
+      "setWidth": "Reports the root's width, which decides compact mode.",
+      "signalHeader": "Reports a header signal from a view, which the middleware may veto.",
+      "sortOverflow": "Sorts the overflow table by a column, toggling the direction when it is already sorted by it.",
+      "subscribe": "Subscribes to state changes; the returned function unsubscribes."
     }
   },
   "SchedulerEvents": {
@@ -396,10 +558,38 @@
     }
   },
   "SchedulerHandle": {
-    "description": "The imperative handle: scrolling, opening and closing, and reading the current state."
+    "description": "The imperative handle: scrolling, opening and closing, and reading the current state.",
+    "props": {
+      "closeItem": "Closes the open detail, if there is one.",
+      "closeOverflow": "Closes the overflow dialog, if it is open.",
+      "focusItem": "Moves focus to an item's card.",
+      "getActiveShift": "The shift being read, or `null` before the first measurement.",
+      "getLayout": "The computed timeline layout, or `null` in the list view.",
+      "getPinnedIds": "The ids of the items pinned right now, in strip order.",
+      "getScrollElement": "The scrolling element, for a measurement of your own.",
+      "openItem": "Opens an item's detail, as activating its card would.",
+      "openOverflow": "Opens the overflow dialog of a group.",
+      "refreshPinning": "Measures the pinning sentinels again, after a layout change the component cannot see.",
+      "scrollToItem": "Scrolls to an item, if it is in the rendered range.",
+      "scrollToShift": "Scrolls to a shift, by offset from the current one or by role.",
+      "scrollToTime": "Scrolls to a moment inside the rendered range."
+    }
   },
   "SchedulerHandlers": {
-    "description": "Interaction middleware with React events."
+    "description": "Interaction middleware with React events.",
+    "props": {
+      "onDetailClose": "Runs before an item detail closes, with what asked for it.",
+      "onHeaderSignal": "Runs before the header signal changes, with what caused it.",
+      "onItemActivate": "Runs before an item opens; not calling `next` leaves it closed.",
+      "onItemKeyDown": "Runs on every key pressed on a card, before the built-in handling.",
+      "onMoreActivate": "Runs before an overflow group opens.",
+      "onNavigate": "Runs before a jump between shifts; not calling `next` cancels it.",
+      "onOverflowClose": "Runs before the overflow dialog closes, with what asked for it.",
+      "onOverflowPage": "Runs before the overflow table changes page.",
+      "onOverflowSort": "Runs before the overflow table is sorted, and may change the sort it applies.",
+      "onPin": "Runs before an item pins or unpins; not calling `next` leaves the strip as it was.",
+      "onScrollTop": "Runs before the scroll back to the top."
+    }
   },
   "SchedulerItem": {
     "description": "One thing on the schedule. Only `id`, `start`, `level` and `title` are required; everything else refines how the card reads.",
@@ -425,18 +615,75 @@
   "SchedulerLocalization": {
     "description": "Every string the component can show. A locale pack is one of these.",
     "props": {
-      "locale": "BCP 47, used for Intl."
+      "card": "The pattern of a card's accessible description: its level and its time.",
+      "detail": "The close label of the item detail.",
+      "dir": "The writing direction of this language; `rtl` flips the whole layout.",
+      "emptyAll": "Shown when no rendered shift holds an item.",
+      "emptyShift": "Shown in a shift that holds no item.",
+      "errorTitle": "The heading of the error state.",
+      "levels": "A label per level key; a key without one falls back to the key itself.",
+      "loading": "Announced while the schedule waits for data.",
+      "locale": "BCP 47, used for Intl.",
+      "more": "The \"+ more\" chip: what it shows and what it is called.",
+      "nav": "Every label and hint of the two navigation buttons.",
+      "now": "The label of the now marker, with its time.",
+      "overflow": "The overflow dialog: its title, its columns and its close labels.",
+      "pagination": "The pagination of the overflow table.",
+      "pinnedStrip": "The pinned strip: its label and what it announces when the set changes.",
+      "referenceLabel": "The label read before a reference number.",
+      "retry": "The label of the retry button of the error state.",
+      "scrollTop": "The label of the button that scrolls back to the top.",
+      "shiftHeader": "The words a shift heading uses for its place relative to the current shift.",
+      "tags": "A label per tag key; a key without one falls back to the key itself.",
+      "timeLabel": "How an open-ended time is written on a card.",
+      "views": "The names of the two views, for a switch of your own."
     }
   },
   "SchedulerModel": {
     "description": "The resolved input: options, defaults and state merged into one shape the views read.",
     "props": {
       "animate": "Smooth scrolling and entrance animations run.",
+      "carriedOverCount": "How many items of the shifts already passed can still pin.",
+      "compact": "Whether the schedule is in compact mode.",
+      "compare": "The order of items inside a shift.",
+      "current": "The current shift, or `null` when no rendered shift is the current one.",
       "currentIndex": "-1 when no rendered shift has offset 0.",
+      "date": "The moment being read.",
+      "defaultDuration": "How long an item without an end lasts, in milliseconds.",
+      "density": "The spacing scale in force.",
       "dir": "Resolved direction; `explicitDir` is set on the root only when it did not come from the document.",
+      "error": "The error to show instead of the content, if any.",
+      "explicitDir": "The direction to set on the root, when it did not come from the document.",
+      "flags": "Every feature flag, resolved.",
+      "formatters": "The formatters in force, already bound to the locale.",
+      "geometry": "The timeline's measurements: the range, the hour height and the anchors.",
+      "hasItems": "Whether any rendered shift holds an item.",
+      "headerExpanded": "The current value of the header signal.",
+      "itemsById": "Every rendered item, by id.",
+      "levels": "The level scale, resolved and keyed by level key.",
+      "list": "The list options, with every default filled in.",
+      "loading": "Whether the schedule is waiting for data.",
+      "locale": "The BCP 47 tag every format is produced with.",
+      "localization": "The locale pack in force, with every default filled in.",
+      "now": "The current moment.",
+      "nowVisible": "Whether the now indicator may be shown at all.",
+      "openItem": "The item whose detail is open, when it is still in the data.",
+      "openItemId": "The id of the item whose detail is open.",
       "openItemMissing": "The open id names an item that is no longer in the data.",
+      "openOverflowId": "The id of the overflow group whose dialog is open.",
+      "openSource": "What opened it.",
+      "overflowPage": "The page of the overflow table.",
+      "overflowPageSize": "How many rows a page of the overflow table holds.",
+      "overflowSort": "The sort of the overflow table.",
       "pinCompare": "Pinned-strip order: `pinning.compare`, else `compare`.",
-      "size": "Pinned-chip width class from the root width: lg ≥ 900, md 600–899, sm < 600."
+      "pinRules": "The pin rule of each view, with every default filled in.",
+      "reducedMotion": "Whether motion is being kept to a minimum.",
+      "segments": "The rendered shifts with their items, in order.",
+      "shifts": "The rendered shifts, in order.",
+      "size": "Pinned-chip width class from the root width: lg ≥ 900, md 600–899, sm < 600.",
+      "tags": "The tags an item may carry, keyed by tag key.",
+      "timeline": "The timeline options, with every default filled in.",
+      "view": "The view to render."
     }
   },
   "SchedulerOptions": {
@@ -530,20 +777,63 @@
   "SchedulerState": {
     "description": "Everything `<Scheduler>` uses, without markup.",
     "props": {
-      "layout": "Timeline only."
+      "actions": "The same imperative actions the component exposes through its ref.",
+      "activeShift": "The shift being read, or `null` before the first measurement.",
+      "carriedOverCount": "How many items of the shifts already passed can still pin.",
+      "compact": "Whether the schedule is in compact mode.",
+      "formatters": "The formatters in force, already bound to the locale.",
+      "getItemProps": "Props for an item's activator, so activation and the keyboard work.",
+      "getMoreChipProps": "Props for the chip that opens an overflow group.",
+      "getNavButtonProps": "Props for one of the two navigation buttons, including its label and its state.",
+      "getPinSentinelProps": "Props for the pin sentinel of a pinnable item.",
+      "getPinnedChipProps": "Props for the chip of a pinned item.",
+      "getRootProps": "Props for the outermost element of your own rendering.",
+      "getScrollTopButtonProps": "Props for the button that scrolls back to the top.",
+      "getScrollerProps": "Props for the scrolling element; pinning and navigation measure it.",
+      "getSectionProps": "Props for a shift's section element.",
+      "getStickyTopProps": "Props for the element that sticks to the top of the scroller.",
+      "headerExpanded": "The current value of the header signal.",
+      "layout": "Timeline only.",
+      "localization": "The locale pack in force.",
+      "navigation": "What the two navigation buttons point at right now.",
+      "now": "The current moment, as the internal clock or the `now` prop gives it.",
+      "nowVisible": "Whether the now indicator may be shown at all.",
+      "openItem": "The item whose detail is open, or `null`.",
+      "openOverflow": "The overflow group whose dialog is open, or `null`.",
+      "pinned": "The pinned items, in strip order.",
+      "segments": "The rendered shifts with their items, in order.",
+      "shifts": "The rendered shifts, in order.",
+      "view": "The view the state describes."
     }
   },
   "SchedulerStoreState": {
     "description": "The controller’s stored state: what the reader changed, before any option is applied.",
     "props": {
+      "clock": "The current moment, as the internal clock last reported it.",
       "date": "Uncontrolled values.",
+      "documentDir": "The writing direction the document is in.",
+      "headerExpanded": "The header signal, when it is not controlled.",
+      "openItemId": "The item whose detail is open, when it is not controlled.",
+      "openOverflowId": "The overflow group whose dialog is open, when it is not controlled.",
+      "openSource": "What opened that item.",
+      "overflowPage": "The page of the overflow table, when it is not controlled.",
+      "overflowSort": "The sort of the overflow table, when it is not controlled.",
+      "prefersReducedMotion": "Whether the reader's system asks for reduced motion.",
+      "view": "The view being shown, when it is not controlled.",
+      "views": "Per-view state: scroll facts, pinned ids and the header memory.",
       "width": "Measured by the view layer."
     }
   },
   "SchedulerViewModel": {
     "description": "Everything a view needs to render, derived from the model.",
     "props": {
-      "pinnedIds": "Pinned-strip ids in strip order (position-pinned plus `pinned: true` items)."
+      "activeShift": "The shift being read, or `null` before the first measurement.",
+      "facts": "What the last measurement of the scroller found.",
+      "navigation": "What the two navigation buttons point at.",
+      "pinned": "The pinned items with their chips, in strip order.",
+      "pinnedIds": "Pinned-strip ids in strip order (position-pinned plus `pinned: true` items).",
+      "scrollTopVisible": "Whether the button back to the top is shown.",
+      "view": "The view this model describes."
     }
   },
   "ScrollFacts": {
@@ -561,14 +851,26 @@
   "SegmentInput": {
     "description": "Parity input: pre-bucketed segments (drop-in for the source data shape).",
     "props": {
-      "offset": "Default: -1 / 0 / 1 from role."
+      "end": "When the segment ends; exclusive.",
+      "items": "The items of this segment; they are sorted for you.",
+      "key": "A key of your own for the shift; the default comes from the role.",
+      "offset": "Default: -1 / 0 / 1 from role.",
+      "role": "Whether the segment is before, at or after the current shift.",
+      "start": "When the segment starts."
     }
   },
   "ShiftHeader": {
-    "description": "The header row of one shift in the list view."
+    "description": "The header row of one shift in the list view.",
+    "props": {
+      "id": "The id the section is labelled by.",
+      "segment": "The shift the header belongs to, with its items."
+    }
   },
   "ShiftNavButton": {
-    "description": "The button that jumps to the previous or the next shift."
+    "description": "The button that jumps to the previous or the next shift.",
+    "props": {
+      "position": "Which of the two buttons this is."
+    }
   },
   "ShiftOptions": {
     "description": "The shift pattern of a day. Either regular shifts of one length, or an irregular `pattern` of named shifts.",
@@ -584,6 +886,8 @@
   "ShiftPatternEntry": {
     "description": "One shift of an irregular daily pattern: when it starts and what it is called.",
     "props": {
+      "key": "The key of the shift, from the pattern or from the regular keys.",
+      "label": "A label of your own for the shift, instead of the generated one.",
       "start": "Start wall-clock time. The entry ends where the next entry (cyclically) starts."
     }
   },
@@ -593,12 +897,16 @@
   "ShiftSegment": {
     "description": "A shift with the items that fall into it, in the order they are rendered.",
     "props": {
-      "items": "Items whose start is in [shift.start, shift.end), in placement order."
+      "items": "Items whose start is in [shift.start, shift.end), in placement order.",
+      "shift": "The shift this segment renders."
     }
   },
   "ShiftWindow": {
     "description": "One rendered shift: its offset from the current one, its key and its boundaries.",
     "props": {
+      "end": "The end of the shift, in epoch milliseconds; exclusive.",
+      "key": "The key of the shift, from the pattern or from the regular keys.",
+      "label": "A label of your own for the shift, instead of the generated one.",
       "offset": "0 = current; negative = earlier.",
       "role": "Sign of offset.",
       "start": "Epoch ms at the wall-clock boundaries (DST-safe)."
@@ -613,6 +921,7 @@
   "SortableColumn": {
     "description": "The part of an overflow column that sorting needs; `OverflowColumn` (React layer) extends it.",
     "props": {
+      "id": "Identifies the column in a sort.",
       "sortValue": "Omit to make the column unsortable."
     }
   },
@@ -626,22 +935,49 @@
     }
   },
   "TagPill": {
-    "description": "The pill that shows one of an item’s tags."
+    "description": "The pill that shows one of an item’s tags.",
+    "props": {
+      "tag": "The key of the tag the pill stands for."
+    }
   },
   "TimeGrid": {
     "description": "The timeline’s hour grid, with the placed cards on it."
   },
   "TimelineCard": {
-    "description": "A timeline card, absolutely positioned from the layout engine's output."
+    "description": "A timeline card, absolutely positioned from the layout engine's output.",
+    "props": {
+      "gap": "The gap between two columns, in pixels.",
+      "placed": "The card as the layout placed it: its column and its geometry."
+    }
   },
   "TimelineLayout": {
     "description": "The computed timeline: every placed card, every overflow group and the geometry around them.",
     "props": {
-      "height": "hours(range) × hourHeight, minimum hourHeight."
+      "cards": "Every placed card, in placement order.",
+      "height": "hours(range) × hourHeight, minimum hourHeight.",
+      "overflow": "The groups the placement could not fit, each behind a \"+ more\" chip.",
+      "rangeEnd": "The last moment the grid covers, in epoch milliseconds.",
+      "rangeStart": "The first moment the grid covers, in epoch milliseconds."
     }
   },
   "TimelineLayoutOptions": {
-    "description": "What the layout engine needs besides the items: the hour size, the column caps and the merge window."
+    "description": "What the layout engine needs besides the items: the hour size, the column caps and the merge window.",
+    "props": {
+      "cardGap": "The gap between two columns, in pixels.",
+      "columnPlacement": "Which column an item takes when several overlap.",
+      "compact": "Whether the compact caps apply instead of the usual ones.",
+      "compareItems": "The order the placement sequence follows.",
+      "defaultDuration": "How long an item without an end lasts, in milliseconds.",
+      "hourHeight": "The height of one hour, in pixels.",
+      "levels": "The resolved level scale, which gives each item its rank.",
+      "maxColumns": "How many columns overlapping items may share the lane in.",
+      "maxColumnsCompact": "The cap that applies in compact mode.",
+      "maxColumnsCrowded": "The cap that applies where the day is crowded.",
+      "minCardHeight": "The shortest a card may be drawn, in pixels.",
+      "overflowMergeWindow": "How far apart, in milliseconds, two crowded groups may be and still merge.",
+      "rangeEnd": "The last moment the grid covers, in epoch milliseconds.",
+      "rangeStart": "The first moment the grid covers, in epoch milliseconds."
+    }
   },
   "TimelineOptions": {
     "description": "The timeline view's own options: the size of an hour, how many columns overlapping items may use, and when they collapse into a \"+more\" chip.",
@@ -671,7 +1007,12 @@
     "description": "A design token of `styles.css`."
   },
   "Tooltip": {
-    "description": "The tooltip part; `position` comes from `useTooltip` (null while closed)."
+    "description": "The tooltip part; `position` comes from `useTooltip` (null while closed).",
+    "props": {
+      "children": "The text of the tooltip.",
+      "id": "The id the described element points at.",
+      "position": "Where the tooltip is anchored, or `null` while it is not shown."
+    }
   },
   "ViewKind": {
     "description": "The two views: a scrollable list of cards, or a time axis with placed cards."
@@ -680,7 +1021,12 @@
     "description": "24-hour wall-clock time \"HH:mm\"."
   },
   "bucketItems": {
-    "description": "Puts each item into the window with `start ≤ item.start < end`. Items outside every window are not shown; items with an invalid start are dropped; for duplicate ids the first occurrence wins."
+    "description": "Puts each item into the window with `start ≤ item.start < end`. Items outside every window are not shown; items with an invalid start are dropped; for duplicate ids the first occurrence wins.",
+    "props": {
+      "items": "The items to place, in any order.",
+      "options": "How to order the items inside a shift, and how long an item without an end lasts.",
+      "windows": "The rendered shifts, in order."
+    }
   },
   "classicLevels": {
     "description": "The 9 parity levels, strongest first."
@@ -689,25 +1035,50 @@
     "description": "The classic tag set: the two tags the classic preset renders."
   },
   "compareByPlacement": {
-    "description": "Placement order: start ascending, then level rank ascending (stronger first), then id."
+    "description": "Placement order: start ascending, then level rank ascending (stronger first), then id.",
+    "props": {
+      "levels": "The resolved level scale, which gives each item its rank."
+    }
   },
   "compensateStickyGrowth": {
-    "description": "Keeps visible content still when `sticky` (inside the scroller) changes height: the scroller moves by the same amount in the same frame, in every engine. The scroller sets `overflow-anchor: none`, so browser scroll anchoring never adds a second shift. While `suspended()` holds (a programmatic scroll that corrects its own target), a change is only noted."
+    "description": "Keeps visible content still when `sticky` (inside the scroller) changes height: the scroller moves by the same amount in the same frame, in every engine. The scroller sets `overflow-anchor: none`, so browser scroll anchoring never adds a second shift. While `suspended()` holds (a programmatic scroll that corrects its own target), a change is only noted.",
+    "props": {
+      "scroller": "The scrolling element to adjust.",
+      "sticky": "The element that sticks to its top and changes height.",
+      "suspended": "Returns true while the adjustment should be skipped."
+    }
   },
   "computeTimelineLayout": {
-    "description": "Places items into timeline columns and overflow groups: placement sequence, greedy columns, promotion from overflow, gap fill, geometry, overflow groups (bounded by `overflowMergeWindow`, measured from each group's anchor) and column counts."
+    "description": "Places items into timeline columns and overflow groups: placement sequence, greedy columns, promotion from overflow, gap fill, geometry, overflow groups (bounded by `overflowMergeWindow`, measured from each group's anchor) and column counts.",
+    "props": {
+      "items": "The items of the rendered range, in any order.",
+      "options": "The geometry and the caps: the hour height, the columns, the merge window."
+    }
   },
   "createFormatters": {
-    "description": "Builds the default formatters for a locale, which `formatters` can then override one by one."
+    "description": "Builds the default formatters for a locale, which `formatters` can then override one by one.",
+    "props": {
+      "locale": "The BCP 47 tag every format is produced with.",
+      "options": "Overrides for individual formats, such as the hour label."
+    }
   },
   "createNavigator": {
-    "description": "Creates the navigator for one scroller."
+    "description": "Creates the navigator for one scroller.",
+    "props": {
+      "options": "The scroller to move and the callbacks that report the movement."
+    }
   },
   "createPinEngine": {
-    "description": "Creates the pin engine for one scroller."
+    "description": "Creates the pin engine for one scroller.",
+    "props": {
+      "options": "The scroller, the pin line and the callback that reports the pinned ids."
+    }
   },
   "createScheduler": {
-    "description": "Creates a controller. This is the whole library without React: feed it options, read the view model, call its actions."
+    "description": "Creates a controller. This is the whole library without React: feed it options, read the view model, call its actions.",
+    "props": {
+      "initialOptions": "The options the controller starts with; `setOptions` replaces them later."
+    }
   },
   "deDE": {
     "description": "The German (Germany) locale pack, passed to `localization`."
@@ -725,72 +1096,151 @@
     "description": "The French (France) locale pack, passed to `localization`."
   },
   "getShiftWindows": {
-    "description": "The rendered shift windows around `date`, offsets `-before … +after`. The current window is `[latest boundary ≤ date, next boundary)`; offsets walk boundaries across days."
+    "description": "The rendered shift windows around `date`, offsets `-before … +after`. The current window is `[latest boundary ≤ date, next boundary)`; offsets walk boundaries across days.",
+    "props": {
+      "date": "The moment being read; the shift containing it is the current one.",
+      "options": "The shift pattern and how many shifts to render around the current one."
+    }
   },
   "huHU": {
     "description": "The Hungarian (Hungary) locale pack, passed to `localization`."
   },
   "interpolate": {
-    "description": "Fills `{{name}}` placeholders. A plural template picks its form for `values.count` with `Intl.PluralRules(locale)`, falling back to `other`. Numbers are formatted with `Intl.NumberFormat`. An unknown placeholder is left as written."
+    "description": "Fills `{{name}}` placeholders. A plural template picks its form for `values.count` with `Intl.PluralRules(locale)`, falling back to `other`. Numbers are formatted with `Intl.NumberFormat`. An unknown placeholder is left as written.",
+    "props": {
+      "locale": "The locale the numbers are formatted with.",
+      "template": "A message with `{{name}}` placeholders.",
+      "values": "What to put in place of each placeholder."
+    }
   },
   "observeCompact": {
-    "description": "`onChange(compact)` with compact = width below `breakpoint`, now and on every change."
+    "description": "`onChange(compact)` with compact = width below `breakpoint`, now and on every change.",
+    "props": {
+      "element": "The element whose width decides compact mode.",
+      "options": "The breakpoints and the callback that receives the answer."
+    }
   },
   "observeWidth": {
-    "description": "Calls `onWidth` with the element's content-box width now and whenever it changes. Compact mode and `listOnlyBreakpoint` use the root's width, not the viewport or the user agent."
+    "description": "Calls `onWidth` with the element's content-box width now and whenever it changes. Compact mode and `listOnlyBreakpoint` use the root's width, not the viewport or the user agent.",
+    "props": {
+      "element": "The element to measure.",
+      "onWidth": "Called with the content-box width, on every change."
+    }
   },
   "pageList": {
-    "description": "Pages to show in the pager (0-based): every page when there are at most 7; otherwise the first two, the last two and the current page ±1, with 'ellipsis' in each gap."
+    "description": "Pages to show in the pager (0-based): every page when there are at most 7; otherwise the first two, the last two and the current page ±1, with 'ellipsis' in each gap.",
+    "props": {
+      "currentPage": "The page being shown, counted from zero.",
+      "totalPages": "How many pages there are."
+    }
   },
   "prefersReducedMotion": {
-    "description": "The `prefers-reduced-motion: reduce` media query; false when media queries are unavailable."
+    "description": "The `prefers-reduced-motion: reduce` media query; false when media queries are unavailable.",
+    "props": {
+      "view": "The window to ask; passing one makes the helper testable."
+    }
   },
   "ptPT": {
     "description": "The Portuguese (Portugal) locale pack, passed to `localization`."
   },
   "resolveEnd": {
-    "description": "The resolved end of an item: `start + defaultDuration` when `end` is missing or invalid; an end before the start counts as zero duration."
+    "description": "The resolved end of an item: `start + defaultDuration` when `end` is missing or invalid; an end before the start counts as zero duration.",
+    "props": {
+      "defaultDuration": "How long it lasts when it has no end, in milliseconds.",
+      "end": "Its end, when it has one.",
+      "start": "The start of the item."
+    }
   },
   "resolveLevels": {
-    "description": "Level definitions keyed by `key`, with `rank` (default: array index), `variant` and `pinOnPass` filled in."
+    "description": "Level definitions keyed by `key`, with `rank` (default: array index), `variant` and `pinOnPass` filled in.",
+    "props": {
+      "levels": "The scale as it was given, with its gaps still to fill."
+    }
   },
   "resolveShift": {
-    "description": "The current shift window (offset 0) for `date`."
+    "description": "The current shift window (offset 0) for `date`.",
+    "props": {
+      "date": "The moment to place.",
+      "options": "The shift pattern the day is cut with."
+    }
   },
   "resolveTimeLabel": {
-    "description": "The time label of a card, first match: `timeLabel` as given; \"{observed} {observedLabel}\" when `observedLabel` is a non-empty string; \"{since} {timestamp}\" for a valid `since`, or the bare prefix for an invalid one; otherwise \"{start} – {end}\"."
+    "description": "The time label of a card, first match: `timeLabel` as given; \"{observed} {observedLabel}\" when `observedLabel` is a non-empty string; \"{since} {timestamp}\" for a valid `since`, or the bare prefix for an invalid one; otherwise \"{start} – {end}\".",
+    "props": {
+      "defaultDuration": "How long an item without an end lasts, in milliseconds.",
+      "formatters": "The formatters, for the time itself.",
+      "item": "The item whose time is being written; its own `timeLabel` wins when it has one.",
+      "localization": "The locale pack, for the words around the time."
+    }
   },
   "roRO": {
     "description": "The Romanian (Romania) locale pack, passed to `localization`."
   },
   "sortOverflowItems": {
-    "description": "Items sorted by the column's value; ties break by `compare`. The whole comparison, ties included, follows the direction. An unsortable or unknown column sorts by `compare` alone."
+    "description": "Items sorted by the column's value; ties break by `compare`. The whole comparison, ties included, follows the direction. An unsortable or unknown column sorts by `compare` alone.",
+    "props": {
+      "columns": "The columns in force, which say how each one sorts.",
+      "compare": "The order that breaks a tie.",
+      "items": "The items of one overflow group.",
+      "sort": "The column and the direction to sort by."
+    }
   },
   "toMs": {
-    "description": "Epoch milliseconds of a date input; `NaN` when invalid. A string without an offset is local wall-clock time, including date-only strings (which `Date` alone would read as UTC)."
+    "description": "Epoch milliseconds of a date input; `NaN` when invalid. A string without an offset is local wall-clock time, including date-only strings (which `Date` alone would read as UTC).",
+    "props": {
+      "input": "A `Date`, epoch milliseconds, or a string `Date` can parse."
+    }
   },
   "useCompact": {
-    "description": "Compact mode from the element's content width; a boolean forces it. False on the server."
+    "description": "Compact mode from the element's content width; a boolean forces it. False on the server.",
+    "props": {
+      "options": "The breakpoints, and a value that overrides the measurement.",
+      "ref": "The element whose width decides compact mode."
+    }
   },
   "useControllableState": {
-    "description": "Controlled when `value` is given, otherwise internal state starting at `defaultValue`."
+    "description": "Controlled when `value` is given, otherwise internal state starting at `defaultValue`.",
+    "props": {
+      "defaultValue": "The value to start from while it is uncontrolled.",
+      "onChange": "Called with every new value, in both cases.",
+      "value": "The controlled value, or `undefined` while the state is uncontrolled."
+    }
   },
   "useNow": {
-    "description": "Epoch ms of `now`, or an internal clock ticking every `interval` ms, paused while the document is hidden."
+    "description": "Epoch ms of `now`, or an internal clock ticking every `interval` ms, paused while the document is hidden.",
+    "props": {
+      "input": "A fixed moment to use instead of the clock, or how often the clock ticks."
+    }
   },
   "usePinOnPass": {
-    "description": "Pin-on-pass for custom markup: register sentinels, read the pinned keys."
+    "description": "Pin-on-pass for custom markup: register sentinels, read the pinned keys.",
+    "props": {
+      "options": "The scroller, the pin rule and the callback that reports the pinned ids."
+    }
   },
   "useScheduler": {
-    "description": "Everything <Scheduler> uses, without markup."
+    "description": "Everything <Scheduler> uses, without markup.",
+    "props": {
+      "props": "The same props `<Scheduler>` takes."
+    }
   },
   "useShiftModel": {
-    "description": "Shift windows and segments for a date."
+    "description": "Shift windows and segments for a date.",
+    "props": {
+      "input": "The moment being read and the shift pattern to cut the day with."
+    }
   },
   "useShiftNavigation": {
-    "description": "Programmatic shift navigation for custom markup."
+    "description": "Programmatic shift navigation for custom markup.",
+    "props": {
+      "options": "The scroller, the rendered shifts and where a jump should land."
+    }
   },
   "useTimelineLayout": {
-    "description": "The timeline layout of `items`, memoized on its inputs."
+    "description": "The timeline layout of `items`, memoized on its inputs.",
+    "props": {
+      "items": "The items of the rendered range.",
+      "options": "The geometry and the caps the layout is computed with."
+    }
   }
 }

@@ -20,8 +20,11 @@ export function EmptyState<TItem extends SchedulerItem>({
   segment,
   overlay = false,
 }: {
+  /** Whether the whole schedule is empty or only one shift. */
   scope: 'all' | 'shift';
+  /** The empty shift, when the scope is one shift. */
   segment?: ShiftSegment<TItem> | undefined;
+  /** Renders the state over the content instead of in place of it. */
   overlay?: boolean;
 }): ReactElement {
   const { model, props } = useSchedulerContext<TItem>();
@@ -40,7 +43,12 @@ export function EmptyState<TItem extends SchedulerItem>({
  * @category Components
  * @since 1.0.0
  */
-export function LoadingState({ overlay = false }: { overlay?: boolean }): ReactElement {
+export function LoadingState({
+  overlay = false,
+}: {
+  /** Renders the state over the content instead of in place of it. */
+  overlay?: boolean;
+}): ReactElement {
   const { model, props } = useSchedulerContext();
   const { custom } = useViewContext();
   return renderPart(custom, 'loadingState', 'div', {

@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Pinning",
-    "description": "Pinning in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "Which items stay in view once they scroll past, what decides that, and how the pinned strip is ordered."
   },
   "sections": {
     "basics": "Basics",
+    "rules": "Rules and tuning",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "pinning": "Items that stay in view"
+  },
+  "basics": {
+    "intro": "Something important that has scrolled out of sight is still important. Pinning keeps such items in a strip at the top of the scroller, in the order they would have had in the shift, and drops them again when they scroll back into view.",
+    "which": "Three things decide whether an item pins:",
+    "points": [
+      "<code>item.pinned === true</code> pins it for as long as its shift is rendered, whatever the reader does.",
+      "<code>item.pinnable</code> lets a single item opt in or out.",
+      "Otherwise the level decides, through <code>pinOnPass</code> — a whole rank at a time."
+    ]
+  },
+  "rules": {
+    "intro": "A pin happens when the item’s edge crosses a line: the bottom of the sticky top in the list, the top of the scroller in the timeline. <code>epsilon</code> moves that line, and <code>hysteresis</code> is how far back the item must travel before it unpins, so an item at the boundary does not flicker.",
+    "carried": "Items from a shift that has already passed carry the <code>carriedOver</code> tag, appended to the tags they already have. That is what the count on the top navigation button is about, and it is computed from the shifts, never from the ids."
+  },
+  "accessibility": {
+    "points": [
+      "The strip is a labelled region holding a list, so a screen reader says how many items are pinned.",
+      "Changes are announced through a live region, and repeated changes are throttled so a fast scroll does not flood it.",
+      "A pinned chip is a button that opens the same detail the card does, and keeps the card’s accessible name.",
+      "The scroller turns off browser scroll anchoring and compensates for the strip’s own height itself, so nothing under the reader’s eye jumps when a chip appears."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>pinning.list</code> and <code>pinning.timeline</code> tune each view on its own.",
+      "<code>pinning.compare</code> orders the strip; the default is the same placement order the shift uses.",
+      "The parts <code>pinnedStrip</code>, <code>pinnedStripTrack</code>, <code>pinnedChip</code> and <code>edgeFade</code> are replaceable through <link to=\"/customization/slots/\">slots</link>, and <code>renderPinnedChip</code> replaces a chip outright.",
+      "<code>handlers.onPin</code> can veto a pin before it happens; <code>onPinnedChange</code> reports the set afterwards, with what was added and removed."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "The pinned set is reset when <code>date</code> changes: a new day starts with nothing pinned.",
+      "Pinning is per view. Switching views recomputes it from where that view is scrolled, so the two strips can differ.",
+      "There is no limit on how many items may pin at once; a shift where every item pins fills the strip."
+    ]
   }
 }

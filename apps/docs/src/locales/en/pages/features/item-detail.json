@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Item detail",
-    "description": "Item detail in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "What opens when a reader activates an item, what the default dialog shows, and how to replace it."
   },
   "sections": {
     "basics": "Basics",
+    "your-own": "A detail of your own",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "custom": "The detail, replaced"
+  },
+  "basics": {
+    "intro": "Activating an item — a card, a pinned chip, a row in the overflow table — opens its detail. The default is a modal dialog with the level and the title, the description, the pills, the time and a close button. Which item is open is <code>openItemId</code>, controlled or uncontrolled like the rest of the state.",
+    "points": [
+      "Activation runs <code>handlers.onItemActivate</code> first, which can cancel it, then sets the id, then calls <code>onItemOpen</code>.",
+      "An item marked <code>disabled</code> does not open.",
+      "If the open item disappears from <code>items</code>, the detail closes with the reason <code>itemRemoved</code> and does not reopen by itself.",
+      "Closing returns focus to whatever opened it; when that element is gone, focus goes to the scroller."
+    ]
+  },
+  "own": {
+    "intro": "<code>renderItemDetail</code> replaces the dialog entirely — with a drawer, a panel beside the schedule, or a route of its own. It receives the item, how it was opened, and a function that closes it.",
+    "state": "Because <code>openItemId</code> is ordinary state, a detail of your own can also be opened from outside: set the id and the component treats it as an activation, which is how a deep link to one item works."
+  },
+  "accessibility": {
+    "points": [
+      "The default detail is a native modal dialog: focus is contained by the browser, <kbd>Escape</kbd> closes it, and the backdrop is a click target.",
+      "It is labelled by its title, and its content is read in the order it is drawn.",
+      "Focus returns to the activator on close, which is what makes repeated opening and closing bearable with a keyboard.",
+      "A detail of your own is yours to make accessible: the component only tells you which item to show and when to close."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderItemDetail</code> for the whole thing, or the <code>detailDialog</code> part through <link to=\"/customization/slots/\">slots</link> for the dialog itself.",
+      "<code>localization.detail.close</code> is the close label of the default dialog.",
+      "<code>openItemId</code>, <code>defaultOpenItemId</code> and <code>onOpenItemIdChange</code> hold the state; <code>onItemOpen</code> and <code>onItemClose</code> report it.",
+      "The default dialog is in a lazy chunk, loaded the first time an item is opened."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "One item is open at a time.",
+      "The default dialog shows the fields the item model has; anything else belongs in a detail of your own.",
+      "There is no editing in the detail — it shows, it does not change."
+    ]
   }
 }

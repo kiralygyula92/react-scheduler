@@ -216,6 +216,9 @@ function rangeMax(values: readonly number[]): (from: number, to: number) => numb
  * Places items into timeline columns and overflow groups (Feature Dossier 01 §T.5 steps 1–7):
  * placement sequence, greedy columns, promotion from overflow, gap fill, geometry, overflow
  * groups (bounded by `overflowMergeWindow`, measured from each group's anchor) and column counts.
+ *
+ * @param items The items of the rendered range, in any order.
+ * @param options The geometry and the caps: the hour height, the columns, the merge window.
  */
 export function computeTimelineLayout<TItem extends SchedulerItem>(
   items: readonly TItem[],

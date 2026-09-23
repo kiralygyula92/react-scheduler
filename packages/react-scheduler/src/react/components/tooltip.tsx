@@ -68,8 +68,11 @@ export function Tooltip({
   position,
   children,
 }: {
+  /** The id the described element points at. */
   id: string;
+  /** Where the tooltip is anchored, or `null` while it is not shown. */
   position: TooltipAnchor | null;
+  /** The text of the tooltip. */
   children: ReactNode;
 }): ReactElement {
   const { custom } = useViewContext();

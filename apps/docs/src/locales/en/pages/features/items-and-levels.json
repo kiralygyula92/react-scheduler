@@ -1,17 +1,61 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Items and levels",
-    "description": "Items and levels in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "What an item is, how the level scale gives it its color and its rank, and what decides the order inside a shift."
   },
   "sections": {
     "basics": "Basics",
+    "levels": "The level scale",
+    "order": "Order",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "levels": "A scale of your own",
+    "compare": "Sorted by title"
+  },
+  "basics": {
+    "intro": "An item is a plain object. Four fields are required — an <code>id</code>, a <code>start</code>, a <code>level</code> and a <code>title</code> — and everything else refines how the card reads. Items are placed into shifts by their start: one that falls outside every rendered shift is not shown, and one with an invalid start is dropped and reported once in development.",
+    "item": "The full item, generated from the package’s declarations:"
+  },
+  "levels": {
+    "intro": "A level is a rank on a scale you define: what it is called, how strong it is, what color it carries and whether items of that rank pin when they scroll past. The package ships <code>classicLevels</code>, a nine-rank scale, but a scale of four ranks with your own keys is just as valid — and the keys flow into the item type, so a typo is a type error rather than a silent miss.",
+    "points": [
+      "<code>rank</code> defaults to the position in the array, so a well-ordered array needs no ranks at all.",
+      "<code>color</code> and <code>onColor</code> default to the tokens <code>--rs-level-{key}</code> and <code>--rs-level-{key}-on</code>, which is how a theme can recolor a scale without touching the data.",
+      "<code>variant</code> picks the card treatment: <code>'alert'</code> for the strongest rank, <code>'muted'</code> for what is finished.",
+      "<code>pinOnPass</code> makes every item of that rank pin — see <link to=\"/pinning/\">Pinning</link>.",
+      "A label comes from <code>localization.levels[key]</code>, so the scale is translated with the rest of the component."
+    ]
+  },
+  "order": {
+    "intro": "Inside a shift, items follow <code>compareItems</code>. The default is placement order: start, then level rank, then id. Replacing it changes the list, the timeline’s placement sequence and the pinned strip together, so the three never disagree about which item comes first."
+  },
+  "accessibility": {
+    "points": [
+      "A card’s accessible name carries its title, its level and its time, so the color of the rail is never the only thing that says how serious an item is.",
+      "Level and tag pills are text, not icons, and they are part of the card’s name.",
+      "A level’s color is only a reinforcement: the same information is in the label next to it."
+    ]
+  },
+  "customization": {
+    "points": [
+      "The parts <code>levelPill</code>, <code>tagPill</code> and <code>cardRail</code> are replaceable through <link to=\"/customization/slots/\">slots</link>.",
+      "Colors live in the tokens <code>--rs-level-*</code> — see <link to=\"/customization/css-variables/\">CSS variables</link>.",
+      "<code>tags</code> defines the tags an item may carry, each with its own label and colors."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "An item belongs to exactly one shift, the one its start falls in. An item that spans two shifts is drawn in the first and does not repeat in the second.",
+      "Duplicate ids are not merged: the first occurrence wins and the rest are dropped, with a warning in development.",
+      "The scale is flat — there is no grouping of levels into families, and no per-shift scale."
+    ]
   }
 }

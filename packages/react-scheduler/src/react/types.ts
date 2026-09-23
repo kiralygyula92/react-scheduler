@@ -106,20 +106,35 @@ export type SchedulerPart =
 
 /** What a part is rendering for (Feature Dossier 06 §1.1). */
 export interface OwnerState<TItem> {
+  /** The view the part is being rendered in. */
   view: ViewKind;
+  /** Whether the schedule is in compact mode. */
   compact: boolean;
+  /** The preset in force. */
   preset: PresetName;
+  /** The resolved color scheme; `system` has already been resolved to one of the two. */
   colorScheme: 'light' | 'dark';
+  /** The spacing scale in force. */
   density: Density;
+  /** The writing direction the schedule renders in. */
   dir: 'ltr' | 'rtl';
+  /** The item the part belongs to, on the parts of a card. */
   item?: TItem | undefined;
+  /** The item's level, resolved from the scale. */
   level?: LevelDefinition | undefined;
+  /** The card treatment the level asks for. */
   variant?: CardVariant | undefined;
+  /** The shift the part belongs to, on the parts of a section. */
   shift?: ShiftWindow | undefined;
+  /** Which navigation button, on the navigation parts. */
   position?: NavPosition | undefined;
+  /** Whether the part is disabled. */
   disabled?: boolean | undefined;
+  /** Whether the item is currently pinned. */
   pinned?: boolean | undefined;
+  /** Whether the item comes from a shift that has already passed. */
   carriedOver?: boolean | undefined;
+  /** Whether this is the active one of its kind, such as the shift being read. */
   active?: boolean | undefined;
 }
 
@@ -130,14 +145,17 @@ export interface OwnerState<TItem> {
  * @since 1.0.0
  */
 export interface BaseSlotProps<TItem> {
+  /** What the part is rendering for: the view, the scheme, the item, the shift. */
   ownerState: OwnerState<TItem>;
   /** `rs-<part>` + library classes + `slotProps` className + `classNames[part]`. */
   className: string;
   /** Structural inline styles + `slotProps` style + `styles[part]`. */
   style?: CSSProperties | undefined;
+  /** The name of the part, which the stylesheet and the tests select on. */
   'data-rs-part': string;
   /** MUST be attached: pinning, measuring and focus depend on it. */
   ref?: Ref<never> | undefined;
+  /** The part's own content, to render inside whatever replaces it. */
   children?: ReactNode;
   /** The default element or component of the part, to wrap or render (docs pack 09 §4.3). */
   Default: ElementType;
@@ -145,6 +163,7 @@ export interface BaseSlotProps<TItem> {
 
 /** Part-specific extras beyond the element attributes. */
 export interface PartExtraProps {
+  /** The navigation button also receives its state: where it points and whether it is disabled. */
   navButton: { navState: NavState };
 }
 
@@ -185,9 +204,13 @@ export type SchedulerSlotProps<TItem> = {
  * @since 1.0.0
  */
 export interface HeaderContext<TItem> {
+  /** The current value of the header signal. */
   expanded: boolean;
+  /** The view being rendered. */
   view: ViewKind;
+  /** The shift being read, or `null` before the first measurement. */
   activeShift: ShiftWindow | null;
+  /** Every rendered shift with its items, in order. */
   segments: readonly ShiftSegment<TItem>[];
 }
 
@@ -198,9 +221,13 @@ export interface HeaderContext<TItem> {
  * @since 1.0.0
  */
 export interface RenderItemContext<TItem> {
+  /** The item to render. */
   item: TItem;
+  /** The view the card is being rendered in. */
   view: ViewKind;
+  /** The card treatment the level asks for. */
   variant: CardVariant;
+  /** Whether the schedule is in compact mode. */
   compact: boolean;
   /** The built-in card. */
   defaultRender: () => ReactNode;
@@ -219,12 +246,19 @@ export interface RenderItemContext<TItem> {
  * @since 1.0.0
  */
 export interface CardContentContext<TItem> {
+  /** The view the card is being rendered in. */
   view: ViewKind;
+  /** The card treatment the level asks for. */
   variant: CardVariant;
+  /** Whether the schedule is in compact mode. */
   compact: boolean;
+  /** The item's level, resolved from the scale. */
   level: LevelDefinition | undefined;
+  /** The time as the card shows it, from the formatters and the item's own labels. */
   timeLabel: string;
+  /** The built-in content, to wrap or to place beside your own. */
   defaultRender: () => ReactNode;
+  /** The item being rendered. */
   item: TItem;
 }
 
@@ -235,9 +269,13 @@ export interface CardContentContext<TItem> {
  * @since 1.0.0
  */
 export interface NavLabelContext {
+  /** Which of the two buttons is being labelled. */
   position: NavPosition;
+  /** The shift the button would go to, or `null` when there is none. */
   target: ShiftWindow | null;
+  /** Whether the button is disabled. */
   disabled: boolean;
+  /** How many items of the shifts already passed can still pin. */
   carriedOverCount: number;
 }
 
@@ -248,7 +286,9 @@ export interface NavLabelContext {
  * @since 1.0.0
  */
 export interface EmptyContext<TItem> {
+  /** Whether the whole schedule is empty or only one shift. */
   scope: 'all' | 'shift';
+  /** The empty shift, when the scope is one shift. */
   segment?: ShiftSegment<TItem> | undefined;
 }
 
@@ -259,8 +299,11 @@ export interface EmptyContext<TItem> {
  * @since 1.0.0
  */
 export interface ItemDetailContext<TItem> {
+  /** The item whose detail is open. */
   item: TItem;
+  /** Closes the detail and returns focus to whatever opened it. */
   close: () => void;
+  /** What opened it: a card, a pinned chip, an overflow row or the imperative handle. */
   source: ActivationSource;
 }
 
@@ -273,7 +316,9 @@ export interface ItemDetailContext<TItem> {
  * @since 1.0.0
  */
 export interface OverflowCellContext {
+  /** Opens the row's item, as the built-in action column does. */
   openItem: () => void;
+  /** The locale pack in force, for a cell that has words of its own. */
   localization: SchedulerLocalization;
 }
 
@@ -284,14 +329,19 @@ export interface OverflowCellContext {
  * @since 1.0.0
  */
 export interface OverflowColumn<TItem> {
+  /** Identifies the column in `overflowSort`, and is its React key. */
   id: string;
+  /** The header cell, or a function of the locale pack that returns it. */
   header: ReactNode | ((localization: SchedulerLocalization) => ReactNode);
+  /** How the column's content is aligned in its cells. */
   align?: 'start' | 'center' | 'end' | undefined;
+  /** The width, in pixels, the column asks for before the spare width is shared. */
   minWidth?: number | undefined;
   /** Equal to `minWidth`, the column has that fixed width and takes no share of the spare width. */
   maxWidth?: number | undefined;
   /** Omit to make the column unsortable. */
   sortValue?: ((item: TItem) => string | number) | undefined;
+  /** Renders the cell of one item. */
   renderCell: (item: TItem, ctx: OverflowCellContext) => ReactNode;
 }
 
@@ -564,18 +614,31 @@ export type TimelineViewProps<TItem extends SchedulerItem = SchedulerItem> = Omi
  * @since 1.0.0
  */
 export interface SchedulerHandle<TItem> {
+  /** Scrolls to a shift, by offset from the current one or by role. */
   scrollToShift(target: number | ShiftRole, options?: { smooth?: boolean; align?: 'start' | 'nearBottom' }): void;
+  /** Scrolls to a moment inside the rendered range. */
   scrollToTime(time: DateInput, options?: { smooth?: boolean; align?: 'start' | 'center' | 'nearBottom' }): void;
+  /** Scrolls to an item, if it is in the rendered range. */
   scrollToItem(id: string, options?: { smooth?: boolean }): void;
+  /** Opens an item's detail, as activating its card would. */
   openItem(id: string): void;
+  /** Closes the open detail, if there is one. */
   closeItem(): void;
+  /** Opens the overflow dialog of a group. */
   openOverflow(groupId: string): void;
+  /** Closes the overflow dialog, if it is open. */
   closeOverflow(): void;
+  /** Measures the pinning sentinels again, after a layout change the component cannot see. */
   refreshPinning(): void;
+  /** The ids of the items pinned right now, in strip order. */
   getPinnedIds(): readonly string[];
+  /** The shift being read, or `null` before the first measurement. */
   getActiveShift(): ShiftWindow | null;
+  /** The computed timeline layout, or `null` in the list view. */
   getLayout(): TimelineLayout<TItem> | null;
+  /** The scrolling element, for a measurement of your own. */
   getScrollElement(): HTMLElement | null;
+  /** Moves focus to an item's card. */
   focusItem(id: string): void;
 }
 
@@ -588,6 +651,7 @@ export interface SchedulerHandle<TItem> {
 export type ElementProps<E extends HTMLElement = HTMLElement> = HTMLAttributes<E> & {
   /** A callback ref, so the props spread onto any element. */
   ref: (node: HTMLElement | null) => void;
+  /** The name of the part, which the stylesheet and the tests select on. */
   'data-rs-part': string;
 };
 
@@ -598,7 +662,9 @@ export type ElementProps<E extends HTMLElement = HTMLElement> = HTMLAttributes<E
  * @since 1.0.0
  */
 export type ItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  /** MUST be attached: focus and scrolling to an item depend on it. */
   ref: Ref<HTMLButtonElement>;
+  /** The name of the part, which the stylesheet and the tests select on. */
   'data-rs-part': string;
 };
 
@@ -609,41 +675,70 @@ export type ItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
  * @since 1.0.0
  */
 export type PinSentinelProps = HTMLAttributes<HTMLSpanElement> & {
+  /** MUST be attached: the pin observer watches this element. */
   ref: Ref<HTMLSpanElement>;
+  /** The name of the part, which the stylesheet and the tests select on. */
   'data-rs-part': string;
+  /** Which edge of the card the sentinel sits at, from the view's pin rule. */
   'data-rs-edge': 'top' | 'bottom';
 };
 
 /** Everything `<Scheduler>` uses, without markup (Feature Dossier 04 §7). */
 export interface SchedulerState<TItem extends SchedulerItem> {
+  /** The view the state describes. */
   view: ViewKind;
+  /** Whether the schedule is in compact mode. */
   compact: boolean;
+  /** The rendered shifts, in order. */
   shifts: readonly ShiftWindow[];
+  /** The rendered shifts with their items, in order. */
   segments: readonly ShiftSegment<TItem>[];
+  /** The shift being read, or `null` before the first measurement. */
   activeShift: ShiftWindow | null;
+  /** The pinned items, in strip order. */
   pinned: readonly TItem[];
+  /** How many items of the shifts already passed can still pin. */
   carriedOverCount: number;
+  /** The current value of the header signal. */
   headerExpanded: boolean;
   /** Timeline only. */
   layout: TimelineLayout<TItem> | null;
+  /** The current moment, as the internal clock or the `now` prop gives it. */
   now: number;
+  /** Whether the now indicator may be shown at all. */
   nowVisible: boolean;
+  /** The item whose detail is open, or `null`. */
   openItem: TItem | null;
+  /** The overflow group whose dialog is open, or `null`. */
   openOverflow: OverflowGroup<TItem> | null;
+  /** What the two navigation buttons point at right now. */
   navigation: { top: NavState; bottom: NavState };
+  /** The locale pack in force. */
   localization: SchedulerLocalization;
+  /** The formatters in force, already bound to the locale. */
   formatters: SchedulerFormatters;
+  /** The same imperative actions the component exposes through its ref. */
   actions: SchedulerHandle<TItem>;
+  /** Props for the outermost element of your own rendering. */
   getRootProps(): HTMLAttributes<HTMLDivElement> & { ref: Ref<HTMLDivElement> };
+  /** Props for the scrolling element; pinning and navigation measure it. */
   getScrollerProps(): ElementProps;
+  /** Props for the element that sticks to the top of the scroller. */
   getStickyTopProps(): ElementProps;
+  /** Props for one of the two navigation buttons, including its label and its state. */
   getNavButtonProps(position: NavPosition): ButtonHTMLAttributes<HTMLButtonElement>;
+  /** Props for a shift's section element. */
   getSectionProps(segment: ShiftSegment<TItem>): ElementProps;
+  /** Props for an item's activator, so activation and the keyboard work. */
   getItemProps(item: TItem, view?: ViewKind): ItemProps;
+  /** Props for the pin sentinel of a pinnable item. */
   getPinSentinelProps(item: TItem): PinSentinelProps;
+  /** Props for the chip of a pinned item. */
   getPinnedChipProps(item: TItem): ButtonHTMLAttributes<HTMLButtonElement>;
+  /** Props for the chip that opens an overflow group. */
   getMoreChipProps(group: OverflowGroup<TItem>): ButtonHTMLAttributes<HTMLButtonElement> & {
     ref: Ref<HTMLButtonElement>;
   };
+  /** Props for the button that scrolls back to the top. */
   getScrollTopButtonProps(): ButtonHTMLAttributes<HTMLButtonElement>;
 }

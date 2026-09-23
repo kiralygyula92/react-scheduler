@@ -25,6 +25,7 @@ const FADE_EPSILON = 2;
 export const PinnedChip = memo(function PinnedChip<TItem extends SchedulerItem>({
   entry,
 }: {
+  /** The pinned item and what the chip shows for it. */
   entry: PinnedEntry<TItem>;
 }): ReactNode {
   const env = useCardEnv<TItem>();
@@ -73,7 +74,10 @@ export const PinnedChip = memo(function PinnedChip<TItem extends SchedulerItem>(
       owner,
     );
   return props.renderPinnedChip ? props.renderPinnedChip(item, { carriedOver, defaultRender }) : defaultRender();
-}) as <TItem extends SchedulerItem>(props: { entry: PinnedEntry<TItem> }) => ReactNode;
+}) as <TItem extends SchedulerItem>(props: {
+  /** The pinned item and what the chip shows for it. */
+  entry: PinnedEntry<TItem>;
+}) => ReactNode;
 
 /** Edge fades show only while the track can scroll that way (BR-L09). */
 function useFades(track: HTMLElement | null, count: number): { start: boolean; end: boolean } {

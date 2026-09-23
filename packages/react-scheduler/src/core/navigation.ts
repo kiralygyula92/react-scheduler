@@ -13,8 +13,11 @@ import type { LevelDefinition, SchedulerItem, ShiftSegment, ShiftWindow, ViewKin
  * @since 1.0.0
  */
 export interface NavState {
+  /** Whether the button is rendered at all. */
   visible: boolean;
+  /** Whether it is rendered but cannot be pressed. */
   disabled: boolean;
+  /** The shift it would go to, or `null` when there is none. */
   target: ShiftWindow | null;
   /** Visible label; also the accessible name (B-26). */
   label: string;

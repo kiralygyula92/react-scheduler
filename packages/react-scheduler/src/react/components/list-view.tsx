@@ -22,7 +22,9 @@ export function ShiftHeader<TItem extends SchedulerItem>({
   segment,
   id,
 }: {
+  /** The shift the header belongs to, with its items. */
   segment: ShiftSegment<TItem>;
+  /** The id the section is labelled by. */
   id: string;
 }): ReactElement {
   const { model, props } = useSchedulerContext<TItem>();

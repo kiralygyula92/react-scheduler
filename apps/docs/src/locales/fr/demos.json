@@ -38,6 +38,26 @@
     "presetClassic": "Classique",
     "shiftLength": "Durée du poste",
     "navigationThreshold": "La navigation apparaît à partir de",
-    "items": "{count, plural, one {# élément} other {# éléments}}"
+    "items": "{count, plural, one {# élément} other {# éléments}}",
+    "sortByTitle": "Trier par titre plutôt que par heure",
+    "pinnedCount": "{count, plural, =0 {Rien d’épinglé pour l’instant} one {# élément épinglé} other {# éléments épinglés}}",
+    "navigateIdle": "Utilisez les boutons au-dessus et en dessous de la liste.",
+    "navigated": "Saut vers le poste au décalage {offset}.",
+    "clock": "Il est maintenant"
+  },
+  "levels": {
+    "blocking": "Bloquant",
+    "attention": "Demande attention",
+    "planned": "Planifié",
+    "done": "Terminé"
+  },
+  "columns": {
+    "reference": "Référence",
+    "title": "Titre",
+    "level": "Niveau"
+  },
+  "detail": {
+    "reference": "Référence {reference}",
+    "close": "Fermer"
   }
 }

@@ -37,10 +37,15 @@ function pageUrl(url: string): string {
 export async function loader({ request }: { request: Request }): Promise<PageData> {
   const { locale, rest } = parsePath(pageUrl(request.url), site.pluginId);
   const item = itemByPath(rest);
-  // `demos` carries the sample data every demo shows, `api` the generated reference strings; both
-  // are read by components a page may hold, not by the page's own namespace.
+  // `demos` carries the sample data every demo shows; `api` the generated reference strings. Both
+  // are read by components a page may hold, not by the page's own namespace, so they are loaded from
+  // what the page is rather than from what it asks for. `api` is large, and only the pages that show
+  // a generated table need it.
   const namespaces = ['common', 'nav', 'demos', ...(item === undefined ? [] : [`pages/${item.page}`])];
-  if (hasBundle(locale, 'api')) namespaces.push('api');
+  const showsApi =
+    item !== undefined &&
+    (item.page.startsWith('reference/') || item.page.startsWith('customization/') || item.symbols !== undefined);
+  if (showsApi && hasBundle(locale, 'api')) namespaces.push('api');
   // An index page lists its children with each child's own description; `summaries` holds those and
   // is loaded only where one is shown (docs pack 03 §3.5).
   if (item?.page === 'features/all-features' || item?.page.endsWith('/index') === true) namespaces.push('summaries');

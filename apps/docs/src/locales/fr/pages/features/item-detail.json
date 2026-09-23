@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
-    "title": "Détail de l'élément",
-    "description": "Détail de l'élément dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "title": "Détail de l’élément",
+    "description": "Ce qui s’ouvre quand le lecteur active un élément, ce que montre la boîte de dialogue par défaut, et comment la remplacer."
   },
   "sections": {
     "basics": "Bases",
+    "your-own": "Un détail à vous",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "custom": "Le détail, remplacé"
+  },
+  "basics": {
+    "intro": "Activer un élément — une carte, une pastille épinglée, une ligne du tableau des éléments supplémentaires — ouvre son détail. Par défaut, c’est une boîte de dialogue modale avec le niveau et le titre, la description, les pastilles, l’heure et un bouton de fermeture. Quel élément est ouvert, c’est <code>openItemId</code>, contrôlé ou non comme le reste de l’état.",
+    "points": [
+      "L’activation exécute d’abord <code>handlers.onItemActivate</code>, qui peut l’annuler, puis fixe l’id, puis appelle <code>onItemOpen</code>.",
+      "Un élément marqué <code>disabled</code> ne s’ouvre pas.",
+      "Si l’élément ouvert disparaît de <code>items</code>, le détail se ferme avec la raison <code>itemRemoved</code> et ne se rouvre pas de lui-même.",
+      "La fermeture rend le focus à ce qui l’a ouvert ; quand cet élément a disparu, le focus va au défileur."
+    ]
+  },
+  "own": {
+    "intro": "<code>renderItemDetail</code> remplace entièrement la boîte de dialogue — par un tiroir, un panneau à côté du planning ou une route à vous. Il reçoit l’élément, la façon dont il a été ouvert et une fonction qui le ferme.",
+    "state": "Comme <code>openItemId</code> est un état ordinaire, un détail à vous peut aussi être ouvert de l’extérieur : vous fixez l’id et le composant le traite comme une activation — c’est ainsi qu’un lien direct vers un élément fonctionne."
+  },
+  "accessibility": {
+    "points": [
+      "Le détail par défaut est une boîte de dialogue modale native : le navigateur contient le focus, <kbd>Escape</kbd> la ferme, et l’arrière-plan est une cible de clic.",
+      "Il est étiqueté par son titre, et son contenu est lu dans l’ordre où il est dessiné.",
+      "Le focus revient à l’activateur à la fermeture, ce qui rend supportable l’ouverture et la fermeture répétées au clavier.",
+      "Un détail à vous est à vous de rendre accessible : le composant vous dit seulement quel élément montrer et quand fermer."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>renderItemDetail</code> pour le tout, ou la partie <code>detailDialog</code> via des <link to=\"/customization/slots/\">slots</link> pour la boîte de dialogue elle-même.",
+      "<code>localization.detail.close</code> est le libellé de fermeture de la boîte de dialogue par défaut.",
+      "<code>openItemId</code>, <code>defaultOpenItemId</code> et <code>onOpenItemIdChange</code> tiennent l’état ; <code>onItemOpen</code> et <code>onItemClose</code> le signalent.",
+      "La boîte de dialogue par défaut est dans un fragment paresseux, chargé à la première ouverture d’un élément."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Un seul élément est ouvert à la fois.",
+      "La boîte de dialogue par défaut montre les champs du modèle de l’élément ; tout le reste appartient à un détail à vous.",
+      "Il n’y a pas d’édition dans le détail — il montre, il ne change pas."
+    ]
   }
 }

@@ -1,17 +1,69 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Navigation",
-    "description": "Navigation dans React Scheduler : comportement par défaut, options de configuration, accessibilité et limites."
+    "description": "Les deux boutons qui déplacent entre postes : ce que chacun vise, comment il s’appelle, et ce que signifie son compteur."
   },
   "sections": {
     "basics": "Bases",
+    "targets": "Ce que vise chaque bouton",
     "accessibility": "Accessibilité",
     "customization": "Personnalisation",
     "limitations": "Limites",
     "api": "API"
+  },
+  "demos": {
+    "navigation": "Se déplacer entre postes"
+  },
+  "basics": {
+    "intro": "Deux boutons se placent au-dessus et au-dessous du planning, et ils déplacent toujours d’un poste. Lequel dépend de là où le lecteur se trouve déjà : le bouton du haut revient au début du poste courant tant que vous y êtes, et seulement ensuite au poste précédent.",
+    "where": "C’est cette règle qui rend les boutons prévisibles à la lecture : la première pression ne saute jamais le poste au milieu duquel vous êtes."
+  },
+  "targets": {
+    "intro": "Détaillé, avec <strong>A</strong> pour le poste lu :",
+    "head": {
+      "when": "Où se trouve le lecteur",
+      "top": "Le bouton du haut va vers",
+      "bottom": "Le bouton du bas va vers"
+    },
+    "rows": [
+      ["Dans un poste plus tardif (A après le courant)", "Le poste courant", "Le poste suivant"],
+      ["Dans le poste courant, mais pas à son début", "Le début du poste courant", "Le poste suivant"],
+      ["Au début du poste courant", "Le poste précédent", "Le poste suivant"],
+      ["Dans un poste antérieur, mais pas à son début", "Le début de ce poste", "Le poste qui la suit"],
+      [
+        "Au début du poste rendu le plus ancien",
+        "Nulle part : masqué dans la liste, désactivé dans la chronologie",
+        "Le poste qui la suit"
+      ]
+    ],
+    "count": "Quand le bouton du haut vise un poste antérieur, il porte aussi un compteur : combien d’éléments des postes déjà passés peuvent encore s’épingler. C’est ce nombre qui dit au lecteur si revenir en vaut la peine."
+  },
+  "accessibility": {
+    "points": [
+      "Le libellé visible est le nom accessible — aucun nom caché ne dit autre chose que ce qu’affiche le bouton.",
+      "L’indice (« Aucun poste précédent ») est une infobulle et la description du bouton, pas son nom.",
+      "Dans la liste, les boutons disparaissent quand il n’y a nulle part où aller ; dans la chronologie ils restent, désactivés, pour que la grille ne bouge pas sous le lecteur.",
+      "Un saut est fluide, sauf si le lecteur demande un mouvement réduit, et atterrit avec le titre du poste visible.",
+      "Dans la liste, les boutons n’apparaissent que lorsqu’un poste compte au moins <code>navigationThreshold</code> éléments, pour qu’une journée courte ne soit pas encombrée de commandes inutiles."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>localization.nav</code> contient chaque libellé et chaque indice, y compris le compteur d’éléments reportés.",
+      "<code>renderNavLabel</code> remplace ce que dit un bouton ; les parties <code>navButton</code> et <code>carriedOverCount</code> en remplacent l’apparence.",
+      "<code>handlers.onNavigate</code> peut annuler un saut — par exemple pour une modification non enregistrée — et <code>onNavigate</code> signale ceux qui ont lieu.",
+      "<code>list.navigationThreshold</code> décide quand la liste affiche les boutons."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "La navigation ne se déplace qu’entre les postes rendus. Au-delà, avancer est un changement de date effectué par votre application.",
+      "Pas de saut vers un poste arbitraire : les boutons avancent d’un pas.",
+      "Les boutons font partie du composant et ne peuvent pas être déplacés ailleurs sur la page ; un contrôle à vous peut demander les mêmes mouvements via la poignée impérative."
+    ]
   }
 }

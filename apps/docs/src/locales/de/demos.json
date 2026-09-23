@@ -38,6 +38,26 @@
     "presetClassic": "Klassisch",
     "shiftLength": "Schichtlänge",
     "navigationThreshold": "Navigation erscheint ab",
-    "items": "{count, plural, one {# Eintrag} other {# Einträge}}"
+    "items": "{count, plural, one {# Eintrag} other {# Einträge}}",
+    "sortByTitle": "Nach Titel statt nach Uhrzeit sortieren",
+    "pinnedCount": "{count, plural, =0 {Noch nichts angeheftet} one {# Eintrag angeheftet} other {# Einträge angeheftet}}",
+    "navigateIdle": "Nutzen Sie die Schaltflächen über und unter der Liste.",
+    "navigated": "Sprung zur Schicht mit Abstand {offset}.",
+    "clock": "Es ist jetzt"
+  },
+  "levels": {
+    "blocking": "Blockierend",
+    "attention": "Braucht Aufmerksamkeit",
+    "planned": "Geplant",
+    "done": "Erledigt"
+  },
+  "columns": {
+    "reference": "Referenz",
+    "title": "Titel",
+    "level": "Stufe"
+  },
+  "detail": {
+    "reference": "Referenz {reference}",
+    "close": "Schließen"
   }
 }

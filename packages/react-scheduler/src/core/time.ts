@@ -10,6 +10,8 @@ export const HOUR = 3_600_000;
 /**
  * Epoch milliseconds of a date input; `NaN` when invalid. A string without an offset is local
  * wall-clock time, including date-only strings (which `Date` alone would read as UTC).
+ *
+ * @param input A `Date`, epoch milliseconds, or a string `Date` can parse.
  */
 export function toMs(input: DateInput): number {
   if (input instanceof Date) return input.getTime();
@@ -22,6 +24,10 @@ export function toMs(input: DateInput): number {
 /**
  * The resolved end of an item: `start + defaultDuration` when `end` is missing or invalid; an end
  * before the start counts as zero duration.
+ *
+ * @param start The start of the item.
+ * @param end Its end, when it has one.
+ * @param defaultDuration How long it lasts when it has no end, in milliseconds.
  */
 export function resolveEnd(start: number, end: DateInput | undefined, defaultDuration: number): number {
   if (end === undefined) return start + defaultDuration;
