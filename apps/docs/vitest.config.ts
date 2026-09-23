@@ -9,6 +9,7 @@ const config: UserWorkspaceConfig = defineProject({
     root: import.meta.dirname,
     include: ['test/**/*.test.{ts,tsx}'],
     environment: 'jsdom',
+    setupFiles: ['./test/setup.ts'],
     env: { TZ: 'UTC' },
   },
   resolve: {

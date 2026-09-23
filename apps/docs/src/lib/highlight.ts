@@ -22,7 +22,8 @@ export interface Token {
   readonly kind?: TokenKind;
 }
 
-export type Language = 'tsx' | 'ts' | 'bash' | 'json' | 'css';
+/** The languages the documentation shows (docs pack 04 §2). */
+export type Language = 'tsx' | 'ts' | 'jsx' | 'js' | 'json' | 'bash' | 'css' | 'html' | 'md' | 'text';
 
 interface Rule {
   readonly pattern: RegExp;
@@ -83,12 +84,38 @@ const CSS_RULES: readonly Rule[] = [
   { pattern: /[{}();,:]/, kind: 'punct' },
 ];
 
+const HTML_RULES: readonly Rule[] = [
+  { pattern: /<!--[\s\S]*?-->/, kind: 'comment' },
+  { pattern: /<!DOCTYPE[^>]*>/i, kind: 'keyword' },
+  { pattern: /<\/?[a-z][\w-]*/i, kind: 'tag' },
+  { pattern: /'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"/, kind: 'string' },
+  { pattern: /\b([a-z-]+)(?==)/i, kind: 'attr', group: 1 },
+  { pattern: /\/?>/, kind: 'punct' },
+];
+
+const MARKDOWN_RULES: readonly Rule[] = [
+  { pattern: /^#{1,6} [^\n]*/m, kind: 'keyword' },
+  { pattern: /```[\s\S]*?```/, kind: 'string' },
+  { pattern: /`[^`\n]+`/, kind: 'string' },
+  { pattern: /\[([^\]]*)\]/, kind: 'tag', group: 1 },
+  { pattern: /\(([^)\s]+)\)/, kind: 'property', group: 1 },
+  { pattern: /\*\*[^*\n]+\*\*/, kind: 'type' },
+  { pattern: /^\s*(?:[-*+]|\d+\.) /m, kind: 'punct' },
+];
+
 const RULES: Readonly<Record<Language, readonly Rule[]>> = {
   tsx: TS_RULES,
   ts: TS_RULES,
+  // JSX and JS are the same grammar as far as colouring goes; the type keywords simply never occur.
+  jsx: TS_RULES,
+  js: TS_RULES,
   bash: BASH_RULES,
   json: JSON_RULES,
   css: CSS_RULES,
+  html: HTML_RULES,
+  md: MARKDOWN_RULES,
+  // Plain text is shown as it is.
+  text: [],
 };
 
 /** The earliest match among the rules, preferring the rule listed first on a tie. */
