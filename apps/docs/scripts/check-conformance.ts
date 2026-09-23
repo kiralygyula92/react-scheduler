@@ -196,14 +196,19 @@ function c4(): void {
 
 // C8 — the shell matches the reference checksum.
 function c8(): void {
-  const reference = resolve(app, '..', '..', 'spec/docs-pack/11-docs-shell-reference/SHELL_CHECKSUM');
+  // The docs pack's own copy takes precedence once it has one; until then the value approved here
+  // is the reference, and it lives in the app because `spec/` is read-only in this repository
+  // (EXCEPTIONS.md #10).
+  const packReference = resolve(app, '..', '..', 'spec/docs-pack/11-docs-shell-reference/SHELL_CHECKSUM');
+  const ownReference = resolve(app, 'SHELL_CHECKSUM');
+  const reference = existsSync(packReference) ? packReference : ownReference;
   const hash = shellChecksum();
   if (!existsSync(reference)) {
     results.push({
       id: 'C8',
       title: 'shell matches the reference checksum',
       status: 'pending',
-      notes: [`the docs pack has no SHELL_CHECKSUM yet; this shell hashes to ${hash}`],
+      notes: [`no SHELL_CHECKSUM to compare against; this shell hashes to ${hash}`],
     });
     return;
   }
@@ -211,7 +216,7 @@ function c8(): void {
   record(
     'C8',
     'shell matches the reference checksum',
-    expected === hash ? [] : [`expected ${expected}, found ${hash}`],
+    expected === hash ? [] : [`expected ${expected}, found ${hash} (${relative(app, reference).replace(/\\/g, '/')})`],
     'warn',
   );
 }
