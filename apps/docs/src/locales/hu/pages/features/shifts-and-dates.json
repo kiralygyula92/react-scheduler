@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Műszakok és dátumok",
-    "description": "Műszakok és dátumok a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "Hogyan oszlik egy nap műszakokra — szabályos hosszra vagy nevesített mintára —, és hány műszak jelenik meg az éppen olvasott körül."
   },
   "sections": {
     "basics": "Alapok",
+    "patterns": "Szabálytalan minták",
+    "how-many": "Hány műszak jelenik meg",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "regular": "Egy hossz, egy rögzítési pont",
+    "pattern": "Korai, késői, éjszakai",
+    "moreShifts": "Kettő vissza, három előre"
+  },
+  "basics": {
+    "intro": "Az ütemtervet műszakonként olvassuk, ezért a komponens először azt dönti el, melyik műszakba esik az egyes elemek. A szabályos műszakhoz két szám kell: mennyi ideig tart egy műszak, és hány órakor kezdődik az egyik. A nap többi része ebből következik — a 06:00-hoz rögzített hatórás műszakok 06:00-kor, 12:00-kor, 18:00-kor és 00:00-kor kezdődnek.",
+    "day": "A <code>date</code> választja ki az olvasott pillanatot, és az azt tartalmazó műszak az aktuális. A nap itt nem naptári nap: a 22:00-tól 06:00-ig tartó éjszakai műszak egyetlen műszak, nem két fél, és a rács és a lista is így kezeli."
+  },
+  "patterns": {
+    "intro": "Ha a műszakok nem egyforma hosszúak, adj meg helyette <code>pattern</code> mintát: a kezdési időpontokat sorban, mindegyiket saját kulccsal. Egy bejegyzés ott ér véget, ahol a következő kezdődik, az utolsó pedig éjfélen át az elsőbe fordul. A <code>durationHours</code>, az <code>anchor</code> és a <code>keys</code> figyelmen kívül marad, ha minta van."
+  },
+  "howMany": {
+    "intro": "A <code>before</code> és az <code>after</code> mondja meg, mennyi jelenik meg a körülötte lévő napból. Ez az a tartomány, amelyen belül az olvasó görgethet és léptethet anélkül, hogy az alkalmazásod bármit betöltene: ezen kívül a továbblépés dátumváltás, amelyet te kezelsz.",
+    "options": "A teljes lista, a csomag deklarációiból előállítva:"
+  },
+  "accessibility": {
+    "points": [
+      "Minden műszak valódi címsorral rendelkező szakasz, így a képernyőolvasó címsorról címsorra ugorhat a műszakok között.",
+      "A műszak címe megmondja, mi a műszak a mosthoz képest — előző, aktuális, következő, vagy hány műszaknyira —, majd az intervallumát az olvasó nyelvén formázva.",
+      "A címben lévő intervallum szöveg, nem kép vagy <code>title</code> attribútum, ezért felolvasható és kereshető.",
+      "Az aktuálison kívüli műszakok nincsenek elrejtve a segítő technológiák elől: ugyanazok a szakaszok, ugyanabban a sorrendben, mint a látható rácsban."
+    ]
+  },
+  "customization": {
+    "points": [
+      "A <code>formatters.shiftRange</code> formázza a címben lévő intervallumot, a <code>formatters.hourLabel</code> pedig az idővonal óracímkéit.",
+      "A <code>localization.shiftHeader</code> tartalmazza az előző, aktuális, következő, korábbi és későbbi szavakat.",
+      "A <code>shiftHeader</code>, a <code>shiftHeaderTitle</code> és a <code>shiftHeaderRange</code> részek <link to=\"/customization/slots/\">slotokkal</link> cserélhetők.",
+      "A <code>renderShiftHeader</code> a teljes címsort a sajátodra cseréli, a köré épülő szakaszt megtartva."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A <code>durationHours</code> értékének osztania kell a 24-et, ezért az öt- vagy hétórás műszak minta, nem szabályos hossz.",
+      "Egy minta vonatkozik minden napra. A hétköznap és hétvége között eltérő minta még nem fejezhető ki; a megoldás a <code>shifts</code> cseréje a dátummal együtt.",
+      "A műszakok időbélyeg szerint, az olvasó időzónájában kerülnek a helyükre. A két időzónában olvasott ütemterv ugyanazokat az elemeket kétféleképpen vágja fel.",
+      "Nincs mód elrejteni az elemek nélküli műszakot; az üres műszak az üres állapotát jeleníti meg."
+    ]
   }
 }

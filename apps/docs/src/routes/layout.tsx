@@ -41,6 +41,9 @@ export async function loader({ request }: { request: Request }): Promise<PageDat
   // are read by components a page may hold, not by the page's own namespace.
   const namespaces = ['common', 'nav', 'demos', ...(item === undefined ? [] : [`pages/${item.page}`])];
   if (hasBundle(locale, 'api')) namespaces.push('api');
+  // An index page lists its children with each child's own description; `summaries` holds those and
+  // is loaded only where one is shown (docs pack 03 §3.5).
+  if (item?.page === 'features/all-features' || item?.page.endsWith('/index') === true) namespaces.push('summaries');
   return {
     locale,
     rest,

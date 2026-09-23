@@ -31,6 +31,13 @@
     "mergeWindow": "Ventana de fusión",
     "minutes": "{count} minutos",
     "hours": "{count, plural, one {# hora} other {# horas}}",
-    "unlimited": "Sin límite"
+    "unlimited": "Sin límite",
+    "view": "Vista",
+    "preset": "Ajuste preestablecido",
+    "presetDefault": "Predeterminado",
+    "presetClassic": "Clásico",
+    "shiftLength": "Duración del turno",
+    "navigationThreshold": "La navegación aparece a partir de",
+    "items": "{count, plural, one {# elemento} other {# elementos}}"
   }
 }

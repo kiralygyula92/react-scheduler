@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Schichten und Daten",
-    "description": "Schichten und Daten in React Scheduler: Standardverhalten, Konfigurationsmöglichkeiten, Barrierefreiheit und Grenzen."
+    "description": "Wie ein Tag in Schichten zerfällt — eine feste Länge oder ein benanntes Muster — und wie viele davon rund um die gelesene gerendert werden."
   },
   "sections": {
     "basics": "Grundlagen",
+    "patterns": "Unregelmäßige Muster",
+    "how-many": "Wie viele Schichten gerendert werden",
     "accessibility": "Barrierefreiheit",
     "customization": "Anpassung",
     "limitations": "Einschränkungen",
     "api": "API"
+  },
+  "demos": {
+    "regular": "Eine Länge, ein Anker",
+    "pattern": "Früh, spät, Nacht",
+    "moreShifts": "Zwei zurück, drei vorwärts"
+  },
+  "basics": {
+    "intro": "Ein Plan wird Schicht für Schicht gelesen, deshalb entscheidet die Komponente zuerst, in welche Schicht jeder Eintrag fällt. Regelmäßige Schichten brauchen zwei Zahlen: wie lang eine Schicht ist und zu welcher Uhrzeit eine von ihnen beginnt. Der Rest des Tages folgt daraus — sechsstündige Schichten mit Anker 06:00 beginnen um 06:00, 12:00, 18:00 und 00:00.",
+    "day": "<code>date</code> wählt den gelesenen Moment, und die Schicht, die ihn enthält, ist die aktuelle. Ein Tag ist hier kein Kalendertag: eine Nachtschicht von 22:00 bis 06:00 ist eine Schicht, nicht zwei Hälften, und Fläche wie Liste behandeln sie als eine."
+  },
+  "patterns": {
+    "intro": "Wenn Schichten nicht alle gleich lang sind, geben Sie stattdessen ein <code>pattern</code>: die Startzeiten, der Reihe nach, jede mit eigenem Schlüssel. Ein Eintrag endet dort, wo der nächste beginnt, und der letzte läuft über Mitternacht in den ersten. <code>durationHours</code>, <code>anchor</code> und <code>keys</code> werden ignoriert, sobald ein Muster da ist."
+  },
+  "howMany": {
+    "intro": "<code>before</code> und <code>after</code> sagen, wie viel vom umgebenden Tag gerendert wird. Sie sind der Bereich, in dem der Leser scrollen und navigieren kann, ohne dass Ihre Anwendung etwas nachlädt: darüber hinaus ist Weitergehen ein Datumswechsel, den Sie behandeln.",
+    "options": "Die vollständige Liste, erzeugt aus den Deklarationen des Pakets:"
+  },
+  "accessibility": {
+    "points": [
+      "Jede Schicht ist ein Abschnitt mit echter Überschrift, sodass ein Screenreader per Überschrift von Schicht zu Schicht springen kann.",
+      "Die Überschrift einer Schicht sagt, was sie relativ zu jetzt ist — vorherige, aktuelle, nächste oder wie viele Schichten entfernt — und dann ihren Bereich, in der Sprache des Lesers formatiert.",
+      "Der Bereich in der Überschrift ist Text, kein Bild und kein <code>title</code>-Attribut, also wird er vorgelesen und ist durchsuchbar.",
+      "Schichten außer der aktuellen werden assistiver Technik nicht vorenthalten: es sind dieselben Abschnitte, in derselben Reihenfolge wie im sichtbaren Raster."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>formatters.shiftRange</code> formatiert den Bereich in einer Überschrift, <code>formatters.hourLabel</code> die Stundenbeschriftungen des Zeitstrahls.",
+      "<code>localization.shiftHeader</code> enthält die Wörter für vorherige, aktuelle, nächste, früher und später.",
+      "Die Teile <code>shiftHeader</code>, <code>shiftHeaderTitle</code> und <code>shiftHeaderRange</code> lassen sich über <link to=\"/customization/slots/\">Slots</link> ersetzen.",
+      "<code>renderShiftHeader</code> ersetzt die ganze Überschrift durch Ihre, der Abschnitt darum bleibt."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "<code>durationHours</code> muss 24 teilen, deshalb sind Schichten von fünf oder sieben Stunden ein Muster und keine feste Länge.",
+      "Ein Muster gilt für jeden Tag. Ein Muster, das sich zwischen Werktag und Wochenende unterscheidet, lässt sich noch nicht ausdrücken; der Umweg ist, <code>shifts</code> mit dem Datum zu wechseln.",
+      "Schichten werden nach Zeitstempel in der Zeitzone des Lesers platziert. Ein Plan, der in zwei Zeitzonen gelesen wird, zeigt zwei verschiedene Schnitte derselben Einträge.",
+      "Es gibt keine Möglichkeit, eine Schicht ohne Einträge auszublenden; eine leere Schicht rendert ihren Leerzustand."
+    ]
   }
 }

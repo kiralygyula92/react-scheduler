@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Ture și date",
-    "description": "Ture și date în React Scheduler: cum se comportă implicit, ce poți configura, accesibilitatea și limitele sale."
+    "description": "Cum este tăiată o zi în ture — o durată regulată sau un tipar denumit — și câte dintre ele sunt randate în jurul celei citite."
   },
   "sections": {
     "basics": "Noțiuni de bază",
+    "patterns": "Tipare neregulate",
+    "how-many": "Câte ture sunt randate",
     "accessibility": "Accesibilitate",
     "customization": "Personalizare",
     "limitations": "Limitări",
     "api": "API"
+  },
+  "demos": {
+    "regular": "O durată, o ancoră",
+    "pattern": "Devreme, târziu, noapte",
+    "moreShifts": "Două înapoi, trei înainte"
+  },
+  "basics": {
+    "intro": "Un program se citește tură cu tură, așa că primul lucru pe care componenta îl face cu elementele tale este să decidă în ce tură cade fiecare. Turele regulate au nevoie de două numere: cât durează o tură și la ce oră de perete începe una dintre ele. Restul zilei decurge de aici — ture de șase ore ancorate la 06:00 încep la 06:00, 12:00, 18:00 și 00:00.",
+    "day": "<code>date</code> alege momentul citit, iar tura care conține acel moment este cea curentă. O zi nu este aici o zi calendaristică: o tură de noapte care merge de la 22:00 la 06:00 este o singură tură, nu două jumătăți, iar grila și lista o tratează ca pe una."
+  },
+  "patterns": {
+    "intro": "Când turele nu au toate aceeași durată, dă în schimb un <code>pattern</code>: orele de început, în ordine, fiecare cu cheia ei. O intrare se termină acolo unde începe următoarea, iar ultima trece peste miezul nopții în prima. <code>durationHours</code>, <code>anchor</code> și <code>keys</code> sunt ignorate când există un tipar."
+  },
+  "howMany": {
+    "intro": "<code>before</code> și <code>after</code> spun cât din ziua din jur este randat. Ele sunt intervalul prin care cititorul poate derula și naviga fără ca aplicația ta să aducă ceva: în afara lui, mersul mai departe este o schimbare de dată, pe care o tratezi tu.",
+    "options": "Lista completă, generată din declarațiile pachetului:"
+  },
+  "accessibility": {
+    "points": [
+      "Fiecare tură este o secțiune cu titlu adevărat, așa că un cititor de ecran poate sări din tură în tură după titluri.",
+      "Titlul unei ture spune ce este tura față de acum — anterioară, curentă, următoare, sau la câte ture distanță — și apoi intervalul ei, formatat în limba cititorului.",
+      "Intervalul din titlu este text, nu o imagine sau un atribut <code>title</code>, așa că este citit și poate fi căutat.",
+      "Turele din afara celei curente nu sunt ascunse de tehnologiile asistive: sunt aceleași secțiuni, în aceeași ordine ca grila vizuală."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>formatters.shiftRange</code> formatează intervalul dintr-un titlu, iar <code>formatters.hourLabel</code> etichetele de oră ale cronologiei.",
+      "<code>localization.shiftHeader</code> conține cuvintele pentru anterioară, curentă, următoare, mai devreme și mai târziu.",
+      "Părțile <code>shiftHeader</code>, <code>shiftHeaderTitle</code> și <code>shiftHeaderRange</code> pot fi înlocuite prin <link to=\"/customization/slots/\">sloturi</link>.",
+      "<code>renderShiftHeader</code> înlocuiește tot titlul cu al tău, păstrând secțiunea din jur."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "<code>durationHours</code> trebuie să dividă 24, așa că turele de cinci sau șapte ore sunt un tipar, nu o durată regulată.",
+      "Un singur tipar acoperă fiecare zi. Un tipar care diferă între zilele lucrătoare și weekend nu se poate exprima încă; soluția este să schimbi <code>shifts</code> odată cu data.",
+      "Turele sunt așezate după marcaj de timp, în fusul orar al cititorului. Un program citit în două fusuri arată două tăieri diferite ale acelorași elemente.",
+      "Nu există o cale de a ascunde o tură fără elemente; o tură goală își randează starea goală."
+    ]
   }
 }

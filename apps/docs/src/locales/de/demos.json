@@ -31,6 +31,13 @@
     "mergeWindow": "Zusammenfassungsfenster",
     "minutes": "{count} Minuten",
     "hours": "{count, plural, one {# Stunde} other {# Stunden}}",
-    "unlimited": "Ohne Grenze"
+    "unlimited": "Ohne Grenze",
+    "view": "Ansicht",
+    "preset": "Voreinstellung",
+    "presetDefault": "Standard",
+    "presetClassic": "Klassisch",
+    "shiftLength": "Schichtlänge",
+    "navigationThreshold": "Navigation erscheint ab",
+    "items": "{count, plural, one {# Eintrag} other {# Einträge}}"
   }
 }

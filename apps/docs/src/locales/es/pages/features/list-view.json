@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Vista de lista",
-    "description": "Vista de lista en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "La vista de lista: una sección por turno, tarjetas en orden temporal y las opciones que deciden dónde aterriza un salto y cuándo aparece la navegación."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "reading": "Leer una lista larga",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Un turno, leído de arriba abajo",
+    "options": "Cuándo aparece la navegación"
+  },
+  "basics": {
+    "intro": "La lista es la vista para leer: una sección por cada turno renderizado, las tarjetas de ese turno en orden temporal, y el encabezado de la sección pegado arriba mientras estás dentro. Es la vista por defecto y la única por debajo de <code>listOnlyBreakpoint</code>.",
+    "points": [
+      "Una tarjeta lleva el título, el nivel, la hora y cualquier campo opcional que tenga el elemento: una descripción, una referencia, una etiqueta, una sugerencia.",
+      "El turno que se lee es aquel en el que está el desplazamiento, y de él parten los botones de navegación y la franja de elementos fijados.",
+      "Cuando el turno actual es el que contiene el ahora, un marcador se sitúa entre las tarjetas, antes del primer elemento que aún no ha empezado."
+    ]
+  },
+  "reading": {
+    "intro": "La mayor parte de lo que contiene <code>list</code> trata de leer un día largo: cuándo vale la pena mostrar los botones de navegación, dónde aterriza un salto para que el encabezado no quede bajo la barra pegada arriba, y cuánto hay que desplazarse antes de que aparezca el botón para volver arriba.",
+    "options": "La lista completa, generada a partir de las declaraciones del paquete:"
+  },
+  "accessibility": {
+    "points": [
+      "Cada turno es una sección con encabezado, y las tarjetas de un turno forman una lista, así que un lector de pantalla anuncia cuántos elementos tiene.",
+      "Cada tarjeta es un botón: <kbd>Tab</kbd> llega a ella en orden temporal y <kbd>Enter</kbd> o <kbd>Space</kbd> abre su detalle.",
+      "El marcador de «ahora» es un separador con etiqueta, así que la frontera entre lo que ha pasado y lo que no se anuncia, no solo se dibuja.",
+      "Un salto aterriza con el encabezado del turno a la vista, no bajo la barra pegada arriba, y lleva allí el foco: <code>alignOffset</code> y <code>previousJumpExtraOffset</code> son los que mantienen eso a cualquier densidad."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Las partes <code>itemList</code>, <code>listCard</code>, <code>shiftSection</code> y <code>shiftHeader</code> se pueden sustituir con <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderItem</code> sustituye una tarjeta por completo, con <code>getItemProps</code> para que la tuya conserve el comportamiento; <code>renderCardContent</code> mantiene la tarjeta y cambia su interior.",
+      "<code>--rs-card-gap</code>, <code>--rs-list-gap</code> y la escala de densidad fijan el espaciado — véase <link to=\"/customization/css-variables/\">Variables CSS</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "La lista no virtualiza: un turno con mil elementos renderiza mil tarjetas.",
+      "Las tarjetas no se pueden agrupar dentro de un turno por nada que no sea el tiempo; agrupar por nivel o por etiqueta es tarea de <link to=\"/headless-api/\">la API headless</link>.",
+      "No hay edición en línea ni modelo de selección: una tarjeta abre su detalle, y esa es toda la interacción."
+    ]
   }
 }

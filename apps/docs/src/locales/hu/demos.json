@@ -31,6 +31,13 @@
     "mergeWindow": "Összevonási ablak",
     "minutes": "{count} perc",
     "hours": "{count, plural, one {# óra} other {# óra}}",
-    "unlimited": "Nincs korlát"
+    "unlimited": "Nincs korlát",
+    "view": "Nézet",
+    "preset": "Előbeállítás",
+    "presetDefault": "Alapértelmezett",
+    "presetClassic": "Klasszikus",
+    "shiftLength": "Műszak hossza",
+    "navigationThreshold": "A léptetés ennyitől jelenik meg",
+    "items": "{count, plural, one {# elem} other {# elem}}"
   }
 }

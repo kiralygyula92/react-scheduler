@@ -31,6 +31,13 @@
     "mergeWindow": "Fereastră de comasare",
     "minutes": "{count} minute",
     "hours": "{count, plural, one {# oră} few {# ore} other {# de ore}}",
-    "unlimited": "Fără limită"
+    "unlimited": "Fără limită",
+    "view": "Vizualizare",
+    "preset": "Preset",
+    "presetDefault": "Implicit",
+    "presetClassic": "Clasic",
+    "shiftLength": "Durata turei",
+    "navigationThreshold": "Navigarea apare de la",
+    "items": "{count, plural, one {# element} few {# elemente} other {# de elemente}}"
   }
 }

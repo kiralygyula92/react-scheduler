@@ -1,17 +1,56 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Listanézet",
-    "description": "Listanézet a React Schedulerben: alapértelmezett viselkedés, beállítási lehetőségek, akadálymentesség és korlátok."
+    "description": "A lista nézet: műszakonként egy szakasz, kártyák időrendben, és azok a beállítások, amelyek eldöntik, hol áll meg egy ugrás, és mikor jelenik meg a léptetés."
   },
   "sections": {
     "basics": "Alapok",
+    "reading": "Hosszú lista olvasása",
     "accessibility": "Akadálymentesség",
     "customization": "Testreszabás",
     "limitations": "Korlátok",
     "api": "API"
+  },
+  "demos": {
+    "basics": "Egy műszak, fentről lefelé olvasva",
+    "options": "Mikor jelenik meg a léptetés"
+  },
+  "basics": {
+    "intro": "A lista az olvasás nézete: minden megjelenített műszakhoz egy szakasz, a műszak kártyái időrendben, a szakasz címe pedig a tetejéhez tapad, amíg benne jársz. Ez az alapértelmezett nézet, és a <code>listOnlyBreakpoint</code> alatt az egyetlen.",
+    "points": [
+      "A kártya a címet, a szintet, az időt és az elem bármely megadott mezőjét viszi — leírást, hivatkozási számot, címkét, javaslatot.",
+      "Az olvasott műszak az, amelyben a görgető áll, és ebből dolgozik a léptetés és a rögzített elemek sávja.",
+      "Ha az aktuális műszak tartalmazza a mostot, a kártyák között jelölő áll, az első még el nem kezdődött elem előtt."
+    ]
+  },
+  "reading": {
+    "intro": "A <code>list</code> tartalmának nagy része a hosszú nap olvasásáról szól: mikor érdemes megmutatni a léptetőgombokat, hol álljon meg egy ugrás, hogy a cím ne kerüljön a felül ragadt sáv alá, és meddig kell görgetni, mire megjelenik a tetejére vivő gomb.",
+    "options": "A teljes lista, a csomag deklarációiból előállítva:"
+  },
+  "accessibility": {
+    "points": [
+      "Minden műszak címsoros szakasz, a műszak kártyái pedig listát alkotnak, így a képernyőolvasó bemondja, hány elemet tartalmaz.",
+      "Minden kártya gomb: a <kbd>Tab</kbd> időrendben ér hozzá, az <kbd>Enter</kbd> vagy a <kbd>Space</kbd> pedig megnyitja a részleteit.",
+      "A „most” jelölő felcímkézett elválasztó, így az elmúlt és a még hátralévő közötti határ nemcsak látszik, hanem el is hangzik.",
+      "Az ugrás úgy áll meg, hogy a műszak címe látszik, nem a felül ragadt sáv alatt, és a fókuszt is odaviszi — az <code>alignOffset</code> és a <code>previousJumpExtraOffset</code> tartja ezt igaznak bármilyen sűrűségnél."
+    ]
+  },
+  "customization": {
+    "points": [
+      "Az <code>itemList</code>, a <code>listCard</code>, a <code>shiftSection</code> és a <code>shiftHeader</code> részek <link to=\"/customization/slots/\">slotokkal</link> cserélhetők.",
+      "A <code>renderItem</code> teljesen lecseréli a kártyát, a <code>getItemProps</code> segítségével a tiéd megtartja a viselkedést; a <code>renderCardContent</code> a kártyát meghagyja, és a belsejét cseréli.",
+      "A <code>--rs-card-gap</code>, a <code>--rs-list-gap</code> és a sűrűségskála adja a térközöket — lásd: <link to=\"/customization/css-variables/\">CSS változók</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "A lista nem virtualizál: az ezerelemes műszak ezer kártyát jelenít meg.",
+      "A kártyák a műszakon belül csak idő szerint csoportosíthatók; a szint vagy címke szerinti csoportosítás a <link to=\"/headless-api/\">headless API</link> dolga.",
+      "Nincs helyben szerkesztés és nincs kijelölési modell — a kártya megnyitja a részleteit, és ennyi az interakció."
+    ]
   }
 }

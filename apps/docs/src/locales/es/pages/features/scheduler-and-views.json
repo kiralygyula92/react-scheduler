@@ -1,17 +1,57 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Scheduler y vistas",
-    "description": "Scheduler y vistas en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "El componente Scheduler y sus dos vistas: para qué sirve cada una, cómo cambia quien lee y qué cambian los dos ajustes preestablecidos."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "presets": "Ajustes preestablecidos",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "views": "El mismo día, de las dos formas",
+    "presets": "Predeterminado y clásico"
+  },
+  "basics": {
+    "intro": "<code>Scheduler</code> es el componente entero: lee los elementos, divide el día en turnos y renderiza una de las dos vistas. La lista sirve para leer un turno de arriba abajo; la línea de tiempo, para ver cómo se llenan las horas. Todo lo demás en este sitio es un detalle de una de las dos.",
+    "switch": "El paquete no dibuja un selector de vista: lo dibuja tu página, donde encaje en tu diseño. Pasa <code>defaultView</code> para elegir dónde empieza quien lee, o <code>view</code> con <code>onViewChange</code> para guardar la elección en tu propio estado —en una URL, por ejemplo—, de modo que un enlace abra la vista desde la que se compartió. Las etiquetas para ese control están en el paquete de idioma, en <code>views.list</code> y <code>views.timeline</code>.",
+    "points": [
+      "<code>ListView</code> y <code>TimelineView</code> se exportan por separado, para una página que solo quiere una de ellas.",
+      "<code>keepInactiveViewMounted</code> mantiene montada la otra vista, así que volver es inmediato y su posición de desplazamiento se conserva.",
+      "Por debajo de <code>listOnlyBreakpoint</code> la línea de tiempo desaparece del todo: un teléfono recibe la lista, diga lo que diga la vista."
+    ]
+  },
+  "presets": {
+    "intro": "Un ajuste preestablecido es la forma del componente, no sus colores: la disposición de la tarjeta, la fuerza del carril de nivel, cuánto aire recibe una fila. <code>'default'</code> es el que usa este sitio; <code>'classic'</code> es más denso y más plano. Los dos funcionan en ambos esquemas de color y en las tres densidades."
+  },
+  "accessibility": {
+    "points": [
+      "El componente renderiza solo la vista activa, así que el teclado nunca recorre una oculta. Con <code>keepInactiveViewMounted</code>, la otra sigue en el DOM, oculta, con todos sus escuchadores y temporizadores en pausa.",
+      "El selector de vista es cosa tuya: un par de botones con <code>aria-pressed</code> se lee bien, y las etiquetas están en el paquete de idioma.",
+      "El componente es una única región etiquetada, de modo que un lector de pantalla puede saltar directamente a él.",
+      "Los niveles de encabezado interiores empiezan en <code>headingLevel</code>, que es <code>3</code> por defecto: ajústalo a la página en la que vive."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>preset</code>, <code>colorScheme</code> y <code>density</code> para el aspecto — véase <link to=\"/customization/theming/\">Tematización</link>.",
+      "<code>slots</code> y <code>slotProps</code> para sustituir o ampliar cualquier parte — véase <link to=\"/customization/slots/\">Slots y sustituciones</link>.",
+      "<code>classNames</code> y <code>unstyled</code> para traer tu CSS por completo.",
+      "<code>localization</code> para cada texto que muestra el componente — véase <link to=\"/customization/localization/\">Localización</link>."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "Hay dos vistas y ninguna forma de añadir una tercera. Un renderizado distinto es tarea de <link to=\"/headless-api/\">la API headless</link>, que te da el mismo modelo sin marcado.",
+      "Las vistas no pueden mostrarse una al lado de la otra en un solo componente; renderiza dos si lo necesitas.",
+      "Cambiar de vista conserva la fecha y los elementos fijados. La posición de desplazamiento de la vista que dejas solo se conserva con <code>keepInactiveViewMounted</code>; si no, la vista en la que entras aterriza donde diga <code>landing.onViewEnter</code>."
+    ]
   }
 }

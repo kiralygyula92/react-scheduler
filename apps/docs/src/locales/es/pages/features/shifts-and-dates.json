@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Turnos y fechas",
-    "description": "Turnos y fechas en React Scheduler: cómo se comporta por defecto, qué puedes configurar, su accesibilidad y sus límites."
+    "description": "Cómo se divide un día en turnos —una duración regular o un patrón con nombre— y cuántos se renderizan alrededor del que se está leyendo."
   },
   "sections": {
     "basics": "Conceptos básicos",
+    "patterns": "Patrones irregulares",
+    "how-many": "Cuántos turnos se renderizan",
     "accessibility": "Accesibilidad",
     "customization": "Personalización",
     "limitations": "Limitaciones",
     "api": "API"
+  },
+  "demos": {
+    "regular": "Una duración, un ancla",
+    "pattern": "Temprano, tarde, noche",
+    "moreShifts": "Dos atrás, tres adelante"
+  },
+  "basics": {
+    "intro": "Un horario se lee turno a turno, así que lo primero que el componente hace con tus elementos es decidir en qué turno cae cada uno. Los turnos regulares necesitan dos números: cuánto dura un turno y a qué hora de reloj empieza uno de ellos. El resto del día se deduce: turnos de seis horas anclados a las 06:00 empiezan a las 06:00, 12:00, 18:00 y 00:00.",
+    "day": "<code>date</code> elige el momento que se lee, y el turno que contiene ese momento es el actual. Un día no es aquí un día de calendario: un turno de noche que va de 22:00 a 06:00 es un único turno, no dos mitades, y tanto la rejilla como la lista lo tratan como uno."
+  },
+  "patterns": {
+    "intro": "Cuando los turnos no duran todos lo mismo, da un <code>pattern</code>: las horas de inicio, en orden, cada una con su clave. Una entrada termina donde empieza la siguiente, y la última cruza la medianoche hacia la primera. <code>durationHours</code>, <code>anchor</code> y <code>keys</code> se ignoran cuando hay un patrón."
+  },
+  "howMany": {
+    "intro": "<code>before</code> y <code>after</code> dicen cuánto del día circundante se renderiza. Son el rango por el que quien lee puede desplazarse y navegar sin que tu aplicación traiga nada: fuera de él, seguir adelante es un cambio de fecha, que gestionas tú.",
+    "options": "La lista completa, generada a partir de las declaraciones del paquete:"
+  },
+  "accessibility": {
+    "points": [
+      "Cada turno es una sección con un encabezado real, así que un lector de pantalla puede saltar de turno en turno por encabezados.",
+      "El encabezado de un turno dice qué es ese turno respecto a ahora —anterior, actual, siguiente, o a cuántos turnos— y luego su rango, formateado en el idioma de quien lee.",
+      "El rango del encabezado es texto, no una imagen ni un atributo <code>title</code>, así que se lee y se puede buscar.",
+      "Los turnos distintos del actual no se ocultan a la tecnología asistiva: son las mismas secciones, en el mismo orden que la rejilla visual."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>formatters.shiftRange</code> da formato al rango de un encabezado, y <code>formatters.hourLabel</code> a las etiquetas de hora de la línea de tiempo.",
+      "<code>localization.shiftHeader</code> contiene las palabras para anterior, actual, siguiente, antes y después.",
+      "Las partes <code>shiftHeader</code>, <code>shiftHeaderTitle</code> y <code>shiftHeaderRange</code> se pueden sustituir con <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderShiftHeader</code> sustituye todo el encabezado por el tuyo, conservando la sección que lo rodea."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "<code>durationHours</code> tiene que dividir 24, así que los turnos de cinco o siete horas son un patrón, no una duración regular.",
+      "Un solo patrón cubre todos los días. Un patrón distinto entre días laborables y fin de semana todavía no se puede expresar; cambiar <code>shifts</code> con la fecha es la solución.",
+      "Los turnos se colocan por marca de tiempo, en la zona horaria de quien lee. Un horario leído en dos zonas muestra dos divisiones distintas de los mismos elementos.",
+      "No hay forma de ocultar un turno sin elementos; un turno vacío renderiza su estado vacío."
+    ]
   }
 }

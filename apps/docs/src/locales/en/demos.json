@@ -31,6 +31,13 @@
     "mergeWindow": "Merge window",
     "minutes": "{count} minutes",
     "hours": "{count, plural, one {# hour} other {# hours}}",
-    "unlimited": "No limit"
+    "unlimited": "No limit",
+    "view": "View",
+    "preset": "Preset",
+    "presetDefault": "Default",
+    "presetClassic": "Classic",
+    "shiftLength": "Shift length",
+    "navigationThreshold": "Navigation appears from",
+    "items": "{count, plural, one {# item} other {# items}}"
   }
 }

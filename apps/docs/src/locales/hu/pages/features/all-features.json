@@ -1,10 +1,11 @@
 {
   "_meta": {
     "status": "machine",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Minden funkció",
     "description": "A React Scheduler összes képessége, az oldalsávval megegyező csoportosításban, egysoros összefoglalóval és hivatkozással."
-  }
+  },
+  "scope": "A React Scheduler minden képessége, az oldalsáv csoportjaiban. Minden oldal élő bemutatóval kezdődik, majd elmondja, mit változtathatsz, mit kap a billentyűzet és a képernyőolvasó, és hol ér véget a funkció."
 }

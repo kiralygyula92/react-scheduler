@@ -31,6 +31,13 @@
     "mergeWindow": "Fenêtre de fusion",
     "minutes": "{count} minutes",
     "hours": "{count, plural, one {# heure} other {# heures}}",
-    "unlimited": "Sans limite"
+    "unlimited": "Sans limite",
+    "view": "Vue",
+    "preset": "Préréglage",
+    "presetDefault": "Par défaut",
+    "presetClassic": "Classique",
+    "shiftLength": "Durée du poste",
+    "navigationThreshold": "La navigation apparaît à partir de",
+    "items": "{count, plural, one {# élément} other {# éléments}}"
   }
 }

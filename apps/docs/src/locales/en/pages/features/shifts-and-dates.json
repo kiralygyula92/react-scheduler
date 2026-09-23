@@ -1,17 +1,59 @@
 {
   "_meta": {
     "status": "draft",
-    "source": "M4 stub"
+    "source": "M5"
   },
   "meta": {
     "title": "Shifts and dates",
-    "description": "Shifts and dates in React Scheduler: how it behaves by default, what you can configure, its accessibility, and its limits."
+    "description": "How a day is cut into shifts — a regular length or a named pattern — and how many of them are rendered around the one being read."
   },
   "sections": {
     "basics": "Basics",
+    "patterns": "Irregular patterns",
+    "how-many": "How many shifts are rendered",
     "accessibility": "Accessibility",
     "customization": "Customization",
     "limitations": "Limitations",
     "api": "API"
+  },
+  "demos": {
+    "regular": "One length, one anchor",
+    "pattern": "Early, late, night",
+    "moreShifts": "Two back, three forward"
+  },
+  "basics": {
+    "intro": "A schedule is read one shift at a time, so the first thing the component does with your items is decide which shift each of them falls in. Regular shifts need two numbers: how long a shift is, and the wall-clock time one of them starts at. The rest of the day follows — six-hour shifts anchored at 06:00 start at 06:00, 12:00, 18:00 and 00:00.",
+    "day": "<code>date</code> picks the moment being read, and the shift containing that moment is the current one. A day is not a calendar day here: a night shift that runs from 22:00 to 06:00 is one shift, not two halves, and the grid and the list both treat it as one."
+  },
+  "patterns": {
+    "intro": "When shifts are not all the same length, give a <code>pattern</code> instead: the start times, in order, each with a key of its own. An entry ends where the next one starts, and the last one wraps around midnight into the first. <code>durationHours</code>, <code>anchor</code> and <code>keys</code> are ignored when a pattern is given."
+  },
+  "howMany": {
+    "intro": "<code>before</code> and <code>after</code> say how much of the surrounding day is rendered. They are the range a reader can scroll through and navigate within without your application fetching anything: outside it, moving on is a date change, which you handle.",
+    "options": "The full list, generated from the package's declarations:"
+  },
+  "accessibility": {
+    "points": [
+      "Each shift is a section with a real heading, so a screen reader can jump between shifts by heading.",
+      "A shift heading says what the shift is relative to now — previous, current, next, or how many shifts away — and then its range, formatted in the reader's locale.",
+      "The range in the heading is text, not an image or a title attribute, so it is read and it is searchable.",
+      "Shifts outside the current one are not hidden from assistive technology: they are the same sections, in the same order as the visual grid."
+    ]
+  },
+  "customization": {
+    "points": [
+      "<code>formatters.shiftRange</code> formats the range in a heading, <code>formatters.hourLabel</code> the hour labels of the timeline.",
+      "<code>localization.shiftHeader</code> holds the words for previous, current, next, earlier and later.",
+      "The <code>shiftHeader</code>, <code>shiftHeaderTitle</code> and <code>shiftHeaderRange</code> parts can be replaced through <link to=\"/customization/slots/\">slots</link>.",
+      "<code>renderShiftHeader</code> replaces the whole heading with your own, keeping the section around it."
+    ]
+  },
+  "limitations": {
+    "points": [
+      "<code>durationHours</code> has to divide 24, so shifts of five or seven hours are a pattern, not a regular length.",
+      "One pattern covers every day. A pattern that differs from weekday to weekend is not expressible yet; changing <code>shifts</code> with the date is the workaround.",
+      "Shifts are placed by timestamp in the reader's own time zone. A schedule read in two time zones shows two different cuts of the same items.",
+      "There is no way to hide a shift that has no items; an empty shift renders its empty state."
+    ]
   }
 }
