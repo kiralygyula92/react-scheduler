@@ -12,6 +12,8 @@ export interface ApiProp {
   readonly required?: boolean;
   readonly default?: string;
   readonly deprecated?: string | null;
+  /** Where the description lives in `api.json`: the type that declares the member (05 §2.1). */
+  readonly descriptionKey: string;
 }
 
 export interface ApiSymbol {
@@ -110,8 +112,8 @@ export function PropsTable({ symbol }: { symbol: string }): React.ReactElement |
               </td>
               <td>{prop.default === undefined ? '' : <code>{prop.default}</code>}</td>
               <td>
-                {api(`${symbol}.props.${prop.name}`)}
-                {prop.deprecated != null && <> {api(`${symbol}.props.${prop.name}.deprecated`)}</>}
+                {api(prop.descriptionKey)}
+                {prop.deprecated != null && <> {prop.deprecated}</>}
               </td>
             </tr>
           ))}

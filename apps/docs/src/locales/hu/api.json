@@ -1,0 +1,745 @@
+{
+  "_meta": {
+    "status": "machine",
+    "source": "extract-api"
+  },
+  "table": {
+    "prop": "Prop",
+    "type": "Típus",
+    "default": "Alapérték",
+    "description": "Leírás",
+    "parameter": "Paraméter",
+    "returns": "Visszatérési érték",
+    "slot": "Slot",
+    "propsType": "Propok típusa",
+    "variable": "Változó",
+    "light": "Világos",
+    "dark": "Sötét",
+    "class": "Osztály",
+    "name": "Név",
+    "kind": "Fajta"
+  },
+  "ActivationSource": {
+    "description": "Mi aktivált egy elemet."
+  },
+  "BaseSlotProps": {
+    "description": "Amit minden slot megkap: a rész saját propjai, az állapota és az alapértelmezett komponens.",
+    "props": {
+      "Default": "A rész alapértelmezett eleme vagy komponense, becsomagolásra vagy megjelenítésre.",
+      "className": "`rs-<part>` + a könyvtár osztályai + a `slotProps` className értéke + `classNames[part]`.",
+      "ref": "KÖTELEZŐ csatolni: a rögzítés, a mérés és a fókusz ettől függ.",
+      "style": "Szerkezeti inline stílusok + a `slotProps` style értéke + `styles[part]`."
+    }
+  },
+  "CARRIED_OVER_TAG": {
+    "description": "A címkekulcs, amelyet a könyvtár a korábbi műszakból áthozott rögzített elemekhez ad."
+  },
+  "CardContentContext": {
+    "description": "Amit a `renderCardContent` megkap: az elem, a szintje és a számított időcímke."
+  },
+  "CardVariant": {
+    "description": "Hogyan rajzolódik egy kártya: normál, riasztás vagy tompított."
+  },
+  "ClassicLevelKey": {
+    "description": "A klasszikus szintskála kulcsai."
+  },
+  "ClassicTagKey": {
+    "description": "A klasszikus címkekészlet kulcsai."
+  },
+  "CloseReason": {
+    "description": "Miért zárult be egy részletes nézet vagy a további elemek párbeszédablaka."
+  },
+  "ColorScheme": {
+    "description": "Milyen színsémában jelenik meg a komponens; a `'system'` az olvasó beállítását követi."
+  },
+  "DateInput": {
+    "description": "Dátum, ezredmásodperc az epoch óta, vagy ISO-8601 szöveg (eltolás nélküli szöveg helyi falióra szerinti idő)."
+  },
+  "DeepPartial": {
+    "description": "Ugyanaz a szerkezet, minden tagja opcionális, minden mélységben."
+  },
+  "DefaultItemDetail": {
+    "description": "A részletes nézet, amelybe egy elem megnyílik, ahogy a könyvtár megjeleníti."
+  },
+  "Density": {
+    "description": "A megjelenített részek térközskálája."
+  },
+  "DiamondIcon": {
+    "description": "A pirula jelölése: 4 × 4-es négyzet −45°-kal elforgatva a (0; 2,828) pont körül egy 6 × 6-os dobozban, az aktuális szövegszínnel kitöltve."
+  },
+  "ElementProps": {
+    "description": "Azok a propok, amelyeket egy headless gazda a könyvtár egyik elemére terít.",
+    "props": {
+      "ref": "Callback ref, hogy a propok bármely elemre teríthetők legyenek."
+    }
+  },
+  "EmptyContext": {
+    "description": "Amit a `renderEmpty` megkap: az egész nap üres-e, vagy csak egy műszak."
+  },
+  "EmptyState": {
+    "description": "Amit egy nézet mutat, ha nincs mit elhelyeznie."
+  },
+  "ErrorState": {
+    "description": "Amit egy nézet mutat, ha a betöltés meghiúsult, az újrapróbálkozás gombjával, ha van."
+  },
+  "FormatterOptions": {
+    "description": "Amit a formázóknak tudniuk kell: a nyelvi beállítás és az értékek körüli szövegek.",
+    "props": {
+      "hourLabelFormat": "A „compact” elhagyja a szóközt az óra és a napszakjelölő között („8AM”); a „locale” megtartja az Intl kimenetét."
+    }
+  },
+  "HeaderContext": {
+    "description": "Amit a `renderHeader` megkap: a jelzés, a nézet és a megjelenített műszakok."
+  },
+  "HeaderReason": {
+    "description": "Miért változott a fejléc kinyitott állapota."
+  },
+  "ItemDetailContext": {
+    "description": "Amit a `renderItemDetail` megkap: az elem, a megnyitás módja és egy mód a bezárásra."
+  },
+  "ItemOf": {
+    "description": "Segédtípusok az elemtípusok kikövetkeztetéséhez a szint- és címkedefiníciókból."
+  },
+  "ItemProps": {
+    "description": "Azok a propok, amelyeket egy egyéni kártya az aktivátorára terít, hogy az aktiválás és a billentyűzet működjön."
+  },
+  "LandingTarget": {
+    "description": "Hová érkezik egy nézet: a műszak kezdetére, a dátumra, közvetlenül fölé, vagy sehová."
+  },
+  "LevelDefinition": {
+    "description": "A szintskála egy rangja: hogyan hívják, mennyire erős, és hogyan néznek ki az elemei.",
+    "props": {
+      "color": "A kiemelőszín, bármilyen CSS-színként.",
+      "key": "A kulcs, amellyel az elemek erre a szintre hivatkoznak.",
+      "label": "A szintpirulán megjelenő felirat.",
+      "onColor": "A szöveg és az ikon színe azon a kiemelésen.",
+      "pinOnPass": "Ennek a szintnek az elemei rögzülnek a sávba, miután elgördültek, és áthozottnak számítanak.",
+      "rank": "A szint erőssége; a kisebb érték erősebb.",
+      "variant": "Hogyan rajzolódnak ennek a szintnek a kártyái."
+    }
+  },
+  "LevelPill": {
+    "description": "A pirula, amely egy elem szintjét mutatja."
+  },
+  "ListCard": {
+    "description": "Egy listakártya (`li`) az aktivátorával; a `renderItem` teljesen lecseréli."
+  },
+  "ListOptions": {
+    "description": "A listanézet saját beállításai: mikor jelenik meg a navigáció, hová érkezik egy ugrás, és mikor lép működésbe a fejlécjelzés.",
+    "props": {
+      "alignOffset": "A felül rögzített sáv és annak a műszaknak a fejléce közötti térköz képpontban, amelyre az ugrás érkezett.",
+      "collapseAfterCards": "A fejlécjelzés akkor lép működésbe, ha az aktuális műszak ennyi kártyája már elgördült.",
+      "collapseMargin": "Hiszterézis képpontban a pont körül, ahol a fejlécjelzés visszavált.",
+      "collapseMinItems": "A fejlécjelzés csak akkor léphet működésbe, ha az aktuális műszakban ennél több elem van.",
+      "landing": "Hová érkezik a lista az első megjelenítéskor, dátumváltáskor és a nézetbe lépéskor.",
+      "navigationThreshold": "A navigáció csak akkor jelenik meg, ha valamelyik műszakban legalább ennyi elem van.",
+      "previousJumpExtraOffset": "További eltolás képpontban, ha az ugrás korábbi műszakra megy, hogy annak utolsó elemei láthatók maradjanak.",
+      "scrollTopThreshold": "Az ennél nagyobb görgetés képpontban megjeleníti a felugró gombot.",
+      "segmentEpsilon": "Tűréshatár képpontban annak eldöntéséhez, melyik műszakszakaszban áll a görgethető terület."
+    }
+  },
+  "ListView": {
+    "description": "A listanézet önmagában."
+  },
+  "ListViewProps": {
+    "description": "Amit a `<ListView>` elfogad: az ütemező propjai, a nézetválasztás nélkül."
+  },
+  "LoadingState": {
+    "description": "Amit egy nézet mutat, amíg az elemek betöltődnek."
+  },
+  "Middleware": {
+    "description": "Egy interakció előtt fut: megvizsgálhatja, módosíthatja, vagy megszakíthatja azzal, hogy nem hívja meg a `next` függvényt."
+  },
+  "MoreChip": {
+    "description": "A jelölés, amely a zsúfolt csoportban el nem helyezett elemeket helyettesíti."
+  },
+  "NavLabelContext": {
+    "description": "Amit a `renderNavLabel` megkap: a cél műszak és az áthozott elemek száma."
+  },
+  "NavPosition": {
+    "description": "Melyik navigációs gombtól érkezett egy esemény."
+  },
+  "NavState": {
+    "description": "Amit egy navigációs gomb mutat: hová visz, le van-e tiltva, és hány elem lett áthozva.",
+    "props": {
+      "carriedOverCount": "Csak a felső gomb.",
+      "hint": "Buboréksúgó és akadálymentes leírás.",
+      "label": "A látható felirat; egyben az akadálymentes név."
+    }
+  },
+  "Navigator": {
+    "description": "Egy nézetet műszakra, elemre vagy időpontra mozgat, a beállítások szerinti igazítással.",
+    "props": {
+      "scrollTo": "A `target()` értékéhez görget; simán, ha a `smooth` nem false. Egy új hívás felváltja a függőben lévőt."
+    }
+  },
+  "NavigatorHooks": {
+    "description": "A görgetés, amelyet a navigátor végez, hogy egy gazda lecserélhesse.",
+    "props": {
+      "onDone": "A végső korrekció után `resumeDelay` ezredmásodperccel hívódik meg (a lista folytatja a rögzítést).",
+      "onSettle": "Akkor hívódik meg, amikor a görgetés megállt, a végső korrekciós képkocka előtt (kikényszeríti a rögzítés frissítését).",
+      "onStart": "Egy navigáció megkezdése előtt hívódik meg (a lista szünetelteti a rögzítést)."
+    }
+  },
+  "NavigatorOptions": {
+    "description": "Amire a navigátornak szüksége van: a görgethető terület, a műszakok és az érkezési szabályok.",
+    "props": {
+      "resumeDelay": "Mennyit várunk a végső korrekció után az `onDone` hívásig, ezredmásodpercben.",
+      "settleDelay": "Mennyi görgetési esemény nélküli idő számít megállásnak ott, ahol a `scrollend` nem támogatott, ezredmásodpercben."
+    }
+  },
+  "NowIndicator": {
+    "description": "A lista „most” jelölése: az óraidő egy pirulában, majd egy vonal."
+  },
+  "OverflowCellContext": {
+    "description": "Amit a további elemek táblázatának cellája megkap: a szövegek és egy mód az elem megnyitására."
+  },
+  "OverflowColumn": {
+    "description": "A további elemek táblázatának egy oszlopa: a fejléce, a cellája és a rendezése.",
+    "props": {
+      "maxWidth": "Ha megegyezik a `minWidth` értékével, az oszlop fix szélességű, és nem kap részt a szabad helyből.",
+      "sortValue": "Hagyd el, ha az oszlop ne legyen rendezhető."
+    }
+  },
+  "OverflowDialog": {
+    "description": "A párbeszédablak, amely felsorolja a „+more” jelölés mögötti elemeket."
+  },
+  "OverflowGroup": {
+    "description": "Az elemek, amelyeket egy „+more” jelölés képvisel, a lefedett időszakkal.",
+    "props": {
+      "anchor": "A csoport legkorábbi kezdése, ezredmásodpercben az epoch óta.",
+      "id": "Állandó azonosító: String(anchor).",
+      "items": "Rang, majd elhelyezési sorrend szerint."
+    }
+  },
+  "OverflowSort": {
+    "description": "Melyik oszlop szerint és milyen irányban van rendezve a további elemek táblázata."
+  },
+  "OverflowTable": {
+    "description": "A további elemek párbeszédablakában lévő táblázat."
+  },
+  "OwnerState": {
+    "description": "Mihez jelenít meg egy rész."
+  },
+  "Pagination": {
+    "description": "A lapozó a további elemek táblázata alatt."
+  },
+  "PartExtraProps": {
+    "description": "Részspecifikus extrák az elem attribútumain túl."
+  },
+  "PinEngine": {
+    "description": "Figyeli a görgethető területet, és jelenti, mely elemek rögzültek pozíció szerint.",
+    "props": {
+      "refresh": "Egyszer újraolvassa az összes érzékelőt (programozott görgetés, adatváltozás és csatolás után). Szünetelés közben kimarad, kivéve ha a `force` be van állítva.",
+      "register": "Regisztrál egy érzékelőt az `ids` azonosítókhoz a `key` kulcs alatt; ref callbacket ad vissza.",
+      "relayout": "Újra létrehozza a megfigyelőket, miután a rögzítési vonal elmozdult (például átméreteződött a felül rögzített sáv).",
+      "reset": "Mindent felold (megváltozott a kiválasztott dátum)."
+    }
+  },
+  "PinEngineOptions": {
+    "description": "Amire a rögzítőmotornak szüksége van: a görgethető terület, a szabály és a rögzíthető elemek.",
+    "props": {
+      "getLine": "A rögzítési vonal a nézetablak koordinátáiban. Lista: a felül rögzített sáv alja; idővonal: a görgethető terület teteje.",
+      "onChange": "A rögzített azonosítókkal hívódik meg, valahányszor azok megváltoznak."
+    }
+  },
+  "PinSentinelProps": {
+    "description": "Azok a propok, amelyeket egy egyéni kártya a rögzítési érzékelőjére terít, hogy a rögzítés figyelhesse."
+  },
+  "PinnedChip": {
+    "description": "Egy jelölés a rögzített sávban."
+  },
+  "PinnedStrip": {
+    "description": "A rögzített elemek sávja, amely látható marad, amíg a műszakuk a képernyőn van."
+  },
+  "PinningOptions": {
+    "description": "Hol rögzülnek az elemek az egyes nézetekben, és milyen sorrendben sorolja fel őket a rögzített sáv.",
+    "props": {
+      "compare": "Rendezi a rögzített sávot. Alapértelmezés szerint a rögzítés sorrendjét követi.",
+      "list": "A listanézet rögzítési szabálya.",
+      "timeline": "Az idővonal nézet rögzítési szabálya."
+    }
+  },
+  "PlacedCard": {
+    "description": "Egy kártya az idővonalon: az eleme, az oszlopa és a geometriája.",
+    "props": {
+      "end": "Ezredmásodperc az epoch óta (feloldva).",
+      "height": "Képpont.",
+      "start": "Ezredmásodperc az epoch óta.",
+      "top": "Képpont az időszak kezdetétől."
+    }
+  },
+  "PluralForms": {
+    "description": "Egy üzenet többes számú alakjai, az aktív nyelvhez az `Intl.PluralRules` alapján kiválasztva."
+  },
+  "PresetName": {
+    "description": "A beépített megjelenések: a könyvtár sajátja, vagy a klasszikus, amelyet reprodukál."
+  },
+  "ReducedMotion": {
+    "description": "Hogy csökkentett-e a mozgás, és egy mód a változására való feliratkozásra."
+  },
+  "ReferencePill": {
+    "description": "A pirula, amely egy elem hivatkozási számát mutatja."
+  },
+  "RenderItemContext": {
+    "description": "Amit a `renderItem` megkap, beleértve azokat a propokat, amelyeket egy egyéni kártyának rá kell terítenie.",
+    "props": {
+      "defaultRender": "A beépített kártya.",
+      "getItemProps": "Az aktivátor propjai; ezek terítése kötelező.",
+      "getPinSentinelProps": "Egy rögzíthető elem rögzítési érzékelőjének propjai (a rögzítésnek szüksége van rájuk).",
+      "style": "Idővonal: a kártya szerkezeti geometriája (abszolút pozíció és méret)."
+    }
+  },
+  "ResolvedFlags": {
+    "description": "Minden funkciókapcsoló, kitöltött értékkel."
+  },
+  "ResolvedLevel": {
+    "description": "Egy szint kitöltött ranggal, színekkel és felirattal."
+  },
+  "Scheduler": {
+    "description": "Az ütemező: a lista- vagy az idővonal nézet, a `view` alapján kiválasztva."
+  },
+  "SchedulerController": {
+    "description": "A komponensek mögötti, keretrendszertől független vezérlő: állapot, műveletek és feliratkozás.",
+    "props": {
+      "flushPinned": "Kiadja az `onPinnedChange` eseményt, ha a sáv azonosítói eltérnek az adott nézet legutóbbi kiadásától.",
+      "navigateTo": "Imperatív navigáció (`api`): middleware nélkül.",
+      "noteViewShown": "Rögzíti, hogy a `view` látható; igaz, ha előtte másik nézet volt látható (nézetváltás).",
+      "openItem": "Imperatív megnyitás (`api`): middleware nélkül; a letiltott vagy ismeretlen elemek nem nyílnak meg.",
+      "reconcileOpenItem": "Bezárja annak az elemnek a nézetét, amely eltűnt az adatokból; middleware nélkül, magától soha nem nyílik újra.",
+      "resetHeader": "Visszaállítja a nézetenkénti fejlécmemóriát, hogy a következő jelzés tiszta lappal induljon (nézetbe lépés).",
+      "setMounted": "Megjelöli a tulajdonost csatoltként vagy leválasztottként; a leválasztás utáni aszinkron `next()` figyelmen kívül marad.",
+      "setOptions": "Lecseréli a beállításokat. Nem értesít: a tulajdonos amúgy is újrarenderel az új beállításokkal.",
+      "setPinnedByPosition": "Azok az azonosítók, amelyeket a nézet rögzítőmotorja pozíció szerint rögzített; a `handlers.onPin` minden változást megvétózhat."
+    }
+  },
+  "SchedulerEvents": {
+    "description": "Állapot-visszahívások és tartományi események. Azt jelentik, mi történt; ha előbb akarsz beavatkozni, használd a `handlers` beállítást.",
+    "props": {
+      "onActiveShiftChange": "Megváltozott a műszak, amelyet az olvasó néz, görgetéssel vagy navigációval.",
+      "onDateChange": "A megjelenített dátum megváltozott, nem vezérelt esetben.",
+      "onHeaderExpandedChange": "A fejlécjelzés megváltozott. A `reason` megmondja, mi okozta, így egy oldal figyelmen kívül hagyhatja a számára lényegtelen okokat.",
+      "onItemClose": "A nyitott elem bezárult, a bezárás okával.",
+      "onItemOpen": "Egy elem megnyílt. A `source` megmondja, mutatóeszközről, billentyűzetről vagy az API-ból érkezett-e.",
+      "onLayout": "Az idővonal újraszámolta az elrendezését, minden kártya elhelyezésével.",
+      "onNavigate": "Egy másik műszakra ugrás befejeződött. A `position` értéke `'api'`, ha a handle hívása indította.",
+      "onOpenItemIdChange": "A nyitott elem megváltozott, nem vezérelt esetben. A `null` azt jelenti, hogy a részletes nézet bezárult.",
+      "onOpenOverflowIdChange": "A nyitott további-elem csoport megváltozott, nem vezérelt esetben.",
+      "onOverflowClose": "Egy további-elem csoport bezárult.",
+      "onOverflowOpen": "Egy további-elem csoport megnyílt.",
+      "onOverflowPageChange": "A további elemek párbeszédablakának oldala megváltozott, nem vezérelt esetben.",
+      "onOverflowSortChange": "A további elemek párbeszédablakának rendezése megváltozott, nem vezérelt esetben.",
+      "onPinnedChange": "A rögzített elemek halmaza megváltozott, azzal együtt, mi került bele és mi került ki.",
+      "onScrollTop": "A felugró gombot használták.",
+      "onViewChange": "A nézet megváltozott, akár az olvasó, akár a töréspont, akár az API révén.",
+      "onVisibleRangeChange": "A képernyőn látható időszak megváltozott. Ez a horog egy nap elemeinek igény szerinti betöltéséhez."
+    }
+  },
+  "SchedulerFlags": {
+    "description": "Funkciókapcsolók. Egy kikapcsolása eltávolítja a funkciót és mindent, amit megjelenít; semmi más nem változik.",
+    "props": {
+      "enableAnimations": "Átmenetek és animációk. A `reducedMotion` olvasónként kapcsolja ki őket; ez mindenkinél kikapcsolja.",
+      "enableCarriedOverCount": "A korábbi műszakokból áthozott elemek száma a navigációs gombon.",
+      "enableHeaderSignal": "A jelzés, amely szól a környező oldalnak, hogy csukja össze a fejlécét egy műszak olvasása közben.",
+      "enableItemDetail": "Egy elem megnyitása megjeleníti a részletes nézetét.",
+      "enableNavigation": "A gombok, amelyek az előző és a következő műszakra ugranak.",
+      "enableNowIndicator": "Az aktuális idő jelölése a listában és a vonal az idővonalon.",
+      "enableOffShiftBands": "Az árnyékolt sávok, amelyeket az idővonal az aktív műszakon kívül rajzol.",
+      "enableOverflowDialog": "A párbeszédablak, amely felsorolja a „+more” jelölés mögötti elemeket.",
+      "enablePinning": "Az elemek rögzülhetnek a görgethető terület széléhez, és megjelennek a rögzített sávban.",
+      "enableScrollTopButton": "A gomb, amely a görgethető területet visszaviszi a tetejére.",
+      "enableTooltips": "Buboréksúgók a levágott kártyacímeknél."
+    }
+  },
+  "SchedulerFormatters": {
+    "description": "A függvények, amelyek időpontokat, időszakokat és számokat szöveggé alakítanak. Cserélj le egyet, ha csak egy formátumot akarsz megváltoztatni.",
+    "props": {
+      "clockTime": "Az óraidő, például „10:30 AM”.",
+      "dateTime": "A további elemek táblázatának időoszlopa.",
+      "hourLabel": "Az óracímke a tengelyen, például „8AM”.",
+      "shiftRange": "Egy műszak időszaka, például „Mar 12, 8 AM - Mar 12, 8 PM”.",
+      "sinceTimestamp": "Az az időpont, amióta egy elem tart, például „03/12/2031 07:45 AM” en-US esetén.",
+      "timeRange": "Egy elem időszaka, például „9:00 AM – 10:30 AM”."
+    }
+  },
+  "SchedulerHandle": {
+    "description": "Az imperatív handle: görgetés, megnyitás és bezárás, valamint az aktuális állapot kiolvasása."
+  },
+  "SchedulerHandlers": {
+    "description": "Interakciós middleware React eseményekkel."
+  },
+  "SchedulerItem": {
+    "description": "Egy dolog az ütemtervben. Csak az `id`, a `start`, a `level` és a `title` kötelező; a többi finomítja, hogyan olvasható a kártya.",
+    "props": {
+      "data": "Átlátszatlan adat a részletek megjelenítéséhez.",
+      "description": "A kártya második sora.",
+      "disabled": "Nem aktiválható: aria-disabled attribútummal jelenik meg, az aktiválási kezelők figyelmen kívül hagyják.",
+      "end": "Mikor ér véget. A kezdés előtti befejezés nulla hosszúságnak számít.",
+      "id": "Állandó, egyedi, a könyvtár soha nem módosítja.",
+      "level": "A skála egyik szintjének `key` kulcsa.",
+      "observedLabel": "A „{timeLabel.observed} {observedLabel}” időcímke. Elsőbbséget élvez a `since` értékkel szemben.",
+      "pinnable": "Felülírja a szint `pinOnPass` beállítását erre az elemre.",
+      "pinned": "Mindig a rögzített sávban van, amíg a műszaka meg van jelenítve.",
+      "reference": "Hivatkozási pirulaként jelenik meg: „{localization.referenceLabel} {reference}”.",
+      "since": "A „{timeLabel.since} {formatters.sinceTimestamp(since)}” időcímke.",
+      "start": "Mikor kezdődik.",
+      "suggestion": "Az idővonal kártyáinak alsó sora.",
+      "tags": "Az elem által viselt címkék kulcsai.",
+      "timeLabel": "Teljesen lecseréli a számított időcímkét.",
+      "title": "A kártya első sora."
+    }
+  },
+  "SchedulerLocalization": {
+    "description": "Minden szöveg, amelyet a komponens megjeleníthet. Egy nyelvi csomag pontosan ez.",
+    "props": {
+      "locale": "BCP 47, az Intl számára."
+    }
+  },
+  "SchedulerModel": {
+    "description": "A feloldott bemenet: a beállítások, az alapértékek és az állapot egyetlen formába olvasztva, amelyet a nézetek olvasnak.",
+    "props": {
+      "animate": "A sima görgetés és a belépő animációk futnak.",
+      "currentIndex": "-1, ha egyetlen megjelenített műszak eltolása sem 0.",
+      "dir": "A feloldott irány; az `explicitDir` csak akkor kerül a gyökérre, ha nem a dokumentumból származik.",
+      "openItemMissing": "A megnyitott azonosító olyan elemre mutat, amely már nincs az adatokban.",
+      "pinCompare": "A rögzített sáv sorrendje: `pinning.compare`, egyébként `compare`.",
+      "size": "A rögzített jelölések szélességi osztálya a gyökér szélessége alapján: lg ≥ 900, md 600–899, sm < 600."
+    }
+  },
+  "SchedulerOptions": {
+    "description": "Mindaz, amit a vezérlő olvas; a React propok a megjelenítést, a slotokat és a stílust adják hozzá.",
+    "props": {
+      "compact": "A kompakt elrendezés: az `'auto'` a `compactBreakpoint` értéknél vált, a logikai érték kényszeríti.",
+      "compactBreakpoint": "Az a szélesség képpontban, amely alatt a `compact: 'auto'` bekapcsolja a kompakt módot.",
+      "compareItems": "Rendezi az elemeket egy műszakon belül. Az alapértelmezett sorrend: kezdés, majd szint, majd cím.",
+      "date": "A megjelenített nap, vezérelt módon. Használd az `onDateChange` mellett.",
+      "defaultDate": "A kezdőnap, ha a `date` nincs vezérelve.",
+      "defaultDuration": "Meddig tart ezredmásodpercben egy `end` nélküli elem.",
+      "defaultHeaderExpanded": "A fejlécjelzés kezdőértéke, ha nincs vezérelve.",
+      "defaultOpenItemId": "Az első megjelenítéskor nyitott elem, ha az `openItemId` nincs vezérelve.",
+      "defaultOpenOverflowId": "Az első megjelenítéskor nyitott további-elem csoport, ha az `openOverflowId` nincs vezérelve.",
+      "defaultOverflowPage": "A további elemek párbeszédablakának oldala az első megnyitáskor, ha nincs vezérelve.",
+      "defaultOverflowSort": "A további elemek párbeszédablakának rendezése az első megnyitáskor, ha nincs vezérelve.",
+      "defaultView": "A kezdőnézet, ha a `view` nincs vezérelve.",
+      "density": "A megjelenített részek térközskálája.",
+      "dir": "Írásirány. Az `'auto'` a környező dokumentumból olvassa ki.",
+      "error": "Megjeleníti a hibaállapotot. Bármilyen érték elfogadott; az üzenet a `localization` részből jön.",
+      "formatters": "Egyes formázók cseréje, ha a nyelvi beállítás nem adja a kívánt formátumot.",
+      "handlers": "Middleware, amely minden interakció előtt lefut, és módosíthatja vagy megszakíthatja azt.",
+      "headerExpanded": "A fejlécjelzés, vezérelt módon. Használd az `onHeaderExpandedChange` mellett.",
+      "items": "Az elhelyezendő elemek. Mindegyikhez kell `id` és `start`; az `end` nélküli elem `defaultDuration` ideig tart.",
+      "levels": "A szintskála: a rangok, amelyeket egy elem felvehet, színükkel és címkéjükkel.",
+      "list": "A listanézet saját beállításai.",
+      "listOnlyBreakpoint": "Ez alatt a szélesség alatt képpontban csak a lista érhető el. Hagyd el, ha minden szélességnél mindkét nézet maradjon.",
+      "loading": "Megjeleníti a betöltési állapotot. Ha már vannak elemek, azok a képernyőn maradnak, és az állapot rájuk kerül.",
+      "locale": "A dátumok, időpontok és számok formázásához használt BCP 47 nyelvi kód.",
+      "localization": "Minden szöveg, amelyet a komponens megjeleníthet. Adj át teljes nyelvi csomagot, vagy csak a cserélendő bejegyzéseket.",
+      "now": "Az a pillanat, amelyre a „most” jelző mutat. Állítsd be, ha meg akarod állítani az órát tesztben vagy demóban.",
+      "nowTickInterval": "Milyen gyakran lép az óra, ezredmásodpercben.",
+      "openItemId": "A nyitott elem, azonosítóval vezérelve. A `null` bezárja a részletes nézetet.",
+      "openOverflowId": "A nyitott további-elem csoport, azonosítóval vezérelve.",
+      "overflowColumns": "A további elemek párbeszédablakában lévő táblázat oszlopai, sorrendben.",
+      "overflowPage": "A további elemek párbeszédablakának oldala, vezérelve, 1-től számozva.",
+      "overflowPageSize": "Sorok oldalanként a további elemek párbeszédablakában.",
+      "overflowSort": "A további elemek párbeszédablakának rendezése, vezérelve.",
+      "pinning": "Hol rögzülnek az elemek, és milyen sorrendben mutatja őket a rögzített sáv.",
+      "reducedMotion": "Mozgás: az `'auto'` az olvasó `prefers-reduced-motion` beállítását követi, a logikai érték kényszeríti.",
+      "segments": "Kész műszakszakaszok már csoportosított adatokhoz. Ezekkel az ütemező nem csoportosítja maga az `items` elemeket.",
+      "shifts": "A nap műszakmintája: mennyi ideig tart egy műszak, hol kezdődik, és hány jelenik meg az aktuális előtt és után.",
+      "tags": "A címkék, amelyeket egy elem viselhet, a feliratukkal.",
+      "timeline": "Az idővonal nézet saját beállításai.",
+      "view": "A megjelenített nézet, vezérelt módon. Használd az `onViewChange` mellett."
+    }
+  },
+  "SchedulerPart": {
+    "description": "Minden látható rész."
+  },
+  "SchedulerProps": {
+    "description": "Mindaz, amit a `<Scheduler>` elfogad: a vezérlő beállításai, valamint a megjelenítés, a slotok és a stílus.",
+    "props": {
+      "aria-label": "Az ütemező régiójának akadálymentes neve.",
+      "className": "A gyökérelem osztálya.",
+      "classNames": "Egy-egy osztály részenként, a könyvtár saját osztályai mellé.",
+      "colorScheme": "Világos vagy sötét; a `'system'` az olvasó beállítását követi.",
+      "handlers": "Middleware, amely minden interakció előtt lefut, és módosíthatja vagy megszakíthatja azt.",
+      "headingLevel": "A műszakfejlécek címszintje, hogy illeszkedjenek az oldal szerkezetébe.",
+      "id": "A megjelenített elemek azonosítóinak előtagja.",
+      "keepInactiveViewMounted": "Csak `<Scheduler>`: a nem látható nézet csatolva marad, de szünetel, így a visszaváltás azonnali, és megmarad a görgetési pozíciója.",
+      "onRetry": "Megjeleníti az újrapróbálkozás gombját a hibaállapotban, és meghívódik, ha használják.",
+      "overflowColumns": "A további elemek párbeszédablakában lévő táblázat oszlopai, sorrendben.",
+      "preset": "Melyik beépített megjelenés jelenjen meg: a könyvtár sajátja vagy a klasszikus, amelyet reprodukál.",
+      "renderCardContent": "Lecseréli egy kártya belsejét, megtartva a keretét, az aktiválását és a rögzítését.",
+      "renderEmpty": "Lecseréli az üres állapotot. A `ctx.scope` megmondja, az egész nap üres-e, vagy csak egy műszak.",
+      "renderError": "Lecseréli a hibaállapotot.",
+      "renderHeader": "Lecseréli az elemek fölötti rögzített területet, amely a rögzített sávot és a navigációt tartja.",
+      "renderItem": "Lecseréli az egész kártyát. A `ctx.defaultRender()` visszaadja a beépítettet.",
+      "renderItemDetail": "Lecseréli egy megnyitott elem részletes nézetét.",
+      "renderLoading": "Lecseréli a betöltési állapotot.",
+      "renderMoreLabel": "Lecseréli egy „+more” jelölés feliratát.",
+      "renderNavLabel": "Lecseréli egy navigációs gomb feliratát.",
+      "renderPinnedChip": "Lecserél egy jelölést a rögzített sávban.",
+      "renderShiftHeader": "Lecseréli egy műszak fejlécsorát.",
+      "renderTimeLabel": "Lecseréli egy kártya időcímkéjét.",
+      "slotProps": "További propok egy részhez, akár rögzítetten, akár a körülötte lévő állapotból számítva.",
+      "slots": "Lecseréli azt a komponenst, amely egy részt megjelenít, megtartva a helyét és a propjait.",
+      "style": "Inline stílus a gyökérelemhez.",
+      "styles": "Egy-egy inline stílus részenként.",
+      "tokens": "Egyes designtokenek felülírása a gyökérelemen.",
+      "unstyled": "A szerkezetet a stíluslap megjelenése nélkül jeleníti meg, saját, a `classNames` alapján épített dizájnhoz."
+    }
+  },
+  "SchedulerSlotProps": {
+    "description": "További propok minden részhez, rögzítetten vagy a körülötte lévő állapotból számítva."
+  },
+  "SchedulerSlots": {
+    "description": "Az egyes részekhez tartozó komponens, amely a könyvtár sajátját váltja fel."
+  },
+  "SchedulerState": {
+    "description": "Mindaz, amit a `<Scheduler>` használ, jelölőnyelv nélkül.",
+    "props": {
+      "layout": "Csak idővonal."
+    }
+  },
+  "SchedulerStoreState": {
+    "description": "A vezérlő tárolt állapota: amit az olvasó megváltoztatott, még mielőtt bármely beállítás érvényesülne.",
+    "props": {
+      "date": "Nem vezérelt értékek.",
+      "width": "A nézetréteg méri."
+    }
+  },
+  "SchedulerViewModel": {
+    "description": "Mindaz, amire egy nézetnek a megjelenítéshez szüksége van, a modellből származtatva.",
+    "props": {
+      "pinnedIds": "A rögzített sáv azonosítói sávsorrendben (a pozíció szerint rögzítettek és a `pinned: true` elemek)."
+    }
+  },
+  "ScrollFacts": {
+    "description": "Amit egy nézet az utolsó görgetési képkockán mért.",
+    "props": {
+      "activeIndex": "Az aktív műszak indexe a `shifts` tömbben.",
+      "atStart": "A nézet az aktív műszak elején áll.",
+      "nextVisible": "Csak lista: a +1 eltolású műszak szakasza látható a hajtás alatt.",
+      "pastScrollTopThreshold": "Csak lista: a görgetés túlhaladta a `list.scrollTopThreshold` értéket."
+    }
+  },
+  "ScrollTopButton": {
+    "description": "A gomb, amely a görgethető területet visszaviszi a tetejére."
+  },
+  "SegmentInput": {
+    "description": "Paritásbemenet: már csoportosított szakaszok, azonnal használhatók a meglévő adatszerkezettel.",
+    "props": {
+      "offset": "Alapértelmezés: -1 / 0 / 1 a szerep alapján."
+    }
+  },
+  "ShiftHeader": {
+    "description": "Egy műszak fejlécsora a listanézetben."
+  },
+  "ShiftNavButton": {
+    "description": "A gomb, amely az előző vagy a következő műszakra ugrik."
+  },
+  "ShiftOptions": {
+    "description": "Egy nap műszakmintája. Vagy azonos hosszúságú szabályos műszakok, vagy nevesített műszakok szabálytalan `pattern` mintája.",
+    "props": {
+      "after": "Hány műszak jelenik meg az aktuális után.",
+      "anchor": "Az a falióra szerinti időpont, amikor egy szabályos műszak kezdődik; a többi ebből következik.",
+      "before": "Hány műszak jelenik meg az aktuális előtt.",
+      "durationHours": "Egy szabályos műszak hossza órában. Osztania kell a 24-et.",
+      "keys": "A szabályos műszakok kulcsai, sorban kiosztva a horgonytól kezdve.",
+      "pattern": "Szabálytalan napi minta, sorrendben megadott kezdési időkkel. Helyettesíti a `durationHours`, `anchor` és `keys` beállítást."
+    }
+  },
+  "ShiftPatternEntry": {
+    "description": "Egy műszak egy szabálytalan napi mintában: mikor kezdődik, és hogyan hívják.",
+    "props": {
+      "start": "A kezdés falióra szerinti ideje. A bejegyzés ott ér véget, ahol a következő kezdődik, ciklikusan."
+    }
+  },
+  "ShiftRole": {
+    "description": "Egy műszak eltolásának előjele az aktuális műszakhoz képest."
+  },
+  "ShiftSegment": {
+    "description": "Egy műszak a hozzá tartozó elemekkel, a megjelenítés sorrendjében.",
+    "props": {
+      "items": "Azok az elemek, amelyek kezdése a [shift.start, shift.end) intervallumba esik, elhelyezési sorrendben."
+    }
+  },
+  "ShiftWindow": {
+    "description": "Egy megjelenített műszak: eltolása az aktuálistól, kulcsa és határai.",
+    "props": {
+      "offset": "0 = aktuális; negatív = korábbi.",
+      "role": "Az eltolás előjele.",
+      "start": "Ezredmásodperc az epoch óta a falióra szerinti határokon (nyári időszámítás-biztos)."
+    }
+  },
+  "SlotProps": {
+    "description": "Amit egy slot komponens megkap: az elem attribútumai és az alap slot propok."
+  },
+  "SortDirection": {
+    "description": "A további elemek táblázatának rendezési iránya."
+  },
+  "SortableColumn": {
+    "description": "A további elemek egy oszlopának az a része, amelyre a rendezésnek szüksége van; az `OverflowColumn` ezt bővíti.",
+    "props": {
+      "sortValue": "Hagyd el, ha az oszlop ne legyen rendezhető."
+    }
+  },
+  "TagDefinition": {
+    "description": "Egy címke, amelyet egy elem viselhet, feliratával és színeivel.",
+    "props": {
+      "background": "A pirula háttere.",
+      "color": "A pirula szövegének színe.",
+      "key": "A kulcs, amellyel az elemek erre a címkére hivatkoznak.",
+      "label": "A címkepirulán megjelenő felirat."
+    }
+  },
+  "TagPill": {
+    "description": "A pirula, amely egy elem egyik címkéjét mutatja."
+  },
+  "TimeGrid": {
+    "description": "Az idővonal óraráccsa a rá helyezett kártyákkal."
+  },
+  "TimelineCard": {
+    "description": "Egy idővonal-kártya, abszolút pozícióval az elrendezőmotor kimenete alapján."
+  },
+  "TimelineLayout": {
+    "description": "A kiszámított idővonal: minden elhelyezett kártya, minden további-elem csoport és a körülöttük lévő geometria.",
+    "props": {
+      "height": "Az időszak órái × `hourHeight`, legalább `hourHeight`."
+    }
+  },
+  "TimelineLayoutOptions": {
+    "description": "Amire az elrendezőmotornak az elemeken kívül szüksége van: egy óra mérete, az oszlopkorlátok és az összevonási ablak."
+  },
+  "TimelineOptions": {
+    "description": "Az idővonal nézet saját beállításai: egy óra mérete, hány oszlopot használhatnak az átfedő elemek, és mikor húzódnak össze „+more” jelöléssé.",
+    "props": {
+      "cardGap": "Két kártya közötti térköz képpontban.",
+      "columnPlacement": "Melyik oszlopba kerül egy elem: a szintje szerint (`'priority'`) vagy az elsőként felszabaduló oszlopba (`'time'`).",
+      "hourHeight": "Egy óra magassága képpontban. A sűrűségskála módosítja az alapértéket.",
+      "hourLabelFormat": "Az óracímkék a tengelyen: rövid („8AM” en-US esetén) vagy a nyelvi beállítás saját időformátuma.",
+      "landing": "Hová érkezik az idővonal az első megjelenítéskor, dátumváltáskor és a nézetbe lépéskor.",
+      "leadMinutes": "Mennyi időt hagy percben az érkezés és a navigáció a cél fölött.",
+      "maxColumns": "Hány oszlopon oszolhatnak el az átfedő elemek.",
+      "maxColumnsCompact": "A zsúfoltsági korlát a kompakt elrendezésben.",
+      "maxColumnsCrowded": "A korlát, ha több elem fed át, mint `maxColumns`; a többi a „+more” jelölésbe kerül.",
+      "minCardHeight": "Milyen alacsonyra rajzolható egy kártya képpontban, bármilyen rövid is az elem.",
+      "nearBottomGutterMinutes": "Mennyi időt hagy percben a cél alatt egy „alul közeli” érkezés.",
+      "overflowMergeWindow": "Milyen messze lehet egymástól ezredmásodpercben két zsúfolt csoport, hogy még egyetlen „+more” jelölésbe olvadjanak. Az `Infinity` az egész láncot összevonja.",
+      "viewEnterRealignDelay": "Mennyit vár az idővonal ezredmásodpercben a nézetbe lépés után, mielőtt újraigazít."
+    }
+  },
+  "TimelineView": {
+    "description": "Az idővonal nézet önmagában."
+  },
+  "TimelineViewProps": {
+    "description": "Amit a `<TimelineView>` elfogad: az ütemező propjai, a nézetválasztás nélkül."
+  },
+  "TokenName": {
+    "description": "Egy designtoken a `styles.css` fájlból."
+  },
+  "Tooltip": {
+    "description": "A buboréksúgó rész; a `position` a `useTooltip` értékéből jön (zárt állapotban null)."
+  },
+  "ViewKind": {
+    "description": "A két nézet: görgethető kártyalista vagy időtengely elhelyezett kártyákkal."
+  },
+  "WallClock": {
+    "description": "Falióra szerinti idő 24 órás formátumban, „HH:mm”."
+  },
+  "bucketItems": {
+    "description": "Minden elemet abba az ablakba tesz, amelyre `start ≤ item.start < end`. Az egyetlen ablakba sem eső elemek nem jelennek meg; az érvénytelen kezdésűek kimaradnak; azonos azonosítók esetén az első előfordulás nyer."
+  },
+  "classicLevels": {
+    "description": "A 9 paritásszint, a legerősebbel kezdve."
+  },
+  "classicTags": {
+    "description": "A klasszikus címkekészlet: a két címke, amelyet a klasszikus megjelenés megjelenít."
+  },
+  "compareByPlacement": {
+    "description": "Elhelyezési sorrend: kezdés növekvően, majd a szint rangja növekvően (a legerősebb elöl), majd az azonosító."
+  },
+  "compensateStickyGrowth": {
+    "description": "Helyben tartja a látható tartalmat, amikor a görgethető területen belüli rögzített elem magassága változik: a terület ugyanannyit mozdul, ugyanabban a képkockában, minden motorban. A görgethető terület `overflow-anchor: none` értéket kap, így a böngésző görgetéshorgonyzása nem ad hozzá második eltolást. Amíg a `suspended()` érvényben van, a változás csak feljegyzésre kerül."
+  },
+  "computeTimelineLayout": {
+    "description": "Az elemeket az idővonal oszlopaiba és a további-elem csoportokba helyezi: elhelyezési sorrend, mohó oszlopkiosztás, előléptetés a további elemek közül, réskitöltés, geometria, további-elem csoportok (az `overflowMergeWindow` által határolva, az egyes csoportok horgonyától mérve) és oszlopszámok."
+  },
+  "createFormatters": {
+    "description": "Felépíti egy nyelvhez az alapértelmezett formázókat, amelyeket a `formatters` utána egyenként lecserélhet."
+  },
+  "createNavigator": {
+    "description": "Létrehozza a navigátort egy görgethető területhez."
+  },
+  "createPinEngine": {
+    "description": "Létrehozza a rögzítőmotort egy görgethető területhez."
+  },
+  "createScheduler": {
+    "description": "Létrehoz egy vezérlőt. Ez a teljes könyvtár React nélkül: beállításokat adsz neki, kiolvasod a nézetmodellt, meghívod a műveleteit."
+  },
+  "defaultOverflowColumns": {
+    "description": "Az oszlopok, amelyeket a további elemek táblázata mutat, ha nincs megadva más."
+  },
+  "enUS": {
+    "description": "Az angol nyelvi csomag, egyben az alapértelmezés, ha nincs `localization`."
+  },
+  "getShiftWindows": {
+    "description": "A `date` körül megjelenített műszakablakok, `-before … +after` eltolásokkal. Az aktuális ablak: `[a legutolsó ≤ date határ, a következő határ)`; az eltolások napokon át lépkednek a határokon."
+  },
+  "interpolate": {
+    "description": "Kitölti a `{{name}}` helyőrzőket. A többes számú sablon a `values.count` értékhez az `Intl.PluralRules(locale)` alapján választ alakot, szükség esetén az `other` alakra esve vissza. A számokat az `Intl.NumberFormat` formázza. Az ismeretlen helyőrző úgy marad, ahogy le van írva."
+  },
+  "observeCompact": {
+    "description": "`onChange(compact)`, ahol a compact azt jelenti, hogy a szélesség a `breakpoint` alatt van, most és minden változáskor."
+  },
+  "observeWidth": {
+    "description": "Meghívja az `onWidth` függvényt az elem tartalomdobozának szélességével, most és minden változáskor. A kompakt mód és a `listOnlyBreakpoint` a gyökér szélességét használja, nem a nézetablakét vagy a böngészőét."
+  },
+  "pageList": {
+    "description": "A lapozóban megjelenítendő oldalak (0-tól számozva): mind, ha legfeljebb 7 van; egyébként az első kettő, az utolsó kettő és az aktuális oldal ±1, minden résben „ellipsis” jelöléssel."
+  },
+  "prefersReducedMotion": {
+    "description": "A `prefers-reduced-motion: reduce` médialekérdezés; false, ha a médialekérdezések nem érhetők el."
+  },
+  "resolveEnd": {
+    "description": "Egy elem feloldott befejezése: `start + defaultDuration`, ha az `end` hiányzik vagy érvénytelen; a kezdés előtti befejezés nulla hosszúságnak számít."
+  },
+  "resolveLevels": {
+    "description": "A szintdefiníciók `key` szerint indexelve, kitöltött `rank` (alapértelmezés: a tömbbeli index), `variant` és `pinOnPass` mezőkkel."
+  },
+  "resolveShift": {
+    "description": "Az aktuális műszak ablaka (0 eltolás) a `date` értékhez."
+  },
+  "resolveTimeLabel": {
+    "description": "Egy kártya időcímkéje, az első találat szerint: a megadott `timeLabel`; „{observed} {observedLabel}”, ha az `observedLabel` nem üres szöveg; „{since} {timestamp}” érvényes `since` esetén, érvénytelennél csak az előtag; egyébként „{start} – {end}”."
+  },
+  "sortOverflowItems": {
+    "description": "Az elemek az oszlop értéke szerint rendezve; az egyezéseket a `compare` dönti el. A teljes összehasonlítás, az egyezésekkel együtt, követi az irányt. A nem rendezhető vagy ismeretlen oszlop csak a `compare` szerint rendez."
+  },
+  "toMs": {
+    "description": "Egy dátumbemenet ezredmásodperce az epoch óta; `NaN`, ha érvénytelen. Az eltolás nélküli szöveg helyi falióra szerinti idő, a csak dátumot tartalmazó szövegeket is beleértve (amelyeket a `Date` önmagában UTC-ként olvasna)."
+  },
+  "useCompact": {
+    "description": "A kompakt mód az elem tartalomszélességéből; a logikai érték kényszeríti. A szerveren hamis."
+  },
+  "useControllableState": {
+    "description": "Vezérelt, ha meg van adva a `value`, egyébként belső állapot, amely a `defaultValue` értékről indul."
+  },
+  "useNow": {
+    "description": "A `now` ezredmásodperce az epoch óta, vagy egy belső óra, amely `interval` ezredmásodpercenként lép, és szünetel, amíg a dokumentum rejtett."
+  },
+  "usePinOnPass": {
+    "description": "Elgördüléskori rögzítés saját jelölőnyelvhez: regisztrálod az érzékelőket, kiolvasod a rögzített kulcsokat."
+  },
+  "useScheduler": {
+    "description": "Mindaz, amit a `<Scheduler>` használ, jelölőnyelv nélkül."
+  },
+  "useShiftModel": {
+    "description": "Egy dátumhoz tartozó műszakablakok és szakaszok."
+  },
+  "useShiftNavigation": {
+    "description": "Programozott műszaknavigáció saját jelölőnyelvhez."
+  },
+  "useTimelineLayout": {
+    "description": "Az `items` idővonal-elrendezése, a bemenetei alapján memoizálva."
+  }
+}

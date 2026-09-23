@@ -25,9 +25,18 @@ export interface NavigatorHooks {
  */
 export interface NavigatorOptions extends NavigatorHooks {
   scroller: HTMLElement;
-  /** ms after the final correction before onDone. Default 180. */
+  /**
+   * How long to wait after the final correction before `onDone`, in milliseconds.
+   *
+   * @defaultValue 180
+   */
   resumeDelay?: number;
-  /** ms without scroll events that count as settled when `scrollend` is not supported. Default 500. */
+  /**
+   * How long without scroll events counts as settled where `scrollend` is not supported, in
+   * milliseconds.
+   *
+   * @defaultValue 500
+   */
   settleDelay?: number;
 }
 
