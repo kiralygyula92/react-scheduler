@@ -14,9 +14,8 @@
       "entry": ["src/shell/**/*.{ts,tsx}", "src/i18n/**/*.{ts,tsx}", "src/lib/**/*.ts", "scripts/serve.ts"],
       // @react-router/node and isbot are what knip's react-router plugin expects a server build to
       // import. This site prerenders with `ssr: false` and a web-stream entry, so it uses neither.
-      // The package itself is imported by the demos, which arrive with the content milestones.
       // axe-core is injected into the page by path, so no import names it.
-      "ignoreDependencies": ["@react-router/node", "isbot", "@react-schedulerkit/react-scheduler", "axe-core"],
+      "ignoreDependencies": ["@react-router/node", "isbot", "axe-core"],
     },
   },
 }

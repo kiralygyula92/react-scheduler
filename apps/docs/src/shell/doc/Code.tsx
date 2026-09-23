@@ -134,7 +134,7 @@ export function Code({ children, lang, title, highlight: marked, tabs }: CodePro
     <>
       {title !== undefined && <div className="ds-code__title">{title}</div>}
       {/* The language is repeated on `pre` so the Markdown twins can fence the block with it. */}
-      <pre data-lang={lang}>
+      <pre data-lang={lang} tabIndex={0}>
         <code>
           {lines.map((tokens, index) => (
             <span

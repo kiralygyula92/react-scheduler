@@ -82,7 +82,7 @@ export function SymbolPage({ data, ns }: { data: ApiSymbolData; ns: string }): R
 
       {(data.slots ?? []).length > 0 && (
         <Section id="slots" ns="api" titleKey="sections.slots">
-          <div className="ds-table-wrap">
+          <div className="ds-table-wrap" tabIndex={0}>
             <table className="ds-table">
               <thead>
                 <tr>
@@ -109,7 +109,7 @@ export function SymbolPage({ data, ns }: { data: ApiSymbolData; ns: string }): R
 
       {(data.cssVars ?? []).length > 0 && (
         <Section id="css-variables" ns="api" titleKey="sections.cssVariables">
-          <div className="ds-table-wrap">
+          <div className="ds-table-wrap" tabIndex={0}>
             <table className="ds-table">
               <thead>
                 <tr>

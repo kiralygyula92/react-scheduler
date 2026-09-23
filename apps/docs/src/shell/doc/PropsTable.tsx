@@ -69,7 +69,7 @@ export function PropsTable({
   if (members.length === 0) return null;
 
   return (
-    <div className="ds-table-wrap">
+    <div className="ds-table-wrap" tabIndex={0}>
       <table className="ds-table">
         <thead>
           <tr>

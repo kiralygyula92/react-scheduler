@@ -22,7 +22,7 @@ function Rows({ entries, ns }: { entries: readonly Entry[]; ns: string }): React
   const api = useT('api');
   const { localePath } = useNav();
   return (
-    <div className="ds-table-wrap">
+    <div className="ds-table-wrap" tabIndex={0}>
       <table className="ds-table">
         <thead>
           <tr>
@@ -72,7 +72,7 @@ export function ApiIndex({ ns }: { ns: string }): React.ReactElement {
         <Rows entries={of('type')} ns="types" />
       </Section>
       <Section id="css-variables" ns={ns} titleKey="sections.css-variables">
-        <div className="ds-table-wrap">
+        <div className="ds-table-wrap" tabIndex={0}>
           <table className="ds-table">
             <thead>
               <tr>

@@ -24,10 +24,10 @@ const PACKS: Readonly<Record<string, SchedulerLocalization>> = {
  * The day every demo shows: a Tuesday, far enough away that no reader mistakes it for live data
  * (Feature Dossier 08: dates in 2031). Built from parts, so it is midnight where the reader is.
  */
-export const DEMO_DAY = new Date(2031, 2, 11);
+const DEMO_DAY = new Date(2031, 2, 11);
 
 /** What the demos treat as the current moment: inside the morning shift of that day. */
-export const DEMO_NOW = new Date(2031, 2, 11, 10, 20);
+const DEMO_NOW = new Date(2031, 2, 11, 10, 20);
 
 export interface Demo {
   /** The strings of `locales/{lng}/demos.json`. */

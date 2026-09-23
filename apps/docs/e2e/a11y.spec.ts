@@ -24,7 +24,8 @@ async function violations(page: Page): Promise<string[]> {
     .map((violation) => `${violation.id} at ${violation.nodes.map((node) => node.target.join(' ')).join(', ')}`);
 }
 
-/** One page per template kind, plus one non-English page. */
+/** One page per template kind — including the ones the component itself renders on — plus one
+ * non-English page. */
 const PAGES = [
   '/react-scheduler/',
   '/react-scheduler/getting-started/installation/',
@@ -32,6 +33,9 @@ const PAGES = [
   '/react-scheduler/pinning/',
   '/react-scheduler/demos/',
   '/react-scheduler/api/',
+  '/react-scheduler/api/scheduler/',
+  '/react-scheduler/api/types-model/',
+  '/react-scheduler/timeline-view/',
   '/react-scheduler/customization/theming/',
   '/react-scheduler/discover-more/license/',
   '/react-scheduler/ro/pinning/',
