@@ -2,13 +2,35 @@
 
 React Scheduler used to showcase a schedule in different domains, such as office or factory work.
 
-> **Status:** under construction and not published to npm.
+A working day as shifts, in a list or on a timeline: items placed by time and level, the ones that
+matter kept in view as they scroll past, and every part replaceable. MIT licensed, with no runtime
+dependencies beyond React.
+
+**Documentation, demos and the Playground:** https://react-schedulerkit.vercel.app/react-scheduler/
 
 ## Install
 
 ```bash
 npm install @react-schedulerkit/react-scheduler
 ```
+
+## Usage
+
+```tsx
+import { Scheduler } from '@react-schedulerkit/react-scheduler';
+import '@react-schedulerkit/react-scheduler/styles.css';
+
+const items = [
+  { id: 'a', start: '2031-03-12T09:00', end: '2031-03-12T10:30', level: 'critical', title: 'Handover' },
+  { id: 'b', start: '2031-03-12T11:00', end: '2031-03-12T12:00', level: 'routine', title: 'Stock count' },
+];
+
+export function App() {
+  return <Scheduler items={items} />;
+}
+```
+
+Import the stylesheet once, where your application imports its global CSS.
 
 ## Peer dependencies
 

@@ -97,6 +97,23 @@ test.describe('the page frame', () => {
     await expect(page.locator('h1')).toHaveText('Pagina nu a fost găsită');
   });
 
+  test('keeps a page path under a segment that is no locale a 404', async ({ page }) => {
+    // Page routes are declared once under `:locale`, which also matches `xx`; the layout has to
+    // show the 404 the host answered with, not the page the route table would have matched.
+    const response = await page.goto(`/${pluginId}/xx/pinning/`);
+    expect(response?.status()).toBe(404);
+    await page.waitForFunction(() => document.documentElement.dataset['hydrated'] === 'true');
+    await expect(page.locator('h1')).toHaveText('Page not found');
+  });
+
+  test('ships a root 404.html for the static host', async ({ request }) => {
+    // The file a static host serves for a path without one (docs pack 10 §2); the local server
+    // picks the locale's own 404 instead, so the file is fetched directly.
+    const response = await request.get('/404.html');
+    expect(response.status()).toBe(200);
+    expect(await response.text()).toContain('Page not found');
+  });
+
   test('redirects the site root to the plugin root', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveURL(`/${pluginId}/`);

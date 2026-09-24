@@ -26,7 +26,8 @@
     "check:scenarios": "node scripts/check-scenario-coverage.ts",
     "check:pack": "node scripts/check-pack.ts",
     "knip": "knip",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "release:sandbox": "node scripts/release/sandbox.ts"
   },
   "devDependencies": {
     "@changesets/cli": "3.0.3",

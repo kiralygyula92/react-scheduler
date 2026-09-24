@@ -4,8 +4,9 @@
   "workspaces": {
     ".": {
       // Gate and asset scripts are run by name from package.json, not imported; the audit scripts
-      // are run by hand for the pre-publish audit (docs pack 09 §10).
-      "entry": ["scripts/*.ts", "scripts/audit/*.{ts,mjs}"],
+      // are run by hand for the pre-publish audit (docs pack 09 §10), and the release ones before and
+      // after a publish (10 §4).
+      "entry": ["scripts/*.ts", "scripts/audit/*.{ts,mjs}", "scripts/release/*.ts"],
       // Lighthouse requires `tslib` without declaring it; the workspace provides it hoisted (.npmrc),
       // so nothing here imports it by name.
       "ignoreDependencies": ["tslib"],
