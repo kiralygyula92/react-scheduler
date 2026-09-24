@@ -108,15 +108,35 @@ describe('v1.0 acceptance checks in the browser', () => {
   it.each(['list', 'timeline', 'compact list'] as const)('F-19: the tab order of the %s', async (view) => {
     const compact = view === 'compact list';
     if (compact) await page.viewport(390, 844);
+    // The compact scroll-to-top button mounts and unmounts with the scroll the walk itself causes, and
+    // Firefox can skip a button that appears under the focus it is moving (GAPS G14). Its place in the
+    // order is checked on its own in the next test; this walk checks everything else.
     const element: ReactElement =
-      view === 'timeline' ? <TimelineView {...base} /> : <ListView {...base} enableAnimations={false} />;
+      view === 'timeline' ? (
+        <TimelineView {...base} />
+      ) : (
+        <ListView {...base} enableAnimations={false} enableScrollTopButton={!compact} />
+      );
     const { host } = mount(element, compact ? { width: 390, height: 844 } : undefined);
     const scroller = await settled(host, 500);
-    if (compact) await scrollTo(scroller, scroller.scrollTop + 400);
+    if (compact) {
+      await scrollTo(scroller, scroller.scrollTop + 400);
+      // The pinned strip follows the scroll through an observer, a frame or several later. A fixed
+      // number of frames was enough on an idle machine and not under load (GAPS G14): the walk
+      // began while chips were still arriving. Wait until the strip has stopped changing.
+      let last = '';
+      let still = 0;
+      for (let frame = 0; frame < 240 && still < 10; frame++) {
+        await frames(1);
+        const now = chipTitles(host).join('|');
+        still = now === last ? still + 1 : 0;
+        last = now;
+      }
+    }
     await frames(4);
-    // Root → chips → top navigation → cards in section order → "+more" chips → bottom navigation →
-    // scroll-to-top button. Focus scrolls the view, and the list hides a navigation button whose
-    // shift is the first or last (F-08), so the order is checked as the keys walk the view.
+    // Root → chips → top navigation → cards in section order → "+more" chips → bottom navigation.
+    // Focus scrolls the view, and the list hides a navigation button whose shift is the first or last
+    // (F-08), so the order is checked as the keys walk the view.
     const rank = (element: Element): number => {
       const part = element.closest<HTMLElement>('[data-rs-part]')?.dataset['rsPart'];
       const position = (element as HTMLElement).dataset['rsPosition'];
@@ -144,8 +164,26 @@ describe('v1.0 acceptance checks in the browser', () => {
     expect(new Set(order.filter((element) => rank(element) === 2))).toEqual(new Set(parts(host, 'cardActivator')));
     expect(rank(order[0] as Element)).toBe(0);
     if (view === 'timeline') expect(order.at(-1)).toBe(nav(host, 'bottom'));
-    // The compact scroll-to-top button shows only above the landing; wherever focus left the view, it is last.
-    const scrollTop = parts(host, 'scrollTopButton')[0];
-    if (compact && scrollTop) expect(order.at(-1)).toBe(scrollTop);
+  });
+
+  it('F-19: the scroll-to-top button of the compact list is the last stop once it shows', async () => {
+    await page.viewport(390, 844);
+    const { host } = mount(<ListView {...base} enableAnimations={false} />, { width: 390, height: 844 });
+    const scroller = await settled(host, 500);
+    await scrollTo(scroller, scroller.scrollHeight);
+    await until(() => parts(host, 'scrollTopButton').length > 0, 4000, 'scroll-to-top button');
+    await settled(host, 300);
+
+    // From the last card, forward: past the bottom navigation when there is one, then the button.
+    const cards = parts(host, 'cardActivator');
+    (cards.at(-1) as HTMLElement).focus();
+    await frames(2);
+    const stops: Element[] = [];
+    for (let tab = 0; tab < 4; tab++) {
+      await userEvent.tab();
+      if (!host.contains(document.activeElement)) break;
+      stops.push(document.activeElement as Element);
+    }
+    expect(stops.at(-1)).toBe(parts(host, 'scrollTopButton')[0]);
   });
 });

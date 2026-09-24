@@ -11,6 +11,7 @@ import { type Bundle, hasBundle, loadBundles, lookup } from '~/i18n/locales';
 import { buildPath, DEFAULT_LOCALE, type Locale, LOCALES, parsePath } from '~/i18n/paths';
 import { AppShell } from '~/shell/AppShell';
 import { itemByPath, site } from '~/shell/nav';
+import NotFound from './not-found';
 
 export interface PageData {
   readonly locale: Locale;
@@ -123,7 +124,11 @@ export default function DocsLayout(): React.ReactElement {
     <I18nProvider value={{ locale: data.locale, bundles: data.bundles }}>
       <PageHead data={data} />
       <AppShell layout={data.layout}>
-        <Outlet />
+        {/* A page route is declared once under `:locale`, which also matches a segment that is not a
+            locale (`/react-scheduler/xx/pinning/`). The host answers such a URL with the 404 page, and
+            this layout's data says so; rendering the matched page instead would disagree with that
+            HTML and hydrate a page without its strings. */}
+        {data.page === null ? <NotFound /> : <Outlet />}
       </AppShell>
     </I18nProvider>
   );

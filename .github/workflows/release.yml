@@ -5,6 +5,9 @@ name: Release
 on:
   push:
     branches: [main]
+  # Run by hand once the npm side exists (docs/release/npm.md §4.1): enabling the workflow is not a
+  # push, so without this the first release would wait for an unrelated commit.
+  workflow_dispatch:
 concurrency: release
 permissions:
   contents: write
