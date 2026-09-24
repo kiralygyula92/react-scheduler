@@ -91,3 +91,35 @@
   border-radius: var(--ds-radius-sm);
   background: none;
 }
+
+/* The pack sizes the prop cards at a 300px minimum and the tokens at 320px,
+   which is wider than what a 390px viewport leaves once the panel's own
+   padding is taken off: the page scrolls sideways, which WCAG 2.2 1.4.10 does
+   not allow and the audit's rendering matrix found in all three engines. Below
+   that width the grids fall back to one column, and a long type or token value
+   wraps instead of pushing the card out. */
+@media (width <= 520px) {
+  .ds-pg__cards,
+  .ds-pg__setup,
+  .ds-pg__tokens {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ds-pg__card,
+.ds-pg__token,
+.ds-pg__field {
+  min-width: 0;
+}
+
+.ds-pg__type,
+.ds-pg__prop {
+  overflow-wrap: anywhere;
+}
+
+/* A grid item is as wide as its widest content unless it is told otherwise, so
+   one long prop type stretched the whole panel — and with it the page — past a
+   phone's viewport. */
+.ds-pg > * {
+  min-width: 0;
+}

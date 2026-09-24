@@ -3,8 +3,12 @@
   // other entry point; the entries and ignores below need saying.
   "workspaces": {
     ".": {
-      // Gate and asset scripts are run by name from package.json, not imported.
-      "entry": ["scripts/*.ts"],
+      // Gate and asset scripts are run by name from package.json, not imported; the audit scripts
+      // are run by hand for the pre-publish audit (docs pack 09 §10).
+      "entry": ["scripts/*.ts", "scripts/audit/*.{ts,mjs}"],
+      // Lighthouse requires `tslib` without declaring it; the workspace provides it hoisted (.npmrc),
+      // so nothing here imports it by name.
+      "ignoreDependencies": ["tslib"],
     },
     "apps/docs": {
       // `src/shell/`, `src/i18n/` and `src/lib/` are the site's fixed toolkit: identical in every

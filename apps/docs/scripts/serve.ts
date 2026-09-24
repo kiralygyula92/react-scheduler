@@ -8,6 +8,7 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { extname, resolve } from 'node:path';
+import { createGzip } from 'node:zlib';
 import navigation from '../src/content/nav.json' with { type: 'json' };
 
 const port = Number(process.argv[2] ?? process.env['PORT'] ?? 4173);
@@ -27,6 +28,9 @@ const TYPES: Readonly<Record<string, string>> = {
   '.xml': 'application/xml; charset=utf-8',
   '.data': 'text/x-script; charset=utf-8',
 };
+
+/** What the host compresses, and what it leaves alone because it is already compressed. */
+const COMPRESSED = new Set(['.html', '.js', '.css', '.json', '.md', '.txt', '.svg', '.xml', '.data']);
 
 /** The file a URL path maps to, or null when nothing matches. */
 function fileFor(pathname: string): string | null {
@@ -56,8 +60,21 @@ const server = createServer((request, response) => {
   const file = fileFor(url.pathname);
   const target = file ?? notFoundFor(url.pathname);
   const status = file === null ? 404 : 200;
-  response.writeHead(status, { 'Content-Type': TYPES[extname(target)] ?? 'application/octet-stream' });
-  createReadStream(target).pipe(response);
+  const type = TYPES[extname(target)] ?? 'application/octet-stream';
+  // The host serves text compressed, and a page measured against raw bytes is measured against a
+  // transfer that never happens (docs pack 07 §1 is a gzipped budget).
+  const gzip = COMPRESSED.has(extname(target)) && (request.headers['accept-encoding'] ?? '').includes('gzip');
+  response.writeHead(status, {
+    'Content-Type': type,
+    ...(gzip && { 'Content-Encoding': 'gzip' }),
+    // The hashed assets are immutable on the host (`vercel.json`), and a measurement taken without
+    // that says more about this server than about the site.
+    ...(url.pathname.startsWith('/assets/') && { 'Cache-Control': 'public, max-age=31536000, immutable' }),
+    Vary: 'Accept-Encoding',
+  });
+  const stream = createReadStream(target);
+  if (gzip) stream.pipe(createGzip()).pipe(response);
+  else stream.pipe(response);
 });
 
 server.listen(port, () => {

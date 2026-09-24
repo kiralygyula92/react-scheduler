@@ -1,11 +1,15 @@
 // SPDX-License-Identifier: MIT
-// Every route of the site, generated from `content/nav.json` × the seven locales, plus the 404 of
-// each locale (docs pack 01 §6). Paths carry the plugin prefix themselves; there is no router
-// basename and Vite `base` stays `/` (10 §2).
+// Every route of the site, generated from `content/nav.json` (docs pack 01 §6). Paths carry the
+// plugin prefix themselves; there is no router basename and Vite `base` stays `/` (10 §2).
 //
 // The page components are the route modules, under one layout route that loads the locale bundles
 // and draws the shell. That gives each page its own chunk and puts its whole content in the
 // prerendered HTML. Adding a page means adding it to nav.json and nothing else.
+//
+// A page is declared twice, not seven times: once at its English path and once under `:locale`. The
+// module, the chunk and the prerendered HTML are the same either way — the locale comes from the
+// pathname, which `layout.tsx` parses — and the route manifest the browser downloads holds 250
+// entries instead of 1,736 (GAPS G13).
 import { type RouteConfig, index, route } from '@react-router/dev/routes';
 import navigation from './content/nav.json';
 import { LOCALES } from './i18n/paths';
@@ -53,15 +57,24 @@ export function routePaths(): string[] {
   return all;
 }
 
-const children = LOCALES.flatMap((locale) => [
-  ...pages().map((page) => {
-    const path = relative(locale, page.path);
+/** The English path, and the same path behind a locale segment. */
+function bothForms(path: string): readonly string[] {
+  const inner = relative('en', path);
+  return [inner, [':locale', inner].filter((segment) => segment !== '').join('/')];
+}
+
+const children = [
+  ...pages().flatMap((page) => {
     const file = `./content/pages/${page.page}.tsx`;
-    const id = `page.${locale}.${page.page}`;
-    return path === '' ? index(file, { id }) : route(path, file, { id });
+    return bothForms(page.path).map((path, index_) => {
+      const id = `page.${index_ === 0 ? 'en' : 'locale'}.${page.page}`;
+      return path === '' ? index(file, { id }) : route(path, file, { id });
+    });
   }),
-  route(relative(locale, '/404/'), './routes/not-found.tsx', { id: `not-found.${locale}` }),
-]);
+  ...bothForms('/404/').map((path, index_) =>
+    route(path, './routes/not-found.tsx', { id: `not-found.${index_ === 0 ? 'en' : 'locale'}` }),
+  ),
+];
 
 export default [
   route(pluginId, './routes/layout.tsx', children),
