@@ -49,7 +49,7 @@
       "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> și orice bundler care citește harta <code>exports</code>.",
       "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router și Pages Router: programul este o componentă de client.",
       "<link to=\"/integrations/ssr/\">Randarea pe server</link> în general: primul randat este markup-ul serverului, iar observatorii pornesc după hidratare.",
-      "Node 20 sau mai nou, dacă randezi pe un server."
+      "Node 22 sau mai nou, dacă randezi pe un server."
     ]
   },
   "size": {

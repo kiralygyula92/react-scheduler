@@ -49,7 +49,7 @@
       "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> és minden bundler, amely olvassa az <code>exports</code> térképet.",
       "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router és Pages Router: az ütemterv kliensoldali komponens.",
       "<link to=\"/integrations/ssr/\">Szerveroldali megjelenítés</link> általában: az első megjelenítés a szerver markupja, a figyelők pedig a hidratálás után indulnak.",
-      "Node 20 vagy újabb, ha szerveren jelenítesz meg."
+      "Node 22 vagy újabb, ha szerveren jelenítesz meg."
     ]
   },
   "size": {

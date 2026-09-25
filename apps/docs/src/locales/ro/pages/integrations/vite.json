@@ -20,7 +20,7 @@
     "points": [
       "Un proiect Vite + React, JavaScript sau TypeScript. <code>npm create vite@latest</code> îți dă unul.",
       "React 18.2 sau 19 și <code>react-dom</code>-ul potrivit. Sunt dependențe de tip peer, deci rămân ale tale.",
-      "Node 20 sau mai nou pentru build."
+      "Node 22 sau mai nou pentru build."
     ]
   },
   "steps": {

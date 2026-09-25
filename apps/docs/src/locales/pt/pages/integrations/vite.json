@@ -20,7 +20,7 @@
     "points": [
       "Um projeto Vite + React, em JavaScript ou TypeScript. O <code>npm create vite@latest</code> dá-lhe um.",
       "React 18.2 ou 19, e o <code>react-dom</code> correspondente. São dependências peer, por isso continuam a ser suas.",
-      "Node 20 ou mais recente para compilar."
+      "Node 22 ou mais recente para compilar."
     ]
   },
   "steps": {

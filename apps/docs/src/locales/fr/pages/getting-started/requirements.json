@@ -49,7 +49,7 @@
       "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> et tout bundler qui lit la carte <code>exports</code>.",
       "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router et Pages Router : le planning est un composant client.",
       "<link to=\"/integrations/ssr/\">Rendu serveur</link> en général : le premier rendu est le balisage du serveur, et les observateurs démarrent après l’hydratation.",
-      "Node 20 ou plus récent, si vous rendez sur un serveur."
+      "Node 22 ou plus récent, si vous rendez sur un serveur."
     ]
   },
   "size": {

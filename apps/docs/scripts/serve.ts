@@ -4,10 +4,14 @@
 // with the prerendered 404 page of the locale. Used by the E2E suite; no dependency, so CI needs
 // nothing beyond Node.
 //
+// It answers on the loopback interface only and never outside `build/client`: an encoded `../`
+// used to reach any file on the disk, from any machine on the network.
+//
 // Usage: node scripts/serve.ts [port]
+import { lookup } from 'node:dns/promises';
 import { createReadStream, existsSync, statSync } from 'node:fs';
-import { createServer } from 'node:http';
-import { extname, resolve } from 'node:path';
+import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
+import { extname, resolve, sep } from 'node:path';
 import { createGzip } from 'node:zlib';
 import navigation from '../src/content/nav.json' with { type: 'json' };
 
@@ -32,10 +36,15 @@ const TYPES: Readonly<Record<string, string>> = {
 /** What the host compresses, and what it leaves alone because it is already compressed. */
 const COMPRESSED = new Set(['.html', '.js', '.css', '.json', '.md', '.txt', '.svg', '.xml', '.data']);
 
-/** The file a URL path maps to, or null when nothing matches. */
+/** Whether a resolved path is `build/client` itself or inside it. */
+function inside(path: string): boolean {
+  return path === root || path.startsWith(root + sep);
+}
+
+/** The file a URL path maps to, or null when nothing matches — including anything outside the root. */
 function fileFor(pathname: string): string | null {
-  const decoded = decodeURIComponent(pathname);
-  const direct = resolve(root, `.${decoded}`);
+  const direct = resolve(root, `.${pathname}`);
+  if (!inside(direct)) return null;
   if (existsSync(direct) && statSync(direct).isFile()) return direct;
   const index = resolve(direct, 'index.html');
   return existsSync(index) ? index : null;
@@ -43,13 +52,23 @@ function fileFor(pathname: string): string | null {
 
 /** The 404 page of the locale the URL asked for, so the message is in the right language. */
 function notFoundFor(pathname: string): string {
+  const fallback = resolve(root, pluginId, '404', 'index.html');
   const segment = pathname.split('/').filter((part) => part !== '')[1] ?? '';
   const localised = resolve(root, pluginId, segment, '404', 'index.html');
-  return existsSync(localised) ? localised : resolve(root, pluginId, '404', 'index.html');
+  return inside(localised) && existsSync(localised) ? localised : fallback;
 }
 
-const server = createServer((request, response) => {
+function handle(request: IncomingMessage, response: ServerResponse): void {
   const url = new URL(request.url ?? '/', `http://localhost:${String(port)}`);
+  // A malformed escape used to throw here and take the whole server down with one request.
+  let pathname: string;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    response.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+    response.end('Bad request');
+    return;
+  }
 
   if (url.pathname === '/') {
     response.writeHead(308, { Location: `/${pluginId}/` });
@@ -57,8 +76,8 @@ const server = createServer((request, response) => {
     return;
   }
 
-  const file = fileFor(url.pathname);
-  const target = file ?? notFoundFor(url.pathname);
+  const file = fileFor(pathname);
+  const target = file ?? notFoundFor(pathname);
   const status = file === null ? 404 : 200;
   const type = TYPES[extname(target)] ?? 'application/octet-stream';
   // The host serves text compressed, and a page measured against raw bytes is measured against a
@@ -75,8 +94,18 @@ const server = createServer((request, response) => {
   const stream = createReadStream(target);
   if (gzip) stream.pipe(createGzip()).pipe(response);
   else stream.pipe(response);
-});
+}
 
-server.listen(port, () => {
-  console.log(`serve: http://localhost:${String(port)}/${pluginId}/`);
-});
+// `localhost` resolves to the IPv6 loopback for some clients and the IPv4 one for others, so every
+// address it resolves to is served — and nothing else. A machine that resolves an IPv6 address it
+// cannot bind simply skips it.
+const hosts = new Map((await lookup('localhost', { all: true })).map((entry) => [entry.address, entry.family]));
+for (const [host, family] of hosts) {
+  const server = createServer(handle);
+  server.on('error', (error: NodeJS.ErrnoException) => {
+    if (family === 6 && (error.code === 'EADDRNOTAVAIL' || error.code === 'EAFNOSUPPORT')) return;
+    throw error;
+  });
+  server.listen(port, host);
+}
+console.log(`serve: http://localhost:${String(port)}/${pluginId}/`);

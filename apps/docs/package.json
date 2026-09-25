@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Documentation website for React Scheduler.",
   "scripts": {
-    "dev": "react-router dev",
+    "dev": "node scripts/extract-api.ts && react-router dev",
     "build": "node scripts/extract-api.ts && node scripts/build-site.ts && node scripts/build-search-index.ts && node scripts/build-machine-surface.ts",
     "api": "node scripts/extract-api.ts",
     "typecheck": "node scripts/extract-api.ts && react-router typegen && tsc --noEmit",

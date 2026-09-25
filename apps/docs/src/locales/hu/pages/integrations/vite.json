@@ -20,7 +20,7 @@
     "points": [
       "Egy Vite + React projekt, JavaScriptben vagy TypeScriptben. Az <code>npm create vite@latest</code> ad egyet.",
       "React 18.2 vagy 19 és a hozzá tartozó <code>react-dom</code>. Ezek peer függőségek, tehát a tieid maradnak.",
-      "Node 20 vagy újabb a build-hez."
+      "Node 22 vagy újabb a build-hez."
     ]
   },
   "steps": {

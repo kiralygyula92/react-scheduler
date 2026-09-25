@@ -14,11 +14,11 @@ jobs:
       matrix:
         react: ['18.2', '18.3', '19']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0 # the commit-message scan needs the history of the range
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @react-schedulerkit/react-scheduler add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
@@ -58,7 +58,7 @@ jobs:
       # comparison only writes its captures here: the references are Windows renderings (job below).
       - run: pnpm test:browser
         if: matrix.react == '19'
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always() && matrix.react == '19'
         with:
           name: screenshots-linux
@@ -68,7 +68,7 @@ jobs:
       # baselines are Windows renderings and skip here (visual job below).
       - run: pnpm e2e apps/docs/e2e
         if: matrix.react == '19'
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: failure() && matrix.react == '19'
         with:
           name: playwright-report
@@ -80,9 +80,9 @@ jobs:
     runs-on: windows-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install chromium
@@ -94,7 +94,7 @@ jobs:
       - run: pnpm --filter docs api
       - run: pnpm --filter docs build
       - run: pnpm e2e apps/docs/e2e/visual.spec.ts --project=chromium
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: screenshots-windows

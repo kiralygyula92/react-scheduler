@@ -49,7 +49,7 @@
       "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> und jeder Bundler, der die <code>exports</code>-Karte liest.",
       "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router und Pages Router: der Plan ist eine Client-Komponente.",
       "<link to=\"/integrations/ssr/\">Server-Rendering</link> allgemein: das erste Rendern ist das Markup des Servers, die Observer starten nach der Hydration.",
-      "Node 20 oder neuer, wenn Sie auf einem Server rendern."
+      "Node 22 oder neuer, wenn Sie auf einem Server rendern."
     ]
   },
   "size": {
