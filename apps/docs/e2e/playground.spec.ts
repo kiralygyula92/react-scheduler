@@ -65,13 +65,31 @@ test.describe('playground', () => {
     await open(page, PLAYGROUND);
     const log = page.locator('.ds-pg__panel', { has: page.locator('#event-log') });
     await log.locator('summary').click();
-    // The schedule announces its range and its shift as it mounts, so the log is never empty for
-    // long; what matters is that a reader's own action turns up in it.
+    // The schedule lands on the current shift and pins what it scrolls past, announcing its range,
+    // its shift and its pins as it goes; the reader's own action is what has to turn up after that.
+    const stage = page.locator('.ds-pg__component');
+    await expect
+      .poll(() => stage.locator('[data-rs-part="scroller"]').evaluate((element) => element.scrollTop))
+      .toBeGreaterThan(0);
+    await page.waitForTimeout(800);
     await log.getByRole('button', { name: 'Clear' }).click();
     await expect(log.locator('li')).toHaveCount(0);
     await expect(log).toContainText('Nothing yet.');
 
-    await page.locator('.ds-pg__component [data-rs-part="cardActivator"]').first().click();
+    // A card already in view below the sticky top: the click itself scrolls nothing.
+    const cards = stage.locator('[data-rs-part="cardActivator"]');
+    const inView = await cards.evaluateAll((elements) => {
+      const top =
+        document.querySelector('.ds-pg__component [data-rs-part="stickyTop"]')?.getBoundingClientRect().bottom ?? 0;
+      const bottom =
+        document.querySelector('.ds-pg__component [data-rs-part="scroller"]')?.getBoundingClientRect().bottom ?? 0;
+      return elements.findIndex((card) => {
+        const rect = card.getBoundingClientRect();
+        return rect.top >= top && rect.bottom <= bottom;
+      });
+    });
+    expect(inView).toBeGreaterThanOrEqual(0);
+    await cards.nth(inView).click();
     await expect(log).toContainText('onItemOpen');
     await expect(log.locator('li').first()).toContainText('onItemOpen');
   });

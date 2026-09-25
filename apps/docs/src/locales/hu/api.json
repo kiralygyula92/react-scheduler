@@ -212,7 +212,7 @@
       "collapseMinItems": "A fejlécjelzés csak akkor léphet működésbe, ha az aktuális műszakban ennél több elem van.",
       "landing": "Hová érkezik a lista az első megjelenítéskor, dátumváltáskor és a nézetbe lépéskor.",
       "navigationThreshold": "A navigáció csak akkor jelenik meg, ha valamelyik műszakban legalább ennyi elem van.",
-      "previousJumpExtraOffset": "További eltolás képpontban, ha az ugrás korábbi műszakra megy, hogy annak utolsó elemei láthatók maradjanak.",
+      "previousJumpExtraOffset": "További eltolás képpontban, ha az ugrás az első műszakra megy, és az korábbi az aktuálisnál, hogy a lista egészen az elejéig érjen. Minden más műszakot a saját kezdetén ér el.",
       "scrollTopThreshold": "Az ennél nagyobb görgetés képpontban megjeleníti a felugró gombot.",
       "segmentEpsilon": "Tűréshatár képpontban annak eldöntéséhez, melyik műszakszakaszban áll a görgethető terület."
     }
@@ -976,7 +976,8 @@
       "minCardHeight": "Legfeljebb milyen rövidre rajzolható egy kártya, képpontban.",
       "overflowMergeWindow": "Milyen messze lehet egymástól két zsúfolt csoport ezredmásodpercben, és mégis összeolvadjon.",
       "rangeEnd": "Az utolsó pillanat, amelyet a rács lefed, epoch ezredmásodpercben.",
-      "rangeStart": "Az első pillanat, amelyet a rács lefed, epoch ezredmásodpercben."
+      "rangeStart": "Az első pillanat, amelyet a rács lefed, epoch ezredmásodpercben.",
+      "keepCardsApart": "Az oszlopát a megrajzolt magassága végéig foglalja-e egy kártya, és jut-e egy csoportban oszlop minden kártyának, hogy két kártya ne fedje egymást. Kikapcsolva egy rövid kártya a következő alá csúszhat."
     }
   },
   "TimelineOptions": {
@@ -991,10 +992,11 @@
       "maxColumns": "Hány oszlopon oszolhatnak el az átfedő elemek.",
       "maxColumnsCompact": "A zsúfoltsági korlát a kompakt elrendezésben.",
       "maxColumnsCrowded": "A korlát, ha több elem fed át, mint `maxColumns`; a többi a „+more” jelölésbe kerül.",
-      "minCardHeight": "Milyen alacsonyra rajzolható egy kártya képpontban, bármilyen rövid is az elem.",
+      "minCardHeight": "Milyen alacsonyra rajzolható egy kártya képpontban, bármilyen rövid is az elem. Az alapértelmezett előbeállítás helyet hagy a címnek és a címkék sorának: 108, a `comfortable` sűrűségben 128, a `dense`-ben 88. A klasszikus előbeállítás és a headless vezérlő 80-at használ (96-ot és 56-ot), ahol egy rövid kártya levághatja a címét.",
       "nearBottomGutterMinutes": "Mennyi időt hagy percben a cél alatt egy „alul közeli” érkezés.",
       "overflowMergeWindow": "Milyen messze lehet egymástól ezredmásodpercben két zsúfolt csoport, hogy még egyetlen „+more” jelölésbe olvadjanak. Az `Infinity` az egész láncot összevonja.",
-      "viewEnterRealignDelay": "Mennyit vár az idővonal ezredmásodpercben a nézetbe lépés után, mielőtt újraigazít."
+      "viewEnterRealignDelay": "Mennyit vár az idővonal ezredmásodpercben a nézetbe lépés után, mielőtt újraigazít.",
+      "keepCardsApart": "Soha ne fedjék-e egymást a kártyák. Egy kártya a megrajzolt magassága végéig – legalább `minCardHeight` – foglalja az oszlopát, így az oszlop következő eleme alatta kezdődik; egy átfedő csoport pedig annyi oszlopon osztozik, ahányat a kártyái elfoglalnak. Az alapértelmezett előbeállítás bekapcsolja. A klasszikus előbeállítás és a headless vezérlő az eredeti elhelyezést tartja meg, ahol egy rövid kártya a következő alá csúszhat, kompakt módban pedig két kártya kerülhet egymásra egy oszlopban."
     }
   },
   "TimelineView": {

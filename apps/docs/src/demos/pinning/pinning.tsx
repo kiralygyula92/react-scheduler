@@ -23,18 +23,21 @@ export default function Pinning(): React.ReactElement {
   return (
     <div>
       <p aria-live="polite">{demo.t('controls.pinnedCount', { count: pinned.length })}</p>
-      <Scheduler
-        view="list"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        onPinnedChange={(ids) => {
-          setPinned(ids);
-        }}
-        localization={demo.localization}
-      />
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          onPinnedChange={(ids) => {
+            setPinned(ids);
+          }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

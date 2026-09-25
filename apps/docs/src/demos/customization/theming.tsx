@@ -9,6 +9,7 @@ import {
   type PresetName,
   Scheduler,
 } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -20,71 +21,51 @@ const LEVEL_KEYS = classicLevels.map((level) => level.key);
 export default function Theming(): React.ReactElement {
   const demo = useDemo();
   const [preset, setPreset] = useState<PresetName>('default');
-  const [scheme, setScheme] = useState<ColorScheme>('light');
+  const [picked, setScheme] = useState<ColorScheme | null>(null);
+  const scheme = picked ?? demo.scheme;
   const [density, setDensity] = useState<Density>('standard');
   const items = demo.items({ seed: 107, count: 10, start: demo.at(6), hours: 8, levels: LEVEL_KEYS });
 
+  const titled = (value: string): string => `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.preset')}</legend>
-        {PRESETS.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="theme-preset"
-              checked={preset === value}
-              onChange={() => {
-                setPreset(value);
-              }}
-            />
-            {demo.t(value === 'default' ? 'controls.presetDefault' : 'controls.presetClassic')}
-          </label>
-        ))}
-      </fieldset>
-      <fieldset>
-        <legend>{demo.t('controls.scheme')}</legend>
-        {SCHEMES.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="theme-scheme"
-              checked={scheme === value}
-              onChange={() => {
-                setScheme(value);
-              }}
-            />
-            {demo.t(`controls.scheme${value.charAt(0).toUpperCase()}${value.slice(1)}`)}
-          </label>
-        ))}
-      </fieldset>
-      <fieldset>
-        <legend>{demo.t('controls.density')}</legend>
-        {DENSITIES.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="theme-density"
-              checked={density === value}
-              onChange={() => {
-                setDensity(value);
-              }}
-            />
-            {demo.t(`controls.density${value.charAt(0).toUpperCase()}${value.slice(1)}`)}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        preset={preset}
-        colorScheme={scheme}
-        density={density}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.preset')}
+          options={PRESETS.map((value) => ({
+            value,
+            label: demo.t(value === 'default' ? 'controls.presetDefault' : 'controls.presetClassic'),
+          }))}
+          value={preset}
+          onChange={setPreset}
+        />
+        <Choice
+          label={demo.t('controls.scheme')}
+          options={SCHEMES.map((value) => ({ value, label: demo.t(`controls.scheme${titled(value)}`) }))}
+          value={scheme}
+          onChange={setScheme}
+        />
+        <Choice
+          label={demo.t('controls.density')}
+          options={DENSITIES.map((value) => ({ value, label: demo.t(`controls.density${titled(value)}`) }))}
+          value={density}
+          onChange={setDensity}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          preset={preset}
+          colorScheme={scheme}
+          density={density}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

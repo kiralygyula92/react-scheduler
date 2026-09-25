@@ -12,6 +12,7 @@ import {
   type ViewKind,
   type WallClock,
 } from '@react-schedulerkit/react-scheduler';
+import { Check, Choice, Controls } from './controls';
 import { type FixtureData, fixtureItems, fixtureMoment } from './fixture';
 import { useDemo } from './useDemo';
 
@@ -23,7 +24,9 @@ const SCHEMES: readonly ColorScheme[] = ['light', 'dark'];
 export function FixtureBoard({ fixture }: { fixture: FixtureData }): React.ReactElement {
   const demo = useDemo();
   const [view, setView] = useState<ViewKind>('timeline');
-  const [scheme, setScheme] = useState<ColorScheme>('light');
+  // The site's scheme until the reader picks one here.
+  const [picked, setScheme] = useState<ColorScheme | null>(null);
+  const scheme = picked ?? demo.scheme;
   const [compact, setCompact] = useState(false);
 
   // Every offset in a fixture is minutes from midnight of the day it was recorded on; midnight of
@@ -38,63 +41,43 @@ export function FixtureBoard({ fixture }: { fixture: FixtureData }): React.React
 
   return (
     <div>
-      <div role="group" aria-label={demo.t('controls.view')}>
-        {VIEWS.map((kind) => (
-          <button
-            key={kind}
-            type="button"
-            aria-pressed={view === kind}
-            onClick={() => {
-              setView(kind);
-            }}
-          >
-            {demo.localization.views[kind]}
-          </button>
-        ))}
-      </div>
-      <fieldset>
-        <legend>{demo.t('controls.scheme')}</legend>
-        {SCHEMES.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name={`${fixture.id}-scheme`}
-              checked={scheme === value}
-              onChange={() => {
-                setScheme(value);
-              }}
-            />
-            {demo.t(value === 'light' ? 'controls.schemeLight' : 'controls.schemeDark')}
-          </label>
-        ))}
-      </fieldset>
-      <label>
-        <input
-          type="checkbox"
-          checked={compact}
-          onChange={(event) => {
-            setCompact(event.target.checked);
-          }}
+      <Controls>
+        <Choice
+          label={demo.t('controls.view')}
+          options={VIEWS.map((kind) => ({ value: kind, label: demo.localization.views[kind] }))}
+          value={view}
+          onChange={setView}
         />
-        {demo.t('controls.compact')}
-      </label>
-      <Scheduler
-        items={items}
-        levels={classicLevels}
-        shifts={{
-          durationHours: fixture.shiftHours,
-          anchor,
-          before: 1,
-          after: 1,
-        }}
-        date={fixtureMoment(fixture, midnight, 'date')}
-        now={fixtureMoment(fixture, midnight, 'now')}
-        view={view}
-        onViewChange={setView}
-        colorScheme={scheme}
-        compact={compact}
-        localization={demo.localization}
-      />
+        <Choice
+          label={demo.t('controls.scheme')}
+          options={SCHEMES.map((value) => ({
+            value,
+            label: demo.t(value === 'light' ? 'controls.schemeLight' : 'controls.schemeDark'),
+          }))}
+          value={scheme}
+          onChange={setScheme}
+        />
+        <Check label={demo.t('controls.compact')} checked={compact} onChange={setCompact} />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          items={items}
+          levels={classicLevels}
+          shifts={{
+            durationHours: fixture.shiftHours,
+            anchor,
+            before: 1,
+            after: 1,
+          }}
+          date={fixtureMoment(fixture, midnight, 'date')}
+          now={fixtureMoment(fixture, midnight, 'now')}
+          view={view}
+          onViewChange={setView}
+          colorScheme={scheme}
+          compact={compact}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

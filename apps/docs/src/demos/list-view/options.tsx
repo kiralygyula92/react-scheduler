@@ -3,6 +3,7 @@
 // at all, and how far you have to scroll before the button back to the top does.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 1, after: 1 } as const;
@@ -16,32 +17,27 @@ export default function ListOptionsDemo(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.navigationThreshold')}</legend>
-        {THRESHOLDS.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="navigation-threshold"
-              checked={threshold === value}
-              onChange={() => {
-                setThreshold(value);
-              }}
-            />
-            {demo.t('controls.items', { count: value })}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        view="list"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        list={{ navigationThreshold: threshold, scrollTopThreshold: 96 }}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.navigationThreshold')}
+          options={THRESHOLDS.map((value) => ({ value, label: demo.t('controls.items', { count: value }) }))}
+          value={threshold}
+          onChange={setThreshold}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          list={{ navigationThreshold: threshold, scrollTopThreshold: 96 }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

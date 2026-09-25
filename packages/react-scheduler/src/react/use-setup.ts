@@ -8,11 +8,13 @@ import {
   useCallback,
   useEffect,
   useId,
+  useMemo,
   useState,
   useSyncExternalStore,
 } from 'react';
 import { createScheduler } from '../core/controller';
-import type { ColorScheme, SchedulerItem, ViewKind } from '../core/types';
+import type { TimelineOptions } from '../core/options';
+import type { ColorScheme, Density, SchedulerItem, ViewKind } from '../core/types';
 import { prefersReducedMotion } from '../dom/observers';
 import { createFocusMemory, type FocusMemory, type SchedulerContextValue } from './context';
 import type { ViewApi } from './runtime';
@@ -44,6 +46,33 @@ function useColorScheme(setting: ColorScheme): 'light' | 'dark' {
   return system ? (dark ? 'dark' : 'light') : setting;
 }
 
+/**
+ * The default preset's shortest timeline card, per density: the title with the card's own padding
+ * above and below it, the divider and the pill row (ADR 0005 D2). Classic and the headless controller
+ * keep the source's 80 / 96 / 56, which can cut a short card's title, for parity.
+ */
+const DEFAULT_PRESET_MIN_CARD: Readonly<Record<Density, number>> = { standard: 108, comfortable: 128, dense: 88 };
+
+/**
+ * The timeline options with the default preset's card rules filled in where the consumer set none: the
+ * taller minimum, and cards kept apart so that minimum never runs under the next card.
+ */
+function useTimelineOptions<TItem extends SchedulerItem>(props: SchedulerProps<TItem>): TimelineOptions | undefined {
+  const { timeline, preset = 'default', density = 'standard' } = props;
+  // Memoized: the controller recomputes the layout when this object's identity changes.
+  return useMemo(
+    () =>
+      preset === 'default'
+        ? {
+            ...timeline,
+            minCardHeight: timeline?.minCardHeight ?? DEFAULT_PRESET_MIN_CARD[density],
+            keepCardsApart: timeline?.keepCardsApart ?? true,
+          }
+        : timeline,
+    [timeline, preset, density],
+  );
+}
+
 /** A DOM-safe id prefix from React's generated id. */
 function idPrefix(generated: string): string {
   return `rs-${generated.replace(/[^a-zA-Z0-9_-]/g, '')}`;
@@ -53,7 +82,8 @@ export function useSchedulerSetup<TItem extends SchedulerItem>(
   props: SchedulerProps<TItem>,
   fixedView?: ViewKind,
 ): SchedulerContextValue<TItem> {
-  const options = fixedView ? { ...props, view: fixedView } : props;
+  const timeline = useTimelineOptions(props);
+  const options = { ...props, ...(fixedView ? { view: fixedView } : {}), timeline };
   const [controller] = useState(() => createScheduler<TItem, SyntheticEvent, KeyboardEvent>(options));
   controller.setOptions(options);
   useSyncExternalStore(controller.subscribe, controller.getState, controller.getState);

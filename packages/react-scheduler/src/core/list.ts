@@ -47,11 +47,17 @@ export function listActiveIndex(metrics: ListMetrics, epsilon: number): number {
   return active;
 }
 
-/** At the start of a section: `scrollTop ≤ epsilon` for the first, otherwise its top has reached the visible top. */
-export function listAtStart(index: number, metrics: ListMetrics, epsilon: number): boolean {
+/**
+ * At the start of a section: its top has reached the visible top. The first section is at its start
+ * while the list is no further down than a jump to it lands (`firstLanding`), within `epsilon`. With
+ * the source's three shifts that landing is the top of the list, so the rule is `scrollTop ≤ epsilon`
+ * exactly; with the current shift first it is 16 px down, where `scrollTop ≤ epsilon` alone never
+ * held and the top button offered the same jump again (DQ-11).
+ */
+export function listAtStart(index: number, metrics: ListMetrics, epsilon: number, firstLanding = 0): boolean {
   const section = metrics.sections[index];
   if (!section) return false;
-  return index === 0 ? metrics.scrollTop <= epsilon : visibleTopOf(metrics) <= section.top;
+  return index === 0 ? metrics.scrollTop <= Math.max(0, firstLanding) + epsilon : visibleTopOf(metrics) <= section.top;
 }
 
 /** The section after `index` (list-only bottom rule) is visible below the fold. */

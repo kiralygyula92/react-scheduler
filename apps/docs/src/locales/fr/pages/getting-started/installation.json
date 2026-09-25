@@ -40,6 +40,7 @@
   },
   "verify": {
     "intro": "Ceci est un fichier complet. S’il affiche une carte dans un poste, le paquet, ses styles et ses peers sont en place.",
+    "height": "<code>Scheduler</code> remplit son conteneur et défile à l’intérieur ; donnez donc une hauteur au conteneur : une hauteur fixe, ou une cellule flex ou grid qui en a une. Sans elle, le planning grandit avec son contenu et les boutons de poste n’ont rien à faire défiler.",
     "calloutTitle": "Sans date, sans postes ?",
     "callout": "Les deux sont facultatifs. Sans <code>date</code>, le planning montre la journée en cours, et sans <code>shifts</code> il utilise deux postes de douze heures ancrés à 08:00."
   },

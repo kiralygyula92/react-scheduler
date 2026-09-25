@@ -66,3 +66,11 @@
   border: 0;
   cursor: default;
 }
+
+/* O5 asks for indented sidebar sub-items, and `shell.css` gives `.ds-nav__items` a start padding for
+   it, but `.ds-nav ul { padding: 0 }` two rules earlier is more specific (0,1,1 against 0,1,0), so
+   the items sat flush with their section header, in the sidebar and in the mobile drawer.
+   (EXCEPTIONS.md #9) */
+.ds-nav .ds-nav__items {
+  padding-left: var(--ds-space-4);
+}

@@ -20,15 +20,18 @@ export default function Keyboard(): React.ReactElement {
   });
 
   return (
-    <Scheduler
-      view="list"
-      items={items}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      aria-label={demo.t('controls.scheduleLabel')}
-      localization={demo.localization}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="list"
+        items={items}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        aria-label={demo.t('controls.scheduleLabel')}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
   );
 }

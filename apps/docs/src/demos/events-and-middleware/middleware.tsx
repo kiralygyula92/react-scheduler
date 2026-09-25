@@ -3,6 +3,7 @@
 // item asks first, and a cancelled confirmation leaves the schedule as it was.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Check, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -16,38 +17,34 @@ export default function Middleware(): React.ReactElement {
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={guard}
-          onChange={(event) => {
-            setGuard(event.target.checked);
-          }}
-        />
-        {demo.t('controls.guardOpening')}
-      </label>
+      <Controls>
+        <Check label={demo.t('controls.guardOpening')} checked={guard} onChange={setGuard} />
+      </Controls>
       <p aria-live="polite">{log.at(-1) ?? demo.t('controls.eventsIdle')}</p>
-      <Scheduler
-        view="list"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        handlers={{
-          onItemActivate: ({ item }, next) => {
-            if (guard && item.level === 'critical') {
-              setLog((entries) => [...entries, demo.t('controls.blocked', { title: item.title })]);
-              return;
-            }
-            next();
-          },
-        }}
-        onItemOpen={(item) => {
-          setLog((entries) => [...entries, demo.t('controls.opened', { title: item.title })]);
-        }}
-        localization={demo.localization}
-      />
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          handlers={{
+            onItemActivate: ({ item }, next) => {
+              if (guard && item.level === 'critical') {
+                setLog((entries) => [...entries, demo.t('controls.blocked', { title: item.title })]);
+                return;
+              }
+              next();
+            },
+          }}
+          onItemOpen={(item) => {
+            setLog((entries) => [...entries, demo.t('controls.opened', { title: item.title })]);
+          }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 // transition and makes each jump instant, which is what a reader who asked for that expects.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Check, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 1, after: 1 } as const;
@@ -15,26 +16,22 @@ export default function Motion(): React.ReactElement {
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={reduced}
-          onChange={(event) => {
-            setReduced(event.target.checked);
-          }}
+      <Controls>
+        <Check label={demo.t('controls.reducedMotion')} checked={reduced} onChange={setReduced} />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          reducedMotion={reduced ? true : 'auto'}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
         />
-        {demo.t('controls.reducedMotion')}
-      </label>
-      <Scheduler
-        view="list"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        reducedMotion={reduced ? true : 'auto'}
-        localization={demo.localization}
-      />
+      </div>
     </div>
   );
 }

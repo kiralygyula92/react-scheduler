@@ -1136,6 +1136,7 @@ export function createScheduler<TItem extends SchedulerItem, TEvent = unknown, T
           maxColumnsCompact: timeline.maxColumnsCompact,
           minCardHeight: timeline.minCardHeight,
           cardGap: timeline.cardGap,
+          keepCardsApart: timeline.keepCardsApart,
           columnPlacement: timeline.columnPlacement,
           overflowMergeWindow: timeline.overflowMergeWindow,
           defaultDuration,

@@ -40,6 +40,7 @@
   },
   "verify": {
     "intro": "Este é um ficheiro completo. Se renderizar um cartão num turno, o pacote, os seus estilos e os seus peers estão no sítio.",
+    "height": "<code>Scheduler</code> preenche o seu contentor e desloca-se dentro dele, por isso dê uma altura ao contentor — uma fixa, ou uma célula flex ou grid que a tenha. Sem ela, o horário cresce com o conteúdo e os botões de turno não têm nada para deslocar.",
     "calloutTitle": "Sem data, sem turnos?",
     "callout": "Ambos são opcionais. Sem <code>date</code>, o horário mostra o dia atual, e sem <code>shifts</code> usa dois turnos de doze horas ancorados às 08:00."
   },

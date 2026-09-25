@@ -40,6 +40,7 @@
   },
   "verify": {
     "intro": "Acesta este un fișier complet. Dacă randează un card într-o tură, pachetul, stilurile lui și dependențele peer sunt la locul lor.",
+    "height": "<code>Scheduler</code> umple containerul și derulează în interiorul lui, așa că dați containerului o înălțime — una fixă sau o celulă flex ori grid care are una. Fără ea, programul crește odată cu conținutul, iar butoanele de tură nu au ce derula.",
     "calloutTitle": "Fără dată, fără ture?",
     "callout": "Ambele sunt opționale. Fără <code>date</code>, programul arată ziua curentă, iar fără <code>shifts</code> folosește două ture de douăsprezece ore ancorate la 08:00."
   },

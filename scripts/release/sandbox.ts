@@ -60,7 +60,9 @@ void getShiftWindows;
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Scheduler items={items} localization={roRO} />
+    <div style={{ height: 600 }}>
+      <Scheduler items={items} localization={roRO} />
+    </div>
   </StrictMode>,
 );
 `;

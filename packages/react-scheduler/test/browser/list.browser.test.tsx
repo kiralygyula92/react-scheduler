@@ -1,7 +1,7 @@
 import { page, userEvent } from 'vitest/browser';
-import { type ReactElement, useState } from 'react';
+import { createRef, type ReactElement, useState } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
-import { ListView, type SchedulerProps } from '../../src/index';
+import { ListView, type SchedulerHandle, type SchedulerProps } from '../../src/index';
 import type { ParityItem } from '../support/items';
 import {
   cardByTitle,
@@ -101,6 +101,61 @@ describe('list browser scenarios', () => {
     await settled(host, 1000);
     expect(scroller.scrollTop).toBe(0);
     expect(nav(host, 'top')).toBeUndefined();
+  });
+
+  // The source rendered three shifts, where the jump to the previous shift is also the jump to the
+  // first one. With more or fewer shifts, every button press has to move the list and land where the
+  // next press starts from: a jump to a middle earlier shift used to land 104 px inside the shift
+  // before it (DQ-10), and a first section below the top of the list never counted as reached (DQ-11).
+  it.each([
+    { before: 2, after: 2 },
+    { before: 0, after: 1 },
+  ])('the buttons walk every shift and back, each press landing on its target: %o', async (shifts) => {
+    const ref = createRef<SchedulerHandle<ParityItem>>();
+    const jumps: number[] = [];
+    const { host } = mount(
+      <ListView
+        {...base}
+        shifts={shifts}
+        ref={ref}
+        onNavigate={(info) => {
+          jumps.push(info.to.offset);
+        }}
+      />,
+    );
+    const scroller = await settled(host, 600);
+    await scrollTo(scroller, 0);
+    await settled(host, 300);
+
+    const walk = async (position: 'top' | 'bottom'): Promise<number[]> => {
+      const reached: number[] = [];
+      for (let step = 0; step < 8; step++) {
+        const button = nav(host, position);
+        if (!button || button.hasAttribute('data-rs-disabled')) break;
+        const before = scroller.scrollTop;
+        const target = jumps.length;
+        button.click();
+        await until(() => jumps.length > target, 3000, 'a navigation');
+        await settled(host, 800);
+        expect(scroller.scrollTop, `${position} press ${String(step + 1)} moved`).not.toBe(before);
+        reached.push(ref.current?.getActiveShift()?.offset ?? Number.NaN);
+      }
+      return reached;
+    };
+
+    // Each press lands on the shift it jumped to. The last one down may reach the end of the scroll
+    // range first, which makes the last shift the active one (01 §L.5).
+    const down = await walk('bottom');
+    down.forEach((offset, index) => {
+      const last = index === down.length - 1 && offset === shifts.after;
+      expect(offset === jumps[index] || last, `press ${String(index + 1)} down`).toBe(true);
+    });
+    expect(down.at(-1)).toBe(shifts.after);
+
+    const up = await walk('top');
+    expect(up).toEqual(jumps.slice(down.length));
+    expect(up.at(-1)).toBe(shifts.before === 0 ? 0 : -shifts.before);
+    expect(up).toEqual([...up].sort((a, b) => b - a));
   });
 
   it('[BR-L05] pinning keeps its 22 px hysteresis around the sticky bottom', async () => {

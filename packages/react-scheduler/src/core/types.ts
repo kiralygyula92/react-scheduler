@@ -379,6 +379,11 @@ export interface TimelineLayoutOptions<TItem> {
   minCardHeight: number;
   /** The gap between two columns, in pixels. */
   cardGap: number;
+  /**
+   * Whether a card keeps its column until the end of what is drawn and a group has a column for every
+   * card, so no two cards overlap. Off, a short card can run under the next one.
+   */
+  keepCardsApart?: boolean;
   /** Which column an item takes when several overlap. */
   columnPlacement: 'priority' | 'time';
   /** How far apart, in milliseconds, two crowded groups may be and still merge. */

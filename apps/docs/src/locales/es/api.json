@@ -212,7 +212,7 @@
       "collapseMinItems": "La señal de encabezado solo puede emitirse si el turno actual tiene más elementos que esto.",
       "landing": "Dónde aterriza la lista en el primer renderizado, al cambiar la fecha y al entrar en la vista.",
       "navigationThreshold": "La navegación aparece solo si algún turno tiene al menos esta cantidad de elementos.",
-      "previousJumpExtraOffset": "Desplazamiento adicional, en píxeles, cuando el salto va a un turno anterior, para que sus últimos elementos sigan visibles.",
+      "previousJumpExtraOffset": "Desplazamiento adicional, en píxeles, cuando el salto va al primer turno y este es anterior al actual, para que la lista llegue hasta arriba del todo. Cualquier otro turno se alcanza en su propio inicio.",
       "scrollTopThreshold": "Desplazarse más allá de esta distancia, en píxeles, muestra el botón de volver arriba.",
       "segmentEpsilon": "Tolerancia, en píxeles, para decidir en qué sección de turno está el área de desplazamiento."
     }
@@ -976,7 +976,8 @@
       "minCardHeight": "Lo más corta que puede dibujarse una tarjeta, en píxeles.",
       "overflowMergeWindow": "A qué distancia, en milisegundos, pueden estar dos grupos concurridos y aun así fusionarse.",
       "rangeEnd": "El último momento que cubre la rejilla, en milisegundos epoch.",
-      "rangeStart": "El primer momento que cubre la rejilla, en milisegundos epoch."
+      "rangeStart": "El primer momento que cubre la rejilla, en milisegundos epoch.",
+      "keepCardsApart": "Si una tarjeta ocupa su columna hasta el final de lo que se dibuja y un grupo tiene una columna para cada tarjeta, de modo que no se solapen dos tarjetas. Desactivado, una tarjeta corta puede quedar bajo la siguiente."
     }
   },
   "TimelineOptions": {
@@ -991,10 +992,11 @@
       "maxColumns": "Sobre cuántas columnas pueden repartirse los elementos solapados.",
       "maxColumnsCompact": "El límite de aglomeración en el diseño compacto.",
       "maxColumnsCrowded": "El límite cuando se solapan más elementos que `maxColumns`; el resto va a la ficha «+more».",
-      "minCardHeight": "Qué altura mínima puede tener una tarjeta, en píxeles, por corto que sea el elemento.",
+      "minCardHeight": "Qué altura mínima puede tener una tarjeta, en píxeles, por corto que sea el elemento. El preajuste predeterminado deja sitio para el título y la fila de etiquetas: 108, o 128 con la densidad `comfortable` y 88 con `dense`. El preajuste clásico y el controlador headless usan 80 (96 y 56), donde una tarjeta corta puede cortar su título.",
       "nearBottomGutterMinutes": "Cuánto tiempo, en minutos, deja por debajo del objetivo un aterrizaje «cerca del final».",
       "overflowMergeWindow": "A qué distancia, en milisegundos, pueden estar dos grupos aglomerados y aun así unirse en una sola ficha «+more». `Infinity` une toda la cadena.",
-      "viewEnterRealignDelay": "Cuánto espera la línea de tiempo, en milisegundos, tras entrar en la vista antes de realinearse."
+      "viewEnterRealignDelay": "Cuánto espera la línea de tiempo, en milisegundos, tras entrar en la vista antes de realinearse.",
+      "keepCardsApart": "Si las tarjetas nunca se solapan. Una tarjeta ocupa su columna hasta el final de lo que se dibuja, al menos `minCardHeight`, de modo que el siguiente elemento de esa columna empieza debajo; y un grupo solapado comparte tantas columnas como ocupan sus tarjetas. El preajuste predeterminado lo activa. El preajuste clásico y el controlador headless mantienen la colocación original, en la que una tarjeta corta puede quedar bajo la siguiente y el modo compacto puede apilar dos tarjetas en una columna."
     }
   },
   "TimelineView": {

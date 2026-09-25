@@ -212,7 +212,7 @@
       "collapseMinItems": "The header signal may fire only when the current shift holds more items than this.",
       "landing": "Where the list lands on first render, on a date change and when the view is entered.",
       "navigationThreshold": "Navigation appears only when some shift holds at least this many items.",
-      "previousJumpExtraOffset": "Extra offset, in pixels, when the jump goes to an earlier shift, so its last items stay in view.",
+      "previousJumpExtraOffset": "Extra offset, in pixels, when the jump goes to the first shift and it is earlier than the current one, so the list reaches its very top. Any other shift is reached at its own start.",
       "scrollTopThreshold": "Scrolling further than this, in pixels, shows the scroll-to-top button.",
       "segmentEpsilon": "Tolerance, in pixels, for deciding which shift section the scroller sits in."
     }
@@ -969,6 +969,7 @@
       "compareItems": "The order the placement sequence follows.",
       "defaultDuration": "How long an item without an end lasts, in milliseconds.",
       "hourHeight": "The height of one hour, in pixels.",
+      "keepCardsApart": "Whether a card keeps its column until the end of what is drawn and a group has a column for every card, so no two cards overlap. Off, a short card can run under the next one.",
       "levels": "The resolved level scale, which gives each item its rank.",
       "maxColumns": "How many columns overlapping items may share the lane in.",
       "maxColumnsCompact": "The cap that applies in compact mode.",
@@ -986,12 +987,13 @@
       "columnPlacement": "Which column an item takes: by its level (`'priority'`) or by the column that frees up first (`'time'`).",
       "hourHeight": "The height of one hour, in pixels. The density scale adjusts the default.",
       "hourLabelFormat": "The hour labels down the axis: short (`\"8AM\"` in en-US) or the locale's own time format.",
+      "keepCardsApart": "Whether cards never overlap. A card keeps its column until the end of what is drawn, at least `minCardHeight`, so the next item in that column starts below it; and an overlapping group shares as many columns as its cards take. The default preset turns it on. The classic preset and the headless controller keep the original placement, where a short card can run under the next one and compact mode can stack two cards in one column.",
       "landing": "Where the timeline lands on first render, on a date change and when the view is entered.",
       "leadMinutes": "How much time, in minutes, landing and navigation leave above the target.",
       "maxColumns": "How many columns overlapping items may spread over.",
       "maxColumnsCompact": "The crowded cap in the compact layout.",
       "maxColumnsCrowded": "The cap once more items overlap than `maxColumns`; the rest go to the \"+more\" chip.",
-      "minCardHeight": "The shortest a card may be drawn, in pixels, however short the item is.",
+      "minCardHeight": "The shortest a card may be drawn, in pixels, however short the item is. The default preset keeps room for the title and the pill row: 108, or 128 in the `comfortable` density and 88 in `dense`. The classic preset and the headless controller use 80 (96 and 56), where a short card can cut its title.",
       "nearBottomGutterMinutes": "How much time, in minutes, a \"near bottom\" landing leaves below the target.",
       "overflowMergeWindow": "How far apart, in milliseconds, two crowded groups may be and still merge into one \"+more\" chip. `Infinity` merges the whole chain.",
       "viewEnterRealignDelay": "How long, in milliseconds, the timeline waits after the view is entered before it realigns."

@@ -49,6 +49,20 @@
     padding-block-end: 28px;
   }
 
+  /*
+   * Default preset: the top button hangs half inside the sticky top, so its padding holds half the
+   * tallest button, the focus ring and 8 px of air — the one-line list button, or the timeline's
+   * two-line edge label and the compact stack of label and count (ADR 0005 D3).
+   */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-sticky-top) {
+    padding-block-end: 32px;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default'][data-rs-view='timeline']) :where(.rs-sticky-top),
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default'][data-rs-compact]) :where(.rs-sticky-top) {
+    padding-block-end: 44px;
+  }
+
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-sticky-bottom) {
     height: var(--rs-sticky-bottom-list);
     border-block-start: 1px solid var(--rs-color-divider);
@@ -760,6 +774,33 @@
     gap: 4px;
     justify-content: space-between;
     min-width: 0;
+  }
+
+  /*
+   * Default preset: a short card shows whole lines only (ADR 0005 D2). Title, description and time
+   * label are items of one wrapping column; a line that does not fit moves to a second column, which
+   * the body clips, instead of being cut mid-glyph against the divider. The title always stays; the
+   * time label keeps its place at the bottom while it fits.
+   */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-timeline-card .rs-card__body) {
+    overflow: hidden;
+    flex-wrap: wrap;
+    column-gap: var(--rs-card-padding);
+    justify-content: flex-start;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-timeline-card .rs-card__text) {
+    display: contents;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default'])
+    :where(.rs-timeline-card :is(.rs-card-title, .rs-card-description, .rs-card-time-label)) {
+    flex: none;
+    width: 100%;
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-timeline-card .rs-card-time-label) {
+    margin-block-start: auto;
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-card__bottom) {

@@ -28,7 +28,7 @@ export default function Headless(): React.ReactElement {
             <ul>
               {segment.items.map((item) => (
                 <li key={item.id}>
-                  <button {...scheduler.getItemProps(item)}>
+                  <button {...scheduler.getItemProps(item)} className="ds-button">
                     {item.title}
                     {' · '}
                     {scheduler.formatters.clockTime(new Date(Number(item.start)))}

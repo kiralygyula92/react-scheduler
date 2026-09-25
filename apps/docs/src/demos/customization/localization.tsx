@@ -12,18 +12,21 @@ export default function Localization(): React.ReactElement {
   const items = demo.items({ seed: 103, count: 6, start: demo.at(6), hours: 8, levels: LEVEL_KEYS });
 
   return (
-    <Scheduler
-      view="list"
-      items={items}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      localization={{
-        ...demo.localization,
-        emptyShift: demo.t('localization.emptyShift'),
-        pinnedStrip: { ...demo.localization.pinnedStrip, label: demo.t('localization.pinnedLabel') },
-      }}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="list"
+        items={items}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        colorScheme={demo.scheme}
+        localization={{
+          ...demo.localization,
+          emptyShift: demo.t('localization.emptyShift'),
+          pinnedStrip: { ...demo.localization.pinnedStrip, label: demo.t('localization.pinnedLabel') },
+        }}
+      />
+    </div>
   );
 }

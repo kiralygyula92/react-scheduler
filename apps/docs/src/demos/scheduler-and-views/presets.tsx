@@ -3,6 +3,7 @@
 // levels; only the look changes.
 import { useState } from 'react';
 import { classicLevels, type PresetName, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -16,31 +17,29 @@ export default function Presets(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.preset')}</legend>
-        {PRESETS.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="preset"
-              checked={preset === value}
-              onChange={() => {
-                setPreset(value);
-              }}
-            />
-            {demo.t(value === 'default' ? 'controls.presetDefault' : 'controls.presetClassic')}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        preset={preset}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.preset')}
+          options={PRESETS.map((value) => ({
+            value,
+            label: demo.t(value === 'default' ? 'controls.presetDefault' : 'controls.presetClassic'),
+          }))}
+          value={preset}
+          onChange={setPreset}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          preset={preset}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

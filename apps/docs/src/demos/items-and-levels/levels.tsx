@@ -19,21 +19,24 @@ export default function CustomLevels(): React.ReactElement {
   const items = demo.items({ seed: 23, count: 14, start: demo.at(6), hours: 8, levels: KEYS });
 
   return (
-    <Scheduler
-      items={items}
-      levels={LEVELS}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      localization={{
-        ...demo.localization,
-        levels: {
-          blocking: demo.t('levels.blocking'),
-          attention: demo.t('levels.attention'),
-          planned: demo.t('levels.planned'),
-          done: demo.t('levels.done'),
-        },
-      }}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        items={items}
+        levels={LEVELS}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        colorScheme={demo.scheme}
+        localization={{
+          ...demo.localization,
+          levels: {
+            blocking: demo.t('levels.blocking'),
+            attention: demo.t('levels.attention'),
+            planned: demo.t('levels.planned'),
+            done: demo.t('levels.done'),
+          },
+        }}
+      />
+    </div>
   );
 }

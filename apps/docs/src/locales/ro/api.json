@@ -212,7 +212,7 @@
       "collapseMinItems": "Semnalul de antet se poate declanșa doar dacă tura curentă are mai multe elemente decât atât.",
       "landing": "Unde aterizează lista la prima randare, la schimbarea datei și la intrarea în vizualizare.",
       "navigationThreshold": "Navigarea apare doar dacă o tură are cel puțin atâtea elemente.",
-      "previousJumpExtraOffset": "Decalaj suplimentar, în pixeli, când saltul merge la o tură anterioară, ca ultimele ei elemente să rămână vizibile.",
+      "previousJumpExtraOffset": "Decalaj suplimentar, în pixeli, când saltul merge la prima tură și aceasta este anterioară celei curente, ca lista să ajungă chiar la început. Orice altă tură este atinsă la propriul ei început.",
       "scrollTopThreshold": "Derularea peste această distanță, în pixeli, afișează butonul de revenire în sus.",
       "segmentEpsilon": "Toleranța, în pixeli, pentru a decide în ce secțiune de tură se află zona de derulare."
     }
@@ -976,7 +976,8 @@
       "minCardHeight": "Cât de scurt poate fi desenat un card, în pixeli.",
       "overflowMergeWindow": "Cât de departe pot fi două grupuri aglomerate, în milisecunde, și totuși să se comaseze.",
       "rangeEnd": "Ultimul moment acoperit de grilă, în milisecunde epoch.",
-      "rangeStart": "Primul moment acoperit de grilă, în milisecunde epoch."
+      "rangeStart": "Primul moment acoperit de grilă, în milisecunde epoch.",
+      "keepCardsApart": "Dacă un card își păstrează coloana până la capătul a ceea ce este desenat și un grup are câte o coloană pentru fiecare card, astfel încât două carduri să nu se suprapună. Dezactivat, un card scurt poate ajunge sub următorul."
     }
   },
   "TimelineOptions": {
@@ -991,10 +992,11 @@
       "maxColumns": "Pe câte coloane se pot întinde elementele suprapuse.",
       "maxColumnsCompact": "Limita pentru aglomerare în aspectul compact.",
       "maxColumnsCrowded": "Limita când se suprapun mai multe elemente decât `maxColumns`; restul ajung în indicatorul „+more”.",
-      "minCardHeight": "Cât de scund poate fi desenat un card, în pixeli, oricât de scurt ar fi elementul.",
+      "minCardHeight": "Cât de scund poate fi desenat un card, în pixeli, oricât de scurt ar fi elementul. Presetul implicit păstrează loc pentru titlu și rândul de etichete: 108, sau 128 în densitatea `comfortable` și 88 în `dense`. Presetul clasic și controlerul headless folosesc 80 (96 și 56), unde un card scurt își poate tăia titlul.",
       "nearBottomGutterMinutes": "Cât timp, în minute, lasă sub țintă o aterizare „aproape de jos”.",
       "overflowMergeWindow": "Cât de departe pot fi, în milisecunde, două grupuri aglomerate și tot să se unească într-un singur indicator „+more”. `Infinity` unește tot lanțul.",
-      "viewEnterRealignDelay": "Cât așteaptă cronologia, în milisecunde, după intrarea în vizualizare până se realiniază."
+      "viewEnterRealignDelay": "Cât așteaptă cronologia, în milisecunde, după intrarea în vizualizare până se realiniază.",
+      "keepCardsApart": "Dacă cardurile nu se suprapun niciodată. Un card își păstrează coloana până la capătul a ceea ce este desenat, cel puțin `minCardHeight`, așa că următorul element din coloană începe sub el; iar un grup suprapus împarte atâtea coloane câte ocupă cardurile sale. Presetul implicit îl activează. Presetul clasic și controlerul headless păstrează plasarea originală, în care un card scurt poate ajunge sub următorul, iar modul compact poate suprapune două carduri într-o coloană."
     }
   },
   "TimelineView": {

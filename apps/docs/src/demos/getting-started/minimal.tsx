@@ -7,5 +7,16 @@ export default function Minimal(): React.ReactElement {
   const demo = useDemo();
   const items = demo.items({ count: 9, start: demo.at(6), hours: 8, levels: ['critical', 'normal', 'resolved'] });
 
-  return <Scheduler items={items} date={demo.date} now={demo.now} localization={demo.localization} />;
+  // The schedule fills its container and scrolls inside it, so the container has a height.
+  return (
+    <div style={{ height: 560 }}>
+      <Scheduler
+        items={items}
+        date={demo.date}
+        now={demo.now}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
+  );
 }

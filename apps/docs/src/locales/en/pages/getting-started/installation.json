@@ -16,7 +16,11 @@
   },
   "peers": {
     "intro": "React Scheduler installs nothing of its own. Its two peers are the React you already have; every other package in the tree is a development tool of this repository, not of your application.",
-    "head": { "package": "Package", "range": "Range", "why": "Why" },
+    "head": {
+      "package": "Package",
+      "range": "Range",
+      "why": "Why"
+    },
     "rows": [
       [
         "<code>react</code>",
@@ -36,6 +40,7 @@
   },
   "verify": {
     "intro": "This is a complete file. If it renders a card in one shift, the package, its styles and its peers are in place.",
+    "height": "<code>Scheduler</code> fills its container and scrolls inside it, so give the container a height — a fixed one, or a flex or grid cell that has one. Without it, the schedule grows with its content and the shift buttons have nothing to scroll.",
     "calloutTitle": "No date, no shifts?",
     "callout": "Both are optional. Without <code>date</code> the schedule shows the current day, and without <code>shifts</code> it uses two twelve-hour shifts anchored at 08:00."
   },

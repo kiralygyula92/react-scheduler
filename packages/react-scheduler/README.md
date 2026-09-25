@@ -26,11 +26,19 @@ const items = [
 ];
 
 export function App() {
-  return <Scheduler items={items} />;
+  return (
+    <div style={{ height: 600 }}>
+      <Scheduler items={items} />
+    </div>
+  );
 }
 ```
 
 Import the stylesheet once, where your application imports its global CSS.
+
+`Scheduler` fills its container and scrolls inside it, so give the container a height — a fixed one,
+or a flex or grid cell that has one. Without it, the schedule grows with its content and the shift
+buttons have nothing to scroll.
 
 ## Peer dependencies
 

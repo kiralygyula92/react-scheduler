@@ -9,7 +9,10 @@ import type { OverflowGroup, PlacedCard, SchedulerItem, TimelineLayout, Timeline
 interface Rec<TItem> {
   item: TItem;
   start: number;
+  /** Where the card stops taking its column: the item's end, or the end of its drawn height. */
   end: number;
+  /** The item's own end, resolved. */
+  itemEnd: number;
   rank: number;
   /** Position in placement order (`compareItems`, default start → rank → id). */
   order: number;
@@ -235,20 +238,26 @@ export function computeTimelineLayout<TItem extends SchedulerItem>(
     maxColumnsCompact,
     minCardHeight,
     cardGap,
+    keepCardsApart = false,
     columnPlacement,
     overflowMergeWindow,
     defaultDuration,
     compareItems,
   } = options;
 
+  // A card is drawn at least `minCardHeight` tall. Kept apart, it takes its column for the time that
+  // height covers, so the next item in the column starts below it rather than under it.
+  const drawnSpan = ((minCardHeight + cardGap) / (hourHeight / 60)) * MINUTE;
   const records: Rec<TItem>[] = [];
   for (const item of items) {
     const start = toMs(item.start);
     if (Number.isNaN(start)) continue;
+    const itemEnd = resolveEnd(start, item.end, defaultDuration);
     records.push({
       item,
       start,
-      end: resolveEnd(start, item.end, defaultDuration),
+      end: keepCardsApart ? Math.max(itemEnd, start + drawnSpan) : itemEnd,
+      itemEnd,
       rank: rankOf(levels, item.level),
       order: 0,
       column: -1,
@@ -397,7 +406,10 @@ export function computeTimelineLayout<TItem extends SchedulerItem>(
   }
   const groupColumns = new Map<Rec<TItem>, number>();
   for (const group of components(placed)) {
-    const count = Math.max(...group.map((rec) => initial.get(rec) ?? 1));
+    let count = Math.max(...group.map((rec) => initial.get(rec) ?? 1));
+    // Promotion can leave a card in a column at or past its group's count (DQ-3). The source stacks
+    // it into the last column; kept apart, the group gets a column for it instead.
+    if (keepCardsApart) count = Math.max(count, ...group.map((rec) => rec.column + 1));
     for (const rec of group) groupColumns.set(rec, count);
   }
 
@@ -408,9 +420,9 @@ export function computeTimelineLayout<TItem extends SchedulerItem>(
     column: rec.column,
     columns: groupColumns.get(rec) ?? 1,
     top: ((rec.start - rangeStart) / MINUTE) * (hourHeight / 60),
-    height: Math.max(pixels(Math.max(0, rec.end - rec.start)) - cardGap, minCardHeight),
+    height: Math.max(pixels(Math.max(0, rec.itemEnd - rec.start)) - cardGap, minCardHeight),
     start: rec.start,
-    end: rec.end,
+    end: rec.itemEnd,
   }));
 
   // Step 6: overflow groups. Items are bucketed by local start hour; consecutive buckets merge while

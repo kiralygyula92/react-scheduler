@@ -249,6 +249,14 @@
     --rs-level-onTarget-on: #000;
     --rs-level-routine-on: #000;
     --rs-level-resolved-on: #000;
+
+    /*
+     * Room below the bottom divider for half the tallest navigation button (the timeline's two-line
+     * edge label, 62 px), its focus ring and 8 px of air, so the root's clipping never cuts them
+     * (ADR 0005 D3). Classic keeps the source's 16 and 32.
+     */
+    --rs-sticky-bottom-list: 32px;
+    --rs-sticky-bottom-timeline: 44px;
   }
 
   /*
