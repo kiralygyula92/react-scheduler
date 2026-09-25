@@ -9,49 +9,55 @@ import { resolve } from 'node:path';
 const source = resolve(import.meta.dirname, '..', '..', '..', '..', 'packages/react-scheduler/CHANGELOG.md');
 const outDir = resolve(import.meta.dirname, '..', '..', 'src', 'content');
 
+/** One release note: its first line, and the bullets Changesets indents beneath it. */
+interface Entry {
+  text: string;
+  items: string[];
+}
+
 /** One released version: its heading, and the groups Changesets writes under it. */
 interface Release {
   version: string;
-  groups: { title: string; entries: string[] }[];
+  groups: { title: string; entries: Entry[] }[];
 }
 
-function parse(markdown: string): Release[] {
+export function parse(markdown: string): Release[] {
   const releases: Release[] = [];
   let release: Release | undefined;
-  let group: { title: string; entries: string[] } | undefined;
-  let entry = '';
+  let group: { title: string; entries: Entry[] } | undefined;
+  let entry: Entry | undefined;
 
-  const flush = (): void => {
-    if (entry.trim() !== '' && group) group.entries.push(entry.trim());
-    entry = '';
-  };
-
-  for (const line of markdown.split('\n')) {
+  for (const line of markdown.replaceAll('\r\n', '\n').split('\n')) {
     const version = /^## +(.+)$/.exec(line);
     const heading = /^### +(.+)$/.exec(line);
     const bullet = /^[-*] +(.+)$/.exec(line);
+    const nested = /^\s+[-*] +(.+)$/.exec(line);
 
     if (version) {
-      flush();
-      release = { version: version[1] as string, groups: [] };
+      release = { version: (version[1] as string).trim(), groups: [] };
       releases.push(release);
       group = undefined;
+      entry = undefined;
     } else if (heading && release) {
-      flush();
-      group = { title: heading[1] as string, entries: [] };
+      group = { title: (heading[1] as string).trim(), entries: [] };
       release.groups.push(group);
+      entry = undefined;
     } else if (bullet && release) {
-      flush();
       // A release note without a "### Patch Changes" heading above it still needs a group.
       group ??= release.groups[0] ??= { title: '', entries: [] };
-      entry = bullet[1] as string;
-    } else if (entry !== '' && line.trim() !== '') {
-      entry += ` ${line.trim()}`;
-    } else {
-      flush();
+      // Changesets starts each note with the commit that added it. On the site that hash links
+      // nowhere, so the note starts with its own words; CHANGELOG.md keeps the hash.
+      entry = { text: (bullet[1] as string).replace(/^[\da-f]{7,40}: +/, ''), items: [] };
+      group.entries.push(entry);
+    } else if (nested && entry) {
+      entry.items.push((nested[1] as string).trim());
+    } else if (entry && /^\s+\S/.test(line)) {
+      // A wrapped line belongs to the bullet above it: the last nested one, or the note itself.
+      const last = entry.items.length - 1;
+      if (last >= 0) entry.items[last] = `${entry.items[last] as string} ${line.trim()}`;
+      else entry.text = `${entry.text} ${line.trim()}`;
     }
   }
-  flush();
   return releases;
 }
 

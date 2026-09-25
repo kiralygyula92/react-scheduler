@@ -2,7 +2,12 @@
 
 ## Supported versions
 
-Security fixes land on the latest minor release of the current major. While the package is below `1.0.0`, that is the latest release.
+| Version | Supported                                                   |
+| ------- | ----------------------------------------------------------- |
+| 1.x     | Yes — fixes are released on the latest 1.x minor as a patch |
+| < 1.0   | Never published                                             |
+
+When a new major ships, the previous major receives security fixes only, for a period announced with the new release.
 
 ## Reporting a vulnerability
 

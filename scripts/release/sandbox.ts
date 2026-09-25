@@ -3,7 +3,8 @@
 // package is built and packed, the tarball is scanned the way `release.yml` scans it, and then it is
 // installed with npm into fresh applications outside this repository — one on React 19, one on
 // React 18.2, the peer floor — which import the component and its stylesheet, build with Vite and
-// type-check against the shipped declarations. A CommonJS `require()` of every entry point and
+// type-check against the shipped declarations with every TypeScript version the documentation
+// promises. A CommonJS `require()` of every entry point and
 // `publint` / `attw` on the tarball itself close it.
 //
 // Nothing here talks to npm other than to download the sandbox apps' own dependencies. After the
@@ -27,6 +28,13 @@ if (registryFlag >= 0 && (registryVersion === undefined || registryVersion.start
 
 /** Versions pinned so a run today and a run next month test the same thing. */
 const TOOLS = { vite: '8.3.0', typescript: '6.0.3' } as const;
+/**
+ * The TypeScript versions the Requirements page promises. The oldest is the first that resolves
+ * subpath exports with `moduleResolution: "bundler"`; each is installed beside the others under an
+ * npm alias and runs over the same application.
+ */
+const TYPESCRIPTS = ['5.0.4', '5.9.3', '6.0.3', '7.0.2'] as const;
+const alias = (version: string): string => `typescript-${version.replaceAll('.', '-')}`;
 const REACTS = [
   { name: 'React 19', react: '19.3.0', types: '19.3.0' },
   { name: 'React 18.2', react: '18.2.0', types: '18.2.79' },
@@ -127,6 +135,7 @@ function main(): number {
             devDependencies: {
               vite: TOOLS.vite,
               typescript: TOOLS.typescript,
+              ...Object.fromEntries(TYPESCRIPTS.map((version) => [alias(version), `npm:typescript@${version}`])),
               '@types/react': react.types,
               '@types/react-dom': react.types.startsWith('18') ? '18.2.25' : react.types,
             },
@@ -167,9 +176,11 @@ function main(): number {
       step(registryVersion === undefined ? 'npm install from the tarball' : 'npm install from the registry', () => {
         run('npm', ['install', '--no-audit', '--no-fund', '--loglevel=error'], app);
       });
-      step('type-check against the shipped declarations', () => {
-        run('npx', ['tsc', '-p', '.'], app);
-      });
+      for (const version of TYPESCRIPTS) {
+        step(`type-check with TypeScript ${version}`, () => {
+          run('node', [join('node_modules', alias(version), 'bin', 'tsc'), '-p', '.'], app);
+        });
+      }
       step('vite build', () => {
         run('npx', ['vite', 'build', '--logLevel', 'error'], app);
       });

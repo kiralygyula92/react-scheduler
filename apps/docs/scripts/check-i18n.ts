@@ -150,6 +150,7 @@ function main(): number {
 
   checkStaleTranslations();
   checkGlossaries();
+  checkLinkTargets();
 
   if (problems.length > 0) {
     console.error(`i18n: ${String(problems.length)} problem(s):`);
@@ -192,6 +193,31 @@ function checkStaleTranslations(): void {
  * locale still in its English form is reported, so "prop", "slot" or "shift" cannot drift from page
  * to page.
  */
+/**
+ * `Trans` turns `<link to>` into a router link and `<ext href>` into an anchor, straight from the
+ * locale files. A translation is content, but it is still the one place a `javascript:` URL or a
+ * plain-http link could reach the page, so every target is checked here: internal links are site
+ * paths, external ones are https.
+ */
+function checkLinkTargets(): void {
+  for (const locale of LOCALES) {
+    for (const [namespace, bundle] of bundles(locale)) {
+      for (const [key, message] of stringsOf(bundle)) {
+        for (const match of message.matchAll(/<(link|ext)\s+(?:to|href)="([^"]*)"/g)) {
+          const [, tag, target = ''] = match;
+          const ok = tag === 'link' ? /^\/(?!\/)/.test(target) : /^https:\/\/[^\s"<>]+$/.test(target);
+          if (!ok) {
+            report(
+              `${locale}/${namespace}.json`,
+              `${key}: <${String(tag)}> target "${target}" must be ${tag === 'link' ? 'a site path' : 'an https URL'}`,
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
 function checkGlossaries(): void {
   for (const locale of LOCALES) {
     if (locale === REFERENCE) continue;

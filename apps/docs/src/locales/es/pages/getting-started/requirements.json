@@ -49,7 +49,7 @@
       "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> y cualquier empaquetador que lea el mapa <code>exports</code>.",
       "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router y Pages Router: el horario es un componente de cliente.",
       "<link to=\"/integrations/ssr/\">Renderizado en servidor</link> en general: el primer render es el marcado del servidor, y los observadores arrancan tras la hidratación.",
-      "Node 20 o posterior, si renderizas en un servidor."
+      "Node 22 o posterior, si renderizas en un servidor."
     ]
   },
   "size": {

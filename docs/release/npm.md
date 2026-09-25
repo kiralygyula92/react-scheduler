@@ -12,19 +12,20 @@ created, and nothing was published. The repository is ready; the registry is unt
 
 ## Where things stand
 
-| Item                                               | Status                                                                                                           |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Package name `@react-schedulerkit/react-scheduler` | **Free** on npm (`npm view` answered 404 on 2026-09-24). The unscoped `react-scheduler` is taken (0.1.0).        |
-| Version                                            | `0.0.0` in the manifest; one pending **major** changeset (`.changeset/first-release.md`) turns it into `1.0.0`   |
-| Tarball                                            | 121 files: `dist`, `README.md`, `LICENSE`; zero-reference clean                                                  |
-| Consumer check                                     | `pnpm release:sandbox` passes on React 19 and React 18.2 (install, `tsc`, `vite build`, CommonJS, publint, attw) |
-| Release workflow                                   | `.github/workflows/release.yml`: Changesets, OIDC permission, tarball scan; off until `RELEASE_ENABLED` is set   |
-| Provenance                                         | On (`publishConfig.provenance: true`) — which is why a laptop publish needs the flag in §4.2                     |
-| npm account, organization, token                   | **None yet** — yours, §1                                                                                         |
+| Item                                               | Status                                                                                                                                         |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Package name `@react-schedulerkit/react-scheduler` | **Free** on npm (`npm view` answered 404 on 2026-09-24). The unscoped `react-scheduler` is taken (0.1.0).                                      |
+| Version                                            | **`1.0.0`** in the manifest; `packages/react-scheduler/CHANGELOG.md` written by `changeset version`; no pending changeset                      |
+| Tarball                                            | 121 files: `dist`, `README.md`, `LICENSE`; zero-reference clean                                                                                |
+| Consumer check                                     | `pnpm release:sandbox` passes on React 19 and React 18.2 (install, `tsc` 5.0.4 / 5.9.3 / 6.0.3 / 7.0.2, `vite build`, CommonJS, publint, attw) |
+| Release workflow                                   | `.github/workflows/release.yml`: actions pinned to commit SHAs, OIDC permission, tarball scan, the sandbox; off until `RELEASE_ENABLED` is set |
+| Provenance                                         | On (`publishConfig.provenance: true`) — which is why a laptop publish needs the flag in §4.2                                                   |
+| npm account, organization, token                   | **None yet** — yours, §1                                                                                                                       |
+| GitHub repository                                  | **Private** — npm refuses provenance from a private repository; yours to decide, §0.3 (GAPS G15)                                               |
 
 ---
 
-## 0. Decide two things first
+## 0. Decide three things first
 
 Both change what ships, so settle them before the first publish — a published version cannot be
 edited, only superseded.
@@ -36,6 +37,15 @@ edited, only superseded.
 2. **The documentation domain** (GAPS G1). `homepage` in the manifest and the README's link point at
    `https://react-schedulerkit.vercel.app/react-scheduler/`. If the site lands elsewhere, update both
    before publishing, or the npm page links to nothing. See `vercel.md` §5.
+3. **The repository's visibility** (GAPS G15). `kiralygyula92/react-scheduler` is private today. npm
+   attaches provenance only to packages built from a public repository, so with
+   `publishConfig.provenance: true` a publish from the private repository is refused. Making it
+   public — _Settings_ → _General_ → _Danger Zone_ → _Change visibility_ — also makes the npm page's
+   _Repository_ and _Issues_ links, the site's GitHub links and `SECURITY.md`'s reporting channel
+   work. Then turn on _Settings_ → _Security_ → **Private vulnerability reporting**, which
+   `SECURITY.md` sends reporters to. To publish from a private repository instead, remove
+   `provenance` from `publishConfig` in `packages/react-scheduler/package.json` — ask for it as its
+   own change, since the release documents and the audit say provenance is on.
 
 ## 1. One-time setup — yours
 
@@ -71,20 +81,24 @@ pnpm --filter @react-schedulerkit/react-scheduler size
 pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
 pnpm check:pack && pnpm check:zero-reference && pnpm check:licenses
 pnpm release:sandbox          # the tarball in fresh React 19 and React 18.2 applications
-pnpm changeset status         # expected: one "major" bump for @react-schedulerkit/react-scheduler
+node -p "require('./packages/react-scheduler/package.json').version"   # expected: 1.0.0
 ```
 
 All of these pass on the branch this file was written on.
 
 ## 3. How 1.0.0 is produced
 
-The version and the changelog are made by Changesets, not by hand:
+The version and the changelog were made by Changesets, not by hand, and are already committed:
+`pnpm changeset version` consumed the `major` changeset, set the manifest to `1.0.0` and wrote
+`packages/react-scheduler/CHANGELOG.md`, so the release was reviewed in git before anything
+reaches the registry. What is left is the publish itself:
 
-1. Merging a branch that carries `.changeset/first-release.md` into `main` makes the release
-   workflow open a pull request named **"Version packages"**. It sets the manifest to `1.0.0`,
-   deletes the changeset and writes `packages/react-scheduler/CHANGELOG.md`.
-2. Merging that pull request runs `changeset publish`, which publishes `1.0.0`, tags `v1.0.0`
-   on GitHub and — through the site's build — puts the entry on the Changelog page.
+- **From CI (§4.1).** With no changeset pending, the release workflow skips the "Version packages"
+  pull request and runs `changeset publish` straight away. It publishes every version the registry
+  does not have yet — here `1.0.0` — then pushes the git tag
+  `@react-schedulerkit/react-scheduler@1.0.0` (Changesets names tags after the package in a
+  workspace) and creates the GitHub release with the changelog entry.
+- **From your laptop (§4.2)**, if you prefer the first publish by hand.
 
 The workflow only runs when the repository variable `RELEASE_ENABLED` is `true` (EXCEPTIONS #3).
 Setting it is part of §4.
@@ -119,11 +133,10 @@ This gives `1.0.0` a provenance attestation like every later version.
 
 4. **Enable the workflow** — _Settings_ → _Secrets and variables_ → _Actions_ → _Variables_ →
    _New repository variable_ → `RELEASE_ENABLED` = `true`.
-5. **Release** — `main` already carries the changeset once M8 is merged, and setting a variable is
-   not a push, so start the workflow by hand: the repository → _Actions_ → _Release_ → _Run
-   workflow_ on `main`. It opens the "Version packages" pull request; review its `CHANGELOG.md` and
-   merge it. That merge runs the workflow again, which publishes `1.0.0` with `--access public` and
-   provenance.
+5. **Release** — `main` already carries `1.0.0`, and setting a variable is not a push, so start
+   the workflow by hand: the repository → _Actions_ → _Release_ → _Run workflow_ on `main`. It
+   builds, scans the tarball, runs the sandbox and publishes `1.0.0` with `--access public` and
+   provenance. Watch the run; if a check fails, nothing is published.
 
 ### 4.2 Fallback: from your laptop
 
@@ -131,14 +144,20 @@ Docs pack `10` §4.2's manual path. `1.0.0` then carries no provenance attestati
 will.
 
 ```bash
-pnpm changeset version                 # manifest → 1.0.0, writes CHANGELOG.md
-git commit -am "Version packages"      # on a branch, reviewed, merged into main
+git switch main && git pull            # the manifest already says 1.0.0
+pnpm install --frozen-lockfile
+pnpm release:sandbox                   # the same checks the workflow runs before publishing
 pnpm --filter @react-schedulerkit/react-scheduler build
 cd packages/react-scheduler
-npm pack --dry-run                     # only dist/, README.md, LICENSE
+npm pack --dry-run                     # 121 files: dist/, README.md, LICENSE
 npm publish --access public --provenance=false
-git tag v1.0.0 && git push origin v1.0.0
+cd ../..
+git tag @react-schedulerkit/react-scheduler@1.0.0
+git push origin @react-schedulerkit/react-scheduler@1.0.0
 ```
+
+Use the tag name Changesets uses, so later releases from the workflow find it; then create the
+GitHub release from that tag with the `1.0.0` section of `CHANGELOG.md` as its text.
 
 `--provenance=false` overrides `publishConfig.provenance`, which would otherwise stop a publish
 made outside CI.
@@ -191,6 +210,6 @@ pnpm release:sandbox -- --from-registry 1.0.0            # the same two applicat
 
 - [ ] The npm page shows the README, the MIT licence and the _Provenance_ badge (§4.1 path).
 - [ ] `pnpm release:sandbox -- --from-registry 1.0.0` passes: install, types, Vite build, CommonJS.
-- [ ] The GitHub release and the `v1.0.0` tag exist.
+- [ ] The GitHub release and the `@react-schedulerkit/react-scheduler@1.0.0` tag exist.
 - [ ] The documentation site shows `v1.0` in the navbar and the footer, and the Changelog page lists
       1.0.0 (after its next deployment, `vercel.md` §3).

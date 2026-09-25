@@ -60,7 +60,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | Task                                | Command                                                                                       |
 | ----------------------------------- | --------------------------------------------------------------------------------------------- |
 | Install                             | `pnpm install`                                                                                |
-| Dev (site + package watch)          | `pnpm dev`                                                                                    |
+| Dev (package built once, then site) | `pnpm dev`                                                                                    |
 | Build everything                    | `pnpm build`                                                                                  |
 | Lint / typecheck / test             | `pnpm lint` · `pnpm typecheck` · `pnpm test`                                                  |
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
@@ -70,6 +70,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | Size / dead code / package files    | `pnpm --filter @react-schedulerkit/react-scheduler size` · `pnpm knip` · `pnpm check:pack`    |
 | Zero-reference / licences           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
+| Tarball in fresh React 19/18.2 apps | `pnpm release:sandbox`                                                                        |
 | Add a changeset                     | `pnpm changeset`                                                                              |
 
 ## Working style
