@@ -125,6 +125,40 @@ function inline(html: string): string {
     .trim();
 }
 
+/** The top-level `<li>` elements of a list's inner HTML; a nested list stays inside its item. */
+function listItems(html: string): string[] {
+  const items: string[] = [];
+  let depth = 0;
+  let start = 0;
+  for (const match of html.matchAll(/<\/?li\b[^>]*>/g)) {
+    if (match[0].startsWith('</')) {
+      depth -= 1;
+      if (depth === 0) items.push(html.slice(start, match.index));
+    } else {
+      if (depth === 0) start = match.index + match[0].length;
+      depth += 1;
+    }
+  }
+  return items;
+}
+
+/** A list as Markdown lines, its nested lists indented under the item that holds them. */
+function listLines(tag: string, inner: string, indent: string): string[] {
+  const lines: string[] = [];
+  listItems(inner).forEach((item, index) => {
+    const marker = tag === 'ol' ? `${String(index + 1)}.` : '-';
+    const nested = /<(ul|ol)\b/.exec(item);
+    lines.push(`${indent}${marker} ${inline(nested === null ? item : item.slice(0, nested.index))}`);
+    if (nested === null) return;
+    for (const block of blocks(item.slice(nested.index))) {
+      if (block.tag === 'ul' || block.tag === 'ol') {
+        lines.push(...listLines(block.tag, block.inner, `${indent}${' '.repeat(marker.length + 1)}`));
+      }
+    }
+  });
+  return lines;
+}
+
 /**
  * Markdown for a page's content: the `.md` twin and `llms-full.md` are this, per page. Only the
  * blocks the doc primitives produce are handled; anything else degrades to its text.
@@ -148,10 +182,8 @@ export function toMarkdown(html: string): string {
       }
       case 'ul':
       case 'ol': {
-        const items = [...block.inner.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((item) => inline(item[1] ?? ''));
-        items.forEach((item, index) => {
-          lines.push(block.tag === 'ol' ? `${String(index + 1)}. ${item}` : `- ${item}`);
-        });
+        const items = listLines(block.tag, block.inner, '');
+        lines.push(...items);
         if (items.length > 0) lines.push('');
         break;
       }
@@ -174,7 +206,7 @@ export function toMarkdown(html: string): string {
       default: {
         // `div` and `section` are wrappers (code blocks, callouts, demos): recurse into them.
         const nested = toMarkdown(block.inner);
-        if (nested !== '') lines.push(nested);
+        if (nested !== '') lines.push(nested, '');
         break;
       }
     }

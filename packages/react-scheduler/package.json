@@ -1,6 +1,6 @@
 {
   "name": "@react-schedulerkit/react-scheduler",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "React Scheduler used to showcase a schedule in different domains, such as office or factory work.",
   "license": "MIT",
   "author": "kiralygyula92",

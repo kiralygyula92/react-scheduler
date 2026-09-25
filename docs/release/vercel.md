@@ -22,6 +22,11 @@ repository is ready for one.
 | Package manager, Node  | `packageManager: pnpm@10.34.5` in the root manifest; Node 24                                                                                            |
 | Vercel project, domain | **None yet** — yours, §1 and §5                                                                                                                         |
 
+**Publish first, then promote the site to production.** The site is built from the package at
+`1.0.0`: the navbar says `v1.0`, the Changelog page lists 1.0.0 and the Installation page gives
+the install command for four package managers. A production deployment before the package is on
+npm documents something no reader can install. Preview deployments are fine at any time.
+
 ---
 
 ## 1. Create the project — yours
@@ -102,6 +107,20 @@ links and sitemap point at the preview itself.
    locally.
 2. **Speed Insights** (`07` §1) then reports field data: LCP under 2.0 s, INP under 150 ms, CLS under
    0.05 at the 75th percentile are the targets.
+3. **Security headers** (optional hardening, `docs/audit/1.0.0.md` §8). `vercel.json` is the
+   pack's and sends none beyond what Vercel adds itself. The site is static, with no forms, sign-in
+   or user data, so nothing depends on them; if you add them, scope the rule to
+   `/react-scheduler/(.*)` and `/assets/(.*)` — never `/(.*)`, which would reach `/_vercel/` —
+   and check a preview before production:
+
+   ```json
+   { "key": "X-Content-Type-Options", "value": "nosniff" },
+   { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+   ```
+
+   A `Content-Security-Policy` would need the hash of the inline theme script and Vercel's
+   analytics endpoints, measured on a preview; record it in `EXCEPTIONS.md`, since it changes a
+   file the pack prescribes.
 
 ## 7. The next major: versioned documentation
 

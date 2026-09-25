@@ -2,6 +2,7 @@
 // Changelog (T15, docs pack 03 §3.15): generated at build time from the package's own CHANGELOG.md,
 // which Changesets writes. The frame is translated; the entries are not, because they are published
 // in English on npm and a translated copy would drift from them.
+import { Fragment } from 'react';
 import changelog from '~/content/changelog.json';
 import { Callout, Inline, P, Page, Section } from '~/shell/doc';
 
@@ -10,7 +11,33 @@ const NS = 'pages/discover-more/changelog';
 /** One release as `scripts/lib/changelog.ts` writes it; the file is empty until the first release. */
 interface Release {
   readonly version: string;
-  readonly groups: readonly { readonly title: string; readonly entries: readonly string[] }[];
+  readonly groups: readonly {
+    readonly title: string;
+    readonly entries: readonly { readonly text: string; readonly items: readonly string[] }[];
+  }[];
+}
+
+/**
+ * A release note's own Markdown, as far as a changeset uses it: `**strong**` around the label of a
+ * nested bullet, and code spans, which `Inline` renders.
+ */
+function Note({ text }: { text: string }): React.ReactElement {
+  return (
+    <>
+      {text.split('**').map((part, index) => {
+        const key = `${String(index)}:${part}`;
+        return index % 2 === 1 ? (
+          <strong key={key}>
+            <Inline text={part} />
+          </strong>
+        ) : (
+          <Fragment key={key}>
+            <Inline text={part} />
+          </Fragment>
+        );
+      })}
+    </>
+  );
 }
 
 export default function Changelog(): React.ReactElement {
@@ -33,8 +60,17 @@ export default function Changelog(): React.ReactElement {
                 {group.title === '' ? null : <h3>{group.title}</h3>}
                 <ul>
                   {group.entries.map((entry) => (
-                    <li key={entry}>
-                      <Inline text={entry} />
+                    <li key={entry.text}>
+                      <Note text={entry.text} />
+                      {entry.items.length === 0 ? null : (
+                        <ul>
+                          {entry.items.map((item) => (
+                            <li key={item}>
+                              <Note text={item} />
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   ))}
                 </ul>
