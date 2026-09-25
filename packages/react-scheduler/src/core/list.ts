@@ -47,11 +47,18 @@ export function listActiveIndex(metrics: ListMetrics, epsilon: number): number {
   return active;
 }
 
-/** At the start of a section: `scrollTop ≤ epsilon` for the first, otherwise its top has reached the visible top. */
+/**
+ * At the start of a section: its top has reached the visible top. The first section is also at its
+ * start while the list is within `epsilon` of its top, where the source's jump to the previous shift
+ * always ended. Checking only that, a landing on a first section lower in the content (no earlier
+ * shift rendered, or a smaller extra offset) never counted as its start, and the top button offered
+ * the same jump again (DQ-11).
+ */
 export function listAtStart(index: number, metrics: ListMetrics, epsilon: number): boolean {
   const section = metrics.sections[index];
   if (!section) return false;
-  return index === 0 ? metrics.scrollTop <= epsilon : visibleTopOf(metrics) <= section.top;
+  const reached = visibleTopOf(metrics) <= section.top;
+  return index === 0 ? metrics.scrollTop <= epsilon || reached : reached;
 }
 
 /** The section after `index` (list-only bottom rule) is visible below the fold. */

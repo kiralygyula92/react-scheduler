@@ -33,7 +33,8 @@ export interface ListOptions {
    */
   alignOffset?: number;
   /**
-   * Extra offset, in pixels, when the jump goes to an earlier shift, so its last items stay in view.
+   * Extra offset, in pixels, when the jump goes to the first shift and it is earlier than the current
+   * one, so the list reaches its very top. Any other shift is reached at its own start.
    *
    * @defaultValue 104
    * @min 0

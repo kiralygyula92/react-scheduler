@@ -268,8 +268,12 @@ export function createViewRuntime<TItem extends SchedulerItem>(
   function listShiftTarget(to: ShiftWindow): number {
     const metrics = listMetrics();
     const options = model().list;
-    const section = metrics.sections[shiftIndex(to.offset)];
-    const extra = to.offset < 0 ? options.previousJumpExtraOffset : 0;
+    const index = shiftIndex(to.offset);
+    const section = metrics.sections[index];
+    // The extra offset takes the jump to the first shift all the way to the top (01 §L.7, BR-L04).
+    // On a later earlier shift it would land inside the shift before it, which stays active, and the
+    // bottom button would offer the same jump again (DQ-10).
+    const extra = to.offset < 0 && index === 0 ? options.previousJumpExtraOffset : 0;
     return section ? listSectionTarget(section.top, metrics.stickyHeight, options.alignOffset, extra) : 0;
   }
 

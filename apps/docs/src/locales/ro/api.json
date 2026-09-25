@@ -212,7 +212,7 @@
       "collapseMinItems": "Semnalul de antet se poate declanșa doar dacă tura curentă are mai multe elemente decât atât.",
       "landing": "Unde aterizează lista la prima randare, la schimbarea datei și la intrarea în vizualizare.",
       "navigationThreshold": "Navigarea apare doar dacă o tură are cel puțin atâtea elemente.",
-      "previousJumpExtraOffset": "Decalaj suplimentar, în pixeli, când saltul merge la o tură anterioară, ca ultimele ei elemente să rămână vizibile.",
+      "previousJumpExtraOffset": "Decalaj suplimentar, în pixeli, când saltul merge la prima tură și aceasta este anterioară celei curente, ca lista să ajungă chiar la început. Orice altă tură este atinsă la propriul ei început.",
       "scrollTopThreshold": "Derularea peste această distanță, în pixeli, afișează butonul de revenire în sus.",
       "segmentEpsilon": "Toleranța, în pixeli, pentru a decide în ce secțiune de tură se află zona de derulare."
     }

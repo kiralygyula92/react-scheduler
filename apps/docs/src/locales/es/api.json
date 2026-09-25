@@ -212,7 +212,7 @@
       "collapseMinItems": "La señal de encabezado solo puede emitirse si el turno actual tiene más elementos que esto.",
       "landing": "Dónde aterriza la lista en el primer renderizado, al cambiar la fecha y al entrar en la vista.",
       "navigationThreshold": "La navegación aparece solo si algún turno tiene al menos esta cantidad de elementos.",
-      "previousJumpExtraOffset": "Desplazamiento adicional, en píxeles, cuando el salto va a un turno anterior, para que sus últimos elementos sigan visibles.",
+      "previousJumpExtraOffset": "Desplazamiento adicional, en píxeles, cuando el salto va al primer turno y este es anterior al actual, para que la lista llegue hasta arriba del todo. Cualquier otro turno se alcanza en su propio inicio.",
       "scrollTopThreshold": "Desplazarse más allá de esta distancia, en píxeles, muestra el botón de volver arriba.",
       "segmentEpsilon": "Tolerancia, en píxeles, para decidir en qué sección de turno está el área de desplazamiento."
     }

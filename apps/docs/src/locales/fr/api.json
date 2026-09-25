@@ -212,7 +212,7 @@
       "collapseMinItems": "Le signal d’en-tête ne peut se déclencher que si le poste courant contient plus d’éléments que cela.",
       "landing": "Où atterrit la liste au premier rendu, lors d’un changement de date et à l’entrée dans la vue.",
       "navigationThreshold": "La navigation n’apparaît que si un poste contient au moins ce nombre d’éléments.",
-      "previousJumpExtraOffset": "Décalage supplémentaire, en pixels, quand le saut va vers un poste antérieur, pour que ses derniers éléments restent visibles.",
+      "previousJumpExtraOffset": "Décalage supplémentaire, en pixels, quand le saut va vers le premier poste et qu’il est antérieur au poste courant, pour que la liste remonte tout en haut. Tout autre poste est atteint à son propre début.",
       "scrollTopThreshold": "Défiler au-delà de cette distance, en pixels, affiche le bouton de retour en haut.",
       "segmentEpsilon": "Tolérance, en pixels, pour déterminer dans quelle section de poste se trouve la zone de défilement."
     }

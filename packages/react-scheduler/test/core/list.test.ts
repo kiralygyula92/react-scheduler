@@ -49,6 +49,17 @@ describe('listAtStart and listSectionVisible', () => {
     expect(listAtStart(3, metricsAt(0), eps)).toBe(false);
   });
 
+  it('counts a landing on a first section lower in the content as its start (DQ-11)', () => {
+    // No earlier shift rendered: the first section is the current one, 152 px down the content, and
+    // a jump to it lands at 152 − 64 − 8 = 80, well past the epsilon from the top.
+    const lower: ListMetrics = {
+      ...metricsAt(80),
+      sections: [{ top: 152, headerHeight: 60 }, ...metricsAt(0).sections.slice(1)],
+    };
+    expect(listAtStart(0, lower, eps)).toBe(true);
+    expect(listAtStart(0, { ...lower, scrollTop: 89 }, eps)).toBe(false);
+  });
+
   it('reports whether a section is visible below the fold', () => {
     expect([listSectionVisible(1, metricsAt(0), eps), listSectionVisible(1, metricsAt(9), eps)]).toEqual([false, true]);
     expect(listSectionVisible(7, metricsAt(0), eps)).toBe(false);

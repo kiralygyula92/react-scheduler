@@ -212,7 +212,7 @@
       "collapseMinItems": "Das Kopfzeilensignal kann nur ausgelöst werden, wenn die aktuelle Schicht mehr Elemente als diese Zahl hat.",
       "landing": "Wo die Liste beim ersten Rendern, bei einem Datumswechsel und beim Betreten der Ansicht landet.",
       "navigationThreshold": "Die Navigation erscheint nur, wenn eine Schicht mindestens so viele Elemente enthält.",
-      "previousJumpExtraOffset": "Zusätzlicher Versatz in Pixeln, wenn der Sprung zu einer früheren Schicht geht, damit deren letzte Elemente sichtbar bleiben.",
+      "previousJumpExtraOffset": "Zusätzlicher Versatz in Pixeln, wenn der Sprung zur ersten Schicht geht und diese vor der aktuellen liegt, damit die Liste ganz nach oben reicht. Jede andere Schicht wird an ihrem eigenen Beginn erreicht.",
       "scrollTopThreshold": "Wird weiter als diese Distanz in Pixeln gescrollt, erscheint die Schaltfläche nach oben.",
       "segmentEpsilon": "Toleranz in Pixeln für die Entscheidung, in welchem Schichtabschnitt der Scrollbereich steht."
     }

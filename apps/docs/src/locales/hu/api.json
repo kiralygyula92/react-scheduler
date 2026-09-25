@@ -212,7 +212,7 @@
       "collapseMinItems": "A fejlécjelzés csak akkor léphet működésbe, ha az aktuális műszakban ennél több elem van.",
       "landing": "Hová érkezik a lista az első megjelenítéskor, dátumváltáskor és a nézetbe lépéskor.",
       "navigationThreshold": "A navigáció csak akkor jelenik meg, ha valamelyik műszakban legalább ennyi elem van.",
-      "previousJumpExtraOffset": "További eltolás képpontban, ha az ugrás korábbi műszakra megy, hogy annak utolsó elemei láthatók maradjanak.",
+      "previousJumpExtraOffset": "További eltolás képpontban, ha az ugrás az első műszakra megy, és az korábbi az aktuálisnál, hogy a lista egészen az elejéig érjen. Minden más műszakot a saját kezdetén ér el.",
       "scrollTopThreshold": "Az ennél nagyobb görgetés képpontban megjeleníti a felugró gombot.",
       "segmentEpsilon": "Tűréshatár képpontban annak eldöntéséhez, melyik műszakszakaszban áll a görgethető terület."
     }

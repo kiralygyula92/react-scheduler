@@ -49,9 +49,10 @@ describe('v1.0 acceptance checks in the browser', () => {
       const props = { ...base, shifts: { before: 2, after: 2 }, ref };
       const { host } = mount(view === 'list' ? <ListView {...props} /> : <TimelineView {...props} />);
       const scroller = await settled(host, 500);
-      // From the current shift, the top button goes to shift −1 (the list keeps the previous-jump
-      // offset of F-08 above it). Every frame of the way the scroll only moves toward its target: the
-      // strip collapsing on arrival is not compensated and then corrected back (B-21).
+      // From the current shift, the top button goes to shift −1, at its own start: the previous-jump
+      // offset of F-08 only applies to the first shift (DQ-10). Every frame of the way the scroll only
+      // moves toward its target: the strip collapsing on arrival is not compensated and then
+      // corrected back (B-21).
       const positions: number[] = [];
       let sampling = true;
       const sample = (): void => {

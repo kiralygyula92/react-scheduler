@@ -212,7 +212,7 @@
       "collapseMinItems": "The header signal may fire only when the current shift holds more items than this.",
       "landing": "Where the list lands on first render, on a date change and when the view is entered.",
       "navigationThreshold": "Navigation appears only when some shift holds at least this many items.",
-      "previousJumpExtraOffset": "Extra offset, in pixels, when the jump goes to an earlier shift, so its last items stay in view.",
+      "previousJumpExtraOffset": "Extra offset, in pixels, when the jump goes to the first shift and it is earlier than the current one, so the list reaches its very top. Any other shift is reached at its own start.",
       "scrollTopThreshold": "Scrolling further than this, in pixels, shows the scroll-to-top button.",
       "segmentEpsilon": "Tolerance, in pixels, for deciding which shift section the scroller sits in."
     }
