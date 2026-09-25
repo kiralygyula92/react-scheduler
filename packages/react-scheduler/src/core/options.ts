@@ -151,15 +151,29 @@ export interface TimelineOptions {
    */
   maxColumnsCompact?: number;
   /**
-   * The shortest a card may be drawn, in pixels, however short the item is.
+   * The shortest a card may be drawn, in pixels, however short the item is. The default preset keeps
+   * room for the title and the pill row: 108, or 128 in the `comfortable` density and 88 in `dense`.
+   * The classic preset and the headless controller use 80 (96 and 56), where a short card can cut its
+   * title.
    *
-   * @defaultValue 80
+   * @defaultValue 108
    * @min 20
    * @max 200
    * @step 4
    * @category Timeline
    */
   minCardHeight?: number;
+  /**
+   * Whether cards never overlap. A card keeps its column until the end of what is drawn, at least
+   * `minCardHeight`, so the next item in that column starts below it; and an overlapping group shares
+   * as many columns as its cards take. The default preset turns it on. The classic preset and the
+   * headless controller keep the original placement, where a short card can run under the next one
+   * and compact mode can stack two cards in one column.
+   *
+   * @defaultValue true
+   * @category Timeline
+   */
+  keepCardsApart?: boolean;
   /**
    * The gap between two cards, in pixels.
    *
@@ -320,6 +334,7 @@ export const timelineDefaults: ResolvedTimelineOptions = {
   maxColumns: 3,
   maxColumnsCrowded: 3,
   maxColumnsCompact: 1,
+  keepCardsApart: false,
   minCardHeight: 80,
   cardGap: 4,
   columnPlacement: 'priority',

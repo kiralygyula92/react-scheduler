@@ -976,7 +976,8 @@
       "minCardHeight": "La hauteur minimale à laquelle une carte peut être dessinée, en pixels.",
       "overflowMergeWindow": "À quelle distance, en millisecondes, deux groupes chargés peuvent être tout en fusionnant.",
       "rangeEnd": "Le dernier moment couvert par la grille, en millisecondes epoch.",
-      "rangeStart": "Le premier moment couvert par la grille, en millisecondes epoch."
+      "rangeStart": "Le premier moment couvert par la grille, en millisecondes epoch.",
+      "keepCardsApart": "Si une carte garde sa colonne jusqu’à la fin de ce qui est dessiné et si un groupe a une colonne pour chaque carte, pour que deux cartes ne se chevauchent jamais. Désactivé, une carte courte peut passer sous la suivante."
     }
   },
   "TimelineOptions": {
@@ -991,10 +992,11 @@
       "maxColumns": "Sur combien de colonnes les éléments qui se chevauchent peuvent s’étaler.",
       "maxColumnsCompact": "La limite d’encombrement dans la disposition compacte.",
       "maxColumnsCrowded": "La limite lorsque plus d’éléments se chevauchent que `maxColumns` ; le reste va dans la puce « +more ».",
-      "minCardHeight": "Quelle hauteur minimale une carte peut avoir, en pixels, même pour un élément très court.",
+      "minCardHeight": "Quelle hauteur minimale une carte peut avoir, en pixels, même pour un élément très court. Le préréglage par défaut garde la place du titre et de la rangée de pastilles : 108, ou 128 avec la densité `comfortable` et 88 avec `dense`. Le préréglage classique et le contrôleur headless utilisent 80 (96 et 56), où une carte courte peut couper son titre.",
       "nearBottomGutterMinutes": "Combien de temps, en minutes, un atterrissage « près du bas » laisse sous la cible.",
       "overflowMergeWindow": "À quelle distance, en millisecondes, deux groupes encombrés peuvent être et fusionner malgré tout dans une seule puce « +more ». `Infinity` fusionne toute la chaîne.",
-      "viewEnterRealignDelay": "Combien de temps la chronologie attend, en millisecondes, après l’entrée dans la vue avant de se réaligner."
+      "viewEnterRealignDelay": "Combien de temps la chronologie attend, en millisecondes, après l’entrée dans la vue avant de se réaligner.",
+      "keepCardsApart": "Si les cartes ne se chevauchent jamais. Une carte garde sa colonne jusqu’à la fin de ce qui est dessiné, au moins `minCardHeight`, si bien que l’élément suivant de la colonne commence en dessous ; et un groupe qui se chevauche partage autant de colonnes que ses cartes en occupent. Le préréglage par défaut l’active. Le préréglage classique et le contrôleur headless gardent le placement d’origine, où une carte courte peut passer sous la suivante et le mode compact peut empiler deux cartes dans une colonne."
     }
   },
   "TimelineView": {

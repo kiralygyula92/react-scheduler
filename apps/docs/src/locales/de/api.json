@@ -976,7 +976,8 @@
       "minCardHeight": "Wie kurz eine Karte höchstens gezeichnet werden darf, in Pixeln.",
       "overflowMergeWindow": "Wie weit zwei volle Gruppen in Millisekunden auseinanderliegen dürfen und dennoch verschmelzen.",
       "rangeEnd": "Der letzte Moment, den die Fläche abdeckt, in Epoch-Millisekunden.",
-      "rangeStart": "Der erste Moment, den die Fläche abdeckt, in Epoch-Millisekunden."
+      "rangeStart": "Der erste Moment, den die Fläche abdeckt, in Epoch-Millisekunden.",
+      "keepCardsApart": "Ob eine Karte ihre Spalte bis zum Ende dessen belegt, was gezeichnet wird, und eine Gruppe für jede Karte eine Spalte hat, sodass sich keine zwei Karten überlagern. Ausgeschaltet kann eine kurze Karte unter die nächste geraten."
     }
   },
   "TimelineOptions": {
@@ -991,10 +992,11 @@
       "maxColumns": "Über wie viele Spalten sich überlappende Elemente verteilen dürfen.",
       "maxColumnsCompact": "Die Obergrenze bei Gedränge im kompakten Layout.",
       "maxColumnsCrowded": "Die Grenze, wenn mehr Elemente überlappen als `maxColumns`; der Rest geht in den „+more“-Chip.",
-      "minCardHeight": "Wie flach eine Karte gezeichnet werden darf, in Pixeln, egal wie kurz das Element ist.",
+      "minCardHeight": "Wie flach eine Karte gezeichnet werden darf, in Pixeln, egal wie kurz das Element ist. Die Standardvorgabe lässt Platz für den Titel und die Zeile der Kennzeichen: 108, oder 128 in der Dichte `comfortable` und 88 in `dense`. Die klassische Vorgabe und der headless Controller verwenden 80 (96 und 56), wobei eine kurze Karte ihren Titel abschneiden kann.",
       "nearBottomGutterMinutes": "Wie viel Zeit in Minuten eine Landung „nahe unten“ unterhalb des Ziels lässt.",
       "overflowMergeWindow": "Wie weit zwei gedrängte Gruppen in Millisekunden auseinanderliegen dürfen und trotzdem zu einem „+more“-Chip verschmelzen. `Infinity` verschmilzt die ganze Kette.",
-      "viewEnterRealignDelay": "Wie lange der Zeitstrahl nach dem Betreten der Ansicht in Millisekunden wartet, bevor er neu ausrichtet."
+      "viewEnterRealignDelay": "Wie lange der Zeitstrahl nach dem Betreten der Ansicht in Millisekunden wartet, bevor er neu ausrichtet.",
+      "keepCardsApart": "Ob sich Karten nie überlagern. Eine Karte belegt ihre Spalte bis zum Ende dessen, was gezeichnet wird, mindestens `minCardHeight`, sodass das nächste Element dieser Spalte darunter beginnt; und eine überlappende Gruppe teilt sich so viele Spalten, wie ihre Karten belegen. Die Standardvorgabe schaltet es ein. Die klassische Vorgabe und der headless Controller behalten die ursprüngliche Anordnung, bei der eine kurze Karte unter die nächste geraten und der kompakte Modus zwei Karten in einer Spalte stapeln kann."
     }
   },
   "TimelineView": {

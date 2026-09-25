@@ -129,3 +129,72 @@ describe('overflow groups', () => {
     expect(overflowIds(layoutOf(items, { levels: resolveLevels(classicLevels) }))).toEqual([['r3', 'res']]);
   });
 });
+
+describe('keepCardsApart (ADR 0005 D2)', () => {
+  // Two drawn boxes of the same column overlap when one starts before the other's drawn end.
+  const collisions = (layout: TimelineLayout<SchedulerItem>, gap: number): string[] => {
+    const found: string[] = [];
+    const lanes = new Map<string, { id: string; top: number; bottom: number; from: number; to: number }[]>();
+    for (const card of layout.cards) {
+      // A card spans its column only; with `columns` columns, column c covers [c/columns, (c+1)/columns).
+      const from = card.column / card.columns;
+      const to = (card.column + 1) / card.columns;
+      for (const [, boxes] of lanes) {
+        for (const box of boxes) {
+          const sideBySide = to <= box.from + 1e-9 || from >= box.to - 1e-9;
+          const apart = card.top >= box.bottom + gap - 1e-6 || box.top >= card.top + card.height + gap - 1e-6;
+          if (!sideBySide && !apart) found.push(`${box.id}×${card.item.id}`);
+        }
+      }
+      const key = 'all';
+      lanes.set(key, [
+        ...(lanes.get(key) ?? []),
+        { id: card.item.id, top: card.top, bottom: card.top + card.height, from, to },
+      ]);
+    }
+    return found;
+  };
+
+  it('starts the next item of a column below a short card drawn at the minimum height', () => {
+    // 20:00–20:30 is drawn 108 px (86 px of time at 172 px/h), so 20:30 would start under it.
+    const items = [item('short', 'routine', at(20), at(20, 30)), item('next', 'routine', at(20, 30), at(21, 30))];
+    const options = { minCardHeight: 108, hourHeight: 172, cardGap: 4 };
+    expect(columnsOf(layoutOf(items, options))).toEqual({ short: '0/1', next: '0/1' });
+    expect(collisions(layoutOf(items, options), 4)).toEqual(['short×next']);
+    const apart = layoutOf(items, { ...options, keepCardsApart: true });
+    expect(columnsOf(apart)).toEqual({ short: '0/2', next: '1/2' });
+    expect(collisions(apart, 4)).toEqual([]);
+    // What is drawn does not change: the item's own end and height.
+    expect(apart.cards.map((card) => [card.end, card.height])).toEqual(
+      layoutOf(items, options).cards.map((card) => [card.end, card.height]),
+    );
+  });
+
+  it('never draws two cards over each other, compact or not (DQ-3)', () => {
+    // A deterministic spread of starts, lengths and levels, dense enough to crowd and to promote.
+    const levels = ['critical', 'watch', 'monitoring', 'routine', 'ready', 'normal'];
+    let seed = 7;
+    const next = (): number => {
+      seed = (seed * 16807) % 2147483647;
+      return seed / 2147483647;
+    };
+    for (let round = 0; round < 40; round++) {
+      const items = Array.from({ length: 14 }, (_, index) => {
+        const start = 6 * 60 + Math.floor(next() * 64) * 15;
+        const length = [15, 30, 45, 60, 90, 120][Math.floor(next() * 6)] as number;
+        const time = (minutes: number): string => at(Math.floor(minutes / 60) % 24, minutes % 60);
+        return item(
+          `i${String(index)}`,
+          levels[Math.floor(next() * levels.length)] as string,
+          time(start),
+          time(Math.min(start + length, 23 * 60 + 45)),
+        );
+      });
+      for (const compact of [false, true]) {
+        const layout = layoutOf(items, { compact, minCardHeight: 108, keepCardsApart: true });
+        for (const card of layout.cards) expect(card.column).toBeLessThan(card.columns);
+        expect(collisions(layout, 4), `round ${String(round)}, compact ${String(compact)}`).toEqual([]);
+      }
+    }
+  });
+});

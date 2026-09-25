@@ -976,7 +976,8 @@
       "minCardHeight": "O mínimo que um cartão pode ser desenhado, em píxeis.",
       "overflowMergeWindow": "A que distância, em milissegundos, dois grupos cheios podem estar e ainda assim fundir-se.",
       "rangeEnd": "O último momento que a grelha cobre, em milissegundos epoch.",
-      "rangeStart": "O primeiro momento que a grelha cobre, em milissegundos epoch."
+      "rangeStart": "O primeiro momento que a grelha cobre, em milissegundos epoch.",
+      "keepCardsApart": "Se um cartão ocupa a sua coluna até ao fim do que é desenhado e um grupo tem uma coluna para cada cartão, para que dois cartões nunca se sobreponham. Desativado, um cartão curto pode ficar por baixo do seguinte."
     }
   },
   "TimelineOptions": {
@@ -991,10 +992,11 @@
       "maxColumns": "Por quantas colunas se podem distribuir os elementos sobrepostos.",
       "maxColumnsCompact": "O limite de aglomeração no esquema compacto.",
       "maxColumnsCrowded": "O limite quando se sobrepõem mais elementos do que `maxColumns`; os restantes vão para a etiqueta «+more».",
-      "minCardHeight": "Que altura mínima um cartão pode ter, em píxeis, por muito curto que seja o elemento.",
+      "minCardHeight": "Que altura mínima um cartão pode ter, em píxeis, por muito curto que seja o elemento. A predefinição padrão deixa espaço para o título e a linha de etiquetas: 108, ou 128 na densidade `comfortable` e 88 em `dense`. A predefinição clássica e o controlador headless usam 80 (96 e 56), onde um cartão curto pode cortar o título.",
       "nearBottomGutterMinutes": "Quanto tempo, em minutos, uma aterragem «perto do fim» deixa abaixo do alvo.",
       "overflowMergeWindow": "A que distância, em milissegundos, dois grupos aglomerados podem estar e ainda assim juntar-se numa só etiqueta «+more». `Infinity` junta toda a cadeia.",
-      "viewEnterRealignDelay": "Quanto tempo a cronologia espera, em milissegundos, depois de entrar na vista antes de se realinhar."
+      "viewEnterRealignDelay": "Quanto tempo a cronologia espera, em milissegundos, depois de entrar na vista antes de se realinhar.",
+      "keepCardsApart": "Se os cartões nunca se sobrepõem. Um cartão ocupa a sua coluna até ao fim do que é desenhado, pelo menos `minCardHeight`, pelo que o elemento seguinte dessa coluna começa por baixo; e um grupo sobreposto partilha tantas colunas quantas os seus cartões ocupam. A predefinição padrão ativa-o. A predefinição clássica e o controlador headless mantêm a colocação original, em que um cartão curto pode ficar por baixo do seguinte e o modo compacto pode empilhar dois cartões numa coluna."
     }
   },
   "TimelineView": {
