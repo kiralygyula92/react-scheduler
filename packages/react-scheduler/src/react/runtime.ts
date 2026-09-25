@@ -214,7 +214,7 @@ export function createViewRuntime<TItem extends SchedulerItem>(
       const nextIndex = current.shifts.findIndex((shift) => shift.offset === 1);
       facts = {
         activeIndex,
-        atStart: hasSections ? listAtStart(activeIndex, metrics, epsilon) : true,
+        atStart: hasSections ? listAtStart(activeIndex, metrics, epsilon, listTargetOf(0, metrics)) : true,
         nextVisible: hasSections && nextIndex >= 0 && listSectionVisible(nextIndex, metrics, epsilon),
         pastScrollTopThreshold: scrollTopButtonVisible(metrics.scrollTop, current.list.scrollTopThreshold),
       };
@@ -265,16 +265,21 @@ export function createViewRuntime<TItem extends SchedulerItem>(
     return model().shifts.findIndex((shift) => shift.offset === offset);
   }
 
-  function listShiftTarget(to: ShiftWindow): number {
-    const metrics = listMetrics();
-    const options = model().list;
-    const index = shiftIndex(to.offset);
+  /** Where a jump to the shift at `index` lands, measured from `metrics`. */
+  function listTargetOf(index: number, metrics: ListMetrics): number {
+    const current = model();
     const section = metrics.sections[index];
+    const shift = current.shifts[index];
+    if (!section || !shift) return 0;
     // The extra offset takes the jump to the first shift all the way to the top (01 §L.7, BR-L04).
     // On a later earlier shift it would land inside the shift before it, which stays active, and the
     // bottom button would offer the same jump again (DQ-10).
-    const extra = to.offset < 0 && index === 0 ? options.previousJumpExtraOffset : 0;
-    return section ? listSectionTarget(section.top, metrics.stickyHeight, options.alignOffset, extra) : 0;
+    const extra = shift.offset < 0 && index === 0 ? current.list.previousJumpExtraOffset : 0;
+    return listSectionTarget(section.top, metrics.stickyHeight, current.list.alignOffset, extra);
+  }
+
+  function listShiftTarget(to: ShiftWindow): number {
+    return listTargetOf(shiftIndex(to.offset), listMetrics());
   }
 
   function landingTarget(target: LandingTarget): number | null {

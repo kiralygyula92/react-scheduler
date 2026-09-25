@@ -12,8 +12,39 @@ interface AxeResult {
 
 const axePath = createRequire(import.meta.url).resolve('axe-core/axe.min.js');
 
+/**
+ * Resolves once the DOM has not changed for `quiet` ms. A page that renders a schedule keeps working
+ * after hydration — it lands, pins and reports each change — and axe measures what it finds while it
+ * runs: auditing the Playground in the middle of that burst, WebKit under load reported `<body>`
+ * without its background, and axe took the page for white (ADR 0005 D5).
+ */
+async function quiet(page: Page, quietMs = 500): Promise<void> {
+  await page.evaluate(
+    (ms) =>
+      new Promise<void>((resolve) => {
+        let timer = setTimeout(done, ms);
+        const observer = new MutationObserver(() => {
+          clearTimeout(timer);
+          timer = setTimeout(done, ms);
+        });
+        function done(): void {
+          observer.disconnect();
+          resolve();
+        }
+        observer.observe(document.documentElement, {
+          subtree: true,
+          childList: true,
+          attributes: true,
+          characterData: true,
+        });
+      }),
+    quietMs,
+  );
+}
+
 /** One page, one theme: the serious and critical violations axe reports. */
 async function violations(page: Page): Promise<string[]> {
+  await quiet(page);
   await page.addScriptTag({ path: axePath });
   const result = await page.evaluate<AxeResult>(async () => {
     const axe = (globalThis as unknown as { axe: { run: (options: unknown) => Promise<AxeResult> } }).axe;
