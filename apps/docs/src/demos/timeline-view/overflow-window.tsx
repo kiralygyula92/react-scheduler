@@ -4,6 +4,7 @@
 // and the closer each group stays to the hour it belongs to.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -29,32 +30,27 @@ export default function TimelineOverflowWindow(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.mergeWindow')}</legend>
-        {WINDOWS.map((value) => (
-          <label key={String(value)}>
-            <input
-              type="radio"
-              name="merge-window"
-              checked={minutes === value}
-              onChange={() => {
-                setMinutes(value);
-              }}
-            />
-            {label(value)}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        view="timeline"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        timeline={{ overflowMergeWindow: minutes * 60_000 }}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.mergeWindow')}
+          options={WINDOWS.map((value) => ({ value, label: label(value) }))}
+          value={minutes}
+          onChange={setMinutes}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="timeline"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          timeline={{ overflowMergeWindow: minutes * 60_000 }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

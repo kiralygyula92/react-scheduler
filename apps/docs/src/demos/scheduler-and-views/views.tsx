@@ -3,6 +3,7 @@
 // like: two buttons carrying `aria-pressed`, labelled from the locale pack the schedule uses.
 import { useState } from 'react';
 import { classicLevels, Scheduler, type ViewKind } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -16,30 +17,27 @@ export default function Views(): React.ReactElement {
 
   return (
     <div>
-      <div role="group" aria-label={demo.t('controls.view')}>
-        {VIEWS.map((kind) => (
-          <button
-            key={kind}
-            type="button"
-            aria-pressed={view === kind}
-            onClick={() => {
-              setView(kind);
-            }}
-          >
-            {demo.localization.views[kind]}
-          </button>
-        ))}
+      <Controls>
+        <Choice
+          label={demo.t('controls.view')}
+          options={VIEWS.map((kind) => ({ value: kind, label: demo.localization.views[kind] }))}
+          value={view}
+          onChange={setView}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          view={view}
+          onViewChange={setView}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
       </div>
-      <Scheduler
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        view={view}
-        onViewChange={setView}
-        localization={demo.localization}
-      />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 // What does not fit the cap is merged into an overflow group and reached through "+ more".
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -23,32 +24,27 @@ export default function TimelineColumns(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.maxColumns')}</legend>
-        {CAPS.map((cap) => (
-          <label key={cap}>
-            <input
-              type="radio"
-              name="max-columns"
-              checked={maxColumns === cap}
-              onChange={() => {
-                setMaxColumns(cap);
-              }}
-            />
-            {cap}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        view="timeline"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        timeline={{ maxColumns, maxColumnsCrowded: maxColumns }}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.maxColumns')}
+          options={CAPS.map((cap) => ({ value: cap, label: String(cap) }))}
+          value={maxColumns}
+          onChange={setMaxColumns}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="timeline"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          timeline={{ maxColumns, maxColumnsCrowded: maxColumns }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

@@ -19,24 +19,27 @@ export default function CustomDetail(): React.ReactElement {
   });
 
   return (
-    <Scheduler
-      view="list"
-      items={items}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      renderItemDetail={({ item, close }) => (
-        <aside aria-label={item.title}>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-          <p>{demo.t('detail.reference', { reference: item.reference ?? '—' })}</p>
-          <button type="button" onClick={close}>
-            {demo.t('detail.close')}
-          </button>
-        </aside>
-      )}
-      localization={demo.localization}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="list"
+        items={items}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        renderItemDetail={({ item, close }) => (
+          <aside aria-label={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <p>{demo.t('detail.reference', { reference: item.reference ?? '—' })}</p>
+            <button type="button" className="ds-button" onClick={close}>
+              {demo.t('detail.close')}
+            </button>
+          </aside>
+        )}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
   );
 }

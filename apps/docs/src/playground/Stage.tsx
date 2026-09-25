@@ -4,6 +4,9 @@
 // a themed message instead of a blank page.
 import { Component, type ReactNode } from 'react';
 
+/** The schedule fills its container and scrolls inside it, so the stage gives it a height (ADR 0005 D4). */
+const VIEWPORT = { height: 'min(70vh, 720px)' } as const;
+
 export class Stage extends Component<{ message: string; children: ReactNode }, { failed: boolean; key: number }> {
   override state = { failed: false, key: 0 };
 
@@ -21,7 +24,11 @@ export class Stage extends Component<{ message: string; children: ReactNode }, {
   override render(): ReactNode {
     return (
       <div className="ds-pg__component">
-        {this.state.failed ? <p className="ds-lead">{this.props.message}</p> : this.props.children}
+        {this.state.failed ? (
+          <p className="ds-lead">{this.props.message}</p>
+        ) : (
+          <div style={VIEWPORT}>{this.props.children}</div>
+        )}
       </div>
     );
   }

@@ -37,16 +37,19 @@ export default function Slots(): React.ReactElement {
   });
 
   return (
-    <Scheduler
-      view="timeline"
-      items={items}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      slots={{ levelPill: LevelPill }}
-      slotProps={{ moreChip: { style: { fontWeight: 700 } } }}
-      localization={demo.localization}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="timeline"
+        items={items}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        slots={{ levelPill: LevelPill }}
+        slotProps={{ moreChip: { style: { fontWeight: 700 } } }}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
   );
 }

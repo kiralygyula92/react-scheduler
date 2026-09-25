@@ -3,6 +3,7 @@
 // Move the clock and watch it appear, move, and disappear.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -16,31 +17,26 @@ export default function NowMarker(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.clock')}</legend>
-        {HOURS.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="clock"
-              checked={hour === value}
-              onChange={() => {
-                setHour(value);
-              }}
-            />
-            {`${String(value).padStart(2, '0')}:00`}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        view="timeline"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={new Date(demo.at(hour))}
-        now={new Date(demo.at(hour))}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.clock')}
+          options={HOURS.map((value) => ({ value, label: `${String(value).padStart(2, '0')}:00` }))}
+          value={hour}
+          onChange={setHour}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="timeline"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={new Date(demo.at(hour))}
+          now={new Date(demo.at(hour))}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

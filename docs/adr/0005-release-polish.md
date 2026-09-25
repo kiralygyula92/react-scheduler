@@ -41,3 +41,11 @@ The buttons sit centered on a divider, half inside a sticky band: `01` §L.6 and
 The root fills its parent (`01` §2), so a parent without a height lets the schedule grow with its content: it never scrolls, and the navigation buttons have nothing to move. That is what every example did, the README and the Installation page included. Both now render inside `<div style={{ height: 600 }}>` and say why, in all seven languages, and every demo on the site sets a height (D5).
 
 A development warning was tried and left out. The package's development diagnostics run only where `process` exists at runtime (`src/core/env.ts`), which Vite and webpack 5 do not provide in the browser, so the warning would stay silent in most browser development builds — exactly where it is needed. Changing that guard changes every diagnostic and how production builds drop them; it is not part of this release.
+
+### D5 — Every demo has a height, the site's controls and the site's scheme
+
+- **Height:** every demo renders its schedule inside `<div style={{ height: 560 }}>`, in the source a reader sees under "Show code"; the Playground and the theme editor give their stage `min(70vh, 720px)`. The shell's `<Demo height>` is a minimum height and the shell is fixed (EXCEPTIONS #10), so the demos carry it.
+- **Controls:** the radio groups, checkboxes and bare buttons above the schedules are `Choice` (toggle buttons with `aria-pressed`, the chosen one filled), `Check` and `Controls` from `src/demos/_shared/controls.tsx`, built on the shell's `.ds-button` and `.ds-check`. No new CSS. `theming.tsx` drops from 90 to 70 lines, inside `04` §1's 80.
+- **Scheme:** `04` §1 says demos follow the site theme; none did. `useDemo` reads `data-theme` from `<html>` through `useSyncExternalStore` (light while prerendered, as the page is), and every demo passes `colorScheme={demo.scheme}`. The two demos with a scheme control follow the site until the reader picks one.
+
+`e2e/demos.spec.ts` opens every page and checks that each schedule is at most a screen tall and scrolls when its content is taller, that no bare control sits in a demo, and that nothing throws; in three engines it walks the list's buttons down and back, the timeline's buttons there and back, opens a detail and the overflow table, and takes a narrow list back to the top.

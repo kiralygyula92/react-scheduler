@@ -4,6 +4,7 @@
 // whatever started first stays on the left.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -24,32 +25,30 @@ export default function TimelineColumnPlacement(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.columnPlacement')}</legend>
-        {PLACEMENTS.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="column-placement"
-              checked={placement === value}
-              onChange={() => {
-                setPlacement(value);
-              }}
-            />
-            {demo.t(value === 'priority' ? 'controls.placementPriority' : 'controls.placementTime')}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        view="timeline"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        timeline={{ columnPlacement: placement }}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.columnPlacement')}
+          options={PLACEMENTS.map((value) => ({
+            value,
+            label: demo.t(value === 'priority' ? 'controls.placementPriority' : 'controls.placementTime'),
+          }))}
+          value={placement}
+          onChange={setPlacement}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="timeline"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          timeline={{ columnPlacement: placement }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

@@ -23,18 +23,21 @@ export default function Navigation(): React.ReactElement {
   return (
     <div>
       <p aria-live="polite">{log.at(-1) ?? demo.t('controls.navigateIdle')}</p>
-      <Scheduler
-        view="list"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        onNavigate={(info) => {
-          setLog((entries) => [...entries, demo.t('controls.navigated', { offset: info.to.offset })]);
-        }}
-        localization={demo.localization}
-      />
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          onNavigate={(info) => {
+            setLog((entries) => [...entries, demo.t('controls.navigated', { offset: info.to.offset })]);
+          }}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

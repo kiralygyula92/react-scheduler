@@ -3,6 +3,7 @@
 // empty. Loading over existing items keeps them visible and marks the region busy.
 import { useState } from 'react';
 import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -16,38 +17,36 @@ export default function States(): React.ReactElement {
 
   return (
     <div>
-      <fieldset>
-        <legend>{demo.t('controls.state')}</legend>
-        {STATES.map((value) => (
-          <label key={value}>
-            <input
-              type="radio"
-              name="state"
-              checked={state === value}
-              onChange={() => {
-                setState(value);
-              }}
-            />
-            {demo.t(`controls.state${value.charAt(0).toUpperCase()}${value.slice(1)}`)}
-          </label>
-        ))}
-      </fieldset>
-      <Scheduler
-        view="list"
-        items={state === 'empty' ? [] : items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        loading={state === 'loading'}
-        {...(state === 'error' && {
-          error: new Error('demo'),
-          onRetry: () => {
-            setState('data');
-          },
-        })}
-        localization={demo.localization}
-      />
+      <Controls>
+        <Choice
+          label={demo.t('controls.state')}
+          options={STATES.map((value) => ({
+            value,
+            label: demo.t(`controls.state${value.charAt(0).toUpperCase()}${value.slice(1)}`),
+          }))}
+          value={state}
+          onChange={setState}
+        />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={state === 'empty' ? [] : items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          loading={state === 'loading'}
+          {...(state === 'error' && {
+            error: new Error('demo'),
+            onRetry: () => {
+              setState('data');
+            },
+          })}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
+        />
+      </div>
     </div>
   );
 }

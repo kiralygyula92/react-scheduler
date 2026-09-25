@@ -34,16 +34,19 @@ export default function ServerData(): React.ReactElement {
   const loading = range === null || answer === null || answer.start !== range.start.getTime();
 
   return (
-    <Scheduler
-      view="list"
-      items={answer?.items ?? []}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      loading={loading}
-      onVisibleRangeChange={setRange}
-      localization={demo.localization}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="list"
+        items={answer?.items ?? []}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        loading={loading}
+        onVisibleRangeChange={setRange}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
   );
 }

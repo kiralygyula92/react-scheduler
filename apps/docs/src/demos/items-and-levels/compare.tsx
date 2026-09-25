@@ -3,6 +3,7 @@
 // and the pinned strip. Here it sorts by title; leaving it out is the default, which is by time.
 import { useState } from 'react';
 import { classicLevels, Scheduler, type SchedulerItem } from '@react-schedulerkit/react-scheduler';
+import { Check, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;
@@ -17,26 +18,22 @@ export default function CompareItems(): React.ReactElement {
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={byName}
-          onChange={(event) => {
-            setByName(event.target.checked);
-          }}
+      <Controls>
+        <Check label={demo.t('controls.sortByTitle')} checked={byName} onChange={setByName} />
+      </Controls>
+      <div style={{ height: 560 }}>
+        <Scheduler
+          view="list"
+          items={items}
+          levels={classicLevels}
+          shifts={SHIFTS}
+          date={demo.date}
+          now={demo.now}
+          {...(byName && { compareItems: byTitle })}
+          colorScheme={demo.scheme}
+          localization={demo.localization}
         />
-        {demo.t('controls.sortByTitle')}
-      </label>
-      <Scheduler
-        view="list"
-        items={items}
-        levels={classicLevels}
-        shifts={SHIFTS}
-        date={demo.date}
-        now={demo.now}
-        {...(byName && { compareItems: byTitle })}
-        localization={demo.localization}
-      />
+      </div>
     </div>
   );
 }

@@ -38,16 +38,19 @@ export default function OverflowColumns(): React.ReactElement {
   ];
 
   return (
-    <Scheduler
-      view="timeline"
-      items={items}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      overflowColumns={columns}
-      overflowPageSize={6}
-      localization={demo.localization}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="timeline"
+        items={items}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        overflowColumns={columns}
+        overflowPageSize={6}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
   );
 }

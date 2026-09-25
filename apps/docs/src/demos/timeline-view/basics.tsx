@@ -18,14 +18,17 @@ export default function TimelineBasics(): React.ReactElement {
   });
 
   return (
-    <Scheduler
-      view="timeline"
-      items={items}
-      levels={classicLevels}
-      shifts={SHIFTS}
-      date={demo.date}
-      now={demo.now}
-      localization={demo.localization}
-    />
+    <div style={{ height: 560 }}>
+      <Scheduler
+        view="timeline"
+        items={items}
+        levels={classicLevels}
+        shifts={SHIFTS}
+        date={demo.date}
+        now={demo.now}
+        colorScheme={demo.scheme}
+        localization={demo.localization}
+      />
+    </div>
   );
 }
