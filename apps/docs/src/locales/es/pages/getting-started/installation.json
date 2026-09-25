@@ -40,6 +40,7 @@
   },
   "verify": {
     "intro": "Este es un archivo completo. Si renderiza una tarjeta en un turno, el paquete, sus estilos y sus peers están en su sitio.",
+    "height": "<code>Scheduler</code> ocupa su contenedor y se desplaza dentro de él, así que dale una altura al contenedor: una fija, o una celda flex o grid que la tenga. Sin ella, la agenda crece con su contenido y los botones de turno no tienen nada que desplazar.",
     "calloutTitle": "¿Sin fecha, sin turnos?",
     "callout": "Ambos son opcionales. Sin <code>date</code>, el horario muestra el día actual, y sin <code>shifts</code> usa dos turnos de doce horas anclados a las 08:00."
   },

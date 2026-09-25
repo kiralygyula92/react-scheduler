@@ -15,7 +15,11 @@ import '@react-schedulerkit/react-scheduler/styles.css';
 const items = [{ id: '1', start: new Date(), level: 'normal', title: 'First item' }];
 
 export function App() {
-  return <Scheduler items={items} />;
+  return (
+    <div style={{ height: 600 }}>
+      <Scheduler items={items} />
+    </div>
+  );
 }`;
 
 export default function Installation(): React.ReactElement {
@@ -41,6 +45,7 @@ export default function Installation(): React.ReactElement {
       <Section id="verify" ns={NS} titleKey="sections.verify">
         <P k="verify.intro" ns={NS} />
         <Code lang="tsx">{VERIFY}</Code>
+        <P k="verify.height" ns={NS} />
         <Callout tone="info" titleKey="verify.calloutTitle" k="verify.callout" ns={NS} />
       </Section>
 

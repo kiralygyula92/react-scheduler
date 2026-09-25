@@ -40,6 +40,7 @@
   },
   "verify": {
     "intro": "Ez egy teljes fájl. Ha egy kártyát jelenít meg egy műszakban, a csomag, a stílusai és a peer függőségei a helyükön vannak.",
+    "height": "A <code>Scheduler</code> kitölti a tárolóját, és azon belül görget, ezért adjon a tárolónak magasságot — rögzítettet, vagy egy flex- vagy grid-cellát, amelynek van ilyen. Enélkül az ütemezés a tartalmával együtt nő, és a műszakgomboknak nincs mit görgetniük.",
     "calloutTitle": "Nincs dátum, nincsenek műszakok?",
     "callout": "Mindkettő nem kötelező. A <code>date</code> nélkül az ütemterv az aktuális napot mutatja, a <code>shifts</code> nélkül pedig két tizenkét órás, 08:00-hoz rögzített műszakot használ."
   },

@@ -40,6 +40,7 @@
   },
   "verify": {
     "intro": "Das ist eine vollständige Datei. Rendert sie eine Karte in einer Schicht, sind das Paket, seine Styles und seine Peers an Ort und Stelle.",
+    "height": "<code>Scheduler</code> füllt seinen Container und scrollt darin, geben Sie dem Container also eine Höhe – eine feste oder eine Flex- oder Grid-Zelle, die eine hat. Ohne sie wächst der Plan mit seinem Inhalt, und die Schicht-Schaltflächen haben nichts zu scrollen.",
     "calloutTitle": "Kein Datum, keine Schichten?",
     "callout": "Beides ist optional. Ohne <code>date</code> zeigt der Plan den heutigen Tag, und ohne <code>shifts</code> nutzt er zwei Zwölfstundenschichten mit Anker um 08:00."
   },

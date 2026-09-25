@@ -35,3 +35,9 @@ The option is an addition to the Dossier's `TimelineOptions` (`04` §4). A layou
 ### D3 — Default preset: room around the navigation buttons (DQ-13)
 
 The buttons sit centered on a divider, half inside a sticky band: `01` §L.6 and `02` §4 give the list's bottom band 16 px and the top band 24–28 px, for a 30 px button and a 62 px two-line edge label. The root clips, so the focus ring and the top of the timeline's edge label were cut (the label started 3–7 px above the root). The default preset's bands are 32 px for the list and 44 px for the timeline and compact mode, top and bottom: half the tallest button, its 4 px focus ring and 4 px of air. A browser test checks every button in the list and the timeline, compact or not, landed and at both ends, in three engines; the same test fails for classic, which keeps the source's bands.
+
+### D4 — The container height is documented, not detected
+
+The root fills its parent (`01` §2), so a parent without a height lets the schedule grow with its content: it never scrolls, and the navigation buttons have nothing to move. That is what every example did, the README and the Installation page included. Both now render inside `<div style={{ height: 600 }}>` and say why, in all seven languages, and every demo on the site sets a height (D5).
+
+A development warning was tried and left out. The package's development diagnostics run only where `process` exists at runtime (`src/core/env.ts`), which Vite and webpack 5 do not provide in the browser, so the warning would stay silent in most browser development builds — exactly where it is needed. Changing that guard changes every diagnostic and how production builds drop them; it is not part of this release.
