@@ -22,7 +22,7 @@
   "install": {
     "download": "Töltsd le a dokumentációt a tárolódba:",
     "instruction": "Ezután adj hozzá egy sort ahhoz a fájlhoz, amelyet az eszközöd minden munkamenetben elolvas — <code>CLAUDE.md</code> a Claude Code-nak, <code>AGENTS.md</code> a Codexnek, a Cursornak és a legtöbb másiknak:",
-    "url": "Az az eszköz, amely URL alapján indexeli a dokumentációt, a helyi másolat helyett megkaphatja a <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code> címet. A csomag frissítésekor töltsd le újra: ugyanabban a buildben készül, mint ez az oldal, így a kettő nem mondhat mást."
+    "url": "Az az eszköz, amely URL alapján indexeli a dokumentációt, a helyi másolat helyett megkaphatja a <code>{url}</code> címet. A csomag frissítésekor töltsd le újra: ugyanabban a buildben készül, mint ez az oldal, így a kettő nem mondhat mást."
   },
   "what": {
     "text": "Ennek az oldalnak minden lapja, olvasási sorrendben, egyetlen Markdown dokumentumként:",

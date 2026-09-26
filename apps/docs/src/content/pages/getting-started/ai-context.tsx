@@ -2,10 +2,13 @@
 // AI context (T3, docs pack 03 §3.3): the one file a coding agent needs, how to give it, and a
 // question that proves the agent read it.
 import { Code, List, P, Page, Section, Table } from '~/shell/doc';
+import { site } from '~/shell/nav';
 
 const NS = 'pages/getting-started/ai-context';
 
-const DOWNLOAD = `curl -o docs/react-scheduler.md https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md`;
+// The site's own origin, so the command and the link point wherever this build is deployed.
+const LLMS_FULL = `${site.origin}${site.basePath}llms-full.md`;
+const DOWNLOAD = `curl -o docs/react-scheduler.md ${LLMS_FULL}`;
 
 const INSTRUCTION = `React Scheduler documentation, with the source of every example: docs/react-scheduler.md`;
 
@@ -28,7 +31,7 @@ export default function AiContext(): React.ReactElement {
         <Code lang="bash">{DOWNLOAD}</Code>
         <P k="install.instruction" ns={NS} />
         <Code lang="md">{INSTRUCTION}</Code>
-        <P k="install.url" ns={NS} />
+        <P k="install.url" ns={NS} vars={{ url: LLMS_FULL }} />
       </Section>
 
       <Section id="what-is-in-the-file" ns={NS} titleKey="sections.what-is-in-the-file">
