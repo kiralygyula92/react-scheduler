@@ -11,16 +11,16 @@ repository is ready for one.
 
 ## Where things stand
 
-| Item                   | Status                                                                                                                                                  |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Build                  | `pnpm build` at the root builds the package, the API data and the site: 876 prerendered pages, Markdown twins, `llms*.txt`, `sitemap.xml`, `robots.txt` |
-| Host configuration     | `apps/docs/vercel.json`: `/` → `/react-scheduler/` redirect, trailing slashes, immutable caching for `/assets/`, Markdown content types                 |
-| Canonical origin       | `VITE_SITE_URL` in production; previews fall back to `VERCEL_URL` (`apps/docs/vite.config.ts`) — no URL is hard-coded                                   |
-| Not-found page         | the build writes `build/client/404.html`, which a static host serves with status 404 for any path without a file                                        |
-| Analytics              | `<Analytics />` and `<SpeedInsights />` from the `/react` entry points in `apps/docs/src/root.tsx`; they record nothing until enabled on the dashboard  |
-| Local rehearsal        | `node apps/docs/scripts/serve.ts` serves the build the way the host does, compressed, with the host's cache headers; the e2e suite runs against it      |
-| Package manager, Node  | `packageManager: pnpm@10.34.5` in the root manifest; Node 24                                                                                            |
-| Vercel project, domain | **None yet** — yours, §1 and §5                                                                                                                         |
+| Item                   | Status                                                                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build                  | `pnpm run build` in `apps/docs` (what Vercel runs) builds the package, the API data and the site: 876 prerendered pages, Markdown twins, `llms*.txt`, `sitemap.xml`, `robots.txt`; `pnpm build` at the root runs the same              |
+| Host configuration     | `apps/docs/vercel.json`: the build settings (framework _Other_, install and build commands, output `build/client`), `/` → `/react-scheduler/` redirect, trailing slashes, immutable caching for `/assets/`, Markdown content types     |
+| Canonical origin       | `VITE_SITE_URL` if set; otherwise the project's production domain in production (`VERCEL_PROJECT_PRODUCTION_URL`) and the deployment's own address in a preview — one rule for pages and sitemap (`apps/docs/scripts/lib/site-url.ts`) |
+| Not-found page         | the build writes `build/client/404.html`, which a static host serves with status 404 for any path without a file                                                                                                                       |
+| Analytics              | `<Analytics />` and `<SpeedInsights />` from the `/react` entry points in `apps/docs/src/root.tsx`; they record nothing until enabled on the dashboard                                                                                 |
+| Local rehearsal        | `node apps/docs/scripts/serve.ts` serves the build the way the host does, compressed, with the host's cache headers; the e2e suite runs against it                                                                                     |
+| Package manager, Node  | `packageManager: pnpm@10.34.5` in the root manifest; Node 24                                                                                                                                                                           |
+| Vercel project, domain | **None yet** — yours, §1 and §5                                                                                                                                                                                                        |
 
 **Publish first, then promote the site to production.** The site is built from the package at
 `1.0.0`: the navbar says `v1.0`, the Changelog page lists 1.0.0 and the Installation page gives
@@ -36,23 +36,32 @@ npm documents something no reader can install. Preview deployments are fine at a
 3. **Project name**: `react-schedulerkit` gives `react-schedulerkit.vercel.app`, the domain the site is
    built for today. Another name gives another domain; see §5.
 4. **Root Directory**: `apps/docs`, with **"Include files outside the root directory in the Build
-   Step"** enabled — the build needs the package and the workspace.
-5. **Framework Preset**: _Other_. (The site is React Router's prerender, not Vite's default output.)
-6. **Install Command**: `pnpm install --frozen-lockfile`
-7. **Build Command**: `cd ../.. && pnpm build`
-8. **Output Directory**: `build/client`
-9. **Node.js Version**: 24.x — _Project Settings_ → _General_.
+   Step"** enabled — the build needs the package and the workspace. This is the one build setting
+   that has to be made in the dashboard.
+5. **Framework Preset, Install Command, Build Command, Output Directory**: leave them as they are.
+   `apps/docs/vercel.json` sets all four (framework _Other_, `pnpm install --frozen-lockfile`,
+   `pnpm run build`, `build/client`) and overrides the dashboard. The build command builds the
+   package first, so nothing depends on running it from the repository root.
+6. **Node.js Version**: 24.x — _Project Settings_ → _General_ (22.x works too).
+
+If a deployment was already tried with the dashboard defaults, just redeploy the latest commit of
+`main`: its `vercel.json` takes over. A dashboard _Build Command_ of `pnpm run build` failed with
+`Rolldown failed to resolve import "@react-schedulerkit/react-scheduler"` before this fix, because
+the site was built before the package it imports.
 
 ## 2. Environment variables — yours
 
 _Project Settings_ → _Environment Variables_:
 
-| Name            | Value                                                                   | Environments |
-| --------------- | ----------------------------------------------------------------------- | ------------ |
-| `VITE_SITE_URL` | `https://react-schedulerkit.vercel.app`, or the production domain of §5 | Production   |
+| Name            | Value                                            | Environments          |
+| --------------- | ------------------------------------------------ | --------------------- |
+| `VITE_SITE_URL` | the production origin, only to override Vercel's | Production (optional) |
 
-Nothing else is required. Previews need no value: the build takes `VERCEL_URL`, so their canonical
-links and sitemap point at the preview itself.
+Nothing is required. A production build takes the project's production domain from Vercel
+(`VERCEL_PROJECT_PRODUCTION_URL`: the shortest custom domain, else the `.vercel.app` one), and a
+preview takes its own address (`VERCEL_URL`), so canonical links and the sitemap always point at
+the deployment's real home. Set `VITE_SITE_URL` only to choose a different origin; it must not end
+with a slash.
 
 ## 3. First deployment — yours
 
@@ -89,15 +98,18 @@ links and sitemap point at the preview itself.
 
 ## 5. Domain (GAPS G1) — yours
 
-- **Keeping `react-schedulerkit.vercel.app`**: nothing to do beyond §1.3 and §2.
-- **A custom domain**: _Project Settings_ → _Domains_ → add it, and create the DNS record Vercel shows
-  (an `A` record for an apex domain, a `CNAME` for a subdomain). Then, before the next deployment and
-  **before the first npm publish**:
-  - set `VITE_SITE_URL` to it (§2);
-  - change `homepage` in `packages/react-scheduler/package.json` and the documentation link in
+- **Keeping `react-schedulerkit.vercel.app`** (a project named `react-schedulerkit`): nothing to do.
+- **Any other domain** — another project name gives `<name>.vercel.app`, or a custom domain added
+  under _Project Settings_ → _Domains_ with the DNS record Vercel shows (an `A` record for an apex
+  domain, a `CNAME` for a subdomain). The site follows it by itself: canonical links, `og:url`,
+  the sitemap and the llms files take the production domain at build time (§2). What does not
+  follow is outside the site; change it **before the first npm publish**, because a published
+  README cannot be edited:
+  - `homepage` in `packages/react-scheduler/package.json` and the documentation link in
     `packages/react-scheduler/README.md`;
-  - replace `react-schedulerkit.vercel.app` in `AGENTS.md`'s dictionary and in
-    `apps/docs/vite.config.ts`'s fallback, and close G1 in `GAPS.md`.
+  - `react-schedulerkit.vercel.app` in `AGENTS.md`'s dictionary and `siteUrl` in
+    `apps/docs/src/content/nav.json` (the origin of a build made outside Vercel), and close G1 in
+    `GAPS.md`.
 
 ## 6. After the site is live
 

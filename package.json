@@ -7,8 +7,8 @@
     "node": ">=22.18.0"
   },
   "scripts": {
-    "dev": "pnpm --filter @react-schedulerkit/react-scheduler build && pnpm --filter docs dev",
-    "build": "pnpm --filter @react-schedulerkit/react-scheduler build && pnpm --filter docs --if-present api && pnpm --filter docs --if-present build",
+    "dev": "pnpm --filter docs dev",
+    "build": "pnpm --filter docs build",
     "lint": "eslint . && stylelint \"**/*.css\" --allow-empty-input && prettier --check .",
     "format": "prettier --write .",
     "typecheck": "tsc -p tsconfig.json && pnpm -r --if-present typecheck",

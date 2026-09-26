@@ -7,3 +7,8 @@ peerDependencyRules:
     # eslint-plugin-react 7.37.5 declares eslint ^9.7 but runs on ESLint 10: every removed
     # context API it calls has a sourceCode fallback. See docs/adr/0001-toolchain.md.
     eslint-plugin-react>eslint: '10'
+
+# pnpm 10 runs no dependency install scripts unless allowed. esbuild's only checks for the binary
+# that its platform package already installs, so it is skipped on purpose rather than by warning.
+ignoredBuiltDependencies:
+  - esbuild
