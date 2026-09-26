@@ -2,14 +2,11 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { reactRouter } from '@react-router/dev/vite';
 import { defineConfig } from 'vite';
+import { siteOrigin } from './scripts/lib/site-url.ts';
 
 // docs pack 10 §2: base stays '/', because the routes carry the plugin prefix. The canonical origin
-// comes from the environment (production domain, preview URL) and never from a hard-coded string.
-const siteUrl =
-  process.env['VITE_SITE_URL'] ??
-  (process.env['VERCEL_URL'] === undefined
-    ? 'https://react-schedulerkit.vercel.app'
-    : `https://${process.env['VERCEL_URL']}`);
+// comes from the environment (production domain, preview URL), by the same rule as the sitemap.
+const siteUrl = siteOrigin();
 
 // The version the navbar and the footer show is the package's own (O14), read from its manifest so
 // the two cannot drift apart.

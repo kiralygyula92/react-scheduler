@@ -22,7 +22,7 @@
   "install": {
     "download": "Descarregue a documentação para o seu repositório:",
     "instruction": "Depois acrescente uma linha ao ficheiro que a sua ferramenta lê em cada sessão — <code>CLAUDE.md</code> para o Claude Code, <code>AGENTS.md</code> para o Codex, o Cursor e a maioria das outras:",
-    "url": "Uma ferramenta que indexa documentação por URL pode receber <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code> em vez de uma cópia local. Volte a descarregá-lo quando atualizar o pacote: é gerado na mesma compilação que este site, por isso os dois não podem discordar."
+    "url": "Uma ferramenta que indexa documentação por URL pode receber <code>{url}</code> em vez de uma cópia local. Volte a descarregá-lo quando atualizar o pacote: é gerado na mesma compilação que este site, por isso os dois não podem discordar."
   },
   "what": {
     "text": "Cada página deste site, por ordem de leitura, num único documento Markdown:",

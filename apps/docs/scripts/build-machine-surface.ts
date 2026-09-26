@@ -8,8 +8,11 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { contentOf, descriptionOf, titleOf, toMarkdown } from './lib/html.ts';
 import { DEFAULT_LOCALE, type Locale, LOCALES, nav, pages as navPages, urlOf } from './lib/nav.ts';
+import { siteOrigin } from './lib/site-url.ts';
 
-const origin = process.env['VITE_SITE_URL'] ?? nav.siteUrl;
+// The same origin the pages were built with (vite.config.ts), so the sitemap and the canonical links
+// agree.
+const origin = siteOrigin();
 const client = resolve(import.meta.dirname, '..', 'build', 'client');
 
 function localeRoot(locale: Locale): string {

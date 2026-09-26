@@ -22,7 +22,7 @@
   "install": {
     "download": "Download the documentation into your repository:",
     "instruction": "Then add one line to the file your tool reads on every session — <code>CLAUDE.md</code> for Claude Code, <code>AGENTS.md</code> for Codex, Cursor and most others:",
-    "url": "A tool that indexes documentation by URL can be given <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code> instead of a local copy. Re-download it when you upgrade the package: the file is generated in the same build as this site, so the two can never disagree."
+    "url": "A tool that indexes documentation by URL can be given <code>{url}</code> instead of a local copy. Re-download it when you upgrade the package: the file is generated in the same build as this site, so the two can never disagree."
   },
   "what": {
     "text": "Every page of this site, in reading order, as one Markdown document:",

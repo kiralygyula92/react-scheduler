@@ -22,7 +22,7 @@
   "install": {
     "download": "Descarcă documentația în depozitul tău:",
     "instruction": "Apoi adaugă un rând în fișierul pe care unealta ta îl citește la fiecare sesiune — <code>CLAUDE.md</code> pentru Claude Code, <code>AGENTS.md</code> pentru Codex, Cursor și majoritatea celorlalte:",
-    "url": "O unealtă care indexează documentația după URL poate primi în schimb <code>https://react-schedulerkit.vercel.app/react-scheduler/llms-full.md</code>. Descarcă fișierul din nou când actualizezi pachetul: este generat în același build ca acest site, așa că cele două nu pot fi în dezacord."
+    "url": "O unealtă care indexează documentația după URL poate primi în schimb <code>{url}</code>. Descarcă fișierul din nou când actualizezi pachetul: este generat în același build ca acest site, așa că cele două nu pot fi în dezacord."
   },
   "what": {
     "text": "Fiecare pagină a acestui site, în ordinea citirii, ca un singur document Markdown:",
