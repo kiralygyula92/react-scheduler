@@ -10,7 +10,7 @@ import type { SchedulerLocalization } from '../core/localization';
  */
 export const roRO: SchedulerLocalization = {
   locale: 'ro-RO',
-  emptyAll: 'Nu există date în agendă.',
+  emptyAll: 'Nimic nu este programat pentru această zi.',
   emptyShift: 'Nu există elemente în această tură.',
   loading: 'Se încarcă…',
   errorTitle: 'Elementele nu au putut fi încărcate.',

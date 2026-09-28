@@ -10,7 +10,7 @@ import type { SchedulerLocalization } from '../core/localization';
  */
 export const huHU: SchedulerLocalization = {
   locale: 'hu-HU',
-  emptyAll: 'Nincs elérhető napirendi adat.',
+  emptyAll: 'Erre a napra nincs semmi beütemezve.',
   emptyShift: 'Ebben a műszakban nincs elem.',
   loading: 'Betöltés…',
   errorTitle: 'Az elemeket nem sikerült betölteni.',

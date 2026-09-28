@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Visão geral",
-    "description": "O que é o React Scheduler, o que apresenta, como é controlado e por onde continuar. Licença MIT, sem plano pago."
+    "description": "O que é o React Scheduler, o que apresenta, como é controlado e por onde continuar."
   },
   "sections": {
     "introduction": "Introdução",
@@ -19,14 +19,32 @@
     "not": "Não é um calendário nem um editor. Não há grelha mensal ou anual, não há arrastar e largar, não há recorrência, não há fuso horário próprio nem camada de dados: mostra os elementos que lhe dá, para o dia que pede, e avisa quando quem lê faz alguma coisa."
   },
   "why": {
-    "points": [
-      "<strong>Acessível por construção:</strong> cada cartão é um botão, cada turno um título, cada caixa de diálogo retém o foco, e o alvo é WCAG 2.2 AA — verificado pelo axe nos testes de navegador do pacote e nas páginas deste site.",
-      "<strong>Com tema sem um kit de interface:</strong> duas predefinições, três densidades, um esquema claro e um escuro, e mais de cento e cinquenta variáveis CSS. Sem CSS-in-JS em tempo de execução, sem biblioteca de classes utilitárias, sem nada para configurar antes da primeira renderização.",
-      "<strong>Zero dependências em tempo de execução:</strong> apenas <code>react</code> e <code>react-dom</code> como peers. Não se instala mais nada com ele, por isso mais nada o pode partir.",
-      "<strong>Seguro no servidor:</strong> renderiza no servidor sem tocar no DOM, hidrata sem avisos e só arranca os seus observadores depois de montado.",
-      "<strong>Pequeno e preguiçoso:</strong> cerca de 25 kB gzip para a entrada principal, com a caixa de diálogo dos elementos adicionais e a do detalhe em pedaços que só carregam quando abertos pela primeira vez.",
-      "<strong>Sete idiomas incluídos:</strong> inglês, romeno, húngaro, espanhol, francês, alemão e português, cada um um objeto simples que pode estender ou substituir."
-    ]
+    "cards": {
+      "accessible": {
+        "title": "Acessível por construção",
+        "text": "Cada cartão é um botão, cada turno um título, cada caixa de diálogo retém o foco, e o alvo é WCAG 2.2 AA — verificado pelo axe nos testes de navegador do pacote e nas páginas deste site."
+      },
+      "themed": {
+        "title": "Personalizável sem kit de interface",
+        "text": "Duas predefinições, três densidades, um esquema claro e um escuro, e mais de cento e cinquenta variáveis CSS. Sem CSS-in-JS em tempo de execução, sem biblioteca de classes utilitárias, sem nada para configurar antes da primeira renderização."
+      },
+      "dependencies": {
+        "title": "Zero dependências em tempo de execução",
+        "text": "Apenas react e react-dom como peers. Não se instala mais nada com ele, por isso mais nada o pode partir."
+      },
+      "server": {
+        "title": "Seguro no servidor",
+        "text": "Renderiza no servidor sem tocar no DOM, hidrata sem avisos e só arranca os seus observadores depois de montado."
+      },
+      "size": {
+        "title": "Pequeno, com carregamento diferido",
+        "text": "Cerca de 25 kB gzip para a entrada principal, com a caixa de diálogo dos elementos adicionais e a do detalhe em pedaços que só carregam quando abertos pela primeira vez."
+      },
+      "languages": {
+        "title": "Sete idiomas incluídos",
+        "text": "Inglês, romeno, húngaro, espanhol, francês, alemão e português, cada um um objeto simples que pode estender ou substituir."
+      }
+    }
   },
   "cards": {
     "installation": {

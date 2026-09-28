@@ -309,13 +309,13 @@
     }
   },
   "OverflowDialog": {
-    "description": "Der Dialog, der die Elemente hinter einem „+more“-Chip auflistet.",
+    "description": "Der Dialog, der die Elemente hinter einem „Mehr“-Chip auflistet.",
     "props": {
       "group": "Die Gruppe, deren Einträge der Dialog auflistet."
     }
   },
   "OverflowGroup": {
-    "description": "Die Elemente, für die ein „+more“-Chip steht, mit dem Zeitraum, den sie abdecken.",
+    "description": "Die Elemente, für die ein „Mehr“-Chip steht, mit dem Zeitraum, den sie abdecken.",
     "props": {
       "anchor": "Der früheste Beginn der Gruppe, in Millisekunden seit der Epoche.",
       "id": "Stabile id: String(anchor).",
@@ -540,7 +540,7 @@
       "enableNavigation": "Die Schaltflächen, die zur vorherigen und zur nächsten Schicht springen.",
       "enableNowIndicator": "Die Markierung der aktuellen Zeit in der Liste und die Linie im Zeitstrahl.",
       "enableOffShiftBands": "Die schattierten Bänder, die der Zeitstrahl außerhalb der aktiven Schicht zeichnet.",
-      "enableOverflowDialog": "Der Dialog, der die Elemente hinter einem „+more“-Chip auflistet.",
+      "enableOverflowDialog": "Der Dialog, der die Elemente hinter einem „Mehr“-Chip auflistet.",
       "enablePinning": "Elemente können an der Kante des Scrollbereichs anheften und erscheinen in der Leiste.",
       "enableScrollTopButton": "Die Schaltfläche, die den Scrollbereich nach oben zurückbringt.",
       "enableTooltips": "Kurzinfos an abgeschnittenen Kartentiteln."
@@ -624,7 +624,7 @@
       "levels": "Eine Beschriftung je Stufenschlüssel; ein Schlüssel ohne sie fällt auf sich selbst zurück.",
       "loading": "Wird angesagt, während der Plan auf Daten wartet.",
       "locale": "BCP 47, für Intl verwendet.",
-      "more": "Der „+ mehr“-Chip: was er zeigt und wie er heißt.",
+      "more": "Der „Mehr“-Chip: was er zeigt und wie er heißt.",
       "nav": "Alle Beschriftungen und Hinweise der beiden Navigationsschaltflächen.",
       "now": "Die Beschriftung der „Jetzt“-Markierung, mit ihrer Uhrzeit.",
       "overflow": "Der Dialog der weiteren Einträge: sein Titel, seine Spalten und seine Schließbeschriftungen.",
@@ -755,7 +755,7 @@
       "renderItem": "Ersetzt die ganze Karte. `ctx.defaultRender()` liefert die eingebaute zurück.",
       "renderItemDetail": "Ersetzt die Detailansicht eines geöffneten Elements.",
       "renderLoading": "Ersetzt den Ladezustand.",
-      "renderMoreLabel": "Ersetzt die Beschriftung eines „+more“-Chips.",
+      "renderMoreLabel": "Ersetzt die Beschriftung eines „Mehr“-Chips.",
       "renderNavLabel": "Ersetzt die Beschriftung einer Navigationsschaltfläche.",
       "renderPinnedChip": "Ersetzt einen Chip in der Leiste angehefteter Elemente.",
       "renderShiftHeader": "Ersetzt die Kopfzeile einer Schicht.",
@@ -955,7 +955,7 @@
     "props": {
       "cards": "Jede platzierte Karte, in der Platzierungsreihenfolge.",
       "height": "Die Stunden des Zeitraums × `hourHeight`, mindestens `hourHeight`.",
-      "overflow": "Die Gruppen, die die Platzierung nicht unterbrachte, jede hinter einem „+ mehr“-Chip.",
+      "overflow": "Die Gruppen, die die Platzierung nicht unterbrachte, jede hinter einem „Mehr“-Chip.",
       "rangeEnd": "Der letzte Moment, den die Fläche abdeckt, in Epoch-Millisekunden.",
       "rangeStart": "Der erste Moment, den die Fläche abdeckt, in Epoch-Millisekunden."
     }
@@ -981,7 +981,7 @@
     }
   },
   "TimelineOptions": {
-    "description": "Die eigenen Optionen der Zeitstrahlansicht: die Größe einer Stunde, wie viele Spalten überlappende Elemente nutzen dürfen und wann sie zu einem „+more“-Chip zusammenfallen.",
+    "description": "Die eigenen Optionen der Zeitstrahlansicht: die Größe einer Stunde, wie viele Spalten überlappende Elemente nutzen dürfen und wann sie zu einem „Mehr“-Chip zusammenfallen.",
     "props": {
       "cardGap": "Der Abstand zwischen zwei Karten in Pixeln.",
       "columnPlacement": "Welche Spalte ein Element bekommt: nach seiner Stufe (`'priority'`) oder nach der zuerst frei werdenden Spalte (`'time'`).",
@@ -991,10 +991,10 @@
       "leadMinutes": "Wie viel Zeit in Minuten Landung und Navigation oberhalb des Ziels lassen.",
       "maxColumns": "Über wie viele Spalten sich überlappende Elemente verteilen dürfen.",
       "maxColumnsCompact": "Die Obergrenze bei Gedränge im kompakten Layout.",
-      "maxColumnsCrowded": "Die Grenze, wenn mehr Elemente überlappen als `maxColumns`; der Rest geht in den „+more“-Chip.",
+      "maxColumnsCrowded": "Die Grenze, wenn mehr Elemente überlappen als `maxColumns`; der Rest geht in den „Mehr“-Chip.",
       "minCardHeight": "Wie flach eine Karte gezeichnet werden darf, in Pixeln, egal wie kurz das Element ist. Die Standardvorgabe lässt Platz für den Titel und die Zeile der Kennzeichen: 108, oder 128 in der Dichte `comfortable` und 88 in `dense`. Die klassische Vorgabe und der headless Controller verwenden 80 (96 und 56), wobei eine kurze Karte ihren Titel abschneiden kann.",
       "nearBottomGutterMinutes": "Wie viel Zeit in Minuten eine Landung „nahe unten“ unterhalb des Ziels lässt.",
-      "overflowMergeWindow": "Wie weit zwei gedrängte Gruppen in Millisekunden auseinanderliegen dürfen und trotzdem zu einem „+more“-Chip verschmelzen. `Infinity` verschmilzt die ganze Kette.",
+      "overflowMergeWindow": "Wie weit zwei gedrängte Gruppen in Millisekunden auseinanderliegen dürfen und trotzdem zu einem „Mehr“-Chip verschmelzen. `Infinity` verschmilzt die ganze Kette.",
       "viewEnterRealignDelay": "Wie lange der Zeitstrahl nach dem Betreten der Ansicht in Millisekunden wartet, bevor er neu ausrichtet.",
       "keepCardsApart": "Ob sich Karten nie überlagern. Eine Karte belegt ihre Spalte bis zum Ende dessen, was gezeichnet wird, mindestens `minCardHeight`, sodass das nächste Element dieser Spalte darunter beginnt; und eine überlappende Gruppe teilt sich so viele Spalten, wie ihre Karten belegen. Die Standardvorgabe schaltet es ein. Die klassische Vorgabe und der headless Controller behalten die ursprüngliche Anordnung, bei der eine kurze Karte unter die nächste geraten und der kompakte Modus zwei Karten in einer Spalte stapeln kann."
     }

@@ -1,6 +1,6 @@
 # @react-schedulerkit/react-scheduler
 
-React Scheduler used to showcase a schedule in different domains, such as office or factory work.
+Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.
 
 A working day as shifts, in a list or on a timeline: items placed by time and level, the ones that
 matter kept in view as they scroll past, and every part replaceable. MIT licensed, with no runtime

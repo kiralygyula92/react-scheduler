@@ -15,7 +15,7 @@ const OWN = `import { enUS } from '@react-schedulerkit/react-scheduler';
 const nlNL: SchedulerLocalization = {
   ...enUS,
   locale: 'nl-NL',
-  emptyAll: 'Geen agendagegevens beschikbaar.',
+  emptyAll: 'Voor deze dag is niets gepland.',
   // … every other key of SchedulerLocalization
 };`;
 

@@ -1,7 +1,7 @@
 {
   "name": "@react-schedulerkit/react-scheduler",
   "version": "1.0.0",
-  "description": "React Scheduler used to showcase a schedule in different domains, such as office or factory work.",
+  "description": "Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.",
   "license": "MIT",
   "author": "kiralygyula92",
   "homepage": "https://react-schedulerkit.vercel.app/react-scheduler/",

@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Elementos adicionales",
-    "description": "Qué ocurre con los elementos que una hora concurrida no puede colocar: la píldora «+ más», el diálogo que hay detrás y la tabla que puedes moldear."
+    "description": "Qué ocurre con los elementos que una hora concurrida no puede colocar: la píldora «Más», el diálogo que hay detrás y la tabla que puedes moldear."
   },
   "sections": {
     "basics": "Conceptos básicos",
@@ -19,7 +19,7 @@
     "columns": "Una tabla propia"
   },
   "basics": {
-    "intro": "La línea de tiempo coloca los elementos en columnas, hasta <code>maxColumns</code> de ellas. Cuando una hora tiene más de los que caben, el resto se recoge en un grupo, y el grupo se convierte en una píldora <strong>+ más</strong> sobre la rejilla. Abrirla abre un diálogo con todo el grupo en una tabla.",
+    "intro": "La línea de tiempo coloca los elementos en columnas, hasta <code>maxColumns</code> de ellas. Cuando una hora tiene más de los que caben, el resto se recoge en un grupo, y el grupo se convierte en una píldora <strong>Más</strong> sobre la rejilla. Abrirla abre un diálogo con todo el grupo en una tabla.",
     "points": [
       "Un grupo abarca horas consecutivas solo mientras quepa en <code>overflowMergeWindow</code> — véase <link to=\"/timeline-view/\">Vista de línea de tiempo</link>.",
       "El nombre accesible de la píldora dice cuántos elementos contiene y desde qué hora.",

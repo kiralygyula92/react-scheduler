@@ -3,7 +3,7 @@
     "status": "machine",
     "source": "summaries"
   },
-  "getting-started/overview": "Mi a React Scheduler, mit jelenít meg, hogyan vezérelhető, és merre tovább. MIT licenc, fizetős csomag nélkül.",
+  "getting-started/overview": "Mi a React Scheduler, mit jelenít meg, hogyan vezérelhető, és merre tovább.",
   "getting-started/installation": "Telepítsd a React Schedulert, add hozzá a stíluslapját, és jelenítsd meg az első ütemtervet. A peer függőségek, a stílusok és egy ötsoros ellenőrzés.",
   "getting-started/usage": "Egy teljes React Scheduler példa, a vezérelt és a nem vezérelt állapot működése, és azok a propok, amelyeket az alkalmazások elsőként állítanak be.",
   "getting-started/ai-context": "Hogyan add át egy kódoló ügynöknek a teljes React Scheduler dokumentációt egyetlen fájlban, és hogyan ellenőrizd, hogy elolvasta.",
@@ -63,7 +63,7 @@
   "reference/time-grid": "Az idővonal óraráccsa a rá helyezett kártyákkal.",
   "reference/tooltip": "A buboréksúgó rész; a position a useTooltip értékéből jön (zárt állapotban null).",
   "reference/default-item-detail": "A részletes nézet, amelybe egy elem megnyílik, ahogy a könyvtár megjeleníti.",
-  "reference/overflow-dialog": "A párbeszédablak, amely felsorolja a „+more” jelölés mögötti elemeket.",
+  "reference/overflow-dialog": "A párbeszédablak, amely felsorolja a „Több” jelölés mögötti elemeket.",
   "reference/overflow-table": "A további elemek párbeszédablakában lévő táblázat.",
   "reference/use-compact": "A kompakt mód az elem tartalomszélességéből; a logikai érték kényszeríti. A szerveren hamis.",
   "reference/use-controllable-state": "Vezérelt, ha meg van adva a value, egyébként belső állapot, amely a defaultValue értékről indul.",

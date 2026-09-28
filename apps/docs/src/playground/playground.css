@@ -59,6 +59,9 @@
 
 .ds-pg__token {
   display: grid;
+
+  /* One column that may be narrower than a text input's built-in width (a 280px phone). */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--ds-space-2);
   padding: var(--ds-space-3);
   border-radius: var(--ds-radius-lg);
@@ -102,8 +105,21 @@
   .ds-pg__cards,
   .ds-pg__setup,
   .ds-pg__tokens {
-    grid-template-columns: 1fr;
+    /* `minmax(0, …)`: a plain `1fr` column is never narrower than its content, which on a 280px
+       phone is wider than the screen. */
+    grid-template-columns: minmax(0, 1fr);
   }
+
+  /* A setup field's label and control share a line while they fit, and stack when they do not (a
+     long German option on a 280px phone). */
+  .ds-pg__field {
+    flex-wrap: wrap;
+  }
+}
+
+.ds-pg__field :is(.ds-select, .ds-input) {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .ds-pg__card,

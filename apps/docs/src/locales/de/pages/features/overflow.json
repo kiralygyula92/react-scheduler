@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Weitere Einträge",
-    "description": "Was mit den Einträgen geschieht, die eine volle Stunde nicht platzieren kann: der „+ mehr“-Chip, der Dialog dahinter und die Tabelle, die Sie formen können."
+    "description": "Was mit den Einträgen geschieht, die eine volle Stunde nicht platzieren kann: der „Mehr“-Chip, der Dialog dahinter und die Tabelle, die Sie formen können."
   },
   "sections": {
     "basics": "Grundlagen",
@@ -19,7 +19,7 @@
     "columns": "Eine eigene Tabelle"
   },
   "basics": {
-    "intro": "Der Zeitstrahl platziert Einträge in Spalten, höchstens <code>maxColumns</code> davon. Enthält eine Stunde mehr, als hineinpassen, wird der Rest zu einer Gruppe, und die Gruppe wird zu einem <strong>+ mehr</strong>-Chip auf der Fläche. Ihn zu öffnen öffnet einen Dialog mit der ganzen Gruppe in einer Tabelle.",
+    "intro": "Der Zeitstrahl platziert Einträge in Spalten, höchstens <code>maxColumns</code> davon. Enthält eine Stunde mehr, als hineinpassen, wird der Rest zu einer Gruppe, und die Gruppe wird zu einem <strong>Mehr</strong>-Chip auf der Fläche. Ihn zu öffnen öffnet einen Dialog mit der ganzen Gruppe in einer Tabelle.",
     "points": [
       "Eine Gruppe umfasst aufeinanderfolgende Stunden nur, solange sie in <code>overflowMergeWindow</code> bleibt — siehe <link to=\"/timeline-view/\">Zeitstrahlansicht</link>.",
       "Der zugängliche Name des Chips sagt, wie viele Einträge er enthält und ab welcher Uhrzeit.",

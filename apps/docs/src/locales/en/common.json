@@ -16,27 +16,27 @@
     "features": "Features",
     "allFeatures": "All features",
     "demos": "Demos",
-    "demosIndex": "Demos",
+    "demosIndex": "All demos",
     "playground": "Playground",
     "themeEditor": "Theme editor",
     "reference": "Reference",
     "apiIndex": "API reference",
     "customization": "Customization",
-    "customizationOverview": "Overview",
+    "customizationOverview": "Customization overview",
     "theming": "Theming",
     "cssVariables": "CSS variables",
     "slots": "Slots and overrides",
     "localization": "Localization",
     "guides": "Guides",
-    "guidesIndex": "Guides",
+    "guidesIndex": "All guides",
     "integrations": "Integrations",
-    "integrationsIndex": "Integrations",
+    "integrationsIndex": "All integrations",
     "vite": "Vite",
     "nextjs": "Next.js",
     "reactRouter": "React Router",
     "ssr": "Server-side rendering",
     "migration": "Migration",
-    "migrationIndex": "Migration",
+    "migrationIndex": "Migration overview",
     "migrationFromCustom": "From a custom implementation",
     "discoverMore": "Discover more",
     "changelog": "Changelog",
@@ -56,6 +56,7 @@
     "openMenu": "Open navigation",
     "closeMenu": "Close navigation",
     "sidebarLabel": "Documentation",
+    "breadcrumbLabel": "Breadcrumb",
     "github": "Source on GitHub",
     "themeToDark": "Switch to dark theme",
     "themeToLight": "Switch to light theme",
@@ -67,7 +68,8 @@
     "required": "required"
   },
   "meta": {
-    "titleTemplate": "{title} · {pluginName}"
+    "titleTemplate": "{title} · {pluginName}",
+    "ogImageAlt": "React Scheduler: shift schedules for React, as a list or a timeline"
   },
   "search": {
     "button": "Search",
@@ -115,6 +117,11 @@
   "notFound": {
     "title": "Page not found",
     "text": "The page you are looking for does not exist or has moved.",
+    "back": "Go to the overview"
+  },
+  "crash": {
+    "title": "This page could not be shown",
+    "text": "Something went wrong while it was loading. Reloading usually helps; the rest of the documentation is one link away.",
     "back": "Go to the overview"
   },
   "playground": {

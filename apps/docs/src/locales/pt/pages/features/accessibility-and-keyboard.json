@@ -33,7 +33,7 @@
       ["<kbd>Enter</kbd> ou <kbd>Space</kbd>", "Ativa o cartão, a etiqueta ou o botão com foco."],
       ["<kbd>Escape</kbd>", "Fecha a caixa de diálogo de cima e devolve o foco ao que a abriu."]
     ],
-    "order": "A ordem de tabulação é a ordem de leitura: as etiquetas fixadas, a navegação de cima, depois os turnos por ordem com os seus cartões e as suas etiquetas <strong>+ mais</strong>, depois a navegação de baixo, depois o botão de volta ao topo. O foco está sempre visível — um anel de dois píxeis, com desvio de dois."
+    "order": "A ordem de tabulação é a ordem de leitura: as etiquetas fixadas, a navegação de cima, depois os turnos por ordem com os seus cartões e as suas etiquetas <strong>Mais</strong>, depois a navegação de baixo, depois o botão de volta ao topo. O foco está sempre visível — um anel de dois píxeis, com desvio de dois."
   },
   "structure": {
     "points": [

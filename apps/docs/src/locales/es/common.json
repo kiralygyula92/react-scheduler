@@ -16,27 +16,27 @@
     "features": "Funcionalidades",
     "allFeatures": "Todas las funcionalidades",
     "demos": "Demos",
-    "demosIndex": "Demos",
+    "demosIndex": "Todas las demos",
     "playground": "Área de pruebas",
     "themeEditor": "Editor de tema",
     "reference": "Referencia",
     "apiIndex": "Referencia de la API",
     "customization": "Personalización",
-    "customizationOverview": "Descripción general",
+    "customizationOverview": "Descripción general de la personalización",
     "theming": "Temas",
     "cssVariables": "Variables CSS",
     "slots": "Slots y sobrescrituras",
     "localization": "Localización",
     "guides": "Guías",
-    "guidesIndex": "Guías",
+    "guidesIndex": "Todas las guías",
     "integrations": "Integraciones",
-    "integrationsIndex": "Integraciones",
+    "integrationsIndex": "Todas las integraciones",
     "vite": "Vite",
     "nextjs": "Next.js",
     "reactRouter": "React Router",
     "ssr": "Renderizado en el servidor",
     "migration": "Migración",
-    "migrationIndex": "Migración",
+    "migrationIndex": "Descripción general de la migración",
     "migrationFromCustom": "Desde una implementación propia",
     "discoverMore": "Descubre más",
     "changelog": "Registro de cambios",
@@ -56,6 +56,7 @@
     "openMenu": "Abrir navegación",
     "closeMenu": "Cerrar navegación",
     "sidebarLabel": "Documentación",
+    "breadcrumbLabel": "Ruta de navegación",
     "github": "Código fuente en GitHub",
     "themeToDark": "Cambiar al tema oscuro",
     "themeToLight": "Cambiar al tema claro",
@@ -67,7 +68,8 @@
     "required": "obligatorio"
   },
   "meta": {
-    "titleTemplate": "{title} · {pluginName}"
+    "titleTemplate": "{title} · {pluginName}",
+    "ogImageAlt": "React Scheduler: horarios por turnos para React, en lista o en línea de tiempo"
   },
   "search": {
     "button": "Buscar",
@@ -115,6 +117,11 @@
   "notFound": {
     "title": "Página no encontrada",
     "text": "La página que buscas no existe o se ha movido.",
+    "back": "Ir a la descripción general"
+  },
+  "crash": {
+    "title": "No se pudo mostrar esta página",
+    "text": "Algo salió mal mientras se cargaba. Volver a cargarla suele bastar; el resto de la documentación está a un clic.",
     "back": "Ir a la descripción general"
   },
   "playground": {

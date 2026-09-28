@@ -10,7 +10,7 @@ import type { SchedulerLocalization } from '../core/localization';
  */
 export const ptPT: SchedulerLocalization = {
   locale: 'pt-PT',
-  emptyAll: 'Não existem dados de agenda disponíveis.',
+  emptyAll: 'Não há nada agendado para este dia.',
   emptyShift: 'Não existem itens neste turno.',
   loading: 'A carregar…',
   errorTitle: 'Não foi possível carregar os itens.',

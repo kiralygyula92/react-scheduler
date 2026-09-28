@@ -78,7 +78,8 @@ describe('list scenarios (core rules)', () => {
     expect(empty.every((s) => s.items.length === 0)).toBe(true);
     const input = navInput({ navigationAllowed: navigationAllowed(empty, listDefaults.navigationThreshold) });
     expect([topNavState(input).visible, bottomNavState(input).visible]).toEqual([false, false]);
-    expect(enUS.emptyAll).toBe('No agenda data available.');
+    // The source said "No agenda data available."; the default text changed at 1.0.0 (ADR 0005 D7).
+    expect(enUS.emptyAll).toBe('Nothing is scheduled for this day.');
   });
 
   it('[LV-05/core] navigation threshold', () => {

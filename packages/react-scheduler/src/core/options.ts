@@ -104,7 +104,7 @@ export interface ListOptions {
 
 /**
  * The timeline view's own options: the size of an hour, how many columns overlapping items may use,
- * and when they collapse into a "+more" chip.
+ * and when they collapse into a "More" chip.
  *
  * @category Timeline
  * @since 1.0.0
@@ -131,7 +131,7 @@ export interface TimelineOptions {
    */
   maxColumns?: number;
   /**
-   * The cap once more items overlap than `maxColumns`; the rest go to the "+more" chip.
+   * The cap once more items overlap than `maxColumns`; the rest go to the "More" chip.
    *
    * @defaultValue 3
    * @min 1
@@ -193,7 +193,7 @@ export interface TimelineOptions {
    */
   columnPlacement?: 'priority' | 'time';
   /**
-   * How far apart, in milliseconds, two crowded groups may be and still merge into one "+more" chip.
+   * How far apart, in milliseconds, two crowded groups may be and still merge into one "More" chip.
    * `Infinity` merges the whole chain.
    *
    * @defaultValue 7200000

@@ -33,7 +33,7 @@
       ["<kbd>Enter</kbd> or <kbd>Space</kbd>", "Activates the focused card, chip or button."],
       ["<kbd>Escape</kbd>", "Closes the topmost dialog and returns focus to whatever opened it."]
     ],
-    "order": "The tab order is the reading order: the pinned chips, the top navigation, then the shifts in order with their cards and their <strong>+ more</strong> chips, then the bottom navigation, then the button back to the top. Focus is always visible — a two-pixel ring, offset by two."
+    "order": "The tab order is the reading order: the pinned chips, the top navigation, then the shifts in order with their cards and their <strong>More</strong> chips, then the bottom navigation, then the button back to the top. Focus is always visible — a two-pixel ring, offset by two."
   },
   "structure": {
     "points": [

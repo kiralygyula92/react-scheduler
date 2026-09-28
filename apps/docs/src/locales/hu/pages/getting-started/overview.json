@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Áttekintés",
-    "description": "Mi a React Scheduler, mit jelenít meg, hogyan vezérelhető, és merre tovább. MIT licenc, fizetős csomag nélkül."
+    "description": "Mi a React Scheduler, mit jelenít meg, hogyan vezérelhető, és merre tovább."
   },
   "sections": {
     "introduction": "Bevezetés",
@@ -19,14 +19,32 @@
     "not": "Nem naptár és nem szerkesztő. Nincs havi vagy éves rács, nincs húzd és ejtsd, nincs ismétlődés, nincs saját időzóna és nincs adatréteg: azokat az elemeket jeleníti meg, amelyeket megadsz neki, arra a napra, amelyet kérsz, és szól, ha az olvasó tesz valamit."
   },
   "why": {
-    "points": [
-      "<strong>Alapból akadálymentes:</strong> minden kártya gomb, minden műszak címsor, minden párbeszédpanel fogva tartja a fókuszt, a cél pedig a WCAG 2.2 AA – amelyet az axe ellenőriz a csomag böngészős tesztjeiben és ennek az oldalnak a lapjain.",
-      "<strong>Témázás UI-készlet nélkül:</strong> két előbeállítás, három sűrűség, világos és sötét séma, és több mint százötven CSS változó. Nincs futásidejű CSS-in-JS, nincs segédosztály-könyvtár, és nincs mit beállítani az első megjelenítés előtt.",
-      "<strong>Nulla futásidejű függőség:</strong> csak a <code>react</code> és a <code>react-dom</code>, peerként. Semmi más nem települ vele, így semmi más nem is ronthatja el.",
-      "<strong>Biztonságos a szerveren:</strong> a szerveren a DOM érintése nélkül jelenik meg, figyelmeztetés nélkül hidratál, és a figyelőit csak a beillesztés után indítja el.",
-      "<strong>Kicsi és lusta:</strong> nagyjából 25 kB gzip a fő belépési pont, a további elemek és a részletek párbeszédpanele pedig külön darabokban, az első megnyitáskor töltődik be.",
-      "<strong>Hét nyelv beépítve:</strong> angol, román, magyar, spanyol, francia, német és portugál, mindegyik egy egyszerű objektum, amelyet kibővíthetsz vagy lecserélhetsz."
-    ]
+    "cards": {
+      "accessible": {
+        "title": "Alapból akadálymentes",
+        "text": "Minden kártya gomb, minden műszak címsor, minden párbeszédpanel fogva tartja a fókuszt, a cél pedig a WCAG 2.2 AA – amelyet az axe ellenőriz a csomag böngészős tesztjeiben és ennek az oldalnak a lapjain."
+      },
+      "themed": {
+        "title": "Témázás UI-készlet nélkül",
+        "text": "Két előbeállítás, három sűrűség, világos és sötét séma, és több mint százötven CSS változó. Nincs futásidejű CSS-in-JS, nincs segédosztály-könyvtár, és nincs mit beállítani az első megjelenítés előtt."
+      },
+      "dependencies": {
+        "title": "Nulla futásidejű függőség",
+        "text": "Csak a react és a react-dom, peerként. Semmi más nem települ vele, így semmi más nem is ronthatja el."
+      },
+      "server": {
+        "title": "Biztonságos a szerveren",
+        "text": "A szerveren a DOM érintése nélkül jelenik meg, figyelmeztetés nélkül hidratál, és a figyelőit csak a beillesztés után indítja el."
+      },
+      "size": {
+        "title": "Kicsi, igény szerint töltődik",
+        "text": "Nagyjából 25 kB gzip a fő belépési pont, a további elemek és a részletek párbeszédpanele pedig külön darabokban, az első megnyitáskor töltődik be."
+      },
+      "languages": {
+        "title": "Hét nyelv beépítve",
+        "text": "Angol, román, magyar, spanyol, francia, német és portugál, mindegyik egy egyszerű objektum, amelyet kibővíthetsz vagy lecserélhetsz."
+      }
+    }
   },
   "cards": {
     "installation": {

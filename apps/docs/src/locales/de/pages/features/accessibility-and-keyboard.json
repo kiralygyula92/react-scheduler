@@ -33,7 +33,7 @@
       ["<kbd>Enter</kbd> oder <kbd>Space</kbd>", "Aktiviert die fokussierte Karte, den Chip oder die Schaltfläche."],
       ["<kbd>Escape</kbd>", "Schließt den obersten Dialog und gibt den Fokus an das zurück, was ihn geöffnet hat."]
     ],
-    "order": "Die Tabulatorreihenfolge ist die Lesereihenfolge: die angehefteten Chips, die obere Navigation, dann die Schichten der Reihe nach mit ihren Karten und ihren <strong>+ mehr</strong>-Chips, dann die untere Navigation, dann die Schaltfläche nach oben. Der Fokus ist immer sichtbar — ein Ring von zwei Pixeln, um zwei versetzt."
+    "order": "Die Tabulatorreihenfolge ist die Lesereihenfolge: die angehefteten Chips, die obere Navigation, dann die Schichten der Reihe nach mit ihren Karten und ihren <strong>Mehr</strong>-Chips, dann die untere Navigation, dann die Schaltfläche nach oben. Der Fokus ist immer sichtbar — ein Ring von zwei Pixeln, um zwei versetzt."
   },
   "structure": {
     "points": [

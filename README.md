@@ -1,6 +1,6 @@
 # React Scheduler
 
-React Scheduler used to showcase a schedule in different domains, such as office or factory work.
+Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.
 
 This repository holds the `@react-schedulerkit/react-scheduler` package — an MIT-licensed React component library with no runtime dependencies beyond its `react` and `react-dom` peers — and its documentation website.
 

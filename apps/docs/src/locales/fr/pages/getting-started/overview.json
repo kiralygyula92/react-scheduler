@@ -4,8 +4,8 @@
     "source": "M5"
   },
   "meta": {
-    "title": "Vue d'ensemble",
-    "description": "Ce qu’est React Scheduler, ce qu’il affiche, comment il se contrôle et par où continuer. Licence MIT, sans offre payante."
+    "title": "Vue d’ensemble",
+    "description": "Ce qu’est React Scheduler, ce qu’il affiche, comment il se contrôle et par où continuer."
   },
   "sections": {
     "introduction": "Introduction",
@@ -19,14 +19,32 @@
     "not": "Ce n’est ni un calendrier ni un éditeur. Pas de grille mensuelle ou annuelle, pas de glisser-déposer, pas de récurrence, pas de fuseau horaire propre et pas de couche de données : il affiche les éléments que vous lui donnez, pour la journée demandée, et vous prévient quand le lecteur agit."
   },
   "why": {
-    "points": [
-      "<strong>Accessible par construction :</strong> chaque carte est un bouton, chaque poste un titre, chaque boîte de dialogue piège le focus, et la cible est WCAG 2.2 AA — vérifiée par axe dans les tests navigateur du paquet et sur les pages de ce site.",
-      "<strong>Thématisable sans kit d’interface :</strong> deux préréglages, trois densités, un schéma clair et un schéma sombre, et plus de cent cinquante variables CSS. Pas de CSS-in-JS à l’exécution, pas de bibliothèque de classes utilitaires, rien à configurer avant le premier rendu.",
-      "<strong>Zéro dépendance à l’exécution :</strong> seulement <code>react</code> et <code>react-dom</code> en peers. Rien d’autre n’est installé avec lui, donc rien d’autre ne peut le casser.",
-      "<strong>Sûr côté serveur :</strong> il s’affiche sur le serveur sans toucher au DOM, s’hydrate sans avertissement et ne démarre ses observateurs qu’une fois monté.",
-      "<strong>Petit et paresseux :</strong> environ 25 kB gzip pour l’entrée principale, la boîte de dialogue des éléments supplémentaires et celle du détail étant des fragments chargés à la première ouverture.",
-      "<strong>Sept langues intégrées :</strong> anglais, roumain, hongrois, espagnol, français, allemand et portugais, chacune un simple objet que vous pouvez étendre ou remplacer."
-    ]
+    "cards": {
+      "accessible": {
+        "title": "Accessible par construction",
+        "text": "Chaque carte est un bouton, chaque poste un titre, chaque boîte de dialogue piège le focus, et la cible est WCAG 2.2 AA — vérifiée par axe dans les tests navigateur du paquet et sur les pages de ce site."
+      },
+      "themed": {
+        "title": "Thématisable sans kit d’interface",
+        "text": "Deux préréglages, trois densités, un schéma clair et un schéma sombre, et plus de cent cinquante variables CSS. Pas de CSS-in-JS à l’exécution, pas de bibliothèque de classes utilitaires, rien à configurer avant le premier rendu."
+      },
+      "dependencies": {
+        "title": "Zéro dépendance à l’exécution",
+        "text": "Seulement react et react-dom en peers. Rien d’autre n’est installé avec lui, donc rien d’autre ne peut le casser."
+      },
+      "server": {
+        "title": "Sûr côté serveur",
+        "text": "Il s’affiche sur le serveur sans toucher au DOM, s’hydrate sans avertissement et ne démarre ses observateurs qu’une fois monté."
+      },
+      "size": {
+        "title": "Léger, chargé à la demande",
+        "text": "Environ 25 kB gzip pour l’entrée principale, la boîte de dialogue des éléments supplémentaires et celle du détail étant des fragments chargés à la première ouverture."
+      },
+      "languages": {
+        "title": "Sept langues intégrées",
+        "text": "Anglais, roumain, hongrois, espagnol, français, allemand et portugais, chacune un simple objet que vous pouvez étendre ou remplacer."
+      }
+    }
   },
   "cards": {
     "installation": {

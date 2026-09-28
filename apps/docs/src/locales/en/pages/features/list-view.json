@@ -29,7 +29,7 @@
   },
   "reading": {
     "intro": "Most of what <code>list</code> holds is about reading a long day: when the navigation buttons are worth showing, where a jump lands so the heading is not hidden under the sticky top, and how far you must scroll before the button back to the top appears.",
-    "options": "The full list, generated from the package's declarations:"
+    "options": "The full list, generated from the package’s declarations:"
   },
   "accessibility": {
     "points": [

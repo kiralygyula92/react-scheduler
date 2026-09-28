@@ -18,7 +18,7 @@
     "basics": "Une journée sur la chronologie",
     "columns": "Combien de colonnes une heure peut utiliser",
     "columnPlacement": "Quel élément occupe la colonne de gauche",
-    "overflowWindow": "Jusqu’où un groupe « + plus » peut aller"
+    "overflowWindow": "Jusqu’où un groupe « Plus » peut aller"
   },
   "basics": {
     "intro": "La chronologie dessine les postes affichés comme une seule grille continue, du début du premier poste à la fin du dernier. Les éléments sont placés à la minute où ils commencent et sont aussi hauts qu’ils durent : un coup d’œil montre à quel point la journée est remplie, et pas seulement ce qu’elle contient. Utilisez <code>view=\"timeline\"</code>, ou laissez le lecteur changer de vue avec <code>defaultView</code>.",
@@ -26,7 +26,7 @@
     "parts": [
       "Un élément sans <code>end</code> reçoit <code>defaultDuration</code>, et un élément plus court que <code>minCardHeight</code> est dessiné à cette hauteur pour que son titre reste lisible.",
       "Les éléments qui se chevauchent partagent la voie en colonnes, jusqu’à <code>maxColumns</code> d’entre elles.",
-      "Ce qui n’entre pas dans les colonnes est regroupé derrière un bouton <strong>+ plus</strong>, qui ouvre la boîte de dialogue des éléments supplémentaires."
+      "Ce qui n’entre pas dans les colonnes est regroupé derrière un bouton <strong>Plus</strong>, qui ouvre la boîte de dialogue des éléments supplémentaires."
     ]
   },
   "accessibility": {
@@ -42,7 +42,7 @@
   "customization": {
     "intro": "Tout ce qui suit est un champ de <code>timeline</code>. Les valeurs par défaut sont celles des démonstrations ci-dessus ; celles-ci changent un champ à la fois.",
     "placement": "<code>columnPlacement</code> décide de la colonne qu’un élément occupe lorsque plusieurs se chevauchent. <code>'priority'</code>, la valeur par défaut, regroupe les éléments qui se chevauchent, les ordonne avec <code>compareItems</code> et peut promouvoir un élément du groupe supplémentaire vers une colonne qui se libère. <code>'time'</code> conserve le simple ordre de début et saute cette promotion : l’élément commencé le premier garde sa colonne.",
-    "overflow": "<code>overflowMergeWindow</code> borne la durée qu’un seul groupe <strong>+ plus</strong> peut couvrir. Les heures consécutives ne fusionnent que tant que le groupe obtenu reste dans la fenêtre : une matinée chargée devient plusieurs groupes honnêtes plutôt qu’un seul couvrant tout le poste.",
+    "overflow": "<code>overflowMergeWindow</code> borne la durée qu’un seul groupe <strong>Plus</strong> peut couvrir. Les heures consécutives ne fusionnent que tant que le groupe obtenu reste dans la fenêtre : une matinée chargée devient plusieurs groupes honnêtes plutôt qu’un seul couvrant tout le poste.",
     "options": "La liste complète, générée à partir des déclarations du paquet :"
   },
   "limitations": {

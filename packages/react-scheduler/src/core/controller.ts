@@ -265,7 +265,7 @@ export interface SchedulerFlags {
    */
   enableOffShiftBands?: boolean | undefined;
   /**
-   * The dialog that lists the items behind a "+more" chip.
+   * The dialog that lists the items behind a "More" chip.
    *
    * @defaultValue true
    * @category Features

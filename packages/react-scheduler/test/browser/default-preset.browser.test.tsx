@@ -118,3 +118,27 @@ describe('default preset: navigation buttons fit inside the root', () => {
     },
   );
 });
+
+describe('default preset: parts that belong to the schedule, not the page (ADR 0005 D6)', () => {
+  it('keeps the compact scroll-to-top button inside the root, above the bottom band', async () => {
+    const { host } = mount(<ListView {...base} />, { width: 390, height: 700 });
+    const scroller = await settled(host, 500);
+    await scrollTo(scroller, scroller.scrollHeight);
+    await frames(6);
+    const button = part(host, 'scrollTopButton');
+    const rect = button.getBoundingClientRect();
+    const root = part(host, 'root').getBoundingClientRect();
+    const band = part(host, 'stickyBottom').getBoundingClientRect();
+    expect(getComputedStyle(button).position).toBe('absolute');
+    expect(rect.right).toBeLessThanOrEqual(root.right);
+    expect(rect.bottom).toBeLessThanOrEqual(band.top);
+  });
+
+  it('draws the error state retry as an outlined button', async () => {
+    const { host } = mount(<ListView {...base} error={new Error('down')} onRetry={() => undefined} />);
+    await frames(4);
+    const retry = host.querySelector<HTMLElement>('.rs-error-state button') as HTMLElement;
+    expect(retry.textContent).toBe('Retry');
+    expect(Number.parseFloat(getComputedStyle(retry).borderTopWidth)).toBeGreaterThanOrEqual(1);
+  });
+});

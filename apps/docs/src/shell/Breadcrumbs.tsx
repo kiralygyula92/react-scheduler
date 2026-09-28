@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Breadcrumbs (docs pack 02 §6.5): `{Plugin} › {Section}` — and the group as well on a capability
-// page. Never underlined (O7); the last crumb is the page itself and is not a link.
+// page. Never underlined (O7). Every crumb but the last is a link; the page itself is the `h1`.
 import { Link } from 'react-router';
 import { useT } from '~/i18n/useT';
 import { breadcrumbsFor, site, useNav } from './nav';
@@ -14,15 +14,20 @@ export function Breadcrumbs(): React.ReactElement | null {
   if (crumbs.length === 0) return null;
 
   return (
-    <nav className="ds-breadcrumbs" aria-label={common('shell.sidebarLabel')}>
+    <nav className="ds-breadcrumbs" aria-label={common('shell.breadcrumbLabel')}>
       <ol>
         <li>
           <Link to={localePath('/')}>{site.displayName}</Link>
         </li>
-        {crumbs.slice(0, -1).map((crumb) => (
-          <li key={crumb.labelKey}>{label(crumb.labelKey)}</li>
-        ))}
-        <li aria-current="page">{label(crumbs[crumbs.length - 1]?.labelKey ?? '')}</li>
+        {crumbs.map((crumb, index) =>
+          index < crumbs.length - 1 && crumb.path !== undefined ? (
+            <li key={crumb.labelKey}>
+              <Link to={localePath(crumb.path)}>{label(crumb.labelKey)}</Link>
+            </li>
+          ) : (
+            <li key={crumb.labelKey}>{label(crumb.labelKey)}</li>
+          ),
+        )}
       </ol>
     </nav>
   );

@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Overflow",
-    "description": "What happens to the items a crowded hour cannot place: the \"+ more\" chip, the dialog behind it, and the table you can shape."
+    "description": "What happens to the items a crowded hour cannot place: the \"More\" chip, the dialog behind it, and the table you can shape."
   },
   "sections": {
     "basics": "Basics",
@@ -19,7 +19,7 @@
     "columns": "A table of your own"
   },
   "basics": {
-    "intro": "The timeline places items in columns, up to <code>maxColumns</code> of them. When an hour holds more than fit, the rest are collected into a group, and the group becomes a <strong>+ more</strong> chip on the grid. Opening the chip opens a dialog with the whole group in a table.",
+    "intro": "The timeline places items in columns, up to <code>maxColumns</code> of them. When an hour holds more than fit, the rest are collected into a group, and the group becomes a <strong>More</strong> chip on the grid. Opening the chip opens a dialog with the whole group in a table.",
     "points": [
       "A group covers consecutive hours only while it stays inside <code>overflowMergeWindow</code> — see <link to=\"/timeline-view/\">Timeline view</link>.",
       "The chip’s accessible name says how many items it holds and from what time.",

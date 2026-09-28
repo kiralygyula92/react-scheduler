@@ -27,6 +27,14 @@
   }
 }
 
+/* On a 280px phone a long word in a card, a prev/next link or a link in running text pushed the
+   page sideways (German compounds); these break a word rather than the layout. (EXCEPTIONS.md #9) */
+.ds-prevnext a,
+.ds-card,
+.ds-content :is(p, li) a {
+  overflow-wrap: anywhere;
+}
+
 /* `.ds-content a` sits in the `ds-content` layer and underlines every link inside `main`, which is
    where breadcrumbs and the prev/next cards are rendered (01 §8). The pack carves `.ds-card` out of
    it but not these two: O7 says breadcrumbs are never underlined in any state, and the prev/next
@@ -34,6 +42,12 @@
 .ds-content .ds-breadcrumbs a,
 .ds-content .ds-prevnext a {
   text-decoration: none;
+}
+
+/* Breadcrumb links keep the secondary colour `02` §6.5 gives them; inside `main` the content
+   layer's link colour won. (EXCEPTIONS.md #9) */
+.ds-content .ds-breadcrumbs a {
+  color: var(--ds-text-secondary);
 }
 
 .ds-content .ds-prevnext a:hover {
@@ -73,4 +87,37 @@
    (EXCEPTIONS.md #9) */
 .ds-nav .ds-nav__items {
   padding-left: var(--ds-space-4);
+}
+
+/* `.ds-hamburger` is hidden at every width but the drawer's, yet `.ds-icon-btn` — later, and as
+   specific — shows it again, so from 900px up it was a menu button that opened nothing: the drawer
+   itself is `display: none` there. (EXCEPTIONS.md #9) */
+@media (width >= 900px) {
+  .ds-hamburger {
+    display: none;
+  }
+}
+
+/* The props and token tables name each row in a `<th scope="row">`, which `.ds-table th` styles as a
+   column header: 10px capitals on a tinted ground. A prop name is code; it keeps its case, the body
+   size and the row's background. (EXCEPTIONS.md #9) */
+.ds-table tbody th {
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ds-text);
+  vertical-align: top;
+  background: none;
+}
+
+/* Every crumb sits on one baseline: the `›` before all but the first gave them a taller line box,
+   so the first stood 3px higher. (EXCEPTIONS.md #9) */
+.ds-breadcrumbs ol {
+  align-items: baseline;
+}
+
+/* On the narrowest phones (280px) the demo toolbar ran off the start edge. (EXCEPTIONS.md #9) */
+.ds-demo__bar {
+  flex-wrap: wrap;
 }

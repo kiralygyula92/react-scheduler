@@ -309,13 +309,13 @@
     }
   },
   "OverflowDialog": {
-    "description": "Dialogul care enumeră elementele din spatele unui indicator „+more”.",
+    "description": "Dialogul care enumeră elementele din spatele unui indicator „Mai mult”.",
     "props": {
       "group": "Grupul ale cărui elemente le listează dialogul."
     }
   },
   "OverflowGroup": {
-    "description": "Elementele pe care le reprezintă un indicator „+more”, cu intervalul pe care îl acoperă.",
+    "description": "Elementele pe care le reprezintă un indicator „Mai mult”, cu intervalul pe care îl acoperă.",
     "props": {
       "anchor": "Cel mai devreme început al grupului, în milisecunde de la epocă.",
       "id": "Id stabil: String(anchor).",
@@ -540,7 +540,7 @@
       "enableNavigation": "Butoanele care sar la tura anterioară și la cea următoare.",
       "enableNowIndicator": "Marcajul pentru ora curentă în listă și linia din cronologie.",
       "enableOffShiftBands": "Benzile umbrite pe care cronologia le desenează în afara turei active.",
-      "enableOverflowDialog": "Dialogul care enumeră elementele din spatele unui indicator „+more”.",
+      "enableOverflowDialog": "Dialogul care enumeră elementele din spatele unui indicator „Mai mult”.",
       "enablePinning": "Elementele se pot fixa de marginea zonei de derulare și apar în banda de elemente fixate.",
       "enableScrollTopButton": "Butonul care readuce zona de derulare în partea de sus.",
       "enableTooltips": "Indicii pentru titlurile de card trunchiate."
@@ -624,7 +624,7 @@
       "levels": "Câte o etichetă pentru fiecare cheie de nivel; o cheie fără etichetă revine la cheia însăși.",
       "loading": "Anunțat cât timp programul așteaptă date.",
       "locale": "BCP 47, folosit pentru Intl.",
-      "more": "Pastila „+ mai multe”: ce arată și cum se numește.",
+      "more": "Pastila „Mai mult”: ce arată și cum se numește.",
       "nav": "Toate etichetele și indiciile celor două butoane de navigare.",
       "now": "Eticheta marcajului „acum”, cu ora lui.",
       "overflow": "Dialogul de suplimentare: titlul, coloanele și etichetele de închidere.",
@@ -755,7 +755,7 @@
       "renderItem": "Înlocuiește cardul întreg. `ctx.defaultRender()` îl redă pe cel încorporat.",
       "renderItemDetail": "Înlocuiește vizualizarea detaliată a unui element deschis.",
       "renderLoading": "Înlocuiește starea de încărcare.",
-      "renderMoreLabel": "Înlocuiește eticheta unui indicator „+more”.",
+      "renderMoreLabel": "Înlocuiește eticheta unui indicator „Mai mult”.",
       "renderNavLabel": "Înlocuiește eticheta unui buton de navigare.",
       "renderPinnedChip": "Înlocuiește un indicator din banda de elemente fixate.",
       "renderShiftHeader": "Înlocuiește rândul de antet al unei ture.",
@@ -955,7 +955,7 @@
     "props": {
       "cards": "Fiecare card așezat, în ordinea așezării.",
       "height": "Orele intervalului × `hourHeight`, cu minimul `hourHeight`.",
-      "overflow": "Grupurile pe care așezarea nu le-a putut încadra, fiecare în spatele unei pastile „+ mai multe”.",
+      "overflow": "Grupurile pe care așezarea nu le-a putut încadra, fiecare în spatele unei pastile „Mai mult”.",
       "rangeEnd": "Ultimul moment acoperit de grilă, în milisecunde epoch.",
       "rangeStart": "Primul moment acoperit de grilă, în milisecunde epoch."
     }
@@ -981,7 +981,7 @@
     }
   },
   "TimelineOptions": {
-    "description": "Opțiunile proprii vizualizării cronologice: dimensiunea unei ore, câte coloane pot folosi elementele suprapuse și când se strâng într-un indicator „+more”.",
+    "description": "Opțiunile proprii vizualizării cronologice: dimensiunea unei ore, câte coloane pot folosi elementele suprapuse și când se strâng într-un indicator „Mai mult”.",
     "props": {
       "cardGap": "Spațiul dintre două carduri, în pixeli.",
       "columnPlacement": "Ce coloană primește un element: după nivelul său (`'priority'`) sau după prima coloană care se eliberează (`'time'`).",
@@ -991,10 +991,10 @@
       "leadMinutes": "Cât timp, în minute, lasă aterizarea și navigarea deasupra țintei.",
       "maxColumns": "Pe câte coloane se pot întinde elementele suprapuse.",
       "maxColumnsCompact": "Limita pentru aglomerare în aspectul compact.",
-      "maxColumnsCrowded": "Limita când se suprapun mai multe elemente decât `maxColumns`; restul ajung în indicatorul „+more”.",
+      "maxColumnsCrowded": "Limita când se suprapun mai multe elemente decât `maxColumns`; restul ajung în indicatorul „Mai mult”.",
       "minCardHeight": "Cât de scund poate fi desenat un card, în pixeli, oricât de scurt ar fi elementul. Presetul implicit păstrează loc pentru titlu și rândul de etichete: 108, sau 128 în densitatea `comfortable` și 88 în `dense`. Presetul clasic și controlerul headless folosesc 80 (96 și 56), unde un card scurt își poate tăia titlul.",
       "nearBottomGutterMinutes": "Cât timp, în minute, lasă sub țintă o aterizare „aproape de jos”.",
-      "overflowMergeWindow": "Cât de departe pot fi, în milisecunde, două grupuri aglomerate și tot să se unească într-un singur indicator „+more”. `Infinity` unește tot lanțul.",
+      "overflowMergeWindow": "Cât de departe pot fi, în milisecunde, două grupuri aglomerate și tot să se unească într-un singur indicator „Mai mult”. `Infinity` unește tot lanțul.",
       "viewEnterRealignDelay": "Cât așteaptă cronologia, în milisecunde, după intrarea în vizualizare până se realiniază.",
       "keepCardsApart": "Dacă cardurile nu se suprapun niciodată. Un card își păstrează coloana până la capătul a ceea ce este desenat, cel puțin `minCardHeight`, așa că următorul element din coloană începe sub el; iar un grup suprapus împarte atâtea coloane câte ocupă cardurile sale. Presetul implicit îl activează. Presetul clasic și controlerul headless păstrează plasarea originală, în care un card scurt poate ajunge sub următorul, iar modul compact poate suprapune două carduri într-o coloană."
     }

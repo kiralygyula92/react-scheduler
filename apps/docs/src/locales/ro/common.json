@@ -16,27 +16,27 @@
     "features": "Funcționalități",
     "allFeatures": "Toate funcționalitățile",
     "demos": "Demonstrații",
-    "demosIndex": "Demonstrații",
+    "demosIndex": "Toate demonstrațiile",
     "playground": "Playground",
     "themeEditor": "Editor de temă",
     "reference": "Referință",
     "apiIndex": "Referință API",
     "customization": "Personalizare",
-    "customizationOverview": "Prezentare generală",
+    "customizationOverview": "Prezentarea personalizării",
     "theming": "Teme",
     "cssVariables": "Variabile CSS",
     "slots": "Sloturi și suprascrieri",
     "localization": "Localizare",
     "guides": "Ghiduri",
-    "guidesIndex": "Ghiduri",
+    "guidesIndex": "Toate ghidurile",
     "integrations": "Integrări",
-    "integrationsIndex": "Integrări",
+    "integrationsIndex": "Toate integrările",
     "vite": "Vite",
     "nextjs": "Next.js",
     "reactRouter": "React Router",
     "ssr": "Randare pe server",
     "migration": "Migrare",
-    "migrationIndex": "Migrare",
+    "migrationIndex": "Prezentarea migrării",
     "migrationFromCustom": "De la o implementare proprie",
     "discoverMore": "Descoperă mai mult",
     "changelog": "Istoric modificări",
@@ -56,6 +56,7 @@
     "openMenu": "Deschide navigarea",
     "closeMenu": "Închide navigarea",
     "sidebarLabel": "Documentație",
+    "breadcrumbLabel": "Traseu de navigare",
     "github": "Codul sursă pe GitHub",
     "themeToDark": "Comută la tema întunecată",
     "themeToLight": "Comută la tema luminoasă",
@@ -67,7 +68,8 @@
     "required": "obligatoriu"
   },
   "meta": {
-    "titleTemplate": "{title} · {pluginName}"
+    "titleTemplate": "{title} · {pluginName}",
+    "ogImageAlt": "React Scheduler: programe pe ture pentru React, ca listă sau ca cronologie"
   },
   "search": {
     "button": "Caută",
@@ -115,6 +117,11 @@
   "notFound": {
     "title": "Pagina nu a fost găsită",
     "text": "Pagina căutată nu există sau a fost mutată.",
+    "back": "Mergi la prezentarea generală"
+  },
+  "crash": {
+    "title": "Pagina nu a putut fi afișată",
+    "text": "Ceva nu a funcționat la încărcarea ei. De obicei, reîncărcarea ajută; restul documentației este la un clic distanță.",
     "back": "Mergi la prezentarea generală"
   },
   "playground": {

@@ -319,7 +319,7 @@ export interface PlacedCard<TItem> {
 }
 
 /**
- * The items a "+more" chip stands for, with the range they cover.
+ * The items a "More" chip stands for, with the range they cover.
  *
  * @category Overflow
  * @since 1.0.0
@@ -342,7 +342,7 @@ export interface OverflowGroup<TItem> {
 export interface TimelineLayout<TItem> {
   /** Every placed card, in placement order. */
   cards: readonly PlacedCard<TItem>[];
-  /** The groups the placement could not fit, each behind a "+ more" chip. */
+  /** The groups the placement could not fit, each behind a "More" chip. */
   overflow: readonly OverflowGroup<TItem>[];
   /** The first moment the grid covers, in epoch milliseconds. */
   rangeStart: number;

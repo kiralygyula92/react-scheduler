@@ -18,7 +18,7 @@
     "basics": "Ein Tag auf dem Zeitstrahl",
     "columns": "Wie viele Spalten eine Stunde nutzen darf",
     "columnPlacement": "Welcher Eintrag die linke Spalte bekommt",
-    "overflowWindow": "Wie weit eine „+ mehr“-Gruppe reichen darf"
+    "overflowWindow": "Wie weit eine „Mehr“-Gruppe reichen darf"
   },
   "basics": {
     "intro": "Der Zeitstrahl zeichnet die angezeigten Schichten als eine durchgehende Fläche, vom Beginn der ersten bis zum Ende der letzten Schicht. Einträge stehen an der Minute, in der sie beginnen, und sind so hoch, wie sie dauern: ein Blick zeigt, wie voll der Tag ist, nicht nur was darin steht. Setzen Sie <code>view=\"timeline\"</code>, oder lassen Sie den Leser die Ansicht über <code>defaultView</code> wechseln.",
@@ -26,7 +26,7 @@
     "parts": [
       "Ein Eintrag ohne <code>end</code> erhält <code>defaultDuration</code>, und ein Eintrag, der kürzer als <code>minCardHeight</code> ist, wird in dieser Höhe gezeichnet, damit sein Titel lesbar bleibt.",
       "Einträge, die sich überschneiden, teilen sich die Spur in Spalten, höchstens <code>maxColumns</code> davon.",
-      "Was nicht in die Spalten passt, wird zu einer Gruppe zusammengefasst, die über eine <strong>+ mehr</strong>-Schaltfläche den Dialog der weiteren Einträge öffnet."
+      "Was nicht in die Spalten passt, wird zu einer Gruppe zusammengefasst, die über eine <strong>Mehr</strong>-Schaltfläche den Dialog der weiteren Einträge öffnet."
     ]
   },
   "accessibility": {
@@ -42,7 +42,7 @@
   "customization": {
     "intro": "Alles Folgende ist ein Feld von <code>timeline</code>. Die Standardwerte zeigen die Demos oben; die hier ändern jeweils ein Feld.",
     "placement": "<code>columnPlacement</code> entscheidet, welche Spalte ein Eintrag bekommt, wenn sich mehrere überschneiden. <code>'priority'</code>, der Standard, fasst die überschneidenden Einträge zusammen, ordnet sie mit <code>compareItems</code> und kann einen Eintrag aus der Gruppe der weiteren Einträge in eine frei werdende Spalte nachrücken lassen. <code>'time'</code> behält die schlichte Startreihenfolge und überspringt dieses Nachrücken, sodass der früher begonnene Eintrag seine Spalte behält.",
-    "overflow": "<code>overflowMergeWindow</code> begrenzt, wie viel Zeit eine einzelne <strong>+ mehr</strong>-Gruppe umfassen darf. Aufeinanderfolgende Stunden werden nur so lange zu einer Gruppe, wie die entstehende Gruppe im Fenster bleibt: aus einem vollen Vormittag werden mehrere ehrliche Gruppen statt einer über die ganze Schicht.",
+    "overflow": "<code>overflowMergeWindow</code> begrenzt, wie viel Zeit eine einzelne <strong>Mehr</strong>-Gruppe umfassen darf. Aufeinanderfolgende Stunden werden nur so lange zu einer Gruppe, wie die entstehende Gruppe im Fenster bleibt: aus einem vollen Vormittag werden mehrere ehrliche Gruppen statt einer über die ganze Schicht.",
     "options": "Die vollständige Liste, erzeugt aus den Deklarationen des Pakets:"
   },
   "limitations": {

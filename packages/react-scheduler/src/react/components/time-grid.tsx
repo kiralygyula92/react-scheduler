@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The timeline grid (Feature Dossier 01 §T.3, 05 F-05): hour labels per real elapsed hour, off-shift
 // bands, hour lines with boundaries at every shift boundary by timestamp (B-07), the now line, the
-// card lane and the "+more" chips.
+// card lane and the "More" chips.
 import { memo, type MouseEvent, type ReactElement } from 'react';
 import { interpolate } from '../../core/localization';
 import { isPinnable } from '../../core/pinning';
@@ -145,7 +145,7 @@ const GridLines = memo(function GridLines({
   );
 });
 
-/** The card lane and the "+more" chips: they change with the layout, not with the clock. */
+/** The card lane and the "More" chips: they change with the layout, not with the clock. */
 const Lane = memo(function Lane({
   custom,
   layout,

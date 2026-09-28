@@ -6,35 +6,35 @@ Single source of instructions for every coding agent in this repository (Codex, 
 
 Keys in double braces in `spec/` (for example `{{PLUGIN_ID}}` in the docs pack) resolve to the values below. Filled once at M0 from the INPUTS table of Template Prompt 2. Never substitute values inside `spec/`; read keys there as variables resolved from this table.
 
-| Key                        | Value                                                                                             |
-| -------------------------- | ------------------------------------------------------------------------------------------------- |
-| `{{NPM_PACKAGE}}`          | `@react-schedulerkit/react-scheduler`                                                             |
-| `{{PLUGIN_DISPLAY_NAME}}`  | React Scheduler                                                                                   |
-| `{{PLUGIN_ID}}`            | `react-scheduler`                                                                                 |
-| `{{NPM_SCOPE}}`            | `react-schedulerkit`                                                                              |
-| `{{COMPONENT}}`            | `Scheduler`                                                                                       |
-| `{{CSS_PREFIX}}`           | `rs`                                                                                              |
-| `{{ENGINE_PEER}}`          | `none`                                                                                            |
-| `{{ONE_LINE_DESCRIPTION}}` | React Scheduler used to showcase a schedule in different domains, such as office or factory work. |
-| `{{KEYWORDS}}`             | `react`, `schedule`, `agenda`                                                                     |
-| `{{PACKAGE_DIR}}`          | `react-scheduler`                                                                                 |
-| `{{REPO_NAME}}`            | `react-scheduler`                                                                                 |
-| `{{REPO_URL}}`             | https://github.com/kiralygyula92/react-scheduler                                                  |
-| `{{SITE_DOMAIN}}`          | `react-schedulerkit.vercel.app` (provisional until the Vercel project exists; see `GAPS.md`)      |
-| `{{COPYRIGHT_HOLDER}}`     | kiralygyula92                                                                                     |
-| `{{YEAR}}`                 | 2026                                                                                              |
-| `{{DENYLIST_SALT}}`        | `k3v9-q1x7`                                                                                       |
-| `{{FEATURE_DOSSIER_PATH}}` | `spec/feature-dossier`                                                                            |
-| `{{DOCS_PACK_PATH}}`       | `spec/docs-pack`                                                                                  |
-| `{{PACKAGE_MANAGER}}`      | pnpm 10 (pinned: `pnpm@10.34.5`)                                                                  |
-| `{{NODE_VERSION}}`         | 24 LTS                                                                                            |
-| `{{SPELLING}}`             | American English                                                                                  |
+| Key                        | Value                                                                                                                        |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `{{NPM_PACKAGE}}`          | `@react-schedulerkit/react-scheduler`                                                                                        |
+| `{{PLUGIN_DISPLAY_NAME}}`  | React Scheduler                                                                                                              |
+| `{{PLUGIN_ID}}`            | `react-scheduler`                                                                                                            |
+| `{{NPM_SCOPE}}`            | `react-schedulerkit`                                                                                                         |
+| `{{COMPONENT}}`            | `Scheduler`                                                                                                                  |
+| `{{CSS_PREFIX}}`           | `rs`                                                                                                                         |
+| `{{ENGINE_PEER}}`          | `none`                                                                                                                       |
+| `{{ONE_LINE_DESCRIPTION}}` | Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts. |
+| `{{KEYWORDS}}`             | `react`, `schedule`, `agenda`                                                                                                |
+| `{{PACKAGE_DIR}}`          | `react-scheduler`                                                                                                            |
+| `{{REPO_NAME}}`            | `react-scheduler`                                                                                                            |
+| `{{REPO_URL}}`             | https://github.com/kiralygyula92/react-scheduler                                                                             |
+| `{{SITE_DOMAIN}}`          | `react-schedulerkit.vercel.app` (provisional until the Vercel project exists; see `GAPS.md`)                                 |
+| `{{COPYRIGHT_HOLDER}}`     | kiralygyula92                                                                                                                |
+| `{{YEAR}}`                 | 2026                                                                                                                         |
+| `{{DENYLIST_SALT}}`        | `k3v9-q1x7`                                                                                                                  |
+| `{{FEATURE_DOSSIER_PATH}}` | `spec/feature-dossier`                                                                                                       |
+| `{{DOCS_PACK_PATH}}`       | `spec/docs-pack`                                                                                                             |
+| `{{PACKAGE_MANAGER}}`      | pnpm 10 (pinned: `pnpm@10.34.5`)                                                                                             |
+| `{{NODE_VERSION}}`         | 24 LTS                                                                                                                       |
+| `{{SPELLING}}`             | American English                                                                                                             |
 
-Decided with the user at M0 (they differ from the first INPUTS table): the package is published under the scope because the unscoped name is taken on npm (Dossier Q-01); the package folder is the derived value `react-scheduler`; the description spells the display name "React Scheduler" (docs pack `06` §2). The scope is not registered yet (`GAPS.md` G2); the name may change before M8.
+Decided with the user at M0 (they differ from the first INPUTS table): the package is published under the scope because the unscoped name is taken on npm (Dossier Q-01); the package folder is the derived value `react-scheduler`; the description spells the display name "React Scheduler" (docs pack `06` §2). At the 1.0.0 site review the user replaced the one-line description with a full sentence that does not repeat the name. The scope is not registered yet (`GAPS.md` G2); the name may change before M8.
 
 ## Project
 
-- Package: `@react-schedulerkit/react-scheduler` in `packages/react-scheduler/` — an MIT-licensed, native, dependency-free React component library for React Scheduler used to showcase a schedule in different domains, such as office or factory work.
+- Package: `@react-schedulerkit/react-scheduler` in `packages/react-scheduler/` — an MIT-licensed, native, dependency-free React component library for shift schedules: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.
 - Docs site: `apps/docs/` — React + Vite + React Router (prerendered), 7 locales, deployed to Vercel at https://react-schedulerkit.vercel.app/react-scheduler/.
 - Specification (read-only): `spec/docs-pack/` (how to build) and `spec/feature-dossier/` (what to build).
 

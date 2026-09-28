@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Überblick",
-    "description": "Was React Scheduler ist, was es darstellt, wie es gesteuert wird und wie es weitergeht. MIT-Lizenz, ohne Bezahlplan."
+    "description": "Was React Scheduler ist, was es darstellt, wie es gesteuert wird und wie es weitergeht."
   },
   "sections": {
     "introduction": "Einführung",
@@ -19,14 +19,32 @@
     "not": "Er ist kein Kalender und kein Editor. Es gibt kein Monats- oder Jahresraster, kein Ziehen und Ablegen, keine Wiederholungen, keine eigene Zeitzone und keine Datenschicht: Er zeigt die Einträge, die Sie ihm geben, für den Tag, den Sie verlangen, und meldet, was der Leser tut."
   },
   "why": {
-    "points": [
-      "<strong>Barrierefrei von Grund auf:</strong> jede Karte ist eine Schaltfläche, jede Schicht eine Überschrift, jeder Dialog hält den Fokus, und das Ziel ist WCAG 2.2 AA — von axe geprüft, in den Browsertests des Pakets und auf den Seiten dieser Website.",
-      "<strong>Gestaltbar ohne UI-Kit:</strong> zwei Voreinstellungen, drei Dichten, ein helles und ein dunkles Schema und mehr als hundertfünfzig CSS-Variablen. Kein CSS-in-JS zur Laufzeit, keine Utility-Klassen-Bibliothek, nichts einzurichten vor dem ersten Rendern.",
-      "<strong>Keine Laufzeitabhängigkeiten:</strong> nur <code>react</code> und <code>react-dom</code> als Peers. Es wird nichts weiter mitinstalliert, also kann nichts weiter es brechen.",
-      "<strong>Sicher auf dem Server:</strong> Er rendert auf dem Server, ohne das DOM anzufassen, hydriert ohne Warnung und startet seine Observer erst nach dem Einhängen.",
-      "<strong>Klein und faul:</strong> rund 25 kB gzip für den Haupteinstieg, wobei der Dialog der weiteren Einträge und der Detaildialog als eigene Teile erst beim ersten Öffnen geladen werden.",
-      "<strong>Sieben Sprachen eingebaut:</strong> Englisch, Rumänisch, Ungarisch, Spanisch, Französisch, Deutsch und Portugiesisch, jede ein einfaches Objekt, das Sie erweitern oder ersetzen können."
-    ]
+    "cards": {
+      "accessible": {
+        "title": "Barrierefrei von Grund auf",
+        "text": "Jede Karte ist eine Schaltfläche, jede Schicht eine Überschrift, jeder Dialog hält den Fokus, und das Ziel ist WCAG 2.2 AA — von axe geprüft, in den Browsertests des Pakets und auf den Seiten dieser Website."
+      },
+      "themed": {
+        "title": "Gestaltbar ohne UI-Kit",
+        "text": "Zwei Voreinstellungen, drei Dichten, ein helles und ein dunkles Schema und mehr als hundertfünfzig CSS-Variablen. Kein CSS-in-JS zur Laufzeit, keine Utility-Klassen-Bibliothek, nichts einzurichten vor dem ersten Rendern."
+      },
+      "dependencies": {
+        "title": "Keine Laufzeitabhängigkeiten",
+        "text": "Nur react und react-dom als Peers. Nichts anderes wird mitinstalliert, also kann auch nichts anderes kaputtgehen."
+      },
+      "server": {
+        "title": "Sicher auf dem Server",
+        "text": "Er rendert auf dem Server, ohne das DOM anzufassen, hydriert ohne Warnung und startet seine Observer erst nach dem Einhängen."
+      },
+      "size": {
+        "title": "Klein, lädt bei Bedarf nach",
+        "text": "Rund 25 kB gzip für den Haupteinstieg, wobei der Dialog der weiteren Einträge und der Detaildialog als eigene Teile erst beim ersten Öffnen geladen werden."
+      },
+      "languages": {
+        "title": "Sieben Sprachen eingebaut",
+        "text": "Englisch, Rumänisch, Ungarisch, Spanisch, Französisch, Deutsch und Portugiesisch, jede ein einfaches Objekt, das Sie erweitern oder ersetzen können."
+      }
+    }
   },
   "cards": {
     "installation": {

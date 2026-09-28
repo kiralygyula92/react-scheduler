@@ -4,7 +4,7 @@
     "source": "extract-api"
   },
   "meta": {
-    "title": "Types d'événements et de gestionnaires",
+    "title": "Types d’événements et de gestionnaires",
     "description": "Les types des rappels et du middleware : ce que chacun reçoit et ce qu’il peut renvoyer."
   }
 }
