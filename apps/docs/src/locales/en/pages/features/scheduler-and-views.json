@@ -35,7 +35,7 @@
     "points": [
       "The component renders the active view only, so a keyboard never walks through a hidden one. With <code>keepInactiveViewMounted</code> the other view stays in the DOM, hidden, with every listener and timer paused.",
       "A view switch is yours to build: a pair of buttons with <code>aria-pressed</code> reads well, and the labels are in the locale pack.",
-      "The component is one labelled region; its label is the schedule's name, so a screen reader can jump straight to it.",
+      "The component is one labelled region; its label is the schedule’s name, so a screen reader can jump straight to it.",
       "Heading levels inside it start at <code>headingLevel</code>, which defaults to <code>3</code>: set it to fit the page it lives on."
     ]
   },

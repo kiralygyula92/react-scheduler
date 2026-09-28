@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Overview",
-    "description": "What React Scheduler is, what it renders, how it is controlled, and where to go next. MIT licensed, with no paid tier."
+    "description": "What React Scheduler is, what it renders, how it is controlled, and where to go next."
   },
   "sections": {
     "introduction": "Introduction",
@@ -14,19 +14,37 @@
     "license": "License"
   },
   "introduction": {
-    "what": "React Scheduler shows a working day as a schedule. It takes a flat list of items with a start, a level and a title, groups them into the shifts of the day, and renders them either as a <link to=\"/list-view/\">list</link> you read from top to bottom or as a <link to=\"/timeline-view/\">timeline</link> where an item's height is its duration. It is one React component, written in TypeScript, HTML and CSS, with <strong>no runtime dependencies</strong> beyond React itself.",
+    "what": "React Scheduler shows a working day as a schedule. It takes a flat list of items with a start, a level and a title, groups them into the shifts of the day, and renders them either as a <link to=\"/list-view/\">list</link> you read from top to bottom or as a <link to=\"/timeline-view/\">timeline</link> where an item’s height is its duration. It is one React component, written in TypeScript, HTML and CSS, with <strong>no runtime dependencies</strong> beyond React itself.",
     "controlled": "Everything is controlled from the outside. Props set the data, the shifts and the options; CSS variables set the colors, the spacing and the density; callbacks report every change; <link to=\"/customization/slots/\">slots</link> and render props replace any part of the markup. The whole state can be left to the component or held by your application, prop by prop.",
     "not": "It is not a calendar and not an editor. There is no month or year grid, no drag-and-drop, no recurrence, no time zone of its own and no data layer: it renders the items you give it, for the day you ask for, and tells you when the reader does something."
   },
   "why": {
-    "points": [
-      "<strong>Accessible by construction:</strong> every card is a button, every shift a heading, every dialog focus-trapped, and the target is WCAG 2.2 AA — checked by axe in the package’s browser tests and on the pages of this site.",
-      "<strong>Themed without a UI kit:</strong> two presets, three densities, a light and a dark scheme, and more than a hundred and fifty CSS variables. No CSS-in-JS runtime, no utility-class library, nothing to configure before the first render.",
-      "<strong>Zero runtime dependencies:</strong> only <code>react</code> and <code>react-dom</code> as peers. Nothing else is installed with it, so nothing else can break it.",
-      "<strong>Safe on the server:</strong> it renders on the server without touching the DOM, hydrates without a warning, and starts its observers only once mounted.",
-      "<strong>Small and lazy:</strong> around 25 kB gzipped for the main entry, with the overflow dialog and the detail dialog split into chunks that load when they are first opened.",
-      "<strong>Seven languages built in:</strong> English, Romanian, Hungarian, Spanish, French, German and Portuguese, each a plain object you can extend or replace."
-    ]
+    "cards": {
+      "accessible": {
+        "title": "Accessible by construction",
+        "text": "Every card is a button, every shift a heading, every dialog focus-trapped, and the target is WCAG 2.2 AA — checked by axe in the package’s browser tests and on the pages of this site."
+      },
+      "themed": {
+        "title": "Themed without a UI kit",
+        "text": "Two presets, three densities, a light and a dark scheme, and more than a hundred and fifty CSS variables. No CSS-in-JS runtime, no utility-class library, nothing to configure before the first render."
+      },
+      "dependencies": {
+        "title": "Zero runtime dependencies",
+        "text": "Only react and react-dom as peers. Nothing else is installed with it, so nothing else can break it."
+      },
+      "server": {
+        "title": "Safe on the server",
+        "text": "It renders on the server without touching the DOM, hydrates without a warning, and starts its observers only once mounted."
+      },
+      "size": {
+        "title": "Small and lazy",
+        "text": "Around 25 kB gzipped for the main entry, with the overflow dialog and the detail dialog split into chunks that load when they are first opened."
+      },
+      "languages": {
+        "title": "Seven languages built in",
+        "text": "English, Romanian, Hungarian, Spanish, French, German and Portuguese, each a plain object you can extend or replace."
+      }
+    }
   },
   "cards": {
     "installation": {
@@ -43,7 +61,7 @@
     },
     "timeline": {
       "title": "Timeline view",
-      "text": "The grid where an item's height is how long it lasts."
+      "text": "The grid where an item’s height is how long it lasts."
     },
     "customization": {
       "title": "Customization",
@@ -51,7 +69,7 @@
     },
     "api": {
       "title": "API reference",
-      "text": "Every export, generated from the package's own declarations."
+      "text": "Every export, generated from the package’s own declarations."
     }
   },
   "license": {

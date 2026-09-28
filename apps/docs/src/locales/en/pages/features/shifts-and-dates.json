@@ -30,12 +30,12 @@
   },
   "howMany": {
     "intro": "<code>before</code> and <code>after</code> say how much of the surrounding day is rendered. They are the range a reader can scroll through and navigate within without your application fetching anything: outside it, moving on is a date change, which you handle.",
-    "options": "The full list, generated from the package's declarations:"
+    "options": "The full list, generated from the package’s declarations:"
   },
   "accessibility": {
     "points": [
       "Each shift is a section with a real heading, so a screen reader can jump between shifts by heading.",
-      "A shift heading says what the shift is relative to now — previous, current, next, or how many shifts away — and then its range, formatted in the reader's locale.",
+      "A shift heading says what the shift is relative to now — previous, current, next, or how many shifts away — and then its range, formatted in the reader’s locale.",
       "The range in the heading is text, not an image or a title attribute, so it is read and it is searchable.",
       "Shifts outside the current one are not hidden from assistive technology: they are the same sections, in the same order as the visual grid."
     ]
@@ -52,7 +52,7 @@
     "points": [
       "<code>durationHours</code> has to divide 24, so shifts of five or seven hours are a pattern, not a regular length.",
       "One pattern covers every day. A pattern that differs from weekday to weekend is not expressible yet; changing <code>shifts</code> with the date is the workaround.",
-      "Shifts are placed by timestamp in the reader's own time zone. A schedule read in two time zones shows two different cuts of the same items.",
+      "Shifts are placed by timestamp in the reader’s own time zone. A schedule read in two time zones shows two different cuts of the same items.",
       "There is no way to hide a shift that has no items; an empty shift renders its empty state."
     ]
   }

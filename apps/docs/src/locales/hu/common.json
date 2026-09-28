@@ -16,27 +16,27 @@
     "features": "Funkciók",
     "allFeatures": "Minden funkció",
     "demos": "Bemutatók",
-    "demosIndex": "Bemutatók",
+    "demosIndex": "Összes bemutató",
     "playground": "Kísérletező felület",
     "themeEditor": "Témaszerkesztő",
     "reference": "Referencia",
     "apiIndex": "API-referencia",
     "customization": "Testreszabás",
-    "customizationOverview": "Áttekintés",
+    "customizationOverview": "A testreszabás áttekintése",
     "theming": "Témák",
     "cssVariables": "CSS-változók",
     "slots": "Slotok és felülírások",
     "localization": "Lokalizáció",
     "guides": "Útmutatók",
-    "guidesIndex": "Útmutatók",
+    "guidesIndex": "Összes útmutató",
     "integrations": "Integrációk",
-    "integrationsIndex": "Integrációk",
+    "integrationsIndex": "Összes integráció",
     "vite": "Vite",
     "nextjs": "Next.js",
     "reactRouter": "React Router",
     "ssr": "Szerveroldali renderelés",
     "migration": "Migráció",
-    "migrationIndex": "Migráció",
+    "migrationIndex": "A migráció áttekintése",
     "migrationFromCustom": "Saját megvalósításról",
     "discoverMore": "Továbbiak",
     "changelog": "Változásnapló",
@@ -56,6 +56,7 @@
     "openMenu": "Navigáció megnyitása",
     "closeMenu": "Navigáció bezárása",
     "sidebarLabel": "Dokumentáció",
+    "breadcrumbLabel": "Morzsamenü",
     "github": "Forráskód a GitHubon",
     "themeToDark": "Váltás sötét témára",
     "themeToLight": "Váltás világos témára",
@@ -67,7 +68,8 @@
     "required": "kötelező"
   },
   "meta": {
-    "titleTemplate": "{title} · {pluginName}"
+    "titleTemplate": "{title} · {pluginName}",
+    "ogImageAlt": "React Scheduler: műszakbeosztás Reacthez, listaként vagy idővonalként"
   },
   "search": {
     "button": "Keresés",
@@ -115,6 +117,11 @@
   "notFound": {
     "title": "Az oldal nem található",
     "text": "A keresett oldal nem létezik, vagy áthelyezték.",
+    "back": "Ugrás az áttekintéshez"
+  },
+  "crash": {
+    "title": "Az oldalt nem sikerült megjeleníteni",
+    "text": "Valami hiba történt a betöltése közben. Az újratöltés általában segít; a dokumentáció többi része egy kattintásra van.",
     "back": "Ugrás az áttekintéshez"
   },
   "playground": {

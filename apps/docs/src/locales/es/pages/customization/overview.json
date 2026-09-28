@@ -4,7 +4,7 @@
     "source": "M5"
   },
   "meta": {
-    "title": "Visión general",
+    "title": "Descripción general de la personalización",
     "description": "Las seis formas de cambiar React Scheduler, desde una variable CSS hasta un renderizado propio, de la más ligera a la más pesada."
   },
   "sections": {

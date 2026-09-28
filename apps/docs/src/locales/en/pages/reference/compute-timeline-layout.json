@@ -5,6 +5,6 @@
   },
   "meta": {
     "title": "computeTimelineLayout",
-    "description": "Places items into timeline columns and overflow groups: placement sequence, greedy columns, promotion from overflow, gap fill, geometry, overflow groups (bounded by overflowMergeWindow, measured from each group's anchor) and column counts."
+    "description": "Places items into timeline columns and overflow groups: placement sequence, greedy columns, promotion from overflow, gap fill, geometry, overflow groups (bounded by overflowMergeWindow, measured from each group’s anchor) and column counts."
   }
 }

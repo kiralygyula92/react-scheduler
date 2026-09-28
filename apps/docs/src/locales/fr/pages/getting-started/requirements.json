@@ -13,7 +13,7 @@
     "typescript-versions": "Versions de TypeScript",
     "frameworks-and-ssr": "Frameworks et SSR",
     "bundle-size": "Taille du bundle",
-    "accessibility-target": "Objectif d'accessibilité"
+    "accessibility-target": "Objectif d’accessibilité"
   },
   "browsers": {
     "intro": "Le paquet vise les navigateurs actuels et est testé dans trois moteurs à chaque changement.",

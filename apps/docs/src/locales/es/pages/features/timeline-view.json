@@ -18,7 +18,7 @@
     "basics": "Un día en la línea de tiempo",
     "columns": "Cuántas columnas puede usar una hora",
     "columnPlacement": "Qué elemento ocupa la columna izquierda",
-    "overflowWindow": "Hasta dónde puede llegar un grupo «+ más»"
+    "overflowWindow": "Hasta dónde puede llegar un grupo «Más»"
   },
   "basics": {
     "intro": "La línea de tiempo dibuja los turnos mostrados como una sola rejilla continua, desde el inicio del primer turno hasta el final del último. Los elementos se colocan en el minuto en que empiezan y son tan altos como duran, de modo que una mirada muestra cuán llena está la jornada, no solo lo que contiene. Usa <code>view=\"timeline\"</code> o deja que quien lee cambie de vista con <code>defaultView</code>.",
@@ -26,7 +26,7 @@
     "parts": [
       "Un elemento sin <code>end</code> recibe <code>defaultDuration</code>, y uno más corto que <code>minCardHeight</code> se dibuja con esa altura para que su título siga siendo legible.",
       "Los elementos que se solapan comparten el carril en columnas, hasta <code>maxColumns</code> de ellas.",
-      "Lo que no cabe en las columnas se recoge en un grupo al que se llega con un botón <strong>+ más</strong>, que abre el diálogo de elementos adicionales."
+      "Lo que no cabe en las columnas se recoge en un grupo al que se llega con un botón <strong>Más</strong>, que abre el diálogo de elementos adicionales."
     ]
   },
   "accessibility": {
@@ -42,7 +42,7 @@
   "customization": {
     "intro": "Todo lo que sigue es un campo de <code>timeline</code>. Los valores por defecto son los que muestran las demostraciones anteriores; las de aquí cambian un campo cada vez.",
     "placement": "<code>columnPlacement</code> decide qué columna toma un elemento cuando varios se solapan. <code>'priority'</code>, el valor por defecto, agrupa los elementos que se solapan, los ordena con <code>compareItems</code> y puede promover uno del grupo de adicionales a una columna que queda libre. <code>'time'</code> mantiene el orden simple de inicio y omite esa promoción, así que el elemento que empezó antes conserva su columna.",
-    "overflow": "<code>overflowMergeWindow</code> limita cuánto tiempo puede abarcar un solo grupo <strong>+ más</strong>. Las horas consecutivas se fusionan en un grupo solo mientras el grupo resultante quepa en la ventana, así que una mañana concurrida se convierte en varios grupos honestos en lugar de uno que abarca todo el turno.",
+    "overflow": "<code>overflowMergeWindow</code> limita cuánto tiempo puede abarcar un solo grupo <strong>Más</strong>. Las horas consecutivas se fusionan en un grupo solo mientras el grupo resultante quepa en la ventana, así que una mañana concurrida se convierte en varios grupos honestos en lugar de uno que abarca todo el turno.",
     "options": "La lista completa, generada a partir de las declaraciones del paquete:"
   },
   "limitations": {

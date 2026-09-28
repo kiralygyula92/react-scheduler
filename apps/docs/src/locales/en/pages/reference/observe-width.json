@@ -5,6 +5,6 @@
   },
   "meta": {
     "title": "observeWidth",
-    "description": "Calls onWidth with the element's content-box width now and whenever it changes. Compact mode and listOnlyBreakpoint use the root's width, not the viewport or the user agent."
+    "description": "Calls onWidth with the element’s content-box width now and whenever it changes. Compact mode and listOnlyBreakpoint use the root’s width, not the viewport or the user agent."
   }
 }

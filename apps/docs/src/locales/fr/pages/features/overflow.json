@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Éléments supplémentaires",
-    "description": "Ce qu’il advient des éléments qu’une heure chargée ne peut pas placer : la pastille « + plus », la boîte de dialogue derrière elle, et le tableau que vous pouvez façonner."
+    "description": "Ce qu’il advient des éléments qu’une heure chargée ne peut pas placer : la pastille « Plus », la boîte de dialogue derrière elle, et le tableau que vous pouvez façonner."
   },
   "sections": {
     "basics": "Bases",
@@ -19,7 +19,7 @@
     "columns": "Un tableau à vous"
   },
   "basics": {
-    "intro": "La chronologie place les éléments en colonnes, au plus <code>maxColumns</code>. Quand une heure en contient plus qu’il n’en tient, le reste est regroupé, et le groupe devient une pastille <strong>+ plus</strong> sur la grille. L’ouvrir ouvre une boîte de dialogue avec tout le groupe dans un tableau.",
+    "intro": "La chronologie place les éléments en colonnes, au plus <code>maxColumns</code>. Quand une heure en contient plus qu’il n’en tient, le reste est regroupé, et le groupe devient une pastille <strong>Plus</strong> sur la grille. L’ouvrir ouvre une boîte de dialogue avec tout le groupe dans un tableau.",
     "points": [
       "Un groupe couvre des heures consécutives tant qu’il reste dans <code>overflowMergeWindow</code> — voir <link to=\"/timeline-view/\">Vue chronologique</link>.",
       "Le nom accessible de la pastille dit combien d’éléments elle contient et à partir de quelle heure.",

@@ -33,7 +33,7 @@
       ["<kbd>Enter</kbd> sau <kbd>Space</kbd>", "Activează cardul, pastila sau butonul focalizat."],
       ["<kbd>Escape</kbd>", "Închide dialogul de deasupra și întoarce focalizarea la ce l-a deschis."]
     ],
-    "order": "Ordinea de tabulare este ordinea citirii: pastilele fixate, navigarea de sus, apoi turele în ordine cu cardurile și pastilele lor <strong>+ mai multe</strong>, apoi navigarea de jos, apoi butonul de întoarcere la început. Focalizarea este mereu vizibilă — un inel de doi pixeli, decalat cu doi."
+    "order": "Ordinea de tabulare este ordinea citirii: pastilele fixate, navigarea de sus, apoi turele în ordine cu cardurile și pastilele lor <strong>Mai mult</strong>, apoi navigarea de jos, apoi butonul de întoarcere la început. Focalizarea este mereu vizibilă — un inel de doi pixeli, decalat cu doi."
   },
   "structure": {
     "points": [

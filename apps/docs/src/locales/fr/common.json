@@ -5,7 +5,7 @@
   },
   "nav": {
     "gettingStarted": "Premiers pas",
-    "overview": "Vue d'ensemble",
+    "overview": "Vue d’ensemble",
     "installation": "Installation",
     "usage": "Utilisation",
     "aiContext": "Contexte IA",
@@ -16,27 +16,27 @@
     "features": "Fonctionnalités",
     "allFeatures": "Toutes les fonctionnalités",
     "demos": "Démos",
-    "demosIndex": "Démos",
+    "demosIndex": "Toutes les démos",
     "playground": "Bac à sable",
     "themeEditor": "Éditeur de thème",
     "reference": "Référence",
-    "apiIndex": "Référence de l'API",
+    "apiIndex": "Référence de l’API",
     "customization": "Personnalisation",
-    "customizationOverview": "Vue d'ensemble",
+    "customizationOverview": "Vue d’ensemble de la personnalisation",
     "theming": "Thèmes",
     "cssVariables": "Variables CSS",
     "slots": "Slots et surcharges",
     "localization": "Localisation",
     "guides": "Guides",
-    "guidesIndex": "Guides",
+    "guidesIndex": "Tous les guides",
     "integrations": "Intégrations",
-    "integrationsIndex": "Intégrations",
+    "integrationsIndex": "Toutes les intégrations",
     "vite": "Vite",
     "nextjs": "Next.js",
     "reactRouter": "React Router",
     "ssr": "Rendu côté serveur",
     "migration": "Migration",
-    "migrationIndex": "Migration",
+    "migrationIndex": "Vue d’ensemble de la migration",
     "migrationFromCustom": "Depuis une implémentation maison",
     "discoverMore": "En savoir plus",
     "changelog": "Journal des modifications",
@@ -56,6 +56,7 @@
     "openMenu": "Ouvrir la navigation",
     "closeMenu": "Fermer la navigation",
     "sidebarLabel": "Documentation",
+    "breadcrumbLabel": "Fil d’Ariane",
     "github": "Code source sur GitHub",
     "themeToDark": "Passer au thème sombre",
     "themeToLight": "Passer au thème clair",
@@ -67,13 +68,14 @@
     "required": "obligatoire"
   },
   "meta": {
-    "titleTemplate": "{title} · {pluginName}"
+    "titleTemplate": "{title} · {pluginName}",
+    "ogImageAlt": "React Scheduler : plannings par postes pour React, en liste ou en chronologie"
   },
   "search": {
     "button": "Rechercher",
     "title": "Recherche",
     "placeholder": "Rechercher dans la documentation",
-    "empty": "Saisissez du texte pour rechercher dans les pages, les titres et l'API.",
+    "empty": "Saisissez du texte pour rechercher dans les pages, les titres et l’API.",
     "noResults": "Aucun résultat pour « {query} ».",
     "hintNavigate": "pour naviguer",
     "hintOpen": "pour ouvrir",
@@ -96,7 +98,7 @@
     "showCode": "Afficher le code",
     "hideCode": "Masquer le code",
     "reset": "Réinitialiser",
-    "error": "Impossible d'afficher cette démo."
+    "error": "Impossible d’afficher cette démo."
   },
   "badge": {
     "new": "Nouveau",
@@ -114,8 +116,13 @@
   },
   "notFound": {
     "title": "Page introuvable",
-    "text": "La page que vous cherchez n'existe pas ou a été déplacée.",
-    "back": "Aller à la vue d'ensemble"
+    "text": "La page que vous cherchez n’existe pas ou a été déplacée.",
+    "back": "Aller à la vue d’ensemble"
+  },
+  "crash": {
+    "title": "Cette page n’a pas pu s’afficher",
+    "text": "Un problème est survenu pendant son chargement. La recharger suffit en général ; le reste de la documentation est à un clic.",
+    "back": "Aller à la vue d’ensemble"
   },
   "playground": {
     "resetAll": "Tout réinitialiser",

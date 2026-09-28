@@ -33,7 +33,7 @@
       ["<kbd>Enter</kbd> ou <kbd>Space</kbd>", "Active la carte, la pastille ou le bouton ayant le focus."],
       ["<kbd>Escape</kbd>", "Ferme la boîte de dialogue du dessus et rend le focus à ce qui l’a ouverte."]
     ],
-    "order": "L’ordre de tabulation est l’ordre de lecture : les pastilles épinglées, la navigation du haut, puis les postes dans l’ordre avec leurs cartes et leurs pastilles <strong>+ plus</strong>, puis la navigation du bas, puis le bouton de retour en haut. Le focus est toujours visible — un anneau de deux pixels, décalé de deux."
+    "order": "L’ordre de tabulation est l’ordre de lecture : les pastilles épinglées, la navigation du haut, puis les postes dans l’ordre avec leurs cartes et leurs pastilles <strong>Plus</strong>, puis la navigation du bas, puis le bouton de retour en haut. Le focus est toujours visible — un anneau de deux pixels, décalé de deux."
   },
   "structure": {
     "points": [

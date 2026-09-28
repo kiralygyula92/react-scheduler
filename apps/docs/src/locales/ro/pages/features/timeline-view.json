@@ -18,7 +18,7 @@
     "basics": "O zi pe cronologie",
     "columns": "Câte coloane poate folosi o oră",
     "columnPlacement": "Ce element ocupă coloana din stânga",
-    "overflowWindow": "Cât de departe poate ajunge un grup „+ mai multe”"
+    "overflowWindow": "Cât de departe poate ajunge un grup „Mai mult”"
   },
   "basics": {
     "intro": "Cronologia desenează turele afișate ca o singură grilă continuă, de la începutul primei ture până la sfârșitul ultimei. Elementele sunt așezate la minutul în care încep și sunt înalte cât durează, așa că o privire arată cât de plină este ziua, nu doar ce conține. Setează <code>view=\"timeline\"</code> sau lasă cititorul să schimbe vizualizarea cu <code>defaultView</code>.",
@@ -26,7 +26,7 @@
     "parts": [
       "Un element fără <code>end</code> primește <code>defaultDuration</code>, iar unul mai scurt decât <code>minCardHeight</code> este desenat la acea înălțime, ca titlul să rămână lizibil.",
       "Elementele care se suprapun împart banda în coloane, cel mult <code>maxColumns</code> dintre ele.",
-      "Ce nu încape în coloane este strâns într-un grup accesibil printr-un buton <strong>+ mai multe</strong>, care deschide dialogul de suplimentare."
+      "Ce nu încape în coloane este strâns într-un grup accesibil printr-un buton <strong>Mai mult</strong>, care deschide dialogul de suplimentare."
     ]
   },
   "accessibility": {
@@ -42,7 +42,7 @@
   "customization": {
     "intro": "Tot ce urmează este un câmp al lui <code>timeline</code>. Valorile implicite sunt cele arătate de demonstrațiile de mai sus; cele de aici schimbă câte un câmp pe rând.",
     "placement": "<code>columnPlacement</code> decide ce coloană primește un element când mai multe se suprapun. <code>'priority'</code>, valoarea implicită, grupează elementele care se suprapun, le ordonează cu <code>compareItems</code> și poate promova un element din grupul de suplimentare într-o coloană care se eliberează. <code>'time'</code> păstrează ordinea simplă a începuturilor și sare peste acea promovare, așa că un element început mai devreme își păstrează coloana.",
-    "overflow": "<code>overflowMergeWindow</code> limitează cât timp poate acoperi un singur grup <strong>+ mai multe</strong>. Orele consecutive se comasează într-un grup doar cât timp grupul rezultat rămâne în fereastră, așa că o dimineață aglomerată devine câteva grupuri oneste, nu unul care acoperă toată tura.",
+    "overflow": "<code>overflowMergeWindow</code> limitează cât timp poate acoperi un singur grup <strong>Mai mult</strong>. Orele consecutive se comasează într-un grup doar cât timp grupul rezultat rămâne în fereastră, așa că o dimineață aglomerată devine câteva grupuri oneste, nu unul care acoperă toată tura.",
     "options": "Lista completă, generată din declarațiile pachetului:"
   },
   "limitations": {

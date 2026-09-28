@@ -309,13 +309,13 @@
     }
   },
   "OverflowDialog": {
-    "description": "A párbeszédablak, amely felsorolja a „+more” jelölés mögötti elemeket.",
+    "description": "A párbeszédablak, amely felsorolja a „Több” jelölés mögötti elemeket.",
     "props": {
       "group": "A csoport, amelynek elemeit a párbeszédpanel felsorolja."
     }
   },
   "OverflowGroup": {
-    "description": "Az elemek, amelyeket egy „+more” jelölés képvisel, a lefedett időszakkal.",
+    "description": "Az elemek, amelyeket egy „Több” jelölés képvisel, a lefedett időszakkal.",
     "props": {
       "anchor": "A csoport legkorábbi kezdése, ezredmásodpercben az epoch óta.",
       "id": "Állandó azonosító: String(anchor).",
@@ -540,7 +540,7 @@
       "enableNavigation": "A gombok, amelyek az előző és a következő műszakra ugranak.",
       "enableNowIndicator": "Az aktuális idő jelölése a listában és a vonal az idővonalon.",
       "enableOffShiftBands": "Az árnyékolt sávok, amelyeket az idővonal az aktív műszakon kívül rajzol.",
-      "enableOverflowDialog": "A párbeszédablak, amely felsorolja a „+more” jelölés mögötti elemeket.",
+      "enableOverflowDialog": "A párbeszédablak, amely felsorolja a „Több” jelölés mögötti elemeket.",
       "enablePinning": "Az elemek rögzülhetnek a görgethető terület széléhez, és megjelennek a rögzített sávban.",
       "enableScrollTopButton": "A gomb, amely a görgethető területet visszaviszi a tetejére.",
       "enableTooltips": "Buboréksúgók a levágott kártyacímeknél."
@@ -755,7 +755,7 @@
       "renderItem": "Lecseréli az egész kártyát. A `ctx.defaultRender()` visszaadja a beépítettet.",
       "renderItemDetail": "Lecseréli egy megnyitott elem részletes nézetét.",
       "renderLoading": "Lecseréli a betöltési állapotot.",
-      "renderMoreLabel": "Lecseréli egy „+more” jelölés feliratát.",
+      "renderMoreLabel": "Lecseréli egy „Több” jelölés feliratát.",
       "renderNavLabel": "Lecseréli egy navigációs gomb feliratát.",
       "renderPinnedChip": "Lecserél egy jelölést a rögzített sávban.",
       "renderShiftHeader": "Lecseréli egy műszak fejlécsorát.",
@@ -981,7 +981,7 @@
     }
   },
   "TimelineOptions": {
-    "description": "Az idővonal nézet saját beállításai: egy óra mérete, hány oszlopot használhatnak az átfedő elemek, és mikor húzódnak össze „+more” jelöléssé.",
+    "description": "Az idővonal nézet saját beállításai: egy óra mérete, hány oszlopot használhatnak az átfedő elemek, és mikor húzódnak össze „Több” jelöléssé.",
     "props": {
       "cardGap": "Két kártya közötti térköz képpontban.",
       "columnPlacement": "Melyik oszlopba kerül egy elem: a szintje szerint (`'priority'`) vagy az elsőként felszabaduló oszlopba (`'time'`).",
@@ -991,10 +991,10 @@
       "leadMinutes": "Mennyi időt hagy percben az érkezés és a navigáció a cél fölött.",
       "maxColumns": "Hány oszlopon oszolhatnak el az átfedő elemek.",
       "maxColumnsCompact": "A zsúfoltsági korlát a kompakt elrendezésben.",
-      "maxColumnsCrowded": "A korlát, ha több elem fed át, mint `maxColumns`; a többi a „+more” jelölésbe kerül.",
+      "maxColumnsCrowded": "A korlát, ha több elem fed át, mint `maxColumns`; a többi a „Több” jelölésbe kerül.",
       "minCardHeight": "Milyen alacsonyra rajzolható egy kártya képpontban, bármilyen rövid is az elem. Az alapértelmezett előbeállítás helyet hagy a címnek és a címkék sorának: 108, a `comfortable` sűrűségben 128, a `dense`-ben 88. A klasszikus előbeállítás és a headless vezérlő 80-at használ (96-ot és 56-ot), ahol egy rövid kártya levághatja a címét.",
       "nearBottomGutterMinutes": "Mennyi időt hagy percben a cél alatt egy „alul közeli” érkezés.",
-      "overflowMergeWindow": "Milyen messze lehet egymástól ezredmásodpercben két zsúfolt csoport, hogy még egyetlen „+more” jelölésbe olvadjanak. Az `Infinity` az egész láncot összevonja.",
+      "overflowMergeWindow": "Milyen messze lehet egymástól ezredmásodpercben két zsúfolt csoport, hogy még egyetlen „Több” jelölésbe olvadjanak. Az `Infinity` az egész láncot összevonja.",
       "viewEnterRealignDelay": "Mennyit vár az idővonal ezredmásodpercben a nézetbe lépés után, mielőtt újraigazít.",
       "keepCardsApart": "Soha ne fedjék-e egymást a kártyák. Egy kártya a megrajzolt magassága végéig – legalább `minCardHeight` – foglalja az oszlopát, így az oszlop következő eleme alatta kezdődik; egy átfedő csoport pedig annyi oszlopon osztozik, ahányat a kártyái elfoglalnak. Az alapértelmezett előbeállítás bekapcsolja. A klasszikus előbeállítás és a headless vezérlő az eredeti elhelyezést tartja meg, ahol egy rövid kártya a következő alá csúszhat, kompakt módban pedig két kártya kerülhet egymásra egy oszlopban."
     }

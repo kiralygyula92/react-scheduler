@@ -33,7 +33,7 @@
       ["<kbd>Enter</kbd> o <kbd>Space</kbd>", "Activa la tarjeta, la píldora o el botón enfocado."],
       ["<kbd>Escape</kbd>", "Cierra el diálogo superior y devuelve el foco a lo que lo abrió."]
     ],
-    "order": "El orden de tabulación es el orden de lectura: las píldoras fijadas, la navegación superior, luego los turnos en orden con sus tarjetas y sus píldoras <strong>+ más</strong>, después la navegación inferior y el botón de vuelta arriba. El foco siempre es visible: un anillo de dos píxeles, con desplazamiento de dos."
+    "order": "El orden de tabulación es el orden de lectura: las píldoras fijadas, la navegación superior, luego los turnos en orden con sus tarjetas y sus píldoras <strong>Más</strong>, después la navegación inferior y el botón de vuelta arriba. El foco siempre es visible: un anillo de dos píxeles, con desplazamiento de dos."
   },
   "structure": {
     "points": [

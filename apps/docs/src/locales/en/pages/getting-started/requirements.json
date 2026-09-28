@@ -40,7 +40,7 @@
     "strict": "Strict Mode is supported: every effect the component starts is idempotent and cleans up after itself, so a double-invoked effect changes nothing."
   },
   "typescript": {
-    "intro": "TypeScript 5.0 or newer. The declarations are generated from the source and shipped with the package; they are checked against TypeScript 5.0, 5.9 and 7.0. Anything older cannot resolve the package's subpath exports.",
+    "intro": "TypeScript 5.0 or newer. The declarations are generated from the source and shipped with the package; they are checked against TypeScript 5.0, 5.9 and 7.0. Anything older cannot resolve the package’s subpath exports.",
     "generics": "The types are generic over your own data: the item type, the level keys and the tag keys all flow through, so <code>renderItemDetail</code> receives your item and not a widened one. See <link to=\"/api/types-model/\">Model types</link>."
   },
   "frameworks": {
@@ -48,7 +48,7 @@
     "points": [
       "<link to=\"/integrations/vite/\">Vite</link>, <link to=\"/integrations/react-router/\">React Router</link> and every bundler that reads the <code>exports</code> map.",
       "<link to=\"/integrations/nextjs/\">Next.js</link>, App Router and Pages Router: the schedule is a client component.",
-      "<link to=\"/integrations/ssr/\">Server rendering</link> in general: the first render is the server's markup, and the observers start after hydration.",
+      "<link to=\"/integrations/ssr/\">Server rendering</link> in general: the first render is the server’s markup, and the observers start after hydration.",
       "Node 22 or newer, if you render on a server."
     ]
   },

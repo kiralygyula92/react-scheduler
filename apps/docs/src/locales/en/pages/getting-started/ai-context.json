@@ -29,11 +29,15 @@
     "points": [
       "the prose of each page, with its headings and tables;",
       "the full source of every live example, exactly as it runs here;",
-      "the API reference, generated from the package's own type declarations — every prop, its type, its default and its description."
+      "the API reference, generated from the package’s own type declarations — every prop, its type, its default and its description."
     ]
   },
   "which": {
-    "head": { "file": "File", "holds": "What it holds", "when": "Use it when" },
+    "head": {
+      "file": "File",
+      "holds": "What it holds",
+      "when": "Use it when"
+    },
     "rows": [
       [
         "<code>llms-full.md</code>",
@@ -46,7 +50,7 @@
         "A link index: every page, with its one-line description",
         "The full file is too large, or the tool fetches pages on demand"
       ],
-      ["A page's URL with <code>.md</code>", "One page", "You know which page answers the question"]
+      ["A page’s URL with <code>.md</code>", "One page", "You know which page answers the question"]
     ],
     "context": "The full file is around 240 kB, which fits in current models but crowds a small context window. If yours is tight, give the agent <code>llms.txt</code> and let it fetch the one page it needs — every page of this site is reachable by appending <code>.md</code> to its URL."
   },

@@ -16,27 +16,27 @@
     "features": "Funktionen",
     "allFeatures": "Alle Funktionen",
     "demos": "Demos",
-    "demosIndex": "Demos",
+    "demosIndex": "Alle Demos",
     "playground": "Playground",
     "themeEditor": "Themen-Editor",
     "reference": "Referenz",
     "apiIndex": "API-Referenz",
     "customization": "Anpassung",
-    "customizationOverview": "Überblick",
+    "customizationOverview": "Anpassung im Überblick",
     "theming": "Themes",
     "cssVariables": "CSS-Variablen",
     "slots": "Slots und Überschreibungen",
     "localization": "Lokalisierung",
     "guides": "Anleitungen",
-    "guidesIndex": "Anleitungen",
+    "guidesIndex": "Alle Anleitungen",
     "integrations": "Integrationen",
-    "integrationsIndex": "Integrationen",
+    "integrationsIndex": "Alle Integrationen",
     "vite": "Vite",
     "nextjs": "Next.js",
     "reactRouter": "React Router",
     "ssr": "Serverseitiges Rendering",
     "migration": "Migration",
-    "migrationIndex": "Migration",
+    "migrationIndex": "Migration im Überblick",
     "migrationFromCustom": "Von einer eigenen Implementierung",
     "discoverMore": "Mehr entdecken",
     "changelog": "Änderungsprotokoll",
@@ -56,6 +56,7 @@
     "openMenu": "Navigation öffnen",
     "closeMenu": "Navigation schließen",
     "sidebarLabel": "Dokumentation",
+    "breadcrumbLabel": "Pfadnavigation",
     "github": "Quellcode auf GitHub",
     "themeToDark": "Zum dunklen Design wechseln",
     "themeToLight": "Zum hellen Design wechseln",
@@ -67,7 +68,8 @@
     "required": "erforderlich"
   },
   "meta": {
-    "titleTemplate": "{title} · {pluginName}"
+    "titleTemplate": "{title} · {pluginName}",
+    "ogImageAlt": "React Scheduler: Schichtpläne für React, als Liste oder als Zeitstrahl"
   },
   "search": {
     "button": "Suchen",
@@ -115,6 +117,11 @@
   "notFound": {
     "title": "Seite nicht gefunden",
     "text": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "back": "Zum Überblick"
+  },
+  "crash": {
+    "title": "Diese Seite konnte nicht angezeigt werden",
+    "text": "Beim Laden ist etwas schiefgegangen. Neu laden hilft meistens; der Rest der Dokumentation ist nur einen Klick entfernt.",
     "back": "Zum Überblick"
   },
   "playground": {

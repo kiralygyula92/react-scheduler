@@ -32,7 +32,7 @@
   },
   "typeGroups": {
     "events": {
-      "title": "Types d'événements et de gestionnaires",
+      "title": "Types d’événements et de gestionnaires",
       "description": "Les types des rappels et du middleware : ce que chacun reçoit et ce qu’il peut renvoyer."
     },
     "localization": {
@@ -309,13 +309,13 @@
     }
   },
   "OverflowDialog": {
-    "description": "La boîte de dialogue qui liste les éléments derrière une puce « +more ».",
+    "description": "La boîte de dialogue qui liste les éléments derrière une puce « Plus ».",
     "props": {
       "group": "Le groupe dont la boîte de dialogue liste les éléments."
     }
   },
   "OverflowGroup": {
-    "description": "Les éléments que représente une puce « +more », avec l’intervalle qu’ils couvrent.",
+    "description": "Les éléments que représente une puce « Plus », avec l’intervalle qu’ils couvrent.",
     "props": {
       "anchor": "Le début le plus précoce du groupe, en millisecondes depuis l’époque.",
       "id": "Identifiant stable : String(anchor).",
@@ -540,7 +540,7 @@
       "enableNavigation": "Les boutons qui sautent au poste précédent et au suivant.",
       "enableNowIndicator": "Le repère de l’heure actuelle dans la liste et la ligne dans la chronologie.",
       "enableOffShiftBands": "Les bandes ombrées que la chronologie dessine en dehors du poste actif.",
-      "enableOverflowDialog": "La boîte de dialogue qui liste les éléments derrière une puce « +more ».",
+      "enableOverflowDialog": "La boîte de dialogue qui liste les éléments derrière une puce « Plus ».",
       "enablePinning": "Les éléments peuvent s’épingler au bord de la zone de défilement et apparaître dans la bande d’épinglés.",
       "enableScrollTopButton": "Le bouton qui ramène la zone de défilement en haut.",
       "enableTooltips": "Info-bulles sur les titres de carte tronqués."
@@ -624,7 +624,7 @@
       "levels": "Un libellé par clé de niveau ; une clé sans libellé retombe sur la clé elle-même.",
       "loading": "Annoncé pendant que le planning attend des données.",
       "locale": "BCP 47, utilisé pour Intl.",
-      "more": "La pastille « + plus » : ce qu’elle montre et comment elle s’appelle.",
+      "more": "La pastille « Plus » : ce qu’elle montre et comment elle s’appelle.",
       "nav": "Tous les libellés et indices des deux boutons de navigation.",
       "now": "Le libellé du repère « maintenant », avec son heure.",
       "overflow": "La boîte de dialogue des éléments supplémentaires : son titre, ses colonnes et ses libellés de fermeture.",
@@ -755,7 +755,7 @@
       "renderItem": "Remplace toute la carte. `ctx.defaultRender()` restitue celle intégrée.",
       "renderItemDetail": "Remplace la vue de détail d’un élément ouvert.",
       "renderLoading": "Remplace l’état de chargement.",
-      "renderMoreLabel": "Remplace le libellé d’une puce « +more ».",
+      "renderMoreLabel": "Remplace le libellé d’une puce « Plus ».",
       "renderNavLabel": "Remplace le libellé d’un bouton de navigation.",
       "renderPinnedChip": "Remplace une puce de la bande d’épinglés.",
       "renderShiftHeader": "Remplace la ligne d’en-tête d’un poste.",
@@ -955,7 +955,7 @@
     "props": {
       "cards": "Chaque carte placée, dans l’ordre de placement.",
       "height": "Les heures de l’intervalle × `hourHeight`, avec un minimum de `hourHeight`.",
-      "overflow": "Les groupes que le placement n’a pas pu faire tenir, chacun derrière une pastille « + plus ».",
+      "overflow": "Les groupes que le placement n’a pas pu faire tenir, chacun derrière une pastille « Plus ».",
       "rangeEnd": "Le dernier moment couvert par la grille, en millisecondes epoch.",
       "rangeStart": "Le premier moment couvert par la grille, en millisecondes epoch."
     }
@@ -981,7 +981,7 @@
     }
   },
   "TimelineOptions": {
-    "description": "Les options propres à la vue chronologique : la taille d’une heure, le nombre de colonnes que les éléments qui se chevauchent peuvent utiliser, et quand ils se replient dans une puce « +more ».",
+    "description": "Les options propres à la vue chronologique : la taille d’une heure, le nombre de colonnes que les éléments qui se chevauchent peuvent utiliser, et quand ils se replient dans une puce « Plus ».",
     "props": {
       "cardGap": "L’espace entre deux cartes, en pixels.",
       "columnPlacement": "Quelle colonne prend un élément : selon son niveau (`'priority'`) ou selon la colonne qui se libère en premier (`'time'`).",
@@ -991,10 +991,10 @@
       "leadMinutes": "Combien de temps, en minutes, l’atterrissage et la navigation laissent au-dessus de la cible.",
       "maxColumns": "Sur combien de colonnes les éléments qui se chevauchent peuvent s’étaler.",
       "maxColumnsCompact": "La limite d’encombrement dans la disposition compacte.",
-      "maxColumnsCrowded": "La limite lorsque plus d’éléments se chevauchent que `maxColumns` ; le reste va dans la puce « +more ».",
+      "maxColumnsCrowded": "La limite lorsque plus d’éléments se chevauchent que `maxColumns` ; le reste va dans la puce « Plus ».",
       "minCardHeight": "Quelle hauteur minimale une carte peut avoir, en pixels, même pour un élément très court. Le préréglage par défaut garde la place du titre et de la rangée de pastilles : 108, ou 128 avec la densité `comfortable` et 88 avec `dense`. Le préréglage classique et le contrôleur headless utilisent 80 (96 et 56), où une carte courte peut couper son titre.",
       "nearBottomGutterMinutes": "Combien de temps, en minutes, un atterrissage « près du bas » laisse sous la cible.",
-      "overflowMergeWindow": "À quelle distance, en millisecondes, deux groupes encombrés peuvent être et fusionner malgré tout dans une seule puce « +more ». `Infinity` fusionne toute la chaîne.",
+      "overflowMergeWindow": "À quelle distance, en millisecondes, deux groupes encombrés peuvent être et fusionner malgré tout dans une seule puce « Plus ». `Infinity` fusionne toute la chaîne.",
       "viewEnterRealignDelay": "Combien de temps la chronologie attend, en millisecondes, après l’entrée dans la vue avant de se réaligner.",
       "keepCardsApart": "Si les cartes ne se chevauchent jamais. Une carte garde sa colonne jusqu’à la fin de ce qui est dessiné, au moins `minCardHeight`, si bien que l’élément suivant de la colonne commence en dessous ; et un groupe qui se chevauche partage autant de colonnes que ses cartes en occupent. Le préréglage par défaut l’active. Le préréglage classique et le contrôleur headless gardent le placement d’origine, où une carte courte peut passer sous la suivante et le mode compact peut empiler deux cartes dans une colonne."
     }

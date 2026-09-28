@@ -24,6 +24,6 @@
   ],
   "table": "The parts, generated from the package’s declarations:",
   "example": {
-    "intro": "Here the level pill is a component of your own wrapped around the built-in one, and the <strong>+ more</strong> chip is only given an extra style — the two lightest kinds of override, side by side."
+    "intro": "Here the level pill is a component of your own wrapped around the built-in one, and the <strong>More</strong> chip is only given an extra style — the two lightest kinds of override, side by side."
   }
 }

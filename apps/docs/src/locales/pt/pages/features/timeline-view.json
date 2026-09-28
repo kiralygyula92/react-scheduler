@@ -18,7 +18,7 @@
     "basics": "Um dia na cronologia",
     "columns": "Quantas colunas uma hora pode usar",
     "columnPlacement": "Que elemento ocupa a coluna da esquerda",
-    "overflowWindow": "Até onde pode chegar um grupo «+ mais»"
+    "overflowWindow": "Até onde pode chegar um grupo «Mais»"
   },
   "basics": {
     "intro": "A cronologia desenha os turnos apresentados como uma única grelha contínua, do início do primeiro turno ao fim do último. Os elementos são colocados no minuto em que começam e têm a altura da sua duração, por isso um relance mostra o quão cheio está o dia, e não apenas o que contém. Defina <code>view=\"timeline\"</code>, ou deixe quem lê mudar de vista com <code>defaultView</code>.",
@@ -26,7 +26,7 @@
     "parts": [
       "Um elemento sem <code>end</code> recebe <code>defaultDuration</code>, e um mais curto do que <code>minCardHeight</code> é desenhado com essa altura para que o título continue legível.",
       "Os elementos que se sobrepõem partilham a faixa em colunas, até <code>maxColumns</code> delas.",
-      "O que não cabe nas colunas é reunido num grupo alcançado por um botão <strong>+ mais</strong>, que abre a caixa de diálogo dos elementos adicionais."
+      "O que não cabe nas colunas é reunido num grupo alcançado por um botão <strong>Mais</strong>, que abre a caixa de diálogo dos elementos adicionais."
     ]
   },
   "accessibility": {
@@ -42,7 +42,7 @@
   "customization": {
     "intro": "Tudo o que se segue é um campo de <code>timeline</code>. Os valores por omissão são os que as demonstrações acima mostram; as daqui mudam um campo de cada vez.",
     "placement": "<code>columnPlacement</code> decide que coluna um elemento ocupa quando vários se sobrepõem. <code>'priority'</code>, o valor por omissão, agrupa os elementos que se sobrepõem, ordena-os com <code>compareItems</code> e pode promover um do grupo de adicionais para uma coluna que fica livre. <code>'time'</code> mantém a ordem simples de início e salta essa promoção, por isso o elemento que começou mais cedo mantém a sua coluna.",
-    "overflow": "<code>overflowMergeWindow</code> limita quanto tempo um único grupo <strong>+ mais</strong> pode cobrir. As horas consecutivas só se fundem num grupo enquanto o grupo resultante ficar dentro da janela, por isso uma manhã cheia dá origem a vários grupos honestos em vez de um que cobre todo o turno.",
+    "overflow": "<code>overflowMergeWindow</code> limita quanto tempo um único grupo <strong>Mais</strong> pode cobrir. As horas consecutivas só se fundem num grupo enquanto o grupo resultante ficar dentro da janela, por isso uma manhã cheia dá origem a vários grupos honestos em vez de um que cobre todo o turno.",
     "options": "A lista completa, gerada a partir das declarações do pacote:"
   },
   "limitations": {

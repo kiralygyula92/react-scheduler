@@ -309,13 +309,13 @@
     }
   },
   "OverflowDialog": {
-    "description": "El diálogo que enumera los elementos detrás de una ficha «+more».",
+    "description": "El diálogo que enumera los elementos detrás de una ficha «Más».",
     "props": {
       "group": "El grupo cuyos elementos lista el diálogo."
     }
   },
   "OverflowGroup": {
-    "description": "Los elementos que representa una ficha «+more», con el intervalo que cubren.",
+    "description": "Los elementos que representa una ficha «Más», con el intervalo que cubren.",
     "props": {
       "anchor": "El inicio más temprano del grupo, en milisegundos desde la época.",
       "id": "Id estable: String(anchor).",
@@ -540,7 +540,7 @@
       "enableNavigation": "Los botones que saltan al turno anterior y al siguiente.",
       "enableNowIndicator": "La marca de la hora actual en la lista y la línea en la línea de tiempo.",
       "enableOffShiftBands": "Las bandas sombreadas que la línea de tiempo dibuja fuera del turno activo.",
-      "enableOverflowDialog": "El diálogo que enumera los elementos detrás de una ficha «+more».",
+      "enableOverflowDialog": "El diálogo que enumera los elementos detrás de una ficha «Más».",
       "enablePinning": "Los elementos pueden fijarse al borde del área de desplazamiento y aparecer en la banda de fijados.",
       "enableScrollTopButton": "El botón que devuelve el área de desplazamiento al principio.",
       "enableTooltips": "Descripciones emergentes en los títulos de tarjeta truncados."
@@ -624,7 +624,7 @@
       "levels": "Una etiqueta por clave de nivel; una clave sin etiqueta recurre a la clave misma.",
       "loading": "Se anuncia mientras el horario espera datos.",
       "locale": "BCP 47, usado para Intl.",
-      "more": "La píldora «+ más»: qué muestra y cómo se llama.",
+      "more": "La píldora «Más»: qué muestra y cómo se llama.",
       "nav": "Todas las etiquetas y pistas de los dos botones de navegación.",
       "now": "La etiqueta del marcador de «ahora», con su hora.",
       "overflow": "El diálogo de elementos adicionales: su título, sus columnas y sus etiquetas de cierre.",
@@ -755,7 +755,7 @@
       "renderItem": "Sustituye la tarjeta entera. `ctx.defaultRender()` devuelve la integrada.",
       "renderItemDetail": "Sustituye la vista de detalle de un elemento abierto.",
       "renderLoading": "Sustituye el estado de carga.",
-      "renderMoreLabel": "Sustituye la etiqueta de una ficha «+more».",
+      "renderMoreLabel": "Sustituye la etiqueta de una ficha «Más».",
       "renderNavLabel": "Sustituye la etiqueta de un botón de navegación.",
       "renderPinnedChip": "Sustituye una ficha de la banda de fijados.",
       "renderShiftHeader": "Sustituye la fila de encabezado de un turno.",
@@ -955,7 +955,7 @@
     "props": {
       "cards": "Cada tarjeta colocada, en orden de colocación.",
       "height": "Las horas del intervalo × `hourHeight`, con un mínimo de `hourHeight`.",
-      "overflow": "Los grupos que la colocación no pudo encajar, cada uno tras una píldora «+ más».",
+      "overflow": "Los grupos que la colocación no pudo encajar, cada uno tras una píldora «Más».",
       "rangeEnd": "El último momento que cubre la rejilla, en milisegundos epoch.",
       "rangeStart": "El primer momento que cubre la rejilla, en milisegundos epoch."
     }
@@ -981,7 +981,7 @@
     }
   },
   "TimelineOptions": {
-    "description": "Las opciones propias de la vista de línea de tiempo: el tamaño de una hora, cuántas columnas pueden usar los elementos solapados y cuándo se agrupan en una ficha «+more».",
+    "description": "Las opciones propias de la vista de línea de tiempo: el tamaño de una hora, cuántas columnas pueden usar los elementos solapados y cuándo se agrupan en una ficha «Más».",
     "props": {
       "cardGap": "El espacio entre dos tarjetas, en píxeles.",
       "columnPlacement": "Qué columna ocupa un elemento: por su nivel (`'priority'`) o por la columna que se libera antes (`'time'`).",
@@ -991,10 +991,10 @@
       "leadMinutes": "Cuánto tiempo, en minutos, dejan el aterrizaje y la navegación por encima del objetivo.",
       "maxColumns": "Sobre cuántas columnas pueden repartirse los elementos solapados.",
       "maxColumnsCompact": "El límite de aglomeración en el diseño compacto.",
-      "maxColumnsCrowded": "El límite cuando se solapan más elementos que `maxColumns`; el resto va a la ficha «+more».",
+      "maxColumnsCrowded": "El límite cuando se solapan más elementos que `maxColumns`; el resto va a la ficha «Más».",
       "minCardHeight": "Qué altura mínima puede tener una tarjeta, en píxeles, por corto que sea el elemento. El preajuste predeterminado deja sitio para el título y la fila de etiquetas: 108, o 128 con la densidad `comfortable` y 88 con `dense`. El preajuste clásico y el controlador headless usan 80 (96 y 56), donde una tarjeta corta puede cortar su título.",
       "nearBottomGutterMinutes": "Cuánto tiempo, en minutos, deja por debajo del objetivo un aterrizaje «cerca del final».",
-      "overflowMergeWindow": "A qué distancia, en milisegundos, pueden estar dos grupos aglomerados y aun así unirse en una sola ficha «+more». `Infinity` une toda la cadena.",
+      "overflowMergeWindow": "A qué distancia, en milisegundos, pueden estar dos grupos aglomerados y aun así unirse en una sola ficha «Más». `Infinity` une toda la cadena.",
       "viewEnterRealignDelay": "Cuánto espera la línea de tiempo, en milisegundos, tras entrar en la vista antes de realinearse.",
       "keepCardsApart": "Si las tarjetas nunca se solapan. Una tarjeta ocupa su columna hasta el final de lo que se dibuja, al menos `minCardHeight`, de modo que el siguiente elemento de esa columna empieza debajo; y un grupo solapado comparte tantas columnas como ocupan sus tarjetas. El preajuste predeterminado lo activa. El preajuste clásico y el controlador headless mantienen la colocación original, en la que una tarjeta corta puede quedar bajo la siguiente y el modo compacto puede apilar dos tarjetas en una columna."
     }

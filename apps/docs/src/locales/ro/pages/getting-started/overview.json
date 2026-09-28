@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Prezentare generală",
-    "description": "Ce este React Scheduler, ce afișează, cum se controlează și de unde continui. Licență MIT, fără plan cu plată."
+    "description": "Ce este React Scheduler, ce afișează, cum se controlează și de unde continui."
   },
   "sections": {
     "introduction": "Introducere",
@@ -19,14 +19,32 @@
     "not": "Nu este un calendar și nu este un editor. Nu are grilă lunară sau anuală, nu are tragere și plasare, nu are recurență, nu are fus orar propriu și nu are strat de date: afișează elementele pe care i le dai, pentru ziua cerută, și te anunță când cititorul face ceva."
   },
   "why": {
-    "points": [
-      "<strong>Accesibil prin construcție:</strong> fiecare card este un buton, fiecare tură un titlu, fiecare dialog cu focalizarea prinsă înăuntru, iar ținta este WCAG 2.2 AA — verificată cu axe în testele de browser ale pachetului și pe paginile acestui site.",
-      "<strong>Temă fără un kit de interfață:</strong> două preseturi, trei densități, o schemă deschisă și una închisă și peste o sută cincizeci de variabile CSS. Fără CSS-in-JS la rulare, fără bibliotecă de clase utilitare, fără nimic de configurat înainte de prima randare.",
-      "<strong>Zero dependențe la rulare:</strong> doar <code>react</code> și <code>react-dom</code>, ca peers. Nu se instalează nimic altceva odată cu el, deci nimic altceva nu îl poate strica.",
-      "<strong>Sigur pe server:</strong> se randează pe server fără să atingă DOM-ul, se hidratează fără avertismente și își pornește observatorii abia după montare.",
-      "<strong>Mic și leneș:</strong> în jur de 25 kB gzip pentru intrarea principală, cu dialogul de suplimentare și cel de detaliu separate în fragmente care se încarcă la prima deschidere.",
-      "<strong>Șapte limbi incluse:</strong> engleză, română, maghiară, spaniolă, franceză, germană și portugheză, fiecare un obiect simplu pe care îl poți extinde sau înlocui."
-    ]
+    "cards": {
+      "accessible": {
+        "title": "Accesibil prin construcție",
+        "text": "Fiecare card este un buton, fiecare tură un titlu, fiecare dialog cu focalizarea prinsă înăuntru, iar ținta este WCAG 2.2 AA — verificată cu axe în testele de browser ale pachetului și pe paginile acestui site."
+      },
+      "themed": {
+        "title": "Personalizabil fără kit de interfață",
+        "text": "Două preseturi, trei densități, o schemă deschisă și una închisă și peste o sută cincizeci de variabile CSS. Fără CSS-in-JS la rulare, fără bibliotecă de clase utilitare, fără nimic de configurat înainte de prima randare."
+      },
+      "dependencies": {
+        "title": "Zero dependențe la rulare",
+        "text": "Doar react și react-dom, ca peers. Nu se instalează nimic altceva odată cu el, deci nimic altceva nu îl poate strica."
+      },
+      "server": {
+        "title": "Sigur pe server",
+        "text": "Se randează pe server fără să atingă DOM-ul, se hidratează fără avertismente și își pornește observatorii abia după montare."
+      },
+      "size": {
+        "title": "Mic, încărcat la nevoie",
+        "text": "În jur de 25 kB gzip pentru intrarea principală, cu dialogul de suplimentare și cel de detaliu separate în fragmente care se încarcă la prima deschidere."
+      },
+      "languages": {
+        "title": "Șapte limbi incluse",
+        "text": "Engleză, română, maghiară, spaniolă, franceză, germană și portugheză, fiecare un obiect simplu pe care îl poți extinde sau înlocui."
+      }
+    }
   },
   "cards": {
     "installation": {

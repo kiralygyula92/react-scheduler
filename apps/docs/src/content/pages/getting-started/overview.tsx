@@ -1,9 +1,23 @@
 // SPDX-License-Identifier: MIT
 // The overview (T1, docs pack 03 §3.1). It teaches nothing; it says what the package is and routes
 // to the six pages a reader needs next.
-import { type Card, CardGrid, List, P, Page, Section } from '~/shell/doc';
+import { type Card, CardGrid, P, Page, Section } from '~/shell/doc';
 
 const NS = 'pages/getting-started/overview';
+
+/** Why the package: each reason, and the page that shows it. */
+const WHY: readonly Card[] = [
+  { to: '/discover-more/accessibility/', titleKey: 'why.cards.accessible.title', textKey: 'why.cards.accessible.text' },
+  { to: '/customization/theming/', titleKey: 'why.cards.themed.title', textKey: 'why.cards.themed.text' },
+  {
+    to: '/getting-started/installation/',
+    titleKey: 'why.cards.dependencies.title',
+    textKey: 'why.cards.dependencies.text',
+  },
+  { to: '/data-modes-and-ssr/', titleKey: 'why.cards.server.title', textKey: 'why.cards.server.text' },
+  { to: '/getting-started/requirements/', titleKey: 'why.cards.size.title', textKey: 'why.cards.size.text' },
+  { to: '/customization/localization/', titleKey: 'why.cards.languages.title', textKey: 'why.cards.languages.text' },
+];
 
 const CARDS: readonly Card[] = [
   { to: '/getting-started/installation/', titleKey: 'cards.installation.title', textKey: 'cards.installation.text' },
@@ -24,7 +38,7 @@ export default function GettingStartedOverview(): React.ReactElement {
       </Section>
 
       <Section id="why" ns={NS} titleKey="sections.why">
-        <List k="why.points" ns={NS} />
+        <CardGrid items={WHY} ns={NS} />
       </Section>
 
       <Section id="start-now" ns={NS} titleKey="sections.start-now">

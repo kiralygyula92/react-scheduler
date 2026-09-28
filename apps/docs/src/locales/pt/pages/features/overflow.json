@@ -5,7 +5,7 @@
   },
   "meta": {
     "title": "Elementos adicionais",
-    "description": "O que acontece aos elementos que uma hora cheia não consegue colocar: a etiqueta «+ mais», a caixa de diálogo por trás dela e a tabela que pode moldar."
+    "description": "O que acontece aos elementos que uma hora cheia não consegue colocar: a etiqueta «Mais», a caixa de diálogo por trás dela e a tabela que pode moldar."
   },
   "sections": {
     "basics": "Noções básicas",
@@ -19,7 +19,7 @@
     "columns": "Uma tabela sua"
   },
   "basics": {
-    "intro": "A cronologia coloca os elementos em colunas, no máximo <code>maxColumns</code> delas. Quando uma hora tem mais do que cabem, o resto é reunido num grupo, e o grupo torna-se uma etiqueta <strong>+ mais</strong> na grelha. Abri-la abre uma caixa de diálogo com o grupo inteiro numa tabela.",
+    "intro": "A cronologia coloca os elementos em colunas, no máximo <code>maxColumns</code> delas. Quando uma hora tem mais do que cabem, o resto é reunido num grupo, e o grupo torna-se uma etiqueta <strong>Mais</strong> na grelha. Abri-la abre uma caixa de diálogo com o grupo inteiro numa tabela.",
     "points": [
       "Um grupo cobre horas consecutivas apenas enquanto ficar dentro de <code>overflowMergeWindow</code> — ver <link to=\"/timeline-view/\">Vista cronológica</link>.",
       "O nome acessível da etiqueta diz quantos elementos contém e a partir de que hora.",

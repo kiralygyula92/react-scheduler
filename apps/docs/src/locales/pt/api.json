@@ -309,13 +309,13 @@
     }
   },
   "OverflowDialog": {
-    "description": "A caixa de diálogo que lista os elementos por trás de uma etiqueta «+more».",
+    "description": "A caixa de diálogo que lista os elementos por trás de uma etiqueta «Mais».",
     "props": {
       "group": "O grupo cujos elementos a caixa de diálogo lista."
     }
   },
   "OverflowGroup": {
-    "description": "Os elementos que uma etiqueta «+more» representa, com o intervalo que cobrem.",
+    "description": "Os elementos que uma etiqueta «Mais» representa, com o intervalo que cobrem.",
     "props": {
       "anchor": "O início mais cedo do grupo, em milissegundos desde a época.",
       "id": "Id estável: String(anchor).",
@@ -540,7 +540,7 @@
       "enableNavigation": "Os botões que saltam para o turno anterior e para o seguinte.",
       "enableNowIndicator": "A marca da hora atual na lista e a linha na cronologia.",
       "enableOffShiftBands": "As faixas sombreadas que a cronologia desenha fora do turno ativo.",
-      "enableOverflowDialog": "A caixa de diálogo que lista os elementos por trás de uma etiqueta «+more».",
+      "enableOverflowDialog": "A caixa de diálogo que lista os elementos por trás de uma etiqueta «Mais».",
       "enablePinning": "Os elementos podem fixar-se ao limite da área de deslocamento e aparecer na faixa de fixados.",
       "enableScrollTopButton": "O botão que devolve a área de deslocamento ao topo.",
       "enableTooltips": "Dicas nos títulos de cartão truncados."
@@ -624,7 +624,7 @@
       "levels": "Uma etiqueta por chave de nível; uma chave sem etiqueta recorre à própria chave.",
       "loading": "Anunciado enquanto o horário espera por dados.",
       "locale": "BCP 47, usado para o Intl.",
-      "more": "A etiqueta «+ mais»: o que mostra e como se chama.",
+      "more": "A etiqueta «Mais»: o que mostra e como se chama.",
       "nav": "Todas as etiquetas e dicas dos dois botões de navegação.",
       "now": "A etiqueta do marcador de «agora», com a sua hora.",
       "overflow": "A caixa de diálogo dos elementos adicionais: o título, as colunas e as etiquetas de fecho.",
@@ -755,7 +755,7 @@
       "renderItem": "Substitui o cartão inteiro. `ctx.defaultRender()` devolve o incorporado.",
       "renderItemDetail": "Substitui a vista de detalhe de um elemento aberto.",
       "renderLoading": "Substitui o estado de carregamento.",
-      "renderMoreLabel": "Substitui o rótulo de uma etiqueta «+more».",
+      "renderMoreLabel": "Substitui o rótulo de uma etiqueta «Mais».",
       "renderNavLabel": "Substitui o rótulo de um botão de navegação.",
       "renderPinnedChip": "Substitui uma etiqueta da faixa de fixados.",
       "renderShiftHeader": "Substitui a linha de cabeçalho de um turno.",
@@ -955,7 +955,7 @@
     "props": {
       "cards": "Cada cartão colocado, pela ordem de colocação.",
       "height": "As horas do intervalo × `hourHeight`, com um mínimo de `hourHeight`.",
-      "overflow": "Os grupos que a colocação não conseguiu encaixar, cada um atrás de uma etiqueta «+ mais».",
+      "overflow": "Os grupos que a colocação não conseguiu encaixar, cada um atrás de uma etiqueta «Mais».",
       "rangeEnd": "O último momento que a grelha cobre, em milissegundos epoch.",
       "rangeStart": "O primeiro momento que a grelha cobre, em milissegundos epoch."
     }
@@ -981,7 +981,7 @@
     }
   },
   "TimelineOptions": {
-    "description": "As opções próprias da vista cronológica: o tamanho de uma hora, quantas colunas os elementos sobrepostos podem usar e quando se juntam numa etiqueta «+more».",
+    "description": "As opções próprias da vista cronológica: o tamanho de uma hora, quantas colunas os elementos sobrepostos podem usar e quando se juntam numa etiqueta «Mais».",
     "props": {
       "cardGap": "O espaço entre dois cartões, em píxeis.",
       "columnPlacement": "Que coluna um elemento ocupa: pelo seu nível (`'priority'`) ou pela coluna que fica livre primeiro (`'time'`).",
@@ -991,10 +991,10 @@
       "leadMinutes": "Quanto tempo, em minutos, a aterragem e a navegação deixam acima do alvo.",
       "maxColumns": "Por quantas colunas se podem distribuir os elementos sobrepostos.",
       "maxColumnsCompact": "O limite de aglomeração no esquema compacto.",
-      "maxColumnsCrowded": "O limite quando se sobrepõem mais elementos do que `maxColumns`; os restantes vão para a etiqueta «+more».",
+      "maxColumnsCrowded": "O limite quando se sobrepõem mais elementos do que `maxColumns`; os restantes vão para a etiqueta «Mais».",
       "minCardHeight": "Que altura mínima um cartão pode ter, em píxeis, por muito curto que seja o elemento. A predefinição padrão deixa espaço para o título e a linha de etiquetas: 108, ou 128 na densidade `comfortable` e 88 em `dense`. A predefinição clássica e o controlador headless usam 80 (96 e 56), onde um cartão curto pode cortar o título.",
       "nearBottomGutterMinutes": "Quanto tempo, em minutos, uma aterragem «perto do fim» deixa abaixo do alvo.",
-      "overflowMergeWindow": "A que distância, em milissegundos, dois grupos aglomerados podem estar e ainda assim juntar-se numa só etiqueta «+more». `Infinity` junta toda a cadeia.",
+      "overflowMergeWindow": "A que distância, em milissegundos, dois grupos aglomerados podem estar e ainda assim juntar-se numa só etiqueta «Mais». `Infinity` junta toda a cadeia.",
       "viewEnterRealignDelay": "Quanto tempo a cronologia espera, em milissegundos, depois de entrar na vista antes de se realinhar.",
       "keepCardsApart": "Se os cartões nunca se sobrepõem. Um cartão ocupa a sua coluna até ao fim do que é desenhado, pelo menos `minCardHeight`, pelo que o elemento seguinte dessa coluna começa por baixo; e um grupo sobreposto partilha tantas colunas quantas os seus cartões ocupam. A predefinição padrão ativa-o. A predefinição clássica e o controlador headless mantêm a colocação original, em que um cartão curto pode ficar por baixo do seguinte e o modo compacto pode empilhar dois cartões numa coluna."
     }
