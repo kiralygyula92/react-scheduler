@@ -74,6 +74,17 @@ export function shouldRevalidate(): boolean {
   return true;
 }
 
+/** Open Graph writes a locale as language and territory; each site language has one variant. */
+const OG_LOCALE: Readonly<Record<string, string>> = {
+  en: 'en_US',
+  ro: 'ro_RO',
+  hu: 'hu_HU',
+  es: 'es_ES',
+  fr: 'fr_FR',
+  de: 'de_DE',
+  pt: 'pt_PT',
+};
+
 /**
  * The per-page half of the metadata contract, rendered as elements so React hoists them into
  * <head>. A route-level `meta` export is not used: React Router calls it without the loader data
@@ -88,6 +99,7 @@ function PageHead({ data }: { data: PageData }): React.ReactElement {
   const template = text(lookup(common, 'meta.titleTemplate')) || '{title}';
   const documentTitle = template.replace('{title}', title).replace('{pluginName}', site.displayName);
   const canonical = `${site.origin}${buildPath(locale, rest, site.pluginId)}`;
+  const imageAlt = text(lookup(common, 'meta.ogImageAlt'));
 
   return (
     <>
@@ -96,7 +108,12 @@ function PageHead({ data }: { data: PageData }): React.ReactElement {
       <meta property="og:title" content={documentTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:locale" content={locale} />
+      <meta property="og:locale" content={OG_LOCALE[locale] ?? locale} />
+      {LOCALES.filter((code) => code !== locale).map((code) => (
+        <meta key={code} property="og:locale:alternate" content={OG_LOCALE[code] ?? code} />
+      ))}
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta name="twitter:image:alt" content={imageAlt} />
       <link rel="canonical" href={canonical} />
       {/* React writes a hoisted link's props as given, so these read `hrefLang` in the output. HTML
           attribute names are case-insensitive, so crawlers read it as `hreflang`; the conformance

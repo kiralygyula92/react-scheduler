@@ -81,12 +81,19 @@ export function itemByPath(rest: string): FlatItem | undefined {
 }
 
 /** The section label, then the group label when there is one, then the page itself. */
+/**
+ * The crumbs after the plugin name (docs pack 02 §6.5): the section, and the group on a capability
+ * page. The page itself is the `h1` right below, so it is not repeated as a crumb. The section links
+ * to its first page; a group is not a page and has no link.
+ */
 export function breadcrumbsFor(rest: string): readonly { labelKey: string; path?: string }[] {
   const item = itemByPath(rest);
   if (item === undefined) return [];
-  const crumbs: { labelKey: string; path?: string }[] = [{ labelKey: item.sectionLabelKey }];
+  const first = flatItems.find((candidate) => candidate.sectionId === item.sectionId);
+  const crumbs: { labelKey: string; path?: string }[] = [
+    { labelKey: item.sectionLabelKey, ...(first && { path: first.path }) },
+  ];
   if (item.groupLabelKey !== undefined) crumbs.push({ labelKey: item.groupLabelKey });
-  crumbs.push({ labelKey: item.labelKey, path: item.path });
   return crumbs;
 }
 

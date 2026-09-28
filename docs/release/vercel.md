@@ -83,6 +83,10 @@ with a slash.
 
 ## 4. Analytics — yours (O15)
 
+The site loads the two scripts only in a production build on Vercel (`VITE_ANALYTICS` in
+`apps/docs/vite.config.ts`), so previews and local builds never request them. In production they are
+requested on every page, and until both are switched on each page logs two `404`s in the console.
+
 1. Dashboard → the project → **Analytics** → _Enable_; → **Speed Insights** → _Enable_.
 2. **Redeploy** — the scripts are only served after the toggles are on.
 3. Verify on the production URL, in a browser without content blockers:

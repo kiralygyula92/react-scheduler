@@ -213,6 +213,53 @@ function membersOf(type: ts.Type, checker: ts.TypeChecker, owner: string): ApiPr
   return ordered.map((entry) => memberOf(entry.property, checker, owner)).filter((prop) => prop.name !== 'ref');
 }
 
+/**
+ * The order a reader meets a component's props in, on its reference page and in the Playground's
+ * groups: what it shows, then how it looks and speaks, then the parts to replace, the handlers and the
+ * events. Declaration order put every event callback before `items`. A category not listed goes last.
+ */
+const PROP_CATEGORIES = [
+  'Data',
+  'Date and time',
+  'Shifts',
+  'View',
+  'Levels and tags',
+  'States',
+  'Appearance',
+  'Localization',
+  'Features',
+  'List',
+  'Timeline',
+  'Pinning',
+  'Compact',
+  'Motion',
+  'Header',
+  'Item detail',
+  'Overflow',
+  'Rendering',
+  'Slots',
+  'Handlers',
+  'Events',
+  'Accessibility',
+];
+
+/** Props by category, required first within one, declaration order otherwise. */
+function inReadingOrder(props: ApiProp[]): ApiProp[] {
+  const rank = (prop: ApiProp): number => {
+    const index = PROP_CATEGORIES.indexOf(prop.category ?? '');
+    return index < 0 ? PROP_CATEGORIES.length : index;
+  };
+  return props
+    .map((prop, index) => ({ prop, index }))
+    .sort(
+      (a, b) =>
+        rank(a.prop) - rank(b.prop) ||
+        Number(b.prop.required === true) - Number(a.prop.required === true) ||
+        a.index - b.index,
+    )
+    .map((entry) => entry.prop);
+}
+
 /** Which capability pages document a symbol, from each page's `symbols` list (05 §2.1). */
 function usedBy(name: string): string[] {
   return pages()
@@ -306,7 +353,7 @@ async function main(): Promise<number> {
           const first = parameters[0];
           if (kind === 'component' && first !== undefined) {
             const propsType = checker.getTypeOfSymbolAtLocation(first, declaration ?? source);
-            data.props = membersOf(propsType, checker, name);
+            data.props = inReadingOrder(membersOf(propsType, checker, name));
           } else {
             data.params = parameters.map((parameter) => memberOf(parameter, checker, name));
           }

@@ -5,9 +5,19 @@
 // group. Layout only is set here; colours and sizes come from the shell.
 import { type ReactNode, useId } from 'react';
 
-const ROW = { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 24px', marginBottom: 16 } as const;
-const GROUP = { display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 } as const;
-const LABEL = { marginInlineEnd: 4, fontSize: 'var(--ds-fs-sm)', color: 'var(--ds-text-secondary)' } as const;
+const ROW = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  gap: 'var(--ds-space-3) var(--ds-space-5)',
+  marginBottom: 'var(--ds-space-4)',
+} as const;
+const GROUP = { display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 'var(--ds-space-2)' } as const;
+const LABEL = {
+  marginInlineEnd: 'var(--ds-space-1)',
+  fontSize: 'var(--ds-fs-sm)',
+  color: 'var(--ds-text-secondary)',
+} as const;
 
 /** A row of controls above the schedule. */
 export function Controls({ children }: { children: ReactNode }): React.ReactElement {

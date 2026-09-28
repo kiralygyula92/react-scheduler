@@ -12,7 +12,8 @@ import { chromium } from '@playwright/test';
 import { sha256 } from './lib/fonts.ts';
 
 const DISPLAY_NAME = 'React Scheduler';
-const DESCRIPTION = 'React Scheduler used to showcase a schedule in different domains, such as office or factory work.';
+const DESCRIPTION =
+  'Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.';
 const PACKAGE_NAME = '@react-schedulerkit/react-scheduler';
 
 const WIDTH = 1200;
@@ -21,6 +22,27 @@ const HEIGHT = 630;
 const publicDirectory = resolve(import.meta.dirname, '..', 'apps', 'docs', 'public');
 const fontFile = resolve(publicDirectory, 'fonts', 'InterVariable.woff2');
 const target = resolve(publicDirectory, 'react-scheduler', 'og.png');
+// The home-screen and share-sheet icon of iOS and several chat apps, which do not read SVG favicons:
+// the favicon's own bars, on white, with the margin iOS's rounded mask needs. Also where iOS looks
+// without a <link>, the site root.
+const favicon = resolve(publicDirectory, 'favicon.svg');
+const touchIcon = resolve(publicDirectory, 'apple-touch-icon.png');
+const TOUCH = 180;
+
+function iconPage(svgDataUrl: string): string {
+  return `<!doctype html><html><head><style>
+  * { margin: 0; padding: 0; }
+  body { width: ${TOUCH}px; height: ${TOUCH}px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+</style></head><body><img src="${svgDataUrl}" width="120" height="120" alt=""></body></html>`;
+}
+
+function write(path: string, png: Buffer, label: string, size: string): void {
+  const unchanged = existsSync(path) && sha256(readFileSync(path)) === sha256(png);
+  if (!unchanged) writeFileSync(path, png);
+  console.log(
+    `og: ${label} ${unchanged ? 'unchanged' : 'written'} — ${size}, ${(png.byteLength / 1024).toFixed(1)} kB`,
+  );
+}
 
 function card(fontDataUrl: string): string {
   return `<!doctype html>
@@ -60,12 +82,12 @@ async function main(): Promise<number> {
     await page.setContent(card(fontDataUrl), { waitUntil: 'load' });
     // Passed as source, not as a closure: these scripts type-check without the DOM library.
     await page.evaluate('document.fonts.ready');
-    const png = await page.screenshot({ type: 'png' });
-    const unchanged = existsSync(target) && sha256(readFileSync(target)) === sha256(png);
-    if (!unchanged) writeFileSync(target, png);
-    console.log(
-      `og: react-scheduler/og.png ${unchanged ? 'unchanged' : 'written'} — ${WIDTH}×${HEIGHT}, ${(png.byteLength / 1024).toFixed(1)} kB`,
-    );
+    write(target, await page.screenshot({ type: 'png' }), 'react-scheduler/og.png', `${WIDTH}×${HEIGHT}`);
+
+    const icon = await browser.newPage({ viewport: { width: TOUCH, height: TOUCH }, deviceScaleFactor: 1 });
+    const svg = `data:image/svg+xml;base64,${readFileSync(favicon).toString('base64')}`;
+    await icon.setContent(iconPage(svg), { waitUntil: 'load' });
+    write(touchIcon, await icon.screenshot({ type: 'png' }), 'apple-touch-icon.png', `${TOUCH}×${TOUCH}`);
   } finally {
     await browser.close();
   }
