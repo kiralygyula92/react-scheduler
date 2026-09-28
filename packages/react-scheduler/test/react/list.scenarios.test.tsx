@@ -108,7 +108,7 @@ describe('list scenarios', () => {
       />,
     );
     settle();
-    expect(part(container, 'emptyState').textContent).toBe('No agenda data available.');
+    expect(part(container, 'emptyState').textContent).toBe('Nothing is scheduled for this day.');
     expect(parts(container, 'shiftSection')).toHaveLength(0);
     expect(parts(container, 'navButton')).toHaveLength(0);
     expect(onHeaderExpandedChange).toHaveBeenCalledWith(true, { view: 'list', reason: 'empty' });

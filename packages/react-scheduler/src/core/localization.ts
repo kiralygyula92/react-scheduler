@@ -58,7 +58,7 @@ export interface SchedulerLocalization {
   timeLabel: { observed: string; since: string };
   /** The label read before a reference number. */
   referenceLabel: string;
-  /** The "+ more" chip: what it shows and what it is called. */
+  /** The "More" chip: what it shows and what it is called. */
   more: { label: string; ariaLabel: PluralForms };
   /** The overflow dialog: its title, its columns and its close labels. */
   overflow: {

@@ -10,7 +10,7 @@ import type { SchedulerLocalization } from '../core/localization';
  */
 export const frFR: SchedulerLocalization = {
   locale: 'fr-FR',
-  emptyAll: "Aucune donnée d'agenda disponible.",
+  emptyAll: "Rien n'est prévu pour cette journée.",
   emptyShift: 'Aucun élément dans ce poste.',
   loading: 'Chargement…',
   errorTitle: 'Impossible de charger les éléments.',

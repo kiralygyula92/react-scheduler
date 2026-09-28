@@ -52,6 +52,12 @@
     list-style: none;
   }
 
+  /* A page's own list styles (a prose rule such as `li + li { margin-top }`) must not reach the
+     cards and chips: they would space the second item differently from the first. */
+  :where(.rs-item-list, .rs-pinned-strip-track, .rs-lane) > :where(li) {
+    margin: 0;
+  }
+
   :where(.rs-list-card, .rs-pinned-strip-viewport) {
     position: relative;
   }

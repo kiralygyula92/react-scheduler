@@ -639,6 +639,17 @@
     height: 24px;
   }
 
+  /*
+   * Default preset: the button belongs to the schedule, not to the page (ADR 0005 D6). Fixed to the
+   * viewport, as the source had it for a schedule that filled the screen, it floated over whatever
+   * page a smaller schedule was placed in. It sits in the root's corner, above the bottom band.
+   */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-scroll-top-button) {
+    position: absolute;
+    inset-inline-end: 16px;
+    bottom: calc(var(--rs-sticky-bottom-list) + 16px);
+  }
+
   /* ---------------------------------------------------------------- timeline */
 
   :where(.rs-root:not([data-rs-unstyled])[data-rs-view='timeline']) :where(.rs-scroller) {
@@ -960,6 +971,20 @@
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-text-button:hover, .rs-icon-button:hover) {
     background-color: var(--rs-color-table-row-hover);
+  }
+
+  /*
+   * Default preset: the error state's retry reads as a button — outlined like the navigation buttons —
+   * rather than as bold text under the message (ADR 0005 D6).
+   */
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-error-state .rs-text-button) {
+    padding-inline: 16px;
+    background-color: var(--rs-color-nav-bg);
+    border: 1px solid var(--rs-color-nav-border);
+  }
+
+  :where(.rs-root:not([data-rs-unstyled])[data-rs-preset='default']) :where(.rs-error-state .rs-text-button:hover) {
+    background-color: var(--rs-color-nav-bg-hover);
   }
 
   :where(.rs-root:not([data-rs-unstyled])) :where(.rs-text-button:focus-visible, .rs-icon-button:focus-visible) {

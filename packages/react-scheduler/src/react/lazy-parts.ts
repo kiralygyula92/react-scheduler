@@ -6,7 +6,7 @@ import type { OverflowGroup, SchedulerItem } from '../core/types';
 import type { OverflowColumn } from './types';
 
 /**
- * The dialog that lists the items behind a "+more" chip.
+ * The dialog that lists the items behind a "More" chip.
  *
  * @category Components
  * @since 1.0.0

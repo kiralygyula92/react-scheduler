@@ -443,7 +443,7 @@ export interface SchedulerProps<TItem extends SchedulerItem = SchedulerItem> ext
    */
   renderNavLabel?: ((ctx: NavLabelContext) => ReactNode) | undefined;
   /**
-   * Replaces the label of a "+more" chip.
+   * Replaces the label of a "More" chip.
    *
    * @category Rendering
    * @since 1.0.0

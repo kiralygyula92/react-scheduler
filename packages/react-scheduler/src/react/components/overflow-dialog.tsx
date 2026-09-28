@@ -182,7 +182,7 @@ export function Pagination({ page, pages }: { page: number; pages: number }): Re
 }
 
 /**
- * The dialog that lists the items behind a "+more" chip.
+ * The dialog that lists the items behind a "More" chip.
  *
  * @category Components
  * @since 1.0.0
