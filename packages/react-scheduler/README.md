@@ -86,4 +86,4 @@ Dates, times and numbers follow the pack's `locale` through `Intl`.
 
 ## License
 
-[MIT](LICENSE) © 2026 kiralygyula92
+[MIT](./LICENSE) © kiralygyula92.

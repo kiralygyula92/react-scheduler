@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://react-scheduler-mu.vercel.app/react-scheduler/
+    about: Guides, live demos and the API reference.
+  - name: Report a security vulnerability
+    url: https://github.com/kiralygyula92/react-scheduler/security/advisories/new
+    about: Please report vulnerabilities privately.
