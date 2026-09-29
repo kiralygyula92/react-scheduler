@@ -120,13 +120,13 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
-    "@size-limit/esbuild": "14.0.0",
-    "@size-limit/file": "14.0.0",
+    "@size-limit/esbuild": "14.0.1",
+    "@size-limit/file": "14.0.1",
     "@testing-library/dom": "10.4.2",
     "@testing-library/react": "16.3.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@vitest/browser-playwright": "5.0.1",
+    "@vitest/browser-playwright": "5.0.2",
     "axe-core": "4.13.0",
     "dom-accessibility-api": "0.7.1",
     "fast-check": "4.10.2",
@@ -135,7 +135,7 @@
     "publint": "0.3.24",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "size-limit": "14.0.0",
+    "size-limit": "14.0.1",
     "tsdown": "0.23.0",
     "typescript": "7.0.2"
   }
