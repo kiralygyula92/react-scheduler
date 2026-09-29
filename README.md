@@ -47,7 +47,7 @@ pnpm --filter docs exec node scripts/serve.ts   # http://localhost:4173/react-sc
 | ----------------------------------- | --------------------------------------------------------------------------------------------- |
 | Build everything                    | `pnpm build`                                                                                  |
 | Lint / typecheck / test             | `pnpm lint` · `pnpm typecheck` · `pnpm test` (`pnpm test:coverage` enforces the thresholds)   |
-| Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
+| Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf` · `pnpm test:budgets`                                  |
 | E2E (site, three engines)           | `pnpm e2e`                                                                                    |
 | API data / i18n / conformance       | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
 | Links                               | `pnpm --filter docs check:links`                                                              |

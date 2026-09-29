@@ -27,6 +27,17 @@ export default defineConfig({
       'apps/docs/vitest.config.ts',
       dstProject('Europe/Helsinki'),
       dstProject('Australia/Sydney'),
+      // Timing budgets (Feature Dossier 09 §3). Coverage instrumentation slows the layout about
+      // threefold, so `test:coverage` leaves this project out and `test:budgets` runs it alone.
+      {
+        test: {
+          name: 'budgets',
+          root: './packages/react-scheduler',
+          include: ['test/perf/**/*.perf.test.ts'],
+          environment: 'node',
+          env: { TZ: 'UTC' },
+        },
+      },
     ],
     coverage: {
       provider: 'v8',

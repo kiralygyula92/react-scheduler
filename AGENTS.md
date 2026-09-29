@@ -63,7 +63,7 @@ A pnpm monorepo:
 | API data / i18n check / conformance | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
 | Link check / API translation hashes | `pnpm --filter docs check:links` · `pnpm --filter docs api:sources`                           |
 | E2E                                 | `pnpm e2e`                                                                                    |
-| Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
+| Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf` · `pnpm test:budgets`                                  |
 | Size / dead code / package files    | `pnpm --filter @react-schedulerkit/react-scheduler size` · `pnpm knip` · `pnpm check:pack`    |
 | Zero-reference / licenses           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |

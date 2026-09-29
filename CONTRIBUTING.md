@@ -25,11 +25,13 @@ development server; open the address it prints, followed by `/react-scheduler/`.
 2. Create a branch from `main`.
 3. Add or update tests: unit tests in `packages/react-scheduler/test` (Vitest), browser tests
    (`pnpm test:browser`) and end-to-end tests in `apps/docs/e2e` (Playwright). Every behavior should
-   be covered by at least one of them, and `pnpm test:coverage` enforces the coverage thresholds.
-4. Run the checks:
+   be covered by at least one of them. `pnpm test:coverage` enforces the coverage thresholds, and
+   `pnpm test:budgets` runs the timing budgets without coverage instrumentation.
+4. Run the checks (lint and typecheck read the built package, so it is built first):
 
    ```sh
-   pnpm --filter docs api && pnpm lint && pnpm typecheck && pnpm test:coverage
+   pnpm --filter docs api && pnpm --filter @react-schedulerkit/react-scheduler build
+   pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm test:budgets
    pnpm check:licenses && pnpm check:zero-reference && pnpm check:keys && pnpm check:scenarios
    pnpm knip
    pnpm build && pnpm check:pack && pnpm --filter docs i18n:check && pnpm --filter docs conformance

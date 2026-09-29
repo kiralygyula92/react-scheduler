@@ -32,6 +32,8 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test:coverage # enforces the coverage thresholds (M1 gate: core ≥ 90 % lines, 85 % branches)
+      # The timing budgets, measured without coverage instrumentation (root vitest.config.ts).
+      - run: pnpm test:budgets
       - run: pnpm check:licenses
       - run: pnpm check:zero-reference
       - name: Zero-reference scan of commit messages
