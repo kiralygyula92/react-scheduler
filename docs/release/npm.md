@@ -119,14 +119,13 @@ This gives `1.0.0` a provenance attestation like every later version.
    - Organizations: no access needed.
 2. **Store it in GitHub** — the repository → _Settings_ → _Secrets and variables_ → _Actions_ →
    _New repository secret_ → name `NPM_TOKEN`, value the token.
-3. **Let the workflow use it** — in `.github/workflows/release.yml`, the `env` of the
-   `changesets/action` step becomes:
+3. **Let the workflow use it** — in `.github/workflows/release.yml`, give the `changesets/action`
+   step this `env` (the `.npmrc` that setup-node writes reads it; `changesets/action` v2 no longer
+   reads `NPM_TOKEN` itself):
 
    ```yaml
    env:
-     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-     NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # first publish only (docs/release/npm.md §4.1)
-     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # read by the .npmrc that setup-node writes
+     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # first publish only (docs/release/npm.md §4.1)
    ```
 
    Commit this on its own branch and merge it; it is the only workflow change of the first release.
@@ -169,7 +168,7 @@ made outside CI.
    - Repository: `react-scheduler`
    - Workflow filename: `release.yml`
    - Environment: leave empty
-2. **Remove the token** from the workflow — delete the two lines added in §4.1 step 3 — and delete
+2. **Remove the token** from the workflow — delete the `env` added in §4.1 step 3 — and delete
    the `NPM_TOKEN` secret in GitHub.
 3. **Revoke the token** on npmjs.com (_Access Tokens_ → delete).
 4. Optionally, npmjs.com → the package → _Settings_ → _Publishing access_ → **Require two-factor
