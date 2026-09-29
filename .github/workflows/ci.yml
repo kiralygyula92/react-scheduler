@@ -26,9 +26,14 @@ jobs:
       # The reference pages and their data are generated: lint, typecheck and the build all read
       # them, so the extractor runs before the first of them (docs pack 05 §2).
       - run: pnpm --filter docs api
+      # The docs demos import the package through its built types; on a fresh checkout lint and
+      # typecheck would otherwise see every package import as unresolved.
+      - run: pnpm --filter @react-schedulerkit/react-scheduler build
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test:coverage # enforces the coverage thresholds (M1 gate: core ≥ 90 % lines, 85 % branches)
+      # The timing budgets, measured without coverage instrumentation (root vitest.config.ts).
+      - run: pnpm test:budgets
       - run: pnpm check:licenses
       - run: pnpm check:zero-reference
       - name: Zero-reference scan of commit messages
@@ -39,7 +44,6 @@ jobs:
       - run: pnpm check:keys
       - run: pnpm check:scenarios --enforce
       - run: pnpm knip
-      - run: pnpm --filter @react-schedulerkit/react-scheduler build
       - run: pnpm --filter @react-schedulerkit/react-scheduler size
       - run: pnpm check:pack
       - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
