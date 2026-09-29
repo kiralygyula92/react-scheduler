@@ -1,61 +1,58 @@
-# AGENTS.md — React Scheduler
+# AGENTS.md
 
-Single source of instructions for every coding agent in this repository (Codex, Cursor, Claude Code and others). `CLAUDE.md` and `.cursor/rules/project.mdc` only point here.
+Instructions for AI coding agents working in this repository. Claude Code reads them through
+`CLAUDE.md` and Cursor through `.cursor/rules/project.mdc`. Humans: see
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Project dictionary
+## What this repo is
 
-Keys in double braces in `spec/` (for example `{{PLUGIN_ID}}` in the docs pack) resolve to the values below. Filled once at M0 from the INPUTS table of Template Prompt 2. Never substitute values inside `spec/`; read keys there as variables resolved from this table.
+A pnpm monorepo:
 
-| Key                        | Value                                                                                                                        |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `{{NPM_PACKAGE}}`          | `@react-schedulerkit/react-scheduler`                                                                                        |
-| `{{PLUGIN_DISPLAY_NAME}}`  | React Scheduler                                                                                                              |
-| `{{PLUGIN_ID}}`            | `react-scheduler`                                                                                                            |
-| `{{NPM_SCOPE}}`            | `react-schedulerkit`                                                                                                         |
-| `{{COMPONENT}}`            | `Scheduler`                                                                                                                  |
-| `{{CSS_PREFIX}}`           | `rs`                                                                                                                         |
-| `{{ENGINE_PEER}}`          | `none`                                                                                                                       |
-| `{{ONE_LINE_DESCRIPTION}}` | Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts. |
-| `{{KEYWORDS}}`             | `react`, `schedule`, `agenda`                                                                                                |
-| `{{PACKAGE_DIR}}`          | `react-scheduler`                                                                                                            |
-| `{{REPO_NAME}}`            | `react-scheduler`                                                                                                            |
-| `{{REPO_URL}}`             | https://github.com/kiralygyula92/react-scheduler                                                                             |
-| `{{SITE_DOMAIN}}`          | `react-schedulerkit.vercel.app` (provisional until the Vercel project exists; see `GAPS.md`)                                 |
-| `{{COPYRIGHT_HOLDER}}`     | kiralygyula92                                                                                                                |
-| `{{YEAR}}`                 | 2026                                                                                                                         |
-| `{{DENYLIST_SALT}}`        | `k3v9-q1x7`                                                                                                                  |
-| `{{FEATURE_DOSSIER_PATH}}` | `spec/feature-dossier`                                                                                                       |
-| `{{DOCS_PACK_PATH}}`       | `spec/docs-pack`                                                                                                             |
-| `{{PACKAGE_MANAGER}}`      | pnpm 10 (pinned: `pnpm@10.34.5`)                                                                                             |
-| `{{NODE_VERSION}}`         | 24 LTS                                                                                                                       |
-| `{{SPELLING}}`             | American English                                                                                                             |
+- `packages/react-scheduler`: the published library `@react-schedulerkit/react-scheduler`, shift
+  schedules for React: a working day as a list or a timeline, for offices, factories and anywhere
+  people work in shifts.
+- `apps/docs`: the documentation site (React + Vite + React Router, prerendered, seven locales).
+- `docs`: architecture decision records (`docs/adr`), the 1.0.0 audit and the release guides.
+- `spec`: the original specification. Read-only: never modify it.
+- `GAPS.md` and `EXCEPTIONS.md`: open questions, and deliberate departures from the specification.
 
-Decided with the user at M0 (they differ from the first INPUTS table): the package is published under the scope because the unscoped name is taken on npm (Dossier Q-01); the package folder is the derived value `react-scheduler`; the description spells the display name "React Scheduler" (docs pack `06` §2). At the 1.0.0 site review the user replaced the one-line description with a full sentence that does not repeat the name. The scope is not registered yet (`GAPS.md` G2); the name may change before M8.
+## Rules
 
-## Project
+1. **Backwards-compatible defaults.** New behavior is opt-in behind a prop; changing a default is a
+   breaking change.
+2. **Generic and app-agnostic.** No app-specific coupling in the package: integration points are
+   props, callbacks or CSS variables.
+3. **No runtime dependencies** beyond the `react` and `react-dom` peers. No state libraries (Redux,
+   Zustand), UI kits, CSS-in-JS runtimes, or third-party search, highlighting or i18n libraries.
+   Anything else needs an ADR in `docs/adr/` and the maintainer's approval.
+4. **No user-visible string in code.** Package strings go through `localization`; site strings
+   through `apps/docs/src/locales/{lng}/*.json`, complete in all seven locales.
+5. **Strict TypeScript:** no `any` in public types; every public export has TSDoc.
+6. **Every behavior has an automated test:** unit (Vitest), browser (`pnpm test:browser`) or e2e
+   (Playwright against the site).
+7. **Accessibility is required:** keyboard operable, labeled, with visible focus; axe must pass.
+8. **The docs shell is fixed.** Header, sidebar and layout follow
+   `spec/docs-pack/11-docs-shell-reference/`; never redesign them. No pricing, tiers, landing page,
+   "Edit this page" or "Was this page helpful?".
+9. **The zero-reference scan passes:** run `pnpm check:zero-reference` before finishing any task;
+   CI runs it on the tree, the commit messages and the package tarball.
+10. **No invented facts.** Never invent facts, metrics or claims; unknowns go to `GAPS.md`. When
+    unsure, ask.
+11. **American English** in all English content.
+12. **Only original or permissively licensed material** (`pnpm check:licenses`). Third-party code
+    or assets need a compatible license and an entry in `packages/react-scheduler/NOTICE`.
 
-- Package: `@react-schedulerkit/react-scheduler` in `packages/react-scheduler/` — an MIT-licensed, native, dependency-free React component library for shift schedules: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.
-- Docs site: `apps/docs/` — React + Vite + React Router (prerendered), 7 locales, deployed to Vercel at https://react-schedulerkit.vercel.app/react-scheduler/.
-- Specification (read-only): `spec/docs-pack/` (how to build) and `spec/feature-dossier/` (what to build).
+## Workflow
 
-## Before writing code
-
-1. Read `spec/docs-pack/00-READ-FIRST.md`, then files 01–11 in order.
-2. Read `spec/feature-dossier/README.md` and every file it lists.
-3. Re-read `spec/docs-pack/08-observed-issues-and-fixes.md` before each milestone review.
-
-## Hard rules
-
-- Precedence: user instruction > docs-pack 08 > docs-pack 11 (verbatim shell) > other docs-pack files > Feature Dossier (behaviour and API names) > your judgement (record it in `docs/adr/` or `EXCEPTIONS.md`).
-- Copy the docs shell from `spec/docs-pack/11-docs-shell-reference/`. Never redesign it.
-- Runtime dependencies of the package: only `react`/`react-dom` peers, plus the engine peer from the dictionary unless it is `none`. Anything else needs an ADR and the user's approval.
-- No Redux, Zustand or other state libraries; no UI kits; no CSS-in-JS runtimes; no third-party search, highlighting or i18n libraries.
-- No user-visible string in code: package strings go through `localization`; site strings through `src/locales/{lng}/*.json`, all 7 locales complete.
-- No reference to the source project anywhere. Run `pnpm check:zero-reference` before finishing any task.
-- No pricing, tiers, landing page, "Edit this page" or "Was this page helpful?".
-- Do not modify files in `spec/`.
-
-## Commands
+- A task is done when `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm --filter docs i18n:check`
+  and `pnpm --filter docs conformance` pass; CI also runs the rest of the commands below.
+- Conventional Commits (`fix(docs): …`, `feat: …`), small and focused.
+- User-facing changes need a changeset (`pnpm changeset`): `patch` for fixes, `minor` for
+  features, `major` for breaking changes.
+- Public API changes: TSDoc on the export, `pnpm --filter docs api`, and the docs pages in every
+  locale (`pnpm --filter docs api:sources` updates the API translation hashes).
+- Never publish to npm, push tags or bump versions yourself; releases go through the Release
+  workflow (see [RELEASING.md](RELEASING.md)).
 
 | Task                                | Command                                                                                       |
 | ----------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -68,16 +65,7 @@ Decided with the user at M0 (they differ from the first INPUTS table): the packa
 | E2E                                 | `pnpm e2e`                                                                                    |
 | Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf`                                                        |
 | Size / dead code / package files    | `pnpm --filter @react-schedulerkit/react-scheduler size` · `pnpm knip` · `pnpm check:pack`    |
-| Zero-reference / licences           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
+| Zero-reference / licenses           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
 | Tarball in fresh React 19/18.2 apps | `pnpm release:sandbox`                                                                        |
 | Add a changeset                     | `pnpm changeset`                                                                              |
-
-## Working style
-
-- Work milestone by milestone as defined in Template Prompt 2 (M0–M8, `spec/docs-pack/templates/template-prompt-2-plugin-and-docs-site.md`); the Dossier's package roadmap (`spec/feature-dossier/10-roadmap.md`) adds acceptance criteria. Stop at each checkpoint, report the checklist, and wait for the user.
-- Write tests with the code. A task is done only when lint, typecheck, tests, `i18n:check` and `conformance` pass.
-- Each milestone has its own branch `m{n}-{slug}` created from `main`. When the user approves the milestone, merge it into `main` with `--no-ff`, push `main`, and create the next milestone's branch from `main`.
-- Commit per milestone step with a message that names the milestone and the rule IDs (`O*`, `P*`, `C*`) it satisfies.
-- When unsure, ask. Unknowns go to `GAPS.md`; never invent facts, metrics or claims.
-- Spelling for English content: American English.

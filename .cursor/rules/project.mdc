@@ -5,5 +5,3 @@ alwaysApply: true
 ---
 
 Follow `AGENTS.md` at the repository root. It is the single source of instructions for this repository.
-
-Before any change, read `spec/docs-pack/00-READ-FIRST.md` and the files it lists. The docs shell in `spec/docs-pack/11-docs-shell-reference/` is copied verbatim, never redesigned. Rules in `spec/docs-pack/08-observed-issues-and-fixes.md` override everything except the user's own instructions.

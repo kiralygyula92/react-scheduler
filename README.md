@@ -62,4 +62,4 @@ The browser tests, the performance tests and the E2E suite need Playwright's bro
 
 ## License
 
-[MIT](LICENSE) © 2026 kiralygyula92
+[MIT](LICENSE) © kiralygyula92.
