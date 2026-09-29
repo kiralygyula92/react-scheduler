@@ -58,7 +58,7 @@ jobs:
       # comparison only writes its captures here: the references are Windows renderings (job below).
       - run: pnpm test:browser
         if: matrix.react == '19'
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always() && matrix.react == '19'
         with:
           name: screenshots-linux
@@ -68,7 +68,7 @@ jobs:
       # baselines are Windows renderings and skip here (visual job below).
       - run: pnpm e2e apps/docs/e2e
         if: matrix.react == '19'
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: failure() && matrix.react == '19'
         with:
           name: playwright-report
@@ -94,7 +94,7 @@ jobs:
       - run: pnpm --filter docs api
       - run: pnpm --filter docs build
       - run: pnpm e2e apps/docs/e2e/visual.spec.ts --project=chromium
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
           name: screenshots-windows
