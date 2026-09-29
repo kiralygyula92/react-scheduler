@@ -2,22 +2,25 @@
   "name": "@react-schedulerkit/react-scheduler",
   "version": "1.0.0",
   "description": "Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.",
+  "keywords": [
+    "react",
+    "schedule",
+    "scheduler",
+    "shift",
+    "timeline",
+    "agenda"
+  ],
   "license": "MIT",
-  "author": "kiralygyula92",
-  "homepage": "https://react-schedulerkit.vercel.app/react-scheduler/",
+  "author": "kiralygyula92 (https://github.com/kiralygyula92)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiralygyula92/react-scheduler.git",
     "directory": "packages/react-scheduler"
   },
+  "homepage": "https://react-schedulerkit.vercel.app/react-scheduler/",
   "bugs": {
     "url": "https://github.com/kiralygyula92/react-scheduler/issues"
   },
-  "keywords": [
-    "react",
-    "schedule",
-    "agenda"
-  ],
   "type": "module",
   "sideEffects": [
     "**/*.css"
