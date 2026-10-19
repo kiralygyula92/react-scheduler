@@ -1,33 +1,64 @@
 # Releasing
 
-Releases are automated with [Changesets](https://github.com/changesets/changesets) and the
-`Release` workflow (`.github/workflows/release.yml`), which publishes with npm trusted publishing
-and provenance. The first publish, step by step and with the state of every prerequisite, is in
-[docs/release/npm.md](docs/release/npm.md); hosting the documentation site is in
-[docs/release/vercel.md](docs/release/vercel.md).
+A release is a version bump merged to `main` plus a `v*` tag on that commit. Pushing the tag runs
+the `Release` workflow (`.github/workflows/release.yml`), which tests and builds the library, scans
+the packed tarball with the zero-reference scan, runs `pnpm release:sandbox` (the tarball in fresh
+React 19 and 18.2 applications) and stages it on npm through
+[trusted publishing](https://docs.npmjs.com/trusted-publishers). No npm token exists anywhere, and
+every version from `1.0.1` on carries
+[provenance](https://docs.npmjs.com/generating-provenance-statements). A staged version goes live
+only after a maintainer approves it on npmjs.com with a passkey. Hosting the documentation site is
+in [docs/release/vercel.md](docs/release/vercel.md).
 
-## One-time setup
+## First publish
 
-1. **npm account:** the package is published under the `@kingtech` scope, which needs an
-   npm organization of that name. Check with `npm login` and `npm whoami`.
-2. **Publishing:** on npmjs.com, make this repository's `release.yml` the package's trusted
-   publisher (the first publish needs a token instead; see docs/release/npm.md). The workflow runs
-   only when the repository variable `RELEASE_ENABLED` is `true`.
-3. **GitHub:** in _Settings → Actions → General → Workflow permissions_, tick **Allow GitHub
-   Actions to create and approve pull requests**. Without it the workflow cannot open the
-   "Version Packages" pull request.
-4. **Private vulnerability reporting:** turn it on (_Settings → Advanced Security_);
-   [SECURITY.md](SECURITY.md) sends reporters there.
+npm only connects a trusted publisher to a package that already exists, so `1.0.0` was published
+once by hand (`npm publish --provenance=false` from `packages/react-scheduler`, on 2026-10-19) and
+tagged `v1.0.0`. [docs/release/npm.md](docs/release/npm.md) records how it was prepared. Every
+later version is staged from a tag.
+
+## How it is wired
+
+- **npm:** `@kingtech/react-scheduler` trusts this repository's `release.yml`, run in the `npm`
+  environment, for staged publishing only, and its publishing access requires two-factor
+  authentication and disallows tokens. Check with `npm trust list @kingtech/react-scheduler`.
+- **GitHub:** the `npm` environment accepts deployments from `v*` tags only, and a ruleset stops
+  anyone but an admin from creating, moving or deleting those tags. Changes reach `main` only
+  through pull requests that pass the CI `build` job. Only GitHub-made actions may run, and the
+  default workflow token is read-only. The workflow also refuses a tag that isn't on `main` or
+  doesn't match the version in `packages/react-scheduler/package.json`.
+- **Private vulnerability reporting** is on; [SECURITY.md](SECURITY.md) sends reporters there.
 
 ## Every release
 
-1. Pull requests add changesets (`pnpm changeset`).
-2. On `main`, the Release workflow opens or updates a **Version Packages** pull request that bumps
-   the version and writes `CHANGELOG.md`.
-3. Review the pull request and merge it. The workflow builds the package, runs the zero-reference
-   scan on the tarball and `pnpm release:sandbox` (the tarball in fresh React 19 and 18.2
-   applications), then publishes to npm and pushes the
-   `@kingtech/react-scheduler@x.y.z` tag.
+1. Pull requests add changesets (`pnpm changeset`). Check that CI is green on `main`.
+2. Apply them on a release branch:
+
+   ```sh
+   git switch main && git pull --ff-only
+   git switch -c release/vX.Y.Z
+   pnpm changeset version
+   ```
+
+   `pnpm changeset version` bumps the version in `packages/react-scheduler/package.json` and writes
+   `packages/react-scheduler/CHANGELOG.md`, which the site's Changelog page reads.
+
+3. Review the changelog, commit as `release: vX.Y.Z`, open a pull request and merge it once CI
+   passes. The merge also redeploys the documentation site.
+4. Tag the merged commit on `main` and push the tag:
+
+   ```sh
+   git switch main && git pull --ff-only
+   git tag -a vX.Y.Z -m "vX.Y.Z"
+   git push origin vX.Y.Z
+   ```
+
+5. When **Actions → Release** finishes, approve the staged version on npmjs.com (_Staged
+   Packages_), then create the GitHub release from the changelog section:
+   `gh release create vX.Y.Z --title vX.Y.Z --notes-file <section.md>`.
+
+Tags can't be moved and npm never accepts a version number twice, so if a release run fails, fix
+the cause and release the next patch version.
 
 ## Before a release, check
 
