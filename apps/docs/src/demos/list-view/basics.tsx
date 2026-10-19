@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The list: one section per rendered shift, cards in time order, the section header sticking to the
 // top while its shift is being read.
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 1 } as const;

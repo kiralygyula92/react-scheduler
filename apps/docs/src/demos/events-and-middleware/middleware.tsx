@@ -2,7 +2,7 @@
 // Middleware runs before the component acts and decides whether it acts at all: here opening an
 // item asks first, and a cancelled confirmation leaves the schedule as it was.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Check, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

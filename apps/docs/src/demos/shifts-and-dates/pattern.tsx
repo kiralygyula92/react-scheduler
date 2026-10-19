@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // An irregular pattern: early at 06:00, late at 14:00, night at 22:00. Each entry ends where the
 // next one starts, and the last wraps around midnight.
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = {

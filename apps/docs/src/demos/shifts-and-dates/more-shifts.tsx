@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // `before` and `after` decide how much of the day around the current shift is rendered. Two shifts
 // back and three forward is one scroller holding six shifts.
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 2, after: 3 } as const;

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve `@react-schedulerkit/react-scheduler`! Bug reports, docs fixes and pull
+Thanks for helping improve `@kingtech/react-scheduler`! Bug reports, docs fixes and pull
 requests are all welcome.
 
 ## Getting started
@@ -30,7 +30,7 @@ development server; open the address it prints, followed by `/react-scheduler/`.
 4. Run the checks (lint and typecheck read the built package, so it is built first):
 
    ```sh
-   pnpm --filter docs api && pnpm --filter @react-schedulerkit/react-scheduler build
+   pnpm --filter docs api && pnpm --filter @kingtech/react-scheduler build
    pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm test:budgets
    pnpm check:licenses && pnpm check:zero-reference && pnpm check:keys && pnpm check:scenarios
    pnpm knip

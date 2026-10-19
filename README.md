@@ -2,7 +2,7 @@
 
 Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.
 
-This repository holds the `@react-schedulerkit/react-scheduler` package — an MIT-licensed React component library with no runtime dependencies beyond its `react` and `react-dom` peers — and its documentation website.
+This repository holds the `@kingtech/react-scheduler` package — an MIT-licensed React component library with no runtime dependencies beyond its `react` and `react-dom` peers — and its documentation website.
 
 > **Status:** `1.0.0` is versioned and ready to publish, and not on npm yet. The steps that are left need an npm account and a Vercel project: [`docs/release/npm.md`](docs/release/npm.md) and [`docs/release/vercel.md`](docs/release/vercel.md).
 
@@ -51,7 +51,7 @@ pnpm --filter docs exec node scripts/serve.ts   # http://localhost:4173/react-sc
 | E2E (site, three engines)           | `pnpm e2e`                                                                                    |
 | API data / i18n / conformance       | `pnpm --filter docs api` · `pnpm --filter docs i18n:check` · `pnpm --filter docs conformance` |
 | Links                               | `pnpm --filter docs check:links`                                                              |
-| Package checks                      | `pnpm --filter @react-schedulerkit/react-scheduler lint:pkg` · `… size` · `pnpm check:pack`   |
+| Package checks                      | `pnpm --filter @kingtech/react-scheduler lint:pkg` · `… size` · `pnpm check:pack`             |
 | Dead code                           | `pnpm knip`                                                                                   |
 | Zero-reference scan / licenses      | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |

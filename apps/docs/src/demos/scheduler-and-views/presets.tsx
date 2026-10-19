@@ -2,7 +2,7 @@
 // The two presets side by side: `default` and `classic`. Both read the same items and the same
 // levels; only the look changes.
 import { useState } from 'react';
-import { classicLevels, type PresetName, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, type PresetName, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

@@ -17,7 +17,7 @@ const items = tasks.map((task) => ({
   data: task,
 }));`;
 
-const LEVELS = `import type { LevelDefinition } from '@react-schedulerkit/react-scheduler';
+const LEVELS = `import type { LevelDefinition } from '@kingtech/react-scheduler';
 
 const levels: LevelDefinition[] = [
   { key: 'critical', rank: 0, variant: 'alert', pinOnPass: true },

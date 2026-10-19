@@ -2,7 +2,7 @@
 // The now marker appears only while now is inside the shift being read, on the day being read.
 // Move the clock and watch it appear, move, and disappear.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

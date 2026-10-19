@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Usage: node scripts/check-pack.ts   (after `pnpm --filter @react-schedulerkit/react-scheduler build`)
+// Usage: node scripts/check-pack.ts   (after `pnpm --filter @kingtech/react-scheduler build`)
 // Fails when the package tarball would contain anything besides dist/, README.md, LICENSE and
 // package.json, or lacks a file that every entry point needs.
 import { spawnSync } from 'node:child_process';

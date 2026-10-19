@@ -2,7 +2,7 @@
 // The three states a schedule can be in besides showing data: loading, an error with a retry, and
 // empty. Loading over existing items keeps them visible and marks the region busy.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

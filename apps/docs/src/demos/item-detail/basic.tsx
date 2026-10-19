@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The built-in detail: activate any card and the dialog opens on it. Nothing here asks for that —
 // the detail is what an item does when it is activated, in either view.
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;

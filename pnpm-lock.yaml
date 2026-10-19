@@ -70,7 +70,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@react-schedulerkit/react-scheduler':
+      '@kingtech/react-scheduler':
         specifier: workspace:*
         version: link:../../packages/react-scheduler
       '@vercel/analytics':

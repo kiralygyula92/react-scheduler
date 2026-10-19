@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // The smallest useful schedule: items, the day they belong to, and nothing else.
-import { Scheduler } from '@react-schedulerkit/react-scheduler';
+import { Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 export default function Minimal(): React.ReactElement {

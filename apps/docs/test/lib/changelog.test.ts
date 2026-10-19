@@ -5,7 +5,7 @@
 import { describe, expect, it } from 'vitest';
 import { parse } from '../../scripts/lib/changelog.ts';
 
-const RELEASE = `# @react-schedulerkit/react-scheduler
+const RELEASE = `# @kingtech/react-scheduler
 
 ## 1.1.0
 

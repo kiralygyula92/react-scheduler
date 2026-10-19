@@ -1,4 +1,4 @@
-# @react-schedulerkit/react-scheduler
+# @kingtech/react-scheduler
 
 Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.
 
@@ -11,14 +11,14 @@ dependencies beyond React.
 ## Install
 
 ```bash
-npm install @react-schedulerkit/react-scheduler
+npm install @kingtech/react-scheduler
 ```
 
 ## Usage
 
 ```tsx
-import { Scheduler } from '@react-schedulerkit/react-scheduler';
-import '@react-schedulerkit/react-scheduler/styles.css';
+import { Scheduler } from '@kingtech/react-scheduler';
+import '@kingtech/react-scheduler/styles.css';
 
 const items = [
   { id: 'a', start: '2031-03-12T09:00', end: '2031-03-12T10:30', level: 'critical', title: 'Handover' },
@@ -51,23 +51,23 @@ The package has no runtime dependencies.
 
 ## Entry points
 
-| Import                                                   | Content                                                          |
-| -------------------------------------------------------- | ---------------------------------------------------------------- |
-| `@react-schedulerkit/react-scheduler`                    | React components, hooks and types; English strings (`enUS`)      |
-| `@react-schedulerkit/react-scheduler/core`               | Framework-agnostic functions: shifts, bucketing, layout, formats |
-| `@react-schedulerkit/react-scheduler/headless`           | `createScheduler`, the framework-agnostic controller             |
-| `@react-schedulerkit/react-scheduler/dom`                | DOM engines: pinning, navigation, compact detection              |
-| `@react-schedulerkit/react-scheduler/locales/<language>` | One locale pack (`en`, `es`, `ro`, `hu`, `fr`, `de`, `pt`)       |
-| `@react-schedulerkit/react-scheduler/locales`            | All locale packs                                                 |
-| `@react-schedulerkit/react-scheduler/styles.css`         | Styles: both presets, both color schemes, densities              |
-| `@react-schedulerkit/react-scheduler/base.css`           | Structural styles only, for unstyled mode                        |
+| Import                                         | Content                                                          |
+| ---------------------------------------------- | ---------------------------------------------------------------- |
+| `@kingtech/react-scheduler`                    | React components, hooks and types; English strings (`enUS`)      |
+| `@kingtech/react-scheduler/core`               | Framework-agnostic functions: shifts, bucketing, layout, formats |
+| `@kingtech/react-scheduler/headless`           | `createScheduler`, the framework-agnostic controller             |
+| `@kingtech/react-scheduler/dom`                | DOM engines: pinning, navigation, compact detection              |
+| `@kingtech/react-scheduler/locales/<language>` | One locale pack (`en`, `es`, `ro`, `hu`, `fr`, `de`, `pt`)       |
+| `@kingtech/react-scheduler/locales`            | All locale packs                                                 |
+| `@kingtech/react-scheduler/styles.css`         | Styles: both presets, both color schemes, densities              |
+| `@kingtech/react-scheduler/base.css`           | Structural styles only, for unstyled mode                        |
 
 ## Localization
 
 English is the default. Pass another pack through `localization`:
 
 ```tsx
-import { roRO } from '@react-schedulerkit/react-scheduler/locales/ro';
+import { roRO } from '@kingtech/react-scheduler/locales/ro';
 
 <Scheduler items={items} localization={roRO} />;
 ```

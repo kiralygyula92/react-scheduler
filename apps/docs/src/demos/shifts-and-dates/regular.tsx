@@ -2,7 +2,7 @@
 // Regular shifts: one length, one anchor. Eight hours from 06:00, or six hours from 00:00 — the
 // rest of the day follows from those two numbers.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

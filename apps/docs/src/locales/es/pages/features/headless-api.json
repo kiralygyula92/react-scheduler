@@ -30,7 +30,7 @@
   "layers": {
     "intro": "El paquete son tres capas, y puedes entrar por cualquiera de ellas:",
     "points": [
-      "<code>@react-schedulerkit/react-scheduler</code> — los componentes, los hooks y los tipos.",
+      "<code>@kingtech/react-scheduler</code> — los componentes, los hooks y los tipos.",
       "<code>/core</code> — las funciones puras que hay detrás: turnos, agrupación, disposición de la línea de tiempo, formateadores. Sin React, sin DOM; se ejecuta en Node a secas, y eso está probado.",
       "<code>/dom</code> — los motores del navegador: el observador de fijación, el navegador, los observadores de ancho y de movimiento. DOM, sin React.",
       "<code>/headless</code> — <code>createScheduler</code>, el controlador agnóstico del framework, con el estado, las acciones y una suscripción."

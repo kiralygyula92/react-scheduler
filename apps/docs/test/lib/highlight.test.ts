@@ -21,11 +21,11 @@ function kindsOf(code: string, lang: Language, text: string): (string | undefine
 }
 
 const SAMPLES: Record<Language, string> = {
-  tsx: `import { Scheduler } from '@react-schedulerkit/react-scheduler';\n\n// A day of shifts\nexport function App(): React.ReactElement {\n  const items = useItems(3);\n  return <Scheduler view="timeline" items={items} />;\n}\n`,
+  tsx: `import { Scheduler } from '@kingtech/react-scheduler';\n\n// A day of shifts\nexport function App(): React.ReactElement {\n  const items = useItems(3);\n  return <Scheduler view="timeline" items={items} />;\n}\n`,
   ts: `export type View = 'list' | 'timeline';\nconst DEFAULT: View = 'list';\n`,
   jsx: `export function App() {\n  return <Scheduler items={items} />;\n}\n`,
   js: `const view = 'timeline';\nexport default view;\n`,
-  bash: `# install\npnpm add @react-schedulerkit/react-scheduler --save-exact\n`,
+  bash: `# install\npnpm add @kingtech/react-scheduler --save-exact\n`,
   json: `{ "view": "timeline", "compact": true, "levels": 3 }`,
   css: `/* theme */\n.rs-root { --rs-gap: 8px; color: var(--rs-text); }`,
   html: `<!-- shell -->\n<div id="root" class="app"></div>\n`,
@@ -68,7 +68,7 @@ describe('tsx', () => {
 
   it('marks keywords, strings and comments', () => {
     expect(kindOf(code, 'tsx', 'import')).toBe('keyword');
-    expect(kindOf(code, 'tsx', "'@react-schedulerkit/react-scheduler'")).toBe('string');
+    expect(kindOf(code, 'tsx', "'@kingtech/react-scheduler'")).toBe('string');
     expect(kindOf(code, 'tsx', '// A day of shifts')).toBe('comment');
   });
 

@@ -1,5 +1,5 @@
 /**
- * DOM engines (`@react-schedulerkit/react-scheduler/dom`): framework-agnostic pinning, programmatic
+ * DOM engines (`@kingtech/react-scheduler/dom`): framework-agnostic pinning, programmatic
  * scrolling, compact detection and reduced-motion detection, used by the React hooks
  * (Feature Dossier 04 §8).
  *

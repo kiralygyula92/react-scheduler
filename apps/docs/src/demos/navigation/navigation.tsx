@@ -2,7 +2,7 @@
 // The navigation buttons: where each one goes depends on the shift being read and on how far into
 // it the reader is. `onNavigate` reports every jump, with the offset it went to.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 2, after: 2 } as const;

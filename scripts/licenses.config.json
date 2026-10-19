@@ -36,7 +36,7 @@
     {
       "package": "axe-core",
       "license": "MPL-2.0",
-      "via": "@react-schedulerkit/react-scheduler (accessibility tests)",
+      "via": "@kingtech/react-scheduler (accessibility tests)",
       "approved": "With the M3 plan (2026-09-22)"
     },
     {

@@ -3,7 +3,7 @@
 // what was changed and the log of what the component emitted. Every control is generated from the
 // declarations, so the page cannot fall behind the component.
 import { useCallback, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { classicLevels, Scheduler, type WallClock } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler, type WallClock } from '@kingtech/react-scheduler';
 import { useDemo } from '~/demos/_shared/useDemo';
 import { type FixtureData, fixtureItems, fixtureMoment } from '~/demos/_shared/fixture';
 import baselineDay from '~/content/fixtures/baseline-day.json';

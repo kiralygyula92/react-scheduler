@@ -30,7 +30,7 @@
   "layers": {
     "intro": "Pachetul are trei straturi și poți intra la oricare dintre ele:",
     "points": [
-      "<code>@react-schedulerkit/react-scheduler</code> — componentele, hook-urile și tipurile.",
+      "<code>@kingtech/react-scheduler</code> — componentele, hook-urile și tipurile.",
       "<code>/core</code> — funcțiile pure din spatele lor: ture, grupare, aranjarea cronologiei, formatoarele. Fără React, fără DOM; rulează în Node simplu, și asta este testat.",
       "<code>/dom</code> — motoarele de browser: observatorul de fixare, navigatorul, observatorii de lățime și de mișcare. DOM, fără React.",
       "<code>/headless</code> — <code>createScheduler</code>, controlerul agnostic de framework, cu starea, acțiunile și un abonament."

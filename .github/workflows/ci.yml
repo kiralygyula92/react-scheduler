@@ -7,6 +7,8 @@ on:
     branches: [main]
 permissions:
   contents: read
+# Only GitHub-made actions may run in this repository, so pnpm (the version in package.json's
+# `packageManager`) is installed with the runner's npm rather than with pnpm/action-setup.
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -17,18 +19,19 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0 # the commit-message scan needs the history of the range
-      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+      - name: Install pnpm
+        run: npm install -g "$(node -p "require('./package.json').packageManager")"
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @react-schedulerkit/react-scheduler add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
+      - run: pnpm --filter @kingtech/react-scheduler add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
         if: matrix.react != '19'
       # The reference pages and their data are generated: lint, typecheck and the build all read
       # them, so the extractor runs before the first of them (docs pack 05 §2).
       - run: pnpm --filter docs api
       # The docs demos import the package through its built types; on a fresh checkout lint and
       # typecheck would otherwise see every package import as unresolved.
-      - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter @kingtech/react-scheduler build
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test:coverage # enforces the coverage thresholds (M1 gate: core ≥ 90 % lines, 85 % branches)
@@ -44,9 +47,9 @@ jobs:
       - run: pnpm check:keys
       - run: pnpm check:scenarios --enforce
       - run: pnpm knip
-      - run: pnpm --filter @react-schedulerkit/react-scheduler size
+      - run: pnpm --filter @kingtech/react-scheduler size
       - run: pnpm check:pack
-      - run: pnpm --filter @react-schedulerkit/react-scheduler lint:pkg
+      - run: pnpm --filter @kingtech/react-scheduler lint:pkg
       # The site: the package it documents is already built above.
       - run: pnpm --filter docs i18n:check
         if: matrix.react == '19'
@@ -78,6 +81,17 @@ jobs:
           name: playwright-report
           path: playwright-report/
           if-no-files-found: ignore
+  # The status check the main branch ruleset requires: green only when every React version of the
+  # `ci` matrix is. Keep the job id `build` and give the job no `name`, or the check reports under
+  # another name and pull requests wait forever. `always()` makes it fail, not skip, when `ci` fails.
+  build:
+    needs: ci
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: test "$RESULT" = success
+        env:
+          RESULT: ${{ needs.ci.result }}
   visual:
     # The screenshot gate (Feature Dossier 09 §4) on the references' platform (ADR 0003 D9).
     # Non-blocking until a first green run confirms this runner rasterizes like the reference machine.
@@ -85,7 +99,9 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+      - name: Install pnpm
+        shell: bash
+        run: npm install -g "$(node -p "require('./package.json').packageManager")"
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile
@@ -94,7 +110,7 @@ jobs:
         env:
           RS_BROWSERS: chromium
       # The docs shell's baselines were recorded on Windows for the same reason.
-      - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter @kingtech/react-scheduler build
       - run: pnpm --filter docs api
       - run: pnpm --filter docs build
       - run: pnpm e2e apps/docs/e2e/visual.spec.ts --project=chromium

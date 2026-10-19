@@ -2,7 +2,7 @@
 // `compareItems` decides the order inside a shift — and with it the timeline's placement sequence
 // and the pinned strip. Here it sorts by title; leaving it out is the default, which is by time.
 import { useState } from 'react';
-import { classicLevels, Scheduler, type SchedulerItem } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler, type SchedulerItem } from '@kingtech/react-scheduler';
 import { Check, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

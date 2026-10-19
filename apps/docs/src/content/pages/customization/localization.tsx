@@ -6,11 +6,11 @@ import localizationSource from '~/demos/customization/localization.tsx?raw';
 
 const NS = 'pages/customization/localization';
 
-const PACK = `import { roRO } from '@react-schedulerkit/react-scheduler/locales/ro';
+const PACK = `import { roRO } from '@kingtech/react-scheduler/locales/ro';
 
 <Scheduler items={items} localization={roRO} />;`;
 
-const OWN = `import { enUS } from '@react-schedulerkit/react-scheduler';
+const OWN = `import { enUS } from '@kingtech/react-scheduler';
 
 const nlNL: SchedulerLocalization = {
   ...enUS,

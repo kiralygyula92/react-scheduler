@@ -4,9 +4,9 @@ import { Callout, Code, List, P, Page, Section } from '~/shell/doc';
 
 const NS = 'pages/integrations/nextjs';
 
-const PACKAGE = '@react-schedulerkit/react-scheduler';
+const PACKAGE = '@kingtech/react-scheduler';
 
-const LAYOUT = `import '@react-schedulerkit/react-scheduler/styles.css';
+const LAYOUT = `import '@kingtech/react-scheduler/styles.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 const CLIENT = `'use client';
 
-import { Scheduler, type SchedulerItem } from '@react-schedulerkit/react-scheduler';
+import { Scheduler, type SchedulerItem } from '@kingtech/react-scheduler';
 
 export function Board({ items, now }: { items: SchedulerItem[]; now: string }) {
   return <Scheduler items={items} now={now} />;

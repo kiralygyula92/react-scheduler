@@ -3,7 +3,7 @@
 // only while the merged group stays inside the window. The shorter the window, the more groups —
 // and the closer each group stays to the hour it belongs to.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

@@ -36,7 +36,7 @@
   },
   "stylesheet": {
     "intro": "Importez la feuille de style une seule fois, là où votre application démarre. Elle porte les deux préréglages, le schéma clair et le schéma sombre et les trois densités ; rien n’est injecté à l’exécution.",
-    "unstyled": "Si vous voulez tout styler vous-même, importez plutôt <code>@react-schedulerkit/react-scheduler/base.css</code> : la même structure, sans couleurs, sans échelle d’espacement ni échelle typographique. <link to=\"/customization/\">Personnalisation</link> montre les niveaux intermédiaires."
+    "unstyled": "Si vous voulez tout styler vous-même, importez plutôt <code>@kingtech/react-scheduler/base.css</code> : la même structure, sans couleurs, sans échelle d’espacement ni échelle typographique. <link to=\"/customization/\">Personnalisation</link> montre les niveaux intermédiaires."
   },
   "verify": {
     "intro": "Ceci est un fichier complet. S’il affiche une carte dans un poste, le paquet, ses styles et ses peers sont en place.",

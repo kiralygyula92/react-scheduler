@@ -2,7 +2,7 @@
 // Two numbers that change how the list behaves while it is read: when the navigation buttons appear
 // at all, and how far you have to scroll before the button back to the top does.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

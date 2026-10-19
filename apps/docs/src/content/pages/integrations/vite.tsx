@@ -4,11 +4,11 @@ import { Code, List, P, Page, Section } from '~/shell/doc';
 
 const NS = 'pages/integrations/vite';
 
-const PACKAGE = '@react-schedulerkit/react-scheduler';
+const PACKAGE = '@kingtech/react-scheduler';
 
 const ENTRY = `import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@react-schedulerkit/react-scheduler/styles.css';
+import '@kingtech/react-scheduler/styles.css';
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );`;
 
-const APP = `import { Scheduler } from '@react-schedulerkit/react-scheduler';
+const APP = `import { Scheduler } from '@kingtech/react-scheduler';
 
 const items = [
   { id: 'a', start: '2031-03-12T09:00', end: '2031-03-12T10:30', level: 'critical', title: 'Handover' },
