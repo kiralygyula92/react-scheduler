@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: MIT
- * @react-schedulerkit/react-scheduler/styles.css: tokens, structure and theme, all inside the
+ * @kingtech/react-scheduler/styles.css: tokens, structure and theme, all inside the
  * `rs` cascade layer so consumer styles win without !important (docs pack 09 §4.4).
  */
 @import url('./tokens.css');

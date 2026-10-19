@@ -36,7 +36,7 @@
   },
   "stylesheet": {
     "intro": "Importe a folha de estilos uma só vez, onde a sua aplicação arranca. Traz as duas predefinições, o esquema claro e o escuro e as três densidades; nada é injetado em tempo de execução.",
-    "unstyled": "Se quiser tratar dos estilos por si, importe antes <code>@react-schedulerkit/react-scheduler/base.css</code>: a mesma estrutura, sem cores, sem escala de espaçamento e sem escala tipográfica. <link to=\"/customization/\">Personalização</link> mostra os níveis intermédios."
+    "unstyled": "Se quiser tratar dos estilos por si, importe antes <code>@kingtech/react-scheduler/base.css</code>: a mesma estrutura, sem cores, sem escala de espaçamento e sem escala tipográfica. <link to=\"/customization/\">Personalização</link> mostra os níveis intermédios."
   },
   "verify": {
     "intro": "Este é um ficheiro completo. Se renderizar um cartão num turno, o pacote, os seus estilos e os seus peers estão no sítio.",

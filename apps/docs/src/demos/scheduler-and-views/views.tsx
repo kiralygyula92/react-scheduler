@@ -2,7 +2,7 @@
 // One schedule, two views. The package draws no view switch, so this is what building one looks
 // like: two buttons carrying `aria-pressed`, labelled from the locale pack the schedule uses.
 import { useState } from 'react';
-import { classicLevels, Scheduler, type ViewKind } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler, type ViewKind } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

@@ -1,5 +1,5 @@
 {
-  "name": "@react-schedulerkit/react-scheduler",
+  "name": "@kingtech/react-scheduler",
   "version": "1.0.0",
   "description": "Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.",
   "keywords": [
@@ -11,7 +11,7 @@
     "agenda"
   ],
   "license": "MIT",
-  "author": "kiralygyula92 (https://github.com/kiralygyula92)",
+  "author": "Gyula Kiraly (https://github.com/kiralygyula92)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kiralygyula92/react-scheduler.git",
@@ -111,6 +111,7 @@
   },
   "scripts": {
     "build": "tsdown",
+    "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint:pkg": "publint && attw --pack . --profile node16 --exclude-entrypoints ./styles.css ./base.css",

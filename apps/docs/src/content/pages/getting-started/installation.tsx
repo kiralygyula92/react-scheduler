@@ -5,12 +5,12 @@ import { Callout, Code, List, P, Page, Section, Table } from '~/shell/doc';
 
 const NS = 'pages/getting-started/installation';
 
-const PACKAGE = '@react-schedulerkit/react-scheduler';
+const PACKAGE = '@kingtech/react-scheduler';
 
-const STYLESHEET = `import '@react-schedulerkit/react-scheduler/styles.css';`;
+const STYLESHEET = `import '@kingtech/react-scheduler/styles.css';`;
 
-const VERIFY = `import { Scheduler } from '@react-schedulerkit/react-scheduler';
-import '@react-schedulerkit/react-scheduler/styles.css';
+const VERIFY = `import { Scheduler } from '@kingtech/react-scheduler';
+import '@kingtech/react-scheduler/styles.css';
 
 const items = [{ id: '1', start: new Date(), level: 'normal', title: 'First item' }];
 

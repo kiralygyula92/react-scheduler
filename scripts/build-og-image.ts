@@ -14,7 +14,7 @@ import { sha256 } from './lib/fonts.ts';
 const DISPLAY_NAME = 'React Scheduler';
 const DESCRIPTION =
   'Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.';
-const PACKAGE_NAME = '@react-schedulerkit/react-scheduler';
+const PACKAGE_NAME = '@kingtech/react-scheduler';
 
 const WIDTH = 1200;
 const HEIGHT = 630;

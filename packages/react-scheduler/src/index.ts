@@ -1,5 +1,5 @@
 /**
- * Main entry of `@react-schedulerkit/react-scheduler`: the React components, parts and hooks, the
+ * Main entry of `@kingtech/react-scheduler`: the React components, parts and hooks, the
  * classic level/tag definitions, the default English strings and the public types (Feature Dossier
  * 04 §1).
  *

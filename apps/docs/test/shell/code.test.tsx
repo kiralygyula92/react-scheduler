@@ -37,12 +37,12 @@ describe('package-manager tabs', () => {
   it('shows the four managers and starts on npm', () => {
     renderCode(
       <Code lang="bash" tabs="pm">
-        @react-schedulerkit/react-scheduler
+        @kingtech/react-scheduler
       </Code>,
     );
     expect(screen.getAllByRole('tab').map((tab) => tab.textContent)).toEqual(['npm', 'pnpm', 'yarn', 'bun']);
     expect(screen.getByRole('tab', { name: 'npm' })).toHaveProperty('ariaSelected', 'true');
-    expect(screen.getByRole('tabpanel').textContent).toContain('npm install @react-schedulerkit/react-scheduler');
+    expect(screen.getByRole('tabpanel').textContent).toContain('npm install @kingtech/react-scheduler');
   });
 
   it('switches every block on the page at once and remembers the choice', () => {

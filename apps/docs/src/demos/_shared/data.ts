@@ -5,7 +5,7 @@
 //
 // The wording is not here: titles and descriptions are passed in by `useDemo`, which reads them from
 // `locales/{lng}/demos.json`, so the sample data is translated like the rest of the site.
-import type { SchedulerItem } from '@react-schedulerkit/react-scheduler';
+import type { SchedulerItem } from '@kingtech/react-scheduler';
 
 const MINUTE = 60_000;
 const DURATIONS = [30, 45, 60, 90, 120];

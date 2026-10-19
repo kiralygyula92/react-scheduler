@@ -1,4 +1,4 @@
-# @react-schedulerkit/react-scheduler
+# @kingtech/react-scheduler
 
 ## 1.0.0
 

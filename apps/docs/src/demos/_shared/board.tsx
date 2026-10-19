@@ -11,7 +11,7 @@ import {
   type SchedulerItem,
   type ViewKind,
   type WallClock,
-} from '@react-schedulerkit/react-scheduler';
+} from '@kingtech/react-scheduler';
 import { Check, Choice, Controls } from './controls';
 import { type FixtureData, fixtureItems, fixtureMoment } from './fixture';
 import { useDemo } from './useDemo';

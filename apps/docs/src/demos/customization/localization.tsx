@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // A locale pack is a plain object, so a partial override is a spread: here the empty-shift line and
 // the pinned-strip label are replaced and everything else stays as the pack has it.
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 1 } as const;

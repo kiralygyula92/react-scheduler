@@ -30,7 +30,7 @@
   "layers": {
     "intro": "A csomag három rétegből áll, és bármelyiknél beléphetsz:",
     "points": [
-      "<code>@react-schedulerkit/react-scheduler</code> — a komponensek, a hookok és a típusok.",
+      "<code>@kingtech/react-scheduler</code> — a komponensek, a hookok és a típusok.",
       "<code>/core</code> — a mögöttük lévő tiszta függvények: műszakok, csoportosítás, idővonal-elrendezés, formázók. React és DOM nélkül; egyszerű Node-ban is fut, és ezt teszteljük.",
       "<code>/dom</code> — a böngészőmotorok: a rögzítésfigyelő, a navigátor, a szélesség- és mozgásfigyelők. DOM, React nélkül.",
       "<code>/headless</code> — a <code>createScheduler</code>, a keretrendszer-független vezérlő az állapottal, a műveletekkel és egy feliratkozással."

@@ -2,7 +2,7 @@
   "$schema": "./nav.schema.json",
   "pluginId": "react-scheduler",
   "displayName": "React Scheduler",
-  "packageName": "@react-schedulerkit/react-scheduler",
+  "packageName": "@kingtech/react-scheduler",
   "repoUrl": "https://github.com/kiralygyula92/react-scheduler",
   "siteUrl": "https://react-schedulerkit.vercel.app",
   "locales": ["en", "ro", "hu", "es", "fr", "de", "pt"],

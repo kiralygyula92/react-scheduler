@@ -23,6 +23,6 @@
     "text": "Igen, három szinten. Megtartod a <code>styles.css</code> fájlt, és a CSS változókat állítod; vagy a <code>base.css</code> fájlt importálod, amelyben csak a szerkezet van; vagy átadod az <code>unstyled</code> propot, és a <code>classNames</code> segítségével a saját osztályneveidet hozod. A <link to=\"/customization/\">Testreszabás</link> megmutatja, mi az ára az egyes szinteknek."
   },
   "languages": {
-    "text": "Hét: angol, román, magyar, spanyol, francia, német és portugál. Mindegyik egy egyszerű objektum, amelyet a <code>@react-schedulerkit/react-scheduler/locales</code> exportál, így átadhatod, kibővítheted vagy megírhatod a sajátodat — a dátumok, az időpontok és a számok a csomag nyelvét követik az <code>Intl</code> révén. Lásd: <link to=\"/customization/localization/\">Lokalizáció</link>."
+    "text": "Hét: angol, román, magyar, spanyol, francia, német és portugál. Mindegyik egy egyszerű objektum, amelyet a <code>@kingtech/react-scheduler/locales</code> exportál, így átadhatod, kibővítheted vagy megírhatod a sajátodat — a dátumok, az időpontok és a számok a csomag nyelvét követik az <code>Intl</code> révén. Lásd: <link to=\"/customization/localization/\">Lokalizáció</link>."
   }
 }

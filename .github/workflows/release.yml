@@ -24,11 +24,11 @@ jobs:
         with: { node-version: 24, cache: pnpm, registry-url: 'https://registry.npmjs.org' }
       - run: npm install -g npm@11.19.0 # Trusted Publishing needs npm >= 11.5.1; pinned, like the actions
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @react-schedulerkit/react-scheduler build
+      - run: pnpm --filter @kingtech/react-scheduler build
       - name: Zero-reference scan of the package tarball
         shell: bash
         run: |
-          pnpm --filter @react-schedulerkit/react-scheduler pack --pack-destination "$RUNNER_TEMP/pack"
+          pnpm --filter @kingtech/react-scheduler pack --pack-destination "$RUNNER_TEMP/pack"
           mkdir -p "$RUNNER_TEMP/pack/contents"
           tar -xzf "$RUNNER_TEMP"/pack/*.tgz -C "$RUNNER_TEMP/pack/contents"
           pnpm check:zero-reference --dir "$RUNNER_TEMP/pack/contents"

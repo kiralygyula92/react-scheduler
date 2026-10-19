@@ -8,7 +8,7 @@ Instructions for AI coding agents working in this repository. Claude Code reads 
 
 A pnpm monorepo:
 
-- `packages/react-scheduler`: the published library `@react-schedulerkit/react-scheduler`, shift
+- `packages/react-scheduler`: the published library `@kingtech/react-scheduler`, shift
   schedules for React: a working day as a list or a timeline, for offices, factories and anywhere
   people work in shifts.
 - `apps/docs`: the documentation site (React + Vite + React Router, prerendered, seven locales).
@@ -64,7 +64,7 @@ A pnpm monorepo:
 | Link check / API translation hashes | `pnpm --filter docs check:links` · `pnpm --filter docs api:sources`                           |
 | E2E                                 | `pnpm e2e`                                                                                    |
 | Browser tests / performance         | `pnpm test:browser` · `pnpm test:perf` · `pnpm test:budgets`                                  |
-| Size / dead code / package files    | `pnpm --filter @react-schedulerkit/react-scheduler size` · `pnpm knip` · `pnpm check:pack`    |
+| Size / dead code / package files    | `pnpm --filter @kingtech/react-scheduler size` · `pnpm knip` · `pnpm check:pack`              |
 | Zero-reference / licenses           | `pnpm check:zero-reference` · `pnpm check:licenses`                                           |
 | Unresolved keys / scenario coverage | `pnpm check:keys` · `pnpm check:scenarios`                                                    |
 | Tarball in fresh React 19/18.2 apps | `pnpm release:sandbox`                                                                        |

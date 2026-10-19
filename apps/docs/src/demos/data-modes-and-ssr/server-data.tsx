@@ -2,7 +2,7 @@
 // Fetching per rendered range: `onVisibleRangeChange` fires on mount and whenever the range moves,
 // and `loading` over existing items keeps them on screen while the next answer arrives.
 import { useEffect, useState } from 'react';
-import { classicLevels, Scheduler, type SchedulerItem } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler, type SchedulerItem } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 1 } as const;

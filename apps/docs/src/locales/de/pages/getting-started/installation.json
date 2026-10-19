@@ -36,7 +36,7 @@
   },
   "stylesheet": {
     "intro": "Binden Sie das Stylesheet einmal ein, dort wo Ihre Anwendung startet. Es enthält beide Voreinstellungen, das helle und das dunkle Schema und die drei Dichten; zur Laufzeit wird nichts eingefügt.",
-    "unstyled": "Wenn Sie alles selbst gestalten wollen, binden Sie stattdessen <code>@react-schedulerkit/react-scheduler/base.css</code> ein: dieselbe Struktur, ohne Farben, ohne Abstands- und ohne Typografieskala. <link to=\"/customization/\">Anpassung</link> zeigt die Stufen dazwischen."
+    "unstyled": "Wenn Sie alles selbst gestalten wollen, binden Sie stattdessen <code>@kingtech/react-scheduler/base.css</code> ein: dieselbe Struktur, ohne Farben, ohne Abstands- und ohne Typografieskala. <link to=\"/customization/\">Anpassung</link> zeigt die Stufen dazwischen."
   },
   "verify": {
     "intro": "Das ist eine vollständige Datei. Rendert sie eine Karte in einer Schicht, sind das Paket, seine Styles und seine Peers an Ort und Stelle.",

@@ -2,7 +2,7 @@
 // Pinning: a level may pin its items as they scroll past, an item may ask for it on its own, and
 // `onPinnedChange` reports the set every time it changes.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 1, after: 0 } as const;

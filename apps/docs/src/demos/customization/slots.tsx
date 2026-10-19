@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Two parts replaced: the "+ more" chip and the level pill. A slot keeps the part's place, its
 // props and its behaviour — spread what it gives you and wrap it in whatever you like.
-import { classicLevels, Scheduler, type SchedulerItem, type SlotProps } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler, type SchedulerItem, type SlotProps } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;

@@ -17,7 +17,7 @@ Please do **not** open a public issue. Report vulnerabilities privately through
 the report is visible only to the maintainers until a fix is released. Do not include a working
 exploit against a third party's deployment. A report is most useful with:
 
-- the version of `@react-schedulerkit/react-scheduler` and of React;
+- the version of `@kingtech/react-scheduler` and of React;
 - what an attacker can do, and what they need first;
 - a minimal reproduction, ideally a failing test.
 

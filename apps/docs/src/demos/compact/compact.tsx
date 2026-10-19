@@ -2,7 +2,7 @@
 // Compact mode follows the width of the schedule's own container, not the viewport: resize the box
 // below `compactBreakpoint` and the cards, the chips and the timeline caps change with it.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

@@ -2,7 +2,7 @@
 // `maxColumns` on a crowded morning: the same items laid out in at most two, three or five columns.
 // What does not fit the cap is merged into an overflow group and reached through "+ more".
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

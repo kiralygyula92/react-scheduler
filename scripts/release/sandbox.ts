@@ -18,7 +18,7 @@ import { tmpdir } from 'node:os';
 import { basename, join, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..', '..');
-const packageName = '@react-schedulerkit/react-scheduler';
+const packageName = '@kingtech/react-scheduler';
 const windows = process.platform === 'win32';
 const registryFlag = process.argv.indexOf('--from-registry');
 const registryVersion = registryFlag >= 0 ? process.argv[registryFlag + 1] : undefined;

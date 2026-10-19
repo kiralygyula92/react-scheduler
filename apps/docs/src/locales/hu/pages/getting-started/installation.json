@@ -36,7 +36,7 @@
   },
   "stylesheet": {
     "intro": "A stíluslapot egyszer importáld, ott, ahol az alkalmazás indul. Mindkét előbeállítást, a világos és a sötét sémát és mindhárom sűrűséget tartalmazza; futásidőben semmi sem kerül be.",
-    "unstyled": "Ha mindent magad stílusoznál, helyette a <code>@react-schedulerkit/react-scheduler/base.css</code> fájlt importáld: ugyanaz a szerkezet, színek, térközskála és tipográfiai skála nélkül. A <link to=\"/customization/\">Testreszabás</link> mutatja a köztes szinteket."
+    "unstyled": "Ha mindent magad stílusoznál, helyette a <code>@kingtech/react-scheduler/base.css</code> fájlt importáld: ugyanaz a szerkezet, színek, térközskála és tipográfiai skála nélkül. A <link to=\"/customization/\">Testreszabás</link> mutatja a köztes szinteket."
   },
   "verify": {
     "intro": "Ez egy teljes fájl. Ha egy kártyát jelenít meg egy műszakban, a csomag, a stílusai és a peer függőségei a helyükön vannak.",

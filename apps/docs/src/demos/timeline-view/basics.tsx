@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The timeline view with the defaults: one grid from the first shift's start to the last one's end,
 // an hour label per elapsed hour, a boundary line at every shift change.
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 1 } as const;

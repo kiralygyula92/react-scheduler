@@ -4,12 +4,12 @@
 // fixed day so that the prerendered demo, its hydrated copy and the screenshots all show the same
 // schedule.
 import { useMemo, useSyncExternalStore } from 'react';
-import type { SchedulerItem, SchedulerLocalization } from '@react-schedulerkit/react-scheduler';
-import { deDE, enUS, esES, frFR, huHU, ptPT, roRO } from '@react-schedulerkit/react-scheduler/locales';
+import type { SchedulerItem, SchedulerLocalization } from '@kingtech/react-scheduler';
+import { deDE, enUS, esES, frFR, huHU, ptPT, roRO } from '@kingtech/react-scheduler/locales';
 import { useI18n } from '~/i18n/I18nProvider';
 import { useT } from '~/i18n/useT';
 import { createSampleItems, type SampleOptions } from './data';
-import '@react-schedulerkit/react-scheduler/styles.css';
+import '@kingtech/react-scheduler/styles.css';
 
 const PACKS: Readonly<Record<string, SchedulerLocalization>> = {
   en: enUS,

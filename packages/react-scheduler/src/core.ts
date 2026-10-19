@@ -1,5 +1,5 @@
 /**
- * Core entry (`@react-schedulerkit/react-scheduler/core`): framework-agnostic pure functions and
+ * Core entry (`@kingtech/react-scheduler/core`): framework-agnostic pure functions and
  * types, with no React and no DOM access (Feature Dossier 04 §8). The controller `createScheduler`
  * is in `/headless`.
  *

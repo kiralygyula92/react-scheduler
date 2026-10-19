@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The same schedule with markup of your own: `useScheduler` returns the model and the props to
 // spread, and nothing here comes from the package's stylesheet.
-import { classicLevels, useScheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, useScheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;

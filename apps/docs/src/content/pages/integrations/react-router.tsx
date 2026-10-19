@@ -5,9 +5,9 @@ import { Code, List, P, Page, Section } from '~/shell/doc';
 
 const NS = 'pages/integrations/react-router';
 
-const PACKAGE = '@react-schedulerkit/react-scheduler';
+const PACKAGE = '@kingtech/react-scheduler';
 
-const ROOT = `import '@react-schedulerkit/react-scheduler/styles.css';
+const ROOT = `import '@kingtech/react-scheduler/styles.css';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }`;
 
-const ROUTE = `import { Scheduler } from '@react-schedulerkit/react-scheduler';
+const ROUTE = `import { Scheduler } from '@kingtech/react-scheduler';
 import type { Route } from './+types/shifts';
 
 export async function loader({ request }: Route.LoaderArgs) {

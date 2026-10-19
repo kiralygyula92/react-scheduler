@@ -2,13 +2,7 @@
 // One schedule under the three dials that decide its looks: the preset, the color scheme and the
 // density. Nothing here touches CSS — they are props.
 import { useState } from 'react';
-import {
-  classicLevels,
-  type ColorScheme,
-  type Density,
-  type PresetName,
-  Scheduler,
-} from '@react-schedulerkit/react-scheduler';
+import { classicLevels, type ColorScheme, type Density, type PresetName, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

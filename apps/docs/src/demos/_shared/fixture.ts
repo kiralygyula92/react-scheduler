@@ -3,7 +3,7 @@
 // shape of the day — the starts, the ends, the levels and the tags — and the site decides the
 // wording, so the same day reads in the language of the page. Shared by the scenario boards and by
 // the Playground, which offers the same eight days.
-import type { SchedulerItem } from '@react-schedulerkit/react-scheduler';
+import type { SchedulerItem } from '@kingtech/react-scheduler';
 
 /** One fixture as `scripts/lib/fixtures.ts` writes it: minutes from midnight of the selected day. */
 export interface FixtureData {

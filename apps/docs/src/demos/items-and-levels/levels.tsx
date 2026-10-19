@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // A scale of your own: four ranks, their colors, and one that pins when it scrolls past. The keys
 // are yours, so the item type follows them and a typo is a type error.
-import { type LevelDefinition, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { type LevelDefinition, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const LEVELS = [

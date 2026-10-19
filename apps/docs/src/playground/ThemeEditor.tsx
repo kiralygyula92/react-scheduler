@@ -3,7 +3,7 @@
 // component below — with one control per design token, a switch for the scheme being edited, and the
 // CSS for exactly what was changed.
 import { useCallback, useMemo, useState } from 'react';
-import { classicLevels, type ColorScheme, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, type ColorScheme, Scheduler } from '@kingtech/react-scheduler';
 import baselineDay from '~/content/fixtures/baseline-day.json';
 import { fixtureItems, fixtureMoment } from '~/demos/_shared/fixture';
 import { useDemo } from '~/demos/_shared/useDemo';

@@ -11,8 +11,8 @@ const base = { controls: all, locale: 'en', dataset: 'An ordinary day' };
 describe('generate', () => {
   it('writes the component with nothing but the items when nothing has changed', () => {
     const code = generate({ ...base, changed: {} });
-    expect(code).toContain(`import { Scheduler } from '@react-schedulerkit/react-scheduler';`);
-    expect(code).toContain(`import '@react-schedulerkit/react-scheduler/styles.css';`);
+    expect(code).toContain(`import { Scheduler } from '@kingtech/react-scheduler';`);
+    expect(code).toContain(`import '@kingtech/react-scheduler/styles.css';`);
     expect(code).toContain('<Scheduler items={items} />');
     expect(code).not.toContain('localization');
   });
@@ -31,7 +31,7 @@ describe('generate', () => {
 
   it('imports the locale pack the scenario chose', () => {
     const code = generate({ ...base, locale: 'ro', changed: {} });
-    expect(code).toContain(`import { roRO } from '@react-schedulerkit/react-scheduler/locales/ro';`);
+    expect(code).toContain(`import { roRO } from '@kingtech/react-scheduler/locales/ro';`);
     expect(code).toContain('localization={roRO}');
   });
 

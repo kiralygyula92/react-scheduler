@@ -5,7 +5,7 @@
 import type { Control } from './model';
 import { parseValue } from './model';
 
-const PACKAGE = '@react-schedulerkit/react-scheduler';
+const PACKAGE = '@kingtech/react-scheduler';
 
 /** The locale packs by the site's language code, as their subpath exports them. */
 const PACKS: Readonly<Record<string, { readonly name: string; readonly subpath: string }>> = {

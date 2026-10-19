@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // The overflow table with columns of your own: a reference number that sorts as a number, the
 // title, and the level. Open a "+ more" chip in the grid to see it.
-import { classicLevels, type OverflowColumn, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, type OverflowColumn, Scheduler } from '@kingtech/react-scheduler';
 import { useDemo } from '../_shared/useDemo';
 
 const SHIFTS = { durationHours: 8, anchor: '06:00', before: 0, after: 0 } as const;

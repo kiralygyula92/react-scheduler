@@ -36,7 +36,7 @@
   },
   "stylesheet": {
     "intro": "Importă foaia de stil o singură dată, acolo unde pornește aplicația. Ea conține ambele preseturi, schema deschisă și cea închisă și cele trei densități; nimic nu se injectează la rulare.",
-    "unstyled": "Dacă vrei să stilizezi totul singur, importă în schimb <code>@react-schedulerkit/react-scheduler/base.css</code>: aceeași structură, fără culori, fără scară de spațiere și fără scară tipografică. <link to=\"/customization/\">Personalizarea</link> arată nivelurile dintre ele."
+    "unstyled": "Dacă vrei să stilizezi totul singur, importă în schimb <code>@kingtech/react-scheduler/base.css</code>: aceeași structură, fără culori, fără scară de spațiere și fără scară tipografică. <link to=\"/customization/\">Personalizarea</link> arată nivelurile dintre ele."
   },
   "verify": {
     "intro": "Acesta este un fișier complet. Dacă randează un card într-o tură, pachetul, stilurile lui și dependențele peer sunt la locul lor.",

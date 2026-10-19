@@ -36,7 +36,7 @@
   },
   "stylesheet": {
     "intro": "Import the stylesheet once, where your application starts. It carries both presets, the light and the dark scheme, and the three densities; nothing is injected at runtime.",
-    "unstyled": "If you want to style everything yourself, import <code>@react-schedulerkit/react-scheduler/base.css</code> instead: the same structure with no colors, no spacing scale and no type scale. See <link to=\"/customization/\">Customization</link> for the levels in between."
+    "unstyled": "If you want to style everything yourself, import <code>@kingtech/react-scheduler/base.css</code> instead: the same structure with no colors, no spacing scale and no type scale. See <link to=\"/customization/\">Customization</link> for the levels in between."
   },
   "verify": {
     "intro": "This is a complete file. If it renders a card in one shift, the package, its styles and its peers are in place.",

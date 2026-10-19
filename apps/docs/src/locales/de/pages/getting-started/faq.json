@@ -23,6 +23,6 @@
     "text": "Ja, auf drei Stufen. Behalten Sie <code>styles.css</code> und ändern Sie die CSS-Variablen; oder binden Sie <code>base.css</code> ein, das nur die Struktur trägt; oder übergeben Sie <code>unstyled</code> und bringen Ihre eigenen Klassennamen über <code>classNames</code> mit. <link to=\"/customization/\">Anpassung</link> zeigt, was jede Stufe kostet."
   },
   "languages": {
-    "text": "Sieben: Englisch, Rumänisch, Ungarisch, Spanisch, Französisch, Deutsch und Portugiesisch. Jede ist ein einfaches Objekt aus <code>@react-schedulerkit/react-scheduler/locales</code>, das Sie übergeben, erweitern oder selbst schreiben können — Datum, Uhrzeit und Anzahl folgen der Sprache des Pakets über <code>Intl</code>. Siehe <link to=\"/customization/localization/\">Lokalisierung</link>."
+    "text": "Sieben: Englisch, Rumänisch, Ungarisch, Spanisch, Französisch, Deutsch und Portugiesisch. Jede ist ein einfaches Objekt aus <code>@kingtech/react-scheduler/locales</code>, das Sie übergeben, erweitern oder selbst schreiben können — Datum, Uhrzeit und Anzahl folgen der Sprache des Pakets über <code>Intl</code>. Siehe <link to=\"/customization/localization/\">Lokalisierung</link>."
   }
 }

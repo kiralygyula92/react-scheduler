@@ -23,6 +23,6 @@
     "text": "Da, pe trei niveluri. Păstrezi <code>styles.css</code> și schimbi variabilele CSS; sau imporți <code>base.css</code>, care are structura și nimic altceva; sau treci <code>unstyled</code> și îți aduci propriile nume de clase prin <code>classNames</code>. <link to=\"/customization/\">Personalizarea</link> arată ce te costă fiecare nivel."
   },
   "languages": {
-    "text": "Șapte: engleză, română, maghiară, spaniolă, franceză, germană și portugheză. Fiecare este un obiect simplu exportat din <code>@react-schedulerkit/react-scheduler/locales</code>, deci poți trece unul, îl poți extinde sau îl poți scrie pe al tău — datele, orele și numerele urmează limba pachetului prin <code>Intl</code>. Vezi <link to=\"/customization/localization/\">Localizare</link>."
+    "text": "Șapte: engleză, română, maghiară, spaniolă, franceză, germană și portugheză. Fiecare este un obiect simplu exportat din <code>@kingtech/react-scheduler/locales</code>, deci poți trece unul, îl poți extinde sau îl poți scrie pe al tău — datele, orele și numerele urmează limba pachetului prin <code>Intl</code>. Vezi <link to=\"/customization/localization/\">Localizare</link>."
   }
 }

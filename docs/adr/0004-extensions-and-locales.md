@@ -11,7 +11,7 @@ Template Prompt 2's M3 asks for every Dossier item marked v1.0, locale packs as 
 
 ### D1 — `createScheduler` has its own entry
 
-`@react-schedulerkit/react-scheduler/headless` exports `createScheduler` and the controller types (docs pack `09` §4.3, level 6). `/core` again holds exactly the `04` §8 functions, which keeps it within its 6 kB budget (Dossier `09` §2): 5.11 kB. The controller alone is 10.9 kB and has no Dossier budget. This supersedes ADR 0003 D6's placement.
+`@kingtech/react-scheduler/headless` exports `createScheduler` and the controller types (docs pack `09` §4.3, level 6). `/core` again holds exactly the `04` §8 functions, which keeps it within its 6 kB budget (Dossier `09` §2): 5.11 kB. The controller alone is 10.9 kB and has no Dossier budget. This supersedes ADR 0003 D6's placement.
 
 ### D2 — Locale packs: both entry shapes, pt-PT, generated from the Dossier
 

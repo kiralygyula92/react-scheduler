@@ -8,7 +8,7 @@ and provenance. The first publish, step by step and with the state of every prer
 
 ## One-time setup
 
-1. **npm account:** the package is published under the `@react-schedulerkit` scope, which needs an
+1. **npm account:** the package is published under the `@kingtech` scope, which needs an
    npm organization of that name. Check with `npm login` and `npm whoami`.
 2. **Publishing:** on npmjs.com, make this repository's `release.yml` the package's trusted
    publisher (the first publish needs a token instead; see docs/release/npm.md). The workflow runs
@@ -27,11 +27,11 @@ and provenance. The first publish, step by step and with the state of every prer
 3. Review the pull request and merge it. The workflow builds the package, runs the zero-reference
    scan on the tarball and `pnpm release:sandbox` (the tarball in fresh React 19 and 18.2
    applications), then publishes to npm and pushes the
-   `@react-schedulerkit/react-scheduler@x.y.z` tag.
+   `@kingtech/react-scheduler@x.y.z` tag.
 
 ## Before a release, check
 
 - CI is green on `main`.
 - `pnpm check:pack` and `pnpm release:sandbox` pass.
-- `pnpm --filter @react-schedulerkit/react-scheduler pack --dry-run` lists only `dist/`,
+- `pnpm --filter @kingtech/react-scheduler pack --dry-run` lists only `dist/`,
   `README.md`, `LICENSE` and `package.json`.

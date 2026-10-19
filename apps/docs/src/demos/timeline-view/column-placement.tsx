@@ -3,7 +3,7 @@
 // overlap and lets the most important one take the left column; `'time'` keeps plain start order, so
 // whatever started first stays on the left.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Choice, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

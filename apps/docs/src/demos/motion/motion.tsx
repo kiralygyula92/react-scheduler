@@ -2,7 +2,7 @@
 // Motion is one switch. `reducedMotion: 'auto'` follows the system; forcing it on removes every
 // transition and makes each jump instant, which is what a reader who asked for that expects.
 import { useState } from 'react';
-import { classicLevels, Scheduler } from '@react-schedulerkit/react-scheduler';
+import { classicLevels, Scheduler } from '@kingtech/react-scheduler';
 import { Check, Controls } from '../_shared/controls';
 import { useDemo } from '../_shared/useDemo';
 

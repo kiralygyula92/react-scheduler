@@ -30,7 +30,7 @@
   "layers": {
     "intro": "The package is three layers, and you can enter at any of them:",
     "points": [
-      "<code>@react-schedulerkit/react-scheduler</code> — the components, the hooks and the types.",
+      "<code>@kingtech/react-scheduler</code> — the components, the hooks and the types.",
       "<code>/core</code> — the pure functions behind them: shifts, bucketing, the timeline layout, the formatters. No React, no DOM; it runs in plain Node, and that is tested.",
       "<code>/dom</code> — the browser engines: the pin observer, the navigator, the width and motion observers. DOM, no React.",
       "<code>/headless</code> — <code>createScheduler</code>, the framework-agnostic controller with the state, the actions and a subscription."
