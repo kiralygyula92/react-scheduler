@@ -1,6 +1,6 @@
 {
   "name": "@kingtech/react-scheduler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shift schedules for React: a working day as a list or a timeline, for offices, factories and anywhere people work in shifts.",
   "keywords": [
     "react",
