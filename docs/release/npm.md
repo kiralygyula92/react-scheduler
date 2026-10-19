@@ -5,8 +5,10 @@ happen, following docs pack `10` §4. Every step says whether it is **already do
 repository** or **yours to do**, and gives the exact command or the place in the npm or GitHub
 interface.
 
-**Nothing in this file has been run against npm.** No account, organization, token or package was
-created, and nothing was published. The repository is ready; the registry is untouched.
+**Done — this file is now a record.** `1.0.0` was published by hand on 2026-10-19
+(`npm publish --provenance=false` from `packages/react-scheduler`, no token) and tagged `v1.0.0`.
+Later versions are staged from `v*` tags by a different `release.yml` than the one described
+below: see [RELEASING.md](../../RELEASING.md) and EXCEPTIONS #3.
 
 ---
 
