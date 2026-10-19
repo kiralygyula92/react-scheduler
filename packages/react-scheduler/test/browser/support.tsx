@@ -101,12 +101,16 @@ export async function until(check: () => boolean, timeout = 3000, what = 'condit
 /**
  * Resolves once the view has landed and settled: its visible scroller exists, has not moved for 15
  * frames and at least `minimum` ms have passed (the navigator's correction and resume delays).
+ * Rejects when that has not happened within `maxFrames` frames (8 s at 60 fps). The bound counts
+ * frames, not milliseconds: on a loaded runner the first frames after a file's first mount can arrive
+ * seconds apart (WebKit on Linux CI), and a view that renders slowly has not failed to settle. The
+ * test timeout still bounds the wall-clock time.
  */
-export async function settled(host: HTMLElement, minimum = 400, timeout = 8000): Promise<HTMLElement> {
+export async function settled(host: HTMLElement, minimum = 400, maxFrames = 480): Promise<HTMLElement> {
   const started = performance.now();
   let last = Number.NaN;
   let still = 0;
-  while (performance.now() - started < timeout) {
+  for (let frame = 0; frame < maxFrames; frame++) {
     await frames(1);
     const scroller = host.querySelector<HTMLElement>('[data-rs-part="scroller"]:not([hidden] *)');
     if (!scroller) continue;
@@ -114,7 +118,7 @@ export async function settled(host: HTMLElement, minimum = 400, timeout = 8000):
     last = scroller.scrollTop;
     if (still >= 15 && performance.now() - started >= minimum) return scroller;
   }
-  throw new Error('timed out waiting for the view to settle');
+  throw new Error(`the view did not settle within ${maxFrames} frames`);
 }
 
 /** Sets scrollTop and waits for the scroll event, the observers and the evaluation frame. */
