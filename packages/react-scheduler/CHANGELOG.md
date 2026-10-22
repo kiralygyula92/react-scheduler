@@ -1,5 +1,11 @@
 # @kingtech/react-scheduler
 
+## 1.0.2
+
+### Patch Changes
+
+- Rebuilt with updated development tooling, which also takes in the fixes for security advisories in vite, launch-editor, shell-quote and source-map-js. None of them was ever part of the published package, which has no dependencies. The library's code and API are unchanged.
+
 ## 1.0.1
 
 ### Patch Changes
