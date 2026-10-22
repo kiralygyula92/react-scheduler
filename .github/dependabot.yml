@@ -17,6 +17,10 @@ updates:
       # the runtime does not have.
       - dependency-name: '@types/node'
         update-types: ['version-update:semver-major']
+      # axe-core 4.14 turns on label-content-name-mismatch, which the cards and chips fail: held at
+      # 4.13 until GAPS G16 is decided.
+      - dependency-name: 'axe-core'
+        versions: ['>=4.14.0']
   - package-ecosystem: github-actions
     directory: /
     schedule:
